@@ -56,6 +56,6 @@ export const COMBAT_STAT_DEFINITIONS: Record<CombatStat, CombatStatDefinition> =
     label: 'Versatility / 다재다능함',
     description: '서로 다른 전투 상황·거리·상대·목적에 맞춰 여러 능력과 전투 방식을 효과적으로 전환·적용할 수 있는 폭과 적응력을 평가합니다.',
     includes: '공격·방어·지원·기동 등 역할 전환, 근거리·원거리 대응, 다대일·다수전 대응, 다양한 상대와 상황에 대한 전투 방식의 전환, 능력의 복합적 활용',
-    excludes: '단순히 특수능력이 강하거나 많다는 사실은 Special Ability, 상황을 읽고 최적의 선택을 하는 판단력은 Combat IQ에서 평가합니다. 다양한 수단을 보유했더라도 실제 적용 범위가 확인되지 않으면 높은 점수를 자동으로 부여하지 않습니다.',
+    excludes: '특수 전투요소의 존재 자체는 Special Combat Profile에 기록하고, 상황을 읽고 최적의 선택을 하는 판단력은 Combat IQ에서 별도로 평가합니다. 다양한 수단을 보유했더라도 실제 적용 범위가 확인되지 않으면 높은 점수를 자동으로 부여하지 않습니다.',
   },
 }
