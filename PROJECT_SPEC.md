@@ -1,8 +1,8 @@
 # One Piece Combat Power Analysis
 ## Project Specification
 
-**Version:** 0.1.22  
-**Status:** Active MVP · Combat Power Scale Calibration  
+**Version:** 0.1.23  
+**Status:** Active MVP · Three-Crew Baseline Calibration  
 **Project Type:** Web Application  
 **Primary Purpose:** One Piece 주요 캐릭터의 전투력을 근거 기반으로 분석하고 비교하는 웹 애플리케이션
 
