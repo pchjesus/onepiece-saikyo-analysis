@@ -302,5 +302,66 @@ export const sampleCharacters: Character[] = [
         { label: '원작 Evidence', reference: 'Ch. 837-838 / 842' },
       ],
     },
+  },,
+  {
+    id: 'zoro', name: '조로', crewId: 'straw-hat-pirates',
+    description: '밀짚모자 일당의 검사. 삼도류와 높은 수준의 무장색·패왕색 강화를 결합해 강한 공방과 결정력을 발휘한다.',
+    combatProfile: {
+      combatStyles: ['일도류·이도류·삼도류', '근접 검술', '비상 참격', '공격 차단·패링', '아수라'],
+      specialTraits: [],
+      haki: { characterId: 'zoro', capabilities: [
+        { type: 'armament', status: 'confirmed', note: '검에 무장색을 적용하며 엔마를 포함한 검술에 높은 수준으로 운용한다.' },
+        { type: 'observation', status: 'confirmed', note: '견문색 보유가 공식 설정으로 확인된다.' },
+        { type: 'conquerors', status: 'confirmed', note: '카이도와 킹 전투에서 패왕색이 확인된다.', infusion: { status: 'confirmed', note: '킹전에서 세 검에 패왕색을 두르는 공격 운용이 확인된다.' } },
+      ]},
+      sources: [
+        { label: 'ONE PIECE.com', reference: '조로 공식 캐릭터 자료' },
+        { label: '원작 Evidence', reference: 'Ch. 195 / 485 / 1009-1010 / 1032-1035 / Egghead' },
+      ],
+    },
   },
+  {
+    id: 'sanji', name: '상디', crewId: 'straw-hat-pirates',
+    description: '밀짚모자 일당의 요리사이자 전투원. 발기술, 초고속 기동, 공중전과 각성한 신체·Ifrit Jambe를 결합한다.',
+    combatProfile: {
+      combatStyles: ['발기술', '공중전', 'Sky Walk', 'Diable Jambe', 'Ifrit Jambe', '고속 요격·구조'],
+      specialTraits: [{
+        id: 'special-sanji-genetic-modification', category: 'modification', name: 'Germa 계열 신체 개조 각성', status: 'confirmed',
+        description: '오니가시마에서 외골격·높은 신체 강도와 회복 특성이 각성해 전투에 직접 사용된다.',
+        evidenceIds: ['evidence-sanji-exoskeleton-1028', 'evidence-sanji-ifrit-1034'],
+        limitations: '회복·외골격의 존재 자체를 Stamina나 Defense에 자동 가산하지 않고 실제 전투 성과를 근거로 평가한다.',
+      }],
+      haki: { characterId: 'sanji', capabilities: [
+        { type: 'armament', status: 'confirmed', note: '무장색을 발기술과 결합하며 Ifrit Jambe 성립 요소로 직접 언급된다.' },
+        { type: 'observation', status: 'confirmed', note: '견문색을 전투·탐지에 사용한다.' },
+        { type: 'conquerors', status: 'not-confirmed', note: '현재 채택한 원작 근거에서 패왕색 보유가 확인되지 않는다.', infusion: { status: 'not-confirmed' } },
+      ]},
+      sources: [
+        { label: 'ONE PIECE.com', reference: '상디 공식 캐릭터 자료' },
+        { label: '원작 Evidence', reference: 'Ch. 862 / 886 / 1028 / 1034 / 1107 / Egghead' },
+      ],
+    },
+  },
+  {
+    id: 'jinbe', name: '징베', crewId: 'straw-hat-pirates',
+    description: '밀짚모자 일당의 조타수. 어인공수도와 무장색을 기반으로 안정적인 공방을 수행하는 베테랑 전투원이다.',
+    combatProfile: {
+      combatStyles: ['어인공수도', '어인유술', '근접 격투', '물 활용 공격·방어'],
+      specialTraits: [{
+        id: 'special-jinbe-fishman', category: 'race', name: '어인 생리', status: 'confirmed',
+        description: '어인으로서 수중 활동과 물을 활용한 전투에 유리한 신체·환경적 특성을 가진다.',
+        evidenceIds: ['evidence-jinbe-fishman-karate-629'],
+        limitations: '종족 자체를 고정 점수로 가산하지 않고 실제 전투 활용만 Core Stat 근거로 사용한다.',
+      }],
+      haki: { characterId: 'jinbe', capabilities: [
+        { type: 'armament', status: 'confirmed', note: '빅맘과 후즈후를 상대로 실제 방어·공격 적용이 확인된다.' },
+        { type: 'observation', status: 'confirmed', note: '견문색 보유가 공식 설정으로 확인된다.' },
+        { type: 'conquerors', status: 'not-confirmed', note: '현재 채택한 원작 근거에서 패왕색 보유가 확인되지 않는다.', infusion: { status: 'not-confirmed' } },
+      ]},
+      sources: [
+        { label: 'ONE PIECE.com', reference: '징베 공식 캐릭터 자료' },
+        { label: '원작 Evidence', reference: 'Ch. 552 / 629 / 890 / 1018' },
+      ],
+    },
+  }
 ]
