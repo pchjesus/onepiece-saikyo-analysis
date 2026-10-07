@@ -31,9 +31,20 @@
 - 기존 Marco / King / Katakuri Battle / Evidence / Evaluation Trace 회귀가 없어야 함.
 
 ## Automated verification
-- Branch static/data review: completed.
-- GitHub Actions npm test: PENDING main integration.
-- GitHub Actions production build: PENDING main integration.
+### Initial main integration
+- GitHub Actions run `37684997352`, commit `8d67bf6c`.
+- `npm test`: FAIL — 12 test files 중 9 passed / 3 failed, 47 tests 중 40 passed / 7 failed.
+- 실패는 Battle / Evidence 배열 확장 경계에서 기존 trailing comma 뒤에 쉼표가 한 번 더 들어가 `},,` 배열 hole이 생성된 것이 공통 원인.
+- 그 결과 `sampleBattles` / `sampleEvidence` 순회 중 `undefined`가 발생해 Battle validation, Character profile validation, 신규 data integrity test가 연쇄 실패.
+- 계산모델·점수 산식·Haki 로직 실패는 확인되지 않음.
+
+### Fix and final run
+- Battle array hole fix: `4ff87d07`.
+- Evidence array hole fix: `e6f6aa9c`.
+- GitHub Actions run `37685110697`.
+- `npm test`: PASS — 12 test files / 47 tests.
+- `npm run build`: PASS.
+- Pages deploy: SKIPPED — private development 정책대로 main push는 validation only.
 - Browser/mobile visual verification: NOT RUN.
 
 ## Manual Verification Required
