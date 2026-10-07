@@ -391,7 +391,6 @@ export const sampleEvidence: Evidence[] = [
     evaluationImpact: 'Haki Profile의 패왕색 confirmed 근거로 사용한다. 현재 모델에서는 이 장면만으로 Stat Contribution을 부여하지 않는다.',
     uncertainty: '패휘감 사용은 이 Evidence에서 확인되지 않는다.',
   },
-,
   {
     id: 'evidence-jozu-mihawk-553',
     battleId: 'marineford-jozu-defense',
