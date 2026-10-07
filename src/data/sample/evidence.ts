@@ -833,5 +833,15 @@ export const sampleEvidence: Evidence[] = [
       { stat: 'techniqueMastery', role: 'secondary', note: '패기와 어인공수도를 안정적으로 실전에 결합한 근거다.' },
     ],
     interpretation: '징베의 안정적인 공방 완성도를 보여주지만 King급 특수 방어와 동급으로 확대하지 않는다.', evaluationImpact: 'Attack·Defense Haki Contribution과 Technique 평가에 연결한다.', uncertainty: '',
+  },
+  {
+    id: 'evidence-jinbe-ace-five-days-552', battleId: 'pre-timeskip-jinbe-ace', subjectCharacterId: 'jinbe',
+    source: { type: 'canon', reference: 'One Piece Manga Chapter 552', description: '징베와 에이스가 5일간 싸워 함께 쓰러진 과거 결투' },
+    evidenceStrength: 'strong', fact: '징베는 에이스와 5일 동안 결투를 이어간 끝에 양측이 함께 쓰러졌다.',
+    supportedAbilities: ['장기전 지속력'],
+    statContributions: [{ stat: 'stamina', role: 'primary', note: '명시적인 5일 1대1 장기전으로 징베의 높은 지속력을 보여주는 직접 근거다.' }],
+    interpretation: '강한 Stamina 근거지만 과거 시점의 전투이며 현재 상위권 상대와의 성능을 자동 보장하지 않는다.',
+    evaluationImpact: 'Stamina 79가 정보 부족에 따른 임의값이 아니라 확인된 장기전 성과를 포함하도록 보강한다.',
+    uncertainty: '과거 에이스의 당시 전투력을 현재 인물들과 직접 등치하지 않는다.',
   }
 ]
