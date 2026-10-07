@@ -15,6 +15,15 @@ export function validateMemberships(
   const groupIds = new Set(groups.map(({ id }) => id))
   const seen = new Set<string>()
 
+  for (const group of groups) {
+    if (group.parentGroupId && !groupIds.has(group.parentGroupId)) {
+      errors.push(`Unknown parent group: ${group.id} -> ${group.parentGroupId}.`)
+    }
+    if (group.parentGroupId === group.id) {
+      errors.push(`Group cannot be its own parent: ${group.id}.`)
+    }
+  }
+
   for (const membership of memberships) {
     if (!characterIds.has(membership.characterId)) {
       errors.push(`Unknown membership character: ${membership.characterId}.`)
