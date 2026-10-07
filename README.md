@@ -1,13 +1,26 @@
 # 원피스 사최간 전투력 분석
 
-MVP v0.1.22
+MVP v0.1.23
 
-## MVP 샘플
-- 마르코
-- 킹
-- 카타쿠리
+## 초기 3해적단 평가 로스터
+- 흰수염 해적단: 마르코 / 죠즈 / 비스타
+- 백수 해적단: 킹 / 퀸 / 잭
+- 빅 맘 해적단: 카타쿠리 / 스무디 / 크래커
 
-현재 Marco / King / Katakuri는 draft 평가 상태다. v0.1.22부터 Overall Combat Power는 7개 Final Core Stat(Attack, Defense, Stamina, Speed, Technique, Combat IQ, Versatility)의 단순 산술평균으로 계산한다. Haki는 실제 Application Evidence가 있을 때 Raw Contribution을 보존하고 Balanced 1.2의 Haki Weight 0.5를 거쳐 Effective Contribution으로 반영한다. Special Combat Profile은 악마의 열매·종족 특성·개조·특수 장비 등 고유 전투요소를 비수치 정보로 보존하며 Overall에 직접 가산하지 않는다. 구조 전환 직후의 기계적 Overall은 Marco 80.571, King 80.286, Katakuri 81.714이며, 이후 전체 캐릭터 횡단 재평가를 거칠 draft 값이다.
+9명 모두 `evaluation-0.1.23` draft 평가 상태다. Overall Combat Power는 Balanced 1.2에서 7개 Final Core Stat(Attack, Defense, Stamina, Speed, Technique, Combat IQ, Versatility)의 단순 산술평균으로 계산한다. Haki는 실제 Application Evidence가 있을 때만 Raw Contribution을 보존하고 Haki Weight 0.5를 거쳐 Effective Contribution으로 반영한다. Special Combat Profile은 비수치 정보이며 Overall에 직접 가산하지 않는다.
+
+현재 횡단 calibration 결과:
+- Katakuri 81.286
+- Marco 81.143
+- King 80.714
+- Vista 79.143
+- Queen 78.714
+- Jozu 77.286
+- Smoothie 76.714
+- Jack 74.429
+- Cracker 71.857
+
+소수점 근소 차이는 절대적인 서열 확정으로 해석하지 않는다. 직책·현상금·커뮤니티 평가는 Core Stat에 자동 가산하지 않고 portrayal / sanity check 자료로만 사용한다.
 
 ## 구조
 UI → Application → Domain
@@ -38,6 +51,16 @@ npm.cmd test
 npm.cmd run build
 ```
 
+
+
+## v0.1.23 note
+
+- 초기 3해적단 9인(Marco / Jozu / Vista / King / Queen / Jack / Katakuri / Smoothie / Cracker)의 7 Core Stat 횡단 calibration을 완료했습니다.
+- 기존 Marco / King / Katakuri를 재보정하고 나머지 6인의 Character Profile / Special Combat Profile / Haki Profile / Battle Context / Canon Evidence / Evaluation을 추가했습니다.
+- 직책·현상금·커뮤니티 평가는 점수로 직접 환산하지 않고 portrayal 및 calibration sanity check로만 사용합니다.
+- Evidence 부족은 능력 부족으로 자동 해석하지 않으며 Vista / Smoothie처럼 표본이 적은 캐릭터는 draft 불확실성을 유지합니다.
+- 캐릭터 선택 UI는 해적단 탭 + compact character chips로 변경했으며, 인원 증가 시 검색 버튼을 추가할 수 있도록 단순한 선택 구조를 유지합니다.
+- 스탯 카드의 Haki 반영값은 Final 점수 아래에 `Base + Haki` 형태로 표시하고 상세 Raw × Weight는 Evaluation Trace에 유지합니다.
 
 ## v0.1.22 note
 
