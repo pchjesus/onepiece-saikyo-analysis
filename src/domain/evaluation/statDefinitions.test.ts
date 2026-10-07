@@ -17,11 +17,10 @@ describe('combat stat definitions', () => {
     expect(COMBAT_STAT_DEFINITIONS.defense.excludes).not.toContain('Durability')
   })
 
-  it('keeps special ability, technique mastery, combat IQ, and versatility conceptually distinct', () => {
-    expect(COMBAT_STAT_DEFINITIONS.specialAbility.excludes).toContain('Versatility')
+  it('keeps technique mastery, combat IQ, versatility, and the non-scoring special profile conceptually distinct', () => {
     expect(COMBAT_STAT_DEFINITIONS.combatIQ.excludes).toContain('Versatility')
-    expect(COMBAT_STAT_DEFINITIONS.versatility.excludes).toContain('Special Ability')
-    expect(COMBAT_STAT_DEFINITIONS.techniqueMastery.excludes).toContain('Special Ability')
+    expect(COMBAT_STAT_DEFINITIONS.versatility.excludes).toContain('Special Combat Profile')
+    expect(COMBAT_STAT_DEFINITIONS.techniqueMastery.excludes).toContain('Special Combat Profile')
     expect(COMBAT_STAT_DEFINITIONS.techniqueMastery.excludes).toContain('Combat IQ')
     expect(COMBAT_STAT_DEFINITIONS.techniqueMastery.excludes).toContain('Versatility')
     expect(COMBAT_STAT_DEFINITIONS.versatility.excludes).toContain('Combat IQ')
