@@ -288,7 +288,7 @@ export const sampleBattles: Battle[] = [
     externalFactors: '전장 전체의 혼전 상황', result: 'victory', participantIds: [],
   },
   {
-    id: 'pre-timeskip-jinbe-ace', title: '과거 — 징베와 에이스의 5일 결투', chronologyOrder: 0,
+    id: 'pre-timeskip-jinbe-ace', title: '과거 — 징베와 에이스의 5일 결투', chronologyOrder: 1,
     combatStructure: '1v1', combatPurpose: '흰수염에게 도전하려는 에이스를 저지', combatIntent: 'serious',
     environment: '과거의 육상 전장', restrictions: '현재 시점보다 오래전의 전투이므로 현 전투력의 직접 측정값이 아니라 지속력의 과거 반복 근거로 사용',
     externalFactors: '양측 모두 장기간 결투 끝에 쓰러짐', result: 'draw', participantIds: [],
