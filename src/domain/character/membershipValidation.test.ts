@@ -1,0 +1,38 @@
+import { describe, expect, it } from 'vitest'
+import { sampleCharacters } from '../../data/sample/characters'
+import { sampleGroups } from '../../data/sample/groups'
+import { sampleMemberships } from '../../data/sample/memberships'
+import { validateMemberships } from './membershipValidation'
+
+describe('group membership migration', () => {
+  it('keeps all baseline memberships referentially valid', () => {
+    expect(validateMemberships(sampleCharacters, sampleGroups, sampleMemberships))
+      .toEqual({ valid: true, errors: [] })
+  })
+
+  it('maps every baseline character to the same group as legacy crewId', () => {
+    for (const character of sampleCharacters) {
+      const memberships = sampleMemberships.filter(({ characterId }) => characterId === character.id)
+      expect(memberships).toHaveLength(1)
+      expect(memberships[0].groupId).toBe(character.crewId)
+    }
+  })
+
+  it('rejects unknown character and group references', () => {
+    const invalid = [
+      ...sampleMemberships,
+      { characterId: 'unknown-character', groupId: 'whitebeard-pirates', status: 'current' as const },
+      { characterId: 'marco', groupId: 'unknown-group', status: 'current' as const },
+    ]
+
+    const result = validateMemberships(sampleCharacters, sampleGroups, invalid)
+    expect(result.errors).toContain('Unknown membership character: unknown-character.')
+    expect(result.errors).toContain('Unknown membership group: unknown-group.')
+  })
+
+  it('rejects exact duplicate memberships', () => {
+    const duplicate = [...sampleMemberships, sampleMemberships[0]]
+    expect(validateMemberships(sampleCharacters, sampleGroups, duplicate).errors)
+      .toContain('Duplicate membership: marco::whitebeard-pirates::1번대::대장::current::.')
+  })
+})
