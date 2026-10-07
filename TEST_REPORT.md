@@ -1,3 +1,56 @@
+# v0.1.23 Initial Three-Crew Baseline — Verification Report
+
+## Scope
+- 초기 3해적단 9인 평가 로스터 완성.
+- Marco / King / Katakuri 7-Core 횡단 재보정.
+- Jozu / Vista / Queen / Jack / Smoothie / Cracker 신규 Character / Profile / Battle / Evidence / Evaluation 추가.
+- Balanced 1.2와 Haki Weight 0.5는 변경하지 않음.
+- crew tabs + compact character chips UI와 Haki stat breakdown UI를 현재 main 기준으로 유지.
+- 9인 데이터 무결성 통합 테스트 추가.
+
+## Expected calibrated Overall
+- Katakuri: 81.2857142857
+- Marco: 81.1428571429
+- King: 80.7142857143
+- Vista: 79.1428571429
+- Queen: 78.7142857143
+- Jozu: 77.2857142857
+- Smoothie: 76.7142857143
+- Jack: 74.4285714286
+- Cracker: 71.8571428571
+
+소수점 근소 차이는 절대적 서열 확정으로 해석하지 않는다. 직책·현상금·커뮤니티 평가는 공식 Core Stat에 자동 가산하지 않는다.
+
+## Regression targets
+- 각 Evaluation은 정확히 7 Core Stat을 가져야 함.
+- Haki Contribution Evidence는 존재하고 같은 캐릭터 소유이며 해당 Stat evidenceIds에도 연결되어야 함.
+- Special Trait Evidence는 존재하고 같은 캐릭터 소유여야 함.
+- 모든 Evidence는 존재하는 Character와 Battle에 연결되어야 함.
+- 초기 3개 Crew에 정확히 3명씩 배치되어야 함.
+- Balanced 1.2의 7-stat mean / Haki Weight 0.5 / Final cap 동작은 유지되어야 함.
+- 기존 Marco / King / Katakuri Battle / Evidence / Evaluation Trace 회귀가 없어야 함.
+
+## Automated verification
+- Branch static/data review: completed.
+- GitHub Actions npm test: PENDING main integration.
+- GitHub Actions production build: PENDING main integration.
+- Browser/mobile visual verification: NOT RUN.
+
+## Manual Verification Required
+1. 모바일/PC에서 crew tabs + character chips 동작 확인.
+2. 각 crew 탭에 3명씩 표시되는지 확인.
+3. Haki 반영 스탯에서 Final 점수 아래 Base + Haki가 표시되는지 확인.
+4. Jozu / Vista / Queen / Jack / Smoothie / Cracker 상세 페이지의 Profile / Battle / Evidence / Evaluation Trace 확인.
+5. 긴 rationale와 Evidence 카드가 모바일에서 overflow 없이 표시되는지 확인.
+
+## Known Issues / Uncertainty
+- 모든 평가는 draft.
+- Vista의 Stamina, Smoothie의 Defense/Stamina/Speed 등은 직접 전투 표본이 적어 불확실성이 상대적으로 큼.
+- Jack Haki는 보조자료 표기 충돌 가능성을 고려해 현재 Profile에서 unclear로 유지하고 수치 가산하지 않음.
+- 이미지 기반 캐릭터 선택과 검색 기능은 로스터 확장 시 후속 검토.
+
+---
+
 # v0.1.22 Seven Core Stats & Special Combat Profile — Verification Report
 
 ## Scope
