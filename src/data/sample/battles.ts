@@ -238,6 +238,54 @@ export const sampleBattles: Battle[] = [
     externalFactors: '해상 함대전이며 나미의 항해와 징베의 조타가 회피에 기여함',
     result: 'interrupted',
     participantIds: [],
+  },
+  {
+    id: 'thriller-bark-zoro-kuma', title: '스릴러 바크 — 조로의 루피 피해 인수', chronologyOrder: 1,
+    combatStructure: '1v1', combatPurpose: '동료를 보호하고 루피 대신 쿠마의 조건을 감당하는 상황', combatIntent: 'serious',
+    environment: '스릴러 바크', restrictions: '정규 결투가 아니라 이미 누적 피해가 있는 상태에서 추가 고통·피로를 받아내는 사건',
+    externalFactors: '모리아 전투 직후 일행 전체가 소모된 상태', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'wano-rooftop-zoro', title: '와노 옥상전 — 조로와 카이도·빅맘', chronologyOrder: 7,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '카이도와 빅맘을 저지하고 루피 일행의 전투를 지원', combatIntent: 'serious',
+    environment: '오니가시마 옥상', restrictions: '다수 강자가 교대·연계하는 전투이며 조로 단독 1대1이 아님',
+    externalFactors: '패해 차단으로 큰 피해가 누적된 뒤에도 전투 지속', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'onigashima-zoro-king', title: '오니가시마 — 조로와 킹의 결전', chronologyOrder: 8,
+    combatStructure: '1v1', combatPurpose: '서로를 쓰러뜨리기 위한 직접 결전', combatIntent: 'full-power',
+    environment: '오니가시마', restrictions: '조로는 옥상전 중상 이후 약물로 일시 회복한 상태이며 후유증 위험이 존재',
+    externalFactors: '엔마 제어와 루나리아 불꽃 메커니즘 파악이 전투 중 진행됨', result: 'victory', participantIds: [],
+  },
+  {
+    id: 'onigashima-sanji-queen', title: '오니가시마 — 상디와 퀸의 결전', chronologyOrder: 8,
+    combatStructure: '1v1', combatPurpose: '퀸을 쓰러뜨리고 전선을 돌파', combatIntent: 'full-power',
+    environment: '오니가시마', restrictions: '전투 중 Germa 계열 신체 변화가 발현되어 상디가 혼란을 겪음',
+    externalFactors: '퀸의 Germa 기술과 오소메 관련 주의 분산이 포함됨', result: 'victory', participantIds: [],
+  },
+  {
+    id: 'egghead-sanji-kizaru', title: '에그헤드 — 상디의 키자루 레이저 차단', chronologyOrder: 9,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '베가펑크 일행을 보호하며 키자루의 공격을 저지', combatIntent: 'serious',
+    environment: '에그헤드', restrictions: '짧은 요격 장면으로 키자루와의 장시간 속도 대결이 아님',
+    externalFactors: '다수 세력이 동시에 교전 중', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'fishman-island-jinbe-karate', title: '어인섬 — 징베의 어인공수도 운용', chronologyOrder: 3,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '신 어인 해적단과의 전투에서 아군 지원', combatIntent: 'serious',
+    environment: '어인섬', restrictions: '다수전이며 단독 결투가 아님', externalFactors: '물과 어인 신체 특성을 활용 가능한 환경',
+    result: 'victory', participantIds: [],
+  },
+  {
+    id: 'whole-cake-jinbe-big-mom', title: '홀케이크 — 징베와 빅맘의 공방', chronologyOrder: 6,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '써니호와 동료를 보호하며 빅맘을 저지', combatIntent: 'serious',
+    environment: '써니호 주변 해상', restrictions: '빅맘과의 장시간 1대1이 아니며 직접 힘 대결에서는 밀리는 장면이 있음',
+    externalFactors: '해상 환경과 물 활용 가능', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'onigashima-jinbe-whos-who', title: '오니가시마 — 징베와 후즈후의 결전', chronologyOrder: 8,
+    combatStructure: '1v1', combatPurpose: '후즈후를 쓰러뜨리고 전선을 확보', combatIntent: 'serious',
+    environment: '오니가시마', restrictions: '후즈후 부하들의 개입이 있었으나 이후 1대1 구도가 형성됨',
+    externalFactors: '전장 전체의 혼전 상황', result: 'victory', participantIds: [],
   }
 ]
 
