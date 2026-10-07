@@ -20,8 +20,10 @@ export function StatList({ items, hakiWeight }: { items: EvaluationItem[]; hakiW
                 {definition.label}
                 <button className="stat-info-button" type="button" aria-label={`${definition.label} 설명 보기`} onClick={() => setSelectedStat(item.stat)}>?</button>
               </span>
-              <strong>{item.score}</strong>
-              {rawHaki > 0 && <small className="stat-breakdown">Base {item.baseScore} + Effective Haki {effectiveHaki} (Raw {rawHaki} × {hakiWeight})</small>}
+              <div className="stat-score">
+                <strong>{item.score}</strong>
+                {rawHaki > 0 && <small className="stat-breakdown">Base {item.baseScore} + Haki {effectiveHaki}</small>}
+              </div>
             </div>
           )
         })}
