@@ -34,7 +34,7 @@ describe('Balanced v1.2', () => {
     expect(getFinalStatScore(item, 0.5)).toBe(83)
   })
 
-  it('applies weighted Haki contribution before the eight-stat mean', () => {
+  it('applies weighted Haki contribution before the seven-core mean', () => {
     const evaluation = {
       ...base,
       items: base.items.map((item, index) => index === 0 ? {
@@ -78,7 +78,7 @@ describe('Balanced v1.2', () => {
   })
 
   it('rejects duplicate stats', () => {
-    expect(() => validateEvaluation({ ...base, items: [...base.items.slice(0, 7), base.items[0]] }, 0.5)).toThrow()
+    expect(() => validateEvaluation({ ...base, items: [...base.items.slice(0, 6), base.items[0]] }, 0.5)).toThrow()
   })
 
   it('does not mutate the evaluation while calculating', () => {
