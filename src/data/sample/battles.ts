@@ -95,7 +95,7 @@ export const sampleBattles: Battle[] = [
     externalFactors: '후반부 플랑페의 외부 개입이 있었으나 카타쿠리가 이를 인지한 뒤 스스로 상응하는 부상을 입고 결투를 재개함',
     result: 'defeat',
     participantIds: [],
-  },,
+  },
   {
     id: 'marineford-jozu-defense',
     title: '정상결전 — 죠즈의 미호크 참격 차단과 전선 개입',
