@@ -11,11 +11,11 @@ const evidenceReferences = [
 const validEvaluation: Evaluation = {
   id: 'evaluation-marco',
   characterId: 'marco',
-  evaluationDataVersion: 'evaluation-0.1.21',
+  evaluationDataVersion: 'evaluation-0.1.22',
   status: 'draft',
   items: [
     ['attack', 74], ['defense', 76], ['stamina', 82], ['speed', 82],
-    ['techniqueMastery', 76], ['specialAbility', 88], ['combatIQ', 78], ['versatility', 86],
+    ['techniqueMastery', 76], ['combatIQ', 78], ['versatility', 86],
   ].map(([stat, score]) => ({
     stat: stat as Evaluation['items'][number]['stat'],
     baseScore: score as number,
@@ -68,14 +68,14 @@ describe('validateEvaluation', () => {
   })
 
   it('rejects incomplete stat coverage', () => {
-    const result = validateEvaluation({ ...validEvaluation, items: validEvaluation.items.slice(0, 7) })
+    const result = validateEvaluation({ ...validEvaluation, items: validEvaluation.items.slice(0, 6) })
     expect(result.valid).toBe(false)
-    expect(result.errors).toContain('Evaluation must contain exactly 8 stat items.')
+    expect(result.errors).toContain('Evaluation must contain exactly 7 stat items.')
     expect(result.errors).toContain('Missing combat stat: versatility.')
   })
 
   it('rejects duplicate stats and scores outside the 0 to 100 range', () => {
-    const result = validateEvaluation({ ...validEvaluation, items: [...validEvaluation.items.slice(0, 7), { ...validEvaluation.items[0], baseScore: 101, score: 101 }] })
+    const result = validateEvaluation({ ...validEvaluation, items: [...validEvaluation.items.slice(0, 6), { ...validEvaluation.items[0], baseScore: 101, score: 101 }] })
     expect(result.valid).toBe(false)
     expect(result.errors).toContain('Duplicate combat stat: attack.')
     expect(result.errors).toContain('Base score for attack must be between 0 and 100.')
