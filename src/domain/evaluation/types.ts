@@ -4,7 +4,6 @@ export const COMBAT_STATS = [
   'stamina',
   'speed',
   'techniqueMastery',
-  'specialAbility',
   'combatIQ',
   'versatility',
 ] as const
