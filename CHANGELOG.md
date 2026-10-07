@@ -1,5 +1,45 @@
 # Changelog
 
+## v0.1.22 — Seven Core Stats & Special Combat Profile
+
+### Added
+- 비수치 `Special Combat Profile` 구조를 추가하고 악마의 열매·종족 특성·특수 생리·개조·장비·과학 기술 등을 여러 Trait으로 기록할 수 있도록 확장.
+- Special Trait에 category / status / description / Evidence IDs / limitations / uncertainty 필드를 추가.
+- Special Trait Evidence가 실제로 존재하고 해당 캐릭터 소유인지 검증하는 Character Domain validation 및 테스트 추가.
+
+### Changed
+- 숫자형 `Special Ability`를 Core Combat Stat에서 제거하고 Attack / Defense / Stamina / Speed / Technique / Combat IQ / Versatility의 7 Core Stat으로 전환.
+- Balanced 모델을 1.2로 갱신하고 7개 Final Core Stat의 단순 산술평균을 사용.
+- Haki Weight 0.5와 실제 Application Evidence 기반 Stat Contribution 방식은 유지.
+- 기존 Special 관련 Canon Evidence는 삭제하지 않고 Special Combat Profile과 관련 Core Stat Evidence로 보존.
+- Marco / King / Katakuri Evaluation Data Version을 `evaluation-0.1.22`로 갱신.
+- 구조 전환 직후의 기계적 Overall은 Marco 80.571428..., King 80.285714..., Katakuri 81.714285...로 재계산.
+- Character Detail에서 Special Combat Profile을 Core Stat과 분리해 표시하고 Overall 직접 가산이 없음을 명시.
+- Package / README / PROJECT_SPEC을 v0.1.22 구조와 동기화.
+
+### Tests
+- 7 Core Stat completeness / duplicate / score validation fixture 갱신.
+- Balanced 1.2의 7-stat mean, Haki Weight, calibrated Overall 테스트 갱신.
+- Special Trait Evidence ownership / missing reference / duplicate id 검증 테스트 추가.
+- GitHub Actions test/build 최종 검증은 main 반영 후 수행.
+
+### Known Issues
+- Marco / King / Katakuri 수치는 구조 전환 직후의 기계적 재계산이며 전체 캐릭터 횡단 재평가는 아직 수행하지 않음.
+- Queen / Jack / Cracker / Jozu / Vista는 아직 GitHub 정식 Evaluation 데이터로 추가되지 않음.
+- Browser/mobile visual verification은 main 반영 후 별도 확인 필요.
+
+### Manual Verification Required
+- Character Detail의 7 Core Stat 표시 확인.
+- Special Combat Profile 카드의 Trait / 한계 / Evidence count 표시 확인.
+- Haki Base / Raw / Weight / Effective / Final 추적 UI 회귀 확인.
+- 모바일에서 Combat Profile 및 Stat 레이아웃 확인.
+
+### Next Steps
+- v0.1.22 자동 test/build 및 UI 회귀 확인.
+- 기존 및 논의 중 캐릭터의 7 Core Stat Overall 전면 재산정.
+- 재산정 완료 후 신규 캐릭터 분석·추가 재개.
+
+
 ## v0.1.21 — Combat Power Scale Calibration
 
 ### Added
