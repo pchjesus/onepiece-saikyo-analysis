@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { balancedV11 } from '../../data/sample/calculationModels'
+import { balancedV12 } from '../../data/sample/calculationModels'
 import { sampleEvaluations } from '../../data/sample/evaluations'
 import { getEffectiveHakiContributionTotal, getFinalStatScore, getRawHakiContributionTotal } from '../evaluation/score'
 import { calculateBalancedCombatPower, validateEvaluation } from './calculateCombatPower'
@@ -9,14 +9,15 @@ const base = {
   items: sampleEvaluations[0].items.map((item) => ({ ...item, baseScore: 50, score: 50, hakiContributions: [] })),
 }
 
-describe('Balanced v1.1', () => {
-  it('calculates the arithmetic mean of eight final stats', () => {
-    expect(calculateBalancedCombatPower(base, balancedV11, '2026-10-07T00:00:00.000Z').finalScore).toBe(50)
+describe('Balanced v1.2', () => {
+  it('calculates the arithmetic mean of seven final core stats', () => {
+    expect(calculateBalancedCombatPower(base, balancedV12, '2026-10-07T00:00:00.000Z').finalScore).toBe(50)
   })
 
   it('accepts 0 and 100 boundaries', () => {
-    const evaluation = { ...base, items: base.items.map((item, index) => ({ ...item, baseScore: index % 2 ? 100 : 0, score: index % 2 ? 100 : 0 })) }
-    expect(calculateBalancedCombatPower(evaluation, balancedV11).finalScore).toBe(50)
+    const values = [0, 100, 50, 50, 50, 50, 50]
+    const evaluation = { ...base, items: base.items.map((item, index) => ({ ...item, baseScore: values[index], score: values[index] })) }
+    expect(calculateBalancedCombatPower(evaluation, balancedV12).finalScore).toBe(50)
   })
 
   it('converts raw Haki +6 with weight 0.5 into effective +3', () => {
@@ -43,7 +44,7 @@ describe('Balanced v1.1', () => {
         hakiContributions: [{ hakiType: 'conquerors' as const, stat: 'attack' as const, amount: 8, application: '검증용 공격 강화', evidenceIds: ['synthetic-evidence'] }],
       } : item),
     }
-    expect(calculateBalancedCombatPower(evaluation, balancedV11).finalScore).toBe(54.25)
+    expect(calculateBalancedCombatPower(evaluation, balancedV12).finalScore).toBeCloseTo(54.8571428571)
   })
 
   it('caps Final Stat at 100 after effective Haki is applied', () => {
@@ -62,9 +63,9 @@ describe('Balanced v1.1', () => {
     const marco = sampleEvaluations.find(({ characterId }) => characterId === 'marco')!
     const king = sampleEvaluations.find(({ characterId }) => characterId === 'king')!
     const katakuri = sampleEvaluations.find(({ characterId }) => characterId === 'katakuri')!
-    expect(calculateBalancedCombatPower(marco, balancedV11).finalScore).toBe(81.125)
-    expect(calculateBalancedCombatPower(king, balancedV11).finalScore).toBe(80.75)
-    expect(calculateBalancedCombatPower(katakuri, balancedV11).finalScore).toBe(81.5)
+    expect(calculateBalancedCombatPower(marco, balancedV12).finalScore).toBeCloseTo(80.5714285714)
+    expect(calculateBalancedCombatPower(king, balancedV12).finalScore).toBeCloseTo(80.2857142857)
+    expect(calculateBalancedCombatPower(katakuri, balancedV12).finalScore).toBeCloseTo(81.7142857143)
   })
 
   it('rejects inconsistent final scores', () => {
@@ -73,7 +74,7 @@ describe('Balanced v1.1', () => {
   })
 
   it('rejects missing stats', () => {
-    expect(() => validateEvaluation({ ...base, items: base.items.slice(0, 7) }, 0.5)).toThrow()
+    expect(() => validateEvaluation({ ...base, items: base.items.slice(0, 6) }, 0.5)).toThrow()
   })
 
   it('rejects duplicate stats', () => {
@@ -82,7 +83,7 @@ describe('Balanced v1.1', () => {
 
   it('does not mutate the evaluation while calculating', () => {
     const before = structuredClone(base)
-    calculateBalancedCombatPower(base, balancedV11)
+    calculateBalancedCombatPower(base, balancedV12)
     expect(base).toEqual(before)
   })
 })
