@@ -35,4 +35,29 @@ describe('group membership migration', () => {
     expect(validateMemberships(sampleCharacters, sampleGroups, duplicate).errors)
       .toContain('Duplicate membership: marco::whitebeard-pirates::1번대::대장::current::.')
   })
+
+  it('keeps group hierarchy parent references valid', () => {
+    const worldGovernmentChildren = sampleGroups.filter(
+      ({ parentGroupId }) => parentGroupId === 'world-government',
+    )
+
+    expect(worldGovernmentChildren.map(({ id }) => id)).toEqual([
+      'cp0', 'cp9', 'impel-down', 'five-elders',
+    ])
+    expect(validateMemberships(sampleCharacters, sampleGroups, sampleMemberships))
+      .toEqual({ valid: true, errors: [] })
+  })
+
+  it('rejects unknown and self-referencing group parents', () => {
+    const invalidGroups = [
+      ...sampleGroups,
+      { id: 'orphan-group', name: 'Orphan', type: 'other' as const, parentGroupId: 'missing-parent' },
+      { id: 'self-parent', name: 'Self', type: 'other' as const, parentGroupId: 'self-parent' },
+    ]
+
+    const result = validateMemberships(sampleCharacters, invalidGroups, sampleMemberships)
+    expect(result.errors).toContain('Unknown parent group: orphan-group -> missing-parent.')
+    expect(result.errors).toContain('Group cannot be its own parent: self-parent.')
+  })
+
 })
