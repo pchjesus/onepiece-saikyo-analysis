@@ -1,13 +1,13 @@
 # 원피스 사최간 전투력 분석
 
-MVP v0.1.21
+MVP v0.1.22
 
 ## MVP 샘플
 - 마르코
 - 킹
 - 카타쿠리
 
-현재 Marco / King / Katakuri는 v0.1.21 절대 스케일 calibration을 적용한 draft 평가 상태다. Overall Combat Power는 8개 Final Stat의 단순 산술평균이며, Haki는 Raw Contribution을 보존한 채 Balanced 1.1의 Haki Weight 0.5를 거쳐 Effective Contribution으로 반영한다. 최종 calibration draft는 Marco 81.125, King 80.75, Katakuri 81.50이며 공식 확정 점수가 아니다.
+현재 Marco / King / Katakuri는 draft 평가 상태다. v0.1.22부터 Overall Combat Power는 7개 Final Core Stat(Attack, Defense, Stamina, Speed, Technique, Combat IQ, Versatility)의 단순 산술평균으로 계산한다. Haki는 실제 Application Evidence가 있을 때 Raw Contribution을 보존하고 Balanced 1.2의 Haki Weight 0.5를 거쳐 Effective Contribution으로 반영한다. Special Combat Profile은 악마의 열매·종족 특성·개조·특수 장비 등 고유 전투요소를 비수치 정보로 보존하며 Overall에 직접 가산하지 않는다. 구조 전환 직후의 기계적 Overall은 Marco 80.571, King 80.286, Katakuri 81.714이며, 이후 전체 캐릭터 횡단 재평가를 거칠 draft 값이다.
 
 ## 구조
 UI → Application → Domain
@@ -38,6 +38,16 @@ npm.cmd test
 npm.cmd run build
 ```
 
+
+## v0.1.22 note
+
+- 숫자형 `Special Ability`를 Core Stat에서 제거하고 7개 Core Stat 구조로 전환했습니다.
+- Special은 `Special Combat Profile`의 비수치 데이터로 분리해 악마의 열매, 종족 특성, 특수 생리, 개조, 장비, 과학 기술 등을 기록합니다.
+- Special Trait은 설명·한계·불확실성·Evidence ID를 보존하지만 Balanced Overall에 직접 가산하지 않습니다. 실제 전투 성과가 확인된 경우 해당 Core Stat의 Evidence로 반영합니다.
+- 패기는 실제 전투 Application이 확인되면 기존처럼 Stat-specific Raw Contribution과 Haki Weight 0.5를 통해 수치에 반영합니다.
+- Balanced 1.2는 7개 Final Core Stat의 단순 평균을 사용합니다. Balanced 1.1의 8-stat 방식은 과거 버전 의미로 문서에 보존합니다.
+- 기존 Marco / King / Katakuri의 Special 관련 Canon Evidence는 삭제하지 않고 Special Profile 및 기존 Core Stat 근거로 보존했습니다.
+- 새 캐릭터 추가는 잠시 중단하고, 구조 전환 후 기존·논의 중 캐릭터의 Overall을 전체 재산정한 다음 재개합니다.
 
 ## v0.1.21 note
 
