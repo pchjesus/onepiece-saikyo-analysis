@@ -71,7 +71,7 @@ export const validateEvaluation = (
 
     const expectedScore = getFinalStatScore(item)
     if (!Number.isFinite(item.score) || item.score !== expectedScore) {
-      errors.push(`Score for ${item.stat} must equal Base + Haki contribution capped at 100 (${expectedScore}).`)
+      errors.push(`Score for ${item.stat} must equal Base + effective Haki contribution capped at 100 (${expectedScore}).`)
     }
 
     if (!item.rationale.trim()) {

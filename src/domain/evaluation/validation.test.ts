@@ -11,17 +11,11 @@ const evidenceReferences = [
 const validEvaluation: Evaluation = {
   id: 'evaluation-marco',
   characterId: 'marco',
-  evaluationDataVersion: 'evaluation-0.1.16',
+  evaluationDataVersion: 'evaluation-0.1.21',
   status: 'draft',
   items: [
-    ['attack', 78],
-    ['defense', 80],
-    ['stamina', 84],
-    ['speed', 86],
-    ['techniqueMastery', 86],
-    ['specialAbility', 91],
-    ['combatIQ', 84],
-    ['versatility', 89],
+    ['attack', 74], ['defense', 76], ['stamina', 82], ['speed', 82],
+    ['techniqueMastery', 76], ['specialAbility', 88], ['combatIQ', 78], ['versatility', 86],
   ].map(([stat, score]) => ({
     stat: stat as Evaluation['items'][number]['stat'],
     baseScore: score as number,
@@ -35,61 +29,22 @@ const validEvaluation: Evaluation = {
 describe('validateEvaluation', () => {
   it('accepts a complete draft evaluation without requiring evidence for every stat', () => {
     const result = validateEvaluation(validEvaluation)
-
     expect(result.valid).toBe(true)
     expect(result.errors).toEqual([])
   })
 
-
   it('accepts evidence references that belong to the evaluated character', () => {
     const result = validateEvaluation(validEvaluation, evidenceReferences)
-
     expect(result.valid).toBe(true)
     expect(result.errors).toEqual([])
   })
 
   it('rejects unknown evidence ids and evidence belonging to another character', () => {
-    const result = validateEvaluation(
-      {
-        ...validEvaluation,
-        items: [
-          {
-            ...validEvaluation.items[0],
-            evidenceIds: ['evidence-does-not-exist'],
-          },
-          ...validEvaluation.items.slice(1),
-        ],
-      },
-      [
-        {
-          id: 'evidence-other-character',
-          subjectCharacterId: 'king',
-        },
-      ],
-    )
-
+    const result = validateEvaluation({ ...validEvaluation, items: [{ ...validEvaluation.items[0], evidenceIds: ['evidence-does-not-exist'] }, ...validEvaluation.items.slice(1)] }, [{ id: 'evidence-other-character', subjectCharacterId: 'king' }])
     expect(result.valid).toBe(false)
     expect(result.errors).toContain('Unknown evidence id for attack: evidence-does-not-exist.')
 
-    const otherCharacterResult = validateEvaluation(
-      {
-        ...validEvaluation,
-        items: [
-          {
-            ...validEvaluation.items[0],
-            evidenceIds: ['evidence-other-character'],
-          },
-          ...validEvaluation.items.slice(1),
-        ],
-      },
-      [
-        {
-          id: 'evidence-other-character',
-          subjectCharacterId: 'king',
-        },
-      ],
-    )
-
+    const otherCharacterResult = validateEvaluation({ ...validEvaluation, items: [{ ...validEvaluation.items[0], evidenceIds: ['evidence-other-character'] }, ...validEvaluation.items.slice(1)] }, [{ id: 'evidence-other-character', subjectCharacterId: 'king' }])
     expect(otherCharacterResult.valid).toBe(false)
     expect(otherCharacterResult.errors).toContain('Evidence evidence-other-character belongs to another character.')
   })
@@ -98,15 +53,9 @@ describe('validateEvaluation', () => {
     const attack = {
       ...validEvaluation.items[0],
       baseScore: 80,
-      score: 84,
+      score: 82,
       evidenceIds: ['haki-evidence'],
-      hakiContributions: [{
-        hakiType: 'armament' as const,
-        stat: 'attack' as const,
-        amount: 4,
-        application: '검증용 무장색 공격 적용',
-        evidenceIds: ['haki-evidence'],
-      }],
+      hakiContributions: [{ hakiType: 'armament' as const, stat: 'attack' as const, amount: 4, application: '검증용 무장색 공격 적용', evidenceIds: ['haki-evidence'] }],
     }
     const evaluation = { ...validEvaluation, items: [attack, ...validEvaluation.items.slice(1)] }
     expect(validateEvaluation(evaluation, [{ id: 'haki-evidence', subjectCharacterId: 'marco' }]).valid).toBe(true)
@@ -119,29 +68,14 @@ describe('validateEvaluation', () => {
   })
 
   it('rejects incomplete stat coverage', () => {
-    const result = validateEvaluation({
-      ...validEvaluation,
-      items: validEvaluation.items.slice(0, 7),
-    })
-
+    const result = validateEvaluation({ ...validEvaluation, items: validEvaluation.items.slice(0, 7) })
     expect(result.valid).toBe(false)
     expect(result.errors).toContain('Evaluation must contain exactly 8 stat items.')
     expect(result.errors).toContain('Missing combat stat: versatility.')
   })
 
   it('rejects duplicate stats and scores outside the 0 to 100 range', () => {
-    const result = validateEvaluation({
-      ...validEvaluation,
-      items: [
-        ...validEvaluation.items.slice(0, 7),
-        {
-          ...validEvaluation.items[0],
-          baseScore: 101,
-          score: 101,
-        },
-      ],
-    })
-
+    const result = validateEvaluation({ ...validEvaluation, items: [...validEvaluation.items.slice(0, 7), { ...validEvaluation.items[0], baseScore: 101, score: 101 }] })
     expect(result.valid).toBe(false)
     expect(result.errors).toContain('Duplicate combat stat: attack.')
     expect(result.errors).toContain('Base score for attack must be between 0 and 100.')
@@ -149,11 +83,6 @@ describe('validateEvaluation', () => {
   })
 
   it('does not require evidence for an official evaluation at this stage', () => {
-    const result = validateEvaluation({
-      ...validEvaluation,
-      status: 'official',
-    })
-
-    expect(result.valid).toBe(true)
+    expect(validateEvaluation({ ...validEvaluation, status: 'official' }).valid).toBe(true)
   })
 })

@@ -1,5 +1,48 @@
 # Changelog
 
+## v0.1.21 — Combat Power Scale Calibration
+
+### Added
+- Balanced 1.1에 versioned `Haki Weight = 0.5` 추가.
+- Raw / Effective Haki 계산 helper와 Evaluation Trace 표시 추가.
+- Raw +6 × 0.5 = Effective +3, Final 100 cap, Haki 0, 복수 Contribution, calibrated Overall 테스트 추가.
+
+### Changed
+- Marco / King / Katakuri의 8개 Base Stat을 현재 Canon Evidence와 절대 scale anchor에서 독립 재평가.
+- Raw Haki 값은 유지하고 Effective Haki만 Weight 0.5 적용.
+- Calculation Model 1.1, Evaluation Data `evaluation-0.1.21`, package 0.1.21로 갱신.
+- King Flame ON Defense / Flame OFF Speed의 상호 배타적 Peak를 평가에 반영.
+- Katakuri Future Sight의 Defense / Technique-Mastery / Combat IQ 연결은 유지하되 weighted contribution으로 완화.
+- PROJECT_SPEC의 오래된 `Code: None / MVP: Not implemented` 상태를 실제 구현과 일치하도록 정리.
+
+### Fixed
+- v0.1.20 데이터 추가 뒤 남은 stale application test fixture 수정.
+- 기존 GitHub Actions에서 test 7건 실패로 build가 중단되던 회귀 원인을 fixture 불일치로 확인하고 수정.
+
+### Tests
+- 구현 전 baseline: 35 tests 중 28 passed / 7 failed. `npm install` PASS, build/deploy는 test failure로 skipped.
+- v0.1.21 계산 및 현재 Evidence 구조에 맞춰 테스트 갱신.
+- patch branch / main CI 결과를 별도 확인.
+
+### Known Issues
+- 세 캐릭터는 여전히 draft.
+- Evidence Coverage / Confidence는 아직 별도 필드가 없음.
+- Marco의 Haki capability는 confirmed지만 저장된 Application Evidence 부족으로 Raw Haki 0이며 이를 숙련 부족으로 해석하지 않음.
+
+### Manual Verification Required
+- `npm.cmd install`
+- `npm.cmd test`
+- `npm.cmd run build`
+- `npm.cmd run dev`
+- 세 캐릭터 Final Stat / Overall / Evaluation Trace 확인.
+- Battle Timeline / Evidence UI / 모바일 레이아웃 확인.
+
+### Next Steps
+- 자동 test/build/deploy 및 브라우저 UI 검증.
+- Evidence Coverage / Confidence 최소 스키마 검토.
+- 다음 캐릭터 추가 전 calibration sanity check.
+
+
 ## v0.1.20
 
 ### Added

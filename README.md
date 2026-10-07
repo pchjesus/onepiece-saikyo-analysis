@@ -1,13 +1,13 @@
 # 원피스 사최간 전투력 분석
 
-MVP v0.1.18
+MVP v0.1.21
 
 ## MVP 샘플
 - 마르코
 - 킹
 - 카타쿠리
 
-현재 마르코는 8개 전투력 항목의 1차 draft 평가가 진행된 상태이며, 모든 점수는 향후 근거와 비교 검토에 따라 조정될 수 있다. 현재 Overall Combat Power는 draft 평가의 단순 평균에 따른 중간 계산값이다.
+현재 Marco / King / Katakuri는 v0.1.21 절대 스케일 calibration을 적용한 draft 평가 상태다. Overall Combat Power는 8개 Final Stat의 단순 산술평균이며, Haki는 Raw Contribution을 보존한 채 Balanced 1.1의 Haki Weight 0.5를 거쳐 Effective Contribution으로 반영한다. 현재 계산값은 Marco 80.25, King 81.50, Katakuri 81.75이며 공식 확정 점수가 아니다.
 
 ## 구조
 UI → Application → Domain
@@ -38,6 +38,17 @@ npm.cmd test
 npm.cmd run build
 ```
 
+
+## v0.1.21 note
+
+- 전투력 점수 상단 밀집을 완화하기 위해 90점 이상을 해당 능력축에서 세계관 최상위급과 직접 비교 가능한 영역으로 남기는 절대 스케일 calibration을 적용했습니다. 직책이나 티어를 고정 점수로 변환하지 않습니다.
+- Marco / King / Katakuri를 기존 점수에서 일괄 감점하지 않고 현재 저장된 Canon Evidence와 Stat Definition을 기준으로 독립 재평가했습니다.
+- Haki Raw Contribution 값은 유지하며 Balanced 1.1에서 `Effective Haki = Raw Haki × 0.5`를 적용합니다.
+- Evaluation Trace에서 Base / Raw Haki / Weight / Effective Haki / Final을 구분합니다.
+- King의 Flame ON 고방어와 Flame OFF 고속을 동시에 상시 Peak처럼 계산하지 않도록 재보정했습니다.
+- Future Sight는 Defense / Technique-Mastery / Combat IQ와 연결하되 Weight 0.5를 적용하고 Speed에는 직접 Haki 가산하지 않습니다.
+- Evidence 부족을 능력 부족으로 자동 해석하지 않습니다. Evidence Coverage / Confidence는 이번 버전에는 별도 필드로 추가하지 않고 후속 설계 후보로 남깁니다.
+- v0.1.20 GitHub Actions에서 확인된 stale test fixture 7건을 현재 데이터에 맞게 수정했습니다.
 
 ## v0.1.20 note
 

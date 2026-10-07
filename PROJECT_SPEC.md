@@ -1,8 +1,8 @@
 # One Piece Combat Power Analysis
 ## Project Specification
 
-**Version:** 0.1  
-**Status:** Initial Design  
+**Version:** 0.1.21  
+**Status:** Active MVP · Combat Power Scale Calibration  
 **Project Type:** Web Application  
 **Primary Purpose:** One Piece 주요 캐릭터의 전투력을 근거 기반으로 분석하고 비교하는 웹 애플리케이션
 
@@ -949,51 +949,44 @@ Next Steps
 
 # 29. Current Development Status
 
-현재 프로젝트는 초기 구현 및 평가 모델 검증 단계다.
+현재 프로젝트는 React + TypeScript + Vite 기반 정적 MVP가 구현되어 있으며, v0.1.21에서는 전투력 평가 스케일과 Haki 계산 모델을 재보정한다.
 
 ```text
-Code: None
-Implementation: None
-MVP: Not implemented
-Domain Model: Initial specification
-Data Model: Initial specification
-UI: Not implemented
-Calculation Engine: Not implemented
+Current Version: v0.1.21
+Code: Implemented
+MVP Characters: Marco / King / Katakuri
+Domain Model: 8 combat stats + Battle / Evidence / Evaluation / Haki
+Evaluation Data Version: evaluation-0.1.21
+Calculation Model: Balanced 1.1
+Overall: arithmetic mean of 8 Final Stats
+Haki Weight: 0.5
+UI: Character Detail / Combat Profile / Evaluation Trace / Battle Timeline
+Deployment: GitHub Pages workflow configured
 ```
 
-따라서 존재하지 않는 코드를 전제로 수정하거나 테스트했다고 주장하지 않는다.
+현재 세 캐릭터의 평가는 모두 `draft`다. 점수는 Canon Fact와 Combat Context를 바탕으로 한 Evaluation이며 공식적인 작품 내 수치가 아니다.
+
+v0.1.20 첫 Pages workflow에서는 `npm install`은 성공했지만 데이터 추가 뒤 갱신되지 않은 application test fixture 7건 때문에 `npm test`가 실패했고 build/deploy가 실행되지 않았다. v0.1.21에서는 stale fixture를 현재 데이터와 일치시키고 새 계산 규칙 테스트를 추가한다.
 
 ---
 
 # 30. Immediate Next Step
 
-다음 개발 단계:
+v0.1.21 이후 우선순위:
 
 ```text
-PROJECT_SPEC
+v0.1.21 automated test/build/deploy verification
 ↓
-Domain Model
+Manual UI verification
 ↓
-Data Model
+Evidence coverage / confidence 표현 방식 설계 검토
 ↓
-Application Architecture
+3-character calibration 결과 재검토
 ↓
-MVP Structure
-↓
-Minimal Sample Data
-↓
-Initial UI
-↓
-Calculation Engine
-↓
-Testing
+다음 캐릭터 추가 전 절대 스케일 일관성 검증
 ```
 
-첫 구현에서는 전체 캐릭터 데이터를 만들지 않는다.
-
-1~2명의 샘플 캐릭터를 사용하여 데이터 구조와 UI, 계산 흐름이 실제로 연결되는지 먼저 검증한다.
-
----
+Confidence / Evidence Coverage는 점수와 근거 충분도를 분리하는 데 유용하지만 Evaluation 데이터 모델과 UI에 새 필드를 추가하는 변경이므로 v0.1.21에서는 강제로 구현하지 않는다.
 
 # 31. Long-Term Development Direction
 
@@ -1123,3 +1116,45 @@ v0.1.19의 Canon Combat Profile을 실제 Haki Application Evidence와 연결하
 
 ## 34.5 GitHub Pages
 앱은 서버/DB 없는 정적 공유 MVP로 배포한다. Vite는 상대 asset base를 사용하며 GitHub Actions는 main push 시 install → test → build → Pages artifact deploy를 수행한다. 사용자별 수정 내용을 공유하는 실시간 공동 데이터 기능은 이 범위에 포함하지 않는다.
+
+---
+
+# 35. v0.1.21 Combat Power Scale Calibration
+
+## 35.1 목적
+v0.1.21은 새 캐릭터나 Stat을 추가하지 않고 Marco / King / Katakuri 3인의 평가를 이용해 절대 전투력 스케일을 재보정한다. 기존 Overall의 80점대 후반~90점대 밀집으로 향후 상위 캐릭터 표현 공간이 좁아지는 문제를 수정한다.
+
+## 35.2 Calibration anchor
+점수 구간은 강제 Tier가 아니라 의미를 일관되게 유지하기 위한 anchor다.
+- 90 이상: 해당 능력축에서 세계관 최상위급과 직접 비교 가능한 수준
+- 80대: 매우 뛰어난 최고급 전투 성능
+- 70대: 명백한 강자이지만 세계관 최고 수준과는 차이가 존재
+- 60대 이하: 향후 중상위권·중위권 캐릭터를 충분히 표현할 수 있는 영역
+- 100: 현실적인 최고점으로 남겨두며 남발하지 않음
+
+"사최간=80", "사황=90"처럼 직책·서열을 고정 점수로 변환하지 않는다.
+
+## 35.3 Haki Weight
+Haki Raw Contribution과 Evidence 추적성은 유지한다.
+
+```text
+Haki Weight = 0.5
+Effective Haki Contribution = Raw Haki Contribution × 0.5
+Final Stat = min(100, Base Score + Effective Haki Contribution)
+Overall = arithmetic mean of 8 Final Stats
+```
+
+Raw 값은 삭제하거나 축소하지 않는다. Capability confirmed만으로 자동 Contribution을 만들지 않으며 양의 Raw Contribution은 실제 Application Evidence를 요구한다. Haki Weight 0.5는 Canon 상수가 아니라 Calculation Model Version에 종속된 실험적 파라미터다.
+
+## 35.4 Conditional Peak Performance
+서로 배타적인 상태의 Peak Performance를 동시에 상시 유지 가능한 평균 성능처럼 계산하지 않는다. King의 Flame ON 고방어와 Flame OFF 고속은 각각 실제 성능을 인정하되 두 Peak를 동시에 발휘하는 것으로 해석하지 않는다.
+
+## 35.5 Evidence coverage와 능력 수준의 분리
+Evidence 부족은 능력 부족의 직접 증거가 아니다. Haki Capability 보유, 실제 Application Evidence, Evaluation Contribution을 구분한다. Score와 Evidence Coverage / Confidence를 별도 필드로 관리하는 구조는 후속 설계 후보로 남긴다.
+
+## 35.6 v0.1.21 calibrated draft
+- Marco: 80.25
+- King: 81.50
+- Katakuri: 81.75
+
+이 숫자와 순위는 목표값이 아니라 독립 평가 결과이며 official로 승격하지 않는다.

@@ -1,3 +1,45 @@
+# v0.1.21 Test Report
+
+## Scope
+Combat Power Scale Calibration, weighted Haki calculation, 3-character re-evaluation, stale fixture repair, documentation/status synchronization.
+
+## Pre-patch baseline confirmed from GitHub Actions run #1
+- `npm install`: PASS.
+- `npm test`: FAIL — 28 passed / 7 failed across 35 tests.
+- Failure source: v0.1.20 Battle / Evidence / Evaluation data had advanced beyond several application test expectations.
+- `npm run build`: SKIPPED.
+- Pages deploy: SKIPPED.
+
+## v0.1.21 verification targets
+- Raw +6 × 0.5 = Effective +3.
+- Final = Base + Effective Haki, capped at 100.
+- Haki 0 keeps Base = Final.
+- Multiple Raw contributions sum before Weight.
+- Same Haki Weight applies to all characters.
+- Haki Evidence reference validation remains intact.
+- Overall is the arithmetic mean of eight Final Stats.
+- Current Battle / Evidence / Evaluation Trace links match the data.
+- Pages workflow remains install → test → build → deploy.
+
+## Verification status before patch CI
+- Source/data/impact review: COMPLETED.
+- v0.1.20 CI failure via logs: CONFIRMED.
+- v0.1.21 automated tests: NOT YET RUN at patch commit time.
+- Vite build: NOT YET RUN at patch commit time.
+- Browser/visual verification: NOT RUN.
+
+## Manual verification required
+1. `npm.cmd install`
+2. `npm.cmd test`
+3. `npm.cmd run build`
+4. `npm.cmd run dev`
+5. Marco / King / Katakuri detail pages.
+6. Base / Raw / Weight / Effective / Final display.
+7. Battle Timeline and Evidence accordion.
+8. Mobile layout of Haki breakdown.
+
+---
+
 # v0.1.20 Test Report
 
 ## Scope
