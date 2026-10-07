@@ -328,7 +328,7 @@ export const sampleCharacters: Character[] = [
       specialTraits: [{
         id: 'special-sanji-genetic-modification', category: 'modification', name: 'Germa 계열 신체 개조 각성', status: 'confirmed',
         description: '오니가시마에서 외골격·높은 신체 강도와 회복 특성이 각성해 전투에 직접 사용된다.',
-        evidenceIds: ['evidence-sanji-exoskeleton-1028', 'evidence-sanji-ifrit-1034'],
+        evidenceIds: ['evidence-sanji-exoskeleton-1028', 'evidence-sanji-speed-ifrit-1034'],
         limitations: '회복·외골격의 존재 자체를 Stamina나 Defense에 자동 가산하지 않고 실제 전투 성과를 근거로 평가한다.',
       }],
       haki: { characterId: 'sanji', capabilities: [
