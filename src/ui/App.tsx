@@ -1,6 +1,5 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { getCharacterList } from '../application/getCharacterList'
-import { CharacterCard } from './components/CharacterCard'
 import { CharacterPage } from './pages/CharacterPage'
 import './styles.css'
 
@@ -8,6 +7,26 @@ const characterList = getCharacterList()
 
 export default function App() {
   const [selectedId, setSelectedId] = useState(characterList[0]?.character.id ?? '')
+  const [selectedCrewId, setSelectedCrewId] = useState(characterList[0]?.crew.id ?? '')
+
+  const crews = useMemo(() => {
+    const seen = new Set<string>()
+    return characterList
+      .map(({ crew }) => crew)
+      .filter((crew) => {
+        if (seen.has(crew.id)) return false
+        seen.add(crew.id)
+        return true
+      })
+  }, [])
+
+  const visibleCharacters = characterList.filter(({ crew }) => crew.id === selectedCrewId)
+
+  const selectCrew = (crewId: string) => {
+    setSelectedCrewId(crewId)
+    const firstCharacter = characterList.find(({ crew }) => crew.id === crewId)
+    if (firstCharacter) setSelectedId(firstCharacter.character.id)
+  }
 
   return (
     <div className="app-shell">
@@ -16,17 +35,38 @@ export default function App() {
         <h1>사최간 전투력 분석</h1>
         <p>Character → Evaluation → Calculation Model → Combat Power</p>
       </header>
-      <section className="character-list" aria-label="캐릭터 목록">
-        {characterList.map(({ character, crew }) => (
-          <CharacterCard
-            key={character.id}
-            character={character}
-            crewName={crew.name}
-            selected={selectedId === character.id}
-            onSelect={() => setSelectedId(character.id)}
-          />
-        ))}
-      </section>
+
+      <nav className="character-selector" aria-label="캐릭터 선택">
+        <div className="crew-tabs" role="tablist" aria-label="해적단 선택">
+          {crews.map((crew) => (
+            <button
+              key={crew.id}
+              className={`crew-tab ${selectedCrewId === crew.id ? 'selected' : ''}`}
+              type="button"
+              role="tab"
+              aria-selected={selectedCrewId === crew.id}
+              onClick={() => selectCrew(crew.id)}
+            >
+              {crew.name}
+            </button>
+          ))}
+        </div>
+
+        <div className="character-chips" aria-label="해적단 캐릭터">
+          {visibleCharacters.map(({ character }) => (
+            <button
+              key={character.id}
+              className={`character-chip ${selectedId === character.id ? 'selected' : ''}`}
+              type="button"
+              aria-pressed={selectedId === character.id}
+              onClick={() => setSelectedId(character.id)}
+            >
+              {character.name}
+            </button>
+          ))}
+        </div>
+      </nav>
+
       {selectedId && <CharacterPage characterId={selectedId} />}
     </div>
   )
