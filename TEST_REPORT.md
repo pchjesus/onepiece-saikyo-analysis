@@ -1,3 +1,67 @@
+# v0.1.22 Seven Core Stats & Special Combat Profile — Verification Report
+
+## Scope
+- 숫자형 Special Ability를 Core Stat에서 제거.
+- 7 Core Stat 기반 Balanced 1.2 도입.
+- Haki Weight 0.5 및 실제 Application Evidence 기반 Contribution 유지.
+- 비수치 Special Combat Profile과 다중 Special Trait 구조 추가.
+- Special Trait Evidence 참조 무결성 검증 추가.
+- Marco / King / Katakuri 기존 Special 관련 Canon Evidence 보존 및 Evaluation 0.1.22 마이그레이션.
+- Character Detail에서 Core Stat과 Special Combat Profile을 분리 표시.
+
+## Expected mechanical Overall after model migration
+- Marco: 80.5714285714
+- King: 80.2857142857
+- Katakuri: 81.7142857143
+
+이 값은 기존 7 Core Stat 값을 그대로 사용한 구조 전환 직후의 기계적 재계산이며, 캐릭터별 전면 재평가 완료값이 아니다.
+
+## Regression targets
+- Evaluation은 정확히 7 Core Stat을 가져야 함.
+- Special Combat Profile은 Overall에 직접 합산되지 않아야 함.
+- Special Trait Evidence는 존재하며 해당 캐릭터 소유여야 함.
+- Haki Raw Contribution / Weight 0.5 / Effective Contribution / Final Stat 계산은 유지되어야 함.
+- 기존 Battle / Evidence / Evaluation Trace 연결은 유지되어야 함.
+- Marco / King / Katakuri의 Special 관련 Canon Evidence 자체는 삭제되지 않아야 함.
+- main push에서는 Pages configure/deploy가 실행되지 않아야 함.
+
+## Automated verification
+
+### First main run
+- GitHub Actions run #7, commit `afa5078e`.
+- `npm install`: PASS.
+- `npm test`: FAIL — 11 test files 중 10 passed / 1 failed, 43 tests 중 42 passed / 1 failed.
+- Failure: `statDefinitions.test.ts`가 Versatility 정의에 남은 과거 `Special Ability` 문구를 탐지.
+- Root cause: 모델/계산 실패가 아니라 Stat Definition 문자열 한 곳의 stale migration.
+- `npm run build`: test failure로 SKIPPED.
+
+### Fix and final run
+- Fix commit: `268ea74f` — stale `Special Ability` reference를 `Special Combat Profile` 기준으로 수정.
+- GitHub Actions run #8.
+- `npm install`: PASS.
+- `npm test`: PASS — 11 test files / 43 tests.
+- `npm run build`: PASS.
+- `actions/configure-pages`: SKIPPED.
+- Pages artifact upload / deploy: SKIPPED.
+- Browser/mobile visual verification: NOT RUN.
+
+## Verification conclusion
+v0.1.22의 7 Core Stat 구조, Balanced 1.2 계산, Haki 가중치 회귀, Special Combat Profile 데이터 및 Evidence ownership validation, 기존 Battle/Evidence/Application 연결과 production build가 자동 검증을 통과했다. Special은 더 이상 숫자형 Core Stat이 아니며, 비능력자에게 Special 부재를 이유로 수치 감점을 부여하지 않는다.
+
+## Manual Verification Required
+1. 브라우저에서 Marco / King / Katakuri 상세 페이지 확인.
+2. Core Combat Stats가 7개만 표시되는지 확인.
+3. Special Combat Profile이 별도 카드로 표시되고 Overall 직접 가산 없음 문구가 보이는지 확인.
+4. Haki Base / Raw / Weight / Effective / Final 표시 회귀 확인.
+5. 모바일에서 Combat Profile / Special Trait / Stat 레이아웃 확인.
+
+## Next Steps
+- 기존 및 논의 중인 Marco / King / Katakuri / Queen / Jack / Cracker / Jozu / Vista를 7 Core Stat 기준으로 전체 재산정.
+- 재산정 과정에서 Marco·King·Queen 등 기존 Special 점수에 포함되던 효과가 각 Core Stat에 충분히 반영됐는지 횡단 검토.
+- 전체 calibration 완료 후 신규 캐릭터 분석·추가 재개.
+
+---
+
 # v0.1.21 Final Calibration Refinement — Verification Note
 
 ## Scope
