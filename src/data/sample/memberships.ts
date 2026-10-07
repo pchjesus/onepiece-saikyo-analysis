@@ -12,4 +12,8 @@ export const sampleMemberships: CharacterMembership[] = [
   { characterId: 'katakuri', groupId: 'big-mom-pirates', subgroup: '스위트 3장성', role: '장성', status: 'current' },
   { characterId: 'smoothie', groupId: 'big-mom-pirates', subgroup: '스위트 3장성', role: '장성', status: 'current' },
   { characterId: 'cracker', groupId: 'big-mom-pirates', subgroup: '스위트 3장성', role: '장성', status: 'current' },
+
+  { characterId: 'zoro', groupId: 'straw-hat-pirates', role: '전투원 / 검사', status: 'current' },
+  { characterId: 'sanji', groupId: 'straw-hat-pirates', role: '요리사 / 전투원', status: 'current' },
+  { characterId: 'jinbe', groupId: 'straw-hat-pirates', role: '조타수 / 전투원', status: 'current' },
 ]
