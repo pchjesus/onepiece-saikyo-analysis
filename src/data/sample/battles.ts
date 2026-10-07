@@ -286,6 +286,12 @@ export const sampleBattles: Battle[] = [
     combatStructure: '1v1', combatPurpose: '후즈후를 쓰러뜨리고 전선을 확보', combatIntent: 'serious',
     environment: '오니가시마', restrictions: '후즈후 부하들의 개입이 있었으나 이후 1대1 구도가 형성됨',
     externalFactors: '전장 전체의 혼전 상황', result: 'victory', participantIds: [],
+  },
+  {
+    id: 'pre-timeskip-jinbe-ace', title: '과거 — 징베와 에이스의 5일 결투', chronologyOrder: 0,
+    combatStructure: '1v1', combatPurpose: '흰수염에게 도전하려는 에이스를 저지', combatIntent: 'serious',
+    environment: '과거의 육상 전장', restrictions: '현재 시점보다 오래전의 전투이므로 현 전투력의 직접 측정값이 아니라 지속력의 과거 반복 근거로 사용',
+    externalFactors: '양측 모두 장기간 결투 끝에 쓰러짐', result: 'draw', participantIds: [],
   }
 ]
 
