@@ -6,6 +6,41 @@ export type Crew = {
   description?: string
 }
 
+/**
+ * Long-term affiliation model.
+ *
+ * Crew/crewId remain temporarily for backwards compatibility while the UI and
+ * repositories migrate to Group/Membership.
+ */
+export type GroupType =
+  | 'pirate-crew'
+  | 'marine'
+  | 'government'
+  | 'revolutionary'
+  | 'institution'
+  | 'regional'
+  | 'historical'
+  | 'other'
+
+export type Group = {
+  id: string
+  name: string
+  type: GroupType
+  parentGroupId?: string
+  description?: string
+}
+
+export type MembershipStatus = 'current' | 'former' | 'historical' | 'unknown'
+
+export type CharacterMembership = {
+  characterId: string
+  groupId: string
+  subgroup?: string
+  role?: string
+  status: MembershipStatus
+  period?: string
+}
+
 export type CanonProfileSource = {
   label: string
   reference: string
