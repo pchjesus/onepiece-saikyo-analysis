@@ -9,11 +9,11 @@ import { sampleEvidence } from './evidence'
 
 const evidenceReferences = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
 
-describe('v0.1.23 three-crew sample data', () => {
+describe('sample combat data', () => {
   it('contains three evaluated characters for each initial crew', () => {
     expect(sampleCrews).toHaveLength(3)
-    expect(sampleCharacters).toHaveLength(9)
-    expect(sampleEvaluations).toHaveLength(9)
+    expect(sampleCharacters).toHaveLength(12)
+    expect(sampleEvaluations).toHaveLength(12)
 
     for (const crew of sampleCrews) {
       expect(sampleCharacters.filter(({ crewId }) => crewId === crew.id)).toHaveLength(3)
