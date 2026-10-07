@@ -23,11 +23,18 @@
 - Character Detail / Evaluation Trace / Battle Timeline 기존 연결 유지.
 - main push에서는 Pages configure/deploy가 실행되지 않고 test/build까지만 성공해야 함.
 
-## Verification status before CI
-- Code/data/document static review: COMPLETED.
-- Automated GitHub Actions after this commit: PENDING.
+## Automated verification
+- Initial final-calibration run: 39 / 40 tests passed; 1 stale `getBattleDetail` fixture failed after the new Chapter 1022 Evidence increased the linked record count from 2 to 3.
+- Root cause: test expectation lagged behind intentional Evidence data expansion; Application logic was not the failure source.
+- Fixture updated and re-run through GitHub Actions.
+- Final result: 10 test files / 40 tests PASS.
+- `npm run build`: PASS.
+- `actions/configure-pages`: SKIPPED on main push as intended.
+- Pages artifact upload / deploy: SKIPPED as intended.
 - Browser/mobile visual verification: PENDING.
-- GitHub Pages deployment: intentionally disabled for automatic push during private development.
+
+## Verification conclusion
+v0.1.21 final calibration data, Haki reference integrity exercised by the current test suite, Battle/Evidence integration, Overall calculation, and production build all pass the automated GitHub workflow. Pages remains intentionally inactive during private development.
 
 ---
 

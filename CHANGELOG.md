@@ -26,6 +26,7 @@
 - Katakuri는 Snakeman전 Speed와 Gear 4 선제 대응을 보강하고 Technique 85 / Special Ability 80 경계를 재정리해 Overall 81.50으로 조정.
 - 동일 Evidence의 다중 Stat 연결은 서로 다른 평가 의미가 있을 때만 허용하는 원칙을 명문화.
 - 개발 중 main push에서는 test/build만 수행하고 Pages 배포는 수동 실행으로 변경.
+- 최종 회귀검증에서 신규 Chapter 1022 Evidence로 인한 stale Battle Detail fixture 1건을 수정한 뒤 10 test files / 40 tests 및 production build PASS를 확인.
 
 ### Tests
 - 구현 전 baseline: 35 tests 중 28 passed / 7 failed. `npm install` PASS, build/deploy는 stale fixture 실패로 skipped.
