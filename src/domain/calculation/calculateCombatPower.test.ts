@@ -59,7 +59,7 @@ describe('Balanced v1.2', () => {
     expect(getFinalStatScore(item, 0.5)).toBe(76)
   })
 
-  it('calculates the calibrated nine-character Overalls from Final Stats', () => {
+  it('calculates the calibrated roster Overalls from Final Stats', () => {
     const expected: Record<string, number> = {
       marco: 81.1428571429,
       jozu: 77.2857142857,
@@ -70,6 +70,9 @@ describe('Balanced v1.2', () => {
       katakuri: 81.2857142857,
       smoothie: 76.7142857143,
       cracker: 71.8571428571,
+      zoro: 84.7142857143,
+      sanji: 84.5714285714,
+      jinbe: 79.4285714286,
     }
 
     for (const evaluation of sampleEvaluations) {
