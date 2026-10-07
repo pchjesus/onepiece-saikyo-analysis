@@ -15,7 +15,6 @@ export const sampleEvidence: Evidence[] = [
     supportedAbilities: ['불사조 열매의 재생 능력', '공중 기동', '고화력 차단'],
     statContributions: [
       { stat: 'defense', role: 'primary', note: '키자루의 광탄을 실제로 가로막아 보호 대상에 대한 공격을 차단한 직접 방어 성과다.' },
-      { stat: 'specialAbility', role: 'primary', note: '손상을 회복하며 방어를 지속하게 하는 불사조 재생 메커니즘을 보여준다.' },
       { stat: 'speed', role: 'secondary', note: '공중 기동과 접근 능력의 보조 근거다.' },
     ],
     interpretation: '재생 능력 자체와 별개로 강한 원거리 화력을 실제로 가로막아 전투를 이어간 방어 성과와 기동성을 보여준다.',
@@ -55,7 +54,6 @@ export const sampleEvidence: Evidence[] = [
     fact: '마르코가 빅맘과 충돌했고, 마르코의 불꽃이 프로메테우스에게 효과를 보였다. 이후 빅맘이 마르코와의 대치를 뒤로하고 이동하며 장면이 종료된다.',
     supportedAbilities: ['불꽃의 특수성', '전투 대응 능력'],
     statContributions: [
-      { stat: 'specialAbility', role: 'primary', note: '불꽃의 특수한 상성 효과를 직접 보여준다.' },
       { stat: 'versatility', role: 'secondary', note: '고유 능력이 특정 상성 상황에도 적용되는 폭을 보여준다.' },
       { stat: 'combatIQ', role: 'context', note: '전투 상황 대응 해석에 참고하되 이 장면만으로 높은 판단 점수를 직접 부여하지 않는다.' },
     ],
@@ -76,7 +74,6 @@ export const sampleEvidence: Evidence[] = [
     fact: '마르코의 불꽃이 아이스 오니의 진행을 억제하고 감염자의 상태를 되돌리는 데 사용되었다.',
     supportedAbilities: ['불사조의 불꽃', '상태 억제·회복 지원'],
     statContributions: [
-      { stat: 'specialAbility', role: 'primary', note: '불사조의 불꽃이 상태 억제·회복 지원에 작동하는 고유 효과를 보여준다.' },
       { stat: 'versatility', role: 'primary', note: '자기 재생을 넘어 타인 지원에 적용한 실제 활용 범위를 보여준다.' },
       { stat: 'techniqueMastery', role: 'secondary', note: '불사조의 불꽃을 다수 대상의 상태 억제에 정밀하게 운용한 숙련의 보조 근거다.' },
     ],
@@ -97,7 +94,6 @@ export const sampleEvidence: Evidence[] = [
     fact: '킹에게 왼쪽 날개를 잘린 뒤에도 마르코가 이를 재생하고 전투를 계속했으며, 킹과 퀸을 동시에 상대하면서 상당히 지쳐 있다고 언급했다.',
     supportedAbilities: ['불꽃을 이용한 재생 능력'],
     statContributions: [
-      { stat: 'specialAbility', role: 'primary', note: '손상된 날개를 재생한 고유 능력의 직접 근거다.' },
       { stat: 'stamina', role: 'secondary', note: '다대일 전투를 지속하며 피로가 누적된 전투 지속력의 보조 근거다.' },
       { stat: 'techniqueMastery', role: 'context', note: '재생 능력의 사용 사실은 보존하지만 숙련도 자체의 직접 근거로 중복 점수화하지 않는다.' },
     ],
@@ -197,7 +193,6 @@ export const sampleEvidence: Evidence[] = [
     supportedAbilities: ['불사조 방어', '고화력 차단', '아군 보호'],
     statContributions: [
       { stat: 'defense', role: 'primary', note: '사황의 고화력 원거리 공격을 실제로 차단한 직접 방어 성과다.' },
-      { stat: 'specialAbility', role: 'secondary', note: '불사조 능력이 고화력 차단에 제공하는 특수한 전투 가치를 보여준다.' },
       { stat: 'versatility', role: 'secondary', note: '전투 막바지에도 보호 역할로 능력을 적용한 폭의 근거다.' },
     ],
     interpretation: '재생에만 의존한 생존이 아니라 보호 대상을 향한 높은 화력의 공격을 실제로 막아내는 방어 성능을 보여준다.',
@@ -260,7 +255,6 @@ export const sampleEvidence: Evidence[] = [
       { stat: 'defense', role: 'primary', note: '불꽃 상태에 따른 높은 방어와 그 조건을 직접 보여준다.' },
       { stat: 'speed', role: 'primary', note: '불꽃이 꺼진 상태에서 속도가 상승하는 전투 메커니즘을 직접 보여준다.' },
       { stat: 'stamina', role: 'secondary', note: '장기전 지속과 한계 도달을 함께 보여주는 보조 근거다.' },
-      { stat: 'specialAbility', role: 'primary', note: '루나리아족의 불꽃과 상태 전환이라는 고유 전투 특성을 직접 보여준다.' },
       { stat: 'combatIQ', role: 'secondary', note: '상태 전환과 여러 공격 수단을 전투 중 사용한 판단의 보조 근거다.' },
       { stat: 'versatility', role: 'secondary', note: '검술·화염·비행·상태 전환을 실제 전투에 적용한 폭의 보조 근거다.' },
     ],
@@ -311,7 +305,6 @@ export const sampleEvidence: Evidence[] = [
     fact: '카타쿠리는 각성한 능력으로 주변 지면을 모치로 변화시키고 원거리에서 이를 조작해 루피를 붙잡았다.',
     supportedAbilities: ['모치모치 열매 각성', '환경 변환·제어'],
     statContributions: [
-      { stat: 'specialAbility', role: 'primary', note: '주변 환경까지 변화시키는 각성 능력의 직접 근거다.' },
       { stat: 'versatility', role: 'primary', note: '신체 변형을 넘어 환경 제어·구속으로 능력 적용 범위를 확장한 근거다.' },
       { stat: 'techniqueMastery', role: 'secondary', note: '각성 능력을 실전에서 운용한 숙련의 보조 근거다.' },
     ],
@@ -393,7 +386,6 @@ export const sampleEvidence: Evidence[] = [
     fact: '카타쿠리는 루피와 함께 패왕색을 방출해 주변의 약한 전투원들을 기절시켰다.',
     supportedAbilities: ['패왕색 패기'],
     statContributions: [
-      { stat: 'specialAbility', role: 'context', note: '패왕색 보유와 실제 방출은 확인되지만 현재 1대1 상위권 전투 스탯에 별도 가산하지 않는다.' },
     ],
     interpretation: '패왕색 보유와 기본적인 방출 활용은 확인되지만 패휘감 사용 근거는 아니다.',
     evaluationImpact: 'Haki Profile의 패왕색 confirmed 근거로 사용한다. 현재 모델에서는 이 장면만으로 Stat Contribution을 부여하지 않는다.',
