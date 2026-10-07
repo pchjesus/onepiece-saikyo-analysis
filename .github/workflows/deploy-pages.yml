@@ -1,5 +1,7 @@
 name: Validate / Deploy GitHub Pages
 
+# Private development: main pushes validate only; Pages deployment is manual and reserved for the future public-sharing stage.
+
 on:
   push:
     branches: [main]
