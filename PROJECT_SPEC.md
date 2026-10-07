@@ -1,7 +1,7 @@
 # One Piece Combat Power Analysis
 ## Project Specification
 
-**Version:** 0.1.21  
+**Version:** 0.1.22  
 **Status:** Active MVP · Combat Power Scale Calibration  
 **Project Type:** Web Application  
 **Primary Purpose:** One Piece 주요 캐릭터의 전투력을 근거 기반으로 분석하고 비교하는 웹 애플리케이션
@@ -101,11 +101,10 @@ Community Opinion은 Official Evaluation과 별도로 관리한다.
 - Stamina / Endurance
 - Speed
 - Technique / Mastery
-- Special Ability
 - Intelligence / Combat IQ
 - Versatility
 
-각 요소는 가능한 한 서로 다른 개념으로 유지한다.
+7개 Core Stat은 가능한 한 서로 다른 개념으로 유지한다. Core Stat 개수를 맞추기 위한 중복 축은 추가하지 않는다.
 
 특히 다음 구분을 유지한다.
 
@@ -113,7 +112,6 @@ Community Opinion은 Official Evaluation과 별도로 관리한다.
 Defense
 Stamina / Endurance
 Technique / Mastery
-Special Ability
 Combat IQ
 Versatility
 ```
@@ -122,7 +120,7 @@ Defense는 회피·방어·차단·피해 감소와 상태에 따른 조건부 �
 
 Stamina는 피로와 체력 소모가 누적되는 상황에서 전투를 지속하는 능력, Technique / Mastery는 자신이 사용하는 전투 수단과 능력을 높은 수준으로 정교하게 다루는 능력으로 구분한다. 손상 이후의 회복·재생은 독립적인 최상위 스탯으로 자동 환산하지 않으며, Evidence와 고유 전투 능력의 평가에 보존하고 실제 전투 지속 효과가 확인되는 경우 Stamina의 근거로 활용할 수 있다. Defense에 회복 능력을 자동 합산하지 않는다.
 
-Special Ability는 고유 능력 자체의 성능과 특수 효과 및 직접적인 전투적 유틸리티를 평가하고, Versatility는 여러 전투 상황·거리·상대·목적에 맞춰 서로 다른 능력과 전투 방식을 전환·적용하는 폭과 적응력을 평가한다. Combat IQ는 이러한 수단 중 무엇을 언제 어떻게 선택할지에 대한 전투 판단을 평가한다.
+Special Combat Profile은 악마의 열매·종족 특성·특수 생리·개조·특수 장비·과학 기술 등 캐릭터 고유의 전투 메커니즘을 비수치 정보로 기록한다. Special 자체는 Balanced Overall에 직접 합산하지 않으며, 실제 전투 성과가 확인된 경우 해당 Evidence를 Attack·Defense·Stamina·Speed·Technique·Combat IQ·Versatility 중 의미에 맞는 Core Stat에 연결한다. Versatility는 여러 전투 상황·거리·상대·목적에 맞춰 서로 다른 능력과 전투 방식을 전환·적용하는 폭과 적응력을 평가한다. Combat IQ는 이러한 수단 중 무엇을 언제 어떻게 선택할지에 대한 전투 판단을 평가한다.
 
 따라서 하나의 장면이나 능력이 여러 스탯에 관련될 수 있더라도 동일한 성과를 무비판적으로 중복 점수화하지 않는다. Evidence의 Fact와 Interpretation을 먼저 구분하고, 각 스탯의 정의에 맞는 영향을 별도로 판단한다.
 
@@ -143,6 +141,36 @@ Special Ability는 고유 능력 자체의 성능과 특수 효과 및 직접적
 - 현재 전투력과 미래 성장 가능성은 분리한다. 성장 가능성을 현재 점수에 임의로 가산하지 않으며, `Growth Potential`은 향후 별도 모델 후보로 남긴다.
 
 현재 Marco와 King의 평가는 이 기준에 따라 다시 검토 중인 `draft`이며, 기존 점수를 보존하는 것을 목표로 하지 않는다. Evidence 재검토 결과에 따라 각 항목을 올리거나 내릴 수 있다.
+
+## 4.2 Special Combat Profile
+
+Special은 독립적인 0~100 점수로 평가하지 않는다.
+
+기본 Category:
+- devil-fruit
+- race
+- biology
+- modification
+- equipment
+- technology
+- other
+
+각 Special Trait은 가능한 경우 다음 정보를 보존한다.
+
+```text
+Special Trait
+├── Category
+├── Name
+├── Status
+├── Description
+├── Evidence IDs
+├── Limitations
+└── Uncertainty
+```
+
+Special Trait이 강력하다는 사실만으로 Core Stat에 고정 보너스를 부여하지 않는다. 실제 공격·방어·지속·기동·숙련·판단·적응 성과가 확인된 경우 해당 Evidence를 관련 Core Stat의 근거로 사용한다.
+
+별도의 특수 전투요소가 확인되지 않은 비능력자에게 임의의 낮은 Special 점수를 부여하지 않는다. 정보 부재는 감점 근거가 아니다.
 
 # 5. Haki Model
 
@@ -353,7 +381,7 @@ Calculated Evaluation
 
 ### Balanced
 
-각 전투력 요소를 균형 있게 반영한다.
+7개 Core Stat을 균형 있게 반영한다. 현재 Balanced 1.2는 7개 Final Core Stat의 단순 산술평균을 사용하며 Special Combat Profile은 직접 합산하지 않는다.
 
 ### Haki Emphasis
 
@@ -441,6 +469,7 @@ Battle
 Evidence
 Evaluation
 Haki
+SpecialCombatTrait
 CalculationModel
 Matchup
 Revision
@@ -453,6 +482,7 @@ Crew
  ↓
 Character
  ├── Haki
+ ├── Special Combat Profile
  ├── Battle
  │    └── Evidence
  ├── Evaluation
