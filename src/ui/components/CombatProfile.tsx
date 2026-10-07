@@ -1,4 +1,8 @@
-import type { CombatProfile as CombatProfileData } from '../../domain/character/types'
+import type {
+  CombatProfile as CombatProfileData,
+  SpecialCombatTraitCategory,
+  SpecialCombatTraitStatus,
+} from '../../domain/character/types'
 import type { HakiConfirmationStatus, HakiType } from '../../domain/haki/types'
 
 const hakiLabels: Record<HakiType, string> = {
@@ -13,22 +17,54 @@ const statusLabels: Record<HakiConfirmationStatus, string> = {
   'not-confirmed': '비확인',
 }
 
+const specialStatusLabels: Record<SpecialCombatTraitStatus, string> = {
+  confirmed: '확인',
+  unclear: '불명확',
+  'not-confirmed': '비확인',
+}
+
+const specialCategoryLabels: Record<SpecialCombatTraitCategory, string> = {
+  'devil-fruit': '악마의 열매',
+  race: '종족 특성',
+  biology: '특수 생리',
+  modification: '신체 개조',
+  equipment: '특수 장비',
+  technology: '과학 기술',
+  other: '기타',
+}
+
 export function CombatProfile({ profile }: { profile: CombatProfileData }) {
   return (
     <section className="combat-profile-section">
       <div>
         <p className="eyebrow">CANON COMBAT PROFILE</p>
         <h2>전투 프로필</h2>
-        <p className="section-note">평가 점수와 분리된 캐릭터의 원작 기반 전투 정보입니다. 미확인은 비보유를 의미하지 않습니다.</p>
+        <p className="section-note">평가 점수와 분리된 원작 기반 전투 정보입니다. 특수 전투요소는 별도 점수를 갖지 않으며 실제 성과가 확인된 Core Stat의 근거로 사용합니다.</p>
       </div>
       <div className="combat-profile-grid">
         <article className="profile-card">
           <h3>전투 방식</h3>
           <div className="profile-tags">{profile.combatStyles.map((style) => <span key={style}>{style}</span>)}</div>
         </article>
-        <article className="profile-card">
-          <h3>주요 능력</h3>
-          <ul>{profile.keyAbilities.map((ability) => <li key={ability}>{ability}</li>)}</ul>
+        <article className="profile-card special-traits-card">
+          <h3>특수 전투요소</h3>
+          {profile.specialTraits.length > 0 ? (
+            <div className="special-trait-list">
+              {profile.specialTraits.map((trait) => (
+                <section className="special-trait" key={trait.id}>
+                  <div className="special-trait-meta">
+                    <span>{specialCategoryLabels[trait.category]}</span>
+                    <strong>{specialStatusLabels[trait.status]}</strong>
+                  </div>
+                  <h4>{trait.name}</h4>
+                  <p>{trait.description}</p>
+                  {trait.limitations && <small><strong>한계</strong> · {trait.limitations}</small>}
+                  {trait.uncertainty && <small><strong>불확실성</strong> · {trait.uncertainty}</small>}
+                  <small>연결 Evidence {trait.evidenceIds.length}건 · Overall 직접 가산 없음</small>
+                </section>
+              ))}
+            </div>
+          ) : <p className="empty-note">현재 확인된 별도 특수 전투요소 없음. 정보 부재를 감점으로 처리하지 않습니다.</p>}
         </article>
         <article className="profile-card haki-card">
           <h3>패기</h3>
