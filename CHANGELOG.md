@@ -21,7 +21,10 @@
 - 7 Core Stat completeness / duplicate / score validation fixture 갱신.
 - Balanced 1.2의 7-stat mean, Haki Weight, calibrated Overall 테스트 갱신.
 - Special Trait Evidence ownership / missing reference / duplicate id 검증 테스트 추가.
-- GitHub Actions test/build 최종 검증은 main 반영 후 수행.
+- 첫 main 검증: 11 test files / 43 tests 중 42 PASS, 1 FAIL. 원인은 Versatility 정의에 남은 stale `Special Ability` 문구였으며 계산/도메인 로직 실패는 아니었음.
+- stale 정의 문구 수정 후 재검증: 11 test files / 43 tests PASS.
+- `npm run build`: PASS.
+- Pages configure/upload/deploy: private development 정책대로 SKIPPED.
 
 ### Known Issues
 - Marco / King / Katakuri 수치는 구조 전환 직후의 기계적 재계산이며 전체 캐릭터 횡단 재평가는 아직 수행하지 않음.
