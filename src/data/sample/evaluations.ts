@@ -154,7 +154,7 @@ export const sampleEvaluations: Evaluation[] = [
     items: [
       item('attack', 76, '어인공수도로 후즈후를 격파하고 물·수분을 활용해 충격을 전달하는 높은 기본 공격 숙련을 평가하며, 실제 무장색 강화는 별도 Contribution으로 분리한다.', ['evidence-jinbe-fishman-karate-629', 'evidence-jinbe-whos-who-1018'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '후즈후와의 근접 공방에서 무장색을 어인공수도 공격에 결합', evidenceIds: ['evidence-jinbe-whos-who-1018'] }]),
       item('defense', 78, '빅맘의 공격을 잠시 받아낸 성과와 후즈후의 공격을 견딘 방어력을 평가하되 빅맘에게 힘에서 밀린 한계와 King급 특수 방어와의 차이를 반영한다.', ['evidence-jinbe-big-mom-890', 'evidence-jinbe-whos-who-1018'], [{ hakiType: 'armament', stat: 'defense', amount: 4, application: '빅맘·후즈후의 공격에 무장색 경화를 실제 방어로 적용', evidenceIds: ['evidence-jinbe-big-mom-890', 'evidence-jinbe-whos-who-1018'] }]),
-      item('stamina', 79, '높은 기본 체력과 전투 지속력을 인정하되 현재 상위권 상대의 장기 고강도 전투 표본이 Jack·Katakuri만큼 직접적이지 않아 보수적으로 평가한다.', ['evidence-jinbe-whos-who-1018']),
+      item('stamina', 79, '높은 기본 체력과 전투 지속력을 인정하되 현재 상위권 상대의 장기 고강도 전투 표본이 Jack·Katakuri만큼 직접적이지 않아 보수적으로 평가한다.', ['evidence-jinbe-ace-five-days-552', 'evidence-jinbe-whos-who-1018']),
       item('speed', 77, '상위권 근접전에 대응 가능한 반응은 있으나 순수 속도 자체가 대표 강점으로 반복 검증되지는 않았다.', ['evidence-jinbe-whos-who-1018']),
       item('techniqueMastery', 82, '어인공수도의 달인으로 물과 상대 신체의 수분까지 이용하는 정교한 원리를 실전에 적용한다. 다만 Katakuri·Vista·Zoro의 상위 복합 숙련과 자동 동급으로 보지 않는다.', ['evidence-jinbe-fishman-karate-629', 'evidence-jinbe-whos-who-1018']),
       item('combatIQ', 80, '빅맘전에서 해상 환경과 물을 상성 대응·반격에 활용하는 베테랑 판단을 인정하되 1대1에서 상대 메커니즘을 반복 분석하는 최고 수준 표본은 제한적이다.', ['evidence-jinbe-big-mom-890']),
