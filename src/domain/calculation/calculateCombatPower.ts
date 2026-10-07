@@ -35,7 +35,7 @@ export function calculateBalancedCombatPower(
     throw new Error(`Unsupported calculation model: ${model.id}`)
   }
   if (model.configuration.method !== 'arithmetic-mean' || model.configuration.statCount !== COMBAT_STATS.length) {
-    throw new Error('Balanced calculation model configuration is inconsistent with the eight-stat model.')
+    throw new Error('Balanced calculation model configuration is inconsistent with the core-stat model.')
   }
 
   const { hakiWeight } = model.configuration
