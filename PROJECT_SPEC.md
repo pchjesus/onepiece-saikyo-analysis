@@ -961,12 +961,12 @@ Calculation Model: Balanced 1.1
 Overall: arithmetic mean of 8 Final Stats
 Haki Weight: 0.5
 UI: Character Detail / Combat Profile / Evaluation Trace / Battle Timeline
-Deployment: GitHub Pages workflow configured
+Deployment: GitHub Pages workflow configured; repository Pages enablement pending
 ```
 
 현재 세 캐릭터의 평가는 모두 `draft`다. 점수는 Canon Fact와 Combat Context를 바탕으로 한 Evaluation이며 공식적인 작품 내 수치가 아니다.
 
-v0.1.20 첫 Pages workflow에서는 `npm install`은 성공했지만 데이터 추가 뒤 갱신되지 않은 application test fixture 7건 때문에 `npm test`가 실패했고 build/deploy가 실행되지 않았다. v0.1.21에서는 stale fixture를 현재 데이터와 일치시키고 새 계산 규칙 테스트를 추가한다.
+v0.1.20 첫 Pages workflow에서는 stale fixture 7건 때문에 test 단계가 실패했다. v0.1.21 main 검증에서는 10 test files / 39 tests와 production build가 통과했다. 이후 `configure-pages` 단계는 저장소의 Pages 사이트가 아직 활성화되지 않아 실패했으므로 실제 Pages 배포는 저장소 설정 활성화 후 별도 확인이 필요하다.
 
 ---
 

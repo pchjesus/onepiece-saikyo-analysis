@@ -21,12 +21,17 @@ Combat Power Scale Calibration, weighted Haki calculation, 3-character re-evalua
 - Current Battle / Evidence / Evaluation Trace links match the data.
 - Pages workflow remains install → test → build → deploy.
 
-## Verification status before patch CI
-- Source/data/impact review: COMPLETED.
-- v0.1.20 CI failure via logs: CONFIRMED.
-- v0.1.21 automated tests: NOT YET RUN at patch commit time.
-- Vite build: NOT YET RUN at patch commit time.
+## Automated verification after main merge
+- GitHub Actions run #2, commit `065eac5`.
+- `npm install`: PASS.
+- `npm test`: PASS — 10 test files / 39 tests.
+- `npm run build`: PASS — TypeScript build and Vite production build completed.
+- `actions/configure-pages@v5`: FAIL because the repository does not yet have a Pages site enabled/configured for GitHub Actions.
+- Artifact upload / Pages deploy: SKIPPED after the configure-pages failure.
 - Browser/visual verification: NOT RUN.
+
+## Verification interpretation
+The v0.1.21 application code, calculation tests, current Battle/Evidence fixtures, and production build passed in GitHub Actions. Actual GitHub Pages deployment is not verified; repository-level Pages enablement is still required.
 
 ## Manual verification required
 1. `npm.cmd install`

@@ -20,14 +20,16 @@
 - 기존 GitHub Actions에서 test 7건 실패로 build가 중단되던 회귀 원인을 fixture 불일치로 확인하고 수정.
 
 ### Tests
-- 구현 전 baseline: 35 tests 중 28 passed / 7 failed. `npm install` PASS, build/deploy는 test failure로 skipped.
-- v0.1.21 계산 및 현재 Evidence 구조에 맞춰 테스트 갱신.
-- patch branch / main CI 결과를 별도 확인.
+- 구현 전 baseline: 35 tests 중 28 passed / 7 failed. `npm install` PASS, build/deploy는 stale fixture 실패로 skipped.
+- v0.1.21 main GitHub Actions: 10 test files / 39 tests PASS.
+- `npm run build`: PASS.
+- Pages configure/deploy: repository Pages site가 아직 활성화되지 않아 configure-pages에서 실패; 앱 test/build 회귀와는 분리된 저장소 설정 이슈.
 
 ### Known Issues
 - 세 캐릭터는 여전히 draft.
 - Evidence Coverage / Confidence는 아직 별도 필드가 없음.
 - Marco의 Haki capability는 confirmed지만 저장된 Application Evidence 부족으로 Raw Haki 0이며 이를 숙련 부족으로 해석하지 않음.
+- GitHub Pages 실제 배포는 저장소 Settings에서 Pages를 GitHub Actions source로 활성화하기 전까지 완료되지 않음.
 
 ### Manual Verification Required
 - `npm.cmd install`
