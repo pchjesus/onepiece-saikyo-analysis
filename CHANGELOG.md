@@ -1,5 +1,44 @@
 # Changelog
 
+## v0.1.23 — Initial Three-Crew Baseline Calibration
+
+### Added
+- Whitebeard Pirates: Jozu / Vista Character Profile, Special Combat Profile, Haki Profile, Battle Context, Canon/Supplementary Evidence, 7-Core draft Evaluation 추가.
+- Beasts Pirates: Queen / Jack Character Profile, Special Combat Profile, Haki Profile, Battle Context, Canon Evidence, 7-Core draft Evaluation 추가.
+- Big Mom Pirates: Smoothie / Cracker Character Profile, Special Combat Profile, Haki Profile, Battle Context, Canon Evidence, 7-Core draft Evaluation 추가.
+- 3 crews × 3 characters 데이터 완전성, Evaluation 참조 무결성, Special Trait Evidence ownership, Evidence→Battle/Character 연결을 검증하는 통합 테스트 추가.
+- 캐릭터 선택에 crew tabs + compact character chips UI 추가.
+
+### Changed
+- Marco / King / Katakuri를 7-Core 횡단 비교 결과에 따라 `evaluation-0.1.23`으로 재보정.
+- Marco Final: 77 / 85 / 82 / 81 / 80 / 79 / 84 → Overall 81.142857...
+- King Final: 83 / 85 / 81 / 81 / 79 / 76 / 80 → Overall 80.714285...
+- Katakuri Final: 79 / 80 / 80 / 82 / 85 / 81 / 82 → Overall 81.285714...
+- 신규 Final Overalls: Vista 79.142857..., Queen 78.714285..., Jozu 77.285714..., Smoothie 76.714285..., Jack 74.428571..., Cracker 71.857142....
+- Katakuri Attack은 높은 무장색·기술 다양성과 실제 결정력을 분리해 Base 77 + Effective Armament 2 = Final 79로 조정.
+- Marco Versatility는 공격·방어·강자 마크·수송·상태 억제 지원 등 실제 역할 전환 폭을 반영해 84로 조정.
+- King Defense는 Flame ON 고방어와 Flame OFF 고속 trade-off를 함께 반영해 85로 조정.
+- Queen Versatility는 도구 수와 실제 역할 범위를 구분해 81로 조정.
+- Cracker Attack은 Jack과 명확한 우열을 강제하지 않고 Base 71 + Effective Armament 2 = Final 73으로 조정.
+- 스탯 카드의 Haki 표시를 Final 숫자 아래 `Base + Haki` 구조로 단순화.
+
+### Tests
+- 기존 Character List / Evaluation Trace / Battle Detail / Balanced Overall fixture를 9인 데이터에 맞게 갱신.
+- 9인 calibrated Overall 계산 테스트 추가.
+- v0.1.23 자동 test/build 결과는 main 반영 후 TEST_REPORT에 기록.
+
+### Known Issues
+- 모든 Evaluation은 아직 `draft`.
+- Vista / Smoothie 등 원작 전투 표본이 적은 캐릭터는 일부 Stat의 confidence가 상대적으로 낮음.
+- Browser/mobile visual verification은 자동 CI 범위 밖이며 수동 확인 필요.
+- 캐릭터 검색 UI는 로스터가 더 커지는 시점의 후속 기능으로 보류.
+
+### Manual Verification Required
+- crew tabs에서 흰수염 / 백수 / 빅 맘 전환 후 각 3인 chip이 표시되는지 확인.
+- 모바일에서 crew tabs / chips가 가로 스크롤되고 본문을 과도하게 밀어내지 않는지 확인.
+- Haki가 반영된 Stat에서 Final 아래 `Base + Haki`가 표시되는지 확인.
+- 9개 캐릭터 상세의 Special Combat Profile / Battle / Evidence / Evaluation Trace 연결 확인.
+
 ## v0.1.22 — Seven Core Stats & Special Combat Profile
 
 ### Added
