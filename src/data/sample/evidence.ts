@@ -657,6 +657,22 @@ export const sampleEvidence: Evidence[] = [
     uncertainty: '나미의 지원과 상성 개입이 지속되었고 전투의 세부 강도는 시간 전체에서 동일하지 않다.',
   },
   {
+    id: 'evidence-cracker-kuzan-freeze-1062-1064',
+    battleId: 'cacao-cracker-kuzan-augur',
+    subjectCharacterId: 'cracker',
+    source: { type: 'canon', reference: 'One Piece Manga Chapters 1062-1064 cover story', description: '검은수염 해적단의 쿠잔과 반 오거가 카카오섬에 침입해 푸딩을 납치한 사건과 얼어붙어 패배한 크래커' },
+    evidenceStrength: 'moderate',
+    fact: '쿠잔과 반 오거가 카카오섬에 침입해 푸딩을 납치했고, 크래커는 이들을 저지하려다 쇼콜라 타운 주민들과 함께 얼어붙은 패배 상태로 확인된다.',
+    supportedAbilities: ['비스킷비스킷 열매 전투', '침입자 저지'],
+    statContributions: [
+      { stat: 'defense', role: 'context', note: '쿠잔의 빙결에 제압된 결과는 확인되지만 전투 과정이 생략되어 일반적인 방어력 수치의 직접 하향 근거로 과대해석하지 않는다.' },
+      { stat: 'combatIQ', role: 'context', note: '패배 결과만으로 전술 판단 실패나 대응 능력 부족을 구체적으로 추론하지 않는다.' },
+    ],
+    interpretation: 'Cracker의 명확한 후속 패배 기록으로 보존하되, 원작 표지연재가 교전 과정을 생략했으므로 쿠잔과의 세부 공방이나 반 오거의 직접 기여도를 만들어내지 않는다.',
+    evaluationImpact: 'Battle history에는 반영하지만 현재 Core Stat 점수를 직접 조정하는 핵심 Evidence로 사용하지 않는다.',
+    uncertainty: '쿠잔과 반 오거 각각의 구체적인 공격 과정, 전투 시간, 크래커의 당시 상세 상태는 원작 표지연재만으로 확정할 수 없다.',
+  },
+  {
     id: 'evidence-smoothie-poison-869',
     battleId: 'whole-cake-smoothie-tea-party',
     subjectCharacterId: 'smoothie',
