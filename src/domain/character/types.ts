@@ -11,9 +11,31 @@ export type CanonProfileSource = {
   reference: string
 }
 
+export type SpecialCombatTraitCategory =
+  | 'devil-fruit'
+  | 'race'
+  | 'biology'
+  | 'modification'
+  | 'equipment'
+  | 'technology'
+  | 'other'
+
+export type SpecialCombatTraitStatus = 'confirmed' | 'unclear' | 'not-confirmed'
+
+export type SpecialCombatTrait = {
+  id: string
+  category: SpecialCombatTraitCategory
+  name: string
+  status: SpecialCombatTraitStatus
+  description: string
+  evidenceIds: string[]
+  limitations?: string
+  uncertainty?: string
+}
+
 export type CombatProfile = {
   combatStyles: string[]
-  keyAbilities: string[]
+  specialTraits: SpecialCombatTrait[]
   haki: HakiProfile
   sources: CanonProfileSource[]
 }
