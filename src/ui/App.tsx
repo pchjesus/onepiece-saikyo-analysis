@@ -32,7 +32,7 @@ export default function App() {
     <div className="app-shell">
       <header>
         <p className="eyebrow">ONE PIECE · MVP</p>
-        <h1>사최간 전투력 분석</h1>
+        <h1>원피스 전투력 분석</h1>
         <p>Character → Evaluation → Calculation Model → Combat Power</p>
       </header>
 
