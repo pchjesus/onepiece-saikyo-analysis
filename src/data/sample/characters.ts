@@ -302,7 +302,7 @@ export const sampleCharacters: Character[] = [
         { label: '원작 Evidence', reference: 'Ch. 837-838 / 842' },
       ],
     },
-  },,
+  },
   {
     id: 'zoro', name: '조로', crewId: 'straw-hat-pirates',
     description: '밀짚모자 일당의 검사. 삼도류와 높은 수준의 무장색·패왕색 강화를 결합해 강한 공방과 결정력을 발휘한다.',
