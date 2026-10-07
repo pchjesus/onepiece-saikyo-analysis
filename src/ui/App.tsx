@@ -7,24 +7,24 @@ const characterList = getCharacterList()
 
 export default function App() {
   const [selectedId, setSelectedId] = useState(characterList[0]?.character.id ?? '')
-  const [selectedCrewId, setSelectedCrewId] = useState(characterList[0]?.crew.id ?? '')
+  const [selectedGroupId, setSelectedGroupId] = useState(characterList[0]?.group.id ?? '')
 
-  const crews = useMemo(() => {
+  const groups = useMemo(() => {
     const seen = new Set<string>()
     return characterList
-      .map(({ crew }) => crew)
-      .filter((crew) => {
-        if (seen.has(crew.id)) return false
-        seen.add(crew.id)
+      .map(({ group }) => group)
+      .filter((group) => {
+        if (seen.has(group.id)) return false
+        seen.add(group.id)
         return true
       })
   }, [])
 
-  const visibleCharacters = characterList.filter(({ crew }) => crew.id === selectedCrewId)
+  const visibleCharacters = characterList.filter(({ group }) => group.id === selectedGroupId)
 
-  const selectCrew = (crewId: string) => {
-    setSelectedCrewId(crewId)
-    const firstCharacter = characterList.find(({ crew }) => crew.id === crewId)
+  const selectGroup = (groupId: string) => {
+    setSelectedGroupId(groupId)
+    const firstCharacter = characterList.find(({ group }) => group.id === groupId)
     if (firstCharacter) setSelectedId(firstCharacter.character.id)
   }
 
@@ -37,22 +37,22 @@ export default function App() {
       </header>
 
       <nav className="character-selector" aria-label="캐릭터 선택">
-        <div className="crew-tabs" role="tablist" aria-label="해적단 선택">
-          {crews.map((crew) => (
+        <div className="crew-tabs" role="tablist" aria-label="그룹 선택">
+          {groups.map((group) => (
             <button
-              key={crew.id}
-              className={`crew-tab ${selectedCrewId === crew.id ? 'selected' : ''}`}
+              key={group.id}
+              className={`crew-tab ${selectedGroupId === group.id ? 'selected' : ''}`}
               type="button"
               role="tab"
-              aria-selected={selectedCrewId === crew.id}
-              onClick={() => selectCrew(crew.id)}
+              aria-selected={selectedGroupId === group.id}
+              onClick={() => selectGroup(group.id)}
             >
-              {crew.name}
+              {group.name}
             </button>
           ))}
         </div>
 
-        <div className="character-chips" aria-label="해적단 캐릭터">
+        <div className="character-chips" aria-label="그룹 캐릭터">
           {visibleCharacters.map(({ character }) => (
             <button
               key={character.id}

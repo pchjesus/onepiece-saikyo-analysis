@@ -10,5 +10,5 @@ import type { Group } from '../../domain/character/types'
 export const sampleGroups: Group[] = [
   { id: 'whitebeard-pirates', name: '흰수염 해적단', type: 'pirate-crew' },
   { id: 'beasts-pirates', name: '백수 해적단', type: 'pirate-crew' },
-  { id: 'big-mom-pirates', name: '빅 맘 해적단', type: 'pirate-crew' },
+  { id: 'big-mom-pirates', name: '빅맘 해적단', type: 'pirate-crew' },
 ]
