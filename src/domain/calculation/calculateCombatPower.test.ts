@@ -59,13 +59,23 @@ describe('Balanced v1.2', () => {
     expect(getFinalStatScore(item, 0.5)).toBe(76)
   })
 
-  it('calculates the calibrated sample Overalls from Final Stats', () => {
-    const marco = sampleEvaluations.find(({ characterId }) => characterId === 'marco')!
-    const king = sampleEvaluations.find(({ characterId }) => characterId === 'king')!
-    const katakuri = sampleEvaluations.find(({ characterId }) => characterId === 'katakuri')!
-    expect(calculateBalancedCombatPower(marco, balancedV12).finalScore).toBeCloseTo(80.5714285714)
-    expect(calculateBalancedCombatPower(king, balancedV12).finalScore).toBeCloseTo(80.2857142857)
-    expect(calculateBalancedCombatPower(katakuri, balancedV12).finalScore).toBeCloseTo(81.7142857143)
+  it('calculates the calibrated nine-character Overalls from Final Stats', () => {
+    const expected: Record<string, number> = {
+      marco: 81.1428571429,
+      jozu: 77.2857142857,
+      vista: 79.1428571429,
+      king: 80.7142857143,
+      queen: 78.7142857143,
+      jack: 74.4285714286,
+      katakuri: 81.2857142857,
+      smoothie: 76.7142857143,
+      cracker: 71.8571428571,
+    }
+
+    for (const evaluation of sampleEvaluations) {
+      expect(calculateBalancedCombatPower(evaluation, balancedV12).finalScore)
+        .toBeCloseTo(expected[evaluation.characterId])
+    }
   })
 
   it('rejects inconsistent final scores', () => {
