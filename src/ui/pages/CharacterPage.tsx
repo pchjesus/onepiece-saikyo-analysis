@@ -19,14 +19,14 @@ export function CharacterPage({ characterId }: { characterId: string }) {
     <main className="detail">
       <p className="eyebrow">{detail.crew.name}</p>
       <h1>{detail.character.name}</h1>
-      <p className="prototype-note">{detail.evaluation.status === 'draft' ? '평가 진행 중 · v0.1.21 절대 스케일 보정 draft' : 'MVP 구조 검증용 임시 평가 데이터 · 공식 전투력 평가 아님'}</p>
+      <p className="prototype-note">{detail.evaluation.status === 'draft' ? '평가 진행 중 · v0.1.22 7 Core Stat draft' : 'MVP 구조 검증용 임시 평가 데이터 · 공식 전투력 평가 아님'}</p>
       <CombatProfile profile={detail.character.combatProfile} />
       <section className="power-card">
         <span>Overall Combat Power · 현재 계산값</span>
         <strong>{result.finalScore.toFixed(1)}<small>/100</small></strong>
-        <span>{result.calculationModelVersion} · Balanced · Haki Weight ×{result.hakiWeight}</span>
+        <span>{result.calculationModelVersion} · Balanced · 7 Core Stats · Haki Weight ×{result.hakiWeight}</span>
       </section>
-      <h2>Basic Combat Stats</h2>
+      <h2>Core Combat Stats</h2>
       <StatList items={detail.evaluation.items} hakiWeight={result.hakiWeight} />
       {evaluationTrace && <EvaluationTrace items={evaluationTrace} status={detail.evaluation.status} evaluationDataVersion={detail.evaluation.evaluationDataVersion} hakiWeight={result.hakiWeight} />}
       <section className="evidence-section">
