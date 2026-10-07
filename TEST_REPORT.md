@@ -1,3 +1,36 @@
+# v0.1.21 Final Calibration Refinement — Verification Note
+
+## Scope
+- Marco Marineford/Wano Evidence coverage 보강.
+- Marco Armament actual-application Evidence 및 Raw +2 후보 반영.
+- Marco / King / Katakuri final calibration 재조정.
+- Multi-stat Evidence 중복 억제 원칙 명문화.
+- Private development 단계에서 Pages 자동 배포를 중단하고 push 시 test/build만 수행하도록 workflow 조정.
+
+## Expected calibrated Overall
+- Marco: 81.125
+- King: 80.75
+- Katakuri: 81.50
+
+## Regression targets
+- 8-stat 구조 유지.
+- Haki Weight 0.5 유지.
+- Overall = 8 Final Stat 산술평균 유지.
+- Existing Evidence ID reference integrity 유지.
+- Marco timeline에 긍정 Evidence와 Garp/Seastone 한계 Context가 함께 표시.
+- Katakuri Future Sight는 Speed Haki Contribution으로 추가하지 않음.
+- King Flame ON / OFF conditional peak 원칙 유지.
+- Character Detail / Evaluation Trace / Battle Timeline 기존 연결 유지.
+- main push에서는 Pages configure/deploy가 실행되지 않고 test/build까지만 성공해야 함.
+
+## Verification status before CI
+- Code/data/document static review: COMPLETED.
+- Automated GitHub Actions after this commit: PENDING.
+- Browser/mobile visual verification: PENDING.
+- GitHub Pages deployment: intentionally disabled for automatic push during private development.
+
+---
+
 # v0.1.21 Test Report
 
 ## Scope

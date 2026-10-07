@@ -62,9 +62,9 @@ describe('Balanced v1.1', () => {
     const marco = sampleEvaluations.find(({ characterId }) => characterId === 'marco')!
     const king = sampleEvaluations.find(({ characterId }) => characterId === 'king')!
     const katakuri = sampleEvaluations.find(({ characterId }) => characterId === 'katakuri')!
-    expect(calculateBalancedCombatPower(marco, balancedV11).finalScore).toBe(80.25)
-    expect(calculateBalancedCombatPower(king, balancedV11).finalScore).toBe(81.5)
-    expect(calculateBalancedCombatPower(katakuri, balancedV11).finalScore).toBe(81.75)
+    expect(calculateBalancedCombatPower(marco, balancedV11).finalScore).toBe(81.125)
+    expect(calculateBalancedCombatPower(king, balancedV11).finalScore).toBe(80.75)
+    expect(calculateBalancedCombatPower(katakuri, balancedV11).finalScore).toBe(81.5)
   })
 
   it('rejects inconsistent final scores', () => {

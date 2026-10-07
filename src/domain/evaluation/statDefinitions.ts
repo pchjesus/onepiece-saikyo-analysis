@@ -21,7 +21,7 @@ export const COMBAT_STAT_DEFINITIONS: Record<CombatStat, CombatStatDefinition> =
     label: 'Defense',
     description: '상대의 공격을 회피·방어·차단하거나 피해를 직접 줄여 자신을 보호하는 종합적인 방어 능력을 평가합니다.',
     includes: '회피, 방어, 차단, 피해 감소, 방어 특성, 특정 상태에서 강화되는 조건부 방어 능력',
-    excludes: '손상 이후의 회복·재생은 Defense에 자동으로 포함하지 않으며, 회복 능력 자체는 별도의 최상위 스탯으로 자동 환산하지 않습니다.',
+    excludes: '손상 이후의 회복·재생 사실 자체는 Defense에 자동 합산하지 않습니다. 다만 재생·특수 능력을 이용해 실제 공격을 차단·무효화하거나 보호 대상을 지킨 관찰 가능한 방어 성과는 Defense 근거로 사용할 수 있습니다.',
   },
   stamina: {
     stat: 'stamina',

@@ -7,7 +7,7 @@ MVP v0.1.21
 - 킹
 - 카타쿠리
 
-현재 Marco / King / Katakuri는 v0.1.21 절대 스케일 calibration을 적용한 draft 평가 상태다. Overall Combat Power는 8개 Final Stat의 단순 산술평균이며, Haki는 Raw Contribution을 보존한 채 Balanced 1.1의 Haki Weight 0.5를 거쳐 Effective Contribution으로 반영한다. 현재 계산값은 Marco 80.25, King 81.50, Katakuri 81.75이며 공식 확정 점수가 아니다.
+현재 Marco / King / Katakuri는 v0.1.21 절대 스케일 calibration을 적용한 draft 평가 상태다. Overall Combat Power는 8개 Final Stat의 단순 산술평균이며, Haki는 Raw Contribution을 보존한 채 Balanced 1.1의 Haki Weight 0.5를 거쳐 Effective Contribution으로 반영한다. 최종 calibration draft는 Marco 81.125, King 80.75, Katakuri 81.50이며 공식 확정 점수가 아니다.
 
 ## 구조
 UI → Application → Domain
@@ -49,6 +49,9 @@ npm.cmd run build
 - Future Sight는 Defense / Technique-Mastery / Combat IQ와 연결하되 Weight 0.5를 적용하고 Speed에는 직접 Haki 가산하지 않습니다.
 - Evidence 부족을 능력 부족으로 자동 해석하지 않습니다. Evidence Coverage / Confidence는 이번 버전에는 별도 필드로 추가하지 않고 후속 설계 후보로 남깁니다.
 - v0.1.20 GitHub Actions에서 확인된 stale test fixture 7건을 현재 데이터에 맞게 수정했습니다.
+- 최종 calibration에서 Marco의 정상결전/Wano 방어 및 Armament Application Evidence, Katakuri의 Snakeman Speed와 전투 판단 Evidence를 보강했습니다.
+- 동일 Evidence가 여러 Stat에 연결되는 것은 서로 다른 평가 의미를 증명할 때만 허용하고 primary / secondary / context로 강도를 구분합니다.
+- 개발 중에는 외부 공개를 하지 않으므로 main push에서는 test/build만 수행하고 GitHub Pages configure/deploy는 수동 workflow_dispatch에서만 실행합니다.
 
 ## v0.1.20 note
 
@@ -68,11 +71,13 @@ npm.cmd run build
 npm.cmd run dev
 ```
 
-### GitHub Pages 최초 설정
-1. GitHub 저장소에 프로젝트를 push합니다.
-2. `Settings → Pages → Build and deployment → Source`를 `GitHub Actions`로 선택합니다.
-3. `main` 브랜치에 push하면 `Deploy GitHub Pages` workflow가 test/build 후 자동 배포합니다.
-4. 이후에도 같은 URL이 최신 `main` 배포본을 보여줍니다.
+### GitHub Pages 공개 시점
+현재는 외부 공유 전이므로 Pages를 활성화하지 않습니다. main push에서는 자동 test/build만 수행합니다.
+
+향후 각 해적단의 주요 최고간부 2~3명 데이터가 충분히 추가되어 외부 공유를 시작할 때:
+1. `Settings → Pages → Build and deployment → Source`를 `GitHub Actions`로 선택합니다.
+2. `Actions → Validate / Deploy GitHub Pages → Run workflow`를 수동 실행합니다.
+3. test/build가 통과하면 Pages artifact를 배포합니다.
 
 ## v0.1.18 note
 

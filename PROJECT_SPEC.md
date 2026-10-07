@@ -1153,8 +1153,42 @@ Raw 값은 삭제하거나 축소하지 않는다. Capability confirmed만으로
 Evidence 부족은 능력 부족의 직접 증거가 아니다. Haki Capability 보유, 실제 Application Evidence, Evaluation Contribution을 구분한다. Score와 Evidence Coverage / Confidence를 별도 필드로 관리하는 구조는 후속 설계 후보로 남긴다.
 
 ## 35.6 v0.1.21 calibrated draft
-- Marco: 80.25
-- King: 81.50
-- Katakuri: 81.75
+- Marco: 81.125
+- King: 80.75
+- Katakuri: 81.50
 
 이 숫자와 순위는 목표값이 아니라 독립 평가 결과이며 official로 승격하지 않는다.
+
+
+## 35.7 Multi-stat Evidence rule
+
+하나의 Canon Evidence가 여러 Stat과 관련되는 현상 자체를 금지하지 않는다. 실제 전투 장면은 공격·방어·숙련·판단 등 여러 의미를 동시에 가질 수 있다.
+
+다만 다음 규칙을 적용한다.
+
+- 각 Stat 연결은 서로 다른 평가 의미를 설명해야 한다.
+- 동일한 관찰 사실을 같은 이유로 여러 Stat에 복제하여 점수를 증폭하지 않는다.
+- 직접 핵심 성과는 `primary`, 의미 있는 보조 성과는 `secondary`, 해석·조건 구분용 정보는 `context`로 둔다.
+- Special Ability가 제공한 메커니즘과 그 메커니즘으로 실제 달성한 Attack / Defense / Stamina 성과는 분리할 수 있으나, 같은 성과를 각 항목에서 동일 강도로 반복 가산하지 않는다.
+- Evidence coverage가 많은 캐릭터가 자동으로 높은 점수를 받지 않도록 각 Evidence의 의미와 중복 여부를 우선 검토한다.
+
+## 35.8 Final calibration refinement
+
+추가 Canon 검토 후 v0.1.21 draft를 다음과 같이 보정한다.
+
+```text
+Marco     81.125
+King      80.75
+Katakuri  81.50
+```
+
+핵심 변경:
+- Marco: Attack 결정력은 보수적으로 유지하되 Armament 실제 적용을 최소 Raw +2로 반영. Kizaru / Akainu / King / Kaido 공격 차단 장면을 Defense에 추가하고, Garp 저지·해루석 수갑 상황도 한계와 Combat Context로 함께 저장한다.
+- King: 카류돈 계열 고화력 공격을 반영해 Attack을 높게 유지하되 Flame ON Defense / Flame OFF Speed의 상호 배타성과 루나리아 메커니즘의 다중 Stat 중복을 억제한다.
+- Katakuri: Snakeman전의 순수 전투 속도와 Gear 4 선제 차단·상대 분석을 보강하고, Mochi 능력 자체보다 높은 운용 숙련이 핵심이라는 점을 Technique / Special Ability 경계에 반영한다.
+
+## 35.9 Private-development deployment policy
+
+현재 단계에서는 외부 공유를 하지 않는다. main push에서는 `npm install → npm test → npm run build`까지만 자동 검증하며 Pages configure/upload/deploy는 실행하지 않는다.
+
+향후 각 해적단의 주요 최고간부 2~3명이 충분히 추가되어 외부 공유 단계에 들어갈 때 저장소 Pages를 GitHub Actions source로 활성화하고 workflow를 수동 실행한다.

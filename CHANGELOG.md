@@ -19,6 +19,14 @@
 - v0.1.20 데이터 추가 뒤 남은 stale application test fixture 수정.
 - 기존 GitHub Actions에서 test 7건 실패로 build가 중단되던 회귀 원인을 fixture 불일치로 확인하고 수정.
 
+### Calibration Refinement
+- Marco의 정상결전 및 Wano 방어 Evidence를 보강하고 Armament 실제 Application을 최소 Raw +2로 반영.
+- Marco Attack은 결정력 부족을 고려해 Final 76으로 보수적으로 유지하고, Defense는 고화력 차단 성과를 반영해 85로 재평가.
+- King은 카류돈 계열 화력을 반영해 Attack 83, 조건부 Lunarian 성능 중복을 억제해 Overall 80.75로 조정.
+- Katakuri는 Snakeman전 Speed와 Gear 4 선제 대응을 보강하고 Technique 85 / Special Ability 80 경계를 재정리해 Overall 81.50으로 조정.
+- 동일 Evidence의 다중 Stat 연결은 서로 다른 평가 의미가 있을 때만 허용하는 원칙을 명문화.
+- 개발 중 main push에서는 test/build만 수행하고 Pages 배포는 수동 실행으로 변경.
+
 ### Tests
 - 구현 전 baseline: 35 tests 중 28 passed / 7 failed. `npm install` PASS, build/deploy는 stale fixture 실패로 skipped.
 - v0.1.21 main GitHub Actions: 10 test files / 39 tests PASS.
