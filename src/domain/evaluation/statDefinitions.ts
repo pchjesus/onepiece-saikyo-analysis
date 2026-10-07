@@ -14,7 +14,7 @@ export const COMBAT_STAT_DEFINITIONS: Record<CombatStat, CombatStatDefinition> =
     label: 'Attack / 공격력',
     description: '상대에게 실제로 유효한 피해를 줄 수 있는 공격 능력과 전투 성과를 평가합니다.',
     includes: '공격 위력, 유효타 성과, 공격 수단의 전투 활용, 공격의 지속·조합 능력',
-    excludes: '특수능력의 존재 자체나 활용 범위는 Special Ability와 Versatility에서 별도로 평가합니다.',
+    excludes: '특수 전투요소의 존재 자체를 Attack에 자동 가산하지 않습니다. 해당 요소가 실제 공격 성과를 만들었을 때만 Attack 근거로 사용하며, 적용 범위는 Versatility에서 별도로 평가합니다.',
   },
   defense: {
     stat: 'defense',
@@ -42,14 +42,7 @@ export const COMBAT_STAT_DEFINITIONS: Record<CombatStat, CombatStatDefinition> =
     label: 'Technique / Mastery / 기술·숙련도',
     description: '자신이 사용하는 전투 수단과 능력을 얼마나 높은 수준으로 정교하게 다루는지를 평가합니다.',
     includes: '검술·체술·무기술·능력 운용의 숙련도, 기술의 정밀성, 전투 수단의 완성도, 자신의 고유 능력을 높은 수준으로 제어·구사하는 능력',
-    excludes: '어떤 고유 능력을 보유했는지와 그 능력 자체의 전투적 가치는 Special Ability, 상황에 따라 무엇을 선택하고 사용하는지는 Combat IQ, 서로 다른 전투 상황에 적용하는 폭은 Versatility에서 별도로 평가합니다.',
-  },
-  specialAbility: {
-    stat: 'specialAbility',
-    label: 'Special Ability / 특수 능력',
-    description: '캐릭터가 가진 고유 능력의 성능, 특수 효과와 직접적인 전투적 유틸리티를 평가합니다.',
-    includes: '능력의 고유성, 위력, 특수 효과, 상성, 직접적인 전투 유틸리티와 능력 자체의 활용 가치',
-    excludes: '서로 다른 능력·전투 방식·역할을 여러 상황에 맞춰 전환하고 적용하는 폭은 Versatility에서 별도로 평가합니다. 능력이 공격·방어·회복에 기여한 성과는 해당 개별 스탯에도 근거로 사용할 수 있습니다.',
+    excludes: '고유 능력·종족 특성·개조 등 특수 전투요소 자체는 Special Combat Profile에 기록합니다. 상황에 따라 무엇을 선택하고 사용하는지는 Combat IQ, 서로 다른 전투 상황에 적용하는 폭은 Versatility에서 별도로 평가합니다.',
   },
   combatIQ: {
     stat: 'combatIQ',
