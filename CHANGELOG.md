@@ -25,7 +25,9 @@
 ### Tests
 - 기존 Character List / Evaluation Trace / Battle Detail / Balanced Overall fixture를 9인 데이터에 맞게 갱신.
 - 9인 calibrated Overall 계산 테스트 추가.
-- v0.1.23 자동 test/build 결과는 main 반영 후 TEST_REPORT에 기록.
+- 첫 main run에서 배열 append 경계의 `},,`로 생성된 Battle/Evidence array hole 때문에 47 tests 중 40 PASS / 7 FAIL을 확인.
+- 두 array hole을 수정한 최종 run에서 12 test files / 47 tests PASS, production build PASS.
+- Pages deploy는 private development 정책대로 SKIPPED.
 
 ### Known Issues
 - 모든 Evaluation은 아직 `draft`.
