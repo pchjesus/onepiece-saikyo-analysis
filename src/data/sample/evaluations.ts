@@ -121,7 +121,7 @@ export const sampleEvaluations: Evaluation[] = [
       item('combatIQ', 70, '능력의 장점을 활용해 본체를 보호하고 병사를 지속 투입하지만 나미의 물 상성 대응 이후 전투 양상을 크게 전환하는 모습은 제한적이다.', ['evidence-cracker-long-battle-842']),
       item('versatility', 72, '비스킷 하나로 공격·방어·다수 병사 운용·본체 은폐를 수행하지만 실제 역할과 거리 전환의 폭은 상위 분석군보다 제한적이다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-long-battle-842']),
     ],
-  },,
+  },
   {
     id: 'evaluation-zoro', characterId: 'zoro', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
     items: [
