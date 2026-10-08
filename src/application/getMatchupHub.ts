@@ -1,8 +1,8 @@
 import { calculationModelRepository } from '../data/repositories/calculationModelRepository'
 import { characterRepository } from '../data/repositories/characterRepository'
 import { evaluationRepository } from '../data/repositories/evaluationRepository'
-import { groupRepository } from '../data/repositories/groupRepository'
 import { matchupRepository } from '../data/repositories/matchupRepository'
+import { getUniqueCharacterList } from './getCharacterList'
 import { calculateBalancedCombatPower } from '../domain/calculation/calculateCombatPower'
 import { COMBAT_STAT_DEFINITIONS } from '../domain/evaluation/statDefinitions'
 import { getFinalStatScore } from '../domain/evaluation/score'
@@ -81,8 +81,9 @@ function getFighter(characterId: string, subjectStateId?: string): MatchupHubFig
   const model = calculationModelRepository.getModel('balanced')
   if (!character || !evaluation || !model) return undefined
 
-  const membership = groupRepository.getMembershipsForCharacter(characterId)[0]
-  const group = membership ? groupRepository.getGroup(membership.groupId) : undefined
+  const representative = getUniqueCharacterList()
+    .find((entry) => entry.character.id === characterId)
+  const group = representative?.group
 
   return {
     characterId,
@@ -107,14 +108,10 @@ function getFighter(characterId: string, subjectStateId?: string): MatchupHubFig
 }
 
 export function getMatchupRoster(): MatchupRosterOption[] {
-  const seen = new Set<string>()
-  return groupRepository.getMemberships().flatMap((membership) => {
-    if (seen.has(membership.characterId)) return []
-    const character = characterRepository.getCharacter(membership.characterId)
-    const group = groupRepository.getGroup(membership.groupId)
-    const evaluations = evaluationRepository.getEvaluations(membership.characterId)
-    if (!character || !group || evaluations.length === 0) return []
-    seen.add(membership.characterId)
+  return getUniqueCharacterList().flatMap(({ character, group }) => {
+    const evaluations = evaluationRepository.getEvaluations(character.id)
+    if (evaluations.length === 0) return []
+
     const selectedDefault = defaultEvaluation(character.id)
     return [{
       characterId: character.id,
