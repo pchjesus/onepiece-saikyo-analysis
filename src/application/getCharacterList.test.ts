@@ -8,9 +8,9 @@ describe('getCharacterList', () => {
     expect(list).toHaveLength(27)
     expect(list.map((item) => item.character.name)).toEqual([
       '마르코', '죠즈', '비스타',
-      '킹', '퀸', '잭',
-      '카타쿠리', '스무디', '크래커',
-      '조로', '상디', '징베',
+      '알베르', '퀸', '잭',
+      '샬롯 카타쿠리', '샬롯 스무디', '샬롯 크래커',
+      '롤로노아 조로', '상디', '징베',
       '샹크스', '몽키 D. 가프', '사카즈키', '쿠잔', '보르살리노', '잇쇼', '아라마키',
       '마샬 D. 티치', '지저스 바제스', '시류', '반 오거', '아발로 피사로',
       '트라팔가 로', '돈키호테 도플라밍고', '보아 핸콕',
@@ -34,5 +34,8 @@ describe('getCharacterList', () => {
     expect(king?.membership).toMatchObject({ groupId: 'beasts-pirates', subgroup: '대간판' })
     expect(katakuri?.membership).toMatchObject({ groupId: 'big-mom-pirates', subgroup: '스위트 3장성' })
     expect(zoro?.membership).toMatchObject({ groupId: 'straw-hat-pirates', status: 'current' })
+    expect(king?.character.knownAs.map(({ name }) => name)).toContain('킹')
+    expect(getCharacterList().find(({ character }) => character.id === 'akainu')?.character)
+      .toMatchObject({ name: '사카즈키' })
   })
 })
