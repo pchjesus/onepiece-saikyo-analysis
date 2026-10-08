@@ -353,35 +353,7 @@ export const sampleBattles: Battle[] = [
     combatStructure: '1v1', combatPurpose: '흰수염에게 도전하려는 에이스를 저지', combatIntent: 'serious',
     environment: '과거의 육상 전장', restrictions: '현재 시점보다 오래전의 전투이므로 현 전투력의 직접 측정값이 아니라 지속력의 과거 반복 근거로 사용',
     externalFactors: '양측 모두 장기간 결투 끝에 쓰러짐', result: 'draw', participantIds: [],
-  }
-]
-
-export const sampleBattleParticipants: BattleParticipant[] = [
-  {
-    id: 'participant-marco-king-queen',
-    battleId: 'onigashima-marco-king-queen',
-    characterId: 'marco',
-    side: 'A',
-    condition: {
-      fatigue: '킹과 퀸을 동시에 상대하며 상당히 지친 상태로 묘사됨',
-      abilityUsage: '불꽃과 재생 능력을 전투에 사용함',
-    },
   },
-  {
-    id: 'participant-king-marco-queen',
-    battleId: 'onigashima-marco-king-queen',
-    characterId: 'king',
-    side: 'B',
-    condition: {},
-  },
-  {
-    id: 'participant-queen-marco-king',
-    battleId: 'onigashima-marco-king-queen',
-    characterId: 'queen',
-    side: 'B',
-    condition: {},
-  },
-
   {
     id: 'banaro-teach-ace', title: '바나로 섬 — 티치 vs 에이스', chronologyOrder: 1,
     combatStructure: '1v1', combatPurpose: '서로를 쓰러뜨리기 위한 직접 결투', combatIntent: 'serious',
@@ -430,4 +402,32 @@ export const sampleBattleParticipants: BattleParticipant[] = [
     environment: '해적섬 하치노스', restrictions: '섬과 동화한 대형 신체의 피해가 본체에도 연동되는 약점이 확인된다.',
     externalFactors: 'Garp의 Galaxy Divide와 Koby의 Honesty Impact가 연속적으로 피사로의 섬 신체에 가해진다.', result: 'defeat', participantIds: [],
   },
+]
+
+export const sampleBattleParticipants: BattleParticipant[] = [
+  {
+    id: 'participant-marco-king-queen',
+    battleId: 'onigashima-marco-king-queen',
+    characterId: 'marco',
+    side: 'A',
+    condition: {
+      fatigue: '킹과 퀸을 동시에 상대하며 상당히 지친 상태로 묘사됨',
+      abilityUsage: '불꽃과 재생 능력을 전투에 사용함',
+    },
+  },
+  {
+    id: 'participant-king-marco-queen',
+    battleId: 'onigashima-marco-king-queen',
+    characterId: 'king',
+    side: 'B',
+    condition: {},
+  },
+  {
+    id: 'participant-queen-marco-king',
+    battleId: 'onigashima-marco-king-queen',
+    characterId: 'queen',
+    side: 'B',
+    condition: {},
+  },
+
 ]
