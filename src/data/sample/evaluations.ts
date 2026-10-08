@@ -306,7 +306,7 @@ export const sampleEvaluations: Evaluation[] = [
       item('combatIQ', 70, '섬 전체를 활용해 탈출하는 해군을 압박했지만 능력의 큰 표면적이 역으로 공격 경로가 되는 약점 관리에는 한계가 드러났다.', ['evidence-pizarro-damage-link-1088']),
       item('versatility', 74, '감지·구조물 조작·거대 신체 공격 등 여러 용도가 있으나 현재 직접 묘사는 주로 섬 동화와 대형 제압에 집중된다.', ['evidence-pizarro-island-1087-1088']),
     ],
-  },,
+  },
 
   {
     id: 'evaluation-law', characterId: 'law', evaluationDataVersion: 'evaluation-0.1.26-draft', status: 'draft',
