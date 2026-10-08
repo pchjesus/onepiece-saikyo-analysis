@@ -8,6 +8,13 @@ import { BattleTimeline } from '../components/BattleTimeline'
 import { EvaluationTrace } from '../components/EvaluationTrace'
 import { StatList } from '../components/StatList'
 import { CombatProfile } from '../components/CombatProfile'
+import type { CharacterKnownAsKind } from '../../domain/character/types'
+
+const knownAsLabel: Record<CharacterKnownAsKind, string> = {
+  alias: '통칭',
+  epithet: '이명',
+  title: '칭호',
+}
 
 export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOverall }: {
   characterId: string
@@ -29,6 +36,22 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
         <div>
           <p className="eyebrow">{detail.group.name}</p>
           <h1>{detail.character.name}</h1>
+          {detail.character.knownAs.length > 0 && (
+            <div className="character-known-as" aria-label="공식 이명 및 칭호">
+              {detail.character.knownAs.map((entry) => (
+                <span key={`${entry.kind}:${entry.name}`}>
+                  <small>{knownAsLabel[entry.kind]}</small>{entry.name}
+                </span>
+              ))}
+            </div>
+          )}
+          {detail.character.description && <p className="character-description">{detail.character.description}</p>}
+          {detail.evaluation.subjectState && (
+            <p className="evaluation-subject-state">
+              <strong>평가 시점 · {detail.evaluation.subjectState.label}</strong>
+              {detail.evaluation.subjectState.note && <span>{detail.evaluation.subjectState.note}</span>}
+            </p>
+          )}
         </div>
         <p className="prototype-note">{detail.evaluation.status === 'draft'
           ? `평가 진행 중 · 7 Core Stat draft · ${detail.evaluation.evaluationDataVersion}`
