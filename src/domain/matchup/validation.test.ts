@@ -33,6 +33,21 @@ describe('matchup model foundation', () => {
       .toEqual({ valid: true, errors: [] })
   })
 
+  it('validates explicit evaluation-state references', () => {
+    const stateAware: MatchupAnalysis = { ...base, characterAId: 'garp', characterAStateId: 'current' }
+    expect(validateMatchupAnalysis(
+      stateAware,
+      ['evidence-marco-regeneration-1006'],
+      ['garp:prime', 'garp:current'],
+    )).toEqual({ valid: true, errors: [] })
+
+    expect(validateMatchupAnalysis(
+      { ...stateAware, characterAStateId: 'future' },
+      ['evidence-marco-regeneration-1006'],
+      ['garp:prime', 'garp:current'],
+    ).errors).toContain('Unknown matchup evaluation state: garp:future.')
+  })
+
   it('rejects self-matchups, unknown evidence and unsupported confirmed claims', () => {
     const invalid: MatchupAnalysis = {
       ...base,
