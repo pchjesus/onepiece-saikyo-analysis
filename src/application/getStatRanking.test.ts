@@ -27,6 +27,17 @@ describe('getStatRanking', () => {
     expect(versatility[0]).toMatchObject({ characterId: 'fujitora', score: 94, rank: 1 })
     expect(attack.find(({ characterId }) => characterId === 'zoro')?.score).toBe(90)
   })
+  it('deduplicates multi-membership Characters and keeps their representative Group', () => {
+    const entries = getStatRanking('overall')
+    const mihawk = entries.filter(({ characterId }) => characterId === 'mihawk')
+    const crocodile = entries.filter(({ characterId }) => characterId === 'crocodile')
+
+    expect(mihawk).toHaveLength(1)
+    expect(crocodile).toHaveLength(1)
+    expect(mihawk[0]).toMatchObject({ groupId: 'cross-guild', groupName: '크로스 길드' })
+    expect(crocodile[0]).toMatchObject({ groupId: 'cross-guild', groupName: '크로스 길드' })
+  })
+
   it('sorts the current 29-character Overall from the calculation service', () => {
     const entries = getStatRanking('overall')
     expect(entries).toHaveLength(29)
