@@ -161,4 +161,89 @@ export const sampleEvaluations: Evaluation[] = [
       item('versatility', 80, '근접 어인공수도, 물·수분 매개 공격, 환경 활용, 방어와 반격 전환을 실제 전투에 적용한다. 종족 특성 자체는 별도 가산하지 않는다.', ['evidence-jinbe-fishman-karate-629', 'evidence-jinbe-big-mom-890']),
     ],
   }
+
+  {
+    id: 'evaluation-shanks', characterId: 'shanks', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    items: [
+      item('attack', 94, 'Kid전 Kamusari의 결정력과 Whitebeard와의 충돌을 반영한다. Zoro 90보다 명확히 높은 최상위 단일 결정력으로 보되 절대 천장은 남긴다.'),
+      item('defense', 91, 'Whitebeard·Akainu 공격에 대한 차단과 미래예지 기반 선제 방어를 함께 반영한다.'),
+      item('stamina', 88, '현재까지 뚜렷한 소모 한계는 없지만 장기 고강도 1대1 표본이 부족해 최상단으로 추정하지 않는다.'),
+      item('speed', 93, 'Kid의 공격 발사 전에 장거리를 좁혀 선제 타격한 실제 기동 성과를 미래예지 자체와 분리해 평가한다.'),
+      item('techniqueMastery', 94, '검술·미래예지·패왕색과 Kamusari를 하나의 실전 체계로 정밀하게 결합한다.'),
+      item('combatIQ', 92, '미래의 함대 피해를 확인한 직후 위험도를 판단하고 최우선 위협을 즉시 제거한 전투 판단을 반영한다.'),
+      item('versatility', 94, '검술·고속 요격·미래예지·근접 강화·장거리 패왕색 개입 등 다양한 거리와 목적에 대응한다.'),
+    ],
+  },
+  {
+    id: 'evaluation-garp', characterId: 'garp', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    items: [
+      item('attack', 99, '로저와 반복적으로 사투한 전성기 위상과 노년 Galaxy 계열 타격의 직접 고점을 함께 반영한다.'),
+      item('defense', 96, '전성기 최고 수준의 패기·신체 방어를 평가하되 노년의 관통상 등 실제 피격 한계도 고려한다.'),
+      item('stamina', 99, '전성기 로저급 장기 사투 서사와 노년 중상 이후 전투 지속을 결합한 최상단 지속력 평가다.'),
+      item('speed', 96, '노년 하치노스에서도 고속 접근·연속 개입이 가능하며 전성기 신체 고점을 반영한다.'),
+      item('techniqueMastery', 97, 'Blue Hole·Galaxy Impact·Galaxy Divide 등 제한된 도구를 다양한 타격 구조로 구현하는 최고 수준 숙련이다.'),
+      item('combatIQ', 94, '수십 년 최상위 전투 경험과 하치노스 구조전에서의 즉각적 판단·지휘를 반영한다.'),
+      item('versatility', 85, '응용 기술은 뛰어나지만 주된 전투 수단이 신체·권격·패기에 집중된 점을 다른 축과 분리한다.'),
+    ],
+  },
+  {
+    id: 'evaluation-akainu', characterId: 'akainu', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    items: [
+      item('attack', 96, '마그마의 높은 관통·살상력과 정상결전의 반복적 중상 성과를 최상위 공격 근거로 본다.'),
+      item('defense', 93, 'Whitebeard를 포함한 강자들의 공격을 받은 뒤에도 전선을 유지한 실제 공방을 반영한다.'),
+      item('stamina', 96, 'Kuzan과 10일 결투를 지속한 명시적 장기전 최고급 표본이다.'),
+      item('speed', 86, '상위권 전투 반응은 충분하지만 속도 특화자와 비교할 직접 기동 표본은 상대적으로 제한적이다.'),
+      item('techniqueMastery', 91, '마그마를 근접·원거리·광역 공격으로 안정적으로 운용한다.'),
+      item('combatIQ', 91, '전쟁 상황에서 목표 우선순위와 상대 심리를 활용하는 판단을 반복적으로 보였다.'),
+      item('versatility', 94, '근접 관통·원거리 화산탄·광역 지형 변화와 지속 압박을 모두 수행한다.'),
+    ],
+  },
+  {
+    id: 'evaluation-kuzan', characterId: 'kuzan', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    items: [
+      item('attack', 93, '빙결 자체의 한계를 최상위 무투와 결합해 보완한다. Zoro 90보다 높은 종합 공격력을 인정하되 Shanks·Akainu급 순간 결정력과 구분한다.'),
+      item('defense', 92, '자연계 신체 재구성과 빙결 방어, 최상위 근접 공방을 함께 반영한다.'),
+      item('stamina', 96, 'Akainu와 10일간 결투한 직접 장기전 근거다.'),
+      item('speed', 91, '노년 Garp와 근접 맞교환을 성립시키고 고속 전투에 대응한 직접 묘사를 반영한다.'),
+      item('techniqueMastery', 93, '빙결·무기 생성·지형 통제·근접 무투를 상황별로 전환하는 높은 숙련이다.'),
+      item('combatIQ', 93, '불리한 상성에서도 빙결을 제압·지형·보조 수단으로 전환하고 무투까지 연결하는 전투 활용도를 반영한다.'),
+      item('versatility', 96, '공격·방어·구속·이동·환경 통제와 근접 무투를 모두 수행한다.'),
+    ],
+  },
+  {
+    id: 'evaluation-kizaru', characterId: 'kizaru', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    items: [
+      item('attack', 93, '레이저와 고속 가속 타격의 높은 출력·관통 성과를 반영한다.'),
+      item('defense', 90, '상위권 공격에 대응·회피하지만 Gear 5의 강한 타격에는 실제로 행동 제한이 발생한 점을 함께 반영한다.'),
+      item('stamina', 93, 'Gear 5 Luffy와 교전한 뒤에도 재개입하고 임무를 이어간 전투 지속력을 반영한다.'),
+      item('speed', 99, '빛 기반 이동·가속과 실전 기동을 현 모델 최고 수준 속도 특화로 평가하되 100의 절대 천장은 남긴다.'),
+      item('techniqueMastery', 95, '레이저·광검·고속 발차기·분신 등 빛 능력을 정밀하고 다층적으로 운용한다.'),
+      item('combatIQ', 91, 'Luffy와 불필요한 정면전을 지속하기보다 교전·이탈을 반복하며 Vegapunk 제거라는 임무를 우선한 판단을 반영한다.'),
+      item('versatility', 97, '이동·근접·원거리·광역 사격·무기·분신을 하나의 능력으로 수행하는 최고 수준 적용 폭이다.'),
+    ],
+  },
+  {
+    id: 'evaluation-fujitora', characterId: 'fujitora', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    items: [
+      item('attack', 92, '검술에 중력과 운석을 결합하는 대규모 공격력을 반영해 Zoro 90보다 소폭 높은 고점으로 평가한다.'),
+      item('defense', 89, '검술·중력 제어를 통한 방어 대응은 강하지만 최상단 직접 내구 표본은 제한적이다.'),
+      item('stamina', 87, 'Dressrosa의 연속 활동은 확인되지만 10일 결투급 장기전 근거는 없다.'),
+      item('speed', 85, '상위 전투원의 반응 속도는 갖추지만 속도 특화 직접 묘사는 상대적으로 적다.'),
+      item('techniqueMastery', 92, '검술과 정밀한 중력 방향·강도 조절을 결합한다.'),
+      item('combatIQ', 87, '전략·정치적 판단은 뛰어나지만 전투 중 고난도 적응을 반복적으로 보여준 직접 표본은 Kuzan·Shanks·Kizaru보다 적다.'),
+      item('versatility', 96, '중력 압박·방향 전환·부유·운석·검술 등 전장 통제 범위가 매우 넓다.'),
+    ],
+  },
+  {
+    id: 'evaluation-ryokugyu', characterId: 'ryokugyu', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    items: [
+      item('attack', 91, '대장급 전투원으로서 광역 구속·흡수와 강한 직접 제압 성과를 인정하되, 현재 묘사상 막타 결정력은 Fujitora 92 이상으로 올리지 않는다.'),
+      item('defense', 91, '식물 신체와 재생을 통해 큰 공격 뒤에도 전투 형태를 복구하는 방어 성과를 반영한다.'),
+      item('stamina', 91, '다수 상대 연속 제압과 재생 후 전투 지속을 반영하되 명시적 초장기전 표본은 없다.'),
+      item('speed', 84, '비행·기동 수단은 있으나 속도 자체가 최상위 직접 강점으로 묘사되지는 않는다.'),
+      item('techniqueMastery', 88, '다양한 식물 형태와 흡수·구속·재생을 안정적으로 운용한다.'),
+      item('combatIQ', 84, '능력 활용은 넓지만 최상위 전술 판단을 입증할 반복 직접 표본은 아직 제한적이다.'),
+      item('versatility', 97, '광역 식생·구속·흡수·재생·비행·지형 변화까지 수행하는 최고 수준 능력 적용 폭이다.'),
+    ],
+  },
 ]
