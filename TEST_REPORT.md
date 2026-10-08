@@ -574,6 +574,12 @@ npm.cmd run dev
 - Community discussion UI is not rendered yet.
 - Balanced 1.2 / Haki Weight 0.5 / Special non-numeric policy remain unchanged.
 
+### Automated verification
+- PR #14 CI: **24 test files / 99 tests passed**.
+- `npm run build`: **passed** (Vite production build completed).
+- First CI attempt failed on a duplicated closing bracket introduced while replacing the final Evaluation block; the syntax error was isolated, fixed, and the complete suite then passed.
+- Matchup Arena application test confirms 11 matchup entries and state-aware current Garp vs Kuzan scoring.
+
 ### Manual visual checks
 - Desktop and mobile spacing of the top-level Stats / Matchup navigation.
 - Radar labels do not clip at common phone widths.
