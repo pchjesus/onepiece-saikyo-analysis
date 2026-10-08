@@ -165,3 +165,25 @@ MatchupRepository
 The radar chart is a presentation of the same seven Final Core Stats. It does not introduce a new score. Overall and stat differences are not converted into win probability.
 
 The sports/UFC-style presentation is intentionally more casual, but the underlying factor cards continue to preserve confirmed / supported / unclear evidence and matchup conditions.
+
+
+## 12. v0.1.31 Two-Fighter Builder
+
+The Matchup Arena now treats the user as the matchmaker rather than forcing a fixed prototype list.
+
+Immediate, low-risk features implemented:
+1. Independent left/right evaluated-character selection.
+2. Evaluation-state selection when a Character has multiple states.
+3. SWAP.
+4. RANDOM distinct-character matchup.
+5. FEATURED shortcuts for pair-specific Evidence already registered.
+6. Per-corner perspective factors.
+7. Combined Radar / Tale of the Tape / pair Evidence panel.
+8. Arbitrary pairs with an explicit Evidence-pending state instead of fabricated matchup inference.
+
+Deferred features:
+- Good/bad matchup recommendations: requires denser pair/factor Evidence to avoid sparse-data bias.
+- Scenario controls: needs condition-aware factor modeling before UI switches have semantic meaning.
+- Shareable URLs/history/favorites: useful but not required for the current data model.
+- Community picks/comments: requires persistence/authentication/moderation.
+- Win probability: explicitly deferred until a validated predictive model exists.
