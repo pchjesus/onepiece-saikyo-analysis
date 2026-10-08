@@ -1,3 +1,27 @@
+# v0.1.34 — Approved Hybrid Haki Standard & Nonnumeric Expertise Evidence
+
+**2026-10-09 KST**. Branch: `feature/v0.1.34-hybrid-haki-criteria`.
+
+## Change surface
+- `PROJECT_SPEC.md` §5: ratified Hybrid Haki standard with only exceptional, separably demonstrated incremental effects considered for eventual numerical Raw. No usage-count or ownership bonus.
+- `HakiProfile.excellenceAssessments?`: backward-compatible optional nonnumeric evidence, direct-application vs strong-inference, inference caveat and era note.
+- Mihawk: Ch.779/ONE PIECE.com Ep720 sword-and-Haki coaching evidence and corresponding training context; his Yoru Black Blade supports a **strong inference** of high Armament expertise, NOT confirmed forging process or a numeric Raw bonus.
+- Shanks Conqueror's, Katakuri Observation, Garp Armament (inference), Garp **prime** Conqueror's (direct) cautiously documented in profile UI.
+- `package.json`, `README.md`, `CHANGELOG.md`, `PROJECT_SPEC.md` align product version v0.1.34. Balanced Calculation Model remains **1.2**, Weight **0.5**, all preexisting Evaluation numerical data unchanged.
+
+## GitHub verification
+- PR CI run: https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37810953478
+- `npm test`: **28 test files passed / 126 tests passed**.
+- `npm run build`: **success**.
+- Added cases for optional expertise validation, 4 character profiles with owner-linked Evidence, Mihawk Haki coaching context, no numeric value, and jsdom direct-vs-inferred UI.
+- Existing 39 Evaluations / 273 Stat rows, aggregate positive Raw **256**, 15 Matchups and Haki cross-stat audit remained valid.
+- Real mobile/device interaction has **not** been manually verified. PR job does **not** deploy Pages. Post-merge main Pages CI requires separate confirmation.
+
+## Next approval gate
+- This feature ships the **approved rubric and qualifying nonnumeric evidence**. It does not certify existing typed Raw against the new rubric. Concrete 39 Evaluation score changes, new exceptional Raw magnitudes, a new calculation model version or further PROJECT_SPEC policy modification require side-by-side impact audit and owner sign-off.
+
+---
+
 # v0.1.34 Draft PR #22 — Haki Audit / Matchups / Special Tooltip Verification
 
 **Status: feature branch only; NOT merged into main; NOT deployed in Pages by this PR.**
