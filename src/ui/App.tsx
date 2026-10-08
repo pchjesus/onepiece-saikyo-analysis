@@ -73,10 +73,11 @@ export default function App() {
           ))}
         </div>
         <div className="character-chips" aria-label="그룹 캐릭터">
-          {visibleCharacters.map(({ character }) => (
+          {visibleCharacters.map(({ character, membership }) => (
             <button key={character.id} className={`character-chip ${selectedId === character.id ? 'selected' : ''}`}
               type="button" aria-pressed={selectedId === character.id} onClick={() => setSelectedId(character.id)}>
-              {character.name}
+              <span>{character.name}</span>
+              {(membership.status === 'former' || membership.status === 'historical') && <small>과거 소속</small>}
             </button>
           ))}
         </div>
