@@ -17,7 +17,10 @@
 - Balanced 1.2 / Haki Weight 0.5 / Evaluation score 변경 없음.
 
 ## Automated verification
-- PR CI에서 `npm test` / `npm run build` 확인 예정.
+- PR #19 CI: **24 test files / 107 tests passed**.
+- `npm run build`: **passed**.
+- Membership-expanded 31행과 Character-unique 29명 로스터를 동시에 검증한다.
+- 미호크/크로커다일의 다중 Group 노출, 검색 중복 제거, Ranking/Matchup 중복 제거가 자동 테스트에 포함된다.
 
 ## Manual verification
 - 공개 Pages에서 칠무해 탭에 미호크·크로커다일이 추가 표시되는지 확인.
