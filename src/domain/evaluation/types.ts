@@ -43,10 +43,11 @@ export type Evaluation = {
   evaluationDataVersion: string
   status: EvaluationStatus
   /**
-   * Which canonical state/era this score represents.
-   * Optional while legacy evaluations are migrated; multiple scores per character
-   * require a later repository/API change rather than duplicating Character identity.
+   * Canonical state/era represented by this score.
+   * One Character may own multiple Evaluations; identity itself is never duplicated.
    */
   subjectState?: EvaluationSubjectState
+  /** Default state used by roster/ranking views when no state is explicitly selected. */
+  isDefault?: boolean
   items: EvaluationItem[]
 }
