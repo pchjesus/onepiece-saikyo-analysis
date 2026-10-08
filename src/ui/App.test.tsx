@@ -65,4 +65,52 @@ describe('evaluated roster UI', () => {
     await click(container.querySelector('#evaluation-tab'))
     expect(container.querySelectorAll('.evaluation-formula')).toHaveLength(7)
   })
+  it('opens Overall rankings in full-precision order and reverses the list without changing canonical ranks', async () => {
+    await click(container.querySelector('button[aria-label="Overall Combat Power 전체 캐릭터 순위 보기"]'))
+    const rows = () => [...document.querySelectorAll('.rank-row')]
+    expect(rows()).toHaveLength(24)
+    expect(document.querySelector('#stat-rank-title')?.textContent).toContain('Overall Combat Power')
+    expect(rows()[0].textContent).toContain('몽키 D. 가프')
+    expect(rows()[0].textContent).toContain('95.143')
+    await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
+    expect(rows()[0].textContent).toContain('아발로 피사로')
+    expect(rows()[0].textContent).toContain('24위')
+    await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
+    expect(rows()[0].textContent).toContain('몽키 D. 가프')
+  })
+
+  it('can change existing core-stat rankings to ascending', async () => {
+    await click(container.querySelector('button[aria-label="Attack / 공격력 전체 캐릭터 순위 보기"]'))
+    await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
+    const rows = [...document.querySelectorAll('.rank-row')]
+    expect(rows).toHaveLength(24)
+    expect(rows[0].textContent).not.toContain('몽키 D. 가프')
+  })
+
+  it('searches across groups with a live suggestion list and navigates by result', async () => {
+    const input = container.querySelector('#character-search-input') as HTMLInputElement
+    await act(async () => {
+      const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')?.set
+      setter?.call(input, '샹')
+      input.dispatchEvent(new Event('input', { bubbles: true }))
+    })
+    expect(container.querySelectorAll('.search-suggestion')).toHaveLength(1)
+    expect(container.querySelector('.search-suggestion')?.textContent).toContain('샹크스')
+    await click(container.querySelector('.search-suggestion'))
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('샹크스')
+    expect(container.querySelector('.crew-tab.selected')?.textContent).toBe('빨간 머리 해적단')
+  })
+
+  it('opens small Special combat help and keeps individual evidence counts out of trait cards', async () => {
+    const tab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '검은 수염 해적단')
+    await click(tab ?? null)
+    const summary = container.querySelector('summary[aria-label="특수 전투요소 Evidence 및 점수 반영 설명"]')
+    expect(summary).not.toBeNull()
+    await click(summary)
+    const bubble = container.querySelector('.special-help-bubble')
+    expect(bubble?.textContent).toContain('연결 Evidence 1건')
+    expect(bubble?.textContent).toContain('Overall에 직접 가산하지 않아')
+    expect(container.querySelector('.special-trait')?.textContent).not.toContain('Overall 직접 가산 없음')
+  })
+
 })

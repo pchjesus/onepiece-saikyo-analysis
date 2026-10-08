@@ -461,7 +461,7 @@ export const sampleCharacters: Character[] = [
         { id: 'special-shiryu-invisibility', category: 'devil-fruit', name: '투명투명 열매', status: 'confirmed', description: '자신과 소지품을 투명하게 만들어 은신·기습·위치 선정에 활용한다.', evidenceIds: ['evidence-shiryu-garp-1087'], limitations: '투명화 자체를 순수 Speed나 높은 Attack으로 중복 환산하지 않는다.' },
       ],
       haki: { characterId: 'shiryu', capabilities: [
-        { type: 'armament', status: 'unclear', note: '현재 채택 원작 Evidence만으로 공격 시 명시적인 무장색 적용을 분리하지 않는다.' },
+        { type: 'armament', status: 'confirmed', note: '1087화의 시류 검격에서 무장색 사용이 확인된다. 코비를 노린 투명 기습이라는 전투 조건 때문에 정면 Attack 결정력으로 과대평가하지 않는다.' },
         { type: 'observation', status: 'unclear', note: '현재 채택 근거만으로 수치 가산하지 않는다.' },
         { type: 'conquerors', status: 'not-confirmed', infusion: { status: 'not-confirmed' } },
       ]},

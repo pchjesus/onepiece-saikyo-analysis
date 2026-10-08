@@ -1,17 +1,19 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { COMBAT_STAT_DEFINITIONS } from '../../domain/evaluation/statDefinitions'
-import type { CombatStat } from '../../domain/evaluation/types'
-import type { StatRankingEntry } from '../../application/getStatRanking'
+import type { RankingStat, StatRankingEntry } from '../../application/getStatRanking'
 
 export function StatRankingDialog({
   stat, entries, selectedCharacterId, onSelectCharacter, onClose,
 }: {
-  stat: CombatStat
+  stat: RankingStat
   entries: StatRankingEntry[]
   selectedCharacterId: string
   onSelectCharacter: (characterId: string, groupId: string) => void
   onClose: () => void
 }) {
+  const [direction, setDirection] = useState<'desc' | 'asc'>('desc')
+  const sortedEntries = direction === 'desc' ? entries : [...entries].reverse()
+
   useEffect(() => {
     const onEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose()
@@ -26,20 +28,24 @@ export function StatRankingDialog({
         <div className="stat-info-header">
           <div>
             <p className="eyebrow">CURRENT 7-CORE ROSTER</p>
-            <h3 id="stat-rank-title">{COMBAT_STAT_DEFINITIONS[stat].label} · 전체 정렬</h3>
+            <h3 id="stat-rank-title">{stat === 'overall' ? 'Overall Combat Power' : COMBAT_STAT_DEFINITIONS[stat].label} · 전체 정렬</h3>
           </div>
           <button className="stat-info-close" type="button" aria-label="순위 닫기" onClick={onClose}>×</button>
         </div>
-        <p className="section-note">현재 등록된 {entries.length}명 · Final 점수 내림차순 · 동점은 공동 순위. 모든 값은 현재 평가 상태에 따르며 1대1 승률이나 공식 서열이 아닙니다. 이름을 누르면 해당 캐릭터로 이동합니다.</p>
+        <p className="section-note">현재 등록된 {entries.length}명 · {stat === 'overall' ? 'Balanced 1.2의 7개 Final 평균 (정렬은 반올림 전 원값)' : 'Final 점수'} · 동점은 공동 순위. 모든 값은 현재 평가 상태에 따르며 1대1 승률이나 공식 서열이 아닙니다. 이름을 누르면 해당 캐릭터로 이동합니다.</p>
+        <div className="rank-sort-controls" role="group" aria-label="순위 정렬 방향">
+          <button type="button" className={direction === 'desc' ? 'selected' : ''} aria-pressed={direction === 'desc'} onClick={() => setDirection('desc')}>높은 점수순 ↓</button>
+          <button type="button" className={direction === 'asc' ? 'selected' : ''} aria-pressed={direction === 'asc'} onClick={() => setDirection('asc')}>낮은 점수순 ↑</button>
+        </div>
         <div className="rank-list">
-          {entries.map((entry) => (
+          {sortedEntries.map((entry) => (
             <button className={`rank-row ${entry.characterId === selectedCharacterId ? 'active' : ''}`} type="button"
               key={`${entry.characterId}-${entry.groupId}`}
-              aria-label={`${entry.rank}위 ${entry.characterName} ${entry.score}점 선택`}
+              aria-label={`${entry.rank}위 ${entry.characterName} ${stat === 'overall' ? entry.score.toFixed(3) : entry.score}점 선택`}
               onClick={() => onSelectCharacter(entry.characterId, entry.groupId)}>
               <strong className="rank-position">{entry.rank}위</strong>
               <span className="rank-person"><strong>{entry.characterName}</strong><small>{entry.groupName} · {entry.status}</small></span>
-              <strong className="rank-score">{entry.score}<small> / 100</small></strong>
+              <strong className="rank-score">{stat === 'overall' ? entry.score.toFixed(3) : entry.score}<small> / 100</small></strong>
             </button>
           ))}
         </div>

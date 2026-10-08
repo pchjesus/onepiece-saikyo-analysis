@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react'
 import { getCharacterList } from '../application/getCharacterList'
 import { getStatRanking } from '../application/getStatRanking'
-import type { CombatStat } from '../domain/evaluation/types'
+import type { RankingStat } from '../application/getStatRanking'
+import { CharacterSearch } from './components/CharacterSearch'
 import { StatRankingDialog } from './components/StatRankingDialog'
 import { CharacterPage } from './pages/CharacterPage'
 import './styles.css'
@@ -11,7 +12,7 @@ const characterList = getCharacterList()
 export default function App() {
   const [selectedId, setSelectedId] = useState(characterList[0]?.character.id ?? '')
   const [selectedGroupId, setSelectedGroupId] = useState(characterList[0]?.group.id ?? '')
-  const [rankingStat, setRankingStat] = useState<CombatStat | null>(null)
+  const [rankingStat, setRankingStat] = useState<RankingStat | null>(null)
 
   const groups = useMemo(() => {
     const seen = new Set<string>()
@@ -39,9 +40,12 @@ export default function App() {
   return (
     <div className="app-shell">
       <header className="app-header">
-        <p className="eyebrow">ONE PIECE · MVP</p>
-        <h1>원피스 전투력 분석</h1>
-        <p>Character → Evaluation → Calculation Model → Combat Power</p>
+        <div className="app-title">
+          <p className="eyebrow">ONE PIECE · MVP</p>
+          <h1>원피스 전투력 분석</h1>
+          <p>Character → Evaluation → Calculation Model → Combat Power</p>
+        </div>
+        <CharacterSearch characters={characterList} onSelectCharacter={selectCharacter} />
       </header>
       <nav className="character-selector" aria-label="캐릭터 선택">
         <div className="crew-tabs" role="tablist" aria-label="그룹 선택">
@@ -61,7 +65,7 @@ export default function App() {
           ))}
         </div>
       </nav>
-      {selectedId && <CharacterPage key={`${selectedGroupId}:${selectedId}`} characterId={selectedId} groupId={selectedGroupId} onSelectStat={setRankingStat} />}
+      {selectedId && <CharacterPage key={`${selectedGroupId}:${selectedId}`} characterId={selectedId} groupId={selectedGroupId} onSelectStat={setRankingStat} onSelectOverall={() => setRankingStat('overall')} />}
       {rankingStat && <StatRankingDialog stat={rankingStat} entries={getStatRanking(rankingStat)}
         selectedCharacterId={selectedId} onSelectCharacter={selectCharacter} onClose={() => setRankingStat(null)} />}
     </div>
