@@ -28,7 +28,7 @@ afterEach(async () => {
 describe('evaluated roster UI', () => {
   it('opens newly added groups without the legacy crew lookup crash', async () => {
     for (const [group, character] of [
-      ['밀짚모자 일당', '조로'],
+      ['밀짚모자 일당', '롤로노아 조로'],
       ['빨간 머리 해적단', '샹크스'],
       ['해군', '몽키 D. 가프'],
       ['검은 수염 해적단', '마샬 D. 티치'],
@@ -100,6 +100,36 @@ describe('evaluated roster UI', () => {
     await click(container.querySelector('.search-suggestion'))
     expect(container.querySelector('main.detail h1')?.textContent).toBe('샹크스')
     expect(container.querySelector('.crew-tab.selected')?.textContent).toBe('빨간 머리 해적단')
+  })
+
+  it('searches official aliases while displaying the primary name', async () => {
+    const input = container.querySelector('#character-search-input') as HTMLInputElement
+    const search = async (value: string) => {
+      await act(async () => {
+        const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')?.set
+        setter?.call(input, value)
+        input.dispatchEvent(new Event('input', { bubbles: true }))
+      })
+    }
+
+    await search('키자루')
+    expect(container.querySelector('.search-suggestion')?.textContent).toContain('보르살리노')
+    expect(container.querySelector('.search-suggestion')?.textContent).toContain('키자루')
+    await click(container.querySelector('.search-suggestion'))
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('보르살리노')
+
+    await search('아카이누')
+    expect(container.querySelector('.search-suggestion')?.textContent).toContain('사카즈키')
+    await click(container.querySelector('.search-suggestion'))
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('사카즈키')
+  })
+
+  it('shows official identity metadata and the selected evaluation era in the intro', async () => {
+    const marineTab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '해군')
+    await click(marineTab ?? null)
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('몽키 D. 가프')
+    expect(container.querySelector('.character-known-as')?.textContent).toContain('해군의 영웅')
+    expect(container.querySelector('.evaluation-subject-state')?.textContent).toContain('평가 시점 · 전성기')
   })
 
   it('opens small Special combat help and keeps individual evidence counts out of trait cards', async () => {
