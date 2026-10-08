@@ -7,6 +7,7 @@
 ## 1. What is implemented in this review branch
 
 1. `src/data/sample/hakiAllocationAudit.test.ts` creates a **read-only review gate** for the baseline of **15** Evidence entries reused by Haki Raw across >1 Stat within one Evaluation. Future new multi-stat reuse requires deliberate test-list review. **A flagged record is not a proven error, and listing it is not an endorsement of its current Raw.**
+1a. An additional guard flags **2** same-Evidence same-Stat stacks with distinct Haki types: Shanks Technique (Conqueror's + Observation) and Zoro Attack (Armament + Conqueror's). They need separate marginal-effect justification before any adjustment.
 2. Four additional Context/Evidence-aware Matchup records and tests added, without fixed winner, probability or numeric stat adjustment:
    - `matchup-akainu-kuzan` — 10-day Punk Hazard duel; reported winner Sakazuki; full exchanges unseen.
    - `matchup-rayleigh-current-kizaru` — **current** Rayleigh and Kizaru's Sabaody interruption; old Rayleigh should not be silently applied to prime.
