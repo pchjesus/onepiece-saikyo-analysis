@@ -1776,6 +1776,21 @@ export const sampleEvidence: Evidence[] = [
     uncertainty: '세계 최강의 검사라는 칭호가 모든 비검술 Core Stat의 세계 최고를 뜻하지 않는다.',
   },
   {
+    id: 'evidence-mihawk-armament-instruction-779',
+    battleId: 'timeskip-mihawk-zoro-armament-779',
+    subjectCharacterId: 'mihawk',
+    source: { type: 'canon', reference: 'One Piece Manga Chapter 779 (flashback); ONE PIECE.com Episode 720 recap', description: '미호크가 조로에게 검에 무장색 패기를 입혀 검이 상하지 않게 해야 한다고 지도' },
+    evidenceStrength: 'strong',
+    fact: '미호크는 조로와의 수련 중 검에 패기를 둘러 검을 보호하는 원리를 가르쳤다.',
+    supportedAbilities: ['무장색에 대한 이해', '패기의 검술 적용 지도'],
+    statContributions: [
+      { stat: 'techniqueMastery', role: 'context', note: '패기와 검의 보호·운용 원리를 가르칠 지식이 있으나 직접 최대 전투 출력 수치는 보여주지 않는다.' },
+    ],
+    interpretation: '미호크가 무장색과 검의 결합을 정교하게 이해한다는 근거이며, 요루의 영구 흑도화 기전이나 미호크 개인의 직접 제작 여부를 증명하지는 않는다.',
+    evaluationImpact: '정성적인 무장색 숙련 검토 근거로 연결. 기존 Base·Raw·Final 수치는 변경하지 않는다.',
+    uncertainty: '회상 중 지도 장면으로, 영구 흑도의 제조 조건이나 미호크의 최상위 무장색 출력 자체는 직접 시험되지 않았다.',
+  },
+  {
     id: 'evidence-mihawk-zoro-49-51', battleId: 'baratie-mihawk-zoro', subjectCharacterId: 'mihawk',
     source: { type: 'canon', reference: 'One Piece Manga Chapters 49-51', description: '바라티에에서 롤로노아 조로의 도전을 받은 첫 결투' },
     evidenceStrength: 'strong', fact: '쥬라큘 미호크는 작은 단검으로 당시 롤로노아 조로의 삼도류를 제압하고 마지막에는 흑도 「夜」로 받아쳐 승리했다.',
