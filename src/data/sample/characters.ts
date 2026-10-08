@@ -363,7 +363,7 @@ export const sampleCharacters: Character[] = [
         { label: '원작 Evidence', reference: 'Ch. 552 / 629 / 890 / 1018' },
       ],
     },
-  }
+  },
 
   {
     id: 'shanks', name: '샹크스', crewId: 'red-hair-pirates',
