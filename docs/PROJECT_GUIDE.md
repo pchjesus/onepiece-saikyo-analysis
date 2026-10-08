@@ -1,8 +1,8 @@
 # 원피스 전투력 분석 — 처음 보는 사람을 위한 프로젝트 가이드
 
-> **v0.1.29 갱신:** Character master pool 30명 / evaluated roster 29명 / Evaluation 30개. 크로스 길드의 쥬라큘 미호크·크로커다일을 평가 로스터에 추가했고 버기는 E3 master-only다. Evidence-aware Matchup은 이제 Character Detail의 세 번째 탭에서 확인할 수 있다.
+> **v0.1.30 갱신:** Character master pool 30명 / evaluated roster 29명 / Evaluation 30개. Stats가 기본 홈이며 Matchup은 상단 VS 컨트롤로 여는 독립 Arena다. Prime/current 가프, 쿠잔, 크로커다일을 재보정했다.
 
-> 기준: **v0.1.29** 구현 · 30 Character master pool / 29 evaluated roster / 30 Evaluation.  
+> 기준: **v0.1.30** 구현 · 30 Character master pool / 29 evaluated roster / 30 Evaluation.  
 > 대상: ONE PIECE를 아는 일반 사용자 + 코드를 처음 인계받은 개발자.  
 > 주의: 자동 test/build 및 GitHub Pages 배포와 실제 기기 시각 검증은 서로 다른 검증 단계다.
 
