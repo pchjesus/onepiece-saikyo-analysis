@@ -1,6 +1,6 @@
 # Legendary Era Expansion — v0.1.33 Implemented Calibration
 
-**State:** implemented on feature branch pending main merge  
+**State:** merged into main via PR #21 on 2026-10-08 (merge commit `ac06c3e8e935f0b86b7e916b79579811e0bd7461`)  
 **Model:** Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5  
 **Policy:** Canon Fact → Combat Context → Interpretation → Evaluation. Status/title alone does not determine a Core Stat.
 
