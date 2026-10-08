@@ -1,3 +1,35 @@
+# Unreleased UI / Navigation Regression — 2026-10-08
+
+## Change scope
+- Group/Membership 기반 상세 조회로 24인 roster의 레거시 Crew 참조 불일치 수정.
+- 평가 버전 문구를 고정 v0.1.22가 아닌 실제 evaluationDataVersion으로 표시.
+- 7개 Final Core Stat 순위 팝업(공동 순위), 캐릭터 이동, 개별 계산식 표시.
+- 상단 두 영역 반응형 배치 + 하단 Evaluation/Battle 탭과 내부 스크롤.
+- 기존 Evaluation 데이터, 패기 가중치 0.5, Balanced 1.2 및 24인 Overall은 변경하지 않음.
+
+## Regression and automated verification
+- Baseline branch SHA: `4cf62c67fd57193fe658ae115b424c6788b9f85b`.
+- Implementation commit: `249a0489f827539fd5fefbcc5c4aa49ee6bb6f89`.
+- GitHub Actions: [run 37730345673](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37730345673).
+- `npm install`: PASS.
+- `npm test`: PASS — 16 test files / 62 tests (기존 54 + 신규 8).
+- `npm run build`: PASS — `tsc -b && vite build`.
+- Pages configure/upload/deploy: SKIPPED (private 개발 정책 유지).
+- 새 테스트: 24인 전체 상세 조회·소속 일치·불일치 방어(3), 7개 스탯 전체 정렬·승인 Final 수치 확인(2), jsdom에서 신규 집단 전환·순위 팝업 캐릭터 이동·계산식 및 상세 탭 전환(3).
+- 기존 24인 calibrated Overall 테스트와 Calculation/Haki, Battle, Evidence, Membership 관련 회귀 테스트 통과.
+
+## What this does **not** verify
+- 실제 Chrome/Edge/Safari 브라우저 및 휴대폰에서의 수동 화면·조작 검증: **NOT RUN**.
+- 반응형 너비별 실제 렌더링, 가로·세로 스크롤, 모달 포커스 이동, 모바일 터치 사용성은 추가 확인 필요.
+- jsdom 상호작용 테스트는 실제 브라우저 픽셀 렌더링 검증과 동일하지 않음.
+
+## PR state
+- PR #8은 Draft / open 상태로 유지. **main에 merge하지 않음.**
+- 점수·Evidence·Evaluation/Calculation 데이터 변경 없음.
+- Node 런타임 및 GitHub Actions 의존성의 deprecation warning이 로그에 있으나 이번 run의 테스트와 빌드는 PASS.
+
+---
+
 # v0.1.23 Initial Three-Crew Baseline — Verification Report
 
 ## Scope
