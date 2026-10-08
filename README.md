@@ -1,67 +1,50 @@
 # 원피스 전투력 분석
 
-MVP v0.1.24 기준 / **v0.1.25 재평가 Draft (PR #9 개발 브랜치, main 미병합)**
+현재 개발 버전: **v0.1.27**  
+평가 데이터: **27인 · evaluation-0.1.26-draft**  
+계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
-**이번 브랜치의 전체 Evidence·Haki 검토:** [v0.1.25 Draft 평가 보고서](docs/RECALIBRATION_0_1_25_DRAFT.md) — 24인 감사, 22개 신규 Evidence, 계산 분해, 근거·불확실성, 검증 범위
-
-**처음 보는 사용자·후속 개발자 안내:** [프로젝트 입문 가이드](docs/PROJECT_GUIDE.md) — 화면 사용법, 7개 스탯·계산·Evidence 해석, 데이터 추가 절차, 현재 알려진 한계
+- [v0.1.26 27인 재보정 보고서](docs/RECALIBRATION_0_1_26_DRAFT.md)
+- [Evidence-aware Matchup v0.1 Draft](docs/MATCHUP_MODEL_0_1_DRAFT.md)
+- [프로젝트 입문 가이드](docs/PROJECT_GUIDE.md)
 
 ## 현재 평가 로스터
 
-현재 데이터에는 초기 사최간 비교군, 밀짚모자 일당, 샹크스, 해군 상위 전투원, 검은수염 해적단의 평가 가능 캐릭터가 포함된다.
-
 - 흰수염 해적단: 마르코 / 죠즈 / 비스타
-- 백수 해적단: 킹 / 퀸 / 잭
-- 빅 맘 해적단: 카타쿠리 / 스무디 / 크래커
-- 밀짚모자 일당: 조로 / 상디 / 징베
+- 백수 해적단: 알베르(통칭 킹) / 퀸 / 잭
+- 빅 맘 해적단: 샬롯 카타쿠리 / 샬롯 스무디 / 샬롯 크래커
+- 밀짚모자 일당: 롤로노아 조로 / 상디 / 징베
 - 빨간 머리 해적단: 샹크스
-- 해군·전 해군: 가프 / 사카즈키 / 쿠잔 / 보르살리노 / 잇쇼 / 아라마키
-- 검은 수염 해적단: 티치 / 시류 / 지저스 바제스 / 반 오거 / 아발로 피사로
+- 해군·전 해군: 몽키 D. 가프 / 사카즈키 / 쿠잔 / 보르살리노 / 잇쇼 / 아라마키
+- 검은 수염 해적단: 마샬 D. 티치 / 시류 / 지저스 바제스 / 반 오거 / 아발로 피사로
+- 전 왕의 부하 칠무해: 트라팔가 로 / 돈키호테 도플라밍고 / 보아 핸콕
 
-Overall Combat Power는 Balanced 1.2에서 7개 Final Core Stat(Attack, Defense, Stamina, Speed, Technique, Combat IQ, Versatility)의 단순 산술평균으로 계산한다. Haki는 실제 Application Evidence가 있을 때만 Raw Contribution을 보존하고 Haki Weight 0.5를 거쳐 Effective Contribution으로 반영한다. Special Combat Profile은 비수치 정보이며 Overall에 직접 가산하지 않는다.
+Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Special Combat Profile과 Matchup-specific Advantage는 Overall에 직접 합산하지 않는다.
+
+## v0.1.27 주요 변경
+
+- Character의 **공식 주표기 이름**과 통칭 / 이명 / 칭호를 분리했다.
+- 검색은 본명뿐 아니라 공식 통칭·이명·칭호와 소속까지 찾는다. 예: 키자루 → 보르살리노, 아카이누 → 사카즈키, 킹 → 알베르.
+- 캐릭터 상세 상단에 확인된 공식 이명·칭호와 프로젝트 소개 문구를 표시한다. 불분명한 이명은 만들지 않는다.
+- 가프의 현 점수는 평가 시점 · 전성기로 명시한다. 현재/전성기 복수 점수는 Character를 복제하지 않고 Evaluation의 시대/상태를 분리하는 방식으로 확장할 예정이다.
+- PR은 test/build만 수행하고, **main에 성공적으로 병합된 변경은 GitHub Pages에 자동 배포**하도록 공개 사이트 운영 정책을 전환했다.
 
 중요한 평가 원칙:
 - 직책·현상금·승패만으로 Core Stat을 역산하지 않는다.
 - Evidence 부족은 약함의 증거로 자동 해석하지 않는다.
-- Strength, 공격 범위, 기습 성공을 Attack과 동일시하지 않는다.
-- E2 캐릭터의 점수는 현재 Evidence에 기반한 provisional draft이며 새 전투 묘사에 따라 크게 변할 수 있다.
-- Doc Q처럼 7축 Evidence가 부족한 캐릭터는 억지로 점수를 만들지 않고 미평가 상태로 남긴다.
+- 본명·통칭·이명·칭호는 공식 자료로 확인되는 경우에만 데이터에 등록한다.
+- 현재와 전성기처럼 시점이 다른 상태는 하나의 Character identity에 억지로 합성하지 않는다.
+- 모든 Evaluation은 아직 draft이며 프로젝트 점수이지 공식 전투력 수치가 아니다.
 
-현재 주요 Overall (**이 브랜치의 Draft 계산 결과**, Balanced 1.2):
-- Prime Garp 95.143
-- Kizaru 92.714
-- Kuzan 93.000
-- Akainu 93.143
-- Shanks 94.143
-- Teach 91.571
-- Fujitora 89.714
-- Ryokugyu 89.429
-- Zoro 84.857
-- Sanji 84.429
-- Katakuri 81.286
-- Marco 81.143
-- King 80.714
-- Vista 79.571
-- Jinbe 79.429
-- Queen 78.714
-- Shiryu 77.571
-- Jozu 77.286
-- Smoothie 76.714
-- Cracker 75.286
-- Van Augur 75.286
-- Jack 74.714
-- Burgess 74.286
-- Pizarro 72.000
+### 현재 UI
 
-소수점 근소 차이는 절대적인 1대1 서열 확정으로 해석하지 않는다.
-
-### 검토 중인 UI
-
-- Overall Combat Power를 클릭해 24인의 전체 종합점수 순위 확인
-- 7개 스탯 순위 및 Overall 순위의 오름차순/내림차순 전환
-- 헤더 검색창에서 캐릭터 이름·집단을 입력하면 일치/유사 후보를 자동 제시
-- 특수 전투요소 제목 옆 `?`에 연결 Evidence 건수·Overall 반영 원칙을 작은 말풍선으로 제공
-- **전투력 수치와 Haki 배분은 새 Draft 브랜치에만 적용되며**, PR #9 병합 전에 사용자 확인 필요
+- 27명 Overall 및 7 Core Stat 순위
+- 높은 점수순 / 낮은 점수순 전환
+- 본명·이명·칭호·소속 검색
+- 캐릭터 상세의 공식 identity 정보와 평가 시점 표시
+- Special Combat Profile 및 Haki Profile
+- Evaluation Trace와 Battle / Canon Evidence
+- 비수치 Evidence-aware Matchup prototype
 
 ## 구조
 UI → Application → Domain
