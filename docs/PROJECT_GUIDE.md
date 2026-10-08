@@ -1,10 +1,10 @@
 # 원피스 전투력 분석 — 처음 보는 사람을 위한 프로젝트 가이드
 
-> 기준: **v0.1.27** 구현과 27인 v0.1.26 Draft 평가 데이터.  
+> 기준: **v0.1.28** 구현 · 27 Character / 28 Evaluation. 기본 로스터는 v0.1.26 Draft이며 현재 몽키 D. 가프는 v0.1.28 Draft.  
 > 대상: ONE PIECE를 아는 일반 사용자 + 코드를 처음 인계받은 개발자.  
 > 주의: 자동 test/build 및 GitHub Pages 배포와 실제 기기 시각 검증은 서로 다른 검증 단계다.
 
-> **현재 핵심 구조:** 27인 7-Core Balanced 1.2 + 공식 identity(주표기 이름/통칭/이명/칭호) + Evaluation subject-state + Evidence-aware Matchup v0.1. 상세 재보정은 [v0.1.26 보고서](RECALIBRATION_0_1_26_DRAFT.md), Matchup 구조는 [Matchup v0.1](MATCHUP_MODEL_0_1_DRAFT.md)을 참조한다.
+> **현재 핵심 구조:** 27인 7-Core Balanced 1.2 + 공식 identity(주표기 이름/통칭/이명/칭호) + **복수 Evaluation subject-state** + Evidence-aware Matchup v0.1. 몽키 D. 가프는 전성기/현재를 실제로 분리해 검증하며, 순위에는 default인 전성기 평가만 사용한다. 상세 재보정은 [v0.1.26 보고서](RECALIBRATION_0_1_26_DRAFT.md), Matchup 구조는 [Matchup v0.1](MATCHUP_MODEL_0_1_DRAFT.md)을 참조한다.
 
 ## 1. 이 프로그램은 무엇인가?
 
@@ -61,6 +61,18 @@
 6. 하단 **전투 기록·원작 Evidence** 탭을 선택해 전투를 펼치고 **전투 맥락, 사실, 해석, 한계**를 대조한다.
 
 Evidence는 그 자체로 점수를 자동 변경하지 않는다. Evaluation에 연결되고 평가자가 해석해야 점수에 반영된다.
+
+### 2.4 복수 평가 시점
+
+한 Character는 하나의 인물 identity를 유지하면서 여러 Evaluation 상태를 가질 수 있다. 현재 첫 적용 사례는 **몽키 D. 가프**다.
+
+- 전성기: 기존 전체 로스터 비교의 default Evaluation, Overall 94.429
+- 현재: 하치노스 노년 시점의 직접 Evidence로 별도 평가, Overall 91.143
+- 상세 화면에서 전성기/현재를 전환할 수 있다.
+- 순위에서는 한 인물이 중복 등장하지 않도록 default Evaluation만 사용한다.
+- Matchup 데이터는 필요하면 특정 Evaluation state를 명시할 수 있다.
+
+전성기 근거를 현재 점수에 자동 합산하거나, 현재의 노화·부상 장면을 전성기 수치에 그대로 감점하지 않는다.
 
 ## 3. 일곱 가지 Core Stat
 
