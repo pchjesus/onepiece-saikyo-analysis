@@ -7,7 +7,7 @@ describe('getStatRanking', () => {
     for (const stat of COMBAT_STATS) {
       const entries = getStatRanking(stat)
       expect(entries).toHaveLength(29)
-      expect(new Set(entries.map(({ characterId }) => characterId)).size).toBe(27)
+      expect(new Set(entries.map(({ characterId }) => characterId)).size).toBe(29)
       expect(entries.every(({ status }) => status === 'draft')).toBe(true)
       for (let i = 1; i < entries.length; i++) {
         expect(entries[i - 1].score).toBeGreaterThanOrEqual(entries[i].score)
@@ -32,7 +32,7 @@ describe('getStatRanking', () => {
     expect(entries).toHaveLength(29)
     expect(entries[0]).toMatchObject({ characterId: 'garp', rank: 1, subjectStateLabel: '전성기' })
     expect(entries[0].score).toBeCloseTo(96)
-    expect(entries[26]).toMatchObject({ characterId: 'pizarro', rank: 29, score: 71.71428571428571 })
+    expect(entries[28]).toMatchObject({ characterId: 'pizarro', rank: 29, score: 71.71428571428571 })
     for (let index = 1; index < entries.length; index++) {
       expect(entries[index - 1].score).toBeGreaterThanOrEqual(entries[index].score)
     }
