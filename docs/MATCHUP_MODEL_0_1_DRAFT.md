@@ -120,3 +120,13 @@ Haki는 세 층으로 나눈다.
 3. UI에서 Overall과 Matchup을 분리 표시
 4. 실제 Canon 결과가 있는 Pair로 일관성 검증
 5. 충분한 표본 후 수치화 필요성 재검토
+
+## 9. Prototype data
+
+현재 코드에는 세 대표 Pair를 비수치 prototype으로 저장한다.
+
+- Marco vs King: 재생과 Flame 방어, 장기 소모전의 불확실성을 분리한다.
+- Law vs Teach: 내부파괴 유효타, 어둠 능력 봉쇄, Haki 능력해제의 일반화 한계를 분리한다.
+- Hancock vs Teach: 석화와 접촉 능력봉쇄가 서로 다른 조건부 승리조건임을 기록한다.
+
+이 세 Pair는 모델의 구조를 검증하기 위한 예시이며 자동 승자·승률을 제공하지 않는다.
