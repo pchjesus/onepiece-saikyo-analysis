@@ -434,4 +434,84 @@ export const sampleCharacters: Character[] = [
         { type: 'conquerors', status: 'unclear', infusion: { status: 'unclear' } },
       ]}, sources: [{ label: '원작 Evidence', reference: 'Wano Ch. 1053-1055' }] },
   },
+
+  {
+    id: 'teach', name: '마샬 D. 티치', crewId: 'blackbeard-pirates',
+    description: '검은 수염 해적단 제독. 어둠어둠 열매와 흔들흔들 열매를 동시에 운용하며, 현재 확인된 실전 운용만 수치화한다.',
+    combatProfile: {
+      combatStyles: ['어둠 흡인·능력 봉쇄', '지진 충격파', '근접 격투', '광역 파괴'],
+      specialTraits: [
+        { id: 'special-teach-darkness', category: 'devil-fruit', name: '어둠어둠 열매', status: 'confirmed', description: '어둠을 통해 대상을 끌어당기고 접촉한 능력자의 악마의 열매 능력을 봉쇄한다.', evidenceIds: ['evidence-teach-ace-440-441'], limitations: '공격을 자연계처럼 흘리는 묘사가 없고 피격 시 고통이 크게 표현된다.' },
+        { id: 'special-teach-quake', category: 'devil-fruit', name: '흔들흔들 열매', status: 'confirmed', description: '흰수염 사후 획득한 지진 능력을 충격파·광역 파괴에 사용한다.', evidenceIds: ['evidence-teach-gura-577', 'evidence-teach-law-1063-1064'], limitations: '현재 숙련도를 전성기 흰수염과 자동 동급으로 보지 않는다.' },
+      ],
+      haki: { characterId: 'teach', capabilities: [
+        { type: 'armament', status: 'confirmed', note: '후속 원작 전투에서 무장색 사용이 확인된다.' },
+        { type: 'observation', status: 'confirmed', note: '공식 보조자료 기준 보유가 확인되는 것으로 분류한다.' },
+        { type: 'conquerors', status: 'not-confirmed', note: '현재 채택 근거에서 패왕색 보유가 확인되지 않는다.', infusion: { status: 'not-confirmed' } },
+      ]},
+      sources: [{ label: '원작 Evidence', reference: 'Ch. 440-441 / 576-577 / 1063-1064 / 1081' }],
+    },
+  },
+  {
+    id: 'shiryu', name: '시류', crewId: 'blackbeard-pirates',
+    description: '검은 수염 해적단 2번선 선장. 검술과 투명투명 열매를 결합한 은신·기습 전투가 핵심이며 현재 7축 평가는 E2 잠정값이다.',
+    combatProfile: {
+      combatStyles: ['검술', '투명화', '은신·기습'],
+      specialTraits: [
+        { id: 'special-shiryu-invisibility', category: 'devil-fruit', name: '투명투명 열매', status: 'confirmed', description: '자신과 소지품을 투명하게 만들어 은신·기습·위치 선정에 활용한다.', evidenceIds: ['evidence-shiryu-garp-1087'], limitations: '투명화 자체를 순수 Speed나 높은 Attack으로 중복 환산하지 않는다.' },
+      ],
+      haki: { characterId: 'shiryu', capabilities: [
+        { type: 'armament', status: 'unclear', note: '현재 채택 원작 Evidence만으로 공격 시 명시적인 무장색 적용을 분리하지 않는다.' },
+        { type: 'observation', status: 'unclear', note: '현재 채택 근거만으로 수치 가산하지 않는다.' },
+        { type: 'conquerors', status: 'not-confirmed', infusion: { status: 'not-confirmed' } },
+      ]},
+      sources: [{ label: '원작 Evidence', reference: 'Impel Down / Ch. 1087' }],
+    },
+  },
+  {
+    id: 'burgess', name: '지저스 바제스', crewId: 'blackbeard-pirates',
+    description: '검은 수염 해적단 1번선 선장. 강한 완력과 힘힘 열매를 바탕으로 한 근접 격투·대형 투척이 중심이다.',
+    combatProfile: {
+      combatStyles: ['근접 격투', '완력 기반 타격', '대형 물체 투척'],
+      specialTraits: [
+        { id: 'special-burgess-strength', category: 'devil-fruit', name: '힘힘 열매', status: 'confirmed', description: '비정상적으로 큰 물체를 들어 던질 수 있을 정도로 완력을 증폭한다.', evidenceIds: ['evidence-burgess-mountain-1063'], limitations: '완력의 크기를 동급 강자에 대한 실제 Attack 결정력과 동일시하지 않는다.' },
+      ],
+      haki: { characterId: 'burgess', capabilities: [
+        { type: 'armament', status: 'confirmed', note: 'Dressrosa에서 근접 공격에 무장색을 사용하는 장면이 확인된다.' },
+        { type: 'observation', status: 'unclear', note: '현재 채택 근거로 별도 수치 가산하지 않는다.' },
+        { type: 'conquerors', status: 'not-confirmed', infusion: { status: 'not-confirmed' } },
+      ]},
+      sources: [{ label: '원작 Evidence', reference: 'Dressrosa Ch. 737-792 / Ch. 1063' }],
+    },
+  },
+  {
+    id: 'van-augur', name: '반 오거', crewId: 'blackbeard-pirates',
+    description: '검은 수염 해적단 3번선 선장. 초장거리 저격과 워프워프 열매를 결합한 위치 조정·지원에 특화된다.',
+    combatProfile: {
+      combatStyles: ['초장거리 저격', '순간이동', '아군 위치 지원'],
+      specialTraits: [
+        { id: 'special-augur-warp', category: 'devil-fruit', name: '워프워프 열매', status: 'confirmed', description: '자신과 다른 대상을 순간적으로 다른 위치로 이동시킨다.', evidenceIds: ['evidence-augur-warp-1063-1064'], limitations: '공간이동을 순수 신체 Speed로 중복 계산하지 않는다.' },
+      ],
+      haki: { characterId: 'van-augur', capabilities: [
+        { type: 'armament', status: 'unclear' }, { type: 'observation', status: 'unclear' },
+        { type: 'conquerors', status: 'not-confirmed', infusion: { status: 'not-confirmed' } },
+      ]},
+      sources: [{ label: '원작 Evidence', reference: 'Winner Island Ch. 1063-1064' }],
+    },
+  },
+  {
+    id: 'pizarro', name: '아발로 피사로', crewId: 'blackbeard-pirates',
+    description: '검은 수염 해적단 4번선 선장. 섬섬 열매로 섬 전체와 동화해 구조물과 거대한 신체를 조작하는 전장형 능력자다.',
+    combatProfile: {
+      combatStyles: ['섬 동화', '거대 신체 조작', '광역 전장 통제'],
+      specialTraits: [
+        { id: 'special-pizarro-island', category: 'devil-fruit', name: '섬섬 열매', status: 'confirmed', description: '섬 전체와 동화해 지형·구조물을 자신의 신체처럼 움직인다.', evidenceIds: ['evidence-pizarro-island-1087-1088', 'evidence-pizarro-damage-link-1088'], limitations: '동화한 섬 신체의 손상이 본체에도 전달될 수 있으며 공격 규모를 개인 Attack과 동일시하지 않는다.' },
+      ],
+      haki: { characterId: 'pizarro', capabilities: [
+        { type: 'armament', status: 'unclear' }, { type: 'observation', status: 'unclear' },
+        { type: 'conquerors', status: 'not-confirmed', infusion: { status: 'not-confirmed' } },
+      ]},
+      sources: [{ label: '원작 Evidence', reference: 'Hachinosu Ch. 1087-1088' }],
+    },
+  },
 ]
