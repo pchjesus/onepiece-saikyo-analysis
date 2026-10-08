@@ -83,7 +83,7 @@ export function EvidenceList({
             <span>{evidence.evidenceStrength}</span>
           </div>
           <h3>{battle ? normalizeCharacterNamesForDisplay(battle.title) : '연결된 전투 정보 없음'}</h3>
-          <p className="evidence-description">{normalizeCharacterNamesForDisplay(evidence.source.description)}</p>
+          {evidence.source.description && <p className="evidence-description">{normalizeCharacterNamesForDisplay(evidence.source.description)}</p>}
           <dl>
             <div>
               <dt>원작에서 확인되는 사실</dt>
