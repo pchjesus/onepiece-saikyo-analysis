@@ -10,16 +10,19 @@ describe('group membership migration', () => {
       .toEqual({ valid: true, errors: [] })
   })
 
-  it('maps evaluated-roster characters to their legacy group and allows E3 master-pool characters without membership', () => {
+  it('allows multiple memberships while preserving one representative legacy group', () => {
     for (const character of sampleCharacters) {
       const memberships = sampleMemberships.filter(({ characterId }) => characterId === character.id)
       if (character.id === 'buggy') {
         expect(memberships).toHaveLength(0)
         continue
       }
-      expect(memberships).toHaveLength(1)
-      expect(memberships[0].groupId).toBe(character.crewId)
+      expect(memberships.length).toBeGreaterThanOrEqual(1)
+      expect(memberships.some(({ groupId }) => groupId === character.crewId)).toBe(true)
     }
+
+    expect(sampleMemberships.filter(({ characterId }) => characterId === 'mihawk')).toHaveLength(2)
+    expect(sampleMemberships.filter(({ characterId }) => characterId === 'crocodile')).toHaveLength(2)
   })
 
   it('rejects unknown character and group references', () => {
