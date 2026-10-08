@@ -596,4 +596,57 @@ export const sampleCharacters: Character[] = [
       ],
     },
   },
+  {
+    id: 'mihawk', name: '쥬라큘 미호크', crewId: 'cross-guild',
+    knownAs: [{ kind: 'epithet', name: '매의 눈', source: { label: 'ONE PIECE.com', reference: '쥬라큘 미호크 공식 캐릭터 페이지 — 「鷹の目」' } }],
+    description: '크로스 길드의 핵심 전력. 세계 최강의 검사라는 공식 위상과 흑도 「夜」를 바탕으로 싸우며, 제한된 직접 표본과 샹크스와의 공식 경쟁 관계를 함께 고려한 E2 잠정 평가 대상이다.',
+    combatProfile: {
+      combatStyles: ['검술', '근접 검격', '원거리 비상 참격', '정밀 절단', '강자 요격'],
+      specialTraits: [{ id: 'special-mihawk-yoru', category: 'equipment', name: '흑도 「夜」', status: 'confirmed',
+        description: '최상대업물 12공 중 하나인 흑도 「夜」를 사용해 대형 참격과 정밀 검술을 수행한다.',
+        evidenceIds: ['evidence-mihawk-world-strongest-profile', 'evidence-mihawk-zoro-49-51'],
+        limitations: '흑도 보유 자체를 Haki Raw Contribution이나 모든 Core Stat의 자동 가산으로 취급하지 않는다.' }],
+      haki: { characterId: 'mihawk', capabilities: [
+        { type: 'armament', status: 'confirmed', note: '공식 보조자료에서 보유가 확인되지만 현재 채택 Evidence에서 특정 Stat 성과의 패기 타입을 임의 지정하지 않는다.' },
+        { type: 'observation', status: 'confirmed', note: '공식 보조자료에서 보유가 확인되지만 실제 Stat Application은 별도 근거가 필요하다.' },
+        { type: 'conquerors', status: 'unclear', note: '패왕색에 대한 높은 이해는 확인되지만 본인의 사용은 직접 확인되지 않았다.', infusion: { status: 'unclear' } },
+      ]},
+      sources: [{ label: 'ONE PIECE.com', reference: '쥬라큘 미호크 공식 캐릭터 페이지 — 세계 최강의 검사 / 흑도 「夜」' },
+        { label: '원작 Evidence', reference: 'Ch. 49-51 / 553 / 560-562 / 1058 / 1194' }],
+    },
+  },
+  {
+    id: 'crocodile', name: '크로커다일', crewId: 'cross-guild', knownAs: [],
+    description: '크로스 길드 공동 창설자. 모래모래 열매의 높은 숙련과 전장 통제·상황 판단을 강점으로 보되 현재 직접 상위권 전투 표본 부족 때문에 신체·공방 수치는 보수적으로 둔 E2 잠정 평가 대상이다.',
+    combatProfile: {
+      combatStyles: ['모래화', '근·원거리 모래 공격', '탈수', '지형 제어', '갈고리·독 활용'],
+      specialTraits: [{ id: 'special-crocodile-sand', category: 'devil-fruit', name: '모래모래 열매', status: 'confirmed',
+        description: '신체를 모래로 바꾸고 모래폭풍·절단·탈수·지형 제어에 활용한다.',
+        evidenceIds: ['evidence-crocodile-alabasta-mastery-178-209', 'evidence-crocodile-water-weakness-199'],
+        limitations: '물·혈액 등으로 모래 신체의 유동성이 제한되면 물리 타격이 성립할 수 있으며 자연계 회피를 절대 방어로 보지 않는다.' }],
+      haki: { characterId: 'crocodile', capabilities: [
+        { type: 'armament', status: 'unclear', note: '현재 채택 근거에서 보유 및 실제 적용 타입을 확정하지 않아 수치 가산하지 않는다.' },
+        { type: 'observation', status: 'unclear', note: '현재 채택 근거에서 명시적 확인이 부족하다.' },
+        { type: 'conquerors', status: 'unclear', infusion: { status: 'unclear' } },
+      ]},
+      sources: [{ label: 'ONE PIECE.com', reference: '크로커다일 공식 캐릭터 페이지' },
+        { label: '원작 Evidence', reference: 'Alabasta Ch. 178-209 / Marineford Ch. 560-578 / Ch. 1058' }],
+    },
+  },
+  {
+    id: 'buggy', name: '버기', crewId: 'cross-guild', knownAs: [],
+    description: '크로스 길드의 사황으로 대외적으로 인식되는 인물. Character master pool에는 등록하되 현재 7 Core Stat을 비교할 직접 전투 Evidence가 부족해 E3 미평가로 유지한다.',
+    combatProfile: {
+      combatStyles: ['바라바라 능력', '신체 분리·재결합', '혼전 생존'],
+      specialTraits: [{ id: 'special-buggy-chop', category: 'devil-fruit', name: '동강동강 열매', status: 'confirmed',
+        description: '신체를 분리·재결합하며 참격 계열 공격과 특수한 상호작용을 보인다.', evidenceIds: [],
+        limitations: '특수 상호작용의 존재를 일반 Defense나 현재 상위권 전투력으로 환산하지 않는다.' }],
+      haki: { characterId: 'buggy', capabilities: [
+        { type: 'armament', status: 'unclear' }, { type: 'observation', status: 'unclear' },
+        { type: 'conquerors', status: 'unclear', infusion: { status: 'unclear' } },
+      ]},
+      sources: [{ label: 'ONE PIECE.com', reference: '버기 공식 캐릭터 페이지 / 크로스 길드 공식 자료' }],
+    },
+  },
+
 ]

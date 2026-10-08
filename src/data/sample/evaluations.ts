@@ -175,16 +175,16 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-garp', characterId: 'garp', evaluationDataVersion: 'evaluation-0.1.26-draft', status: 'draft', isDefault: true,
-    subjectState: { id: 'prime', label: '전성기', note: 'God Valley를 포함한 전성기 직접 근거를 기준으로 평가하며, 노년 하치노스 전투는 기술·기동·지속력의 직접 비교 근거로 보조 사용한다.' },
+    id: 'evaluation-garp', characterId: 'garp', evaluationDataVersion: 'evaluation-0.1.29-draft', status: 'draft', isDefault: true,
+    subjectState: { id: 'prime', label: '전성기', note: 'God Valley Ch.1165의 직접 전성기 패왕색 공방을 핵심 근거로 평가하고 노년 하치노스는 기술·기동·지속력의 하한 확인용 보조 근거로만 사용한다.' },
     items: [
-      item('attack', 96, "전성기 God Valley에서 로저와 함께 록스를 상대하며 최고 수준의 패기 강화 공격을 성립시킨 직접 근거와, 노년 Galaxy Impact의 권격 출력을 함께 본다. 공동 공격을 가프 단독 결정력으로 환산하지 않으며 하치노수의 확인된 무장색 운용은 Raw Contribution으로 분리한다.", ["evidence-garp-roger-rocks-1165","evidence-garp-galaxy-impact-1080"], [{ hakiType: 'armament', stat: 'attack', amount: 6, application: "Galaxy Impact의 비접촉 충격파·패기 강화 권격 응용", evidenceIds: ["evidence-garp-galaxy-impact-1080"] }]),
-      item('defense', 96, 'God Valley에서 최고 수준 패기 공방을 지속한 전성기 직접 근거를 반영하되, 공동전의 성과를 개인 무적 방어로 확대하지 않고 노년 하치노스의 관통상 등 실제 피격 한계도 함께 고려한다.', ['evidence-garp-roger-rocks-1165', 'evidence-garp-kuzan-haki-1087']),
-      item('stamina', 97, "God Valley에서 로저와 함께 극한의 패기 소모를 감수하고 록스전 최종 공방까지 이어간 직접 근거와, 노년 중상 이후에도 전투를 지속한 하치노수 성과를 함께 반영한다.", ["evidence-garp-roger-rocks-1165","evidence-garp-kuzan-haki-1087"]),
-      item('speed', 95, '노년 하치노스에서도 고속 접근·연속 개입이 가능하며 전성기 신체 고점을 반영한다.'),
-      item('techniqueMastery', 95, "God Valley의 최고 수준 패기 공방과 수십 년간 단련한 맨손 무투·Galaxy 계열 타격 구조를 Base로 두고, 쿠잔과의 고급 패기 주먹 충돌을 Raw 무장색에 별도로 반영한다.", ["evidence-garp-roger-rocks-1165","evidence-garp-kuzan-haki-1087"], [{ hakiType: 'armament', stat: 'techniqueMastery', amount: 4, application: "쿠잔과의 근접 교환에서 패기를 권격에 정교하게 결합", evidenceIds: ["evidence-garp-kuzan-haki-1087"] }]),
-      item('combatIQ', 93, '수십 년 최상위 전투 경험과 하치노스 구조전에서의 즉각적 판단·지휘를 반영한다.'),
-      item('versatility', 84, '응용 기술은 뛰어나지만 주된 전투 수단이 신체·권격·패기에 집중된 점을 다른 축과 분리한다.'),
+      item('attack', 95, 'God Valley에서 로저와 함께 록스의 방어를 돌파한 권격 출력을 Base로 두고 Ch.1165의 패왕색 강화는 Raw로 분리한다. 공동 결정타를 가프 단독 승리로 환산하지 않아 100이 아닌 99로 제한한다.', ['evidence-garp-roger-rocks-1165'], [{ hakiType: 'conquerors', stat: 'attack', amount: 8, application: 'God Valley 최종 공방에서 Supreme King Haki를 권격에 집중해 실제 공격 돌파에 적용', evidenceIds: ['evidence-garp-roger-rocks-1165'] }]),
+      item('defense', 94, 'God Valley의 최고 수준 공방에서 록스와 맞서 전투를 지속한 기본 대응을 Base로 두고 같은 전투의 Supreme King Haki 방어 적용은 Raw로 분리한다.', ['evidence-garp-roger-rocks-1165'], [{ hakiType: 'conquerors', stat: 'defense', amount: 8, application: 'God Valley 최고 수준 공격·방어 공방에 Supreme King Haki를 실제 적용', evidenceIds: ['evidence-garp-roger-rocks-1165'] }]),
+      item('stamina', 98, 'God Valley에서 극한의 패기 소모와 최고 수준 상대를 상대로 최종 공방까지 이어간 전성기 직접 근거와 노년 관통상 이후 지속이라는 하한을 함께 본다.', ['evidence-garp-roger-rocks-1165', 'evidence-garp-kuzan-haki-1087']),
+      item('speed', 97, '노년에도 쿠잔의 빙결을 벗어나 즉시 고속 접근·연속 개입을 수행한 하한과 전성기 God Valley의 최상위 근접 공방을 함께 본다. 보르살리노의 99와는 구분한다.', ['evidence-garp-roger-rocks-1165', 'evidence-garp-blue-hole-1081']),
+      item('techniqueMastery', 95, '맨손 권격·투척·근접 제압·광역 충격파의 전투 숙련을 Base로 두고 God Valley의 Supreme King Haki 정밀 적용을 Raw로 분리한다.', ['evidence-garp-roger-rocks-1165', 'evidence-garp-galaxy-impact-1080', 'evidence-garp-kuzan-haki-1087'], [{ hakiType: 'conquerors', stat: 'techniqueMastery', amount: 8, application: 'God Valley 최고 수준 공방에서 Supreme King Haki를 권격에 집중·조절해 운용', evidenceIds: ['evidence-garp-roger-rocks-1165'] }]),
+      item('combatIQ', 95, '로저 시대의 최고 수준 교전 경험, God Valley의 즉각적 공동 대응, 노년 하치노스 구조전의 위협 우선순위·역할 분담을 반영한다.', ['evidence-garp-roger-rocks-1165', 'evidence-garp-rescue-command-1088']),
+      item('versatility', 86, '신체·권격·패기 중심이지만 근접 제압·투척·고속 요격·비접촉 광역 충격·대형 표적 파괴·아군 보호를 실제 수행한 역할 폭을 반영한다.', ['evidence-garp-galaxy-impact-1080', 'evidence-garp-galaxy-divide-1088', 'evidence-garp-rescue-command-1088']),
     ],
   },
   {
@@ -358,4 +358,29 @@ export const sampleEvaluations: Evaluation[] = [
       item('versatility', 82, '근접 체술·접촉 석화·원거리 석화·다수 제압 등 거리와 대상에 따른 운용 폭은 확인된다. 다만 역할 대부분이 Mero Mero의 석화 메커니즘에 크게 의존하므로 과대평가하지 않는다.', ['evidence-hancock-marineford-559', 'evidence-hancock-amazon-lily-1059']),
     ],
   },
+  {
+    id: 'evaluation-mihawk', characterId: 'mihawk', evaluationDataVersion: 'evaluation-0.1.29-draft', status: 'draft',
+    items: [
+      item('attack', 96, '대형 원거리 참격·정상결전의 연속 검격과 세계 최강 검사/샹크스급 검술 위상을 함께 보되 현재 최상위 상대에게 결정타를 낸 직접 표본은 샹크스보다 적어 96으로 제한한다.', ['evidence-mihawk-jozu-553', 'evidence-mihawk-luffy-560-561', 'evidence-mihawk-shanks-swordskill-1058']),
+      item('defense', 93, '정밀 검술 방어와 비스타와의 직접 공방에서 유의미한 피해를 허용하지 않은 성과를 중심으로 평가한다. 대장급 고화력 반복 방어 표본 부족은 E2 불확실성으로 남긴다.', ['evidence-mihawk-zoro-49-51', 'evidence-mihawk-vista-561-562', 'evidence-mihawk-shanks-rivalry-profile']),
+      item('stamina', 91, '정상결전의 연속 활동과 샹크스와의 과거 결투 위상을 반영하되 현재 장기 고강도 완전 결투가 직접 공개되지 않아 최상단보다 낮게 둔다.', ['evidence-mihawk-vista-561-562', 'evidence-mihawk-shanks-rivalry-profile']),
+      item('speed', 94, '정상결전에서 루피를 연속 추격하고 비스타의 요격에 즉시 대응한 직접 반응·접근 성과와 샹크스와의 과거 검술 경쟁을 함께 반영한다.', ['evidence-mihawk-luffy-560-561', 'evidence-mihawk-vista-561-562', 'evidence-mihawk-shanks-rivalry-profile']),
+      item('techniqueMastery', 99, '세계 최강의 검사라는 공식 설정, Ch.1058의 샹크스보다 뛰어난 검술 평가, 작은 단검부터 흑도 「夜」와 원거리 참격까지의 정밀 운용을 종합한다.', ['evidence-mihawk-world-strongest-profile', 'evidence-mihawk-shanks-swordskill-1058', 'evidence-mihawk-zoro-49-51', 'evidence-mihawk-vista-561-562']),
+      item('combatIQ', 92, '상대 수준을 읽고 필요한 수단을 선택한 바라티에전과 정상결전의 추격·목표 선택을 반영하되 샹크스의 최신 미래예지 전술 표본보다는 한 단계 낮게 둔다.', ['evidence-mihawk-zoro-49-51', 'evidence-mihawk-luffy-560-561']),
+      item('versatility', 84, '검 하나로 근접 공방·원거리 비상 참격·대형 절단·요격·정밀 방어를 수행하지만 전투 체계 자체는 검술 중심이다.', ['evidence-mihawk-jozu-553', 'evidence-mihawk-luffy-560-561', 'evidence-mihawk-zoro-49-51']),
+    ],
+  },
+  {
+    id: 'evaluation-crocodile', characterId: 'crocodile', evaluationDataVersion: 'evaluation-0.1.29-draft', status: 'draft',
+    items: [
+      item('attack', 78, '알라바스타에서 탈수·모래 절단·폭풍·독으로 승리를 만들었지만 현재 상위권 강자를 상대로 결정적인 최신 피해 성과가 부족하다. 현재 위상을 성장량 숫자로 환산하지 않는다.', ['evidence-crocodile-alabasta-mastery-178-209', 'evidence-crocodile-marineford-interventions-561-578']),
+      item('defense', 75, '모래화는 강한 조건부 방어지만 물·혈액으로 타격이 가능해졌고 정상결전에서는 죠즈에게 직접 강한 유효타를 허용했다.', ['evidence-crocodile-water-weakness-199', 'evidence-crocodile-jozu-560']),
+      item('stamina', 79, '알라바스타의 반복 교전과 정상결전에서 죠즈의 피격 후에도 후반까지 활동한 지속력을 반영하되 현대 상위권 장기전 표본은 없다.', ['evidence-crocodile-alabasta-mastery-178-209', 'evidence-crocodile-jozu-560', 'evidence-crocodile-marineford-interventions-561-578']),
+      item('speed', 76, '자연계 이동과 정상결전의 여러 지점 개입은 확인되지만 순수 속도 자체가 상위권 전문 강점으로 반복 입증되지는 않았다.', ['evidence-crocodile-marineford-interventions-561-578']),
+      item('techniqueMastery', 88, '모래화·탈수·폭풍·지면 붕괴·절단·이동과 보조 무장을 상황에 맞게 전환한 직접 숙련 표본이 풍부하다.', ['evidence-crocodile-alabasta-mastery-178-209', 'evidence-crocodile-marineford-interventions-561-578']),
+      item('combatIQ', 86, '상대 제거 방식·지형·약점 노출 이후의 수단 전환과 정상결전에서 공격·저지·구조 지원 목표를 전환한 전투 판단을 높게 평가한다. 조직 경영 자체는 제외한다.', ['evidence-crocodile-alabasta-mastery-178-209', 'evidence-crocodile-water-weakness-199', 'evidence-crocodile-marineford-interventions-561-578']),
+      item('versatility', 84, '근접 탈수·원거리 절단·광역 폭풍·지형 제어·자연계 이동·보조 무기·전장 지원까지 실제 적용 폭이 넓지만 동일 모래 능력의 파생 기술 수를 중복 가산하지 않는다.', ['evidence-crocodile-alabasta-mastery-178-209', 'evidence-crocodile-marineford-interventions-561-578']),
+    ],
+  },
+
 ]

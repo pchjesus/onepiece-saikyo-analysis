@@ -589,6 +589,43 @@ export const sampleBattles: Battle[] = [
     result: 'victory',
     participantIds: [],
   },
+  {
+    id: 'past-mihawk-shanks-duels', title: '과거 — 쥬라큘 미호크와 샹크스의 결투 기록', chronologyOrder: 1,
+    combatStructure: '1v1', combatPurpose: '두 검사가 과거 서로 기량을 겨룬 결투', combatIntent: 'unknown',
+    environment: '상세 전장 미공개', restrictions: '구체적인 과정·승패와 현재 시점 동등성은 미공개',
+    externalFactors: '후대 공식 서술과 해군의 현재 검술 평가로 과거 경쟁 관계가 확인됨', result: 'unknown', participantIds: [],
+  },
+  {
+    id: 'baratie-mihawk-zoro', title: '바라티에 — 쥬라큘 미호크와 롤로노아 조로의 첫 결투', chronologyOrder: 2,
+    combatStructure: '1v1', combatPurpose: '세계 최강의 검사를 목표로 한 롤로노아 조로의 도전', combatIntent: 'serious',
+    environment: '바라티에 인근 해상', restrictions: '초기 시점 롤로노아 조로와의 전투로 현재 롤로노아 조로의 수준과 직접 비교하지 않음',
+    externalFactors: '쥬라큘 미호크는 처음에는 작은 단검으로 상대하다 마지막에 흑도 「夜」를 사용함', result: 'victory', participantIds: [],
+  },
+  {
+    id: 'marineford-mihawk-luffy', title: '정상결전 — 쥬라큘 미호크의 루피 추격', chronologyOrder: 4,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '전장을 가로지르는 루피의 진행을 막고 직접 공격', combatIntent: 'serious',
+    environment: '마린포드 전장', restrictions: '대규모 전쟁의 연속 개입이며 완전한 1대1 결투가 아님',
+    externalFactors: '징베·다즈 보네즈·크로커다일·비스타 등 여러 인물이 순차 개입', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'alabasta-crocodile-luffy', title: '알라바스타 — 크로커다일과 루피의 세 차례 대결', chronologyOrder: 1,
+    combatStructure: '1v1', combatPurpose: '알라바스타 계획을 방해하는 루피를 제거하고 최종적으로 서로를 쓰러뜨리기 위한 전투', combatIntent: 'lethal-intent',
+    environment: '알라바스타 사막·왕궁 지하', restrictions: '세 전투 사이 회복·구조가 있었고 후반에는 물과 피로 모래 신체 타격이 가능해짐',
+    externalFactors: '초기 두 차례에는 크로커다일이 루피를 제압했으나 최종전에서는 약점이 파악된 뒤 패배', result: 'defeat', participantIds: [],
+  },
+  {
+    id: 'marineford-crocodile-jozu', title: '정상결전 — 크로커다일과 죠즈의 충돌', chronologyOrder: 2,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '흰수염을 노리던 크로커다일과 이를 저지하는 죠즈의 전장 충돌', combatIntent: 'serious',
+    environment: '마린포드 전장', restrictions: '죠즈의 유효타 직후 도플라밍고가 개입해 장시간 1대1로 이어지지 않음',
+    externalFactors: '도플라밍고의 제3자 개입', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'marineford-crocodile-interventions', title: '정상결전 — 크로커다일의 다중 전선 개입', chronologyOrder: 3,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '흰수염 공격·에이스 처형 저지·루피 탈출 지원 등 전황에 따라 목표를 전환', combatIntent: 'serious',
+    environment: '마린포드 전장', restrictions: '도플라밍고·쥬라큘 미호크·사카즈키 등과의 충돌은 제한된 전쟁 장면',
+    externalFactors: '수많은 세력이 동시에 교전', result: 'interrupted', participantIds: [],
+  },
+
 ]
 
 export const sampleBattleParticipants: BattleParticipant[] = [
