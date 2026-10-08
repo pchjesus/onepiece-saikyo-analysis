@@ -15,6 +15,7 @@ export type StatRankingEntry = {
   score: number
   rank: number
   status: EvaluationStatus
+  subjectStateLabel?: string
 }
 
 // Rankings are derived from the same evaluated roster and Balanced model as the detail UI.
@@ -37,6 +38,7 @@ export function getStatRanking(stat: RankingStat): StatRankingEntry[] {
       groupName: group.name,
       score,
       status: evaluation.status,
+      subjectStateLabel: evaluation.subjectState?.label,
     }]
   }).sort((a, b) => b.score - a.score || a.characterName.localeCompare(b.characterName, 'ko'))
 
