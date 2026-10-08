@@ -3,7 +3,7 @@ import { groupRepository } from '../data/repositories/groupRepository'
 import { evaluationRepository } from '../data/repositories/evaluationRepository'
 
 // Use the active Group/Membership model rather than the legacy three-crew registry.
-export function getCharacterDetail(characterId: string, groupId?: string) {
+export function getCharacterDetail(characterId: string, groupId?: string, subjectStateId?: string) {
   const character = characterRepository.getCharacter(characterId)
   if (!character) return undefined
 
@@ -12,8 +12,9 @@ export function getCharacterDetail(characterId: string, groupId?: string) {
     ? memberships.find((entry) => entry.groupId === groupId)
     : memberships.find((entry) => entry.groupId === character.crewId) ?? memberships[0]
   const group = membership && groupRepository.getGroup(membership.groupId)
-  const evaluation = evaluationRepository.getEvaluation(character.id)
+  const evaluations = evaluationRepository.getEvaluations(character.id)
+  const evaluation = evaluationRepository.getEvaluation(character.id, subjectStateId)
   if (!group || !evaluation) throw new Error(`Incomplete character data: ${characterId}`)
 
-  return { character, group, membership, evaluation }
+  return { character, group, membership, evaluation, evaluations }
 }
