@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
-import { getCharacterList } from './getCharacterList'
+import { getCharacterList, getUniqueCharacterList } from './getCharacterList'
 import { getCharacterDetail } from './getCharacterDetail'
 
 describe('getCharacterDetail group migration', () => {
-  it('resolves detail and displayed group for every character in the 29-person evaluated roster', () => {
-    const list = getCharacterList()
+  it('resolves representative detail for every Character in the 29-person evaluated roster', () => {
+    const list = getUniqueCharacterList()
     expect(list).toHaveLength(29)
     for (const { character, group } of list) {
       const detail = getCharacterDetail(character.id, group.id)
@@ -12,6 +12,21 @@ describe('getCharacterDetail group migration', () => {
       expect(detail?.group.id).toBe(group.id)
       expect(detail?.evaluation.characterId).toBe(character.id)
     }
+  })
+
+  it('resolves every expanded Membership context, including historical secondary Groups', () => {
+    const expanded = getCharacterList()
+    expect(expanded).toHaveLength(31)
+
+    for (const { character, group } of expanded) {
+      const detail = getCharacterDetail(character.id, group.id)
+      expect(detail?.character.id).toBe(character.id)
+      expect(detail?.group.id).toBe(group.id)
+    }
+
+    expect(getCharacterDetail('mihawk', 'seven-warlords')?.membership?.status).toBe('former')
+    expect(getCharacterDetail('mihawk')?.group.id).toBe('cross-guild')
+    expect(getCharacterDetail('crocodile')?.group.id).toBe('cross-guild')
   })
 
   it('resolves formerly broken Straw Hat, Red Hair, Marine and Blackbeard details', () => {

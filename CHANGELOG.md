@@ -1,5 +1,26 @@
 # Changelog
 
+## v0.1.32 — Multi-Membership / Character-Unique Roster
+
+### Architecture
+- Group navigation remains Membership-expanded.
+- Ranking and Matchup selection consume a Character-unique representative roster.
+- Representative Group prefers legacy `Character.crewId`, then current Membership, then first valid Membership.
+- Distinct Group/status/period Memberships are allowed; exact duplicate Memberships remain invalid.
+
+### Data
+- Added former Seven Warlords Memberships for 쥬라큘 미호크 and 크로커다일 while preserving Cross Guild as their representative Group.
+- 30 Character master pool / 29 evaluated unique Characters / 31 Membership rows / 30 Evaluations.
+
+### Search / UI
+- The same Character may appear in multiple Group tabs.
+- Search can match secondary/historical Group Memberships but deduplicates suggestions by Character.
+- Rankings remain 29 unique rows.
+
+### Model compatibility
+- No Evaluation score changes.
+- Balanced 1.2, Haki Weight 0.5 and Matchup no-win-probability policy unchanged.
+
 ## v0.1.31 — Two-Fighter Matchup Builder
 
 ### Identity

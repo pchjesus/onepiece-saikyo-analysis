@@ -1,8 +1,8 @@
 # 원피스 전투력 분석 — 처음 보는 사람을 위한 프로젝트 가이드
 
-> **v0.1.31 갱신:** Stats가 기본 홈이며 Matchup은 좌/우 캐릭터를 직접 고르는 독립 Arena다. SWAP/RANDOM/FEATURED, 캐릭터별 관점 panel, 통합 Radar/Tale of the Tape를 제공하고 직접 Pair Evidence가 없으면 상성 결론을 보류한다.
+> **v0.1.32 갱신:** Group navigation은 Membership-expanded, Ranking/Matchup은 Character-unique roster로 분리했다. 동일 Character가 여러 소속에 나타날 수 있지만 랭킹에는 한 번만 나온다.
 
-> 기준: **v0.1.31** 구현 · 30 Character master pool / 29 evaluated roster / 30 Evaluation.  
+> 기준: **v0.1.32** 구현 · 30 Character master pool / 29 evaluated roster / 30 Evaluation.  
 > 대상: ONE PIECE를 아는 일반 사용자 + 코드를 처음 인계받은 개발자.  
 > 주의: 자동 test/build 및 GitHub Pages 배포와 실제 기기 시각 검증은 서로 다른 검증 단계다.
 
@@ -32,7 +32,7 @@
 
 화면 상단에는 **집단 선택 탭(crew/group tabs)**이 있고, 선택한 집단 소속 캐릭터가 그 아래 **이름 버튼(character chips)**으로 나온다. 집단 탭을 누르면 그 집단의 첫 캐릭터가 선택되며, 캐릭터 이름을 누르면 상세 정보를 바꾸도록 구현되어 있다. 초기 선택은 목록의 첫 캐릭터인 **마르코**다.
 
-집단은 해적단뿐 아니라 해군·전 칠무해도 포함한다. 목록과 상세는 레거시 Crew가 아니라 Group/Membership을 사용하며 27인 조회를 자동 검증한다. 상단 검색은 **주표기 이름·공식 통칭/이명/칭호·소속**을 대상으로 한다. Matchup은 현재 비수치 Evidence factor prototype이며 자동 승률 화면은 아직 없다.
+집단은 해적단뿐 아니라 해군·전 칠무해도 포함한다. 목록과 상세는 Group/Membership을 사용한다. Group navigation은 Membership-expanded, Ranking/Matchup selector는 Character-unique roster를 사용한다. 상단 검색은 **주표기 이름·공식 통칭/이명/칭호·소속**을 대상으로 한다. Matchup은 현재 비수치 Evidence factor prototype이며 자동 승률 화면은 아직 없다.
 
 ### 2.2 캐릭터 상세에 표시되는 정보
 
@@ -350,3 +350,15 @@ npm.cmd run preview
 - [src/ui/](../src/ui/) — 실제 화면 구성
 
 ONE PIECE 원작 장면의 개별 출처는 각 `Evidence.source.reference`와 `CombatProfile.sources`에 기재되어 있다. 출처 기록과 해석은 구분해서 검토한다.
+
+
+## v0.1.32 — 복수 Membership과 Character-unique 로스터
+
+한 Character가 여러 Group Membership을 가질 수 있다.
+
+- Group navigation: Membership-expanded
+- Ranking / Matchup selector: Character-unique
+- Search: 모든 Membership 소속명을 검색하되 suggestion은 Character 단위로 중복 제거
+- 대표 Group: migration 동안 `Character.crewId` 일치 Membership 우선
+
+따라서 과거 소속을 추가해도 순위표와 매치업 선택기에 같은 Character가 중복 등장하지 않는다.
