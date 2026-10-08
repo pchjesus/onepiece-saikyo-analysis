@@ -575,6 +575,11 @@ npm.cmd run dev
 - Stats remains the default app home.
 - Balanced 1.2 / Haki Weight 0.5 / no win-probability policy remain unchanged.
 
+### Automated verification
+- PR #15 CI: **24 test files / 103 tests passed**.
+- `npm run build`: **passed**.
+- Initial CI failure came from an over-specific test assumption that Mihawk vs Shanks must include a favorable/risk factor; the pair is intentionally neutral/unknown-heavy. The perspective inversion test was moved to the confirmed Crocodile vs Jozu damage factor, then the full suite passed.
+
 ### Manual visual checks
 - Left/right selectors remain readable on narrow phones.
 - SWAP/RANDOM controls are reachable without horizontal overflow.
