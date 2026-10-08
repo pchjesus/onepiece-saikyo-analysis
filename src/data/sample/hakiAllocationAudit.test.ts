@@ -50,6 +50,31 @@ describe('Haki semantic allocation review gate (read-only)', () => {
     expect(shared.sort()).toEqual(REVIEW_REQUIRED_SHARED_EVIDENCE)
   })
 
+  it('flags same-evidence stacking of different Haki types within one stat', () => {
+    const stacked: string[] = []
+    for (const evaluation of sampleEvaluations) {
+      for (const item of evaluation.items) {
+        const typesByEvidence = new Map<string, Set<string>>()
+        for (const contribution of item.hakiContributions) {
+          if (contribution.amount <= 0) continue
+          for (const evidenceId of contribution.evidenceIds) {
+            const types = typesByEvidence.get(evidenceId) ?? new Set<string>()
+            types.add(contribution.hakiType)
+            typesByEvidence.set(evidenceId, types)
+          }
+        }
+        for (const [evidenceId, types] of typesByEvidence) {
+          if (types.size > 1) stacked.push(`${evaluation.id}::${item.stat}::${evidenceId}`)
+        }
+      }
+    }
+    // Existing audit candidates, not a claim that stacking is justified.
+    expect(stacked.sort()).toEqual([
+      'evaluation-shanks::techniqueMastery::evidence-shanks-kid-divine-departure-1079',
+      'evaluation-zoro::attack::evidence-zoro-conquerors-1033-1035',
+    ])
+  })
+
   it('preserves previously audited Raw allocation totals without silently revising any score', () => {
     const statRows = sampleEvaluations.flatMap((evaluation) => evaluation.items)
     const positive = statRows.filter((item) => item.hakiContributions.some((contribution) => contribution.amount > 0))
