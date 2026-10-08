@@ -1,13 +1,14 @@
 import { describe, expect, it } from 'vitest'
 import { sampleCharacters } from '../../data/sample/characters'
 import { sampleEvidence } from '../../data/sample/evidence'
-import { validateCombatProfile } from './validation'
+import { validateCharacterIdentity, validateCombatProfile } from './validation'
 
 const evidenceReferences = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
 
 describe('combat profile validation', () => {
-  it('accepts current sample special combat profiles with valid Evidence ownership', () => {
+  it('accepts current sample identities and special combat profiles', () => {
     for (const character of sampleCharacters) {
+      expect(validateCharacterIdentity(character)).toEqual({ valid: true, errors: [] })
       expect(validateCombatProfile(character, evidenceReferences)).toEqual({ valid: true, errors: [] })
     }
   })
@@ -49,4 +50,15 @@ describe('combat profile validation', () => {
     expect(validateCombatProfile(duplicate, evidenceReferences).errors)
       .toContain(`Duplicate special trait id: ${king.combatProfile.specialTraits[0].id}.`)
   })
+  it('rejects duplicate or unsourced aliases without guessing canon metadata', () => {
+    const sakazuki = sampleCharacters.find(({ id }) => id === 'akainu')!
+    expect(validateCharacterIdentity({
+      ...sakazuki,
+      knownAs: [
+        ...sakazuki.knownAs,
+        { ...sakazuki.knownAs[0], source: { label: '', reference: '' } },
+      ],
+    }).valid).toBe(false)
+  })
+
 })
