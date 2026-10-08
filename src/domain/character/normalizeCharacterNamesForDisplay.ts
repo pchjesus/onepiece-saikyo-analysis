@@ -58,6 +58,12 @@ const replacements: Array<[RegExp, string]> = [
   [/료쿠규/g, '아라마키'],
   // 킹 is an official alias. In prose we use the primary name 알베르,
   // while quoted alias metadata such as 「킹」 remains unchanged.
+  [/킹은/g, '알베르는'],
+  [/킹이/g, '알베르가'],
+  [/킹을/g, '알베르를'],
+  [/킹과/g, '알베르와'],
+  [/킹에게/g, '알베르에게'],
+  [/킹의/g, '알베르의'],
   [/킹(?!」)/g, '알베르'],
 ]
 
