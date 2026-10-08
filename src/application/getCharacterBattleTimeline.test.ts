@@ -30,10 +30,7 @@ describe('getCharacterBattleTimeline', () => {
       'dressrosa-law-doflamingo-769-781',
       'winner-island-teach-law',
       'onigashima-law-kid-big-mom-1038-1040',
-    ].sort((a, b) => {
-      const order = Object.fromEntries(timeline.map((item) => [item.battle.id, item.battle.chronologyOrder]))
-      return order[a] - order[b]
-    }))
+    ])
     expect(timeline.flatMap((item) => item.evidence.map((evidence) => evidence.id)))
       .toContain('evidence-law-puncture-wille-1039')
   })
