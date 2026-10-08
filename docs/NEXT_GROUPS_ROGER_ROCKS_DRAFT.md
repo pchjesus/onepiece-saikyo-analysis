@@ -173,3 +173,34 @@ Safe next implementation order:
 4. Add Whitebeard / Kaido / Big Mom as Characters with representative current/own-crew memberships plus historical Rocks membership.
 5. Run top-tier recalibration review before merging the new scores into main ranking.
 6. Add current Rayleigh as a second Evaluation later if desired; do not duplicate Character identity.
+
+
+## 13. Source verification notes
+
+Official/primary-supporting sources checked:
+- ONE PIECE.com character profile — 골 D. 로저: former Roger Pirates captain / Pirate King status.
+- ONE PIECE.com character profile — 실버즈 레일리: former Roger Pirates vice-captain, Pirate King's right hand / Dark King, power still formidable in old age.
+- ONE PIECE.com character profile — 스코퍼 가반: former Roger Pirates member, dual-axe user.
+- ONE PIECE.com TV Anime Episode 1170: current Gaban is identified as the Pirate King's left arm who stood alongside Roger and Rayleigh; Luffy is handled/evasively controlled before Gear 5 + Zoro escalation and Gaban's voluntary yield.
+- ONE PIECE.com character profile — 록스 D. 지벡: captain of the crew once called the world's strongest; described by Sengoku as possibly Roger's first and strongest enemy.
+- ONE PIECE.com character profile — 에드워드 뉴게이트: Gura Gura no Mi user, officially described as the world's strongest man.
+- ONE PIECE.com TV Anime Episode 966 / Volume 96: Roger and Whitebeard's clash and three-day battle.
+- ONE PIECE.com character profiles — 카이도 / 샬롯 링링: Emperor-era identity and Devil Fruit baseline.
+- ONE PIECE.com Volume 114 news: God Valley Incident material through Chapter 1166 is collected in the official volume.
+
+Chapter navigation / scene-level cross-checks were additionally performed against chapter summaries for:
+- 966, 1010, 1039, 1040, 1042, 1049
+- 1140, 1148, 1149, 1152, 1155
+- 1162, 1163, 1164, 1165
+
+Fan-maintained chapter summaries are used only to locate/cross-check scene contents; official publication and ONE PIECE.com remain higher-priority sources.
+
+## 14. Approval boundary
+
+This document is a research and score proposal.
+No Roger/Rocks-group Character, Membership, Battle, Evidence or Evaluation record is added to the public app by this document alone.
+
+Before implementation:
+- resolve unique-roster vs multi-membership architecture,
+- re-check top-tier calibration against Shanks/Mihawk/Admirals,
+- obtain user approval for the proposed seven score sets.
