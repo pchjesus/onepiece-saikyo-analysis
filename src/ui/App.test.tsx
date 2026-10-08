@@ -43,6 +43,34 @@ describe('evaluated roster UI', () => {
     }
   })
 
+  it('shows multi-membership Characters in multiple Group tabs without duplicating ranking/search identity', async () => {
+    const warlordsTab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '왕의 부하 칠무해')
+    await click(warlordsTab ?? null)
+    const warlordNames = [...container.querySelectorAll('.character-chip')].map((button) => button.textContent)
+    expect(warlordNames).toContain('쥬라큘 미호크')
+    expect(warlordNames).toContain('크로커다일')
+
+    const crossGuildTab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '크로스 길드')
+    await click(crossGuildTab ?? null)
+    expect([...container.querySelectorAll('.character-chip')].map((button) => button.textContent))
+      .toEqual(['쥬라큘 미호크', '크로커다일'])
+
+    const input = container.querySelector('#character-search-input') as HTMLInputElement
+    await act(async () => {
+      const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')?.set
+      setter?.call(input, '미호크')
+      input.dispatchEvent(new Event('input', { bubbles: true }))
+    })
+    expect(container.querySelectorAll('.search-suggestion')).toHaveLength(1)
+    expect(container.querySelector('.search-suggestion')?.textContent).toContain('크로스 길드')
+
+    await click(container.querySelector('button[aria-label="Attack / 공격력 전체 캐릭터 순위 보기"]'))
+    const mihawkRows = [...document.querySelectorAll('.rank-row')]
+      .filter((row) => row.textContent?.includes('쥬라큘 미호크'))
+    expect(mihawkRows).toHaveLength(1)
+    expect(mihawkRows[0].textContent).toContain('크로스 길드')
+  })
+
   it('opens sorted 29-person stat ranking and navigates to a chosen group', async () => {
     const stat = container.querySelector('button[aria-label="Attack / 공격력 전체 캐릭터 순위 보기"]')
     await click(stat)
