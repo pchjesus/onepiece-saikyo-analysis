@@ -384,9 +384,9 @@ export const sampleCharacters: Character[] = [
       haki: { characterId: 'garp', capabilities: [
         { type: 'armament', status: 'confirmed', note: '권격과 충돌에서 고수준 무장색 운용이 확인된다.' },
         { type: 'observation', status: 'confirmed', note: '해군 최고위 전투원으로서 보유가 확인되는 패기 범주다.' },
-        { type: 'conquerors', status: 'unclear', note: '강한 패기 연출은 있으나 현재 데이터에서는 패왕색 보유 자체를 확정 수치 근거로 분리하지 않는다.', infusion: { status: 'unclear' } },
+        { type: 'conquerors', status: 'confirmed', note: 'God Valley 회상 Ch.1165에서 로저와 함께 Supreme King Haki를 전투에 사용하는 직접 근거가 확인된다.', infusion: { status: 'confirmed', note: 'Ch.1165에서 공격·방어 공방에 Supreme King Haki를 집중해 사용한 사실을 확인한다. 공동전 성과를 가프 단독 수치로 환산하지 않는다.' } },
       ]},
-      sources: [{ label: '원작 Evidence', reference: 'Roger 회고 / Ch. 1080 / 1081 / 1087 / 1088' }],
+      sources: [{ label: '원작 Evidence', reference: 'God Valley Ch. 1165 / Ch. 1080 / 1081 / 1087 / 1088' }],
     },
   },
   {
@@ -512,6 +512,85 @@ export const sampleCharacters: Character[] = [
         { type: 'conquerors', status: 'not-confirmed', infusion: { status: 'not-confirmed' } },
       ]},
       sources: [{ label: '원작 Evidence', reference: 'Hachinosu Ch. 1087-1088' }],
+    },
+  },,
+
+  {
+    id: 'law',
+    name: '트라팔가 로',
+    crewId: 'seven-warlords',
+    description: '전 왕의 부하 칠무해이자 하트 해적단 선장. 오페오페 열매의 공간 조작·내부 파괴·각성을 검술과 결합한다.',
+    combatProfile: {
+      combatStyles: ['검술', 'ROOM 공간 조작', '위치 교환', '내부 파괴', '각성 K-ROOM·R-ROOM', '지원·구출'],
+      specialTraits: [{
+        id: 'special-law-ope',
+        category: 'devil-fruit',
+        name: '오페오페 열매',
+        status: 'confirmed',
+        description: 'ROOM 안에서 위치·물체·신체를 조작하고, 각성 이후 K-ROOM·R-ROOM으로 내부 타격과 비접촉 효과를 운용한다.',
+        evidenceIds: ['evidence-law-doflamingo-gamma-knife-781', 'evidence-law-big-mom-1039', 'evidence-law-puncture-wille-1039', 'evidence-law-teach-1064'],
+        limitations: '강력한 기술과 각성은 체력 소모가 크며, 공간 조작의 존재 자체를 Speed·Versatility·Technique에 중복 가산하지 않는다.',
+      }],
+      haki: { characterId: 'law', capabilities: [
+        { type: 'armament', status: 'confirmed', note: '무장색 보유는 공식 보조자료 및 전투 기록으로 확인되는 것으로 분류한다. Ch.1063의 능력 해제는 Haki의 강도를 보여주지만 유형을 임의로 특정하지 않는다.' },
+        { type: 'observation', status: 'confirmed', note: '견문색 보유는 공식 보조자료에서 확인되는 것으로 분류한다.' },
+        { type: 'conquerors', status: 'not-confirmed', note: '현재 채택 원작 근거에서 패왕색 보유가 확인되지 않는다.', infusion: { status: 'not-confirmed' } },
+      ]},
+      sources: [
+        { label: '원작 Evidence', reference: 'Ch. 781 / 1039 / 1063-1064' },
+      ],
+    },
+  },
+  {
+    id: 'doflamingo',
+    name: '돈키호테 도플라밍고',
+    crewId: 'seven-warlords',
+    description: '전 왕의 부하 칠무해. 실실 열매의 정밀 조작과 각성, 공중 기동·구속·분신·전장 통제를 결합한다.',
+    combatProfile: {
+      combatStyles: ['실 절단', '구속·조종', '공중 이동', '분신', 'Birdcage', '각성 지형 변환'],
+      specialTraits: [{
+        id: 'special-doflamingo-ito',
+        category: 'devil-fruit',
+        name: '실실 열매',
+        status: 'confirmed',
+        description: '실을 절단·구속·조종·이동·분신·응급 봉합에 활용하고, 각성으로 주변 건물과 지형을 실로 변환한다.',
+        evidenceIds: ['evidence-doflamingo-law-arm-769', 'evidence-doflamingo-organ-repair-781', 'evidence-doflamingo-awakening-785', 'evidence-doflamingo-birdcage-781-790'],
+        limitations: 'Birdcage의 규모와 기술 개수를 단일 Attack이나 Versatility에 그대로 합산하지 않으며, 실 봉합은 완전한 치유가 아니다.',
+      }],
+      haki: { characterId: 'doflamingo', capabilities: [
+        { type: 'armament', status: 'confirmed', note: 'Dressrosa 전투에서 공격·방어에 무장색을 사용하는 장면이 확인된다.' },
+        { type: 'observation', status: 'confirmed', note: '공식 보조자료 기준 견문색 보유가 확인되는 것으로 분류한다.' },
+        { type: 'conquerors', status: 'confirmed', note: '원작에서 기본 패왕색 사용이 확인된다.', infusion: { status: 'unclear', note: '패왕색을 공격에 두르는 고급 적용은 현재 채택 근거에서 확인하지 못한다.' } },
+      ]},
+      sources: [
+        { label: '원작 Evidence', reference: 'Ch. 769 / 781 / 783-785 / 790' },
+      ],
+    },
+  },
+  {
+    id: 'hancock',
+    name: '보아 핸콕',
+    crewId: 'seven-warlords',
+    description: '전 왕의 부하 칠무해이자 구사 해적단 선장. 체술과 메로메로 열매의 석화 효과를 근·원거리 제압에 사용한다.',
+    combatProfile: {
+      combatStyles: ['근접 체술', '접촉 석화', '원거리 석화', '다수 제압'],
+      specialTraits: [{
+        id: 'special-hancock-mero',
+        category: 'devil-fruit',
+        name: '메로메로 열매',
+        status: 'confirmed',
+        description: '감정 조건을 이용한 광역 석화뿐 아니라 Slave Arrow·Perfume Femur 등 공격 형태로 석화 효과를 적용한다.',
+        evidenceIds: ['evidence-hancock-marineford-559', 'evidence-hancock-amazon-lily-1059'],
+        limitations: '석화의 높은 치명성은 Special/Matchup 승리조건으로 보존하고, 모든 상대에게 동일한 확률로 성립한다고 가정하지 않는다.',
+      }],
+      haki: { characterId: 'hancock', capabilities: [
+        { type: 'armament', status: 'confirmed', note: '자연계 능력자에게 직접 타격을 성립시키는 등 무장색 운용이 확인된다.' },
+        { type: 'observation', status: 'confirmed', note: '공식 보조자료 기준 견문색 보유가 확인되는 것으로 분류한다.' },
+        { type: 'conquerors', status: 'confirmed', note: '패왕색 보유가 원작·공식 자료에서 확인된다.', infusion: { status: 'unclear', note: '공격에 두르는 고급 패왕색 적용은 현재 채택 근거에서 확인하지 못한다.' } },
+      ]},
+      sources: [
+        { label: '원작 Evidence', reference: 'Marineford / Ch. 1059' },
+      ],
     },
   },
 ]
