@@ -1,3 +1,32 @@
+# v0.1.32 — Multi-Membership / Unique Ranking Verification
+
+## Scope
+- Character에 서로 다른 Group Membership을 복수 허용.
+- Group navigation은 Membership-expanded 유지.
+- Ranking / Matchup roster는 Character-unique projection 사용.
+- 미호크·크로커다일의 former Seven Warlords Membership 추가.
+- 검색 suggestion은 Character identity 기준 중복 제거.
+
+## Regression targets
+- sample Membership 31행이 모두 referentially valid.
+- evaluated roster / 모든 Core Stat Ranking / Overall Ranking은 계속 29 unique Character.
+- 미호크·크로커다일은 Cross Guild와 Seven Warlords 양쪽 Group에서 탐색 가능.
+- Ranking / Matchup에서는 각각 1회만 표시.
+- 대표 Group은 두 Character 모두 Cross Guild 유지.
+- Buggy E3 master-pool-only 정책 유지.
+- Balanced 1.2 / Haki Weight 0.5 / Evaluation score 변경 없음.
+
+## Automated verification
+- PR CI에서 `npm test` / `npm run build` 확인 예정.
+
+## Manual verification
+- 공개 Pages에서 칠무해 탭에 미호크·크로커다일이 추가 표시되는지 확인.
+- 크로스 길드 탭에도 기존 두 Character가 유지되는지 확인.
+- 랭킹에서 중복 행이 생기지 않는지 확인.
+- 실기기 픽셀/터치 검증은 별도.
+
+---
+
 # v0.1.25 Draft — Overall Ranking / Character Search / Evidence-Haki Audit (2026-10-08)
 
 ## Scope & Integrity

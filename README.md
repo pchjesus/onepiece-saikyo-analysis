@@ -24,23 +24,14 @@ Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Speci
 
 ## v0.1.32 주요 변경
 
-- Character ↔ Group 관계를 **1:N Membership**으로 정식 허용한다.
-- 그룹 탭/소속 탐색은 Membership-expanded view를 사용해 동일 Character가 여러 Group에 나타날 수 있다.
+- Character ↔ Group 관계를 **복수 Membership**으로 정식 허용한다.
+- Group 탭/소속 탐색은 Membership-expanded view를 사용해 동일 Character가 여러 Group에 나타날 수 있다.
 - Ranking / Matchup selection은 **Character-unique roster**를 사용해 복수 Membership이 있어도 Character당 한 번만 집계한다.
 - 대표 Group은 migration 동안 `Character.crewId`와 일치하는 Membership을 우선하고, 없으면 current Membership → 첫 Membership 순으로 결정한다.
 - 쥬라큘 미호크·크로커다일의 **크로스 길드 + 과거 왕의 부하 칠무해** Membership을 실제 데이터로 추가해 회귀를 검증한다.
-- Character 검색은 같은 Character의 복수 Membership 결과를 한 건으로 합치되, 소속명 검색 시 해당 Membership 문맥으로 진입할 수 있다.
-- 현재 evaluated roster는 계속 **29 unique Character**이며 Membership 행은 31개다. Balanced 1.2 / Haki Weight 0.5 / Evaluation 점수는 변경하지 않는다.
-
-## v0.1.32 주요 변경
-
-- Character ↔ Group 관계에서 **복수 Membership**을 실제로 허용한다.
-- Group 탭은 Membership-expanded view를 사용해 동일 Character가 여러 소속에 나타날 수 있다.
-- Ranking과 Matchup roster는 **Character-unique view**를 사용해 Membership 개수와 무관하게 한 캐릭터가 한 번만 나타난다.
-- 대표 Group은 migration 기간 동안 Character의 기존 `crewId`를 우선 사용한다.
-- 검색은 과거/보조 Group 이름으로도 찾을 수 있지만 suggestion은 Character당 한 건으로 중복 제거한다.
-- 실제 회귀 데이터로 쥬라큘 미호크와 크로커다일의 **전 왕의 부하 칠무해 Membership**을 추가했다. 두 캐릭터는 칠무해/크로스 길드 탭 모두에서 탐색되지만 Ranking·Matchup에는 각각 1회만 등장한다.
-- Balanced 1.2, Haki Weight 0.5, 기존 Evaluation 점수에는 변경이 없다.
+- 검색은 여러 소속으로 찾을 수 있지만 suggestion은 Character identity 기준 한 건으로 중복 제거한다.
+- 현재 **30 Character master pool / 29 evaluated unique Character / 31 Membership / 30 Evaluation**이다.
+- Balanced 1.2 / Haki Weight 0.5 / Evaluation 점수는 변경하지 않는다.
 
 ## v0.1.31 주요 변경
 

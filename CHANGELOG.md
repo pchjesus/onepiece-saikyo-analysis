@@ -4,47 +4,22 @@
 
 ### Architecture
 - Group navigation remains Membership-expanded.
-- New Character-unique representative roster separates identity-based features from affiliation navigation.
-- Ranking and Matchup selection consume the unique roster.
-- Representative Group currently prefers legacy Character.crewId, then current Membership, then first Membership.
+- Ranking and Matchup selection consume a Character-unique representative roster.
+- Representative Group prefers legacy `Character.crewId`, then current Membership, then first valid Membership.
+- Distinct Group/status/period Memberships are allowed; exact duplicate Memberships remain invalid.
 
 ### Data
-- Added former Seven Warlords Memberships for 쥬라큘 미호크 and 크로커다일.
-- These Characters can appear under both Cross Guild and Seven Warlords without duplicate Ranking rows.
-
-### Search / UI
-- Search may match any Membership Group.
-- Suggestions deduplicate by Character; primary/representative Membership wins equal-relevance identity searches.
-
-### Compatibility
-- 29 unique evaluated Characters remain in rankings.
-- 31 current Membership navigation rows after adding the two historical Warlord records.
-- 30 Evaluation records unchanged.
-- Balanced 1.2 and Haki Weight 0.5 unchanged.
-
-
-## v0.1.32 — Multi-Membership / Character-Unique Ranking
-
-### Data architecture
-- Group navigation remains Membership-expanded.
-- Added Character-unique roster projection for one-row-per-Character features.
-- Ranking and Matchup roster now consume the Character-unique projection.
-- Representative Group selection prefers the Character's legacy `crewId` Membership, then current Membership, then first valid Membership.
-- Exact duplicate Membership records remain invalid, while distinct Group/status/period Memberships are allowed.
-
-### Data
-- Added former Warlord Memberships for 쥬라큘 미호크 and 크로커다일 while preserving Cross Guild as their representative Group.
+- Added former Seven Warlords Memberships for 쥬라큘 미호크 and 크로커다일 while preserving Cross Guild as their representative Group.
 - 30 Character master pool / 29 evaluated unique Characters / 31 Membership rows / 30 Evaluations.
 
-### UI / search
-- Group tabs may intentionally show the same Character in multiple Groups.
-- Search suggestions deduplicate by Character identity and prefer the representative Group when identity relevance ties.
-- Rankings remain 29 unique entries.
+### Search / UI
+- The same Character may appear in multiple Group tabs.
+- Search can match secondary/historical Group Memberships but deduplicates suggestions by Character.
+- Rankings remain 29 unique rows.
 
 ### Model compatibility
 - No Evaluation score changes.
 - Balanced 1.2, Haki Weight 0.5 and Matchup no-win-probability policy unchanged.
-
 
 ## v0.1.31 — Two-Fighter Matchup Builder
 
