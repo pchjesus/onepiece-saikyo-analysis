@@ -1,5 +1,24 @@
 # Changelog
 
+## v0.1.30 — Apex Calibration & Matchup Arena
+
+### Calibration
+- Prime Garp: 97.429. God Valley direct evidence remains the primary state; current Hachinosu repertoire is only a clearly labeled secondary inference for Versatility/decision calibration.
+- Current Garp: 93.714. Raises Attack/Speed/Technique/Stamina/Combat IQ while preserving Shiryu protection injury and multi-party rescue context.
+- Kuzan: 92.714. Adds explicit post-Blue-Hole return Evidence; recovery/continuation primarily supports Stamina and only secondarily Defense.
+- Crocodile: 79.000. Removes current bounty/Cross Guild status as an implicit physical-combat growth proxy; keeps Technique and Combat IQ as principal strengths.
+
+### UX
+- Stats remains the default first screen.
+- Matchup moves from the Character Detail third tab to a separate top-level Matchup Arena opened through a VS navigation control.
+- Arena adds radar visualization, Tale of the Tape and evidence-aware factor cards without numeric win probability.
+- Character Detail returns to two focused tabs: Evaluation Trace and Battle/Canon Evidence.
+
+### Future Community
+- Community opinion entry points are planned next to Stat/Evidence records, but no non-functional icon is rendered before persistence/authentication are implemented.
+- Community data remains separate from Official Evaluation.
+
+
 ## v0.1.29 — Cross Guild, Prime Garp Recalibration & Matchup UI
 
 ### Evaluation / Evidence
