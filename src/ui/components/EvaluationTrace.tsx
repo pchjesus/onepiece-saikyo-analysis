@@ -2,6 +2,7 @@ import { COMBAT_STAT_DEFINITIONS } from '../../domain/evaluation/statDefinitions
 import type { CombatStat, EvaluationStatus } from '../../domain/evaluation/types'
 import { getEffectiveHakiContributionTotal, getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import type { HakiStatContribution } from '../../domain/haki/types'
+import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
 
 export function EvaluationTrace({
   items, status, evaluationDataVersion, hakiWeight,
@@ -35,8 +36,8 @@ export function EvaluationTrace({
               <p className="evaluation-formula">
                 Base <strong>{item.baseScore}</strong> + Haki (<strong>{rawHaki}</strong> × {hakiWeight} = <strong>{effectiveHaki}</strong>) = Final <strong>{item.score}/100</strong>{capped && <span> · 100점 상한 적용</span>}
               </p>
-              <p>{item.rationale}</p>
-              {evidence.length > 0 ? <ul>{evidence.map(({ evidence: record }) => <li key={record.id}>{record.source.reference}</li>)}</ul> : <span className="trace-empty">연결된 근거 없음</span>}
+              <p>{normalizeCharacterNamesForDisplay(item.rationale)}</p>
+              {evidence.length > 0 ? <ul>{evidence.map(({ evidence: record }) => <li key={record.id}>{normalizeCharacterNamesForDisplay(record.source.reference)}</li>)}</ul> : <span className="trace-empty">연결된 근거 없음</span>}
             </article>
           )
         })}
