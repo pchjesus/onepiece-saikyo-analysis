@@ -1,5 +1,34 @@
 # Changelog
 
+## v0.1.27 — Canonical Identity, Era Metadata & Public Pages Sync
+
+### Character Identity
+- Character에 공식 주표기 이름과 `alias / epithet / title`을 분리한 `knownAs` 구조를 추가.
+- ONE PIECE.com 공식 캐릭터 페이지·공식 VIVRE CARD/애니메이션 자료로 확인되는 통칭·이명·칭호만 등록하고 출처를 함께 저장.
+- 주표기 이름을 공식 primary name 원칙에 맞게 보정: 알베르(킹), 샬롯 카타쿠리/스무디/크래커, 롤로노아 조로 등.
+- 사카즈키는 주표기 이름을 유지하고 아카이누를 통칭으로 분리. 쿠잔/아오키지, 보르살리노/키자루, 잇쇼/후지토라, 아라마키/료쿠규도 동일 구조 적용.
+
+### UI / Search
+- 캐릭터 검색 범위를 본명·통칭·이명·칭호·소속으로 확장.
+- 검색 결과와 캐릭터 상세 상단에 공식 identity 정보를 표시.
+- 불분명하거나 공식 근거를 확보하지 못한 이명은 빈 값으로 유지.
+- 가프 Ranking/Detail에 현재 평가가 `전성기` 대상임을 명시.
+
+### Evaluation Era
+- `Evaluation.subjectState` 메타데이터를 추가해 하나의 Character identity와 전성기/현재 등 평가 시점을 분리할 기반 마련.
+- 현 단계에서는 기존 `EvaluationRepository.getEvaluation(characterId)`의 1인 1평가 구조를 유지하며, 가프의 별도 현재 점수를 임의 생성하지 않음.
+- 실제 현재/전성기 복수 평가 구현은 repository/API가 복수 Evaluation을 선택할 수 있게 바꾸는 후속 구조 작업으로 분리.
+
+### Deployment
+- 공개 사이트 운영 단계에 맞춰 Pull Request는 test/build만 수행하고, 성공한 main push는 GitHub Pages까지 자동 배포하도록 workflow 정책 변경.
+
+### Tests
+- Character identity source/중복 검증 추가.
+- 키자루→보르살리노, 아카이누→사카즈키 alias 검색 회귀 테스트 추가.
+- 가프 전성기 subject-state 표시 및 ranking 전달 테스트 추가.
+- 기존 27인 Evaluation 점수 및 Balanced 1.2 계산식은 변경하지 않음.
+
+
 ## Unreleased · v0.1.25 Draft — Overall Rankings, Search & Haki Recalibration
 
 ### UI
