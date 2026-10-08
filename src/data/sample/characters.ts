@@ -652,4 +652,110 @@ export const sampleCharacters: Character[] = [
     },
   },
 
+  {
+    id: 'roger', name: '골 D. 로저', crewId: 'roger-pirates',
+    knownAs: [{ kind: 'title', name: '해적왕', source: { label: 'ONE PIECE.com', reference: '골 D. 로저 공식 캐릭터 페이지 — 역사상 유일한 해적왕' } }],
+    description: '로저 해적단 선장. 검술과 최고 수준의 패왕색을 결합한 전성기 전투를 기준으로 평가하며, 해적왕이라는 지위 자체를 개별 스탯 점수로 자동 환산하지 않는다.',
+    combatProfile: {
+      combatStyles: ['검술', '카무사리', '최상위 패기 공방', '근접 고속전'],
+      specialTraits: [],
+      haki: { characterId: 'roger', capabilities: [
+        { type: 'armament', status: 'confirmed', note: '최상위 패기 공방과 공식 설정에서 보유가 확인된다.' },
+        { type: 'observation', status: 'confirmed', note: '공식 설정상 견문색 보유가 확인된다.' },
+        { type: 'conquerors', status: 'confirmed', note: '뉴게이트·록스와의 공방에서 패왕색이 직접 확인된다.', infusion: { status: 'confirmed', note: '무기에 패왕색을 두르는 최고 수준 공방이 직접 확인된다.' } },
+      ]},
+      sources: [{ label: 'ONE PIECE.com', reference: '골 D. 로저 공식 캐릭터 페이지' }, { label: '원작 Evidence', reference: 'Ch. 966 / 1163 / 1165-1166' }],
+    },
+  },
+  {
+    id: 'rayleigh', name: '실버즈 레일리', crewId: 'roger-pirates',
+    knownAs: [{ kind: 'epithet', name: '명왕', source: { label: 'ONE PIECE.com', reference: '실버즈 레일리 공식 캐릭터 페이지 — 「冥王」' } }],
+    description: '로저 해적단 부선장. 전성기와 현재를 분리 평가하며, 노년의 보르살리노전과 패기 시연은 현재 전투력의 직접 근거이자 전성기 능력의 하한 참고자료로만 사용한다.',
+    combatProfile: {
+      combatStyles: ['검술', '근접 제압', '패기 기반 공격·방어', '고속 요격'],
+      specialTraits: [],
+      haki: { characterId: 'rayleigh', capabilities: [
+        { type: 'armament', status: 'confirmed', note: '루피 수련에서 직접 시연하고 전투에서도 자연계 상대와 접촉을 성립시킨다.' },
+        { type: 'observation', status: 'confirmed', note: '루피 수련 과정에서 직접 설명·시연한다.' },
+        { type: 'conquerors', status: 'confirmed', note: '샤본디 및 수련 과정에서 패왕색 사용이 확인된다.', infusion: { status: 'unclear', note: '현재 채택 근거에서 고급 패왕색 공격 적용을 직접 수치화하지 않는다.' } },
+      ]},
+      sources: [{ label: 'ONE PIECE.com', reference: '실버즈 레일리 공식 캐릭터 페이지' }, { label: '원작 Evidence', reference: 'Ch. 512 / 597 / 1059 / 1161' }],
+    },
+  },
+  {
+    id: 'gaban', name: '스코퍼 가반', crewId: 'roger-pirates',
+    knownAs: [{ kind: 'title', name: '해적왕의 왼팔', source: { label: '원작/공식 애니', reference: 'Elbaf 공식 애니·원작 — 로저·레일리와 함께한 핵심 전력' } }],
+    description: '로저 해적단 핵심 전력. 엘바프 현재 시점의 직접 전투만 수치화하며, 전성기는 직접 7축 Evidence가 부족해 미평가로 보류한다.',
+    combatProfile: {
+      combatStyles: ['쌍도끼', '고속 근접전', '비상 참격', '패기 기반 불사 대응', '전투 중 미래 예측'],
+      specialTraits: [],
+      haki: { characterId: 'gaban', capabilities: [
+        { type: 'armament', status: 'unclear', note: '현재 장면의 단순 Haki coating을 무장색으로 임의 특정하지 않는다.' },
+        { type: 'observation', status: 'confirmed', note: '엘바프에서 인질 사태의 미래를 미리 보고 판단하는 고급 견문색 적용이 확인된다.' },
+        { type: 'conquerors', status: 'confirmed', note: '신의 기사단의 불사성 억제와 관련된 과거 전투·설명에서 패왕색 운용이 확인된다.', infusion: { status: 'confirmed', note: '과거 Harald 관련 전투에서 불사 억제에 패왕색을 공격에 적용한 것으로 분류한다.' } },
+      ]},
+      sources: [{ label: 'ONE PIECE.com', reference: '스코퍼 가반 공식 캐릭터/애니 자료' }, { label: '원작 Evidence', reference: 'Ch. 1139-1140 / 1148-1152 / 1170 / 1189-1192' }],
+    },
+  },
+  {
+    id: 'rocks', name: '록스 D. 지벡', crewId: 'rocks-pirates',
+    knownAs: [],
+    description: '록스 해적단 선장. Domi Reversi 이전 God Valley 자연 상태만 평가하며, 악마화 상태는 별도 수치로 합산하지 않고 강함의 상한·맥락 참고자료로만 사용한다.',
+    combatProfile: {
+      combatStyles: ['검술', '최상위 패기 공방', '고속 근접전', '대형 구조물 파괴'],
+      specialTraits: [],
+      haki: { characterId: 'rocks', capabilities: [
+        { type: 'armament', status: 'unclear', note: '자연 상태 전투의 패기 사용은 확인되지만 타입별 적용을 모두 특정하지 않는다.' },
+        { type: 'observation', status: 'unclear' },
+        { type: 'conquerors', status: 'confirmed', note: '하랄드 및 God Valley 공방에서 패왕색이 직접 확인된다.', infusion: { status: 'confirmed', note: '무기·공격에 패왕색을 실은 최고 수준 공방이 확인된다.' } },
+      ]},
+      sources: [{ label: 'ONE PIECE.com', reference: '록스 D. 지벡 공식 캐릭터 페이지' }, { label: '원작 Evidence', reference: 'Ch. 1155 / 1162-1166' }],
+    },
+  },
+  {
+    id: 'newgate', name: '에드워드 뉴게이트', crewId: 'whitebeard-pirates',
+    knownAs: [{ kind: 'epithet', name: '흰 수염', source: { label: 'ONE PIECE.com', reference: '에드워드 뉴게이트 공식 캐릭터 페이지 — 「白ひげ」' } }, { kind: 'title', name: '세계 최강의 남자', source: { label: 'ONE PIECE.com', reference: '에드워드 뉴게이트 공식 캐릭터 페이지' } }],
+    description: '흰수염 해적단 선장. 전성기와 질환·노쇠가 진행된 정상결전 상태를 분리해 평가한다.',
+    combatProfile: {
+      combatStyles: ['언월도', '지진 충격파', '광역 파괴', '근접 패기 공방', '전장 제어'],
+      specialTraits: [{ id: 'special-newgate-quake', category: 'devil-fruit', name: '흔들흔들 열매', status: 'confirmed', description: '지진과 충격파로 근접·원거리·광역 공격과 지형 파괴를 수행한다.', evidenceIds: [], limitations: '광역 파괴 규모 자체를 단일 표적 Attack과 동일시하지 않는다.' }],
+      haki: { characterId: 'newgate', capabilities: [
+        { type: 'armament', status: 'confirmed' },
+        { type: 'observation', status: 'confirmed' },
+        { type: 'conquerors', status: 'confirmed', note: '로저와의 전성기 충돌에서 직접 확인된다.', infusion: { status: 'confirmed', note: '로저와 무기가 닿지 않는 패왕색 공방을 성립시킨다.' } },
+      ]},
+      sources: [{ label: 'ONE PIECE.com', reference: '에드워드 뉴게이트 공식 캐릭터 페이지' }, { label: '원작 Evidence', reference: 'Ch. 434 / 552-576 / 966 / 1163' }],
+    },
+  },
+  {
+    id: 'kaido', name: '카이도', crewId: 'beasts-pirates',
+    knownAs: [{ kind: 'epithet', name: '백수의 카이도', source: { label: 'ONE PIECE.com', reference: '카이도 공식 캐릭터 페이지' } }],
+    description: '백수 해적단 총독. 오니가시마 전투 상태를 전성기로 보고, 다수전·누적 피해·섬 이동 부담을 포함한 전투 맥락과 함께 평가한다.',
+    combatProfile: {
+      combatStyles: ['금쇄봉 격투', '청룡 변신', '화염·바람·번개', '공중전', '패왕색 강화 근접전'],
+      specialTraits: [{ id: 'special-kaido-seiryu', category: 'devil-fruit', name: '물고기물고기 열매 환수종 모델 청룡', status: 'confirmed', description: '청룡과 인수형 변신으로 비행·원거리 자연현상 공격·신체 강화를 결합한다.', evidenceIds: [] }],
+      haki: { characterId: 'kaido', capabilities: [
+        { type: 'armament', status: 'confirmed' },
+        { type: 'observation', status: 'confirmed', note: '루피와의 전투에서 미래예지 수준의 고급 운용을 직접 보여준다.' },
+        { type: 'conquerors', status: 'confirmed', note: '패왕색 보유와 공격 강화가 직접 확인된다.', infusion: { status: 'confirmed', note: '금쇄봉과 공격에 패왕색을 두르는 고급 적용이 명시된다.' } },
+      ]},
+      sources: [{ label: 'ONE PIECE.com', reference: '카이도 공식 캐릭터 페이지' }, { label: '원작 Evidence', reference: 'Ch. 951 / 1009-1010 / 1042 / 1049' }],
+    },
+  },
+  {
+    id: 'linlin', name: '샬롯 링링', crewId: 'big-mom-pirates',
+    knownAs: [{ kind: 'epithet', name: '빅 맘', source: { label: 'ONE PIECE.com', reference: '샬롯 링링 공식 캐릭터 페이지 — BIG MOM' } }],
+    description: '빅 맘 해적단 선장. 오니가시마 전투 상태를 전성기로 보고 압도적인 공격·내구·지속·능력 폭과, 상대적으로 노출된 전투 판단·기동 한계를 분리해 평가한다.',
+    combatProfile: {
+      combatStyles: ['검술', '호미즈 연계', '근접 완력', '영혼 조작', '자가 회복', '광역 원소 공격'],
+      specialTraits: [{ id: 'special-linlin-soul', category: 'devil-fruit', name: '소울소울 열매', status: 'confirmed', description: '영혼을 부여한 호미즈를 통해 화염·번개·검격·비행·자가 회복을 포함한 복합 전투를 수행한다.', evidenceIds: [], limitations: 'Soul Pocus는 상대의 공포 여부 등 조건에 영향을 받는다.' }],
+      haki: { characterId: 'linlin', capabilities: [
+        { type: 'armament', status: 'confirmed' },
+        { type: 'observation', status: 'confirmed' },
+        { type: 'conquerors', status: 'confirmed', note: 'Page One 공격 등에서 패왕색 강화가 직접 확인된다.', infusion: { status: 'confirmed', note: '근접 주먹 공격에 패왕색을 두르는 장면이 직접 확인된다.' } },
+      ]},
+      sources: [{ label: 'ONE PIECE.com', reference: '샬롯 링링 공식 캐릭터 페이지' }, { label: '원작 Evidence', reference: 'Ch. 951 / 1009 / 1011 / 1039-1040' }],
+    },
+  },
+
 ]
