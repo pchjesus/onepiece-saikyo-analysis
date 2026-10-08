@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import type { CombatStat } from '../../domain/evaluation/types'
 import { getCharacterBattleTimeline } from '../../application/getCharacterBattleTimeline'
 import { getCharacterDetail } from '../../application/getCharacterDetail'
 import { getCombatPower } from '../../application/getCombatPower'
@@ -7,8 +9,13 @@ import { EvaluationTrace } from '../components/EvaluationTrace'
 import { StatList } from '../components/StatList'
 import { CombatProfile } from '../components/CombatProfile'
 
-export function CharacterPage({ characterId }: { characterId: string }) {
-  const detail = getCharacterDetail(characterId)
+export function CharacterPage({ characterId, groupId, onSelectStat }: {
+  characterId: string
+  groupId: string
+  onSelectStat: (stat: CombatStat) => void
+}) {
+  const [activeDetail, setActiveDetail] = useState<'evaluation' | 'battle'>('evaluation')
+  const detail = getCharacterDetail(characterId, groupId)
   if (!detail) return <section>캐릭터 데이터를 찾을 수 없습니다.</section>
 
   const result = getCombatPower(characterId)
@@ -17,25 +24,56 @@ export function CharacterPage({ characterId }: { characterId: string }) {
 
   return (
     <main className="detail">
-      <p className="eyebrow">{detail.crew.name}</p>
-      <h1>{detail.character.name}</h1>
-      <p className="prototype-note">{detail.evaluation.status === 'draft' ? '평가 진행 중 · v0.1.22 7 Core Stat draft' : 'MVP 구조 검증용 임시 평가 데이터 · 공식 전투력 평가 아님'}</p>
-      <CombatProfile profile={detail.character.combatProfile} />
-      <section className="power-card">
-        <span>Overall Combat Power · 현재 계산값</span>
-        <strong>{result.finalScore.toFixed(1)}<small>/100</small></strong>
-        <span>{result.calculationModelVersion} · Balanced · 7 Core Stats · Haki Weight ×{result.hakiWeight}</span>
-      </section>
-      <h2>Core Combat Stats</h2>
-      <StatList items={detail.evaluation.items} hakiWeight={result.hakiWeight} />
-      {evaluationTrace && <EvaluationTrace items={evaluationTrace} status={detail.evaluation.status} evaluationDataVersion={detail.evaluation.evaluationDataVersion} hakiWeight={result.hakiWeight} />}
-      <section className="evidence-section">
+      <div className="detail-heading">
         <div>
-          <p className="eyebrow">BATTLE & CANON EVIDENCE</p>
-          <h2>전투 기록</h2>
-          <p className="section-note">시간 순으로 정리된 전투 기록을 선택하면 해당 전투의 상황과 원작 근거가 펼쳐집니다. 근거는 점수를 자동으로 변경하지 않으며 Evaluation이 별도로 해석합니다.</p>
+          <p className="eyebrow">{detail.group.name}</p>
+          <h1>{detail.character.name}</h1>
         </div>
-        <BattleTimeline items={battleTimeline} />
+        <p className="prototype-note">{detail.evaluation.status === 'draft'
+          ? `평가 진행 중 · 7 Core Stat draft · ${detail.evaluation.evaluationDataVersion}`
+          : 'MVP 구조 검증용 임시 평가 데이터 · 공식 전투력 평가 아님'}</p>
+      </div>
+
+      <div className="overview-layout">
+        <section className="score-overview" aria-label="종합 전투력과 스탯">
+          <div className="power-card">
+            <span>Overall Combat Power · 현재 계산값</span>
+            <strong>{result.finalScore.toFixed(1)}<small>/100</small></strong>
+            <span>{result.calculationModelVersion} · Balanced · 7 Core Stats · Haki Weight ×{result.hakiWeight}</span>
+          </div>
+          <div className="stat-heading">
+            <h2>Core Combat Stats</h2>
+            <span>점수를 누르면 24명 전체 비교</span>
+          </div>
+          <StatList items={detail.evaluation.items} hakiWeight={result.hakiWeight} onSelectStat={onSelectStat} />
+        </section>
+        <CombatProfile profile={detail.character.combatProfile} />
+      </div>
+
+      <section className="detail-insights">
+        <div className="detail-tabs" role="tablist" aria-label="상세 정보 보기">
+          <button id="evaluation-tab" type="button" role="tab" aria-selected={activeDetail === 'evaluation'}
+            aria-controls="detail-content" className={activeDetail === 'evaluation' ? 'selected' : ''}
+            onClick={() => setActiveDetail('evaluation')}>평가 근거 · 계산식</button>
+          <button id="battle-tab" type="button" role="tab" aria-selected={activeDetail === 'battle'}
+            aria-controls="detail-content" className={activeDetail === 'battle' ? 'selected' : ''}
+            onClick={() => setActiveDetail('battle')}>전투 기록 · 원작 Evidence</button>
+        </div>
+        <div id="detail-content" className="detail-tab-content" role="tabpanel"
+          aria-labelledby={activeDetail === 'evaluation' ? 'evaluation-tab' : 'battle-tab'}>
+          {activeDetail === 'evaluation' ? (
+            evaluationTrace
+              ? <EvaluationTrace items={evaluationTrace} status={detail.evaluation.status} evaluationDataVersion={detail.evaluation.evaluationDataVersion} hakiWeight={result.hakiWeight} />
+              : <p className="empty-note">평가 근거가 없습니다.</p>
+          ) : (
+            <section className="evidence-section">
+              <p className="eyebrow">BATTLE & CANON EVIDENCE</p>
+              <h2>전투 기록</h2>
+              <p className="section-note">전투를 선택하면 상황과 원작 근거가 펼쳐집니다. 근거는 점수를 자동 변경하지 않습니다.</p>
+              <BattleTimeline items={battleTimeline} />
+            </section>
+          )}
+        </div>
       </section>
     </main>
   )

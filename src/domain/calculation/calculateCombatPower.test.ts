@@ -59,17 +59,32 @@ describe('Balanced v1.2', () => {
     expect(getFinalStatScore(item, 0.5)).toBe(76)
   })
 
-  it('calculates the calibrated nine-character Overalls from Final Stats', () => {
+  it('calculates the calibrated roster Overalls from Final Stats', () => {
     const expected: Record<string, number> = {
       marco: 81.1428571429,
       jozu: 77.2857142857,
-      vista: 79.1428571429,
+      vista: 79.5714285714,
       king: 80.7142857143,
       queen: 78.7142857143,
-      jack: 74.4285714286,
+      jack: 74.7142857143,
       katakuri: 81.2857142857,
       smoothie: 76.7142857143,
-      cracker: 71.8571428571,
+      cracker: 75.2857142857,
+      zoro: 84.8571428571,
+      sanji: 84.4285714286,
+      jinbe: 79.4285714286,
+      shanks: 92.2857142857,
+      garp: 95.1428571429,
+      akainu: 92.4285714286,
+      kuzan: 93.4285714286,
+      kizaru: 94,
+      fujitora: 89.7142857143,
+      ryokugyu: 89.4285714286,
+      teach: 90.4285714286,
+      shiryu: 77.5714285714,
+      burgess: 74.2857142857,
+      'van-augur': 75.2857142857,
+      pizarro: 72,
     }
 
     for (const evaluation of sampleEvaluations) {

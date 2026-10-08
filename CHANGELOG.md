@@ -1,5 +1,55 @@
 # Changelog
 
+## Unreleased — Group Detail, Stat Rankings & Compact UI
+
+### Fixed
+- 신규 집단(밀짚모자/빨간 머리/해군/검은 수염 해적단)의 상세 조회가 레거시 `sampleCrews`의 3개 집단 제한 때문에 실패하던 경로를 Group/Membership 조회로 교체.
+- 캐릭터 상세 안내에서 이전 버전 `v0.1.22` 고정 문자열을 제거하고 실제 Evaluation data version을 표시.
+
+### Added
+- 7개 Final Core Stat을 클릭해 현재 24명 전체의 해당 Stat 내림차순 순위(동점 공동 순위)를 확인하고 캐릭터로 이동하는 대화상자.
+- Evaluation Trace의 각 Stat에 `Base + (Raw Haki × Weight = Effective) = Final` 식을 명시.
+- 모든 신규 그룹의 상세 조회, 7개 Stat 순위 정렬, 주요 UI 전환에 대한 회귀 테스트.
+
+### Changed
+- 상단 종합점수/7축과 전투 프로필을 넓은 화면에서 2열로 배치. 아래 평가근거/전투기록을 탭으로 나눠 내부 스크롤을 적용하고 모바일 대응 CSS 추가.
+- 입문 가이드에 수정된 UI 사용법과 현재 검증 한계를 반영.
+- 핵심 전투력 데이터, 승인 점수, Haki Weight, Balanced 1.2 계산 규칙은 변경하지 않음.
+
+### Manual Verification Required
+- PC/모바일 실제 브라우저에서 24인 상세·순위 선택·모달/탭·긴 카드 레이아웃을 최종 확인.
+- PR #8은 Draft 상태를 유지하고 main에 병합하지 않음.
+
+## v0.1.24 — Expanded Roster & Evidence Calibration
+
+### Added
+- Shanks 및 해군 상위 전투원(Garp / Akainu / Kuzan / Kizaru / Fujitora / Ryokugyu) 7-Core draft Evaluation을 v0.1.24 데이터 버전으로 반영.
+- Blackbeard Pirates: Teach / Shiryu / Jesus Burgess / Van Augur / Avalo Pizarro Character Profile, Membership, Battle Context, Canon Evidence, draft Evaluation 추가.
+- Blackbeard Pirates용 Banaro Island / Marineford / Winner Island / Dressrosa / Hachinosu 전투 맥락과 Evidence 추가.
+
+### Changed
+- Vista Final: 82 / 79 / 77 / 80 / 87 / 77 / 75 → Overall 79.571428...
+- Cracker Final: 74 / 76 / 77 / 74 / 76 / 74 / 76 → Overall 75.285714...
+- Jack Final: 73 / 80 / 84 / 73 / 71 / 70 / 72 → Overall 74.714285...
+- Teach Final: 95 / 89 / 95 / 82 / 91 / 85 / 96 → Overall 90.428571...
+- Shiryu Final: 78 / 74 / 75 / 79 / 78 / 79 / 80 → Overall 77.571428... (E2 provisional)
+- Van Augur Final: 72 / 67 / 68 / 76 / 80 / 79 / 85 → Overall 75.285714... (E2 provisional)
+- Jesus Burgess Final: 76 / 74 / 79 / 74 / 72 / 70 / 75 → Overall 74.285714... (E2 provisional)
+- Avalo Pizarro Final: 72 / 74 / 74 / 64 / 74 / 71 / 75 → Overall 72.000000 (E2 provisional)
+- Attack 산정에서 Strength / Area of Effect / 기습 성공을 자동으로 동일시하지 않는 calibration 원칙을 명시적으로 적용.
+- Doc Q는 현재 Evidence 부족으로 수치 평가에서 제외.
+
+### Tests
+- Character List와 sample data integrity 기대 인원을 24명으로 갱신.
+- Balanced 1.2 calibrated Overall fixture를 신규·재평가 캐릭터 값으로 갱신.
+- 실제 CI test/build 결과는 이번 브랜치의 최신 workflow 실행 결과로 별도 확인.
+
+### Known Issues
+- 모든 Evaluation은 아직 draft.
+- Shiryu / Van Augur / Burgess / Pizarro는 E2 provisional score로, 향후 직접 전투 Evidence에 따라 여러 Core Stat이 크게 변할 수 있음.
+- Doc Q 및 다른 Blackbeard Pirates 간부는 현재 7축 Evidence 부족으로 미평가.
+- Browser/mobile 수동 검증은 별도 필요.
+
 ## v0.1.23 — Initial Three-Crew Baseline Calibration
 
 ### Added

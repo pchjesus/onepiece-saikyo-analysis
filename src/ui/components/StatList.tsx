@@ -4,7 +4,11 @@ import type { CombatStat, EvaluationItem } from '../../domain/evaluation/types'
 import { getEffectiveHakiContributionTotal, getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { StatInfoDialog } from './StatInfoDialog'
 
-export function StatList({ items, hakiWeight }: { items: EvaluationItem[]; hakiWeight: number }) {
+export function StatList({ items, hakiWeight, onSelectStat }: {
+  items: EvaluationItem[]
+  hakiWeight: number
+  onSelectStat: (stat: CombatStat) => void
+}) {
   const [selectedStat, setSelectedStat] = useState<CombatStat | null>(null)
 
   return (
@@ -16,14 +20,15 @@ export function StatList({ items, hakiWeight }: { items: EvaluationItem[]; hakiW
           const effectiveHaki = getEffectiveHakiContributionTotal(item, hakiWeight)
           return (
             <div className="stat-item" key={item.stat}>
-              <span className="stat-label">
-                {definition.label}
-                <button className="stat-info-button" type="button" aria-label={`${definition.label} 설명 보기`} onClick={() => setSelectedStat(item.stat)}>?</button>
-              </span>
-              <div className="stat-score">
-                <strong>{item.score}</strong>
-                {rawHaki > 0 && <small className="stat-breakdown">Base {item.baseScore} + Haki {effectiveHaki}</small>}
-              </div>
+              <button className="stat-rank-trigger" type="button" onClick={() => onSelectStat(item.stat)} aria-label={`${definition.label} 전체 캐릭터 순위 보기`}>
+                <span className="stat-name">{definition.label}</span>
+                <span className="stat-score">
+                  <strong>{item.score}</strong>
+                  {rawHaki > 0 && <small className="stat-breakdown">Base {item.baseScore} + Haki {effectiveHaki}</small>}
+                  <small className="stat-rank-hint">전체 순위 ↗</small>
+                </span>
+              </button>
+              <button className="stat-info-button" type="button" aria-label={`${definition.label} 설명 보기`} onClick={() => setSelectedStat(item.stat)}>?</button>
             </div>
           )
         })}

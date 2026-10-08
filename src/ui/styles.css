@@ -120,3 +120,86 @@ header p:last-child { color: #666; }
 .special-trait-meta { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
 .special-trait-meta span { border-radius: 999px; padding: 4px 8px; background: #f0f0ed; font-size: .75rem; }
 .special-trait-meta strong { font-size: .75rem; color: #555; }
+
+
+/* Compact v0.1.24 detail layout: summary and canon profile share the desktop row. */
+.app-shell { width: min(1320px, calc(100% - 32px)); padding-top: 30px; }
+.app-header { margin-bottom: 18px; }
+.app-header h1 { font-size: clamp(1.85rem, 3.8vw, 3rem); }
+.character-selector { margin-bottom: 16px; }
+.detail { padding: clamp(20px, 2.5vw, 32px); }
+.detail-heading { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 8px 24px; margin-bottom: 18px; }
+.detail-heading h1 { font-size: clamp(1.7rem, 3.8vw, 2.8rem); }
+.prototype-note { margin: 0; }
+.overview-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: stretch; gap: 16px; }
+.score-overview { min-width: 0; border: 1px solid #e5e5e5; border-radius: 18px; padding: 16px; }
+.score-overview .power-card { margin: 0 0 16px; padding: 18px 20px; }
+.score-overview .power-card strong { font-size: clamp(2.5rem, 5vw, 3.2rem); }
+.score-overview .power-card span:last-child { line-height: 1.5; }
+.stat-heading { display: flex; align-items: baseline; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; margin-bottom: 12px; }
+.stat-heading h2 { font-size: 1.12rem; margin: 0; }
+.stat-heading > span { color: #777; font-size: .77rem; }
+.score-overview .stat-grid { gap: 8px; }
+.stat-item { position: relative; display: flex; padding: 0; min-width: 0; gap: 0; }
+.stat-rank-trigger { width: 100%; min-width: 0; border: 0; border-radius: 12px; background: transparent; text-align: left; padding: 12px 34px 12px 12px; display: flex; flex-direction: column; align-items: stretch; gap: 6px; cursor: pointer; color: #171717; }
+.stat-rank-trigger:hover, .stat-rank-trigger:focus-visible { background: #f5f5f1; outline: 2px solid #bbb; outline-offset: -2px; }
+.stat-name { font-size: .83rem; font-weight: 700; line-height: 1.3; color: #444; }
+.stat-rank-trigger .stat-score { align-items: flex-start; text-align: left; }
+.stat-rank-trigger .stat-score strong { font-size: 1.5rem; line-height: 1.1; }
+.stat-rank-hint { font-size: .72rem; color: #777; margin-top: 4px; }
+.stat-item > .stat-info-button { position: absolute; top: 10px; right: 10px; }
+.stat-breakdown { color: #666; opacity: 1; }
+.overview-layout .combat-profile-section { margin: 0; min-width: 0; padding: 16px; }
+.overview-layout .combat-profile-section h2 { font-size: 1.12rem; }
+.overview-layout .combat-profile-section .section-note { margin: 6px 0; font-size: .82rem; line-height: 1.5; }
+.overview-layout .combat-profile-grid { gap: 8px; margin-top: 12px; }
+.overview-layout .profile-card { min-width: 0; padding: 12px; }
+.overview-layout .special-trait p { font-size: .85rem; }
+.detail-insights { margin-top: 18px; border: 1px solid #e2e2e2; border-radius: 18px; overflow: hidden; }
+.detail-tabs { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 14px; background: #f5f5f2; border-bottom: 1px solid #e2e2e2; }
+.detail-tabs button { flex: 1 1 190px; min-width: 0; border: 1px solid transparent; background: transparent; color: #666; border-radius: 10px; padding: 10px 12px; font-size: .9rem; font-weight: 750; cursor: pointer; }
+.detail-tabs button:hover, .detail-tabs button:focus-visible { border-color: #bbb; outline: none; }
+.detail-tabs button.selected { background: white; color: #171717; border-color: #ccc; }
+.detail-tab-content { padding: 16px 20px; max-height: min(670px, 75vh); min-height: 190px; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.detail-tab-content .evaluation-section, .detail-tab-content .evidence-section { margin: 0; padding: 0; border: 0; }
+.detail-tab-content .evaluation-section h2, .detail-tab-content .evidence-section h2 { margin: 4px 0 8px; font-size: 1.18rem; }
+.detail-tab-content .section-note { font-size: .86rem; line-height: 1.5; margin: 6px 0 10px; }
+.evaluation-trace-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.evaluation-trace-header { align-items: flex-start; flex-wrap: wrap; }
+.evaluation-trace-header > strong { font-size: .95rem; }
+.evaluation-trace-header > span { font-size: .72rem; color: #777; }
+.evaluation-trace-card { min-width: 0; }
+.evaluation-trace-card p { margin: 10px 0; }
+.evaluation-trace-card .evaluation-formula { background: #f0f2f1; border-radius: 8px; padding: 9px 10px; color: #242424; font-size: .83rem; line-height: 1.45; }
+.stat-rank-dialog { width: min(640px, 100%); display: flex; flex-direction: column; overflow: hidden; max-height: min(760px, calc(100vh - 40px)); }
+.stat-rank-dialog .section-note { line-height: 1.5; margin: 10px 0 14px; }
+.rank-list { display: grid; gap: 5px; min-height: 0; overflow-y: auto; scrollbar-width: thin; }
+.rank-row { border: 1px solid #e5e5e5; border-radius: 10px; background: white; display: flex; align-items: center; text-align: left; gap: 12px; min-height: 58px; padding: 9px 12px; cursor: pointer; }
+.rank-row:hover, .rank-row:focus-visible { background: #f6f6f2; outline: 2px solid #b6b6b6; }
+.rank-row.active { border-color: #222; }
+.rank-position { width: 44px; flex: 0 0 44px; font-size: .84rem; }
+.rank-person { display: grid; min-width: 0; flex: 1; gap: 3px; }
+.rank-person > strong { font-size: .94rem; }
+.rank-person small, .rank-score small { font-size: .75rem; color: #777; font-weight: 400; }
+.rank-score { text-align: right; font-size: 1.14rem; white-space: nowrap; }
+@media (max-width: 1050px) {
+  .overview-layout { grid-template-columns: minmax(0, 1fr); }
+  .overview-layout .combat-profile-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .score-overview .stat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .app-shell { padding-top: 20px; }
+  .detail-heading { align-items: flex-start; }
+  .score-overview { padding: 12px; }
+  .score-overview .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .overview-layout .combat-profile-grid { grid-template-columns: minmax(0, 1fr); }
+  .stat-rank-trigger { padding: 10px 28px 10px 9px; }
+  .stat-item > .stat-info-button { top: 8px; right: 6px; }
+  .detail-tab-content { max-height: min(590px, 65vh); padding: 14px; }
+  .evaluation-trace-list { grid-template-columns: minmax(0, 1fr); }
+  .rank-row { gap: 6px; padding: 8px; }
+  .rank-position { flex-basis: 38px; width: 38px; }
+}
+@media (max-width: 370px) {
+  .score-overview .stat-grid { grid-template-columns: minmax(0, 1fr); }
+}

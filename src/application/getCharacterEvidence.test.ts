@@ -4,7 +4,7 @@ import { getCharacterEvidence } from './getCharacterEvidence'
 describe('getCharacterEvidence', () => {
   it('joins Marco evidence with Battle context including limits and defensive feats', () => {
     const records = getCharacterEvidence('marco')
-    expect(records).toHaveLength(11)
+    expect(records).toHaveLength(12)
     expect(records.map((record) => record.evidence.id)).toContain('evidence-marco-armament-akainu-574')
     expect(records.map((record) => record.evidence.id)).toContain('evidence-marco-defense-kaido-1043')
     expect(records.map((record) => record.evidence.id)).toContain('evidence-marco-garp-567')
@@ -13,9 +13,9 @@ describe('getCharacterEvidence', () => {
 
   it('returns King evidence including the Armament application with Battle context', () => {
     const records = getCharacterEvidence('king')
-    expect(records).toHaveLength(4)
+    expect(records).toHaveLength(5)
     expect(records.map((record) => record.evidence.id)).toEqual([
-      'evidence-king-marco-1006', 'evidence-king-lunarian-1032', 'evidence-king-zoro-1035', 'evidence-king-armament-1032',
+      'evidence-king-marco-1006', 'evidence-king-lunarian-1032', 'evidence-king-zoro-1035', 'evidence-king-armament-1032', 'evidence-king-waterfall-930',
     ])
   })
 
