@@ -923,7 +923,7 @@ export const sampleEvidence: Evidence[] = [
     supportedAbilities: ['보호 전투', '부상 상태 지속'], statContributions: [{ stat: 'stamina', role: 'secondary', note: '치명적인 위협 아래 중상을 입고도 보호 행동을 지속한 지구력 근거다.' }, { stat: 'defense', role: 'context', note: '보호 성과와 동시에 아카이누 공격에는 크게 손상된 한계도 보여준다.' }],
     interpretation: '아카이누의 공격을 정면 방어해 무효화한 것으로 보지 않으며, 생존·보호 지속을 Stamina 중심으로 해석한다.', evaluationImpact: 'Jinbe Stamina 79를 지지하고 Defense를 과대평가하지 않도록 제한 근거도 제공한다.',
     uncertainty: '세부 공방이 직접 묘사되지 않은 부분은 확인된 결과 이상으로 확장하지 않는다.',
-  }
+  },
 
   {
     id: 'evidence-teach-ace-440-441', battleId: 'banaro-teach-ace', subjectCharacterId: 'teach',
