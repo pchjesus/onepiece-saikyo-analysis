@@ -381,4 +381,53 @@ export const sampleBattleParticipants: BattleParticipant[] = [
     side: 'B',
     condition: {},
   },
+
+  {
+    id: 'banaro-teach-ace', title: '바나로 섬 — 티치 vs 에이스', chronologyOrder: 1,
+    combatStructure: '1v1', combatPurpose: '서로를 쓰러뜨리기 위한 직접 결투', combatIntent: 'serious',
+    environment: '바나로 섬', restrictions: '티치는 어둠어둠 열매의 능력 봉쇄를 본격적으로 공개하며 에이스의 능력과 정면 충돌한다.',
+    externalFactors: '결투 과정에서 외부 전투 개입은 핵심 변수로 확인되지 않는다.', result: 'victory', participantIds: [],
+  },
+  {
+    id: 'marineford-teach-whitebeard', title: '정상결전 — 티치와 흰수염의 충돌', chronologyOrder: 2,
+    combatStructure: 'multiple-vs-one', combatPurpose: '흰수염의 능력을 노리고 전장에 개입한 상황', combatIntent: 'lethal-intent',
+    environment: '마린포드 전장', restrictions: '흰수염은 전쟁 내내 중상과 지병이 누적된 상태이며 완전한 전성기 조건이 아니다.',
+    externalFactors: '티치 단독전이 아니라 검은수염 해적단 전체가 후반에 흰수염 공격에 가담한다.', result: 'victory', participantIds: [],
+  },
+  {
+    id: 'winner-island-teach-law', title: '위너 섬 — 검은수염 해적단 vs 하트 해적단', chronologyOrder: 3,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '로드 포네그리프 사본 탈취를 둘러싼 전투', combatIntent: 'serious',
+    environment: '위너 섬 인근 해상·섬', restrictions: '티치와 로의 직접 공방 외에도 양측 선원과 능력 지원이 동시에 개입한다.',
+    externalFactors: 'Van Augur·Burgess·Doc Q 등 검은수염 간부와 Heart Pirates의 지원이 존재한다.', result: 'victory', participantIds: [],
+  },
+  {
+    id: 'dressrosa-burgess-sabo', title: '드레스로자 — 바제스와 사보의 교전', chronologyOrder: 1,
+    combatStructure: '1v1', combatPurpose: '메라메라 열매와 루피를 둘러싼 적대 교전', combatIntent: 'serious',
+    environment: '드레스로자', restrictions: '바제스는 당시 힘힘 열매 획득 전 상태다.',
+    externalFactors: '드레스로자 전체 전투가 진행 중이며 후반에 바제스가 기습을 시도한다.', result: 'defeat', participantIds: [],
+  },
+  {
+    id: 'winner-island-burgess', title: '위너 섬 — 바제스의 힘힘 열매 운용', chronologyOrder: 2,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '하트 해적단 제압 지원', combatIntent: 'serious',
+    environment: '위너 섬', restrictions: '대형 물체 투척의 규모는 확인되지만 동급 강자에게 직접 적중한 결정타 표본은 아니다.',
+    externalFactors: '검은수염 해적단 다수와 Heart Pirates의 집단전이다.', result: 'victory', participantIds: [],
+  },
+  {
+    id: 'hachinosu-shiryu-garp', title: '하치노스 — 시류의 가프 기습과 반격', chronologyOrder: 1,
+    combatStructure: 'multiple-vs-one', combatPurpose: '해군 구조대와 가프를 저지하는 상황', combatIntent: 'serious',
+    environment: '해적섬 하치노스', restrictions: '시류는 투명화 상태에서 Koby를 노렸고 Garp가 대신 공격을 받아 부상을 입었다.',
+    externalFactors: '가프는 Koby를 포함한 후배들을 보호하는 구조 임무 중이며 다수 검은수염 간부와 동시에 싸운다.', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'winner-island-van-augur', title: '위너 섬 — 반 오거의 저격·워프 지원', chronologyOrder: 1,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '티치의 전투를 저격과 위치 이동으로 지원', combatIntent: 'serious',
+    environment: '위너 섬', restrictions: 'Warp는 공간이동 능력이며 순수 이동속도와 동일하지 않다.',
+    externalFactors: '검은수염 해적단과 Heart Pirates의 집단전이다.', result: 'victory', participantIds: [],
+  },
+  {
+    id: 'hachinosu-pizarro', title: '하치노스 — 피사로의 섬 동화와 해군 탈출 저지', chronologyOrder: 1,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '탈출하는 해군 함선을 섬 신체로 파괴하려는 상황', combatIntent: 'serious',
+    environment: '해적섬 하치노스', restrictions: '섬과 동화한 대형 신체의 피해가 본체에도 연동되는 약점이 확인된다.',
+    externalFactors: 'Garp의 Galaxy Divide와 Koby의 Honesty Impact가 연속적으로 피사로의 섬 신체에 가해진다.', result: 'defeat', participantIds: [],
+  },
 ]
