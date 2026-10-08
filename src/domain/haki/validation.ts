@@ -11,6 +11,31 @@ export function validateHakiProfile(profile: HakiProfile): string[] {
     if (capability.infusion && !(HAKI_CONFIRMATION_STATUSES as readonly string[]).includes(capability.infusion.status)) errors.push('Invalid conquerors infusion status.')
     seen.add(capability.type)
   }
+  const seenExcellence = new Set<string>()
+  for (const assessment of profile.excellenceAssessments ?? []) {
+    if (!(HAKI_TYPES as readonly string[]).includes(assessment.type)) {
+      errors.push(`Invalid Haki excellence type: ${assessment.type}.`)
+    }
+    if (!['direct-application', 'strong-inference'].includes(assessment.basis)) {
+      errors.push(`Invalid Haki excellence basis for ${assessment.type}.`)
+    }
+    if (seenExcellence.has(assessment.type)) {
+      errors.push(`Duplicate Haki excellence assessment: ${assessment.type}.`)
+    }
+    seenExcellence.add(assessment.type)
+    if (profile.capabilities.find(({ type }) => type === assessment.type)?.status !== 'confirmed') {
+      errors.push(`Haki excellence requires confirmed capability: ${assessment.type}.`)
+    }
+    if (!assessment.interpretation.trim() || !assessment.uncertainty.trim()) {
+      errors.push(`Haki excellence requires interpretation and uncertainty: ${assessment.type}.`)
+    }
+    if (assessment.evidenceIds.length === 0 || new Set(assessment.evidenceIds).size !== assessment.evidenceIds.length) {
+      errors.push(`Haki excellence requires non-duplicate Evidence: ${assessment.type}.`)
+    }
+    if (assessment.evidenceIds.some((id) => !id.trim())) {
+      errors.push(`Haki excellence Evidence id must not be empty: ${assessment.type}.`)
+    }
+  }
   return errors
 }
 

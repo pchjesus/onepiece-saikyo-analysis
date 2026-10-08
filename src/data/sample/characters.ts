@@ -235,6 +235,9 @@ export const sampleCharacters: Character[] = [
           { type: 'observation', status: 'confirmed', note: '미래예지 수준으로 단련된 견문색 사용이 원작에서 확인됨.' },
           { type: 'conquerors', status: 'confirmed', note: '루피와의 전투에서 패왕색 방출이 확인됨.', infusion: { status: 'unclear', note: '현재 채택 근거에서는 패휘감 사용을 확인하지 못함.' } },
         ],
+        excellenceAssessments: [
+          { type: 'observation', basis: 'direct-application', interpretation: '단련된 견문색으로 짧은 미래를 보고 루피의 움직임에 반복적으로 회피·대응하는 뛰어난 응용이 확인된다.', uncertainty: '침착함이 흐트러지면 예지·회피의 효과가 감소한다. 순수 신체 속도나 판단의 중복 보너스로 자동 가산하지 않는다.', evidenceIds: ['evidence-katakuri-future-sight-881-884'] },
+        ],
       },
       sources: [
         { label: 'ONE PIECE.com', reference: '카타쿠리 공식 캐릭터 자료' },
@@ -376,6 +379,8 @@ export const sampleCharacters: Character[] = [
         { type: 'armament', status: 'confirmed', note: '검술과 함께 무장색을 운용하는 최상위 패기 사용자로 평가한다.' },
         { type: 'observation', status: 'confirmed', note: 'Kid전에서 미래의 피해를 직접 예측하고 선제 대응한다.' },
         { type: 'conquerors', status: 'confirmed', note: '원작에서 장거리·광역 패왕색과 공격 적용이 반복 확인된다.', infusion: { status: 'confirmed', note: 'Kamusari의 공격 묘사를 패왕색 강화 적용 근거로 평가한다.' } },
+      ], excellenceAssessments: [
+        { type: 'conquerors', basis: 'direct-application', interpretation: '원거리 패왕색 발산으로 아라마키에게 강한 압박을 준 직접 응용과 키드전 패기 검격 성과가 확인된다.', uncertainty: '아라마키의 철수에는 빨간 머리 해적단 존재 및 앞선 전황도 영향이 있고, 키드전의 동일 타격을 여러 Stat에 자동 가산하지 않는다.', evidenceIds: ['evidence-shanks-aramaki-haki-1055', 'evidence-shanks-kid-divine-departure-1079'] },
       ]},
       sources: [{ label: '원작 Evidence', reference: 'Ch. 434 / 579 / 1055 / 1079' }],
     },
@@ -388,6 +393,9 @@ export const sampleCharacters: Character[] = [
         { type: 'armament', status: 'confirmed', note: '권격과 충돌에서 고수준 무장색 운용이 확인된다.' },
         { type: 'observation', status: 'confirmed', note: '해군 최고위 전투원으로서 보유가 확인되는 패기 범주다.' },
         { type: 'conquerors', status: 'confirmed', note: 'God Valley 회상 Ch.1165에서 로저와 함께 Supreme King Haki를 전투에 사용하는 직접 근거가 확인된다.', infusion: { status: 'confirmed', note: 'Ch.1165에서 공격·방어 공방에 Supreme King Haki를 집중해 사용한 사실을 확인한다. 공동전 성과를 가프 단독 수치로 환산하지 않는다.' } },
+      ], excellenceAssessments: [
+        { type: 'armament', basis: 'strong-inference', interpretation: '갤럭시 임팩트와 쿠잔 상대 권격의 높은 위력과 무장색 교환은 뛰어난 무장색 숙련을 시사한다.', uncertainty: '충격파·맨손 근력·패왕색의 기여와 무장색 기여의 비율을 장면별로 분해하기 어렵고 무장색 최강이라는 공식 지정은 확인되지 않는다.', evidenceIds: ['evidence-garp-galaxy-impact-1080', 'evidence-garp-kuzan-haki-1087'] },
+        { type: 'conquerors', basis: 'direct-application', interpretation: '갓 밸리에서 로저와 함께 패왕색을 집중한 최고 수준 합동 공격을 성립시킨 전성기 응용이 확인된다.', uncertainty: '공동 공격이므로 가프 단독 기여를 산정할 수 없고, 현재 노년 상태에서 동일한 출력을 확인한 근거가 아니다.', eraContext: '전성기 갓 밸리 (Ch.1165)', evidenceIds: ['evidence-garp-roger-rocks-1165'] },
       ]},
       sources: [{ label: '원작 Evidence', reference: 'God Valley Ch. 1165 / Ch. 1080 / 1081 / 1087 / 1088' }],
     },
@@ -610,9 +618,11 @@ export const sampleCharacters: Character[] = [
         evidenceIds: ['evidence-mihawk-world-strongest-profile', 'evidence-mihawk-zoro-49-51'],
         limitations: '흑도 보유 자체를 Haki Raw Contribution이나 모든 Core Stat의 자동 가산으로 취급하지 않는다.' }],
       haki: { characterId: 'mihawk', capabilities: [
-        { type: 'armament', status: 'confirmed', note: '공식 보조자료에서 보유가 확인되지만 현재 채택 Evidence에서 특정 Stat 성과의 패기 타입을 임의 지정하지 않는다.' },
+        { type: 'armament', status: 'confirmed', note: 'Ch.779 수련 회상에서 조로에게 패기를 검에 두르는 원리를 지도했고 공식 보조자료에서도 보유가 확인된다. 영구 흑도 제작의 구체 기전은 미확정이다.' },
         { type: 'observation', status: 'confirmed', note: '공식 보조자료에서 보유가 확인되지만 실제 Stat Application은 별도 근거가 필요하다.' },
         { type: 'conquerors', status: 'unclear', note: '패왕색에 대한 높은 이해는 확인되지만 본인의 사용은 직접 확인되지 않았다.', infusion: { status: 'unclear' } },
+      ], excellenceAssessments: [
+        { type: 'armament', basis: 'strong-inference', interpretation: '영구 흑도 「夜」의 사용과 조로에게 무장색 검술을 지도한 성과는 최고급 무장색의 깊은 이해·숙련을 시사한다.', uncertainty: '미호크가 요루를 직접 영구 흑도화한 과정과 무장색의 정확한 역할·강도는 미공개다. 흑도 자체를 패기 영구경화와 동일시하지 않는다.', evidenceIds: ['evidence-mihawk-world-strongest-profile', 'evidence-mihawk-armament-instruction-779'] },
       ]},
       sources: [{ label: 'ONE PIECE.com', reference: '쥬라큘 미호크 공식 캐릭터 페이지 — 세계 최강의 검사 / 흑도 「夜」' },
         { label: '원작 Evidence', reference: 'Ch. 49-51 / 553 / 560-562 / 1058 / 1194' }],
