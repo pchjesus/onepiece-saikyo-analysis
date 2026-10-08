@@ -5,6 +5,7 @@ import type { RankingStat } from '../application/getStatRanking'
 import { CharacterSearch } from './components/CharacterSearch'
 import { StatRankingDialog } from './components/StatRankingDialog'
 import { CharacterPage } from './pages/CharacterPage'
+import { MatchupHome } from './pages/MatchupHome'
 import './styles.css'
 
 const characterList = getCharacterList()
@@ -13,6 +14,7 @@ export default function App() {
   const [selectedId, setSelectedId] = useState(characterList[0]?.character.id ?? '')
   const [selectedGroupId, setSelectedGroupId] = useState(characterList[0]?.group.id ?? '')
   const [rankingStat, setRankingStat] = useState<RankingStat | null>(null)
+  const [activeView, setActiveView] = useState<'stats' | 'matchup'>('stats')
 
   const groups = useMemo(() => {
     const seen = new Set<string>()
@@ -35,6 +37,7 @@ export default function App() {
     setSelectedGroupId(groupId)
     setSelectedId(characterId)
     setRankingStat(null)
+    setActiveView('stats')
   }
 
   return (
@@ -45,8 +48,21 @@ export default function App() {
           <h1>원피스 전투력 분석</h1>
           <p>Character → Evaluation → Calculation Model → Combat Power</p>
         </div>
-        <CharacterSearch characters={characterList} onSelectCharacter={selectCharacter} />
+        {activeView === 'stats' && <CharacterSearch characters={characterList} onSelectCharacter={selectCharacter} />}
       </header>
+      <nav className="app-mode-nav" aria-label="주요 화면">
+        <button type="button" className={activeView === 'stats' ? 'selected' : ''} aria-pressed={activeView === 'stats'}
+          aria-label="스탯 분석 화면" onClick={() => setActiveView('stats')}>
+          <span className="app-mode-icon stats-icon" aria-hidden="true"><i /><i /><i /></span>
+          <span>스탯</span>
+        </button>
+        <button type="button" className={activeView === 'matchup' ? 'selected' : ''} aria-pressed={activeView === 'matchup'}
+          aria-label="매치업 아레나 화면" onClick={() => { setActiveView('matchup'); setRankingStat(null) }}>
+          <span className="app-mode-icon vs-icon" aria-hidden="true">VS</span>
+          <span>매치업</span>
+        </button>
+      </nav>
+      {activeView === 'stats' ? <>
       <nav className="character-selector" aria-label="캐릭터 선택">
         <div className="crew-tabs" role="tablist" aria-label="그룹 선택">
           {groups.map((group) => (
@@ -68,6 +84,7 @@ export default function App() {
       {selectedId && <CharacterPage key={`${selectedGroupId}:${selectedId}`} characterId={selectedId} groupId={selectedGroupId} onSelectStat={setRankingStat} onSelectOverall={() => setRankingStat('overall')} />}
       {rankingStat && <StatRankingDialog stat={rankingStat} entries={getStatRanking(rankingStat)}
         selectedCharacterId={selectedId} onSelectCharacter={selectCharacter} onClose={() => setRankingStat(null)} />}
+      </> : <MatchupHome />}
     </div>
   )
 }
