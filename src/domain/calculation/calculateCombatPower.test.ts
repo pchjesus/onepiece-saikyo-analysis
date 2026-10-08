@@ -73,6 +73,13 @@ describe('Balanced v1.2', () => {
       zoro: 84.8571428571,
       sanji: 84.4285714286,
       jinbe: 79.4285714286,
+      shanks: 92.2857142857,
+      garp: 95.1428571429,
+      akainu: 92.4285714286,
+      kuzan: 93.4285714286,
+      kizaru: 94,
+      fujitora: 89.7142857143,
+      ryokugyu: 89.4285714286,
     }
 
     for (const evaluation of sampleEvaluations) {
