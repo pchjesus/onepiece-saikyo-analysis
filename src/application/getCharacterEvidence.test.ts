@@ -26,4 +26,22 @@ describe('getCharacterEvidence', () => {
     expect(records.map((record) => record.evidence.id)).toContain('evidence-katakuri-snakeman-895')
     expect(records.map((record) => record.evidence.id)).toContain('evidence-katakuri-gear4-counter-883-885')
   })
+  it('returns Warlord evidence with separate matchup and core-stat context', () => {
+    const law = getCharacterEvidence('law')
+    const doflamingo = getCharacterEvidence('doflamingo')
+    const hancock = getCharacterEvidence('hancock')
+
+    expect(law.map((record) => record.evidence.id)).toContain('evidence-law-haki-nullification-1063')
+    expect(law.map((record) => record.evidence.id)).toContain('evidence-law-teach-1064')
+    expect(doflamingo.map((record) => record.evidence.id)).toContain('evidence-doflamingo-awakening-785')
+    expect(doflamingo.map((record) => record.evidence.id)).toContain('evidence-doflamingo-organ-repair-781')
+    expect(hancock.map((record) => record.evidence.id)).toContain('evidence-hancock-amazon-lily-1059')
+  })
+
+  it('adds direct Prime Garp God Valley evidence without treating the team finisher as a solo result', () => {
+    const records = getCharacterEvidence('garp')
+    const godValley = records.find((record) => record.evidence.id === 'evidence-garp-roger-rocks-1165')
+    expect(godValley?.battle?.id).toBe('god-valley-garp-roger-rocks-1165')
+    expect(godValley?.evidence.uncertainty).toContain('공동전')
+  })
 })

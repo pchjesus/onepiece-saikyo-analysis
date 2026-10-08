@@ -9,7 +9,7 @@ describe('getCharacterEvaluationTrace', () => {
     const attack = trace?.find(({ item }) => item.stat === 'attack')
 
     expect(technique?.evidence).toHaveLength(3)
-    expect(technique?.item.score).toBe(80)
+    expect(technique?.item.score).toBe(81)
     expect(defense?.evidence).toHaveLength(4)
     expect(defense?.item.score).toBe(85)
     expect(attack?.item.baseScore).toBe(76)
@@ -28,8 +28,8 @@ describe('getCharacterEvaluationTrace', () => {
   it('keeps King technique Evidence traceable after weighted Haki calibration', () => {
     const kingTechnique = getCharacterEvaluationTrace('king')?.find(({ item }) => item.stat === 'techniqueMastery')
     expect(kingTechnique?.evidence).toHaveLength(2)
-    expect(kingTechnique?.item.baseScore).toBe(78)
-    expect(kingTechnique?.item.score).toBe(79)
+    expect(kingTechnique?.item.baseScore).toBe(79)
+    expect(kingTechnique?.item.score).toBe(80)
   })
 
   it('resolves Katakuri speed and Combat IQ evidence without adding Future Sight to Speed Haki', () => {
@@ -38,8 +38,8 @@ describe('getCharacterEvaluationTrace', () => {
     const combatIQ = trace?.find(({ item }) => item.stat === 'combatIQ')
     expect(speed?.evidence.map(({ evidence }) => evidence.id)).toContain('evidence-katakuri-snakeman-895')
     expect(speed?.item.hakiContributions).toHaveLength(0)
-    expect(speed?.item.score).toBe(82)
+    expect(speed?.item.score).toBe(83)
     expect(combatIQ?.evidence.map(({ evidence }) => evidence.id)).toContain('evidence-katakuri-gear4-counter-883-885')
-    expect(combatIQ?.item.score).toBe(81)
+    expect(combatIQ?.item.score).toBe(83)
   })
 })

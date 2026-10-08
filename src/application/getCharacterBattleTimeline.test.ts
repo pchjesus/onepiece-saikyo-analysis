@@ -24,4 +24,21 @@ describe('getCharacterBattleTimeline', () => {
     expect(timeline[0]?.battle.id).toBe('whole-cake-katakuri-luffy')
     expect(timeline[0]?.evidence).toHaveLength(7)
   })
+  it('returns Law battles across Dressrosa, Wano, and Winner Island', () => {
+    const timeline = getCharacterBattleTimeline('law')
+    expect(timeline.map((item) => item.battle.id)).toEqual([
+      'dressrosa-law-doflamingo-769-781',
+      'winner-island-teach-law',
+      'onigashima-law-kid-big-mom-1038-1040',
+    ])
+    expect(timeline.flatMap((item) => item.evidence.map((evidence) => evidence.id)))
+      .toContain('evidence-law-puncture-wille-1039')
+  })
+
+  it('returns Doflamingo and Hancock reviewed battle contexts', () => {
+    expect(getCharacterBattleTimeline('doflamingo').map(({ battle }) => battle.id))
+      .toEqual(['dressrosa-law-doflamingo-769-781', 'dressrosa-doflamingo-luffy-783-790'])
+    expect(getCharacterBattleTimeline('hancock').map(({ battle }) => battle.id))
+      .toContain('amazon-lily-teach-hancock-1059')
+  })
 })

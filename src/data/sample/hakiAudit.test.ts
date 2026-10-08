@@ -7,10 +7,10 @@ import { validateEvaluation as validateEvidenceLinks } from '../../domain/evalua
 import { validateEvaluation as validateCalculation, calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
 import { getRawHakiContributionTotal, getFinalStatScore } from '../../domain/evaluation/score'
 
-describe('24-person Haki / Evidence audit (0.1.25 draft)', () => {
+describe('27-person Haki / Evidence audit (0.1.26 draft)', () => {
   it('checks each evaluated character profile, contributions, Evidence ownership and calculation consistency', () => {
-    expect(sampleEvaluations).toHaveLength(24)
-    expect(sampleCharacters).toHaveLength(24)
+    expect(sampleEvaluations).toHaveLength(27)
+    expect(sampleCharacters).toHaveLength(27)
     const refs = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
     for (const evaluation of sampleEvaluations) {
       const character = sampleCharacters.find(({ id }) => id === evaluation.characterId)
@@ -40,7 +40,7 @@ describe('24-person Haki / Evidence audit (0.1.25 draft)', () => {
     const item = (id: string, stat: string) => sampleEvaluations.find(e => e.characterId === id)?.items.find(i => i.stat === stat)
     expect(getRawHakiContributionTotal(item('shanks', 'attack')!)).toBe(6)
     expect(getRawHakiContributionTotal(item('shanks', 'techniqueMastery')!)).toBe(8)
-    expect(item('shanks', 'techniqueMastery')?.score).toBe(97)
+    expect(item('shanks', 'techniqueMastery')?.score).toBe(96)
     expect(getRawHakiContributionTotal(item('garp', 'attack')!)).toBe(6)
     expect(item('garp', 'attack')?.score).toBe(99)
     expect(getRawHakiContributionTotal(item('kuzan', 'techniqueMastery')!)).toBe(4)
@@ -55,6 +55,10 @@ describe('24-person Haki / Evidence audit (0.1.25 draft)', () => {
     // Possession-only/unclear Haki does not produce an automatic bonus.
     expect(getRawHakiContributionTotal(item('jack', 'attack')!)).toBe(0)
     expect(getRawHakiContributionTotal(item('van-augur', 'attack')!)).toBe(0)
+    // New Warlord drafts keep typed Raw Haki at zero until direct application evidence is assigned by type.
+    expect(getRawHakiContributionTotal(item('law', 'attack')!)).toBe(0)
+    expect(getRawHakiContributionTotal(item('doflamingo', 'attack')!)).toBe(0)
+    expect(getRawHakiContributionTotal(item('hancock', 'attack')!)).toBe(0)
   })
 
   it('preserves Balanced 1.2 configuration and absence of direct Special points', () => {

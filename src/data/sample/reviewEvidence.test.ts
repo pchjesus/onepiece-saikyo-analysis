@@ -9,12 +9,12 @@ import { validateEvaluation } from '../../domain/evaluation/validation'
 
 const reviewedIds = ['shanks', 'akainu', 'kuzan', 'kizaru', 'teach', 'ryokugyu'] as const
 const expectedOverall = {
-  shanks: 94.14285714285714,
-  akainu: 93.14285714285714,
-  kuzan: 93,
-  kizaru: 92.71428571428571,
-  teach: 91.57142857142857,
-  ryokugyu: 89.42857142857143,
+  shanks: 92.57142857142857,
+  akainu: 92.42857142857143,
+  kuzan: 91.85714285714286,
+  kizaru: 92.14285714285714,
+  teach: 90.57142857142857,
+  ryokugyu: 87.57142857142857,
 }
 const newEvidenceIds = [
   'evidence-shanks-whitebeard-haki-434',
@@ -39,6 +39,7 @@ const newEvidenceIds = [
   'evidence-akainu-admiral-barrier-564',
   'evidence-kuzan-admiral-barrier-564',
   'evidence-kizaru-admiral-barrier-564',
+  'evidence-garp-roger-rocks-1165',
 ]
 
 describe('evidence-only review before approved calibration', () => {
@@ -55,9 +56,10 @@ describe('evidence-only review before approved calibration', () => {
     }
   })
 
-  it('keeps all 24 evaluated score records valid and unchanged in numeric output', () => {
+  it('keeps all 27 evaluated score records valid after the recalibration draft', () => {
     const references = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
-    expect(sampleEvaluations).toHaveLength(24)
+    expect(sampleEvaluations).toHaveLength(27)
+    expect(sampleEvaluations.every(({ evaluationDataVersion }) => evaluationDataVersion === 'evaluation-0.1.26-draft')).toBe(true)
     for (const evaluation of sampleEvaluations) {
       expect(validateEvaluation(evaluation, references)).toEqual({ valid: true, errors: [] })
     }

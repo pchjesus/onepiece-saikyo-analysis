@@ -32,6 +32,7 @@ describe('evaluated roster UI', () => {
       ['빨간 머리 해적단', '샹크스'],
       ['해군', '몽키 D. 가프'],
       ['검은 수염 해적단', '마샬 D. 티치'],
+      ['왕의 부하 칠무해', '트라팔가 로'],
     ]) {
       const tab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === group)
       await click(tab ?? null)
@@ -41,11 +42,11 @@ describe('evaluated roster UI', () => {
     }
   })
 
-  it('opens sorted 24-person stat ranking and navigates to a chosen group', async () => {
+  it('opens sorted 27-person stat ranking and navigates to a chosen group', async () => {
     const stat = container.querySelector('button[aria-label="Attack / 공격력 전체 캐릭터 순위 보기"]')
     await click(stat)
     const rows = [...document.querySelectorAll('.rank-row')]
-    expect(rows).toHaveLength(24)
+    expect(rows).toHaveLength(27)
     expect(rows[0].textContent).toContain('몽키 D. 가프')
     expect(rows[0].textContent).toContain('99')
     const shanks = rows.find((row) => row.textContent?.includes('샹크스'))
@@ -68,13 +69,13 @@ describe('evaluated roster UI', () => {
   it('opens Overall rankings in full-precision order and reverses the list without changing canonical ranks', async () => {
     await click(container.querySelector('button[aria-label="Overall Combat Power 전체 캐릭터 순위 보기"]'))
     const rows = () => [...document.querySelectorAll('.rank-row')]
-    expect(rows()).toHaveLength(24)
+    expect(rows()).toHaveLength(27)
     expect(document.querySelector('#stat-rank-title')?.textContent).toContain('Overall Combat Power')
     expect(rows()[0].textContent).toContain('몽키 D. 가프')
-    expect(rows()[0].textContent).toContain('95.143')
+    expect(rows()[0].textContent).toContain('94.429')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows()[0].textContent).toContain('아발로 피사로')
-    expect(rows()[0].textContent).toContain('24위')
+    expect(rows()[0].textContent).toContain('27위')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows()[0].textContent).toContain('몽키 D. 가프')
   })
@@ -83,7 +84,7 @@ describe('evaluated roster UI', () => {
     await click(container.querySelector('button[aria-label="Attack / 공격력 전체 캐릭터 순위 보기"]'))
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     const rows = [...document.querySelectorAll('.rank-row')]
-    expect(rows).toHaveLength(24)
+    expect(rows).toHaveLength(27)
     expect(rows[0].textContent).not.toContain('몽키 D. 가프')
   })
 

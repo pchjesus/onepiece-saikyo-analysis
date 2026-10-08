@@ -5,7 +5,7 @@ describe('getCharacterList', () => {
   it('preserves the baseline roster and exposes approved expansion characters through the application boundary', () => {
     const list = getCharacterList()
 
-    expect(list).toHaveLength(24)
+    expect(list).toHaveLength(27)
     expect(list.map((item) => item.character.name)).toEqual([
       '마르코', '죠즈', '비스타',
       '킹', '퀸', '잭',
@@ -13,6 +13,7 @@ describe('getCharacterList', () => {
       '조로', '상디', '징베',
       '샹크스', '몽키 D. 가프', '사카즈키', '쿠잔', '보르살리노', '잇쇼', '아라마키',
       '마샬 D. 티치', '지저스 바제스', '시류', '반 오거', '아발로 피사로',
+      '트라팔가 로', '돈키호테 도플라밍고', '보아 핸콕',
     ])
     expect(list.map((item) => item.group.name)).toEqual([
       '흰수염 해적단', '흰수염 해적단', '흰수염 해적단',
@@ -21,6 +22,7 @@ describe('getCharacterList', () => {
       '밀짚모자 일당', '밀짚모자 일당', '밀짚모자 일당',
       '빨간 머리 해적단', '해군', '해군', '해군', '해군', '해군', '해군',
       '검은 수염 해적단', '검은 수염 해적단', '검은 수염 해적단', '검은 수염 해적단', '검은 수염 해적단',
+      '왕의 부하 칠무해', '왕의 부하 칠무해', '왕의 부하 칠무해',
     ])
   })
 
