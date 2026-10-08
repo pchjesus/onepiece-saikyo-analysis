@@ -1,17 +1,48 @@
 import { describe, expect, it } from 'vitest'
-import { getMatchupHubEntries } from './getMatchupHub'
+import { getMatchupBuilderView, getMatchupHubEntries, getMatchupRoster } from './getMatchupHub'
 
-describe('getMatchupHubEntries', () => {
-  it('builds all matchup cards from repository data without UI-hardcoded stats', () => {
+describe('matchup builder application', () => {
+  it('builds an evaluated 29-character selection roster', () => {
+    const roster = getMatchupRoster()
+    expect(roster).toHaveLength(29)
+    expect(roster.find(({ characterId }) => characterId === 'garp')?.states.map(({ label }) => label))
+      .toEqual(['전성기', '현재'])
+  })
+
+  it('keeps the 11 evidence-aware featured matchups', () => {
     const entries = getMatchupHubEntries()
     expect(entries).toHaveLength(11)
     expect(entries.every(({ characterA, characterB }) => characterA.stats.length === 7 && characterB.stats.length === 7)).toBe(true)
   })
 
-  it('uses explicit evaluation states for state-aware matchups', () => {
-    const garpKuzan = getMatchupHubEntries().find(({ matchup }) => matchup.id === 'matchup-garp-current-kuzan')
-    expect(garpKuzan?.characterA).toMatchObject({ characterId: 'garp', stateLabel: '현재' })
-    expect(garpKuzan?.characterA.overall).toBeCloseTo(93.7142857143)
-    expect(garpKuzan?.characterB.overall).toBeCloseTo(92.7142857143)
+  it('finds a direct matchup regardless of left-right selection order and flips perspective', () => {
+    const direct = getMatchupBuilderView('crocodile', 'jozu')
+    const reverse = getMatchupBuilderView('jozu', 'crocodile')
+    expect(direct?.matchup?.id).toBe('matchup-crocodile-jozu')
+    expect(reverse?.matchup?.id).toBe('matchup-crocodile-jozu')
+    expect(direct?.leftFactors.find(({ id }) => id === 'crocodile-jozu-damage')?.perspective).toBe('risk')
+    expect(reverse?.leftFactors.find(({ id }) => id === 'crocodile-jozu-damage')?.perspective).toBe('favorable')
+  })
+
+  it('uses the selected Garp evaluation state and does not attach current-only matchup to Prime', () => {
+    const prime = getMatchupBuilderView('garp', 'kuzan', 'prime')
+    const current = getMatchupBuilderView('garp', 'kuzan', 'current')
+    expect(prime?.left.overall).toBeCloseTo(97.4285714286)
+    expect(prime?.matchup).toBeUndefined()
+    expect(current?.left.overall).toBeCloseTo(93.7142857143)
+    expect(current?.matchup?.id).toBe('matchup-garp-current-kuzan')
+  })
+
+  it('allows arbitrary pairs while withholding unregistered matchup conclusions', () => {
+    const view = getMatchupBuilderView('marco', 'katakuri')
+    expect(view?.left.name).toBe('마르코')
+    expect(view?.right.name).toBe('샬롯 카타쿠리')
+    expect(view?.matchup).toBeUndefined()
+    expect(view?.leftFactors).toHaveLength(0)
+    expect(view?.rightFactors).toHaveLength(0)
+  })
+
+  it('rejects same-character matchups', () => {
+    expect(getMatchupBuilderView('shanks', 'shanks')).toBeUndefined()
   })
 })

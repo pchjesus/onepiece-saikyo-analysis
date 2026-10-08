@@ -1,8 +1,8 @@
 # 원피스 전투력 분석 — 처음 보는 사람을 위한 프로젝트 가이드
 
-> **v0.1.30 갱신:** Character master pool 30명 / evaluated roster 29명 / Evaluation 30개. Stats가 기본 홈이며 Matchup은 상단 VS 컨트롤로 여는 독립 Arena다. Prime/current 가프, 쿠잔, 크로커다일을 재보정했다.
+> **v0.1.31 갱신:** Stats가 기본 홈이며 Matchup은 좌/우 캐릭터를 직접 고르는 독립 Arena다. SWAP/RANDOM/FEATURED, 캐릭터별 관점 panel, 통합 Radar/Tale of the Tape를 제공하고 직접 Pair Evidence가 없으면 상성 결론을 보류한다.
 
-> 기준: **v0.1.30** 구현 · 30 Character master pool / 29 evaluated roster / 30 Evaluation.  
+> 기준: **v0.1.31** 구현 · 30 Character master pool / 29 evaluated roster / 30 Evaluation.  
 > 대상: ONE PIECE를 아는 일반 사용자 + 코드를 처음 인계받은 개발자.  
 > 주의: 자동 test/build 및 GitHub Pages 배포와 실제 기기 시각 검증은 서로 다른 검증 단계다.
 

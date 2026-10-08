@@ -1,7 +1,7 @@
 # One Piece Combat Power Analysis
 ## Project Specification
 
-**Version:** 0.1.30  
+**Version:** 0.1.31  
 **Status:** Active MVP · Expanded Evidence Calibration  
 **Project Type:** Web Application  
 **Primary Purpose:** One Piece 주요 캐릭터의 전투력을 근거 기반으로 분석하고 비교하는 웹 애플리케이션
@@ -475,14 +475,36 @@ Matchup은 Character Detail 내부에 동시에 배치하지 않고, 상단의 �
 
 Matchup 화면은 UFC·스포츠 홈처럼 비교가 빠르고 캐주얼하게 읽히는 Presentation을 지향할 수 있다. 단, 시각화가 분석 모델의 source of truth가 되어서는 안 된다.
 
-초기 Matchup Arena Presentation:
-- 양 캐릭터 Overall 및 평가 시점
-- 7 Core Stat 레이더 그래프
-- Tale of the Tape 형태의 스탯 비교
-- Evidence-aware Matchup Factor
-- 기본 전투 조건 표시
+Matchup Arena 기본 Interaction:
+- 좌/우 두 캐릭터를 독립적으로 선택한다.
+- 한 Character가 여러 Evaluation을 가지면 각 칸에서 평가 시점을 별도로 선택할 수 있다.
+- 좌우 교체(SWAP), 랜덤 대진(RANDOM), 직접 Matchup Evidence가 등록된 Featured 대진 빠른 선택을 제공할 수 있다.
+- 동일 Character끼리의 자기 대진은 기본 UI에서 허용하지 않는다.
+
+Matchup Arena Presentation:
+- 좌/우 Character별 고유 panel
+  - Overall 및 평가 시점
+  - 상대보다 높은 Core Stat
+  - 전투 스타일 / Special / 확인된 Haki toolkit
+  - 해당 Character 관점의 favorable / risk / conditional Matchup factor
+- 통합 panel
+  - 7 Core Stat 레이더 그래프
+  - Tale of the Tape 형태의 스탯 비교
+  - Evidence-aware Matchup Factor
+  - 기본 전투 조건 표시
+- 직접 Pair Evidence가 없는 조합은 일반 Core Stat과 Character profile 비교까지만 표시하며 특정 상성 결론을 자동 생성하지 않는다.
 
 레이더 그래프와 스탯 차이는 승률을 뜻하지 않는다. 승률·고정 +N 상성 보너스는 별도 검증 전까지 도입하지 않는다.
+
+후속 Matchup 후보 기능:
+- Evidence가 충분히 누적된 뒤 상성이 좋을 수 있는 상대 / 불리할 수 있는 상대 추천
+- Starting Distance / Terrain / Injury / Preparation 등 scenario 조건 선택
+- 직접 전투 Timeline 및 관련 Evidence 빠른 탐색
+- 공유 가능한 Matchup URL
+- 최근 본 대진 / 즐겨찾기
+- Community pick / 의견
+- 여러 Calculation Model overlay
+- 별도 검증을 거친 이후에만 확률 또는 예측 모델 검토
 
 # 13. Data Architecture
 

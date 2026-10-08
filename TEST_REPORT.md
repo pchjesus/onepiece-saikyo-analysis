@@ -555,6 +555,38 @@ npm.cmd run dev
 
 # Test Report
 
+## v0.1.31 Verification Plan / Result
+
+### Scope
+- Doflamingo official epithet order: 천야차 → 조커.
+- Two-character Matchup Builder with left/right independent selection.
+- Multi-Evaluation state selection.
+- SWAP / RANDOM / FEATURED controls.
+- Per-corner perspective panels and combined Radar / Tale of the Tape / Evidence factors.
+- Arbitrary pair support without fabricated matchup conclusions.
+
+### Required checks
+- Evaluated roster remains 29 selectable Characters.
+- Same Character cannot be selected on both sides from the UI and application guard rejects self-matchup.
+- Current Garp vs Kuzan uses current Garp only; Prime Garp does not inherit the current-only pair Evidence.
+- Reversing left/right correctly flips character-a / character-b factor perspective.
+- Arbitrary unregistered pairs show Core Stat comparison but no pair-specific conclusion.
+- Existing 11 featured Matchup prototypes remain intact.
+- Stats remains the default app home.
+- Balanced 1.2 / Haki Weight 0.5 / no win-probability policy remain unchanged.
+
+### Automated verification
+- PR #15 CI: **24 test files / 103 tests passed**.
+- `npm run build`: **passed**.
+- Initial CI failure came from an over-specific test assumption that Mihawk vs Shanks must include a favorable/risk factor; the pair is intentionally neutral/unknown-heavy. The perspective inversion test was moved to the confirmed Crocodile vs Jozu damage factor, then the full suite passed.
+
+### Manual visual checks
+- Left/right selectors remain readable on narrow phones.
+- SWAP/RANDOM controls are reachable without horizontal overflow.
+- Corner panels collapse cleanly to one column on mobile.
+- Combined Radar labels and Tale of the Tape remain legible.
+
+
 ## v0.1.30 Verification Plan / Result
 
 ### Scope
