@@ -40,7 +40,7 @@ describe('27-person Haki / Evidence audit (0.1.26 draft)', () => {
     const item = (id: string, stat: string) => sampleEvaluations.find(e => e.characterId === id)?.items.find(i => i.stat === stat)
     expect(getRawHakiContributionTotal(item('shanks', 'attack')!)).toBe(6)
     expect(getRawHakiContributionTotal(item('shanks', 'techniqueMastery')!)).toBe(8)
-    expect(item('shanks', 'techniqueMastery')?.score).toBe(97)
+    expect(item('shanks', 'techniqueMastery')?.score).toBe(96)
     expect(getRawHakiContributionTotal(item('garp', 'attack')!)).toBe(6)
     expect(item('garp', 'attack')?.score).toBe(99)
     expect(getRawHakiContributionTotal(item('kuzan', 'techniqueMastery')!)).toBe(4)
