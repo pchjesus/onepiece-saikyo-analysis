@@ -570,7 +570,9 @@ npm.cmd run dev
 - Garp current-vs-Kuzan matchup은 current state에서만 표시.
 
 ### Automated verification
-- feature branch PR CI에서 npm test / npm run build로 검증한다.
+- PR #13 GitHub Actions: **23 test files / 97 tests passed**.
+- `npm run build`: **passed** (Vite production build completed).
+- 첫 CI 실패는 27→29 로스터 확장 후 남아 있던 테스트 기대값 3곳의 불일치였고, 해당 fixture/index를 수정한 뒤 전체 CI가 통과했다.
 
 ### Manual verification required
 - 크로스 길드 탭에서 쥬라큘 미호크 / 크로커다일 전환.
