@@ -1,6 +1,8 @@
 # 원피스 전투력 분석
 
-MVP v0.1.24
+MVP v0.1.24 기준 / **v0.1.25 재평가 Draft (PR #9 개발 브랜치, main 미병합)**
+
+**이번 브랜치의 전체 Evidence·Haki 검토:** [v0.1.25 Draft 평가 보고서](docs/RECALIBRATION_0_1_25_DRAFT.md) — 24인 감사, 22개 신규 Evidence, 계산 분해, 근거·불확실성, 검증 범위
 
 **처음 보는 사용자·후속 개발자 안내:** [프로젝트 입문 가이드](docs/PROJECT_GUIDE.md) — 화면 사용법, 7개 스탯·계산·Evidence 해석, 데이터 추가 절차, 현재 알려진 한계
 
@@ -25,13 +27,13 @@ Overall Combat Power는 Balanced 1.2에서 7개 Final Core Stat(Attack, Defense,
 - E2 캐릭터의 점수는 현재 Evidence에 기반한 provisional draft이며 새 전투 묘사에 따라 크게 변할 수 있다.
 - Doc Q처럼 7축 Evidence가 부족한 캐릭터는 억지로 점수를 만들지 않고 미평가 상태로 남긴다.
 
-현재 주요 Overall:
+현재 주요 Overall (**이 브랜치의 Draft 계산 결과**, Balanced 1.2):
 - Prime Garp 95.143
-- Kizaru 94.000
-- Kuzan 93.429
-- Akainu 92.429
-- Shanks 92.286
-- Teach 90.429
+- Kizaru 92.714
+- Kuzan 93.000
+- Akainu 93.143
+- Shanks 94.143
+- Teach 91.571
 - Fujitora 89.714
 - Ryokugyu 89.429
 - Zoro 84.857
@@ -52,6 +54,14 @@ Overall Combat Power는 Balanced 1.2에서 7개 Final Core Stat(Attack, Defense,
 - Pizarro 72.000
 
 소수점 근소 차이는 절대적인 1대1 서열 확정으로 해석하지 않는다.
+
+### 검토 중인 UI
+
+- Overall Combat Power를 클릭해 24인의 전체 종합점수 순위 확인
+- 7개 스탯 순위 및 Overall 순위의 오름차순/내림차순 전환
+- 헤더 검색창에서 캐릭터 이름·집단을 입력하면 일치/유사 후보를 자동 제시
+- 특수 전투요소 제목 옆 `?`에 연결 Evidence 건수·Overall 반영 원칙을 작은 말풍선으로 제공
+- **전투력 수치와 Haki 배분은 새 Draft 브랜치에만 적용되며**, PR #9 병합 전에 사용자 확인 필요
 
 ## 구조
 UI → Application → Domain

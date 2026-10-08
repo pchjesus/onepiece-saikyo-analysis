@@ -1,5 +1,31 @@
 # Changelog
 
+## Unreleased · v0.1.25 Draft — Overall Rankings, Search & Haki Recalibration
+
+### UI
+- Overall 24인 순위 팝업과 기존 7개 Core Stat 팝업에 오름차순/내림차순 전환.
+- 우측 상단 캐릭터 검색 및 소속·이름 관련 제안 목록, 키보드 조작.
+- Special Combat Profile의 반복된 Evidence/Overall 문구를 제목 옆 작은 anchored `?` 말풍선으로 변경.
+
+### Evidence & Evaluation
+- 원작 화수 기준 Battle 12개 / Evidence 22개 추가. Shanks·Sakazuki·Kuzan·Borsalino·Teach·Garp·Fujitora·Ryokugyu 근거 링크 보강.
+- 24 Character / 24 Evaluation / 168 Core Stats / Evidence 97건 전체 참조·Haki Contribution의 기계적 무결성 점검.
+- **Recalibrated Overall:** Shanks 94.143 / Sakazuki 93.143 / Kuzan 93.000 / Borsalino 92.714 / Teach 91.571.
+- Garp·Fujitora·Shiryu·Burgess의 Haki Base/Raw 분해를 명시하고 최종 기존 Overall은 유지.
+- Sanji Defense의 공격용 Ifrit Jambe Evidence를 Haki Defense로 중복 가산하던 항목 제거, Base 재분배로 기존 Final 85 보존.
+- Shiryu Armament은 1087화 검격 근거로 `confirmed`로 수정. 불확실한 Haki 보유만으로 임의 가산하지 않음.
+
+### Calculation / Version
+- **Balanced 1.2, 7 Final Core Stat 단순 평균, Haki Weight 0.5, Raw 상한 10, Final 상한 100 변경 없음.**
+- 평가 대상 10명은 `evaluation-0.1.25-draft`를 사용; 미변경 캐릭터의 데이터 버전 유지.
+- `docs/RECALIBRATION_0_1_25_DRAFT.md`에 상세 근거, 전원 Haki 감사 결과, 한계 기록.
+
+### Validation / Limitations
+- UI·Evidence·Haki·Calculation 회귀 테스트 및 GitHub Actions 프로덕션 빌드 확인. 상세 사항은 `TEST_REPORT.md`.
+- 초기 신규 전투 `chronologyOrder: 2.5` 문제를 자동 테스트로 발견해 정수 3으로 수정; Winner Island 정렬은 4로 교정.
+- PC·모바일 실제 화면/원작 전 97개 만화 컷의 수동 원문 대조는 검증 완료로 표시하지 않음.
+- PR #9 Draft. `main` 변경/병합하지 않음.
+
 ## Unreleased — Group Detail, Stat Rankings & Compact UI
 
 ### Fixed

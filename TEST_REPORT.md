@@ -1,3 +1,29 @@
+# v0.1.25 Draft — Overall Ranking / Character Search / Evidence-Haki Audit (2026-10-08)
+
+## Scope & Integrity
+- 작업 브랜치: `feature/overall-ranking-evidence-review`. `main` 기준 `6e90eed20de88b3c9590b542415e5e95ddd59d38`의 사후 분기.
+- UI: Overall 24인 정렬, 양방향 정렬, 검색 제안 목록, 특수요소 작은 `?` 말풍선.
+- 데이터: Battle 12개, Evidence 22건, 24명 Haki 상태/적용, 5명 재평가, 5명 Base/Haki 원인 분리.
+- **Calc model:** Balanced 1.2/Weight 0.5/7축 평균/패기 상한 변경 없음.
+- `src/data/sample/hakiAudit.test.ts`: 전체 로스터의 Haki Capability 확인 상태, Contribution·Evidence 소유권 및 계산 모델 검증.
+- `src/data/sample/reviewEvidence.test.ts`: 신설 Evidence의 고유성·출처·전투 연결, 24인 값·테스트 고정점, Timeline/Trace 추적성.
+- 자동화 테스트는 원작 내용의 독립적인 사실 검증을 의미하지 않음. 원작 원문 97건 전수 직접 재독 및 PC·모바일 수동 UI 검수는 미완료.
+
+## CI trail
+1. UI commit `cdde88106b225a53970a0a7fac9dc925ff2a1be0` — Actions [#37734056576](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37734056576): 67 tests, production build PASS.
+2. Evidence introduction `6305e1f74c4ae851a93fd02ade90febb52886a89` — Actions [#37734584201](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37734584201): **1 test FAIL**. 원인: Battle chronologyOrder 2.5 (must be positive integer).
+3. Targeted chronology correction `a836360c9433a7e0bcd38da2b820f4f5d2174b9d` — Actions [#37734651661](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37734651661): PASS.
+4. Calibration & Haki audit `f918aaa0d5109749968248997d2a91f3cf624020` — Actions [#37735162184](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37735162184): **18/18 test files, 73/73 tests PASS, `npm run build` PASS**.
+5. Last documentation-only commit: final GitHub Actions run to be checked after push.
+
+## Verification boundary & acceptance
+- `main` 보호: PR #9 Draft. 未병합. 기존 main commit은 변경하지 않음.
+- 24인의 모든 Evidence/Stat 데이터 관계 및 계산을 자동 검증했으나 개별 만화 원문을 97건 모두 재독한 것으로 과장하지 않음.
+- 신규 수치는 본 프로젝트 `draft` 점수이며 유저가 다음 단계에서 승인 후 merge.
+- 실제 Chrome/Edge, 모바일 화면, 검색/말풍선 위치/스크롤/키보드 포커스는 추가 수동 검수 대상.
+
+---
+
 # Unreleased UI / Navigation Regression — 2026-10-08
 
 ## Change scope
