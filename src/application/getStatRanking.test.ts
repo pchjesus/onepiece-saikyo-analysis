@@ -6,8 +6,8 @@ describe('getStatRanking', () => {
   it('sorts all evaluated characters by each Final Core Stat descending', () => {
     for (const stat of COMBAT_STATS) {
       const entries = getStatRanking(stat)
-      expect(entries).toHaveLength(29)
-      expect(new Set(entries.map(({ characterId }) => characterId)).size).toBe(29)
+      expect(entries).toHaveLength(36)
+      expect(new Set(entries.map(({ characterId }) => characterId)).size).toBe(36)
       expect(entries.every(({ status }) => status === 'draft')).toBe(true)
       for (let i = 1; i < entries.length; i++) {
         expect(entries[i - 1].score).toBeGreaterThanOrEqual(entries[i].score)
@@ -20,11 +20,12 @@ describe('getStatRanking', () => {
 
   it('uses the approved Final values and handles ties', () => {
     const attack = getStatRanking('attack')
-    expect(attack[0]).toMatchObject({ characterId: 'garp', score: 99, rank: 1 })
+    expect(attack.slice(0, 3).map(({ characterId }) => characterId).sort()).toEqual(['newgate', 'rocks', 'roger'].sort())
+    expect(attack.slice(0, 3).every(({ score, rank }) => score === 100 && rank === 1)).toBe(true)
     const speed = getStatRanking('speed')
     expect(speed[0]).toMatchObject({ characterId: 'kizaru', score: 99, rank: 1 })
     const versatility = getStatRanking('versatility')
-    expect(versatility[0]).toMatchObject({ characterId: 'fujitora', score: 94, rank: 1 })
+    expect(versatility[0]).toMatchObject({ characterId: 'linlin', score: 97, rank: 1 })
     expect(attack.find(({ characterId }) => characterId === 'zoro')?.score).toBe(90)
   })
   it('deduplicates multi-membership Characters and keeps their representative Group', () => {
@@ -38,12 +39,13 @@ describe('getStatRanking', () => {
     expect(crocodile[0]).toMatchObject({ groupId: 'cross-guild', groupName: '크로스 길드' })
   })
 
-  it('sorts the current 29-character Overall from the calculation service', () => {
+  it('sorts the current 36-character Overall from the calculation service', () => {
     const entries = getStatRanking('overall')
-    expect(entries).toHaveLength(29)
-    expect(entries[0]).toMatchObject({ characterId: 'garp', rank: 1, subjectStateLabel: '전성기' })
-    expect(entries[0].score).toBeCloseTo(97.42857142857143)
-    expect(entries[28]).toMatchObject({ characterId: 'pizarro', rank: 29, score: 71.71428571428571 })
+    expect(entries).toHaveLength(36)
+    expect(entries.slice(0, 2).map(({ characterId }) => characterId).sort()).toEqual(['newgate', 'roger'].sort())
+    expect(entries.slice(0, 2).every(({ rank, score }) => rank === 1 && Math.abs(score - 97.57142857142857) < 1e-10)).toBe(true)
+    expect(entries.find(({ characterId }) => characterId === 'garp')).toMatchObject({ rank: 3, subjectStateLabel: '전성기' })
+    expect(entries[35]).toMatchObject({ characterId: 'pizarro', rank: 36, score: 71.71428571428571 })
     for (let index = 1; index < entries.length; index++) {
       expect(entries[index - 1].score).toBeGreaterThanOrEqual(entries[index].score)
     }
