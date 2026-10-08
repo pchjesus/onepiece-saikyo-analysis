@@ -14,6 +14,15 @@ export const EVALUATION_STATUSES = ['prototype', 'draft', 'official'] as const
 
 export type EvaluationStatus = typeof EVALUATION_STATUSES[number]
 
+export const EVIDENCE_READINESS_LEVELS = ['E1', 'E2', 'E3'] as const
+export type EvidenceReadiness = typeof EVIDENCE_READINESS_LEVELS[number]
+
+export const EVIDENCE_READINESS_DEFINITIONS = {
+  E1: '직접·반복 Evidence가 충분해 현재 점수의 근거 밀도가 높음',
+  E2: '7축 평가는 가능하지만 일부 축에 위상·간접 근거 또는 표본 부족이 남음',
+  E3: '직접 Evidence가 부족해 수치 평가 보류 또는 강한 잠정성이 필요함',
+} as const satisfies Record<EvidenceReadiness, string>
+
 export const EVALUATION_STATUS_DEFINITIONS = {
   prototype: '구조 검증용 임시 평가 데이터',
   draft: '실제 분석을 진행 중이지만 아직 공식 평가로 확정하지 않은 데이터',
@@ -29,6 +38,8 @@ export type EvaluationItem = {
   rationale: string
   evidenceIds: string[]
   hakiContributions: HakiStatContribution[]
+  /** Evidence sufficiency for this individual stat; independent from score magnitude. */
+  readiness?: EvidenceReadiness
 }
 
 export type EvaluationSubjectState = {
