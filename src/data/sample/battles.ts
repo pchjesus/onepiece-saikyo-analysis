@@ -626,6 +626,88 @@ export const sampleBattles: Battle[] = [
     externalFactors: '수많은 세력이 동시에 교전', result: 'interrupted', participantIds: [],
   },
 
+
+  {
+    id: 'roger-newgate-966', title: '과거 — 골 D. 로저와 에드워드 뉴게이트의 충돌', chronologyOrder: 1,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '양 해적단이 서로 기량을 겨룬 전면 충돌', combatIntent: 'serious',
+    environment: '섬 전장', restrictions: '개별 1대1만이 아니라 양 해적단 전체가 3일 3야 싸운 전투', externalFactors: '오뎅이 로저의 카무사리를 먼저 경험한 뒤 뉴게이트가 직접 충돌', result: 'draw', participantIds: [],
+  },
+  {
+    id: 'god-valley-top-1163', title: '갓 밸리 — 최고 전력들의 이무 공격', chronologyOrder: 2,
+    combatStructure: 'multiple-vs-one', combatPurpose: '이무의 개입에 맞서 생존·저지', combatIntent: 'serious',
+    environment: '붕괴 중인 갓 밸리', restrictions: '여러 최고 전력이 동시에 개입한 다수전', externalFactors: '이무 및 세계정부 측 개입', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'god-valley-roger-garp-rocks-1165-1166', title: '갓 밸리 — 골 D. 로저·몽키 D. 가프와 악마화 록스', chronologyOrder: 3,
+    combatStructure: 'multiple-vs-one', combatPurpose: 'Domi Reversi로 변형된 록스를 제압', combatIntent: 'full-power',
+    environment: '붕괴 중인 갓 밸리', restrictions: '록스는 자연 상태가 아닌 외부 변형 상태이며 로저·가프의 공동전', externalFactors: '이무의 Domi Reversi. 최종 공격은 악마화를 해제했으며 정상 상태 록스의 최후와 구분', result: 'victory', participantIds: [],
+  },
+  {
+    id: 'sabaody-rayleigh-kizaru-512', title: '샤본디 — 실버즈 레일리와 보르살리노', chronologyOrder: 1,
+    combatStructure: '1v1', combatPurpose: '밀짚모자 일당을 보호하며 보르살리노의 추격을 저지', combatIntent: 'serious',
+    environment: '샤본디 제도', restrictions: '노년 레일리이며 장기 결투의 결말은 공개되지 않음', externalFactors: '밀짚모자 일당 탈출이라는 보호 목적', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'rayleigh-haki-training-597', title: '루스카이나 — 실버즈 레일리의 패기 시연', chronologyOrder: 2,
+    combatStructure: '1v1', combatPurpose: '루피에게 패기 원리와 적용을 교육', combatIntent: 'normal',
+    environment: '루스카이나', restrictions: '실전 결투가 아닌 교육·시연', externalFactors: '훈련 상황', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'amazon-lily-rayleigh-teach-1059', title: '아마존 릴리 — 실버즈 레일리의 중재', chronologyOrder: 3,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '보아 핸콕과 섬을 보호하고 충돌 종료', combatIntent: 'serious',
+    environment: '아마존 릴리', restrictions: '직접 장기전 없이 평판과 협상으로 전투가 종료됨', externalFactors: '해군·검은 수염 해적단·구사 해적단이 얽힌 삼파전', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'god-valley-rayleigh-sommers-1161', title: '갓 밸리 — 전성기 실버즈 레일리의 구조 개입', chronologyOrder: 4,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '샤쿠야쿠 구출', combatIntent: 'serious',
+    environment: '갓 밸리', restrictions: '짧은 구조 개입으로 장기전 표본이 아님', externalFactors: '신의 기사단 및 다수 세력 전투', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'elbaf-gaban-luffy-1140', title: '엘바프 — 스코퍼 가반의 루피 시험', chronologyOrder: 1,
+    combatStructure: 'one-vs-multiple', combatPurpose: '열쇠를 두고 루피·조로의 역량을 시험', combatIntent: 'serious',
+    environment: '엘바프 성 내부', restrictions: '가반은 시험 성격의 전투를 자발적으로 종료했고 Gear 5 루피+조로와의 완결 1대2가 아님', externalFactors: '열쇠 전달 목적', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'elbaf-gaban-sommers-1148-1149', title: '엘바프 — 스코퍼 가반과 소머즈', chronologyOrder: 2,
+    combatStructure: '1v1', combatPurpose: '콜론과 엘바프 주민 보호', combatIntent: 'serious',
+    environment: '엘바프', restrictions: '이후 군코의 인질 위협으로 전투 행동이 제한됨', externalFactors: '콜론이 인질로 위협받음', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'elbaf-gaban-imu-1189-1192', title: '엘바프 — 현재 스코퍼 가반의 이무 저지', chronologyOrder: 3,
+    combatStructure: '1v1', combatPurpose: '루피를 보호하고 탈출 시간을 확보', combatIntent: 'serious',
+    environment: '엘바프 선계·명계', restrictions: '이무의 현현 육체가 균열되는 불안정 상태였고 가반은 승산이 없다고 판단해 철수를 지시', externalFactors: '가반은 팔 하나를 잃었으나 생존. 생존 자체를 이무와 동급 전투력으로 해석하지 않음', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'rocks-harald-1155', title: '과거 — 록스 D. 지벡과 하랄드의 충돌', chronologyOrder: 1,
+    combatStructure: '1v1', combatPurpose: '서로의 힘을 겨루는 충돌', combatIntent: 'serious',
+    environment: '과거 전장', restrictions: '세부 장기전 전개는 제한적으로 공개됨', externalFactors: '대규모 패기 충돌', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'god-valley-rocks-garling-1162', title: '갓 밸리 — 자연 상태 록스와 갈링', chronologyOrder: 2,
+    combatStructure: 'one-vs-multiple', combatPurpose: '가족 보호와 전장 돌파', combatIntent: 'serious',
+    environment: '갓 밸리', restrictions: '가족 보호라는 명확한 제약이 존재', externalFactors: '신의 기사단과 다수 세력 개입', result: 'victory', participantIds: [],
+  },
+  {
+    id: 'marineford-newgate-war-552-576', title: '정상결전 — 에드워드 뉴게이트의 최종전', chronologyOrder: 1,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '에이스 구출과 아군 탈출 지원', combatIntent: 'full-power',
+    environment: '마린포드', restrictions: '72세 노년·중증 질환 상태이며 전쟁 중 누적 피해와 스쿼드의 기습을 포함', externalFactors: '해군대장·중장·칠무해·검은 수염 해적단 등 다수 세력 개입', result: 'defeat', participantIds: [],
+  },
+  {
+    id: 'wano-kaido-linlin-951', title: '와노쿠니 — 카이도와 샬롯 링링의 충돌', chronologyOrder: 1,
+    combatStructure: '1v1', combatPurpose: '서로의 힘을 겨루는 사황 충돌', combatIntent: 'serious',
+    environment: '오니가시마', restrictions: '결착 없이 이후 동맹으로 전환', externalFactors: '하늘이 갈라지는 패기 충돌', result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'onigashima-kaido-rooftop-1009-1049', title: '오니가시마 — 카이도의 연속 결전', chronologyOrder: 2,
+    combatStructure: 'one-vs-multiple', combatPurpose: '오니가시마 전투 승리와 신세대 격파', combatIntent: 'full-power',
+    environment: '오니가시마 옥상 및 공중', restrictions: '다수 상대와 연속 교전하고 섬 이동을 병행했으며 누적 피해가 존재', externalFactors: '최악의 세대·야마토·루피 등의 순차 개입', result: 'defeat', participantIds: [],
+  },
+  {
+    id: 'onigashima-linlin-law-kid-1039-1040', title: '오니가시마 — 샬롯 링링 vs 트라팔가 로·유스타스 키드', chronologyOrder: 2,
+    combatStructure: 'multiple-vs-one', combatPurpose: '신세대 격파와 전장 유지', combatIntent: 'full-power',
+    environment: '오니가시마 내부·지하', restrictions: '두 각성 능력자와의 2대1이며 최종 패배는 낙하·폭탄·환경 요인이 복합 작용', externalFactors: '오니가시마 낙하와 폭발물', result: 'defeat', participantIds: [],
+  },
+
 ]
 
 export const sampleBattleParticipants: BattleParticipant[] = [
