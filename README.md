@@ -58,7 +58,7 @@ Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Speci
 
 ### 현재 UI
 
-- 27명 Overall 및 7 Core Stat 순위
+- 29명 Overall 및 7 Core Stat 순위
 - 높은 점수순 / 낮은 점수순 전환
 - 본명·이명·칭호·소속 검색
 - 캐릭터 상세의 공식 identity 정보와 평가 시점 표시
