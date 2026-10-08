@@ -1,5 +1,7 @@
 # v0.1.33 — Legendary Era Expansion Verification
 
+> v0.1.33 main merge source: PR #21 · merge commit `ac06c3e8e935f0b86b7e916b79579811e0bd7461`. 이 문서 커밋은 main push CI/Pages를 명시적으로 재트리거하기 위한 비기능 변경이다.
+
 ## Scope
 - 7 new Characters / 9 numeric Evaluations.
 - Current Garp / Big Mom / Prime Rayleigh / Current Gaban cross-calibration.
