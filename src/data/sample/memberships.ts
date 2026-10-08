@@ -40,4 +40,17 @@ export const sampleMemberships: CharacterMembership[] = [
   { characterId: 'mihawk', groupId: 'seven-warlords', role: '왕의 부하 칠무해', status: 'former', period: '과거' },
   { characterId: 'crocodile', groupId: 'seven-warlords', role: '왕의 부하 칠무해', status: 'former', period: '과거' },
 
+  { characterId: 'roger', groupId: 'roger-pirates', role: '선장', status: 'historical', period: '로저 해적단 활동기' },
+  { characterId: 'rayleigh', groupId: 'roger-pirates', role: '부선장 / 해적왕의 오른팔', status: 'historical', period: '로저 해적단 활동기' },
+  { characterId: 'gaban', groupId: 'roger-pirates', role: '핵심 전투원 / 해적왕의 왼팔', status: 'historical', period: '로저 해적단 활동기' },
+  { characterId: 'rocks', groupId: 'rocks-pirates', role: '선장', status: 'historical', period: '록스 해적단 활동기' },
+
+  { characterId: 'newgate', groupId: 'whitebeard-pirates', role: '선장', status: 'historical', period: '생전' },
+  { characterId: 'kaido', groupId: 'beasts-pirates', role: '총독 / 선장', status: 'current', period: '오니가시마 전투 시점' },
+  { characterId: 'linlin', groupId: 'big-mom-pirates', role: '선장', status: 'current', period: '오니가시마 전투 시점' },
+
+  { characterId: 'newgate', groupId: 'rocks-pirates', role: '핵심 선원', status: 'historical', period: '갓 밸리 이전~당시' },
+  { characterId: 'kaido', groupId: 'rocks-pirates', role: '견습 선원', status: 'historical', period: '갓 밸리 이전~당시' },
+  { characterId: 'linlin', groupId: 'rocks-pirates', role: '핵심 선원', status: 'historical', period: '갓 밸리 이전~당시' },
+
 ]
