@@ -70,7 +70,7 @@ describe('Balanced v1.2', () => {
       katakuri: 81.2857142857,
       smoothie: 76.7142857143,
       cracker: 71.8571428571,
-      zoro: 84.7142857143,
+      zoro: 84.8571428571,
       sanji: 84.4285714286,
       jinbe: 79.4285714286,
     }
