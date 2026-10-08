@@ -59,6 +59,7 @@ describe('evidence-only review before approved calibration', () => {
   it('keeps all 27 evaluated score records valid after the recalibration draft', () => {
     const references = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
     expect(sampleEvaluations).toHaveLength(27)
+    expect(sampleEvaluations.every(({ evaluationDataVersion }) => evaluationDataVersion === 'evaluation-0.1.26-draft')).toBe(true)
     for (const evaluation of sampleEvaluations) {
       expect(validateEvaluation(evaluation, references)).toEqual({ valid: true, errors: [] })
     }
