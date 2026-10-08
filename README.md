@@ -1,11 +1,13 @@
 # 원피스 전투력 분석
 
-현재 개발 버전: **v0.1.33**  
+현재 개발 버전: **v0.1.34**  
 평가 데이터: **37 Character master pool · 36 evaluated unique Character · 41 Membership · 39 Evaluation**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
 - [v0.1.26 27인 재보정 보고서](docs/RECALIBRATION_0_1_26_DRAFT.md)
 - [Evidence-aware Matchup v0.1 Draft](docs/MATCHUP_MODEL_0_1_DRAFT.md)
+- [하이브리드 Haki 확정 기준](docs/HYBRID_HAKI_CRITERIA_2026-10-09.md)
+- [전체 39 Evaluation 전수 감사](docs/FULL_ROSTER_SCALE_HAKI_REVIEW_2026-10-09.md)
 - [프로젝트 입문 가이드](docs/PROJECT_GUIDE.md)
 
 ## 현재 평가 로스터
@@ -27,6 +29,17 @@
 버기는 Character master pool에는 존재하지만 E3 미평가로 evaluated roster에 포함하지 않는다. 스코퍼 가반의 전성기도 E3로 수치 Evaluation을 만들지 않고 현재 엘바프 Evaluation만 등록한다.
 
 Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Special Combat Profile과 Matchup-specific Advantage는 Overall에 직접 합산하지 않는다.
+
+## v0.1.34 주요 변경
+
+- 사용자가 승인한 **하이브리드 Haki 평가 기준**을 PROJECT_SPEC §5에 확정했다.
+- 기존 7 Stat / Balanced 1.2 / Weight 0.5 및 **39개 Evaluation의 Base·Raw·Final 점수는 변경하지 않았다**.
+- 무장색·견문색·패왕색의 **직접 확인된 특출난 응용 vs 고숙련의 강한 추론**을 선택적으로 기록하고 캐릭터 전투 프로필에 근거와 한계를 함께 표시한다.
+- 미호크는 영구 흑도 「夜」와 무장색 검술 지도를 근거로 고숙련 가능성을 표시하지만 **본인이 영구 흑도를 직접 제작했는지는 확정하지 않는다**.
+- 샹크스·카타쿠리·가프의 패기 특수성도 동일한 정성적 틀에 기록했다.
+- 신규 미호크 무장색 지도 Evidence/훈련 시점 기록을 추가했다. 이는 **수치 가산이 아니며** 기존 랭킹·매치업 승률에 영향을 주지 않는다.
+- 앞선 v0.1.34 문서·매치업 4건 및 특수 전투요소 팝업 바깥 클릭 닫기 패치도 포함한다.
+- 현행 Raw Haki는 *레거시 draft 데이터*이며 새 기준에 따라 자동 승인된 것으로 해석하지 않는다. 향후 39개 Evaluation/273개 Stat의 개별 재보정은 변경 전후 비교 및 사용자 승인 후 진행한다.
 
 ## v0.1.33 주요 변경
 
