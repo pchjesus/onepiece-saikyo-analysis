@@ -513,7 +513,7 @@ export const sampleCharacters: Character[] = [
       ]},
       sources: [{ label: '원작 Evidence', reference: 'Hachinosu Ch. 1087-1088' }],
     },
-  },,
+  },
 
   {
     id: 'law',
