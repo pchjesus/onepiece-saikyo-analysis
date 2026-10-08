@@ -1,5 +1,36 @@
 # Changelog
 
+## v0.1.31 — Two-Fighter Matchup Builder
+
+### Identity
+- 돈키호테 도플라밍고 knownAs에 공식 이명 '천야차'를 추가.
+- 표시 순서를 천야차 → 조커로 유지.
+
+### Matchup Arena
+- 좌/우 Character independent selection.
+- Multi-Evaluation state selection support.
+- SWAP / RANDOM / FEATURED controls.
+- Left/Right perspective panels:
+  - Core Stat edges
+  - Combat style / Special / confirmed Haki toolkit
+  - favorable / risk / conditional evidence-aware factors
+- Combined panel:
+  - Overall scoreboard
+  - 7-Core radar
+  - Tale of the Tape
+  - registered Matchup factors
+- Arbitrary pairs are allowed, but no matchup conclusion is created when direct pair Evidence is absent.
+
+### Deferred matchup roadmap
+- Evidence-graph based good/bad matchup recommendations.
+- Distance / terrain / injury / preparation scenario controls.
+- Shareable matchup URLs and local/history favorites.
+- Direct battle timeline inside Matchup.
+- Community picks/comments after persistence and moderation exist.
+- Multiple calculation-model overlays.
+- No probability model until separately validated.
+
+
 ## v0.1.30 — Apex Calibration & Matchup Arena
 
 ### Calibration
