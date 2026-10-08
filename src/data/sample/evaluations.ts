@@ -175,7 +175,7 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-garp', characterId: 'garp', evaluationDataVersion: 'evaluation-0.1.26-draft', status: 'draft',
+    id: 'evaluation-garp', characterId: 'garp', evaluationDataVersion: 'evaluation-0.1.26-draft', status: 'draft', isDefault: true,
     subjectState: { id: 'prime', label: '전성기', note: 'God Valley를 포함한 전성기 직접 근거를 기준으로 평가하며, 노년 하치노스 전투는 기술·기동·지속력의 직접 비교 근거로 보조 사용한다.' },
     items: [
       item('attack', 96, "전성기 God Valley에서 로저와 함께 록스를 상대하며 최고 수준의 패기 강화 공격을 성립시킨 직접 근거와, 노년 Galaxy Impact의 권격 출력을 함께 본다. 공동 공격을 가프 단독 결정력으로 환산하지 않으며 하치노수의 확인된 무장색 운용은 Raw Contribution으로 분리한다.", ["evidence-garp-roger-rocks-1165","evidence-garp-galaxy-impact-1080"], [{ hakiType: 'armament', stat: 'attack', amount: 6, application: "Galaxy Impact의 비접촉 충격파·패기 강화 권격 응용", evidenceIds: ["evidence-garp-galaxy-impact-1080"] }]),
@@ -185,6 +185,19 @@ export const sampleEvaluations: Evaluation[] = [
       item('techniqueMastery', 95, "God Valley의 최고 수준 패기 공방과 수십 년간 단련한 맨손 무투·Galaxy 계열 타격 구조를 Base로 두고, 쿠잔과의 고급 패기 주먹 충돌을 Raw 무장색에 별도로 반영한다.", ["evidence-garp-roger-rocks-1165","evidence-garp-kuzan-haki-1087"], [{ hakiType: 'armament', stat: 'techniqueMastery', amount: 4, application: "쿠잔과의 근접 교환에서 패기를 권격에 정교하게 결합", evidenceIds: ["evidence-garp-kuzan-haki-1087"] }]),
       item('combatIQ', 93, '수십 년 최상위 전투 경험과 하치노스 구조전에서의 즉각적 판단·지휘를 반영한다.'),
       item('versatility', 84, '응용 기술은 뛰어나지만 주된 전투 수단이 신체·권격·패기에 집중된 점을 다른 축과 분리한다.'),
+    ],
+  },
+  {
+    id: 'evaluation-garp-current', characterId: 'garp', evaluationDataVersion: 'evaluation-0.1.28-draft', status: 'draft', isDefault: false,
+    subjectState: { id: 'current', label: '현재', note: '하치노스 구조전의 노년 몽키 D. 가프를 별도 평가한다. 전성기 갓 밸리 성과는 현재 수치에 직접 합산하지 않는다.' },
+    items: [
+      item('attack', 91, 'Galaxy Impact·Blue Hole·Galaxy Divide로 현재 시점에도 대장급 상대와 대형 전장 위협에 유효한 공격을 반복했다. 본인이 노화로 출력 저하를 인식하는 맥락과 쿠잔을 결정적으로 제압하지 못한 점을 반영해 전성기보다 낮게 두고, Galaxy Impact의 확인된 패기 강화는 Raw Contribution으로 분리한다.', ['evidence-garp-galaxy-impact-1080', 'evidence-garp-blue-hole-1081', 'evidence-garp-galaxy-divide-1088'], [{ hakiType: 'armament', stat: 'attack', amount: 6, application: 'Galaxy Impact의 패기 강화 권격을 현재 공격 성과에 실제 적용', evidenceIds: ['evidence-garp-galaxy-impact-1080'] }]),
+      item('defense', 90, '쿠잔과 직접 맞교환하고 다수 간부가 개입한 구조전에서 버텼지만, 코비를 보호하기 위해 시류의 기습을 대신 맞아 복부 관통상을 입는 명확한 피격 한계도 있다. 보호 임무의 조건을 보존해 단순 방어 실패로만 감점하지 않는다.', ['evidence-garp-kuzan-haki-1087', 'evidence-garp-shiryu-protection-1087']),
+      item('stamina', 92, '시류의 관통상 이후 쿠잔과 패기 주먹을 맞교환하고 Galaxy Divide까지 사용하며 구조대의 탈출을 계속 지원했다. 중상 후 지속력은 최상위권이지만 10일 결투 같은 장기간 동급전 표본은 아니므로 전성기 97과 분리한다.', ['evidence-garp-shiryu-protection-1087', 'evidence-garp-kuzan-haki-1087', 'evidence-garp-galaxy-divide-1088']),
+      item('speed', 93, '쿠잔의 빙결에서 벗어난 뒤 빠르게 접근해 Blue Hole을 성립시키고 하치노스 전장에서 연속 개입했다. 노년에도 높은 기동·반응은 직접 확인되지만 전성기 신체 고점과 동일하게 두지 않는다.', ['evidence-garp-blue-hole-1081']),
+      item('techniqueMastery', 92, 'Blue Hole·Galaxy 계열 권격과 패기를 상황에 맞게 전환하는 높은 맨손 전투 숙련을 Base로 평가하고, 부상 후 쿠잔과의 패기 주먹 공방에서 확인된 무장색 운용은 Raw Contribution으로 분리한다.', ['evidence-garp-blue-hole-1081', 'evidence-garp-galaxy-impact-1080', 'evidence-garp-kuzan-haki-1087'], [{ hakiType: 'armament', stat: 'techniqueMastery', amount: 4, application: '부상 후 쿠잔과의 근접 교환에서 패기를 권격에 정교하게 결합', evidenceIds: ['evidence-garp-kuzan-haki-1087'] }]),
+      item('combatIQ', 92, '코비 구조라는 목적 아래 위협 우선순위를 정하고 자신이 쿠잔을 맡는 동안 후배들에게 역할을 분담해 탈출 경로를 만든 실제 지휘·판단을 높게 평가한다.', ['evidence-garp-rescue-command-1088', 'evidence-garp-shiryu-protection-1087']),
+      item('versatility', 83, '주 전투 수단은 신체·권격·패기에 집중되어 있지만 근접 제압, 광역 타격, 대형 표적 제거, 보호 개입, 구조전 지휘까지 서로 다른 역할을 실제 수행했다. 수단 자체의 종류가 넓은 능력형 전투원보다는 낮게 둔다.', ['evidence-garp-galaxy-impact-1080', 'evidence-garp-galaxy-divide-1088', 'evidence-garp-rescue-command-1088']),
     ],
   },
   {
