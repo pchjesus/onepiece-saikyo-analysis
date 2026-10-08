@@ -51,14 +51,16 @@ export function getUniqueCharacterList(): CharacterListEntry[] {
     entriesByCharacter.set(entry.character.id, entries)
   }
 
-  return characterRepository.getCharacters().flatMap((character) => {
-    const entries = entriesByCharacter.get(character.id) ?? []
-    if (entries.length === 0) return []
+  const seen = new Set<string>()
+  return expanded.flatMap((entry) => {
+    if (seen.has(entry.character.id)) return []
+    seen.add(entry.character.id)
 
-    const representative = entries.find(({ membership }) => membership.groupId === character.crewId)
+    const entries = entriesByCharacter.get(entry.character.id) ?? []
+    const representative = entries.find(({ membership }) => membership.groupId === entry.character.crewId)
       ?? entries.find(({ membership }) => membership.status === 'current')
       ?? entries[0]
 
-    return [representative]
+    return representative ? [representative] : []
   })
 }
