@@ -364,4 +364,74 @@ export const sampleCharacters: Character[] = [
       ],
     },
   }
+
+  {
+    id: 'shanks', name: '샹크스', crewId: 'red-hair-pirates',
+    description: '빨간 머리 해적단 선장. 검술과 최상위권 패기를 결합해 짧은 순간에 전황을 결정하는 전투원이다.',
+    combatProfile: { combatStyles: ['검술', '패왕색 강화', '미래예지 기반 선제 대응', '고속 요격'], specialTraits: [],
+      haki: { characterId: 'shanks', capabilities: [
+        { type: 'armament', status: 'confirmed', note: '검술과 함께 무장색을 운용하는 최상위 패기 사용자로 평가한다.' },
+        { type: 'observation', status: 'confirmed', note: 'Kid전에서 미래의 피해를 직접 예측하고 선제 대응한다.' },
+        { type: 'conquerors', status: 'confirmed', note: '원작에서 장거리·광역 패왕색과 공격 적용이 반복 확인된다.', infusion: { status: 'confirmed', note: 'Kamusari의 공격 묘사를 패왕색 강화 적용 근거로 평가한다.' } },
+      ]},
+      sources: [{ label: '원작 Evidence', reference: 'Ch. 434 / 579 / 1055 / 1079' }],
+    },
+  },
+  {
+    id: 'garp', name: '몽키 D. 가프', crewId: 'marines',
+    description: '해군 영웅. 평가는 로저와 반복적으로 사투한 전성기를 기준으로 하며, 노년 하치노스 전투를 기술·기동·지속력의 직접 하한 근거로 함께 사용한다.',
+    combatProfile: { combatStyles: ['권격', '고강도 패기', '고속 근접전', 'Galaxy 계열 광역 타격'], specialTraits: [],
+      haki: { characterId: 'garp', capabilities: [
+        { type: 'armament', status: 'confirmed', note: '권격과 충돌에서 고수준 무장색 운용이 확인된다.' },
+        { type: 'observation', status: 'confirmed', note: '해군 최고위 전투원으로서 보유가 확인되는 패기 범주다.' },
+        { type: 'conquerors', status: 'unclear', note: '강한 패기 연출은 있으나 현재 데이터에서는 패왕색 보유 자체를 확정 수치 근거로 분리하지 않는다.', infusion: { status: 'unclear' } },
+      ]},
+      sources: [{ label: '원작 Evidence', reference: 'Roger 회고 / Ch. 1080 / 1081 / 1087 / 1088' }],
+    },
+  },
+  {
+    id: 'akainu', name: '사카즈키', crewId: 'marines',
+    description: '해군 원수. 마그마 능력의 높은 살상력과 정상결전 및 쿠잔과의 10일 결투에서 확인되는 지속력이 핵심이다.',
+    combatProfile: { combatStyles: ['마그마 근접 타격', '광역 마그마 공격', '장기전'], specialTraits: [{ id: 'special-akainu-magma', category: 'devil-fruit', name: '마그마그 열매', status: 'confirmed', description: '마그마를 생성·변형해 높은 열과 관통력을 공격에 사용한다.' }],
+      haki: { characterId: 'akainu', capabilities: [
+        { type: 'armament', status: 'confirmed' }, { type: 'observation', status: 'confirmed' },
+        { type: 'conquerors', status: 'unclear', infusion: { status: 'unclear' } },
+      ]}, sources: [{ label: '원작 Evidence', reference: 'Marineford / Punk Hazard 10-day duel / Egghead-era Kuma encounter' }] },
+  },
+  {
+    id: 'kuzan', name: '쿠잔', crewId: 'marines',
+    description: '전 해군대장. 빙결에 의한 광역 제압·환경 통제와 가프식 무투를 함께 사용하는 복합 전투원이다.',
+    combatProfile: { combatStyles: ['빙결', '광역 제압', '근접 무투', 'Ice Glove'], specialTraits: [{ id: 'special-kuzan-ice', category: 'devil-fruit', name: '얼음얼음 열매', status: 'confirmed', description: '빙결을 공격·방어·이동·지형 통제에 폭넓게 사용한다.' }],
+      haki: { characterId: 'kuzan', capabilities: [
+        { type: 'armament', status: 'confirmed' }, { type: 'observation', status: 'confirmed' },
+        { type: 'conquerors', status: 'unclear', infusion: { status: 'unclear' } },
+      ]}, sources: [{ label: '원작 Evidence', reference: 'Marineford / Punk Hazard 10-day duel / Ch. 1081 / 1087' }] },
+  },
+  {
+    id: 'kizaru', name: '보르살리노', crewId: 'marines',
+    description: '해군대장. 빛 기반 최고 수준 기동과 레이저·광검·분신을 결합하며 Egghead에서 임무 우선 판단과 높은 전투 지속력을 보였다.',
+    combatProfile: { combatStyles: ['광속계 기동', '레이저', '광검', '빛 분신', '고속 발차기'], specialTraits: [{ id: 'special-kizaru-light', category: 'devil-fruit', name: '번쩍번쩍 열매', status: 'confirmed', description: '빛으로 이동·사격·무기·분신을 구현한다.' }],
+      haki: { characterId: 'kizaru', capabilities: [
+        { type: 'armament', status: 'confirmed' }, { type: 'observation', status: 'confirmed' },
+        { type: 'conquerors', status: 'unclear', infusion: { status: 'unclear' } },
+      ]}, sources: [{ label: '원작 Evidence', reference: 'Sabaody / Marineford / Egghead' }] },
+  },
+  {
+    id: 'fujitora', name: '잇쇼', crewId: 'marines',
+    description: '해군대장. 검술과 중력 조작, 운석 호출을 결합해 광범위한 전장을 통제한다.',
+    combatProfile: { combatStyles: ['검술', '중력 조작', '운석 공격', '광역 제압'], specialTraits: [{ id: 'special-fujitora-gravity', category: 'devil-fruit', name: '중력 조작 능력', status: 'confirmed', description: '중력을 증감·방향화하고 운석까지 전장에 끌어들인다.' }],
+      haki: { characterId: 'fujitora', capabilities: [
+        { type: 'armament', status: 'confirmed' }, { type: 'observation', status: 'confirmed', note: '시각 없이 전장을 파악하는 전투 운용이 핵심이다.' },
+        { type: 'conquerors', status: 'unclear', infusion: { status: 'unclear' } },
+      ]}, sources: [{ label: '원작 Evidence', reference: 'Dressrosa' }] },
+  },
+  {
+    id: 'ryokugyu', name: '아라마키', crewId: 'marines',
+    description: '해군대장. 식물 생성·흡수·구속·재생·비행을 통해 넓은 전장을 장악하는 능력형 전투원이다.',
+    combatProfile: { combatStyles: ['식물 생성', '광역 구속', '수분 흡수', '재생', '비행'], specialTraits: [{ id: 'special-ryokugyu-forest', category: 'devil-fruit', name: '숲숲 열매', status: 'confirmed', description: '식물과 숲을 생성·변형해 구속·흡수·재생·이동에 사용한다.' }],
+      haki: { characterId: 'ryokugyu', capabilities: [
+        { type: 'armament', status: 'confirmed' }, { type: 'observation', status: 'confirmed' },
+        { type: 'conquerors', status: 'unclear', infusion: { status: 'unclear' } },
+      ]}, sources: [{ label: '원작 Evidence', reference: 'Wano Ch. 1053-1055' }] },
+  },
 ]
