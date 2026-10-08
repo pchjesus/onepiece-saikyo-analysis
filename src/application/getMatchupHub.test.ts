@@ -15,9 +15,9 @@ describe('matchup builder application', () => {
     expect(roster.find(({ characterId }) => characterId === 'gaban')?.states.map(({ label }) => label)).toEqual(['현재'])
   })
 
-  it('keeps the 11 evidence-aware featured matchups', () => {
+  it('keeps the 15 evidence-aware featured matchups', () => {
     const entries = getMatchupHubEntries()
-    expect(entries).toHaveLength(11)
+    expect(entries).toHaveLength(15)
     expect(entries.every(({ characterA, characterB }) => characterA.stats.length === 7 && characterB.stats.length === 7)).toBe(true)
   })
 

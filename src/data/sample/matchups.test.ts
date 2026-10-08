@@ -6,14 +6,14 @@ import { sampleMatchups } from './matchups'
 import { validateMatchupAnalysis } from '../../domain/matchup/validation'
 
 describe('sample evidence-aware matchups', () => {
-  it('keeps eleven prototype matchup references valid without numeric win probabilities', () => {
+  it('keeps fifteen context-aware matchup references valid without numeric win probabilities', () => {
     const characterIds = new Set(sampleCharacters.map(({ id }) => id))
     const evidenceIds = sampleEvidence.map(({ id }) => id)
     const evaluationStateIds = sampleEvaluations
       .filter(({ subjectState }) => Boolean(subjectState))
       .map(({ characterId, subjectState }) => `${characterId}:${subjectState!.id}`)
 
-    expect(sampleMatchups).toHaveLength(11)
+    expect(sampleMatchups).toHaveLength(15)
     for (const matchup of sampleMatchups) {
       expect(characterIds.has(matchup.characterAId)).toBe(true)
       expect(characterIds.has(matchup.characterBId)).toBe(true)
@@ -40,5 +40,34 @@ describe('sample evidence-aware matchups', () => {
       .toBe('unknown')
     expect(crocodileJozu?.factors.find(({ id }) => id === 'crocodile-jozu-damage')?.advantage)
       .toBe('character-b')
+  })
+
+  it('preserves direct outcomes, interruptions, evaluation state and matchup-specific conditions for the four additions', () => {
+    const sakazukiKuzan = sampleMatchups.find(({ id }) => id === 'matchup-akainu-kuzan')
+    const rayleighKizaru = sampleMatchups.find(({ id }) => id === 'matchup-rayleigh-current-kizaru')
+    const kaidoLinlin = sampleMatchups.find(({ id }) => id === 'matchup-kaido-linlin')
+    const jozuKuzan = sampleMatchups.find(({ id }) => id === 'matchup-jozu-kuzan')
+
+    expect(sakazukiKuzan?.factors.find(({ id }) => id === 'akainu-kuzan-confirmed-duel')?.summary)
+      .toContain('사카즈키가 승리')
+    expect(sakazukiKuzan?.factors.find(({ id }) => id === 'akainu-kuzan-attack-interaction')?.advantage)
+      .toBe('unknown')
+    expect(rayleighKizaru?.characterAStateId).toBe('current')
+    expect(rayleighKizaru?.factors.find(({ id }) => id === 'rayleigh-kizaru-long')?.advantage)
+      .toBe('unknown')
+    expect(kaidoLinlin?.factors.find(({ id }) => id === 'kaido-linlin-endurance')?.advantage)
+      .toBe('unknown')
+    expect(jozuKuzan?.factors.find(({ id }) => id === 'jozu-kuzan-freeze')?.advantage)
+      .toBe('conditional')
+
+    const existingPairKeys = new Set<string>()
+    for (const matchup of sampleMatchups) {
+      const pair = [matchup.characterAId, matchup.characterBId].sort().join('::')
+      const a = matchup.characterAId < matchup.characterBId ? matchup.characterAStateId : matchup.characterBStateId
+      const b = matchup.characterAId < matchup.characterBId ? matchup.characterBStateId : matchup.characterAStateId
+      const key = `${pair}::${a ?? 'default'}::${b ?? 'default'}`
+      expect(existingPairKeys.has(key), `Duplicate matchup pair/state: ${key}`).toBe(false)
+      existingPairKeys.add(key)
+    }
   })
 })

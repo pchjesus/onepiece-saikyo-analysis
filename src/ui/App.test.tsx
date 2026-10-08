@@ -259,4 +259,30 @@ describe('evaluated roster UI', () => {
     expect(container.querySelector('.special-trait')?.textContent).not.toContain('Overall 직접 가산 없음')
   })
 
+  it('dismisses Special help on outside pointer without closing on inside clicks, and supports Escape', async () => {
+    const summary = container.querySelector('summary[aria-label="특수 전투요소 Evidence 및 점수 반영 설명"]')
+    await click(summary)
+    const help = container.querySelector<HTMLDetailsElement>('.special-help')
+    const bubble = container.querySelector('.special-help-bubble')
+    expect(help?.open).toBe(true)
+
+    await act(async () => {
+      bubble?.dispatchEvent(new MouseEvent('pointerdown', { bubbles: true }))
+    })
+    expect(help?.open).toBe(true)
+
+    await act(async () => {
+      container.querySelector('.stat-heading')?.dispatchEvent(new MouseEvent('pointerdown', { bubbles: true }))
+    })
+    expect(help?.open).toBe(false)
+
+    await click(summary)
+    expect(help?.open).toBe(true)
+    await act(async () => {
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }))
+    })
+    expect(help?.open).toBe(false)
+    expect(document.activeElement).toBe(summary)
+  })
+
 })

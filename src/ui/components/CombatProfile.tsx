@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import type {
   CombatProfile as CombatProfileData,
   SpecialCombatTraitCategory,
@@ -35,6 +36,31 @@ const specialCategoryLabels: Record<SpecialCombatTraitCategory, string> = {
 }
 
 export function CombatProfile({ profile }: { profile: CombatProfileData }) {
+  const helpRef = useRef<HTMLDetailsElement>(null)
+
+  useEffect(() => {
+    const closeWhenOutside = (event: PointerEvent) => {
+      const help = helpRef.current
+      if (help?.open && event.target instanceof Node && !help.contains(event.target)) {
+        help.open = false
+      }
+    }
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && helpRef.current?.open) {
+        helpRef.current.open = false
+        helpRef.current.querySelector('summary')?.focus()
+      }
+    }
+
+    document.addEventListener('pointerdown', closeWhenOutside)
+    document.addEventListener('keydown', closeOnEscape)
+    return () => {
+      document.removeEventListener('pointerdown', closeWhenOutside)
+      document.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [])
+
   return (
     <section className="combat-profile-section">
       <div>
@@ -50,7 +76,7 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
         <article className="profile-card special-traits-card">
           <div className="special-traits-heading">
             <h3>특수 전투요소</h3>
-            <details className="special-help">
+            <details className="special-help" ref={helpRef}>
               <summary aria-label="특수 전투요소 Evidence 및 점수 반영 설명" title="특수 전투요소 설명 보기">?</summary>
               <div className="special-help-bubble" role="note">
                 <strong>Evidence와 Overall</strong>

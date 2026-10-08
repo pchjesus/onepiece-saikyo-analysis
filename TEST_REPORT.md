@@ -1,3 +1,31 @@
+# v0.1.34 Draft PR #22 — Haki Audit / Matchups / Special Tooltip Verification
+
+**Status: feature branch only; NOT merged into main; NOT deployed in Pages by this PR.**
+Baseline main: `7d7971c`; draft PR: https://github.com/pchjesus/onepiece-saikyo-analysis/pull/22
+
+## Work actually implemented
+- Read-only Haki allocation audit gate flags 15 same-Evidence cross-stat reuse cases and 2 same-stat multi-Haki-type stacks. Flags are not confirmed score errors or permission to change Raw values.
+- Four new Canon/context Matchup analyses: Sakazuki–Kuzan, current Rayleigh–Borsalino, Kaido–Linlin, Jozu–Kuzan. The existing 11 -> 15.
+- Special Combat `?` help closes on outside `pointerdown` and Escape; inside click retains popup; Escape returns focus to summary. Tested with jsdom/React act.
+- No existing Evaluations, Stats, Raw amounts, Weight, Characters, Memberships, Evidence, Battle records or model configuration changed.
+
+## Actual CI verification (2026-10-09 KST)
+- GitHub Actions run https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37805412094 on commit `6a46a4ca3acda8bbf8103faa3f8bd13518377177`.
+- `npm test`: **26 test files passed / 121 tests passed**.
+- `npm run build`: **passed**.
+- Pages steps: **skipped on PR, as expected**.
+- Existing character identity, state selection, Haki/Evidence referential validation, Group/Membership selection and matchup builder tests remained in the suite.
+
+## Intermediate failures resolved before successful CI
+1. Initial matchup addition broke stale fixed-11 assumption in `getMatchupHub.test.ts`. Updated expected count to 15; no production roster compromise.
+2. First light source-text count omitted multiline Haki contributions. The new executable audit established **51 positive Stat rows, 53 individual Haki Contribution records, total Raw 256 and 15 multi-stat reused Evidence cases**. Audit docs and tests were corrected. No model scores changed.
+
+## Manual verification boundary
+- Real mobile touchscreen interaction / outside touch, keyboard UX on actual browser, positioning/collision and focus behavior beyond jsdom are **not** independently verified.
+- This PR must not be merged without the owner's approval. Any Haki model or calibration change requires separate approval after per-character impacts.
+
+---
+
 # v0.1.33 — Legendary Era Expansion Verification
 
 > v0.1.33 main merge source: PR #21 · merge commit `ac06c3e8e935f0b86b7e916b79579811e0bd7461`. 이 문서 커밋은 main push CI/Pages를 명시적으로 재트리거하기 위한 비기능 변경이다.
