@@ -29,9 +29,13 @@ describe('getCharacterDetail group migration', () => {
     expect(() => getCharacterDetail('zoro', 'marines')).toThrow('Incomplete character data')
   })
 
-  it('exposes Prime subject-state metadata without duplicating Garp identity', () => {
-    const garp = getCharacterDetail('garp', 'marines')
-    expect(garp?.character.name).toBe('몽키 D. 가프')
-    expect(garp?.evaluation.subjectState).toMatchObject({ id: 'prime', label: '전성기' })
+  it('resolves Prime and current Garp evaluations without duplicating Character identity', () => {
+    const prime = getCharacterDetail('garp', 'marines')
+    const current = getCharacterDetail('garp', 'marines', 'current')
+    expect(prime?.character.name).toBe('몽키 D. 가프')
+    expect(prime?.evaluation.subjectState).toMatchObject({ id: 'prime', label: '전성기' })
+    expect(prime?.evaluations).toHaveLength(2)
+    expect(current?.character.id).toBe(prime?.character.id)
+    expect(current?.evaluation.subjectState).toMatchObject({ id: 'current', label: '현재' })
   })
 })
