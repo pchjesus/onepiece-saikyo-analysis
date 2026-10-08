@@ -1,3 +1,41 @@
+# v0.1.33 — Legendary Era Expansion Verification
+
+## Scope
+- 7 new Characters / 9 numeric Evaluations.
+- Current Garp / Big Mom / Prime Rayleigh / Current Gaban cross-calibration.
+- Canon Battle/Evidence and Haki application links.
+- Optional per-stat Evidence readiness.
+- Historical Rocks Memberships while preserving Character-unique rankings.
+- Historical affiliation label in UI.
+
+## Automated verification
+- Initial PR run failed **1 stale test only**: the legacy three-crew fixture required each initial crew to contain exactly 3 Characters.
+- That assumption became invalid when Newgate, Kaido and Linlin were added to their representative crews.
+- The fixture was changed to preserve the original baseline (>=3) and explicitly verify the three expanded crews now contain 4 Characters.
+- Final PR run: **25 test files / 116 tests passed**.
+- Production `npm run build`: **passed**.
+- Balanced 1.2 / Haki Weight 0.5 regression tests passed.
+
+## Key regression checks
+- 37 Character master pool.
+- 39 Evaluations.
+- 41 Membership rows.
+- 36 Character-unique evaluated roster and Ranking rows.
+- Roger/Newgate tie at 97.571; Prime Garp remains 97.429.
+- Current Garp 94.429 / Big Mom 94.286.
+- Current Gaban 92.143, below Kuzan/Akainu and tied with Kizaru by Overall.
+- Prime Rayleigh 92.857 with E2 readiness.
+- No numeric Prime Gaban Evaluation.
+- Demonized Rocks is not a numeric Evaluation.
+- Newgate/Kaido/Linlin appear in Rocks Group as historical Memberships but remain single Ranking entries.
+- Current Gaban Armament stays unclear; Observation/Conqueror capability and actual Raw Application remain separated.
+
+## Manual visual verification boundary
+- Automated UI tests cover readiness badges, historical Membership labels, state switching and ranking counts.
+- Real-device pixel/touch verification is still a separate manual check.
+
+---
+
 # v0.1.32 — Multi-Membership / Unique Ranking Verification
 
 ## Scope

@@ -61,13 +61,13 @@ describe('evidence-only review before approved calibration', () => {
     }
   })
 
-  it('keeps all 30 evaluation records valid after the state split', () => {
+  it('keeps all 39 evaluation records valid after the state split', () => {
     const references = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
-    expect(sampleEvaluations).toHaveLength(30)
+    expect(sampleEvaluations).toHaveLength(39)
     expect(sampleEvaluations.find(({ id }) => id === 'evaluation-garp')?.evaluationDataVersion)
       .toBe('evaluation-0.1.30-draft')
     expect(sampleEvaluations.find(({ id }) => id === 'evaluation-garp-current')?.evaluationDataVersion)
-      .toBe('evaluation-0.1.30-draft')
+      .toBe('evaluation-0.1.33-draft')
     expect(sampleEvaluations.find(({ id }) => id === 'evaluation-mihawk')?.evaluationDataVersion)
       .toBe('evaluation-0.1.29-draft')
     expect(sampleEvaluations.find(({ id }) => id === 'evaluation-kuzan')?.evaluationDataVersion)

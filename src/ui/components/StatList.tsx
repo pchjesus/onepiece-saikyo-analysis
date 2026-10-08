@@ -21,7 +21,10 @@ export function StatList({ items, hakiWeight, onSelectStat }: {
           return (
             <div className="stat-item" key={item.stat}>
               <button className="stat-rank-trigger" type="button" onClick={() => onSelectStat(item.stat)} aria-label={`${definition.label} 전체 캐릭터 순위 보기`}>
-                <span className="stat-name">{definition.label}</span>
+                <span className="stat-name">
+                  {definition.label}
+                  {item.readiness && <small className={`readiness-badge ${item.readiness.toLowerCase()}`} title="Evidence readiness">근거 {item.readiness}</small>}
+                </span>
                 <span className="stat-score">
                   <strong>{item.score}</strong>
                   {rawHaki > 0 && <small className="stat-breakdown">Base {item.baseScore} + Haki {effectiveHaki}</small>}

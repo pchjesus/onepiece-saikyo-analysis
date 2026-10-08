@@ -33,6 +33,20 @@ describe('validateEvaluation', () => {
     expect(result.errors).toEqual([])
   })
 
+  it('accepts optional E1/E2/E3 per-stat Evidence readiness and rejects unknown levels', () => {
+    const withReadiness = {
+      ...validEvaluation,
+      items: validEvaluation.items.map((item, index) => ({ ...item, readiness: index < 3 ? 'E1' as const : 'E2' as const })),
+    }
+    expect(validateEvaluation(withReadiness).valid).toBe(true)
+
+    const invalid = {
+      ...validEvaluation,
+      items: [{ ...validEvaluation.items[0], readiness: 'E9' }, ...validEvaluation.items.slice(1)],
+    } as unknown as Evaluation
+    expect(validateEvaluation(invalid).errors).toContain('Invalid evidence readiness for attack: E9.')
+  })
+
   it('accepts evidence references that belong to the evaluated character', () => {
     const result = validateEvaluation(validEvaluation, evidenceReferences)
     expect(result.valid).toBe(true)

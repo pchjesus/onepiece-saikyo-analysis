@@ -437,3 +437,18 @@ header p:last-child { color: #666; }
   .combined-heading { align-items: flex-start; flex-direction: column; }
   .matchup-summary-strip { grid-template-columns: minmax(0,1fr); }
 }
+
+
+/* v0.1.33 per-stat Evidence readiness. */
+.stat-name { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.readiness-badge { display: inline-flex; align-items: center; border: 1px solid #d6d6d1; border-radius: 999px; padding: 2px 6px; font-size: .62rem; font-weight: 850; line-height: 1.2; color: #666; background: #f5f5f2; }
+.readiness-badge.e1 { border-color: #a9bbaa; color: #49624c; background: #f0f5f0; }
+.readiness-badge.e2 { border-color: #cbbd98; color: #786431; background: #f8f5ec; }
+.readiness-badge.e3 { border-color: #c9aaa3; color: #7b5047; background: #f8f1ef; }
+
+
+/* v0.1.33 historical Membership context. */
+.character-chip { display: inline-flex; align-items: center; gap: 7px; }
+.character-chip small { font-size: .62rem; font-weight: 800; color: #888; }
+.character-chip.selected small { color: #cfcfcf; }
+.membership-context { display: inline-flex; margin-left: 7px; padding: 2px 6px; border: 1px solid #d1d1cc; border-radius: 999px; font-size: .62rem; font-weight: 850; letter-spacing: 0; text-transform: none; color: #777; background: #f7f7f4; vertical-align: middle; }

@@ -1,4 +1,4 @@
-import { COMBAT_STATS, EVALUATION_STATUSES, type Evaluation } from './types'
+import { COMBAT_STATS, EVALUATION_STATUSES, EVIDENCE_READINESS_LEVELS, type Evaluation } from './types'
 import { getFinalStatScore, getHakiContributionTotal, MAX_HAKI_CONTRIBUTION_PER_STAT } from './score'
 import { validateHakiContribution } from '../haki/validation'
 
@@ -72,6 +72,10 @@ export const validateEvaluation = (
     const expectedScore = getFinalStatScore(item)
     if (!Number.isFinite(item.score) || item.score !== expectedScore) {
       errors.push(`Score for ${item.stat} must equal Base + effective Haki contribution capped at 100 (${expectedScore}).`)
+    }
+
+    if (item.readiness && !(EVIDENCE_READINESS_LEVELS as readonly string[]).includes(item.readiness)) {
+      errors.push(`Invalid evidence readiness for ${item.stat}: ${item.readiness}.`)
     }
 
     if (!item.rationale.trim()) {

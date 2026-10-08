@@ -90,13 +90,23 @@ describe('Balanced v1.2', () => {
       hancock: 78.7142857143,
       mihawk: 92.7142857143,
       crocodile: 79,
+      roger: 97.5714285714,
+      rayleigh: 92.8571428571,
+      gaban: 92.1428571429,
+      rocks: 97.2857142857,
+      newgate: 97.5714285714,
+      kaido: 96.5714285714,
+      linlin: 94.2857142857,
+    }
 
+    const stateExpected: Record<string, number> = {
+      'evaluation-garp-current': 94.4285714286,
+      'evaluation-rayleigh-current': 90.2857142857,
+      'evaluation-newgate-marineford': 92.8571428571,
     }
 
     for (const evaluation of sampleEvaluations) {
-      const expectedScore = evaluation.id === 'evaluation-garp-current'
-        ? 93.7142857143
-        : expected[evaluation.characterId]
+      const expectedScore = stateExpected[evaluation.id] ?? expected[evaluation.characterId]
       expect(calculateBalancedCombatPower(evaluation, balancedV12).finalScore)
         .toBeCloseTo(expectedScore)
     }

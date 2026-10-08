@@ -1,5 +1,5 @@
 import { COMBAT_STAT_DEFINITIONS } from '../../domain/evaluation/statDefinitions'
-import type { CombatStat, EvaluationStatus } from '../../domain/evaluation/types'
+import type { CombatStat, EvaluationStatus, EvidenceReadiness } from '../../domain/evaluation/types'
 import { getEffectiveHakiContributionTotal, getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import type { HakiStatContribution } from '../../domain/haki/types'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
@@ -8,7 +8,7 @@ export function EvaluationTrace({
   items, status, evaluationDataVersion, hakiWeight,
 }: {
   items: Array<{
-    item: { stat: CombatStat; baseScore: number; score: number; rationale: string; evidenceIds: string[]; hakiContributions: HakiStatContribution[] }
+    item: { stat: CombatStat; baseScore: number; score: number; rationale: string; evidenceIds: string[]; hakiContributions: HakiStatContribution[]; readiness?: EvidenceReadiness }
     evidence: Array<{ evidence: { id: string; source: { reference: string } } }>
   }>
   status: EvaluationStatus
@@ -31,7 +31,7 @@ export function EvaluationTrace({
             <article className="evaluation-trace-card" key={item.stat}>
               <div className="evaluation-trace-header">
                 <strong>{COMBAT_STAT_DEFINITIONS[item.stat].label}</strong>
-                <span>{evidence.length}개 근거 · {status} · {evaluationDataVersion}</span>
+                <span>{evidence.length}개 근거{item.readiness ? ` · 근거 ${item.readiness}` : ''} · {status} · {evaluationDataVersion}</span>
               </div>
               <p className="evaluation-formula">
                 Base <strong>{item.baseScore}</strong> + Haki (<strong>{rawHaki}</strong> × {hakiWeight} = <strong>{effectiveHaki}</strong>) = Final <strong>{item.score}/100</strong>{capped && <span> · 100점 상한 적용</span>}

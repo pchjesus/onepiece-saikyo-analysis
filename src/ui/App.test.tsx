@@ -34,6 +34,8 @@ describe('evaluated roster UI', () => {
       ['검은 수염 해적단', '마샬 D. 티치'],
       ['왕의 부하 칠무해', '트라팔가 로'],
       ['크로스 길드', '쥬라큘 미호크'],
+      ['로저 해적단', '골 D. 로저'],
+      ['록스 해적단', '록스 D. 지벡'],
     ]) {
       const tab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === group)
       await click(tab ?? null)
@@ -46,9 +48,10 @@ describe('evaluated roster UI', () => {
   it('shows multi-membership Characters in multiple Group tabs without duplicating ranking/search identity', async () => {
     const warlordsTab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '왕의 부하 칠무해')
     await click(warlordsTab ?? null)
-    const warlordNames = [...container.querySelectorAll('.character-chip')].map((button) => button.textContent)
-    expect(warlordNames).toContain('쥬라큘 미호크')
-    expect(warlordNames).toContain('크로커다일')
+    const warlordNames = [...container.querySelectorAll('.character-chip')].map((button) => button.textContent ?? '')
+    expect(warlordNames.some((name) => name.includes('쥬라큘 미호크'))).toBe(true)
+    expect(warlordNames.some((name) => name.includes('크로커다일'))).toBe(true)
+    expect(warlordNames.find((name) => name.includes('쥬라큘 미호크'))).toContain('과거 소속')
 
     const crossGuildTab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '크로스 길드')
     await click(crossGuildTab ?? null)
@@ -71,13 +74,15 @@ describe('evaluated roster UI', () => {
     expect(mihawkRows[0].textContent).toContain('크로스 길드')
   })
 
-  it('opens sorted 29-person stat ranking and navigates to a chosen group', async () => {
+  it('opens sorted 36-person stat ranking and navigates to a chosen group', async () => {
     const stat = container.querySelector('button[aria-label="Attack / 공격력 전체 캐릭터 순위 보기"]')
     await click(stat)
     const rows = [...document.querySelectorAll('.rank-row')]
-    expect(rows).toHaveLength(29)
-    expect(rows[0].textContent).toContain('몽키 D. 가프')
-    expect(rows[0].textContent).toContain('99')
+    expect(rows).toHaveLength(36)
+    expect(rows.slice(0, 3).every((row) => row.textContent?.includes('100'))).toBe(true)
+    expect(rows.slice(0, 3).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
+    expect(rows.slice(0, 3).map((row) => row.textContent).join(' ')).toContain('에드워드 뉴게이트')
+    expect(rows.slice(0, 3).map((row) => row.textContent).join(' ')).toContain('록스 D. 지벡')
     const shanks = rows.find((row) => row.textContent?.includes('샹크스'))
     await click(shanks ?? null)
     expect(document.querySelector('.stat-rank-dialog')).toBeNull()
@@ -98,23 +103,24 @@ describe('evaluated roster UI', () => {
   it('opens Overall rankings in full-precision order and reverses the list without changing canonical ranks', async () => {
     await click(container.querySelector('button[aria-label="Overall Combat Power 전체 캐릭터 순위 보기"]'))
     const rows = () => [...document.querySelectorAll('.rank-row')]
-    expect(rows()).toHaveLength(29)
+    expect(rows()).toHaveLength(36)
     expect(document.querySelector('#stat-rank-title')?.textContent).toContain('Overall Combat Power')
-    expect(rows()[0].textContent).toContain('몽키 D. 가프')
-    expect(rows()[0].textContent).toContain('97.429')
+    expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
+    expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('에드워드 뉴게이트')
+    expect(rows()[0].textContent).toContain('97.571')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows()[0].textContent).toContain('아발로 피사로')
-    expect(rows()[0].textContent).toContain('29위')
+    expect(rows()[0].textContent).toContain('36위')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
-    expect(rows()[0].textContent).toContain('몽키 D. 가프')
+    expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
   })
 
   it('can change existing core-stat rankings to ascending', async () => {
     await click(container.querySelector('button[aria-label="Attack / 공격력 전체 캐릭터 순위 보기"]'))
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     const rows = [...document.querySelectorAll('.rank-row')]
-    expect(rows).toHaveLength(29)
-    expect(rows[0].textContent).not.toContain('몽키 D. 가프')
+    expect(rows).toHaveLength(36)
+    expect(rows[0].textContent).not.toContain('골 D. 로저')
   })
 
   it('searches across groups with a live suggestion list and navigates by result', async () => {
@@ -179,7 +185,7 @@ describe('evaluated roster UI', () => {
     await click(stateButtons().find((button) => button.textContent === '현재') ?? null)
     expect(container.querySelector('main.detail h1')?.textContent).toBe('몽키 D. 가프')
     expect(container.querySelector('.evaluation-subject-state')?.textContent).toContain('평가 시점 · 현재')
-    expect(container.querySelector('.power-card strong')?.textContent).toContain('93.7')
+    expect(container.querySelector('.power-card strong')?.textContent).toContain('94.4')
     expect(container.querySelector('.evaluation-trace-card')?.textContent).toContain('Final 96/100')
 
     await click(stateButtons().find((button) => button.textContent === '전성기') ?? null)
@@ -224,6 +230,22 @@ describe('evaluated roster UI', () => {
     expect(container.querySelector('.matchup-home')).toBeNull()
   })
 
+
+  it('shows per-stat Evidence readiness for the new legendary drafts and historical affiliation context', async () => {
+    const rogerTab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '로저 해적단')
+    await click(rogerTab ?? null)
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('골 D. 로저')
+    expect(container.querySelector('.membership-context')?.textContent).toContain('과거 소속')
+    expect(container.querySelectorAll('.readiness-badge')).toHaveLength(7)
+    expect(container.querySelector('.readiness-badge')?.textContent).toMatch(/근거 E[12]/)
+
+    const rocksTab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '록스 해적단')
+    await click(rocksTab ?? null)
+    const labels = [...container.querySelectorAll('.character-chip')].map((button) => button.textContent ?? '')
+    expect(labels.some((name) => name.includes('에드워드 뉴게이트') && name.includes('과거 소속'))).toBe(true)
+    expect(labels.some((name) => name.includes('카이도') && name.includes('과거 소속'))).toBe(true)
+    expect(labels.some((name) => name.includes('샬롯 링링') && name.includes('과거 소속'))).toBe(true)
+  })
 
   it('opens small Special combat help and keeps individual evidence counts out of trait cards', async () => {
     const tab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '검은 수염 해적단')

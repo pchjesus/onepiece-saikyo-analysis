@@ -362,3 +362,33 @@ ONE PIECE 원작 장면의 개별 출처는 각 `Evidence.source.reference`와 `
 - 대표 Group: migration 동안 `Character.crewId` 일치 Membership 우선
 
 따라서 과거 소속을 추가해도 순위표와 매치업 선택기에 같은 Character가 중복 등장하지 않는다.
+
+
+## v0.1.33 — 전설급 확장과 Evidence Readiness
+
+현재 master pool은 37 Character, evaluated unique roster는 36 Character, Evaluation은 39개, Membership은 41개다.
+
+추가:
+- 로저: 전성기
+- 레일리: 전성기 / 현재
+- 가반: 현재만. 전성기는 E3 미평가
+- 록스: 갓 밸리 자연 상태
+- 뉴게이트: 전성기 / 정상결전
+- 카이도: 오니가시마 전성기
+- 링링: 오니가시마 전성기
+
+상단 calibration:
+- 로저 / 전성기 뉴게이트 97.571
+- 전성기 가프 97.429
+- 자연 록스 97.286
+- 카이도 96.571
+- 현재 가프 94.429
+- 링링 94.286
+- 전성기 레일리 / 정상결전 뉴게이트 92.857
+- 현재 가반 / 보르살리노 92.143
+
+작은 Overall 차이는 1대1 승률이나 Canon 서열이 아니다.
+
+Evidence readiness(E1/E2/E3)는 점수와 독립된 근거 충분성 표시다. 새 전설급 Evaluation의 축별 readiness가 UI에 보이며, E3는 근거 부족 시 숫자 자체를 보류할 수 있다.
+
+Historical Membership은 Group 탐색에서 보이지만 Character-unique Ranking에는 중복되지 않는다.

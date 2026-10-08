@@ -3,9 +3,9 @@ import { getCharacterList, getUniqueCharacterList } from './getCharacterList'
 import { getCharacterDetail } from './getCharacterDetail'
 
 describe('getCharacterDetail group migration', () => {
-  it('resolves representative detail for every Character in the 29-person evaluated roster', () => {
+  it('resolves representative detail for every Character in the 36-person evaluated roster', () => {
     const list = getUniqueCharacterList()
-    expect(list).toHaveLength(29)
+    expect(list).toHaveLength(36)
     for (const { character, group } of list) {
       const detail = getCharacterDetail(character.id, group.id)
       expect(detail?.character.id).toBe(character.id)
@@ -16,7 +16,7 @@ describe('getCharacterDetail group migration', () => {
 
   it('resolves every expanded Membership context, including historical secondary Groups', () => {
     const expanded = getCharacterList()
-    expect(expanded).toHaveLength(31)
+    expect(expanded).toHaveLength(41)
 
     for (const { character, group } of expanded) {
       const detail = getCharacterDetail(character.id, group.id)
@@ -27,6 +27,10 @@ describe('getCharacterDetail group migration', () => {
     expect(getCharacterDetail('mihawk', 'seven-warlords')?.membership?.status).toBe('former')
     expect(getCharacterDetail('mihawk')?.group.id).toBe('cross-guild')
     expect(getCharacterDetail('crocodile')?.group.id).toBe('cross-guild')
+    expect(getCharacterDetail('newgate', 'rocks-pirates')?.membership?.status).toBe('historical')
+    expect(getCharacterDetail('newgate')?.group.id).toBe('whitebeard-pirates')
+    expect(getCharacterDetail('kaido')?.group.id).toBe('beasts-pirates')
+    expect(getCharacterDetail('linlin')?.group.id).toBe('big-mom-pirates')
   })
 
   it('resolves formerly broken Straw Hat, Red Hair, Marine and Blackbeard details', () => {
@@ -44,7 +48,7 @@ describe('getCharacterDetail group migration', () => {
     expect(() => getCharacterDetail('zoro', 'marines')).toThrow('Incomplete character data')
   })
 
-  it('resolves Prime and current Garp evaluations without duplicating Character identity', () => {
+  it('resolves multi-state legendary evaluations without duplicating Character identity', () => {
     const prime = getCharacterDetail('garp', 'marines')
     const current = getCharacterDetail('garp', 'marines', 'current')
     expect(prime?.character.name).toBe('몽키 D. 가프')
@@ -52,5 +56,10 @@ describe('getCharacterDetail group migration', () => {
     expect(prime?.evaluations).toHaveLength(2)
     expect(current?.character.id).toBe(prime?.character.id)
     expect(current?.evaluation.subjectState).toMatchObject({ id: 'current', label: '현재' })
+
+    expect(getCharacterDetail('rayleigh', 'roger-pirates')?.evaluations).toHaveLength(2)
+    expect(getCharacterDetail('rayleigh', 'roger-pirates', 'current')?.evaluation.subjectState?.label).toBe('현재')
+    expect(getCharacterDetail('newgate', 'whitebeard-pirates')?.evaluations).toHaveLength(2)
+    expect(getCharacterDetail('newgate', 'whitebeard-pirates', 'marineford')?.evaluation.subjectState?.label).toBe('정상결전')
   })
 })

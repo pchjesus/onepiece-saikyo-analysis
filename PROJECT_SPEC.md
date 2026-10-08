@@ -1,7 +1,7 @@
 # One Piece Combat Power Analysis
 ## Project Specification
 
-**Version:** 0.1.32  
+**Version:** 0.1.33  
 **Status:** Active MVP · Expanded Evidence Calibration  
 **Project Type:** Web Application  
 **Primary Purpose:** One Piece 주요 캐릭터의 전투력을 근거 기반으로 분석하고 비교하는 웹 애플리케이션
@@ -171,6 +171,26 @@ Special Trait
 Special Trait이 강력하다는 사실만으로 Core Stat에 고정 보너스를 부여하지 않는다. 실제 공격·방어·지속·기동·숙련·판단·적응 성과가 확인된 경우 해당 Evidence를 관련 Core Stat의 근거로 사용한다.
 
 별도의 특수 전투요소가 확인되지 않은 비능력자에게 임의의 낮은 Special 점수를 부여하지 않는다. 정보 부재는 감점 근거가 아니다.
+
+## 4.1.1 Evidence Readiness
+
+Core Stat의 점수 크기와 근거의 충분성은 별개다.
+
+각 EvaluationItem은 필요할 때 다음 readiness를 가질 수 있다.
+
+- **E1**: 직접·반복 Evidence가 충분해 현재 점수의 근거 밀도가 높음
+- **E2**: 7축 평가는 가능하지만 일부 축에 위상·간접 근거 또는 표본 부족이 남음
+- **E3**: 직접 Evidence가 부족해 수치 평가 보류 또는 강한 잠정성이 필요함
+
+readiness는 점수에 가감되는 계산값이 아니다.
+
+```text
+Final Stat Score
+≠
+Evidence Readiness
+```
+
+E3 상태에서 직접 Evidence가 현저히 부족하면 억지로 7축 숫자를 생성하지 않을 수 있다. 스코퍼 가반의 전성기처럼 공식 위상은 강하지만 직접 7축 전투 표본이 부족한 경우가 이에 해당한다.
 
 ## 4.2 Current Calibration Notes
 

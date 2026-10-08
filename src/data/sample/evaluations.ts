@@ -1,4 +1,4 @@
-import type { CombatStat, Evaluation, EvaluationItem } from '../../domain/evaluation/types'
+import type { CombatStat, Evaluation, EvaluationItem, EvidenceReadiness } from '../../domain/evaluation/types'
 import type { HakiStatContribution } from '../../domain/haki/types'
 import { getFinalStatScore } from '../../domain/evaluation/score'
 
@@ -8,8 +8,9 @@ const item = (
   rationale: string,
   evidenceIds: string[] = [],
   hakiContributions: HakiStatContribution[] = [],
+  readiness?: EvidenceReadiness,
 ): EvaluationItem => {
-  const draft = { stat, baseScore, score: baseScore, rationale, evidenceIds, hakiContributions }
+  const draft = { stat, baseScore, score: baseScore, rationale, evidenceIds, hakiContributions, readiness }
   return { ...draft, score: getFinalStatScore(draft) }
 }
 
@@ -188,16 +189,16 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-garp-current', characterId: 'garp', evaluationDataVersion: 'evaluation-0.1.30-draft', status: 'draft', isDefault: false,
-    subjectState: { id: 'current', label: '현재', note: '하치노스 구조전의 노년 몽키 D. 가프를 별도 평가한다. 쿠잔과의 교전에서는 여러 차례 선제 주도권을 만들었지만 다수전·보호 임무·시류의 기습과 쿠잔의 이후 반격까지 포함해 전체 전투의 일방적 승리로 단정하지 않는다.' },
+    id: 'evaluation-garp-current', characterId: 'garp', evaluationDataVersion: 'evaluation-0.1.33-draft', status: 'draft', isDefault: false,
+    subjectState: { id: 'current', label: '현재', note: '하치노스 구조전의 노년 몽키 D. 가프. 쿠잔에게 여러 차례 선제 주도권을 만들고 시류의 관통상 이후에도 임무를 이어갔지만, 다수전·보호 임무·외부 개입이 섞인 전투이므로 일방적 1대1 승리로 해석하지 않는다.' },
     items: [
-      item('attack', 93, 'Galaxy Impact·Blue Hole·Galaxy Divide로 현재 시점에도 대장급 상대와 대형 전장 위협에 반복적으로 유효한 공격을 만들었다. 특히 쿠잔의 빙결을 깨고 즉시 Blue Hole을 적중시키는 직접 성과를 반영해 Base를 상향하며, Galaxy Impact의 확인된 패기 강화는 Raw Contribution으로 분리한다.', ['evidence-garp-galaxy-impact-1080', 'evidence-garp-blue-hole-1081', 'evidence-garp-galaxy-divide-1088'], [{ hakiType: 'armament', stat: 'attack', amount: 6, application: 'Galaxy Impact의 패기 강화 권격을 현재 공격 성과에 실제 적용', evidenceIds: ['evidence-garp-galaxy-impact-1080'] }]),
-      item('defense', 92, '쿠잔과의 직접 교환 및 다수 간부가 개입한 구조전에서 전선을 유지했다. 시류의 관통상은 코비를 보호하기 위해 공격 경로에 의도적으로 개입한 맥락이므로 순수 방어 실패로 과도하게 감점하지 않되 실제 중상 자체는 방어 한계로 남긴다.', ['evidence-garp-kuzan-haki-1087', 'evidence-garp-shiryu-protection-1087']),
-      item('stamina', 95, '시류의 복부 관통상 이후에도 쿠잔과 패기 주먹을 맞교환하고 Galaxy Divide까지 사용하며 구조대 탈출을 계속 지원했다. 중상 후 고출력 행동이 반복된 점을 기존 92보다 강하게 반영한다.', ['evidence-garp-shiryu-protection-1087', 'evidence-garp-kuzan-haki-1087', 'evidence-garp-galaxy-divide-1088']),
-      item('speed', 96, '쿠잔의 Ice Ball을 깨고 즉시 접근해 Blue Hole을 성립시키고, 하치노스 전장에서 여러 지점을 연속적으로 오가며 선제 개입했다. 순수 속도 특화 능력과는 다르지만 실제 근접 전투 기동은 세계관 최상위권으로 상향한다.', ['evidence-garp-blue-hole-1081', 'evidence-garp-shiryu-protection-1087']),
-      item('techniqueMastery', 94, 'Blue Hole·Galaxy 계열 권격·잡기·패기를 상황에 따라 전환하는 맨손 전투 숙련을 Base로 상향하고, 부상 후 쿠잔과의 패기 주먹 공방에서 확인된 무장색 운용은 Raw Contribution으로 분리한다.', ['evidence-garp-blue-hole-1081', 'evidence-garp-galaxy-impact-1080', 'evidence-garp-kuzan-haki-1087'], [{ hakiType: 'armament', stat: 'techniqueMastery', amount: 4, application: '부상 후 쿠잔과의 근접 교환에서 패기를 권격에 정교하게 결합', evidenceIds: ['evidence-garp-kuzan-haki-1087'] }]),
-      item('combatIQ', 94, '코비 구조라는 목적 아래 자신이 쿠잔을 맡고 후배들에게 역할을 분담했으며 시류의 기습에도 즉각 보호 개입했다. 단순한 일대일 전술을 넘어 구조전 전체를 설계·지휘한 실제 판단을 상향 반영한다.', ['evidence-garp-rescue-command-1088', 'evidence-garp-shiryu-protection-1087']),
-      item('versatility', 87, '근접 제압·잡기·광역 충격파·대형 표적 파괴·고속 요격·보호 개입·구조전 지휘까지 서로 다른 역할을 실제 수행했다. 악마의 열매처럼 전투 메커니즘 종류가 많은 캐릭터와는 구분하되 기존 83은 역할 폭을 과소평가한 것으로 본다.', ['evidence-garp-galaxy-impact-1080', 'evidence-garp-blue-hole-1081', 'evidence-garp-galaxy-divide-1088', 'evidence-garp-rescue-command-1088']),
+      item('attack', 93, 'Galaxy Impact·Blue Hole·Galaxy Divide로 현재 시점에도 대장급 상대와 대형 전장 위협에 반복적으로 유효한 공격을 만들었다. 쿠잔의 빙결을 깨고 즉시 Blue Hole을 성립시키는 직접 성과를 유지하며 Galaxy Impact의 확인된 패기 강화는 Raw Contribution으로 분리한다.', ['evidence-garp-galaxy-impact-1080', 'evidence-garp-blue-hole-1081', 'evidence-garp-galaxy-divide-1088'], [{ hakiType: 'armament', stat: 'attack', amount: 6, application: 'Galaxy Impact의 패기 강화 권격을 현재 공격 성과에 실제 적용', evidenceIds: ['evidence-garp-galaxy-impact-1080'] }], 'E1'),
+      item('defense', 93, '쿠잔과의 직접 교환 및 다수 간부가 개입한 구조전에서 전선을 유지했다. 시류의 관통상은 코비를 보호하기 위해 공격 경로에 의도적으로 개입한 맥락이므로 순수 방어 실패로 과도하게 감점하지 않되 실제 중상은 방어 상한으로 남긴다.', ['evidence-garp-kuzan-haki-1087', 'evidence-garp-shiryu-protection-1087'], [], 'E1'),
+      item('stamina', 95, '시류의 복부 관통상 이후에도 쿠잔과 패기 주먹을 맞교환하고 Galaxy Divide까지 사용하며 구조대 탈출을 계속 지원했다. 노년·중상 상태의 직접 장기전 지속을 높게 평가한다.', ['evidence-garp-shiryu-protection-1087', 'evidence-garp-kuzan-haki-1087', 'evidence-garp-galaxy-divide-1088'], [], 'E1'),
+      item('speed', 97, '쿠잔의 Ice Ball을 깨고 즉시 접근해 Blue Hole을 성립시키고, 하치노스 전장에서 여러 지점을 연속적으로 오가며 선제 개입했다. 보르살리노처럼 이동 능력 자체가 빛인 경우와는 구분하지만 근접 전투 기동은 세계관 최상위권이다.', ['evidence-garp-blue-hole-1081', 'evidence-garp-shiryu-protection-1087'], [], 'E1'),
+      item('techniqueMastery', 95, 'Blue Hole·Galaxy 계열 권격·잡기·패기를 상황에 따라 전환한다. 부상 후 쿠잔과의 패기 주먹 공방에서 확인된 무장색 운용은 Raw Contribution으로 분리한다.', ['evidence-garp-blue-hole-1081', 'evidence-garp-galaxy-impact-1080', 'evidence-garp-kuzan-haki-1087'], [{ hakiType: 'armament', stat: 'techniqueMastery', amount: 4, application: '부상 후 쿠잔과의 근접 교환에서 패기를 권격에 정교하게 결합', evidenceIds: ['evidence-garp-kuzan-haki-1087'] }], 'E1'),
+      item('combatIQ', 95, '코비 구조라는 목적 아래 자신이 쿠잔을 맡고 후배들에게 역할을 분담했으며 시류의 기습에도 즉각 보호 개입했다. 구조전 전체를 설계하고 자신의 부상을 감수해 승리조건을 만든 판단을 반영한다.', ['evidence-garp-rescue-command-1088', 'evidence-garp-shiryu-protection-1087'], [], 'E1'),
+      item('versatility', 88, '근접 제압·잡기·광역 충격파·대형 표적 파괴·고속 요격·보호 개입·구조전 지휘까지 서로 다른 역할을 실제 수행했다. 악마의 열매처럼 전투 메커니즘 종류가 많은 캐릭터와는 구분한다.', ['evidence-garp-galaxy-impact-1080', 'evidence-garp-blue-hole-1081', 'evidence-garp-galaxy-divide-1088', 'evidence-garp-rescue-command-1088'], [], 'E1'),
     ],
   },
   {
@@ -380,6 +381,124 @@ export const sampleEvaluations: Evaluation[] = [
       item('techniqueMastery', 86, '모래화·탈수·폭풍·지면 붕괴·절단·이동과 보조 무장을 상황에 맞게 전환한 능력 숙련은 크로커다일의 가장 강한 전투 축으로 유지한다. 다만 숙련 자체가 현재 정면 전투력 상향을 자동 보증하지 않는다.', ['evidence-crocodile-alabasta-mastery-178-209', 'evidence-crocodile-marineford-interventions-561-578']),
       item('combatIQ', 86, '상대 제거 방식·지형·약점 노출 이후의 수단 전환과 정상결전에서 공격·저지·구조 지원 목표를 전환한 전투 판단은 높게 평가한다. 조직 운영·장기 계략 같은 큰 그림은 전투 중 판단과 구분해 추가 가산하지 않는다.', ['evidence-crocodile-alabasta-mastery-178-209', 'evidence-crocodile-water-weakness-199', 'evidence-crocodile-marineford-interventions-561-578']),
       item('versatility', 82, '근접 탈수·원거리 절단·광역 폭풍·지형 제어·자연계 이동·보조 무기·전장 지원의 폭은 넓다. 다만 상당수가 하나의 모래 능력 파생이며 직접 강자전 성과가 부족해 기존 84에서 소폭 낮춘다.', ['evidence-crocodile-alabasta-mastery-178-209', 'evidence-crocodile-marineford-interventions-561-578']),
+    ],
+  },
+
+  {
+    id: 'evaluation-roger', characterId: 'roger', evaluationDataVersion: 'evaluation-0.1.33-draft', status: 'draft', isDefault: true,
+    subjectState: { id: 'prime', label: '전성기', note: 'Ch.966과 God Valley의 전성기 직접 전투를 기준으로 하며 해적왕 칭호 자체를 점수로 환산하지 않는다.' },
+    items: [
+      item('attack', 96, '카무사리로 오뎅에게 즉시 유효타를 만들고 뉴게이트와 최고 수준 공방을 성립시켰다. God Valley에서는 가프와 악마화 록스의 변형을 해제하는 합동 공격에 참여했으며, 공동 성과를 단독 승리로 환산하지 않는다.', ['evidence-roger-kamusari-newgate-966', 'evidence-roger-haki-analysis-rocks-1165'], [{ hakiType: 'conquerors', stat: 'attack', amount: 8, application: '최상위 검격과 God Valley 합동 공격에 Supreme King Haki를 집중해 적용', evidenceIds: ['evidence-roger-haki-analysis-rocks-1165'] }], 'E1'),
+      item('defense', 95, '뉴게이트 및 악마화 록스와의 최고 수준 패기 공방을 성립시킨다. 무피격·절대방어로 해석하지 않고 Supreme King Haki의 실제 상쇄 적용을 Raw로 분리한다.', ['evidence-roger-kamusari-newgate-966', 'evidence-roger-haki-analysis-rocks-1165'], [{ hakiType: 'conquerors', stat: 'defense', amount: 8, application: '악마화 록스와의 공방에서 Supreme King Haki 상쇄를 방어에 실제 적용', evidenceIds: ['evidence-roger-haki-analysis-rocks-1165'] }], 'E2'),
+      item('stamina', 99, '뉴게이트 해적단과의 3일 3야 전투와 God Valley 최고 출력 공방을 함께 반영한다. 최종 합동 공격 뒤 크게 소진된 사실도 상한으로 보존한다.', ['evidence-roger-kamusari-newgate-966', 'evidence-roger-rocks-aftereffect-1166'], [], 'E1'),
+      item('speed', 98, '오뎅에게 빠르게 접근해 카무사리를 성립시키고 최고 수준 근접 공방을 이어간다. 순수 이동 특화 능력 없이도 전성기 최상위 전투 속도로 평가하되 직접 장기 추적 표본 부족을 남긴다.', ['evidence-roger-kamusari-newgate-966', 'evidence-roger-haki-analysis-rocks-1165'], [], 'E2'),
+      item('techniqueMastery', 95, '검술과 패왕색을 최고 수준으로 결합하고 God Valley에서 패왕색의 상호작용을 이해한 뒤 출력을 의도적으로 집중했다.', ['evidence-roger-kamusari-newgate-966', 'evidence-roger-haki-analysis-rocks-1165'], [{ hakiType: 'conquerors', stat: 'techniqueMastery', amount: 8, application: 'Supreme King Haki의 출력과 상쇄 관계를 이해하고 검격에 정밀하게 결합', evidenceIds: ['evidence-roger-haki-analysis-rocks-1165'] }], 'E1'),
+      item('combatIQ', 97, '악마화 록스와의 전투 중 패기 상쇄 메커니즘과 필요한 출력 조건을 즉시 분석해 가프와 합동 승리조건을 만든다.', ['evidence-roger-haki-analysis-rocks-1165', 'evidence-roger-rocks-aftereffect-1166'], [], 'E1'),
+      item('versatility', 91, '검술·패기·근접전·강자 상대 공동전·대규모 혼전에서 높은 적응력을 보이지만 현재 확인된 전투 체계는 검과 패기 중심이므로 다수 독립 능력형 캐릭터보다 낮게 제한한다.', ['evidence-roger-kamusari-newgate-966', 'evidence-roger-haki-analysis-rocks-1165'], [], 'E2'),
+    ],
+  },
+  {
+    id: 'evaluation-rayleigh-prime', characterId: 'rayleigh', evaluationDataVersion: 'evaluation-0.1.33-draft', status: 'draft', isDefault: true,
+    subjectState: { id: 'prime', label: '전성기', note: 'God Valley 직접 장면과 노년에도 보르살리노와 공방 가능한 하한을 함께 보되, 오른팔·명왕 위상만으로 대장 이상을 확정하지 않는 E2 잠정 평가다.' },
+    items: [
+      item('attack', 94, 'God Valley에서 소머즈를 즉시 밀어내는 직접 성과와 노년에도 보르살리노에게 상처를 만들 수 있는 하한을 고려한다. 전성기 대장급 이상 승리 전적이 직접 공개된 것은 아니므로 95+로 올리지 않는다.', ['evidence-rayleigh-prime-sommers-1161', 'evidence-rayleigh-kizaru-512'], [], 'E2'),
+      item('defense', 92, '노년에도 보르살리노의 공격을 차단한 직접 하한은 강하지만 전성기 방어 장기전 표본이 부족해 대장급 최상단 수치까지 추정하지 않는다.', ['evidence-rayleigh-kizaru-512', 'evidence-rayleigh-prime-sommers-1161'], [], 'E2'),
+      item('stamina', 91, '전성기 로저 해적단 핵심 전력이라는 위상은 강하지만 직접 장기 결투 표본이 적다. 노년의 전투 지속을 하한으로만 사용한다.', ['evidence-rayleigh-kizaru-512', 'evidence-rayleigh-prime-sommers-1161'], [], 'E2'),
+      item('speed', 93, 'God Valley 구조 개입과 노년의 보르살리노 요격을 통해 높은 반응·기동 하한을 확인하되 전성기 순수 속도 최고점을 직접 증명하는 표본은 부족하다.', ['evidence-rayleigh-prime-sommers-1161', 'evidence-rayleigh-kizaru-512'], [], 'E2'),
+      item('techniqueMastery', 96, '검술과 세 패기 체계를 깊게 이해하고 노년에도 대장과 검술 공방을 성립시킨다. 전성기 Raw Haki를 현재 시연에서 역산하지 않고 숙련 Base로만 반영한다.', ['evidence-rayleigh-kizaru-512', 'evidence-rayleigh-haki-training-597', 'evidence-rayleigh-prime-sommers-1161'], [], 'E2'),
+      item('combatIQ', 95, '로저 해적단 부선장으로서의 경험과 구조전 개입, 패기 교육 능력을 고려한다. 위상을 전투 IQ 숫자로 자동 환산하지 않아 최고점은 제한한다.', ['evidence-rayleigh-haki-training-597', 'evidence-rayleigh-prime-sommers-1161'], [], 'E2'),
+      item('versatility', 89, '검술·세 패기·요격·보호·교육·근접 제압을 수행하지만 능력 체계의 직접 전투 다양성은 복합 악마의 열매 사용자보다 좁다.', ['evidence-rayleigh-kizaru-512', 'evidence-rayleigh-haki-training-597', 'evidence-rayleigh-prime-sommers-1161'], [], 'E2'),
+    ],
+  },
+  {
+    id: 'evaluation-rayleigh-current', characterId: 'rayleigh', evaluationDataVersion: 'evaluation-0.1.33-draft', status: 'draft', isDefault: false,
+    subjectState: { id: 'current', label: '현재', note: '샤본디 보르살리노전과 아마존 릴리 자기평가를 기준으로 한 노년 레일리. 평판과 실제 현재 1대1 상한을 분리한다.' },
+    items: [
+      item('attack', 87, '보르살리노에게 실제 상처를 만들고 자연계와의 공방을 성립시킨다. 루스카이나의 직접 Armament 시연은 Raw로 분리하며 티치에 대한 자기평가를 상한으로 둔다.', ['evidence-rayleigh-kizaru-512', 'evidence-rayleigh-haki-training-597', 'evidence-rayleigh-teach-selfassessment-1059'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '노년 시점 패기 교육에서 Armament를 공격에 직접 시연', evidenceIds: ['evidence-rayleigh-haki-training-597'] }], 'E1'),
+      item('defense', 89, '보르살리노의 광속 공격을 직접 차단하고 보호 임무를 수행한 강한 표본이 있다. 노년의 장기전 한계는 남긴다.', ['evidence-rayleigh-kizaru-512', 'evidence-rayleigh-teach-selfassessment-1059'], [], 'E1'),
+      item('stamina', 86, '보르살리노와 공방을 지속하지만 노령에 따른 피로와 티치 정면전 자기평가를 고려해 최상위 장기전보다 낮게 둔다.', ['evidence-rayleigh-kizaru-512', 'evidence-rayleigh-teach-selfassessment-1059'], [], 'E2'),
+      item('speed', 91, '빛 기반 이동을 쓰는 보르살리노의 공격에 즉시 개입하고 추격을 차단한다. 보르살리노 자체의 광속 이동과 동일한 순수 Speed로 보지는 않는다.', ['evidence-rayleigh-kizaru-512'], [], 'E1'),
+      item('techniqueMastery', 94, '검술과 세 패기를 매우 정교하게 다루며 루피에게 직접 시연·교육한다. Armament의 명시적 현재 적용을 Raw로 분리한다.', ['evidence-rayleigh-kizaru-512', 'evidence-rayleigh-haki-training-597'], [{ hakiType: 'armament', stat: 'techniqueMastery', amount: 4, application: '세 패기 교육 중 Armament 원리와 적용을 직접 시연', evidenceIds: ['evidence-rayleigh-haki-training-597'] }], 'E1'),
+      item('combatIQ', 94, '보호 목표를 유지하면서 대장을 묶고, 아마존 릴리에서는 자기 노화와 티치의 위협도를 현실적으로 판단해 충돌을 종료한다.', ['evidence-rayleigh-kizaru-512', 'evidence-rayleigh-teach-selfassessment-1059'], [], 'E1'),
+      item('versatility', 87, '검술·세 패기·요격·보호·전투 중재를 수행한다. 능력 메커니즘 수가 많은 캐릭터보다 낮게 제한한다.', ['evidence-rayleigh-kizaru-512', 'evidence-rayleigh-haki-training-597', 'evidence-rayleigh-teach-selfassessment-1059'], [], 'E2'),
+    ],
+  },
+  {
+    id: 'evaluation-gaban-current', characterId: 'gaban', evaluationDataVersion: 'evaluation-0.1.33-draft', status: 'draft', isDefault: true,
+    subjectState: { id: 'current', label: '현재', note: '엘바프 현재 시점의 노년 스코퍼 가반. 이무와 교전·생존했다는 사실을 대장 이상 전투력으로 자동 환산하지 않고, 사보의 이무·오로성 생존 사례처럼 생존과 전체 전투력을 분리한다.' },
+    items: [
+      item('attack', 91, '루피에게 실제 피해를 만들고 소머즈를 절단해 재생을 지연시키는 공격을 성립시킨다. 이무와의 교전에서는 유효 피해의 정도가 불명확하므로 94점대 공격력 근거로 사용하지 않는다.', ['evidence-gaban-luffy-1140', 'evidence-gaban-sommers-1148', 'evidence-gaban-imu-1189-1192'], [], 'E2'),
+      item('defense', 90, '루피의 접근을 반복 회피하고 이무의 공격에서 생존하지만 팔을 잃는 중상을 입었다. 생존을 무피격·대등 방어로 해석하지 않는다.', ['evidence-gaban-luffy-1140', 'evidence-gaban-imu-1189-1192'], [], 'E2'),
+      item('stamina', 92, '엘바프에서 연속 전투와 부상 이후에도 이무전까지 개입하고 팔 상실 뒤 의식·지휘를 유지했다. 다만 대장들의 10일 결투처럼 장기전 시간이 명확한 표본은 아니다.', ['evidence-gaban-sommers-1148', 'evidence-gaban-imu-1189-1192'], [], 'E1'),
+      item('speed', 94, '루피의 공격을 반복 회피하고 이무가 루피에게 넣으려던 공격에 개입한다. 이무전 생존만으로 세계 최고 Speed로 확대하지 않는다.', ['evidence-gaban-luffy-1140', 'evidence-gaban-imu-1189-1192'], [], 'E1'),
+      item('techniqueMastery', 95, '쌍도끼·즉흥 무기·재생 억제 공격을 정교하게 전환하고 신의 기사단 공략 메커니즘을 이해한다. 과거 패왕색 출력을 현재 Raw로 복사하지 않는다.', ['evidence-gaban-luffy-1140', 'evidence-gaban-sommers-1148', 'evidence-gaban-knights-haki-1170'], [], 'E1'),
+      item('combatIQ', 94, '인질 상황에서 미래를 보고 행동을 중단하며, 이무전에서는 승산이 없음을 판단해 루피와 거인들의 철수를 지시한다. 고급 견문색의 직접 적용만 Raw로 분리한다.', ['evidence-gaban-future-sight-1149', 'evidence-gaban-knights-haki-1170', 'evidence-gaban-imu-1189-1192'], [{ hakiType: 'observation', stat: 'combatIQ', amount: 2, application: '콜론 인질 사태의 미래를 사전에 보고 보호 판단에 직접 적용', evidenceIds: ['evidence-gaban-future-sight-1149'] }], 'E1'),
+      item('versatility', 88, '쌍도끼 근접전·비상 공격·즉흥 무기·미래 예측·불사 대응·보호·후퇴 지휘를 수행한다. 전투 메커니즘 수 자체를 과대평가하지 않는다.', ['evidence-gaban-luffy-1140', 'evidence-gaban-sommers-1148', 'evidence-gaban-future-sight-1149', 'evidence-gaban-imu-1189-1192'], [], 'E2'),
+    ],
+  },
+  {
+    id: 'evaluation-rocks', characterId: 'rocks', evaluationDataVersion: 'evaluation-0.1.33-draft', status: 'draft', isDefault: true,
+    subjectState: { id: 'god-valley-natural', label: '갓 밸리 · 자연 상태', note: 'Domi Reversi 이전의 자연 상태만 수치화한다. 악마화 록스는 외부 변형 상태라 직접 합산하지 않고 상한 sanity-check로만 사용한다.' },
+    items: [
+      item('attack', 96, '하랄드와 대규모 패기 충돌을 벌이고 해군 대장 치명상·정의의 문 파괴 이력이 있으며 God Valley에서 갈링을 격파한다. Supreme King Haki의 직접 적용은 Raw로 분리한다.', ['evidence-rocks-harald-1155', 'evidence-rocks-garling-1162', 'evidence-rocks-imu-natural-1163'], [{ hakiType: 'conquerors', stat: 'attack', amount: 8, application: '자연 상태의 검격·최상위 공방에 Supreme King Haki를 직접 적용', evidenceIds: ['evidence-rocks-harald-1155'] }], 'E1'),
+      item('defense', 94, '하랄드와 고출력 공방을 성립시키고 God Valley에서 복수 최고 전력과 전장을 공유한다. 공격보다 직접 방어 표본이 적어 E2로 두고 Supreme King 공방만 Raw에 반영한다.', ['evidence-rocks-harald-1155', 'evidence-rocks-garling-1162'], [{ hakiType: 'conquerors', stat: 'defense', amount: 8, application: '하랄드와의 최상위 Supreme King Haki 공방에서 방어·상쇄에 적용', evidenceIds: ['evidence-rocks-harald-1155'] }], 'E2'),
+      item('stamina', 97, 'God Valley의 연속 전투와 갈링 격파 후 전장 복귀를 높게 평가한다. 악마화 상태의 재생·지속력은 자연 상태 수치에 합산하지 않는다.', ['evidence-rocks-garling-1162', 'evidence-rocks-demonized-context-1164-1166'], [], 'E2'),
+      item('speed', 98, '가족 보호와 다수전 속에서도 갈링을 격파하고 전장을 이동하는 최상위 근접 기동을 보여준다. 순수 속도 특화 능력 표본은 제한적이므로 E2를 유지한다.', ['evidence-rocks-harald-1155', 'evidence-rocks-garling-1162'], [], 'E2'),
+      item('techniqueMastery', 94, '검술과 패왕색을 결합해 최고 수준 공방을 성립시키며 무기 운용 숙련이 직접 확인된다.', ['evidence-rocks-harald-1155', 'evidence-rocks-garling-1162'], [{ hakiType: 'conquerors', stat: 'techniqueMastery', amount: 8, application: '검술과 Supreme King Haki를 최고 수준으로 결합', evidenceIds: ['evidence-rocks-harald-1155'] }], 'E1'),
+      item('combatIQ', 96, '가족 보호·다수 위협·강자 격파를 동시에 수행하고 God Valley에서 우선순위를 유지한다. 전체 전략 능력의 직접 표본은 일부 제한적이다.', ['evidence-rocks-garling-1162', 'evidence-rocks-imu-natural-1163'], [], 'E2'),
+      item('versatility', 94, '검술·최상위 패기·다수전·보호·대형 구조물 파괴·강자 돌파를 수행한다. 악마화 능력은 포함하지 않는다.', ['evidence-rocks-harald-1155', 'evidence-rocks-garling-1162', 'evidence-rocks-imu-natural-1163'], [], 'E2'),
+    ],
+  },
+  {
+    id: 'evaluation-newgate-prime', characterId: 'newgate', evaluationDataVersion: 'evaluation-0.1.33-draft', status: 'draft', isDefault: true,
+    subjectState: { id: 'prime', label: '전성기', note: '로저와의 3일 3야 전투 및 God Valley 시기의 신체 상태를 중심으로 평가한다.' },
+    items: [
+      item('attack', 96, '골 D. 로저와 무기가 닿지 않는 최고 수준 패왕색 충돌을 성립시키고 흔들흔들 열매로 근접·광역 파괴를 모두 수행한다. Supreme King Haki 직접 적용은 Raw로 분리한다.', ['evidence-newgate-roger-966', 'evidence-newgate-imu-1163'], [{ hakiType: 'conquerors', stat: 'attack', amount: 8, application: '로저와의 언월도 충돌에 Supreme King Haki를 직접 적용', evidenceIds: ['evidence-newgate-roger-966'] }], 'E1'),
+      item('defense', 95, '로저와 최고 수준 공방을 장시간 성립시킨 직접 표본을 중심으로 평가한다. Supreme King 상쇄를 Raw에 분리한다.', ['evidence-newgate-roger-966'], [{ hakiType: 'conquerors', stat: 'defense', amount: 8, application: '로저의 최고 수준 Supreme King Haki와 정면 공방', evidenceIds: ['evidence-newgate-roger-966'] }], 'E1'),
+      item('stamina', 99, '로저 해적단과 3일 3야 전투를 지속한 세계관 최고급 장기전 표본이다.', ['evidence-newgate-roger-966'], [], 'E1'),
+      item('speed', 96, '로저와 최고 수준 근접 공방을 성립시키고 God Valley 혼전에서도 핵심 전력으로 행동한다. 속도 특화 캐릭터와 같은 메커니즘은 아니므로 100에 가깝게 두지 않는다.', ['evidence-newgate-roger-966', 'evidence-newgate-imu-1163'], [], 'E2'),
+      item('techniqueMastery', 94, '언월도·지진 능력·패왕색을 최고 수준으로 결합한다. Supreme King Haki 실제 적용은 Raw로 분리한다.', ['evidence-newgate-roger-966', 'evidence-newgate-imu-1163'], [{ hakiType: 'conquerors', stat: 'techniqueMastery', amount: 8, application: '언월도와 Supreme King Haki를 정밀하게 결합', evidenceIds: ['evidence-newgate-roger-966'] }], 'E1'),
+      item('combatIQ', 95, '최고 수준 검객·패기 사용자와 장기전을 운영하고 대규모 혼전에서 목표를 유지한다. 순수 전술 분석 장면은 로저보다 적어 한 단계 제한한다.', ['evidence-newgate-roger-966', 'evidence-newgate-imu-1163'], [], 'E2'),
+      item('versatility', 96, '언월도 근접전·지진 충격파·원거리·광역 파괴·지형 제어·패기 공방을 모두 수행한다.', ['evidence-newgate-roger-966', 'evidence-newgate-imu-1163'], [], 'E1'),
+    ],
+  },
+  {
+    id: 'evaluation-newgate-marineford', characterId: 'newgate', evaluationDataVersion: 'evaluation-0.1.33-draft', status: 'draft', isDefault: false,
+    subjectState: { id: 'marineford', label: '정상결전', note: '72세 노년·중증 질환 상태. 세계 최강의 남자 칭호와 실제 정상결전 신체 상태를 분리한다.' },
+    items: [
+      item('attack', 98, '질환·치명상이 누적된 상태에서도 사카즈키에게 강한 유효타를 만들고 마린포드를 가를 정도의 지진 공격을 사용했다. typed Haki application이 명확하지 않아 Raw는 0으로 둔다.', ['evidence-newgate-akainu-575-576', 'evidence-newgate-blackbeard-576'], [], 'E1'),
+      item('defense', 88, '스쿼드의 기습과 질환으로 인한 전투 중 이상, 사카즈키의 치명타 허용로 전성기 대비 회피·차단 안정성이 크게 저하됐다. 많이 맞고 버틴 사실은 Stamina와 분리한다.', ['evidence-newgate-marineford-health-563-568', 'evidence-newgate-akainu-575-576'], [], 'E1'),
+      item('stamina', 95, '수많은 칼·총·포격과 대장급 치명상 이후에도 전투를 지속하고 검은 수염 해적단의 집중 공격 끝까지 서 있었다.', ['evidence-newgate-marineford-health-563-568', 'evidence-newgate-akainu-575-576', 'evidence-newgate-blackbeard-576'], [], 'E1'),
+      item('speed', 88, '질환과 노화로 반응·이동이 전성기보다 명확히 저하됐다. 그래도 대장전 근접 교환은 가능했으나 선제 회피 안정성이 크게 떨어진다.', ['evidence-newgate-marineford-health-563-568', 'evidence-newgate-akainu-575-576'], [], 'E1'),
+      item('techniqueMastery', 94, '질환 상태에서도 언월도·지진 능력을 단일 상대와 전장 파괴에 전환해 사용한다. 현재 typed Haki Raw는 확인 부족으로 추가하지 않는다.', ['evidence-newgate-akainu-575-576', 'evidence-newgate-blackbeard-576'], [], 'E2'),
+      item('combatIQ', 92, '에이스 구출이라는 목적 아래 전장을 운영하고 능력 봉쇄 상황에서도 근접 수단으로 전환한다. 질환에 따른 신체 한계와 전술 판단을 구분한다.', ['evidence-newgate-blackbeard-576', 'evidence-newgate-marineford-health-563-568'], [], 'E2'),
+      item('versatility', 95, '근접·원거리·광역 지진·지형 파괴·언월도·아군 탈출 지원까지 다양한 역할을 수행한다.', ['evidence-newgate-akainu-575-576', 'evidence-newgate-blackbeard-576'], [], 'E2'),
+    ],
+  },
+  {
+    id: 'evaluation-kaido', characterId: 'kaido', evaluationDataVersion: 'evaluation-0.1.33-draft', status: 'draft', isDefault: true,
+    subjectState: { id: 'onigashima-prime', label: '전성기 · 오니가시마', note: '오니가시마 연속전 상태를 전성기로 본다. 다수 상대·누적 피해·섬 이동 부담을 포함해 최종 패배를 해석한다.' },
+    items: [
+      item('attack', 95, '샬롯 링링과 하늘을 가르는 공방, 패해, 패왕색 두르기 공격으로 최상위 결정력을 반복적으로 보여준다. 패왕색 두르기의 명시적 적용은 Raw로 분리한다.', ['evidence-kaido-linlin-951', 'evidence-kaido-hakai-haki-1009', 'evidence-kaido-zoro-luffy-1010'], [{ hakiType: 'conquerors', stat: 'attack', amount: 6, application: '금쇄봉과 근접 공격에 Supreme King Haki를 직접 두름', evidenceIds: ['evidence-kaido-zoro-luffy-1010'] }], 'E1'),
+      item('defense', 98, '다양한 상위권 공격을 반복적으로 버티고 미래예지로 Snakeman에 대응한다. 고급 견문색의 방어 적용은 Raw로 분리한다.', ['evidence-kaido-linlin-951', 'evidence-kaido-future-sight-1042', 'evidence-kaido-raid-endurance-1000-1049'], [{ hakiType: 'observation', stat: 'defense', amount: 2, application: '고급 견문색으로 Snakeman 공격을 예측해 회피·대응', evidenceIds: ['evidence-kaido-future-sight-1042'] }], 'E1'),
+      item('stamina', 100, '아카자야·최악의 세대·야마토·루피와 연속 교전하고 누적 피해 속에서 오니가시마 이동까지 병행한 최고 수준 장기전 표본이다.', ['evidence-kaido-zoro-luffy-1010', 'evidence-kaido-raid-endurance-1000-1049'], [], 'E1'),
+      item('speed', 96, 'Gear 4 루피와 최고 수준 근접 교환을 이어가고 고급 견문색을 실제 기동에 연결한다. 순수 예측 효과와 신체 속도를 중복 가산하지 않는다.', ['evidence-kaido-future-sight-1042', 'evidence-kaido-raid-endurance-1000-1049'], [], 'E1'),
+      item('techniqueMastery', 93, '청룡·인수형·금쇄봉·자연현상 공격·패왕색을 상황에 맞게 전환한다. Supreme King Haki의 명시적 공격 운용은 Raw로 분리한다.', ['evidence-kaido-zoro-luffy-1010', 'evidence-kaido-raid-endurance-1000-1049'], [{ hakiType: 'conquerors', stat: 'techniqueMastery', amount: 6, application: '패왕색을 금쇄봉 공격에 안정적으로 결합', evidenceIds: ['evidence-kaido-zoro-luffy-1010'] }], 'E1'),
+      item('combatIQ', 90, '상대의 전투 형태에 맞춰 변신·견문색·패왕색 사용을 전환한다. 고급 견문색의 실제 전술 적용만 Raw로 분리한다.', ['evidence-kaido-future-sight-1042', 'evidence-kaido-raid-endurance-1000-1049'], [{ hakiType: 'observation', stat: 'combatIQ', amount: 2, application: 'Snakeman의 궤적을 예측하고 전투 대응에 활용', evidenceIds: ['evidence-kaido-future-sight-1042'] }], 'E1'),
+      item('versatility', 96, '근접·원거리·공중전·광역 자연현상 공격·변신·다수전·섬 이동까지 실제 전장에서 병행한다.', ['evidence-kaido-raid-endurance-1000-1049', 'evidence-kaido-hakai-haki-1009'], [], 'E1'),
+    ],
+  },
+  {
+    id: 'evaluation-linlin', characterId: 'linlin', evaluationDataVersion: 'evaluation-0.1.33-draft', status: 'draft', isDefault: true,
+    subjectState: { id: 'onigashima-prime', label: '전성기 · 오니가시마', note: '오니가시마 로·키드전 상태를 전성기로 본다. Raw Power와 특수 능력 폭은 최상위지만 Speed·Combat IQ는 실제 exploitable 장면을 반영해 제한한다.' },
+    items: [
+      item('attack', 95, '카이도와 정면 충돌하고 패해에 참여하며 Page One에게 패왕색 강화 주먹을 직접 적중시킨다. Supreme King Haki 직접 적용은 Raw로 분리한다.', ['evidence-linlin-kaido-951', 'evidence-linlin-hakai-haki-1009', 'evidence-linlin-pageone-1011'], [{ hakiType: 'conquerors', stat: 'attack', amount: 6, application: 'Page One에게 Supreme King Haki를 실은 근접 주먹을 직접 사용', evidenceIds: ['evidence-linlin-pageone-1011'] }], 'E1'),
+      item('defense', 99, '카이도와의 최고 수준 공방과 로·키드 각성 공격을 반복해서 견디며 전투를 지속한다. 회복 자체를 Defense에 무한 합산하지 않는다.', ['evidence-linlin-kaido-951', 'evidence-linlin-law-kid-1039', 'evidence-linlin-defeat-context-1040'], [], 'E1'),
+      item('stamina', 99, '골절·내부 공격·연속 레일건 압박 뒤에도 자신의 영혼으로 회복하며 전투를 계속한다.', ['evidence-linlin-law-kid-1039', 'evidence-linlin-defeat-context-1040'], [], 'E1'),
+      item('speed', 89, '상위권 근접 대응은 가능하지만 오니가시마에서 위치 통제와 상대의 연속 기술에 대응이 늦는 장면이 반복된다. 압도적 내구를 Speed로 중복 보정하지 않는다.', ['evidence-linlin-kaido-951', 'evidence-linlin-defeat-context-1040'], [], 'E1'),
+      item('techniqueMastery', 91, '호미즈·검술·영혼 조작·자가 회복을 복합적으로 운용하고 패왕색을 근접 공격에 적용한다. Supreme King 직접 적용은 Raw로 분리한다.', ['evidence-linlin-pageone-1011', 'evidence-linlin-law-kid-1039'], [{ hakiType: 'conquerors', stat: 'techniqueMastery', amount: 6, application: 'Supreme King Haki를 근접 타격에 의도적으로 결합', evidenceIds: ['evidence-linlin-pageone-1011'] }], 'E1'),
+      item('combatIQ', 84, '풍부한 전투 경험과 다양한 수단을 가졌지만 로·키드전에서 target priority·위치 관리·조건부 Soul Pocus 활용이 반복적으로 공략된다. 낮은 일반 지능이 아니라 최상위권 내 전투 판단 상대평가다.', ['evidence-linlin-defeat-context-1040', 'evidence-linlin-law-kid-1039'], [], 'E1'),
+      item('versatility', 97, '근접 완력·검술·화염·번개·비행·영혼 조작·자가 회복·광역 공격까지 전투 수단 폭이 세계관 최고 수준이다.', ['evidence-linlin-hakai-haki-1009', 'evidence-linlin-law-kid-1039', 'evidence-linlin-defeat-context-1040'], [], 'E1'),
     ],
   },
 
