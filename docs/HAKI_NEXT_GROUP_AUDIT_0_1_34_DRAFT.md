@@ -27,14 +27,14 @@ Inspection of `src/data/sample/evaluations.ts` at the snapshot commit:
 | --- | ---: |
 | Numeric Evaluations | 39 |
 | Seven-stat item rows | 273 |
-| Stat rows with positive typed Raw Haki | 50 |
-| Individual Haki contributions | 51 |
-| Raw totals histogram (per Stat row) | 2: 11, 4: 18, 6: 8, 8: 13 |
-| Contribution rows by target | Attack 19; Defense 11; Technique 16; Combat IQ 5 |
+| Stat rows with positive typed Raw Haki | 51 |
+| Individual Haki contributions | 53 |
+| Individual typed Contribution amount histogram | Raw 2: 11, 4: 21, 6: 9, 8: 12 (sum 256) |
+| Contribution rows by target | Attack / Defense / Technique / Combat IQ only; see CI-audited baseline test for complete per-stat breakdown |
 | Contributions for Speed/Stamina/Versatility | 0 |
 | Per-stat Evidence readiness explicitly entered | E1: 45; E2: 25; E3: 0 |
 | Per-stat Evidence readiness unset | 203 / 273 (74.4%) |
-| Unique Evidence references reused for different Raw Haki target stats in the same Evaluation | 13 |
+| Unique Evidence references reused for different Raw Haki target stats in the same Evaluation | 15 |
 
 For example:
 - `evaluation-katakuri`: `evidence-katakuri-future-sight-881-884` -> Defense Raw 6, Technique Raw 6, Combat IQ Raw 4.
@@ -44,7 +44,7 @@ For example:
 - `evaluation-kaido`: `evidence-kaido-future-sight-1042` -> Defense 2 and Combat IQ 2.
 - `evaluation-vista`: `evidence-vista-armament-akainu-574` -> Attack 4 and Technique 2.
 
-**These are evidence-reuse candidates for semantic review, not 13 confirmed double-counting errors.** A shared battle can substantiate independent impacts if fact/interpretation/rationale establish distinct phenomena. Current validation checks Evidence presence/ownership/stat linkage but cannot prove semantic independence between the multiple score increments, or prove that Base excluded the same Haki impact.
+**These are evidence-reuse candidates for semantic review, not 15 confirmed double-counting errors.** A shared battle can substantiate independent impacts if fact/interpretation/rationale establish distinct phenomena. Current validation checks Evidence presence/ownership/stat linkage but cannot prove semantic independence between the multiple score increments, or prove that Base excluded the same Haki impact.
 
 ### Haki modelling questions
 
@@ -116,3 +116,7 @@ Only Sabo and Kuma have the strongest immediate multi-encounter review priority.
 2. Choose the numeric candidates after this research and produce proposed Base / Raw / Final / readiness and same-stat anchors; require user confirmation before modifying Evaluation or Haki schema.
 3. Any code patch goes feature branch -> tests, changed roster counts, Evidence/Battle ownership, membership expanded/unique, Haki validation, switching and Matchup -> PR -> CI -> user approval -> main merge -> Pages. Do not claim deployment just because PR CI passes.
 4. This branch is documentation-only; no change to Balanced 1.2, Weight 0.5, 7 stats, existing Evaluations or main deployment.
+
+## v0.1.34 follow-up execution
+
+User approved low-risk Option A audit and context-aware matchup additions on the existing PR #22 branch. Four evidence-linked matchups were implemented on the feature branch: Sakazuki/Kuzan, current Rayleigh/Borsalino, Kaido/Linlin, Jozu/Kuzan. A Special Combat help outside-pointer/Escape dismissal was added with UI tests. A dedicated semantic audit regression test now enumerates 15 shared Haki Evidence records, marking them as pending interpretation review, **not validated correct allocations**. No Evaluation, Raw amount, Weight or Calculation Model changed. See `docs/HAKI_SYSTEM_DECISION_0_1_34.md` for the recommendation and hold points.
