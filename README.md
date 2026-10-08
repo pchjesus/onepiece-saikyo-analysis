@@ -1,6 +1,6 @@
 # 원피스 전투력 분석
 
-현재 개발 버전: **v0.1.31**  
+현재 개발 버전: **v0.1.32**  
 평가 데이터: **30 Character master pool · 29 evaluated roster · 30 Evaluation · 가프/쿠잔/크로커다일 재보정은 evaluation-0.1.30-draft**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
@@ -21,6 +21,16 @@
 - 크로스 길드: 쥬라큘 미호크 / 크로커다일 (버기는 Character master pool E3 미평가)
 
 Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Special Combat Profile과 Matchup-specific Advantage는 Overall에 직접 합산하지 않는다.
+
+## v0.1.32 주요 변경
+
+- Character ↔ Group 관계를 **1:N Membership**으로 정식 허용한다.
+- 그룹 탭/소속 탐색은 Membership-expanded view를 사용해 동일 Character가 여러 Group에 나타날 수 있다.
+- Ranking / Matchup selection은 **Character-unique roster**를 사용해 복수 Membership이 있어도 Character당 한 번만 집계한다.
+- 대표 Group은 migration 동안 `Character.crewId`와 일치하는 Membership을 우선하고, 없으면 current Membership → 첫 Membership 순으로 결정한다.
+- 쥬라큘 미호크·크로커다일의 **크로스 길드 + 과거 왕의 부하 칠무해** Membership을 실제 데이터로 추가해 회귀를 검증한다.
+- Character 검색은 같은 Character의 복수 Membership 결과를 한 건으로 합치되, 소속명 검색 시 해당 Membership 문맥으로 진입할 수 있다.
+- 현재 evaluated roster는 계속 **29 unique Character**이며 Membership 행은 31개다. Balanced 1.2 / Haki Weight 0.5 / Evaluation 점수는 변경하지 않는다.
 
 ## v0.1.31 주요 변경
 
