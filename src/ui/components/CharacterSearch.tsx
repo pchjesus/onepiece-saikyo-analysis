@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
+import type { CharacterKnownAs } from '../../domain/character/types'
 
 type CharacterOption = {
-  character: { id: string; name: string }
+  character: { id: string; name: string; knownAs: CharacterKnownAs[] }
   group: { id: string; name: string }
 }
 
@@ -9,8 +10,8 @@ function normalize(value: string): string {
   return value.normalize('NFKC').toLocaleLowerCase('ko').replace(/\s+/g, '')
 }
 
-function matchRelevance(name: string, group: string, query: string): number {
-  const normalized = normalize(name)
+function textRelevance(value: string, query: string): number {
+  const normalized = normalize(value)
   if (normalized.startsWith(query)) return 0
   if (normalized.includes(query)) return 1
   let at = 0
@@ -18,6 +19,15 @@ function matchRelevance(name: string, group: string, query: string): number {
     if (character === query[at]) at++
     if (at === query.length) return 2
   }
+  return Number.POSITIVE_INFINITY
+}
+
+function matchRelevance(character: CharacterOption['character'], group: string, query: string): number {
+  const identityScore = Math.min(
+    textRelevance(character.name, query),
+    ...character.knownAs.map(({ name }) => textRelevance(name, query)),
+  )
+  if (Number.isFinite(identityScore)) return identityScore
   return normalize(group).includes(query) ? 3 : Number.POSITIVE_INFINITY
 }
 
@@ -41,7 +51,7 @@ export function CharacterSearch({ characters, onSelectCharacter }: {
   const term = normalize(query)
   const suggestions = term
     ? characters
-      .map((entry) => ({ entry, relevance: matchRelevance(entry.character.name, entry.group.name, term) }))
+      .map((entry) => ({ entry, relevance: matchRelevance(entry.character, entry.group.name, term) }))
       .filter(({ relevance }) => Number.isFinite(relevance))
       .sort((a, b) => a.relevance - b.relevance || a.entry.character.name.localeCompare(b.entry.character.name, 'ko'))
       .slice(0, 8).map(({ entry }) => entry)
@@ -63,7 +73,7 @@ export function CharacterSearch({ characters, onSelectCharacter }: {
           id="character-search-input"
           type="search"
           value={query}
-          placeholder="이름 또는 소속 검색…"
+          placeholder="본명·이명·칭호·소속 검색…"
           autoComplete="off"
           role="combobox"
           aria-autocomplete="list"
@@ -83,17 +93,21 @@ export function CharacterSearch({ characters, onSelectCharacter }: {
       </div>
       {open && term && (
         <div id="character-search-results" className="search-suggestions" role="listbox" aria-label="검색 결과">
-          {suggestions.length ? suggestions.map((entry, index) => (
-            <button type="button" role="option"
-              id={`search-option-${entry.character.id}`}
-              aria-selected={index === activeIndex}
-              className={`search-suggestion ${index === activeIndex ? 'active' : ''}`}
-              key={`${entry.group.id}:${entry.character.id}`}
-              onMouseEnter={() => setActiveIndex(index)}
-              onClick={() => choose(entry)}>
-              <strong>{entry.character.name}</strong><small>{entry.group.name}</small>
-            </button>
-          )) : <p className="search-empty">일치하는 평가 캐릭터가 없어.</p>}
+          {suggestions.length ? suggestions.map((entry, index) => {
+            const knownAs = entry.character.knownAs.slice(0, 2).map(({ name }) => name).join(' · ')
+            return (
+              <button type="button" role="option"
+                id={`search-option-${entry.character.id}`}
+                aria-selected={index === activeIndex}
+                className={`search-suggestion ${index === activeIndex ? 'active' : ''}`}
+                key={`${entry.group.id}:${entry.character.id}`}
+                onMouseEnter={() => setActiveIndex(index)}
+                onClick={() => choose(entry)}>
+                <strong>{entry.character.name}</strong>
+                <small>{entry.group.name}{knownAs ? ` · ${knownAs}` : ''}</small>
+              </button>
+            )
+          }) : <p className="search-empty">일치하는 평가 캐릭터가 없어.</p>}
         </div>
       )}
     </div>
