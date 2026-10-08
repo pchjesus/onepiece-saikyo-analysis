@@ -1,4 +1,4 @@
-import { getCharacterList } from './getCharacterList'
+import { getUniqueCharacterList } from './getCharacterList'
 import { getCombatPower } from './getCombatPower'
 import { evaluationRepository } from '../data/repositories/evaluationRepository'
 import { calculationModelRepository } from '../data/repositories/calculationModelRepository'
@@ -23,7 +23,7 @@ export function getStatRanking(stat: RankingStat): StatRankingEntry[] {
   const model = calculationModelRepository.getModel('balanced')
   if (!model) throw new Error('Balanced calculation model is missing.')
 
-  const sorted = getCharacterList().flatMap(({ character, group }) => {
+  const sorted = getUniqueCharacterList().flatMap(({ character, group }) => {
     const evaluation = evaluationRepository.getEvaluation(character.id)
     if (!evaluation) return []
     const item = stat === 'overall' ? undefined : evaluation.items.find((entry) => entry.stat === stat)
