@@ -1,5 +1,28 @@
 # Changelog
 
+## v0.1.28 — Multi-state Evaluation, Korean Analysis Names & Matchup Expansion
+
+### Evaluation / Data
+- 한 Character에 복수 Evaluation 상태를 연결할 수 있도록 Evaluation Repository와 Application 조회 API를 확장.
+- 몽키 D. 가프를 단일 Character로 유지하면서 전성기(default) / 현재 두 Evaluation으로 분리.
+- 현재 몽키 D. 가프용 하치노스 직접 Evidence 4건(Blue Hole, 시류 보호 피격·반격 맥락, Galaxy Divide, 구조전 지휘)을 추가.
+- 현재 몽키 D. 가프 Draft: 94 / 90 / 92 / 93 / 94 / 92 / 83, Overall 91.143.
+- 기존 27 Character는 유지하고 Evaluation record는 28개로 증가. Ranking은 default Evaluation 한 개만 사용.
+
+### UI / Naming
+- Character 상세에서 복수 Evaluation이 있으면 평가 시점 선택 버튼을 표시.
+- 설명·평가 rationale·전투 기록·Evidence·Combat Profile의 캐릭터 이름을 한글 공식 주표기 이름으로 표시하는 presentation normalization 추가.
+- 공식 통칭/이명/칭호 배지와 검색 기능은 유지해 본명과 별칭의 역할을 분리.
+
+### Matchup
+- Matchup participant에 Evaluation state id를 선택적으로 연결할 수 있도록 확장.
+- prototype 3개 → 6개: 기존 마르코-알베르 / 트라팔가 로-마샬 D. 티치 / 보아 핸콕-마샬 D. 티치에 현재 몽키 D. 가프-쿠잔 / 롤로노아 조로-알베르 / 상디-퀸 추가.
+- 승률·고정 보너스는 도입하지 않고 confirmed/supported/unclear와 조건·불확실성 구조 유지.
+
+### Next
+- 다음 신규 집단은 크로스 길드. 쥬라큘 미호크·크로커다일을 우선 전방위 조사하고 버기는 Evidence 충분성에 따라 평가 여부를 결정.
+
+
 ## v0.1.27 — Canonical Identity, Era Metadata & Public Pages Sync
 
 ### Character Identity
