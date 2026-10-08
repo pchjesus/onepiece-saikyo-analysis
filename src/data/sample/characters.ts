@@ -547,7 +547,10 @@ export const sampleCharacters: Character[] = [
   {
     id: 'doflamingo',
     name: '돈키호테 도플라밍고',
-    crewId: 'seven-warlords', knownAs: [{ kind: 'alias', name: '조커', source: { label: 'ONE PIECE.com', reference: 'Punk Hazard 공식 에피소드 안내 — 「ジョーカー」の正体がドフラミンゴ' } }],
+    crewId: 'seven-warlords', knownAs: [
+      { kind: 'epithet', name: '천야차', source: { label: 'ONE PIECE.com', reference: '공식 P.O.P 상품 소개 — “天夜叉”ドンキホーテ・ドフラミンゴ' } },
+      { kind: 'alias', name: '조커', source: { label: 'ONE PIECE.com', reference: 'Punk Hazard 공식 에피소드 안내 — 「ジョーカー」の正体がドフラミンゴ' } },
+    ],
     description: '전 왕의 부하 칠무해. 실실 열매의 정밀 조작과 각성, 공중 기동·구속·분신·전장 통제를 결합한다.',
     combatProfile: {
       combatStyles: ['실 절단', '구속·조종', '공중 이동', '분신', 'Birdcage', '각성 지형 변환'],

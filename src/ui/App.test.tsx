@@ -164,20 +164,25 @@ describe('evaluated roster UI', () => {
     expect(battleText).not.toMatch(/\bGarp\b|\bKoby\b/)
   })
 
-  it('keeps Stats as the default home and opens Matchup Arena as a separate top-level screen', async () => {
+  it('keeps Stats as default and builds a two-character sports-style Matchup Arena', async () => {
     expect(container.querySelector('.character-selector')).not.toBeNull()
     expect(container.querySelector('.matchup-home')).toBeNull()
-    expect(container.querySelector('button[aria-label="스탯 분석 화면"]')?.getAttribute('aria-pressed')).toBe('true')
-    expect(container.querySelector('#matchup-tab')).toBeNull()
-
     await click(container.querySelector('button[aria-label="매치업 아레나 화면"]'))
+
     expect(container.querySelector('.matchup-home')).not.toBeNull()
-    expect(container.querySelector('.character-selector')).toBeNull()
-    expect(container.querySelector('main.detail')).toBeNull()
+    expect(container.querySelectorAll('.arena-selector select').length).toBeGreaterThanOrEqual(2)
+    expect(container.querySelector('.matchup-corner-grid')?.textContent).toContain('RED CORNER')
+    expect(container.querySelector('.matchup-corner-grid')?.textContent).toContain('BLUE CORNER')
+    expect(container.querySelector('.combined-matchup-panel')).not.toBeNull()
     expect(container.querySelector('.matchup-radar')).not.toBeNull()
-    expect(container.querySelector('.matchup-scoreboard')?.textContent).toContain('쥬라큘 미호크')
-    expect(container.querySelector('.matchup-scoreboard')?.textContent).toContain('샹크스')
+    expect(container.querySelector('button[aria-label="좌우 캐릭터 교체"]')).not.toBeNull()
+    expect(container.querySelector('button[aria-label="랜덤 매치업"]')).not.toBeNull()
+    expect(container.querySelector('.featured-matchups')?.textContent).toContain('FEATURED')
     expect(container.querySelector('.arena-caution')?.textContent).toContain('승률이 아닙니다')
+
+    await click(container.querySelector('button[aria-label="좌우 캐릭터 교체"]'))
+    expect(container.querySelector('.corner-panel-left h3')?.textContent).toBe('샹크스')
+    expect(container.querySelector('.corner-panel-right h3')?.textContent).toBe('쥬라큘 미호크')
 
     await click(container.querySelector('button[aria-label="스탯 분석 화면"]'))
     expect(container.querySelector('.character-selector')).not.toBeNull()
