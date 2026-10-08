@@ -1,7 +1,7 @@
 # 원피스 전투력 분석
 
-현재 개발 버전: **v0.1.32**  
-평가 데이터: **30 Character master pool · 29 evaluated roster · 30 Evaluation · 가프/쿠잔/크로커다일 재보정은 evaluation-0.1.30-draft**  
+현재 개발 버전: **v0.1.33**  
+평가 데이터: **37 Character master pool · 36 evaluated unique Character · 41 Membership · 39 Evaluation**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
 - [v0.1.26 27인 재보정 보고서](docs/RECALIBRATION_0_1_26_DRAFT.md)
@@ -10,17 +10,53 @@
 
 ## 현재 평가 로스터
 
-- 흰수염 해적단: 마르코 / 죠즈 / 비스타
-- 백수 해적단: 알베르(통칭 킹) / 퀸 / 잭
-- 빅 맘 해적단: 샬롯 카타쿠리 / 샬롯 스무디 / 샬롯 크래커
+대표 Group 기준의 36명 evaluated unique Character는 다음과 같다. Group 탭은 Membership-expanded view라 과거 소속이 있는 캐릭터가 다른 Group에도 추가로 표시될 수 있지만 Ranking / Matchup selector에는 한 번만 나타난다.
+
+- 흰수염 해적단: 마르코 / 죠즈 / 비스타 / 에드워드 뉴게이트
+- 백수 해적단: 알베르(통칭 킹) / 퀸 / 잭 / 카이도
+- 빅 맘 해적단: 샬롯 카타쿠리 / 샬롯 스무디 / 샬롯 크래커 / 샬롯 링링
 - 밀짚모자 일당: 롤로노아 조로 / 상디 / 징베
 - 빨간 머리 해적단: 샹크스
 - 해군·전 해군: 몽키 D. 가프 / 사카즈키 / 쿠잔 / 보르살리노 / 잇쇼 / 아라마키
 - 검은 수염 해적단: 마샬 D. 티치 / 시류 / 지저스 바제스 / 반 오거 / 아발로 피사로
 - 전 왕의 부하 칠무해: 트라팔가 로 / 돈키호테 도플라밍고 / 보아 핸콕
-- 크로스 길드: 쥬라큘 미호크 / 크로커다일 (버기는 Character master pool E3 미평가)
+- 크로스 길드: 쥬라큘 미호크 / 크로커다일
+- 로저 해적단: 골 D. 로저 / 실버즈 레일리 / 스코퍼 가반
+- 록스 해적단: 록스 D. 지벡
+
+버기는 Character master pool에는 존재하지만 E3 미평가로 evaluated roster에 포함하지 않는다. 스코퍼 가반의 전성기도 E3로 수치 Evaluation을 만들지 않고 현재 엘바프 Evaluation만 등록한다.
 
 Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Special Combat Profile과 Matchup-specific Advantage는 Overall에 직접 합산하지 않는다.
+
+## v0.1.33 주요 변경
+
+- 전설급 7 Character를 추가했다: **골 D. 로저 / 실버즈 레일리 / 스코퍼 가반 / 록스 D. 지벡 / 에드워드 뉴게이트 / 카이도 / 샬롯 링링**.
+- 복수 시점은 Character를 복제하지 않고 Evaluation으로 분리한다.
+  - 레일리: **전성기 / 현재**
+  - 뉴게이트: **전성기 / 정상결전**
+  - 가반: **현재만 수치화**하며 전성기는 E3 미평가
+  - 록스: **갓 밸리 자연 상태만** 수치화
+  - 카이도·링링: **오니가시마를 전성기**로 사용
+- 현재 상단 Overall calibration:
+  - 골 D. 로저 97.571
+  - 전성기 에드워드 뉴게이트 97.571
+  - 전성기 몽키 D. 가프 97.429
+  - 자연 상태 록스 D. 지벡 97.286
+  - 카이도 96.571
+  - 현재 몽키 D. 가프 94.429
+  - 샬롯 링링 94.286
+  - 전성기 실버즈 레일리 92.857
+  - 정상결전 뉴게이트 92.857
+  - 현재 스코퍼 가반 92.143
+  - 현재 실버즈 레일리 90.286
+- 현재 가반은 이무와 교전·생존했다는 사실을 대장 이상 전투력으로 자동 환산하지 않고 **92.143**으로 대장급 밴드 안에 둔다.
+- 전성기 레일리는 공식 위상과 노년 보르살리노전 하한은 강하지만 직접 전성기 전투 표본이 부족하므로 **92.857 · E2**로 보수적으로 평가한다.
+- 현재 가프는 하치노스의 선제 주도권·중상 후 임무 지속·구조전 판단을 재검토해 **94.429**로 상향했다.
+- 샬롯 링링은 압도적인 공격·방어·지구력·능력 폭은 유지하되 오니가시마에서 노출된 Speed/Combat IQ 한계를 반영해 **94.286**으로 소폭 조정했다.
+- EvaluationItem에 optional **Evidence readiness(E1/E2/E3)**를 추가했다. readiness는 점수 가중치가 아니라 근거 충분성을 표시하는 별도 정보다.
+- 에드워드 뉴게이트·카이도·샬롯 링링에 과거 록스 해적단 Membership을 추가했으며, Group UI에는 **과거 소속**으로 표시한다. Ranking / Matchup selector는 Character-unique라 중복되지 않는다.
+- 악마화 록스는 별도 Evaluation으로 만들지 않고 자연 상태의 scale context로만 보존한다.
+- Balanced 1.2 / Haki Weight 0.5 / 7 Core Stat 산술평균은 변경하지 않았다.
 
 ## v0.1.32 주요 변경
 
