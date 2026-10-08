@@ -367,7 +367,7 @@ export const sampleBattles: Battle[] = [
     externalFactors: '티치 단독전이 아니라 검은수염 해적단 전체가 후반에 흰수염 공격에 가담한다.', result: 'victory', participantIds: [],
   },
   {
-    id: 'winner-island-teach-law', title: '위너 섬 — 검은수염 해적단 vs 하트 해적단', chronologyOrder: 3,
+    id: 'winner-island-teach-law', title: '위너 섬 — 검은수염 해적단 vs 하트 해적단', chronologyOrder: 4,
     combatStructure: 'multiple-vs-multiple', combatPurpose: '로드 포네그리프 사본 탈취를 둘러싼 전투', combatIntent: 'serious',
     environment: '위너 섬 인근 해상·섬', restrictions: '티치와 로의 직접 공방 외에도 양측 선원과 능력 지원이 동시에 개입한다.',
     externalFactors: 'Van Augur·Burgess·Doc Q 등 검은수염 간부와 Heart Pirates의 지원이 존재한다.', result: 'victory', participantIds: [],
@@ -497,7 +497,7 @@ export const sampleBattles: Battle[] = [
   {
     id: "amazon-lily-teach-hancock-1059",
     title: "아마존 릴리 — 티치의 핸콕 능력 봉쇄",
-    chronologyOrder: 2.5,
+    chronologyOrder: 3,
     combatStructure: "multiple-vs-multiple",
     combatPurpose: "핸콕의 악마의 열매 능력 확보를 노리고 섬에 침입",
     combatIntent: "serious",
