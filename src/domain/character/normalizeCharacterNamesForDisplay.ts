@@ -6,6 +6,7 @@
  */
 const replacements: Array<[RegExp, string]> = [
   [/Supreme King Haki/g, '패왕색 패기'],
+  [/Queen Mama Chanter/g, '퀸 마마 샹테호'],
   [/Prime Garp/g, '전성기 몽키 D. 가프'],
   [/Van Augur/g, '반 오거'],
   [/Big Mom/g, '빅맘'],
@@ -21,6 +22,8 @@ const replacements: Array<[RegExp, string]> = [
   [/Ryokugyu/g, '아라마키'],
   [/Aramaki/g, '아라마키'],
   [/Marco/g, '마르코'],
+  [/King/g, '알베르'],
+  [/Queen/g, '퀸'],
   [/Jozu/g, '죠즈'],
   [/Vista/g, '비스타'],
   [/Katakuri/g, '샬롯 카타쿠리'],
