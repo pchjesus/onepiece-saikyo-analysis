@@ -125,7 +125,7 @@ export const sampleEvaluations: Evaluation[] = [
   {
     id: 'evaluation-zoro', characterId: 'zoro', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
     items: [
-      item('attack', 84, '카이도에게 영구 흉터를 남긴 아수라와 킹을 격파한 삼도류의 순수 결정력을 높은 Base로 평가하고, 킹전의 의식적 무장색·패왕색 강화 효과는 별도 Haki Contribution으로 분리한다.', ['evidence-zoro-ashura-scar-1010', 'evidence-zoro-conquerors-1033-1035'], [
+      item('attack', 85, '카이도에게 영구 흉터를 남긴 아수라와 킹을 격파한 삼도류의 순수 결정력을 높은 Base로 평가하고, 킹전의 의식적 무장색·패왕색 강화 효과는 별도 Haki Contribution으로 분리한다.', ['evidence-zoro-ashura-scar-1010', 'evidence-zoro-conquerors-1033-1035', 'evidence-zoro-lucci-1110-1111'], [
         { hakiType: 'armament', stat: 'attack', amount: 4, application: '검에 무장색을 결합해 고출력 검격을 강화', evidenceIds: ['evidence-zoro-conquerors-1033-1035'] },
         { hakiType: 'conquerors', stat: 'attack', amount: 6, application: '킹전에서 패왕색을 세 검에 두르는 공격 운용을 실제 결정타에 적용', evidenceIds: ['evidence-zoro-conquerors-1033-1035'] },
       ]),
@@ -143,10 +143,10 @@ export const sampleEvaluations: Evaluation[] = [
       item('attack', 81, '각성한 신체·근력·속도와 고열 발기술로 퀸을 격파한 결정력을 Base로 평가하고 Ifrit Jambe에 실제 결합된 무장색 강화는 별도 Contribution으로 분리한다.', ['evidence-sanji-speed-ifrit-1034'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: 'Ifrit Jambe의 고열·고속 발기술에 무장색을 결합', evidenceIds: ['evidence-sanji-speed-ifrit-1034'] }]),
       item('defense', 84, '외골격 각성 후 큰 손상에서 복구하고 강한 공격을 견디는 신체 성능과 키자루 레이저 차단을 반영한다. 회복 특성 자체를 중복 가산하지 않고 실제 방어 성과를 중심으로 평가한다.', ['evidence-sanji-exoskeleton-1028', 'evidence-sanji-speed-ifrit-1034', 'evidence-sanji-kizaru-laser-1107'], [{ hakiType: 'armament', stat: 'defense', amount: 2, application: '발기술과 신체 방어에 무장색을 실제 전투에서 결합', evidenceIds: ['evidence-sanji-speed-ifrit-1034'] }]),
       item('stamina', 85, '퀸의 압착으로 큰 신체 손상을 입은 뒤 복구해 고속 이동과 Ifrit Jambe 연속 공격으로 결전을 마친 실제 전투 지속 성과를 평가한다.', ['evidence-sanji-exoskeleton-1028', 'evidence-sanji-speed-ifrit-1034']),
-      item('speed', 91, '퀸의 시야에서 사라질 정도의 순수 이동속도를 지속하고 Egghead에서 키자루의 레이저 공격에 개입한 표본을 근거로 세계관 최상위 속도군에 둔다. 견문색을 Speed에 별도 가산하지 않는다.', ['evidence-sanji-speed-ifrit-1034', 'evidence-sanji-kizaru-laser-1107']),
+      item('speed', 91, '퀸의 시야에서 사라질 정도의 순수 이동속도를 지속하고 Egghead에서 키자루의 레이저 공격에 개입한 표본을 근거로 세계관 최상위 속도군에 둔다. 견문색을 Speed에 별도 가산하지 않는다.', ['evidence-sanji-speed-ifrit-1034', 'evidence-sanji-kizaru-laser-1107', 'evidence-sanji-nusjuro-1113']),
       item('techniqueMastery', 84, '발기술·공중기동·Diable/Ifrit 계열 강화와 신체 능력을 정교하게 결합한다. Ifrit의 공격력 자체와 숙련을 중복 가산하지 않는다.', ['evidence-sanji-speed-ifrit-1034']),
       item('combatIQ', 81, '전투 중 상황 판단과 즉각적인 보호·요격 능력은 높지만 비전투 전략·기지를 Combat IQ에 과도하게 포함하지 않고 현재 직접 전투 Evidence 범위에서 평가한다.', ['evidence-sanji-kizaru-laser-1107']),
-      item('versatility', 82, '초고속 근접전·공중전·요격·아군 보호·화염 강화 발기술·높은 방어 지속력을 실제 전투에서 전환해 사용한다. 요리 능력은 전투 점수에 포함하지 않는다.', ['evidence-sanji-exoskeleton-1028', 'evidence-sanji-speed-ifrit-1034', 'evidence-sanji-kizaru-laser-1107']),
+      item('versatility', 82, '초고속 근접전·공중전·요격·아군 보호·화염 강화 발기술·높은 방어 지속력을 실제 전투에서 전환해 사용한다. 요리 능력은 전투 점수에 포함하지 않는다.', ['evidence-sanji-exoskeleton-1028', 'evidence-sanji-speed-ifrit-1034', 'evidence-sanji-kizaru-laser-1107', 'evidence-sanji-nusjuro-1113']),
     ],
   },
   {
@@ -154,7 +154,7 @@ export const sampleEvaluations: Evaluation[] = [
     items: [
       item('attack', 76, '어인공수도로 후즈후를 격파하고 물·수분을 활용해 충격을 전달하는 높은 기본 공격 숙련을 평가하며, 실제 무장색 강화는 별도 Contribution으로 분리한다.', ['evidence-jinbe-fishman-karate-629', 'evidence-jinbe-whos-who-1018'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '후즈후와의 근접 공방에서 무장색을 어인공수도 공격에 결합', evidenceIds: ['evidence-jinbe-whos-who-1018'] }]),
       item('defense', 78, '빅맘의 공격을 잠시 받아낸 성과와 후즈후의 공격을 견딘 방어력을 평가하되 빅맘에게 힘에서 밀린 한계와 King급 특수 방어와의 차이를 반영한다.', ['evidence-jinbe-big-mom-890', 'evidence-jinbe-whos-who-1018'], [{ hakiType: 'armament', stat: 'defense', amount: 4, application: '빅맘·후즈후의 공격에 무장색 경화를 실제 방어로 적용', evidenceIds: ['evidence-jinbe-big-mom-890', 'evidence-jinbe-whos-who-1018'] }]),
-      item('stamina', 79, '높은 기본 체력과 전투 지속력을 인정하되 현재 상위권 상대의 장기 고강도 전투 표본이 Jack·Katakuri만큼 직접적이지 않아 보수적으로 평가한다.', ['evidence-jinbe-ace-five-days-552', 'evidence-jinbe-whos-who-1018']),
+      item('stamina', 79, '높은 기본 체력과 전투 지속력을 인정하되 현재 상위권 상대의 장기 고강도 전투 표본이 Jack·Katakuri만큼 직접적이지 않아 보수적으로 평가한다.', ['evidence-jinbe-ace-five-days-552', 'evidence-jinbe-akainu-575', 'evidence-jinbe-whos-who-1018']),
       item('speed', 77, '상위권 근접전에 대응 가능한 반응은 있으나 순수 속도 자체가 대표 강점으로 반복 검증되지는 않았다.', ['evidence-jinbe-whos-who-1018']),
       item('techniqueMastery', 82, '어인공수도의 달인으로 물과 상대 신체의 수분까지 이용하는 정교한 원리를 실전에 적용한다. 다만 Katakuri·Vista·Zoro의 상위 복합 숙련과 자동 동급으로 보지 않는다.', ['evidence-jinbe-fishman-karate-629', 'evidence-jinbe-whos-who-1018']),
       item('combatIQ', 80, '빅맘전에서 해상 환경과 물을 상성 대응·반격에 활용하는 베테랑 판단을 인정하되 1대1에서 상대 메커니즘을 반복 분석하는 최고 수준 표본은 제한적이다.', ['evidence-jinbe-big-mom-890']),
