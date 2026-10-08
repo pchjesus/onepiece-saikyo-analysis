@@ -32,6 +32,8 @@ Inspection of `src/data/sample/evaluations.ts` at the snapshot commit:
 | Raw totals histogram (per Stat row) | 2: 11, 4: 18, 6: 8, 8: 13 |
 | Contribution rows by target | Attack 19; Defense 11; Technique 16; Combat IQ 5 |
 | Contributions for Speed/Stamina/Versatility | 0 |
+| Per-stat Evidence readiness explicitly entered | E1: 45; E2: 25; E3: 0 |
+| Per-stat Evidence readiness unset | 203 / 273 (74.4%) |
 | Unique Evidence references reused for different Raw Haki target stats in the same Evaluation | 13 |
 
 For example:
