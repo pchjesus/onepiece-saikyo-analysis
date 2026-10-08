@@ -46,6 +46,14 @@ export type CanonProfileSource = {
   reference: string
 }
 
+export type CharacterKnownAsKind = 'alias' | 'epithet' | 'title'
+
+export type CharacterKnownAs = {
+  kind: CharacterKnownAsKind
+  name: string
+  source: CanonProfileSource
+}
+
 export type SpecialCombatTraitCategory =
   | 'devil-fruit'
   | 'race'
@@ -77,8 +85,10 @@ export type CombatProfile = {
 
 export type Character = {
   id: string
+  /** Primary official display name. Aliases, epithets and titles stay separate. */
   name: string
   crewId: string
+  knownAs: CharacterKnownAs[]
   description?: string
   combatProfile: CombatProfile
 }
