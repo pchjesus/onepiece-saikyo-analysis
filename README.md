@@ -1,26 +1,55 @@
 # 원피스 전투력 분석
 
-MVP v0.1.23
+MVP v0.1.24
 
-## 초기 3해적단 평가 로스터
+## 현재 평가 로스터
+
+현재 데이터에는 초기 사최간 비교군, 밀짚모자 일당, 샹크스, 해군 상위 전투원, 검은수염 해적단의 평가 가능 캐릭터가 포함된다.
+
 - 흰수염 해적단: 마르코 / 죠즈 / 비스타
 - 백수 해적단: 킹 / 퀸 / 잭
 - 빅 맘 해적단: 카타쿠리 / 스무디 / 크래커
+- 밀짚모자 일당: 조로 / 상디 / 징베
+- 빨간 머리 해적단: 샹크스
+- 해군·전 해군: 가프 / 사카즈키 / 쿠잔 / 보르살리노 / 잇쇼 / 아라마키
+- 검은 수염 해적단: 티치 / 시류 / 지저스 바제스 / 반 오거 / 아발로 피사로
 
-9명 모두 `evaluation-0.1.23` draft 평가 상태다. Overall Combat Power는 Balanced 1.2에서 7개 Final Core Stat(Attack, Defense, Stamina, Speed, Technique, Combat IQ, Versatility)의 단순 산술평균으로 계산한다. Haki는 실제 Application Evidence가 있을 때만 Raw Contribution을 보존하고 Haki Weight 0.5를 거쳐 Effective Contribution으로 반영한다. Special Combat Profile은 비수치 정보이며 Overall에 직접 가산하지 않는다.
+Overall Combat Power는 Balanced 1.2에서 7개 Final Core Stat(Attack, Defense, Stamina, Speed, Technique, Combat IQ, Versatility)의 단순 산술평균으로 계산한다. Haki는 실제 Application Evidence가 있을 때만 Raw Contribution을 보존하고 Haki Weight 0.5를 거쳐 Effective Contribution으로 반영한다. Special Combat Profile은 비수치 정보이며 Overall에 직접 가산하지 않는다.
 
-현재 횡단 calibration 결과:
+중요한 평가 원칙:
+- 직책·현상금·승패만으로 Core Stat을 역산하지 않는다.
+- Evidence 부족은 약함의 증거로 자동 해석하지 않는다.
+- Strength, 공격 범위, 기습 성공을 Attack과 동일시하지 않는다.
+- E2 캐릭터의 점수는 현재 Evidence에 기반한 provisional draft이며 새 전투 묘사에 따라 크게 변할 수 있다.
+- Doc Q처럼 7축 Evidence가 부족한 캐릭터는 억지로 점수를 만들지 않고 미평가 상태로 남긴다.
+
+현재 주요 Overall:
+- Prime Garp 95.143
+- Kizaru 94.000
+- Kuzan 93.429
+- Akainu 92.429
+- Shanks 92.286
+- Teach 90.429
+- Fujitora 89.714
+- Ryokugyu 89.429
+- Zoro 84.857
+- Sanji 84.429
 - Katakuri 81.286
 - Marco 81.143
 - King 80.714
-- Vista 79.143
+- Vista 79.571
+- Jinbe 79.429
 - Queen 78.714
+- Shiryu 77.571
 - Jozu 77.286
 - Smoothie 76.714
-- Jack 74.429
-- Cracker 71.857
+- Cracker 75.286
+- Van Augur 75.286
+- Jack 74.714
+- Burgess 74.286
+- Pizarro 72.000
 
-소수점 근소 차이는 절대적인 서열 확정으로 해석하지 않는다. 직책·현상금·커뮤니티 평가는 Core Stat에 자동 가산하지 않고 portrayal / sanity check 자료로만 사용한다.
+소수점 근소 차이는 절대적인 1대1 서열 확정으로 해석하지 않는다.
 
 ## 구조
 UI → Application → Domain
@@ -52,6 +81,16 @@ npm.cmd run build
 ```
 
 
+
+## v0.1.24 note
+
+- Shanks와 해군 상위 전투원(Garp / Akainu / Kuzan / Kizaru / Fujitora / Ryokugyu)을 현재 7-Core 모델에 추가했습니다.
+- Blackbeard Pirates에서 Teach(E1), Shiryu / Burgess / Van Augur / Pizarro(E2)를 Character / Battle / Evidence / Evaluation 구조로 추가했습니다.
+- Doc Q는 현재 7축 Evidence가 부족해 수치 평가하지 않습니다.
+- Vista / Jack / Cracker를 기존 캐릭터 및 신규 상위권 anchor와 다시 비교해 재보정했습니다.
+- Attack ≠ Strength ≠ Area of Effect 원칙을 적용해 Burgess의 완력, Pizarro의 공격 규모, Shiryu의 기습을 Attack에 자동 환산하지 않습니다.
+- Cracker는 Final 74 / 76 / 77 / 74 / 76 / 74 / 76, Jack은 73 / 80 / 84 / 73 / 71 / 70 / 72, Vista는 82 / 79 / 77 / 80 / 87 / 77 / 75로 조정했습니다.
+- 모든 Evaluation은 여전히 draft이며, E2는 현재 공개 Evidence 기준 provisional score입니다.
 
 ## v0.1.23 note
 
