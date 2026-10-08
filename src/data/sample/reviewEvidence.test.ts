@@ -40,6 +40,10 @@ const newEvidenceIds = [
   'evidence-kuzan-admiral-barrier-564',
   'evidence-kizaru-admiral-barrier-564',
   'evidence-garp-roger-rocks-1165',
+  'evidence-garp-blue-hole-1081',
+  'evidence-garp-shiryu-protection-1087',
+  'evidence-garp-galaxy-divide-1088',
+  'evidence-garp-rescue-command-1088',
 ]
 
 describe('evidence-only review before approved calibration', () => {
