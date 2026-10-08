@@ -4,7 +4,7 @@ export const sampleCharacters: Character[] = [
   {
     id: 'marco',
     name: '마르코',
-    crewId: 'whitebeard-pirates',
+    crewId: 'whitebeard-pirates', knownAs: [{ kind: 'epithet', name: '불사조 마르코', source: { label: 'ONE PIECE.com', reference: '마르코 공식 캐릭터 페이지 — 通称「不死鳥マルコ」' } }],
     description: '흰수염 해적단 1번대 대장. 불사조의 재생·비행·푸른 불꽃을 전투와 지원에 활용한다.',
     combatProfile: {
       combatStyles: ['공중 기동', '근접 타격', '능력 기반 회복·지원'],
@@ -36,7 +36,7 @@ export const sampleCharacters: Character[] = [
   {
     id: 'jozu',
     name: '죠즈',
-    crewId: 'whitebeard-pirates',
+    crewId: 'whitebeard-pirates', knownAs: [{ kind: 'epithet', name: '다이아몬드 죠즈', source: { label: 'ONE PIECE.com', reference: '죠즈 공식 캐릭터 페이지 — 通称「ダイヤモンド・ジョズ」' } }],
     description: '흰수염 해적단 3번대 대장. 반짝반짝 열매로 신체를 다이아몬드화해 강한 물리 공격과 방어를 수행한다.',
     combatProfile: {
       combatStyles: ['근접 돌진', '강력한 완력', '다이아몬드 방어'],
@@ -68,7 +68,7 @@ export const sampleCharacters: Character[] = [
   {
     id: 'vista',
     name: '비스타',
-    crewId: 'whitebeard-pirates',
+    crewId: 'whitebeard-pirates', knownAs: [{ kind: 'epithet', name: '화검의 비스타', source: { label: 'ONE PIECE.com', reference: '비스타 공식 캐릭터 페이지 — 通称「花剣のビスタ」' } }],
     description: '흰수염 해적단 5번대 대장. 이도류 대검호로 미호크와 직접 검술 공방을 성립시킨다.',
     combatProfile: {
       combatStyles: ['이도류 검술', '근접 검격', '강자 요격'],
@@ -89,9 +89,12 @@ export const sampleCharacters: Character[] = [
   },
   {
     id: 'king',
-    name: '킹',
-    crewId: 'beasts-pirates',
-    description: '백수 해적단 대간판. 루나리아족 특성과 고대종 능력, 검과 화염을 조합해 싸운다.',
+    name: '알베르',
+    crewId: 'beasts-pirates', knownAs: [
+      { kind: 'alias', name: '킹', source: { label: 'ONE PIECE.com', reference: 'TV Anime Episode 1062 / VIVRE CARD 1308 — 알베르가 카이도에게 「キング」라는 이름을 받음' } },
+      { kind: 'epithet', name: '화재의 킹', source: { label: 'ONE PIECE.com', reference: '킹 공식 캐릭터 페이지 — 通称「火災のキング」' } },
+    ],
+    description: '본명 알베르. 카이도에게 「킹」이라는 이름을 받은 백수 해적단 대간판으로, 루나리아족 특성과 고대종 능력·검·화염을 조합해 싸운다.',
     combatProfile: {
       combatStyles: ['검술', '공중전', '화염 공격', '루나리아 상태 전환', '고대종 능력 활용'],
       specialTraits: [
@@ -130,7 +133,7 @@ export const sampleCharacters: Character[] = [
   {
     id: 'queen',
     name: '퀸',
-    crewId: 'beasts-pirates',
+    crewId: 'beasts-pirates', knownAs: [{ kind: 'epithet', name: '역재의 퀸', source: { label: 'ONE PIECE.com', reference: '퀸 공식 캐릭터 페이지 — 通称「疫災のクイーン」' } }],
     description: '백수 해적단 대간판. 고대종 브라키오사우루스와 사이보그 개조·과학 무장을 결합한다.',
     combatProfile: {
       combatStyles: ['근접전', '고대종 변신', '레이저·기계 무장', 'Germa 계열 기술 응용'],
@@ -170,7 +173,7 @@ export const sampleCharacters: Character[] = [
   {
     id: 'jack',
     name: '잭',
-    crewId: 'beasts-pirates',
+    crewId: 'beasts-pirates', knownAs: [{ kind: 'epithet', name: '가뭄의 잭', source: { label: 'ONE PIECE.com', reference: '잭 공식 캐릭터 페이지 — 通称「旱害のジャック」' } }],
     description: '백수 해적단 대간판. 고대종 매머드 능력과 강한 신체를 바탕으로 장기전과 정면전에 특화된다.',
     combatProfile: {
       combatStyles: ['근접 정면전', '쌍검', '매머드 돌진', '장기전'],
@@ -209,8 +212,8 @@ export const sampleCharacters: Character[] = [
   },
   {
     id: 'katakuri',
-    name: '카타쿠리',
-    crewId: 'big-mom-pirates',
+    name: '샬롯 카타쿠리',
+    crewId: 'big-mom-pirates', knownAs: [],
     description: '빅 맘 해적단 스위트 3장성. 모치 능력과 고도로 단련된 견문색을 결합하는 전투가 핵심이다.',
     combatProfile: {
       combatStyles: ['근접 격투', '삼지창', '중·원거리 모치 공격', '미래예지 기반 회피·대응', '각성 능력 활용'],
@@ -241,8 +244,8 @@ export const sampleCharacters: Character[] = [
   },
   {
     id: 'smoothie',
-    name: '스무디',
-    crewId: 'big-mom-pirates',
+    name: '샬롯 스무디',
+    crewId: 'big-mom-pirates', knownAs: [],
     description: '빅 맘 해적단 스위트 3장성. 즙즙 열매로 수분을 추출·흡수해 자신과 무기를 강화하고 장거리 공격에 활용한다.',
     combatProfile: {
       combatStyles: ['검술', '접촉 탈수', '흡수·거대화', '장거리 대형 참격'],
@@ -273,8 +276,8 @@ export const sampleCharacters: Character[] = [
   },
   {
     id: 'cracker',
-    name: '크래커',
-    crewId: 'big-mom-pirates',
+    name: '샬롯 크래커',
+    crewId: 'big-mom-pirates', knownAs: [{ kind: 'epithet', name: '천수의 크래커', source: { label: 'ONE PIECE.com', reference: '샬롯 크래커 공식 캐릭터 페이지 — 通称「千手のクラッカー」' } }],
     description: '빅 맘 해적단 스위트 3장성. 비스킷비스킷 열매로 병사와 갑옷을 만들고 무장색을 결합해 싸운다.',
     combatProfile: {
       combatStyles: ['검술', '비스킷 병사 운용', '갑옷·방패 방어', '다수전 압박'],
@@ -304,7 +307,7 @@ export const sampleCharacters: Character[] = [
     },
   },
   {
-    id: 'zoro', name: '조로', crewId: 'straw-hat-pirates',
+    id: 'zoro', name: '롤로노아 조로', crewId: 'straw-hat-pirates', knownAs: [{ kind: 'epithet', name: '해적 사냥꾼 조로', source: { label: 'ONE PIECE.com', reference: '롤로노아 조로 공식 캐릭터 페이지 — 通称「海賊狩りのゾロ」' } }],
     description: '밀짚모자 일당의 검사. 삼도류와 높은 수준의 무장색·패왕색 강화를 결합해 강한 공방과 결정력을 발휘한다.',
     combatProfile: {
       combatStyles: ['일도류·이도류·삼도류', '근접 검술', '비상 참격', '공격 차단·패링', '아수라'],
@@ -321,7 +324,7 @@ export const sampleCharacters: Character[] = [
     },
   },
   {
-    id: 'sanji', name: '상디', crewId: 'straw-hat-pirates',
+    id: 'sanji', name: '상디', crewId: 'straw-hat-pirates', knownAs: [{ kind: 'epithet', name: '검은 다리 상디', source: { label: 'ONE PIECE.com', reference: '상디 공식 캐릭터 페이지 — 通称「黒足のサンジ」' } }],
     description: '밀짚모자 일당의 요리사이자 전투원. 발기술, 초고속 기동, 공중전과 각성한 신체·Ifrit Jambe를 결합한다.',
     combatProfile: {
       combatStyles: ['발기술', '공중전', 'Sky Walk', 'Diable Jambe', 'Ifrit Jambe', '고속 요격·구조'],
@@ -343,7 +346,7 @@ export const sampleCharacters: Character[] = [
     },
   },
   {
-    id: 'jinbe', name: '징베', crewId: 'straw-hat-pirates',
+    id: 'jinbe', name: '징베', crewId: 'straw-hat-pirates', knownAs: [{ kind: 'epithet', name: '바다의 협객 징베', source: { label: 'ONE PIECE.com', reference: '징베 공식 캐릭터 페이지 — 通称「海侠のジンベエ」' } }],
     description: '밀짚모자 일당의 조타수. 어인공수도와 무장색을 기반으로 안정적인 공방을 수행하는 베테랑 전투원이다.',
     combatProfile: {
       combatStyles: ['어인공수도', '어인유술', '근접 격투', '물 활용 공격·방어'],
@@ -366,7 +369,7 @@ export const sampleCharacters: Character[] = [
   },
 
   {
-    id: 'shanks', name: '샹크스', crewId: 'red-hair-pirates',
+    id: 'shanks', name: '샹크스', crewId: 'red-hair-pirates', knownAs: [{ kind: 'epithet', name: '빨간 머리 샹크스', source: { label: 'ONE PIECE.com', reference: '공식 상품·기사 표기 — 「赤髪のシャンクス」' } }],
     description: '빨간 머리 해적단 선장. 검술과 최상위권 패기를 결합해 짧은 순간에 전황을 결정하는 전투원이다.',
     combatProfile: { combatStyles: ['검술', '패왕색 강화', '미래예지 기반 선제 대응', '고속 요격'], specialTraits: [],
       haki: { characterId: 'shanks', capabilities: [
@@ -378,7 +381,7 @@ export const sampleCharacters: Character[] = [
     },
   },
   {
-    id: 'garp', name: '몽키 D. 가프', crewId: 'marines',
+    id: 'garp', name: '몽키 D. 가프', crewId: 'marines', knownAs: [{ kind: 'title', name: '해군의 영웅', source: { label: 'ONE PIECE.com', reference: '몽키 D. 가프 공식 캐릭터 페이지 — 「海軍の英雄」' } }],
     description: '해군 영웅. 평가는 로저와 반복적으로 사투한 전성기를 기준으로 하며, 노년 하치노스 전투를 기술·기동·지속력의 직접 하한 근거로 함께 사용한다.',
     combatProfile: { combatStyles: ['권격', '고강도 패기', '고속 근접전', 'Galaxy 계열 광역 타격'], specialTraits: [],
       haki: { characterId: 'garp', capabilities: [
@@ -390,7 +393,7 @@ export const sampleCharacters: Character[] = [
     },
   },
   {
-    id: 'akainu', name: '사카즈키', crewId: 'marines',
+    id: 'akainu', name: '사카즈키', crewId: 'marines', knownAs: [{ kind: 'alias', name: '아카이누', source: { label: 'ONE PIECE.com', reference: '사카즈키 공식 캐릭터 페이지 — 通称「赤犬」' } }],
     description: '해군 원수. 마그마 능력의 높은 살상력과 정상결전 및 쿠잔과의 10일 결투에서 확인되는 지속력이 핵심이다.',
     combatProfile: { combatStyles: ['마그마 근접 타격', '광역 마그마 공격', '장기전'], specialTraits: [{ id: 'special-akainu-magma', category: 'devil-fruit', name: '마그마그 열매', status: 'confirmed', description: '마그마를 생성·변형해 높은 열과 관통력을 공격에 사용한다.', evidenceIds: [] }],
       haki: { characterId: 'akainu', capabilities: [
@@ -399,7 +402,7 @@ export const sampleCharacters: Character[] = [
       ]}, sources: [{ label: '원작 Evidence', reference: 'Marineford / Punk Hazard 10-day duel / Egghead-era Kuma encounter' }] },
   },
   {
-    id: 'kuzan', name: '쿠잔', crewId: 'marines',
+    id: 'kuzan', name: '쿠잔', crewId: 'marines', knownAs: [{ kind: 'alias', name: '아오키지', source: { label: 'ONE PIECE.com', reference: '쿠잔 공식 캐릭터 페이지 — 通称「青雉」' } }],
     description: '전 해군대장. 빙결에 의한 광역 제압·환경 통제와 가프식 무투를 함께 사용하는 복합 전투원이다.',
     combatProfile: { combatStyles: ['빙결', '광역 제압', '근접 무투', 'Ice Glove'], specialTraits: [{ id: 'special-kuzan-ice', category: 'devil-fruit', name: '얼음얼음 열매', status: 'confirmed', description: '빙결을 공격·방어·이동·지형 통제에 폭넓게 사용한다.', evidenceIds: [] }],
       haki: { characterId: 'kuzan', capabilities: [
@@ -408,7 +411,7 @@ export const sampleCharacters: Character[] = [
       ]}, sources: [{ label: '원작 Evidence', reference: 'Marineford / Punk Hazard 10-day duel / Ch. 1081 / 1087' }] },
   },
   {
-    id: 'kizaru', name: '보르살리노', crewId: 'marines',
+    id: 'kizaru', name: '보르살리노', crewId: 'marines', knownAs: [{ kind: 'alias', name: '키자루', source: { label: 'ONE PIECE.com', reference: '보르살리노 공식 캐릭터 페이지 — 通称「黄猿」' } }],
     description: '해군대장. 빛 기반 최고 수준 기동과 레이저·광검·분신을 결합하며 Egghead에서 임무 우선 판단과 높은 전투 지속력을 보였다.',
     combatProfile: { combatStyles: ['광속계 기동', '레이저', '광검', '빛 분신', '고속 발차기'], specialTraits: [{ id: 'special-kizaru-light', category: 'devil-fruit', name: '번쩍번쩍 열매', status: 'confirmed', description: '빛으로 이동·사격·무기·분신을 구현한다.', evidenceIds: [] }],
       haki: { characterId: 'kizaru', capabilities: [
@@ -417,7 +420,7 @@ export const sampleCharacters: Character[] = [
       ]}, sources: [{ label: '원작 Evidence', reference: 'Sabaody / Marineford / Egghead' }] },
   },
   {
-    id: 'fujitora', name: '잇쇼', crewId: 'marines',
+    id: 'fujitora', name: '잇쇼', crewId: 'marines', knownAs: [{ kind: 'alias', name: '후지토라', source: { label: 'ONE PIECE.com', reference: '잇쇼 공식 캐릭터 페이지 — 通称「藤虎」' } }],
     description: '해군대장. 검술과 중력 조작, 운석 호출을 결합해 광범위한 전장을 통제한다.',
     combatProfile: { combatStyles: ['검술', '중력 조작', '운석 공격', '광역 제압'], specialTraits: [{ id: 'special-fujitora-gravity', category: 'devil-fruit', name: '중력 조작 능력', status: 'confirmed', description: '중력을 증감·방향화하고 운석까지 전장에 끌어들인다.', evidenceIds: [] }],
       haki: { characterId: 'fujitora', capabilities: [
@@ -426,7 +429,7 @@ export const sampleCharacters: Character[] = [
       ]}, sources: [{ label: '원작 Evidence', reference: 'Dressrosa' }] },
   },
   {
-    id: 'ryokugyu', name: '아라마키', crewId: 'marines',
+    id: 'ryokugyu', name: '아라마키', crewId: 'marines', knownAs: [{ kind: 'alias', name: '료쿠규', source: { label: 'ONE PIECE.com', reference: '공식 ONE PIECE.com 표기 — 「緑牛」ことアラマキ' } }],
     description: '해군대장. 식물 생성·흡수·구속·재생·비행을 통해 넓은 전장을 장악하는 능력형 전투원이다.',
     combatProfile: { combatStyles: ['식물 생성', '광역 구속', '수분 흡수', '재생', '비행'], specialTraits: [{ id: 'special-ryokugyu-forest', category: 'devil-fruit', name: '숲숲 열매', status: 'confirmed', description: '식물과 숲을 생성·변형해 구속·흡수·재생·이동에 사용한다.', evidenceIds: [] }],
       haki: { characterId: 'ryokugyu', capabilities: [
@@ -436,7 +439,7 @@ export const sampleCharacters: Character[] = [
   },
 
   {
-    id: 'teach', name: '마샬 D. 티치', crewId: 'blackbeard-pirates',
+    id: 'teach', name: '마샬 D. 티치', crewId: 'blackbeard-pirates', knownAs: [{ kind: 'epithet', name: '검은 수염', source: { label: 'ONE PIECE.com', reference: '마샬 D. 티치 공식 캐릭터 페이지 — 通称「黒ひげ」' } }],
     description: '검은 수염 해적단 제독. 어둠어둠 열매와 흔들흔들 열매를 동시에 운용하며, 현재 확인된 실전 운용만 수치화한다.',
     combatProfile: {
       combatStyles: ['어둠 흡인·능력 봉쇄', '지진 충격파', '근접 격투', '광역 파괴'],
@@ -453,7 +456,7 @@ export const sampleCharacters: Character[] = [
     },
   },
   {
-    id: 'shiryu', name: '시류', crewId: 'blackbeard-pirates',
+    id: 'shiryu', name: '시류', crewId: 'blackbeard-pirates', knownAs: [{ kind: 'epithet', name: '비의 시류', source: { label: 'ONE PIECE.com', reference: '시류 공식 캐릭터 페이지 — 通称「雨のシリュウ」' } }],
     description: '검은 수염 해적단 2번선 선장. 검술과 투명투명 열매를 결합한 은신·기습 전투가 핵심이며 현재 7축 평가는 E2 잠정값이다.',
     combatProfile: {
       combatStyles: ['검술', '투명화', '은신·기습'],
@@ -469,7 +472,7 @@ export const sampleCharacters: Character[] = [
     },
   },
   {
-    id: 'burgess', name: '지저스 바제스', crewId: 'blackbeard-pirates',
+    id: 'burgess', name: '지저스 바제스', crewId: 'blackbeard-pirates', knownAs: [{ kind: 'epithet', name: '챔피언', source: { label: 'ONE PIECE.com', reference: '지저스 바제스 공식 캐릭터 페이지 — 通称「チャンピオン」' } }],
     description: '검은 수염 해적단 1번선 선장. 강한 완력과 힘힘 열매를 바탕으로 한 근접 격투·대형 투척이 중심이다.',
     combatProfile: {
       combatStyles: ['근접 격투', '완력 기반 타격', '대형 물체 투척'],
@@ -485,7 +488,7 @@ export const sampleCharacters: Character[] = [
     },
   },
   {
-    id: 'van-augur', name: '반 오거', crewId: 'blackbeard-pirates',
+    id: 'van-augur', name: '반 오거', crewId: 'blackbeard-pirates', knownAs: [],
     description: '검은 수염 해적단 3번선 선장. 초장거리 저격과 워프워프 열매를 결합한 위치 조정·지원에 특화된다.',
     combatProfile: {
       combatStyles: ['초장거리 저격', '순간이동', '아군 위치 지원'],
@@ -500,7 +503,7 @@ export const sampleCharacters: Character[] = [
     },
   },
   {
-    id: 'pizarro', name: '아발로 피사로', crewId: 'blackbeard-pirates',
+    id: 'pizarro', name: '아발로 피사로', crewId: 'blackbeard-pirates', knownAs: [{ kind: 'epithet', name: '악정왕 아발로 피사로', source: { label: 'ONE PIECE.com', reference: '아발로 피사로 공식 캐릭터 페이지 — 通称「悪政王アバロ・ピサロ」' } }],
     description: '검은 수염 해적단 4번선 선장. 섬섬 열매로 섬 전체와 동화해 구조물과 거대한 신체를 조작하는 전장형 능력자다.',
     combatProfile: {
       combatStyles: ['섬 동화', '거대 신체 조작', '광역 전장 통제'],
@@ -518,7 +521,7 @@ export const sampleCharacters: Character[] = [
   {
     id: 'law',
     name: '트라팔가 로',
-    crewId: 'seven-warlords',
+    crewId: 'seven-warlords', knownAs: [{ kind: 'epithet', name: '죽음의 외과의사 트라팔가 로', source: { label: 'ONE PIECE.com', reference: '트라팔가 로 공식 캐릭터 페이지 — 通称「死の外科医」' } }],
     description: '전 왕의 부하 칠무해이자 하트 해적단 선장. 오페오페 열매의 공간 조작·내부 파괴·각성을 검술과 결합한다.',
     combatProfile: {
       combatStyles: ['검술', 'ROOM 공간 조작', '위치 교환', '내부 파괴', '각성 K-ROOM·R-ROOM', '지원·구출'],
@@ -544,7 +547,7 @@ export const sampleCharacters: Character[] = [
   {
     id: 'doflamingo',
     name: '돈키호테 도플라밍고',
-    crewId: 'seven-warlords',
+    crewId: 'seven-warlords', knownAs: [{ kind: 'alias', name: '조커', source: { label: 'ONE PIECE.com', reference: 'Punk Hazard 공식 에피소드 안내 — 「ジョーカー」の正体がドフラミンゴ' } }],
     description: '전 왕의 부하 칠무해. 실실 열매의 정밀 조작과 각성, 공중 기동·구속·분신·전장 통제를 결합한다.',
     combatProfile: {
       combatStyles: ['실 절단', '구속·조종', '공중 이동', '분신', 'Birdcage', '각성 지형 변환'],
@@ -570,7 +573,7 @@ export const sampleCharacters: Character[] = [
   {
     id: 'hancock',
     name: '보아 핸콕',
-    crewId: 'seven-warlords',
+    crewId: 'seven-warlords', knownAs: [{ kind: 'epithet', name: '해적 여제 보아 핸콕', source: { label: 'ONE PIECE.com', reference: '보아 핸콕 공식 캐릭터 페이지 — 通称「海賊女帝」' } }],
     description: '전 왕의 부하 칠무해이자 구사 해적단 선장. 체술과 메로메로 열매의 석화 효과를 근·원거리 제압에 사용한다.',
     combatProfile: {
       combatStyles: ['근접 체술', '접촉 석화', '원거리 석화', '다수 제압'],
