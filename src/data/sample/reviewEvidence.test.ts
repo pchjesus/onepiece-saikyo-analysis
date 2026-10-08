@@ -56,10 +56,13 @@ describe('evidence-only review before approved calibration', () => {
     }
   })
 
-  it('keeps all 27 evaluated score records valid after the recalibration draft', () => {
+  it('keeps all 28 evaluation records valid after the state split', () => {
     const references = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
-    expect(sampleEvaluations).toHaveLength(27)
-    expect(sampleEvaluations.every(({ evaluationDataVersion }) => evaluationDataVersion === 'evaluation-0.1.26-draft')).toBe(true)
+    expect(sampleEvaluations).toHaveLength(28)
+    expect(sampleEvaluations.filter(({ id }) => id !== 'evaluation-garp-current')
+      .every(({ evaluationDataVersion }) => evaluationDataVersion === 'evaluation-0.1.26-draft')).toBe(true)
+    expect(sampleEvaluations.find(({ id }) => id === 'evaluation-garp-current')?.evaluationDataVersion)
+      .toBe('evaluation-0.1.28-draft')
     for (const evaluation of sampleEvaluations) {
       expect(validateEvaluation(evaluation, references)).toEqual({ valid: true, errors: [] })
     }
