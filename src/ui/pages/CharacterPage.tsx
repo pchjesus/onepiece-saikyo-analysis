@@ -9,6 +9,7 @@ import { EvaluationTrace } from '../components/EvaluationTrace'
 import { StatList } from '../components/StatList'
 import { CombatProfile } from '../components/CombatProfile'
 import type { CharacterKnownAsKind } from '../../domain/character/types'
+import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
 
 const knownAsLabel: Record<CharacterKnownAsKind, string> = {
   alias: '통칭',
@@ -22,13 +23,18 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
   onSelectStat: (stat: CombatStat) => void
   onSelectOverall: () => void
 }) {
+  const initialDetail = getCharacterDetail(characterId, groupId)
   const [activeDetail, setActiveDetail] = useState<'evaluation' | 'battle'>('evaluation')
-  const detail = getCharacterDetail(characterId, groupId)
-  if (!detail) return <section>캐릭터 데이터를 찾을 수 없습니다.</section>
+  const [selectedStateId, setSelectedStateId] = useState(initialDetail?.evaluation.subjectState?.id ?? '')
 
-  const result = getCombatPower(characterId)
+  if (!initialDetail) return <section>캐릭터 데이터를 찾을 수 없습니다.</section>
+
+  const detail = getCharacterDetail(characterId, groupId, selectedStateId || undefined) ?? initialDetail
+  const activeStateId = detail.evaluation.subjectState?.id
+  const result = getCombatPower(characterId, 'balanced', activeStateId)
   const battleTimeline = getCharacterBattleTimeline(characterId)
-  const evaluationTrace = getCharacterEvaluationTrace(characterId)
+  const evaluationTrace = getCharacterEvaluationTrace(characterId, activeStateId)
+  const hasMultipleEvaluations = detail.evaluations.length > 1
 
   return (
     <main className="detail">
@@ -45,11 +51,32 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
               ))}
             </div>
           )}
-          {detail.character.description && <p className="character-description">{detail.character.description}</p>}
+          {detail.character.description && (
+            <p className="character-description">
+              {normalizeCharacterNamesForDisplay(detail.character.description)}
+            </p>
+          )}
+          {hasMultipleEvaluations && (
+            <div className="evaluation-state-switcher" role="group" aria-label="평가 시점 선택">
+              {detail.evaluations.map((evaluation) => {
+                const stateId = evaluation.subjectState?.id ?? evaluation.id
+                const selected = stateId === (activeStateId ?? detail.evaluation.id)
+                return (
+                  <button key={evaluation.id} type="button" className={selected ? 'selected' : ''}
+                    aria-pressed={selected}
+                    onClick={() => setSelectedStateId(evaluation.subjectState?.id ?? '')}>
+                    {evaluation.subjectState?.label ?? '기본'}
+                  </button>
+                )
+              })}
+            </div>
+          )}
           {detail.evaluation.subjectState && (
             <p className="evaluation-subject-state">
               <strong>평가 시점 · {detail.evaluation.subjectState.label}</strong>
-              {detail.evaluation.subjectState.note && <span>{detail.evaluation.subjectState.note}</span>}
+              {detail.evaluation.subjectState.note && (
+                <span>{normalizeCharacterNamesForDisplay(detail.evaluation.subjectState.note)}</span>
+              )}
             </p>
           )}
         </div>
@@ -93,7 +120,9 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
             <section className="evidence-section">
               <p className="eyebrow">BATTLE & CANON EVIDENCE</p>
               <h2>전투 기록</h2>
-              <p className="section-note">전투를 선택하면 상황과 원작 근거가 펼쳐집니다. 근거는 점수를 자동 변경하지 않습니다.</p>
+              <p className="section-note">
+                전투를 선택하면 상황과 원작 근거가 펼쳐집니다. 전투 기록은 캐릭터 전체 이력이며, 현재 선택한 평가 시점에 실제 사용된 근거는 평가 근거 탭에서 확인합니다.
+              </p>
               <BattleTimeline items={battleTimeline} />
             </section>
           )}
