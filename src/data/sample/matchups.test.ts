@@ -6,14 +6,14 @@ import { sampleMatchups } from './matchups'
 import { validateMatchupAnalysis } from '../../domain/matchup/validation'
 
 describe('sample evidence-aware matchups', () => {
-  it('keeps six prototype matchup references valid without numeric win probabilities', () => {
+  it('keeps eleven prototype matchup references valid without numeric win probabilities', () => {
     const characterIds = new Set(sampleCharacters.map(({ id }) => id))
     const evidenceIds = sampleEvidence.map(({ id }) => id)
     const evaluationStateIds = sampleEvaluations
       .filter(({ subjectState }) => Boolean(subjectState))
       .map(({ characterId, subjectState }) => `${characterId}:${subjectState!.id}`)
 
-    expect(sampleMatchups).toHaveLength(6)
+    expect(sampleMatchups).toHaveLength(11)
     for (const matchup of sampleMatchups) {
       expect(characterIds.has(matchup.characterAId)).toBe(true)
       expect(characterIds.has(matchup.characterBId)).toBe(true)
@@ -29,6 +29,7 @@ describe('sample evidence-aware matchups', () => {
     const lawTeach = sampleMatchups.find(({ id }) => id === 'matchup-law-teach')
     const hancockTeach = sampleMatchups.find(({ id }) => id === 'matchup-hancock-teach')
     const currentGarpKuzan = sampleMatchups.find(({ id }) => id === 'matchup-garp-current-kuzan')
+    const crocodileJozu = sampleMatchups.find(({ id }) => id === 'matchup-crocodile-jozu')
 
     expect(marcoKing?.factors.find(({ id }) => id === 'marco-king-attrition')?.advantage).toBe('unknown')
     expect(lawTeach?.factors.find(({ id }) => id === 'law-teach-nullification')?.advantage).toBe('conditional')
@@ -37,5 +38,7 @@ describe('sample evidence-aware matchups', () => {
     expect(currentGarpKuzan?.characterAStateId).toBe('current')
     expect(currentGarpKuzan?.factors.find(({ id }) => id === 'garp-kuzan-endurance-context')?.advantage)
       .toBe('unknown')
+    expect(crocodileJozu?.factors.find(({ id }) => id === 'crocodile-jozu-damage')?.advantage)
+      .toBe('character-b')
   })
 })

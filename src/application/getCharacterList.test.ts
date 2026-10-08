@@ -5,7 +5,7 @@ describe('getCharacterList', () => {
   it('preserves the baseline roster and exposes approved expansion characters through the application boundary', () => {
     const list = getCharacterList()
 
-    expect(list).toHaveLength(27)
+    expect(list).toHaveLength(29)
     expect(list.map((item) => item.character.name)).toEqual([
       '마르코', '죠즈', '비스타',
       '알베르', '퀸', '잭',
@@ -14,6 +14,7 @@ describe('getCharacterList', () => {
       '샹크스', '몽키 D. 가프', '사카즈키', '쿠잔', '보르살리노', '잇쇼', '아라마키',
       '마샬 D. 티치', '지저스 바제스', '시류', '반 오거', '아발로 피사로',
       '트라팔가 로', '돈키호테 도플라밍고', '보아 핸콕',
+      '쥬라큘 미호크', '크로커다일',
     ])
     expect(list.map((item) => item.group.name)).toEqual([
       '흰수염 해적단', '흰수염 해적단', '흰수염 해적단',
@@ -23,7 +24,12 @@ describe('getCharacterList', () => {
       '빨간 머리 해적단', '해군', '해군', '해군', '해군', '해군', '해군',
       '검은 수염 해적단', '검은 수염 해적단', '검은 수염 해적단', '검은 수염 해적단', '검은 수염 해적단',
       '왕의 부하 칠무해', '왕의 부하 칠무해', '왕의 부하 칠무해',
+      '크로스 길드', '크로스 길드',
     ])
+  })
+
+  it('keeps E3 Buggy outside the evaluated roster', () => {
+    expect(getCharacterList().some(({ character }) => character.id === 'buggy')).toBe(false)
   })
 
   it('exposes membership metadata for subgroup-aware UI', () => {
