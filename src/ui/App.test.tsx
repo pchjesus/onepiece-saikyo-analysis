@@ -73,7 +73,7 @@ describe('evaluated roster UI', () => {
     expect(rows()).toHaveLength(29)
     expect(document.querySelector('#stat-rank-title')?.textContent).toContain('Overall Combat Power')
     expect(rows()[0].textContent).toContain('몽키 D. 가프')
-    expect(rows()[0].textContent).toContain('96')
+    expect(rows()[0].textContent).toContain('97.429')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows()[0].textContent).toContain('아발로 피사로')
     expect(rows()[0].textContent).toContain('29위')
@@ -145,7 +145,7 @@ describe('evaluated roster UI', () => {
     expect(container.querySelector('main.detail h1')?.textContent).toBe('몽키 D. 가프')
     expect(container.querySelector('.evaluation-subject-state')?.textContent).toContain('평가 시점 · 현재')
     expect(container.querySelector('.power-card strong')?.textContent).toContain('93.7')
-    expect(container.querySelector('.evaluation-trace-card')?.textContent).toContain('Final 94/100')
+    expect(container.querySelector('.evaluation-trace-card')?.textContent).toContain('Final 96/100')
 
     await click(stateButtons().find((button) => button.textContent === '전성기') ?? null)
     expect(container.querySelector('.power-card strong')?.textContent).toContain('97.4')
