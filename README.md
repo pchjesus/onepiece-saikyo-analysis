@@ -32,6 +32,16 @@ Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Speci
 - Character 검색은 같은 Character의 복수 Membership 결과를 한 건으로 합치되, 소속명 검색 시 해당 Membership 문맥으로 진입할 수 있다.
 - 현재 evaluated roster는 계속 **29 unique Character**이며 Membership 행은 31개다. Balanced 1.2 / Haki Weight 0.5 / Evaluation 점수는 변경하지 않는다.
 
+## v0.1.32 주요 변경
+
+- Character ↔ Group 관계에서 **복수 Membership**을 실제로 허용한다.
+- Group 탭은 Membership-expanded view를 사용해 동일 Character가 여러 소속에 나타날 수 있다.
+- Ranking과 Matchup roster는 **Character-unique view**를 사용해 Membership 개수와 무관하게 한 캐릭터가 한 번만 나타난다.
+- 대표 Group은 migration 기간 동안 Character의 기존 `crewId`를 우선 사용한다.
+- 검색은 과거/보조 Group 이름으로도 찾을 수 있지만 suggestion은 Character당 한 건으로 중복 제거한다.
+- 실제 회귀 데이터로 쥬라큘 미호크와 크로커다일의 **전 왕의 부하 칠무해 Membership**을 추가했다. 두 캐릭터는 칠무해/크로스 길드 탭 모두에서 탐색되지만 Ranking·Matchup에는 각각 1회만 등장한다.
+- Balanced 1.2, Haki Weight 0.5, 기존 Evaluation 점수에는 변경이 없다.
+
 ## v0.1.31 주요 변경
 
 - 돈키호테 도플라밍고의 공식 이명 **천야차**를 추가하고 표시 순서를 **천야차 → 조커**로 정리했다.
