@@ -123,6 +123,13 @@ describe('evaluated roster UI', () => {
     expect(container.querySelector('.search-suggestion')?.textContent).toContain('사카즈키')
     await click(container.querySelector('.search-suggestion'))
     expect(container.querySelector('main.detail h1')?.textContent).toBe('사카즈키')
+
+    await search('천야차')
+    expect(container.querySelector('.search-suggestion')?.textContent).toContain('돈키호테 도플라밍고')
+    await click(container.querySelector('.search-suggestion'))
+    const knownAs = [...container.querySelectorAll('.character-known-as span')].map((entry) => entry.textContent)
+    expect(knownAs[0]).toContain('천야차')
+    expect(knownAs[1]).toContain('조커')
   })
 
   it('shows official identity metadata and the selected evaluation era in the intro', async () => {
