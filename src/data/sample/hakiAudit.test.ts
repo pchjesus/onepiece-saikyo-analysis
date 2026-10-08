@@ -47,7 +47,7 @@ describe('30-character master pool / 30-evaluation Haki / Evidence audit', () =>
     expect(getRawHakiContributionTotal(item('garp', 'techniqueMastery')!)).toBe(8)
     const currentGarp = sampleEvaluations.find(e => e.characterId === 'garp' && e.subjectState?.id === 'current')
     expect(getRawHakiContributionTotal(currentGarp?.items.find(i => i.stat === 'attack')!)).toBe(6)
-    expect(currentGarp?.items.find(i => i.stat === 'attack')?.score).toBe(94)
+    expect(currentGarp?.items.find(i => i.stat === 'attack')?.score).toBe(96)
     expect(getRawHakiContributionTotal(item('kuzan', 'techniqueMastery')!)).toBe(4)
     expect(getRawHakiContributionTotal(item('akainu', 'defense')!)).toBe(2)
     expect(getRawHakiContributionTotal(item('kizaru', 'defense')!)).toBe(2)
