@@ -39,14 +39,14 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-vista', characterId: 'vista', evaluationDataVersion: 'evaluation-0.1.23', status: 'draft',
+    id: 'evaluation-vista', characterId: 'vista', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
     items: [
       item('attack', 80, '미호크를 직접 요격해 검술 공방을 성립시키고 아카이누에게 무장색 검격을 적용했다. 미호크와의 짧은 교전을 전체 전투력 동급으로 확대하지 않되 공격 기술의 질은 높게 평가하며, 실제 무장색 적용은 Base와 분리한다.', ['evidence-vista-mihawk-561-562', 'evidence-vista-official-mihawk-profile', 'evidence-vista-armament-akainu-574'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '아카이누에게 실제 무장색 검격을 적용', evidenceIds: ['evidence-vista-armament-akainu-574'] }]),
       item('defense', 79, '미호크와의 검술 공방에서 요격 역할을 수행하며 의미 있는 부상을 허용하지 않았다. 다만 별도의 초고방어 능력이나 장시간 방어전 표본은 적다.', ['evidence-vista-mihawk-561-562']),
       item('stamina', 77, '정상결전에서 전선을 유지했지만 개인의 장시간 고강도 전투 지속력을 분리해 확인할 직접 표본이 제한적이다. 정보 부족을 약함으로 보지 않되 임시 중립값을 유지한다.', ['evidence-vista-mihawk-561-562', 'evidence-vista-armament-akainu-574']),
-      item('speed', 79, '루피를 추격하는 미호크를 요격하고 고속 검술 공방을 성립시킨 반응·접근 능력이 확인된다. 속도 특화 캐릭터와 직접 비교 가능한 표본은 적다.', ['evidence-vista-mihawk-561-562']),
-      item('techniqueMastery', 85, '원작에서 미호크와 직접 검술 공방을 이어갔고 공식 ONE PIECE.com도 비스타를 이도류 대검호이자 미호크와 호각으로 싸울 정도의 실력자로 설명한다. 무장색을 검술에 실제 결합한 부분은 최소 Raw Contribution으로 분리한다.', ['evidence-vista-mihawk-561-562', 'evidence-vista-official-mihawk-profile', 'evidence-vista-armament-akainu-574'], [{ hakiType: 'armament', stat: 'techniqueMastery', amount: 2, application: '이도류 검술에 무장색을 결합해 아카이누에게 실전 적용', evidenceIds: ['evidence-vista-armament-akainu-574'] }]),
-      item('combatIQ', 76, '전쟁 상황에서 적절한 강자 요격과 교전 중단 판단을 수행하지만 상대 메커니즘 분석·전술 전환을 반복적으로 보여주는 표본은 제한적이다.', ['evidence-vista-mihawk-561-562']),
+      item('speed', 80, '루피를 추격하는 미호크를 요격하고 검술 공방을 성립시킨 반응·접근 능력을 반영한다. 속도 특화 캐릭터와 직접 비교 가능한 반복 표본은 적으므로 80으로 제한한다.', ['evidence-vista-mihawk-561-562']),
+      item('techniqueMastery', 86, '원작에서 미호크와 직접 검술 공방을 이어갔고 공식 ONE PIECE.com도 비스타를 이도류 대검호이자 미호크와 호각으로 싸울 정도의 실력자로 설명한다. 무장색을 검술에 실제 결합한 부분은 최소 Raw Contribution으로 분리하며 Final 87을 형성한다.', ['evidence-vista-mihawk-561-562', 'evidence-vista-official-mihawk-profile', 'evidence-vista-armament-akainu-574'], [{ hakiType: 'armament', stat: 'techniqueMastery', amount: 2, application: '이도류 검술에 무장색을 결합해 아카이누에게 실전 적용', evidenceIds: ['evidence-vista-armament-akainu-574'] }]),
+      item('combatIQ', 77, '전쟁 상황에서 적절한 강자 요격과 교전 중단 판단을 수행한 점을 반영한다. 상대 메커니즘 분석·전술 전환을 반복적으로 보여주는 표본은 제한적이므로 소폭 상향에 그친다.', ['evidence-vista-mihawk-561-562']),
       item('versatility', 75, '순수 검사에 가깝지만 공격·방어·요격 등 여러 전장 역할을 검술 하나로 수행한다. 특수 능력이 없다는 사실 자체를 감점하지 않으며, 역할 폭이 넓은 Marco·Katakuri보다는 낮게 평가한다.', ['evidence-vista-mihawk-561-562', 'evidence-vista-armament-akainu-574']),
     ],
   },
@@ -75,11 +75,11 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-jack', characterId: 'jack', evaluationDataVersion: 'evaluation-0.1.23', status: 'draft',
+    id: 'evaluation-jack', characterId: 'jack', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
     items: [
       item('attack', 73, '매머드 신체와 쌍검으로 강한 정면 공격을 수행하고 슈텐마루에게 실제 검격 피해를 줬다. Cracker와 명확한 공격력 우열을 정할 정도의 비교 자료는 부족해 비슷한 범위로 둔다.', ['evidence-jack-ashura-921', 'evidence-jack-zou-809-810']),
       item('defense', 80, '5일 전투와 스론 밍크들의 공격을 견디며 전선을 유지한 높은 신체 내구가 강점이다. 다만 슈텐마루에게 선제 유효타를 허용하고 최종적으로 스론 이누아라시에게 패배한 점을 함께 고려한다.', ['evidence-jack-zou-809-810', 'evidence-jack-ashura-921', 'evidence-jack-sulong-1026']),
-      item('stamina', 82, '밈크족과 5일간의 전선을 유지했고 오니가시마에서도 큰 피해 후 다시 전투에 복귀했다. 상대 교대·병력 구조·전투 강도의 불확실성을 할인하더라도 분석군 최고 수준의 장기전 Evidence다.', ['evidence-jack-zou-809-810', 'evidence-jack-sulong-1026', 'evidence-jack-convoy-801']),
+      item('stamina', 84, '밍크족과 5일간의 전선을 유지했고 오니가시마에서도 큰 피해 후 다시 전투에 복귀했다. 이누아라시·네코마무시의 교대와 양측 병력 구조를 고려해 최상단 값은 피하되, 장기전 강점은 분명해 84로 평가한다.', ['evidence-jack-zou-809-810', 'evidence-jack-sulong-1026', 'evidence-jack-convoy-801']),
       item('speed', 73, '정면전에 필요한 반응과 근접 교전은 가능하지만 속도 자체가 대표 강점으로 확인되는 장면은 적다. 애니메이션 전용 연출은 원작 평가를 올리는 근거로 사용하지 않는다.', ['evidence-jack-ashura-921']),
       item('techniqueMastery', 71, '쌍검과 매머드 변신을 전투에 사용하지만 정밀한 무기술·능력 운용이 반복적으로 강조되지는 않는다. 강한 신체 능력과 숙련을 분리해 보수적으로 평가한다.', ['evidence-jack-ashura-921', 'evidence-jack-zou-809-810']),
       item('combatIQ', 70, '지속적인 정면 압박은 수행하지만 Zou에서 장기 교착 끝에 외부 독가스 병기를 사용한 전투 구조와 무모한 해상 행동 등을 고려하면 높은 전술 판단을 부여할 직접 근거가 제한적이다.', ['evidence-jack-zou-809-810', 'evidence-jack-zunesha-824']),
@@ -111,19 +111,19 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-cracker', characterId: 'cracker', evaluationDataVersion: 'evaluation-0.1.23', status: 'draft',
+    id: 'evaluation-cracker', characterId: 'cracker', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
     items: [
-      item('attack', 71, '무장색 검격으로 Gear 4 루피의 팔에 실제 피해를 줬지만, Marco보다 높은 상대 질·반복 공격 성과는 부족하고 Jack과의 직접 우열도 명확하지 않다. 실제 무장색 적용은 Base와 분리한다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-urouge-837'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '무장색을 검에 적용해 Gear 4 루피에게 실제 검격 피해를 줌', evidenceIds: ['evidence-cracker-biscuit-837-838'] }]),
-      item('defense', 71, '비스킷 갑옷·방패가 Gear 4 이전 루피의 공격을 막는 실제 방어 시스템으로 기능했다. Gear 4에는 갑옷이 부서지고 물에 젖으면 약해지는 명확한 상성 한계를 함께 반영한다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-long-battle-842']),
-      item('stamina', 73, '약 11시간 동안 비스킷 병사를 계속 생성·조종하며 전투를 이어갔다. 본체가 11시간 내내 피해를 직접 견딘 것으로 과장하지 않고 능력 지속력 중심으로 평가한다.', ['evidence-cracker-long-battle-842']),
-      item('speed', 71, 'Gear 4 루피에게 직접 검격을 적중시킬 전투 반응은 있으나 순수 Speed가 강점으로 반복 확인되는 장면은 적다.', ['evidence-cracker-biscuit-837-838']),
-      item('techniqueMastery', 73, '비스킷을 병사·갑옷·무기 형태로 만들고 장시간 조종하는 숙련은 확인된다. 다만 전투 패턴이 비교적 반복적이며 능력 강도 자체를 숙련도로 중복 가산하지 않는다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-long-battle-842']),
-      item('combatIQ', 70, '능력의 장점을 활용해 본체를 보호하고 병사를 지속 투입하지만 나미의 물 상성 대응 이후 전투 양상을 크게 전환하는 모습은 제한적이다.', ['evidence-cracker-long-battle-842']),
-      item('versatility', 72, '비스킷 하나로 공격·방어·다수 병사 운용·본체 은폐를 수행하지만 실제 역할과 거리 전환의 폭은 상위 분석군보다 제한적이다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-long-battle-842']),
+      item('attack', 72, '무장색 검격으로 Gear 4 루피의 팔에 실제 피해를 줬지만 Marco·Jozu보다 높은 반복 결정력을 보여줬다고 보기는 어렵다. 실제 무장색 적용은 Base와 분리해 Final 74로 제한한다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-urouge-837'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '무장색을 검에 적용해 Gear 4 루피에게 실제 검격 피해를 줌', evidenceIds: ['evidence-cracker-biscuit-837-838'] }]),
+      item('defense', 76, '비스킷 갑옷·방패가 Gear 4 이전 루피의 공격을 막는 실제 방어 시스템으로 기능했다. 다만 Gear 4에는 갑옷이 부서지고 물에 젖으면 약해지는 명확한 상성 한계를 함께 반영해 76으로 제한한다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-long-battle-842']),
+      item('stamina', 77, '약 11시간 동안 비스킷 병사를 계속 생성·조종하며 전투를 이어간 능력 지속력은 인정한다. 다만 본체가 11시간 내내 고강도 피해를 직접 견딘 것은 아니므로 상위 장기전 캐릭터보다 낮게 제한한다.', ['evidence-cracker-long-battle-842']),
+      item('speed', 74, 'Gear 4 루피에게 직접 검격을 적중시킬 전투 반응은 있으나 순수 Speed가 강점으로 반복 확인되는 장면은 적다.', ['evidence-cracker-biscuit-837-838']),
+      item('techniqueMastery', 76, '비스킷을 병사·갑옷·무기 형태로 만들고 장시간 조종하는 숙련은 확인된다. 다만 King·Katakuri처럼 복수 메커니즘을 고도로 전환하는 수준과는 구분하고 능력 강도 자체를 숙련도로 중복 가산하지 않는다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-long-battle-842']),
+      item('combatIQ', 74, '능력의 장점을 활용해 본체를 숨기고 병사를 지속 투입하는 운영은 확인된다. 나미의 물 상성 대응 이후 전투 양상을 크게 전환하는 모습은 제한적이다.', ['evidence-cracker-long-battle-842']),
+      item('versatility', 76, '비스킷 하나로 공격·방어·다수 병사 운용·본체 은폐를 수행하지만 실제 역할과 거리 전환의 폭은 Marco·King·Katakuri보다 제한적이다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-long-battle-842']),
     ],
   },
   {
-    id: 'evaluation-zoro', characterId: 'zoro', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    id: 'evaluation-zoro', characterId: 'zoro', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
     items: [
       item('attack', 85, '카이도에게 영구 흉터를 남긴 아수라와 킹을 격파한 삼도류의 순수 결정력을 높은 Base로 평가하고, 킹전의 의식적 무장색·패왕색 강화 효과는 별도 Haki Contribution으로 분리한다.', ['evidence-zoro-ashura-scar-1010', 'evidence-zoro-conquerors-1033-1035', 'evidence-zoro-lucci-1110-1111'], [
         { hakiType: 'armament', stat: 'attack', amount: 4, application: '검에 무장색을 결합해 고출력 검격을 강화', evidenceIds: ['evidence-zoro-conquerors-1033-1035'] },
@@ -138,7 +138,7 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-sanji', characterId: 'sanji', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    id: 'evaluation-sanji', characterId: 'sanji', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
     items: [
       item('attack', 81, '각성한 신체·근력·속도와 고열 발기술로 퀸을 격파한 결정력을 Base로 평가하고 Ifrit Jambe에 실제 결합된 무장색 강화는 별도 Contribution으로 분리한다.', ['evidence-sanji-speed-ifrit-1034'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: 'Ifrit Jambe의 고열·고속 발기술에 무장색을 결합', evidenceIds: ['evidence-sanji-speed-ifrit-1034'] }]),
       item('defense', 84, '외골격 각성 후 큰 손상에서 복구하고 강한 공격을 견디는 신체 성능과 키자루 레이저 차단을 반영한다. 회복 특성 자체를 중복 가산하지 않고 실제 방어 성과를 중심으로 평가한다.', ['evidence-sanji-exoskeleton-1028', 'evidence-sanji-speed-ifrit-1034', 'evidence-sanji-kizaru-laser-1107'], [{ hakiType: 'armament', stat: 'defense', amount: 2, application: '발기술과 신체 방어에 무장색을 실제 전투에서 결합', evidenceIds: ['evidence-sanji-speed-ifrit-1034'] }]),
@@ -150,7 +150,7 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-jinbe', characterId: 'jinbe', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    id: 'evaluation-jinbe', characterId: 'jinbe', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
     items: [
       item('attack', 76, '어인공수도로 후즈후를 격파하고 물·수분을 활용해 충격을 전달하는 높은 기본 공격 숙련을 평가하며, 실제 무장색 강화는 별도 Contribution으로 분리한다.', ['evidence-jinbe-fishman-karate-629', 'evidence-jinbe-whos-who-1018'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '후즈후와의 근접 공방에서 무장색을 어인공수도 공격에 결합', evidenceIds: ['evidence-jinbe-whos-who-1018'] }]),
       item('defense', 78, '빅맘의 공격을 잠시 받아낸 성과와 후즈후의 공격을 견딘 방어력을 평가하되 빅맘에게 힘에서 밀린 한계와 King급 특수 방어와의 차이를 반영한다.', ['evidence-jinbe-big-mom-890', 'evidence-jinbe-whos-who-1018'], [{ hakiType: 'armament', stat: 'defense', amount: 4, application: '빅맘·후즈후의 공격에 무장색 경화를 실제 방어로 적용', evidenceIds: ['evidence-jinbe-big-mom-890', 'evidence-jinbe-whos-who-1018'] }]),
@@ -163,7 +163,7 @@ export const sampleEvaluations: Evaluation[] = [
   }
 
   {
-    id: 'evaluation-shanks', characterId: 'shanks', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    id: 'evaluation-shanks', characterId: 'shanks', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
     items: [
       item('attack', 94, 'Kid전 Kamusari의 결정력과 Whitebeard와의 충돌을 반영한다. Zoro 90보다 명확히 높은 최상위 단일 결정력으로 보되 절대 천장은 남긴다.'),
       item('defense', 91, 'Whitebeard·Akainu 공격에 대한 차단과 미래예지 기반 선제 방어를 함께 반영한다.'),
@@ -175,7 +175,7 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-garp', characterId: 'garp', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    id: 'evaluation-garp', characterId: 'garp', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
     items: [
       item('attack', 99, '로저와 반복적으로 사투한 전성기 위상과 노년 Galaxy 계열 타격의 직접 고점을 함께 반영한다.'),
       item('defense', 96, '전성기 최고 수준의 패기·신체 방어를 평가하되 노년의 관통상 등 실제 피격 한계도 고려한다.'),
@@ -187,7 +187,7 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-akainu', characterId: 'akainu', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    id: 'evaluation-akainu', characterId: 'akainu', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
     items: [
       item('attack', 96, '마그마의 높은 관통·살상력과 정상결전의 반복적 중상 성과를 최상위 공격 근거로 본다.'),
       item('defense', 93, 'Whitebeard를 포함한 강자들의 공격을 받은 뒤에도 전선을 유지한 실제 공방을 반영한다.'),
@@ -199,7 +199,7 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-kuzan', characterId: 'kuzan', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    id: 'evaluation-kuzan', characterId: 'kuzan', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
     items: [
       item('attack', 93, '빙결 자체의 한계를 최상위 무투와 결합해 보완한다. Zoro 90보다 높은 종합 공격력을 인정하되 Shanks·Akainu급 순간 결정력과 구분한다.'),
       item('defense', 92, '자연계 신체 재구성과 빙결 방어, 최상위 근접 공방을 함께 반영한다.'),
@@ -211,7 +211,7 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-kizaru', characterId: 'kizaru', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    id: 'evaluation-kizaru', characterId: 'kizaru', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
     items: [
       item('attack', 93, '레이저와 고속 가속 타격의 높은 출력·관통 성과를 반영한다.'),
       item('defense', 90, '상위권 공격에 대응·회피하지만 Gear 5의 강한 타격에는 실제로 행동 제한이 발생한 점을 함께 반영한다.'),
@@ -223,7 +223,7 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-fujitora', characterId: 'fujitora', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    id: 'evaluation-fujitora', characterId: 'fujitora', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
     items: [
       item('attack', 92, '검술에 중력과 운석을 결합하는 대규모 공격력을 반영해 Zoro 90보다 소폭 높은 고점으로 평가한다.'),
       item('defense', 89, '검술·중력 제어를 통한 방어 대응은 강하지만 최상단 직접 내구 표본은 제한적이다.'),
@@ -235,7 +235,7 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-ryokugyu', characterId: 'ryokugyu', evaluationDataVersion: 'evaluation-0.1.24-candidate', status: 'draft',
+    id: 'evaluation-ryokugyu', characterId: 'ryokugyu', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
     items: [
       item('attack', 91, '대장급 전투원으로서 광역 구속·흡수와 강한 직접 제압 성과를 인정하되, 현재 묘사상 막타 결정력은 Fujitora 92 이상으로 올리지 않는다.'),
       item('defense', 91, '식물 신체와 재생을 통해 큰 공격 뒤에도 전투 형태를 복구하는 방어 성과를 반영한다.'),
@@ -244,6 +244,67 @@ export const sampleEvaluations: Evaluation[] = [
       item('techniqueMastery', 88, '다양한 식물 형태와 흡수·구속·재생을 안정적으로 운용한다.'),
       item('combatIQ', 84, '능력 활용은 넓지만 최상위 전술 판단을 입증할 반복 직접 표본은 아직 제한적이다.'),
       item('versatility', 97, '광역 식생·구속·흡수·재생·비행·지형 변화까지 수행하는 최고 수준 능력 적용 폭이다.'),
+    ],
+  },
+
+  {
+    id: 'evaluation-teach', characterId: 'teach', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
+    items: [
+      item('attack', 95, '어둠어둠 열매의 흡인·능력 무효화와 흔들흔들 열매의 지진 공격을 실제 전투에 사용한다. 다만 현재 숙련도를 전성기 흰수염의 지진 운용이나 Prime Garp 99급 결정력과 동일시하지 않는다.', ['evidence-teach-ace-440-441', 'evidence-teach-gura-577', 'evidence-teach-law-1063-1064']),
+      item('defense', 89, '어둠어둠 열매 특성상 공격을 흘리지 못하고 고통이 크게 표현되는 약점이 있지만, 에이스·흰수염·로의 강한 공격을 받은 뒤에도 전투를 이어간 실제 성과를 반영한다.', ['evidence-teach-ace-440-441', 'evidence-teach-whitebeard-576', 'evidence-teach-law-1063-1064']),
+      item('stamina', 95, '강한 공격을 반복적으로 허용한 뒤에도 전투를 지속하고 Winner Island 전투를 끝까지 수행한 높은 지속력을 평가한다. 피해 경감과 지구력을 분리한다.', ['evidence-teach-whitebeard-576', 'evidence-teach-law-1063-1064', 'evidence-teach-heart-pirates-1081']),
+      item('speed', 82, '최상위권 전투에 대응할 반응은 있으나 속도 자체가 대표 강점으로 반복 확인되지는 않는다.', ['evidence-teach-ace-440-441', 'evidence-teach-law-1063-1064']),
+      item('techniqueMastery', 91, '서로 성질이 다른 두 열매를 실전에서 전환해 사용하지만, 각 능력을 전성기 원사용자 수준으로 완성했다고 단정하지 않는다.', ['evidence-teach-ace-440-441', 'evidence-teach-gura-577', 'evidence-teach-law-1063-1064']),
+      item('combatIQ', 85, '능력 봉쇄와 매복·상성 활용은 뛰어나지만 Winner Island에서 위험한 돌진을 하고 Van Augur가 후퇴를 제안하는 등 순간 전투 판단의 거친 면도 함께 반영한다.', ['evidence-teach-ace-440-441', 'evidence-teach-law-1063-1064']),
+      item('versatility', 96, '흡인·능력 무효화·근접전·광역 흡수·지진 충격파·광역 파괴를 실제로 수행한다. 잠재력만으로 99까지 올리지 않고 현재 확인된 운용 범위만 평가한다.', ['evidence-teach-ace-440-441', 'evidence-teach-gura-577', 'evidence-teach-law-1063-1064']),
+    ],
+  },
+  {
+    id: 'evaluation-shiryu', characterId: 'shiryu', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
+    items: [
+      item('attack', 78, 'Garp 관통은 Koby를 노린 투명 기습을 Garp가 대신 맞은 상황이므로 정면 공격력 스케일링의 핵심 근거로 사용하지 않는다.', ['evidence-shiryu-garp-1087']),
+      item('defense', 74, 'Garp의 즉각적인 반격 한 번에 크게 날아가 피를 흘린 장면이 있어 높은 방어력을 줄 직접 근거가 부족하다.', ['evidence-shiryu-garp-counter-1087']),
+      item('stamina', 75, '고강도 장기전을 지속한 직접 표본이 부족하다. 정보 부족을 약함으로 확정하지 않고 E2 잠정값으로 둔다.', ['evidence-shiryu-garp-1087']),
+      item('speed', 79, '투명화 자체를 순수 속도로 환산하지 않는다. 기습 위치 선정과 상위 전장 개입 반응만 제한적으로 반영한다.', ['evidence-shiryu-garp-1087']),
+      item('techniqueMastery', 78, '검술과 투명화의 결합은 확인되지만 Vista·Katakuri처럼 높은 기술적 공방과 복합 운용을 반복해서 보여준 표본은 없다.', ['evidence-shiryu-garp-1087']),
+      item('combatIQ', 79, '보호 대상을 노려 Garp의 개입을 유도한 기습 판단은 유효하지만 반복적인 고난도 전술 표본은 부족하다.', ['evidence-shiryu-garp-1087']),
+      item('versatility', 80, '검술에 투명화를 결합해 은신·침투·기습·위치 선정 등 전투 선택지를 확장한다. 다만 실제 공격 수단 자체의 종류는 제한적이다.', ['evidence-shiryu-garp-1087']),
+    ],
+  },
+  {
+    id: 'evaluation-van-augur', characterId: 'van-augur', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
+    items: [
+      item('attack', 72, '초장거리 저격 능력은 강점이지만 Winner Island에서 Jean Bart가 탄환을 막아낸 장면이 있어 상위권 결정력을 직접 입증했다고 보기 어렵다.', ['evidence-augur-jean-bart-1064']),
+      item('defense', 67, '직접적인 고강도 방어·내구 표본이 부족하다. Warp의 회피 잠재력을 순수 Defense로 크게 환산하지 않는다.', ['evidence-augur-warp-1063-1064']),
+      item('stamina', 68, '장시간 고강도 개인전 표본이 부족해 E2 잠정값으로 둔다.', ['evidence-augur-warp-1063-1064']),
+      item('speed', 76, 'Warp는 공간이동 능력이므로 순수 신체 Speed와 구분한다. 위치 전환의 실전 유용성은 Technique·Versatility에 주로 반영한다.', ['evidence-augur-warp-1063-1064']),
+      item('techniqueMastery', 80, '초장거리 저격과 Warp를 전투 위치 조정에 결합하지만 최고 수준 저격수와 직접 비교할 반복 표본은 아직 적다.', ['evidence-augur-warp-1063-1064', 'evidence-augur-jean-bart-1064']),
+      item('combatIQ', 79, 'Teach의 위험한 돌진에 후퇴를 제안하고 아군을 적절한 위치로 이동시키는 지원 판단을 반영한다.', ['evidence-augur-warp-1063-1064']),
+      item('versatility', 85, '저격과 아군·자신의 순간이동을 결합해 사거리와 위치를 크게 바꾸는 실제 역할 폭이 있다. 능력의 잠재적 모든 응용을 선반영하지 않는다.', ['evidence-augur-warp-1063-1064']),
+    ],
+  },
+  {
+    id: 'evaluation-burgess', characterId: 'burgess', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
+    items: [
+      item('attack', 76, '힘힘 열매로 산을 들어 던지는 강한 완력은 확인되지만 그 힘으로 상위권 상대에게 결정적인 피해를 준 표본은 부족하다. Strength와 Attack을 동일시하지 않는다.', ['evidence-burgess-mountain-1063', 'evidence-burgess-sabo-737-792']),
+      item('defense', 74, 'Sabo의 공격에 명백히 제압된 직접 전투 표본이 있으며 열매 획득 후 높은 방어력이 새로 확인되지는 않았다.', ['evidence-burgess-sabo-737-792']),
+      item('stamina', 79, 'Dressrosa에서 큰 피해를 입고도 생존해 이후 행동한 점은 인정하지만 장기 고강도 결투 표본은 부족하다.', ['evidence-burgess-sabo-737-792']),
+      item('speed', 74, '근접 돌진과 전투 이동은 가능하지만 속도 자체가 대표 강점으로 확인되지는 않는다.', ['evidence-burgess-sabo-737-792']),
+      item('techniqueMastery', 72, '주된 전투가 높은 완력과 근접 격투 중심이며 복합적인 기술 운용 표본은 제한적이다.', ['evidence-burgess-sabo-737-792', 'evidence-burgess-mountain-1063']),
+      item('combatIQ', 70, '정면 돌파 성향이 강하고 상위권 상대와의 전투에서 높은 전술 적응을 보여준 직접 근거는 제한적이다.', ['evidence-burgess-sabo-737-792']),
+      item('versatility', 75, '근접 격투와 힘힘 열매를 이용한 대형 투척 등 역할 확장은 있으나 현재 확인된 전투 방식은 비교적 단순하다.', ['evidence-burgess-mountain-1063']),
+    ],
+  },
+  {
+    id: 'evaluation-pizarro', characterId: 'pizarro', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
+    items: [
+      item('attack', 72, '섬과 동화해 거대한 팔로 군함을 공격하려 한 규모는 크지만 동급 강자에게 실제 적중해 큰 피해를 준 직접 표본은 없다. Area of Effect와 Attack을 분리한다.', ['evidence-pizarro-island-1087-1088']),
+      item('defense', 74, '섬 신체의 거대한 규모는 방어 자원이지만 Galaxy Divide와 Honesty Impact가 가한 손상이 본체에도 전달되는 명확한 한계가 있다.', ['evidence-pizarro-damage-link-1088']),
+      item('stamina', 74, 'Hachinosu에서 큰 규모의 능력을 유지했지만 장기간 고강도 개인전을 지속한 직접 표본은 부족하다.', ['evidence-pizarro-island-1087-1088']),
+      item('speed', 64, '섬 전체와 동화한 전투 방식은 규모와 통제에 특화돼 있고 빠른 개인 기동을 보여주는 직접 표본은 적다.', ['evidence-pizarro-island-1087-1088']),
+      item('techniqueMastery', 74, '섬과 동화해 구조물을 움직이고 대형 신체를 조작하지만 세밀한 전투 전환을 반복해서 보여준 표본은 제한적이다.', ['evidence-pizarro-island-1087-1088']),
+      item('combatIQ', 71, '섬 전체를 활용해 탈출하는 해군을 압박했지만 능력의 큰 표면적이 역으로 공격 경로가 되는 약점 관리에는 한계가 드러났다.', ['evidence-pizarro-damage-link-1088']),
+      item('versatility', 75, '감지·구조물 조작·거대 신체 공격 등 여러 용도가 있으나 현재 직접 묘사는 주로 섬 동화와 대형 제압에 집중된다.', ['evidence-pizarro-island-1087-1088']),
     ],
   },
 ]
