@@ -44,7 +44,7 @@ export function StatRankingDialog({
               aria-label={`${entry.rank}위 ${entry.characterName} ${stat === 'overall' ? entry.score.toFixed(3) : entry.score}점 선택`}
               onClick={() => onSelectCharacter(entry.characterId, entry.groupId)}>
               <strong className="rank-position">{entry.rank}위</strong>
-              <span className="rank-person"><strong>{entry.characterName}</strong><small>{entry.groupName} · {entry.status}</small></span>
+              <span className="rank-person"><strong>{entry.characterName}</strong><small>{entry.groupName}{entry.subjectStateLabel ? ` · 평가 시점: ${entry.subjectStateLabel}` : ''} · {entry.status}</small></span>
               <strong className="rank-score">{stat === 'overall' ? entry.score.toFixed(3) : entry.score}<small> / 100</small></strong>
             </button>
           ))}
