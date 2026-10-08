@@ -15,12 +15,13 @@ describe('matchup builder application', () => {
     expect(entries.every(({ characterA, characterB }) => characterA.stats.length === 7 && characterB.stats.length === 7)).toBe(true)
   })
 
-  it('finds a direct matchup regardless of left-right selection order', () => {
-    const direct = getMatchupBuilderView('mihawk', 'shanks')
-    const reverse = getMatchupBuilderView('shanks', 'mihawk')
-    expect(direct?.matchup?.id).toBe('matchup-mihawk-shanks')
-    expect(reverse?.matchup?.id).toBe('matchup-mihawk-shanks')
-    expect(direct?.leftFactors.some(({ perspective }) => perspective === 'favorable' || perspective === 'risk' || perspective === 'conditional')).toBe(true)
+  it('finds a direct matchup regardless of left-right selection order and flips perspective', () => {
+    const direct = getMatchupBuilderView('crocodile', 'jozu')
+    const reverse = getMatchupBuilderView('jozu', 'crocodile')
+    expect(direct?.matchup?.id).toBe('matchup-crocodile-jozu')
+    expect(reverse?.matchup?.id).toBe('matchup-crocodile-jozu')
+    expect(direct?.leftFactors.find(({ id }) => id === 'crocodile-jozu-damage')?.perspective).toBe('risk')
+    expect(reverse?.leftFactors.find(({ id }) => id === 'crocodile-jozu-damage')?.perspective).toBe('favorable')
   })
 
   it('uses the selected Garp evaluation state and does not attach current-only matchup to Prime', () => {
