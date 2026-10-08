@@ -47,7 +47,20 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
           <div className="profile-tags">{profile.combatStyles.map((style) => <span key={style}>{style}</span>)}</div>
         </article>
         <article className="profile-card special-traits-card">
-          <h3>특수 전투요소</h3>
+          <div className="special-traits-heading">
+            <h3>특수 전투요소</h3>
+            <details className="special-help">
+              <summary aria-label="특수 전투요소 Evidence 및 점수 반영 설명" title="특수 전투요소 설명 보기">?</summary>
+              <div className="special-help-bubble" role="note">
+                <strong>Evidence와 Overall</strong>
+                <p>특수 전투요소 자체는 Overall에 직접 가산하지 않아. 해당 능력으로 실제 성과가 확인되면 관련 Core Stat 평가의 근거로 활용해.</p>
+                {profile.specialTraits.length > 0 ? (
+                  <ul>{profile.specialTraits.map((trait) => <li key={trait.id}>{trait.name} · 연결 Evidence {trait.evidenceIds.length}건</li>)}</ul>
+                ) : <p>현재 연결된 특수 전투요소가 없어.</p>}
+                <small>연결 건수는 점수나 근거의 강도를 뜻하지 않아.</small>
+              </div>
+            </details>
+          </div>
           {profile.specialTraits.length > 0 ? (
             <div className="special-trait-list">
               {profile.specialTraits.map((trait) => (
@@ -60,7 +73,6 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
                   <p>{trait.description}</p>
                   {trait.limitations && <small><strong>한계</strong> · {trait.limitations}</small>}
                   {trait.uncertainty && <small><strong>불확실성</strong> · {trait.uncertainty}</small>}
-                  <small>연결 Evidence {trait.evidenceIds.length}건 · Overall 직접 가산 없음</small>
                 </section>
               ))}
             </div>

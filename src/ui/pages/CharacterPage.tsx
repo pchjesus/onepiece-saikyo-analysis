@@ -9,10 +9,11 @@ import { EvaluationTrace } from '../components/EvaluationTrace'
 import { StatList } from '../components/StatList'
 import { CombatProfile } from '../components/CombatProfile'
 
-export function CharacterPage({ characterId, groupId, onSelectStat }: {
+export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOverall }: {
   characterId: string
   groupId: string
   onSelectStat: (stat: CombatStat) => void
+  onSelectOverall: () => void
 }) {
   const [activeDetail, setActiveDetail] = useState<'evaluation' | 'battle'>('evaluation')
   const detail = getCharacterDetail(characterId, groupId)
@@ -36,14 +37,14 @@ export function CharacterPage({ characterId, groupId, onSelectStat }: {
 
       <div className="overview-layout">
         <section className="score-overview" aria-label="종합 전투력과 스탯">
-          <div className="power-card">
-            <span>Overall Combat Power · 현재 계산값</span>
+          <button className="power-card power-card-button" type="button" onClick={onSelectOverall} aria-label="Overall Combat Power 전체 캐릭터 순위 보기">
+            <span>Overall Combat Power · 현재 계산값 <span aria-hidden="true">↗</span></span>
             <strong>{result.finalScore.toFixed(1)}<small>/100</small></strong>
             <span>{result.calculationModelVersion} · Balanced · 7 Core Stats · Haki Weight ×{result.hakiWeight}</span>
-          </div>
+          </button>
           <div className="stat-heading">
             <h2>Core Combat Stats</h2>
-            <span>점수를 누르면 24명 전체 비교</span>
+            <span>점수를 누르면 전체 캐릭터 비교 · 정렬 전환 가능</span>
           </div>
           <StatList items={detail.evaluation.items} hakiWeight={result.hakiWeight} onSelectStat={onSelectStat} />
         </section>
