@@ -2,9 +2,20 @@ import type { Evaluation } from '../../domain/evaluation/types'
 import { sampleEvaluations } from '../sample/evaluations'
 
 export interface EvaluationRepository {
-  getEvaluation(characterId: string): Evaluation | undefined
+  getEvaluations(characterId: string): Evaluation[]
+  getEvaluation(characterId: string, subjectStateId?: string): Evaluation | undefined
 }
 
+const forCharacter = (characterId: string) =>
+  sampleEvaluations.filter((evaluation) => evaluation.characterId === characterId)
+
 export const evaluationRepository: EvaluationRepository = {
-  getEvaluation: (characterId) => sampleEvaluations.find((evaluation) => evaluation.characterId === characterId),
+  getEvaluations: forCharacter,
+  getEvaluation: (characterId, subjectStateId) => {
+    const evaluations = forCharacter(characterId)
+    if (subjectStateId) {
+      return evaluations.find((evaluation) => evaluation.subjectState?.id === subjectStateId)
+    }
+    return evaluations.find((evaluation) => evaluation.isDefault) ?? evaluations[0]
+  },
 }

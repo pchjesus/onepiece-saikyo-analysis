@@ -132,6 +132,37 @@ describe('evaluated roster UI', () => {
     expect(container.querySelector('.evaluation-subject-state')?.textContent).toContain('평가 시점 · 전성기')
   })
 
+  it('switches Garp between Prime and current evaluations without duplicating the character', async () => {
+    const marineTab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '해군')
+    await click(marineTab ?? null)
+
+    const stateButtons = () => [...container.querySelectorAll('.evaluation-state-switcher button')]
+    expect(stateButtons().map((button) => button.textContent)).toEqual(['전성기', '현재'])
+    expect(container.querySelector('.power-card strong')?.textContent).toContain('94.4')
+
+    await click(stateButtons().find((button) => button.textContent === '현재') ?? null)
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('몽키 D. 가프')
+    expect(container.querySelector('.evaluation-subject-state')?.textContent).toContain('평가 시점 · 현재')
+    expect(container.querySelector('.power-card strong')?.textContent).toContain('91.1')
+    expect(container.querySelector('.evaluation-trace-card')?.textContent).toContain('Final 94/100')
+
+    await click(stateButtons().find((button) => button.textContent === '전성기') ?? null)
+    expect(container.querySelector('.power-card strong')?.textContent).toContain('94.4')
+  })
+
+  it('normalizes character names to Korean canonical display names in analysis prose', async () => {
+    expect(container.querySelector('.evaluation-trace-list')?.textContent).toContain('샬롯 카타쿠리')
+    expect(container.querySelector('.evaluation-trace-list')?.textContent).not.toContain('Katakuri')
+
+    const marineTab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '해군')
+    await click(marineTab ?? null)
+    await click(container.querySelector('#battle-tab'))
+    const battleText = container.querySelector('.detail-tab-content')?.textContent ?? ''
+    expect(battleText).toContain('몽키 D. 가프')
+    expect(battleText).toContain('코비')
+    expect(battleText).not.toMatch(/\bGarp\b|\bKoby\b/)
+  })
+
   it('opens small Special combat help and keeps individual evidence counts out of trait cards', async () => {
     const tab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '검은 수염 해적단')
     await click(tab ?? null)

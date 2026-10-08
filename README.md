@@ -1,7 +1,7 @@
 # 원피스 전투력 분석
 
-현재 개발 버전: **v0.1.27**  
-평가 데이터: **27인 · evaluation-0.1.26-draft**  
+현재 개발 버전: **v0.1.28**  
+평가 데이터: **27 Character · 28 Evaluation · 기본 로스터는 evaluation-0.1.26-draft / 현재 몽키 D. 가프는 evaluation-0.1.28-draft**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
 - [v0.1.26 27인 재보정 보고서](docs/RECALIBRATION_0_1_26_DRAFT.md)
@@ -20,6 +20,16 @@
 - 전 왕의 부하 칠무해: 트라팔가 로 / 돈키호테 도플라밍고 / 보아 핸콕
 
 Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Special Combat Profile과 Matchup-specific Advantage는 Overall에 직접 합산하지 않는다.
+
+## v0.1.28 주요 변경
+
+- 하나의 Character에 여러 Evaluation 상태를 연결할 수 있도록 Repository/Application 경계를 확장했다.
+- 몽키 D. 가프를 첫 실제 사례로 `전성기`(기본 순위 상태) / `현재`(하치노스 기준) 두 Evaluation으로 분리했다.
+- 현재 몽키 D. 가프 Draft Final은 **94 / 90 / 92 / 93 / 94 / 92 / 83 → Overall 91.143**이다. 전성기 94.429와 별도 데이터이며 갓 밸리 성과를 현재 점수에 직접 합산하지 않는다.
+- 캐릭터 설명, 평가 근거, 전투 기록, Evidence 설명, 전투 프로필에서 로마자 이름·해군 통칭이 남아 있더라도 UI에서는 한글 공식 주표기 이름으로 정규화한다. 공식 통칭·이명·칭호 배지와 검색어는 그대로 보존한다.
+- Matchup v0.1을 3개 → **6개** prototype으로 확장하고 Evaluation 상태를 지정할 수 있게 했다. 신규 사례는 현재 몽키 D. 가프 vs 쿠잔, 롤로노아 조로 vs 알베르, 상디 vs 퀸이다.
+- Overall/Stat 순위에는 한 Character의 **대표(default) Evaluation 한 개만** 포함해 가프가 두 번 나타나는 것을 방지한다.
+- 다음 신규 집단은 **크로스 길드**로 확정한다. 미호크·크로커다일을 우선 조사하고, 버기는 충분한 7축 Evidence가 없으면 억지로 점수화하지 않는다.
 
 ## v0.1.27 주요 변경
 

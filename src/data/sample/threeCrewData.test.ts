@@ -13,17 +13,28 @@ describe('sample combat data', () => {
   it('contains three evaluated characters for each initial crew', () => {
     expect(sampleCrews).toHaveLength(3)
     expect(sampleCharacters).toHaveLength(27)
-    expect(sampleEvaluations).toHaveLength(27)
+    expect(sampleEvaluations).toHaveLength(28)
 
     for (const crew of sampleCrews) {
       expect(sampleCharacters.filter(({ crewId }) => crewId === crew.id)).toHaveLength(3)
     }
   })
 
-  it('keeps every evaluation complete and referentially valid', () => {
+  it('keeps every evaluation complete, state-safe and referentially valid', () => {
+    const byCharacter = new Map<string, typeof sampleEvaluations>()
     for (const evaluation of sampleEvaluations) {
+      const list = byCharacter.get(evaluation.characterId) ?? []
+      list.push(evaluation)
+      byCharacter.set(evaluation.characterId, list)
       expect(sampleCharacters.some(({ id }) => id === evaluation.characterId)).toBe(true)
       expect(validateEvaluation(evaluation, evidenceReferences)).toEqual({ valid: true, errors: [] })
+    }
+
+    for (const evaluations of byCharacter.values()) {
+      if (evaluations.length === 1) continue
+      expect(evaluations.every(({ subjectState }) => Boolean(subjectState?.id))).toBe(true)
+      expect(new Set(evaluations.map(({ subjectState }) => subjectState?.id)).size).toBe(evaluations.length)
+      expect(evaluations.filter(({ isDefault }) => isDefault)).toHaveLength(1)
     }
   })
 

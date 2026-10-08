@@ -8,10 +8,12 @@ export type MatchupValidationResult = {
 export function validateMatchupAnalysis(
   analysis: MatchupAnalysis,
   knownEvidenceIds: readonly string[] = [],
+  knownEvaluationStateIds: readonly string[] = [],
 ): MatchupValidationResult {
   const errors: string[] = []
   const evidenceSet = new Set(knownEvidenceIds)
   const factorIds = new Set<string>()
+  const evaluationStateSet = new Set(knownEvaluationStateIds)
 
   if (!analysis.id.trim()) errors.push('Matchup id is required.')
   if (!analysis.characterAId.trim() || !analysis.characterBId.trim()) {
@@ -19,6 +21,18 @@ export function validateMatchupAnalysis(
   }
   if (analysis.characterAId === analysis.characterBId) {
     errors.push('A matchup requires two different characters.')
+  }
+
+  for (const [characterId, stateId] of [
+    [analysis.characterAId, analysis.characterAStateId],
+    [analysis.characterBId, analysis.characterBStateId],
+  ] as const) {
+    if (stateId !== undefined && !stateId.trim()) {
+      errors.push(`Matchup evaluation state id must not be empty: ${characterId}.`)
+    }
+    if (stateId && knownEvaluationStateIds.length > 0 && !evaluationStateSet.has(`${characterId}:${stateId}`)) {
+      errors.push(`Unknown matchup evaluation state: ${characterId}:${stateId}.`)
+    }
   }
 
   for (const factor of analysis.factors) {

@@ -52,7 +52,7 @@ v0.1은 다음 Factor를 사용한다.
 - long: 소모·재생·능력 자원 차이가 누적되는 장기전
 - all: 특정 단계에 한정되지 않는 구조적 상성
 
-Marco의 재생·소모전 강점은 long 단계의 resource-endurance와 recovery-regeneration에서 다룬다. 이를 새로운 Core Stat으로 중복 추가하지 않는다.
+마르코의 재생·소모전 강점은 long 단계의 resource-endurance와 recovery-regeneration에서 다룬다. 이를 새로운 Core Stat으로 중복 추가하지 않는다.
 
 ## 5. 판정 형식
 
@@ -98,7 +98,7 @@ Haki는 세 층으로 나눈다.
 ### Balanced + Evidence-aware Matchup
 장점:
 - 기존 데이터와 계산 결과를 보존한다.
-- Marco의 소모전, Hancock의 석화, Law의 내부파괴처럼 서로 다른 승리 구조를 설명할 수 있다.
+- 마르코의 소모전, 보아 핸콕의 석화, 트라팔가 로의 내부파괴처럼 서로 다른 승리 구조를 설명할 수 있다.
 - 불확실성을 unknown/conditional로 남길 수 있다.
 - 향후 실제 전투 사례가 늘면 수치 모델을 검증할 데이터가 된다.
 
@@ -123,10 +123,15 @@ Haki는 세 층으로 나눈다.
 
 ## 9. Prototype data
 
-현재 코드에는 세 대표 Pair를 비수치 prototype으로 저장한다.
+현재 코드에는 여섯 대표 Pair를 비수치 prototype으로 저장한다.
 
-- Marco vs King: 재생과 Flame 방어, 장기 소모전의 불확실성을 분리한다.
-- Law vs Teach: 내부파괴 유효타, 어둠 능력 봉쇄, Haki 능력해제의 일반화 한계를 분리한다.
-- Hancock vs Teach: 석화와 접촉 능력봉쇄가 서로 다른 조건부 승리조건임을 기록한다.
+- 마르코 vs 알베르: 재생과 루나리아 방어, 장기 소모전의 불확실성을 분리한다.
+- 트라팔가 로 vs 마샬 D. 티치: 내부파괴 유효타, 어둠 능력 봉쇄, 패기 능력해제의 일반화 한계를 분리한다.
+- 보아 핸콕 vs 마샬 D. 티치: 석화와 접촉 능력봉쇄가 서로 다른 조건부 승리조건임을 기록한다.
+- **현재 몽키 D. 가프 vs 쿠잔**: Evaluation 상태를 명시하고 하치노스의 직접 교전과 부상·구조 임무 맥락을 분리한다.
+- 롤로노아 조로 vs 알베르: 루나리아 불꽃 상태의 방어/속도 교환과 상대 메커니즘 분석, 결정타 성립을 분리한다.
+- 상디 vs 퀸: 순수 기동 우위, 손상 후 복구, Ifrit Jambe의 실제 결정타를 분리한다.
 
-이 세 Pair는 모델의 구조를 검증하기 위한 예시이며 자동 승자·승률을 제공하지 않는다.
+한 Character가 전성기·현재처럼 여러 Evaluation을 가질 경우 Matchup은 `characterAStateId / characterBStateId`로 어떤 상태를 사용하는지 명시할 수 있다. 상태를 생략하면 해당 Character의 default Evaluation을 사용한다.
+
+이 여섯 Pair는 모델 구조와 Evidence 연결을 검증하기 위한 예시이며 자동 승자·승률을 제공하지 않는다.

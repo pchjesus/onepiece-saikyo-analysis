@@ -4,6 +4,7 @@ import type {
   SpecialCombatTraitStatus,
 } from '../../domain/character/types'
 import type { HakiConfirmationStatus, HakiType } from '../../domain/haki/types'
+import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
 
 const hakiLabels: Record<HakiType, string> = {
   armament: '무장색',
@@ -44,7 +45,7 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
       <div className="combat-profile-grid">
         <article className="profile-card">
           <h3>전투 방식</h3>
-          <div className="profile-tags">{profile.combatStyles.map((style) => <span key={style}>{style}</span>)}</div>
+          <div className="profile-tags">{profile.combatStyles.map((style) => <span key={style}>{normalizeCharacterNamesForDisplay(style)}</span>)}</div>
         </article>
         <article className="profile-card special-traits-card">
           <div className="special-traits-heading">
@@ -70,9 +71,9 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
                     <strong>{specialStatusLabels[trait.status]}</strong>
                   </div>
                   <h4>{trait.name}</h4>
-                  <p>{trait.description}</p>
-                  {trait.limitations && <small><strong>한계</strong> · {trait.limitations}</small>}
-                  {trait.uncertainty && <small><strong>불확실성</strong> · {trait.uncertainty}</small>}
+                  <p>{normalizeCharacterNamesForDisplay(trait.description)}</p>
+                  {trait.limitations && <small><strong>한계</strong> · {normalizeCharacterNamesForDisplay(trait.limitations)}</small>}
+                  {trait.uncertainty && <small><strong>불확실성</strong> · {normalizeCharacterNamesForDisplay(trait.uncertainty)}</small>}
                 </section>
               ))}
             </div>
@@ -88,7 +89,7 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
                   <strong>{statusLabels[capability.status]}</strong>
                   {capability.type === 'conquerors' && capability.infusion?.status === 'confirmed' && <span className="haki-infusion">패휘감 확인</span>}
                   {capability.type === 'conquerors' && capability.infusion?.status === 'unclear' && capability.status === 'confirmed' && <span className="haki-infusion muted">패휘감 미확인</span>}
-                  {capability.note && <small>{capability.note}</small>}
+                  {capability.note && <small>{normalizeCharacterNamesForDisplay(capability.note)}</small>}
                 </dd>
               </div>
             ))}
@@ -96,7 +97,7 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
         </article>
         <article className="profile-card profile-sources">
           <h3>Canon Profile 근거</h3>
-          <ul>{profile.sources.map((source) => <li key={`${source.label}-${source.reference}`}><strong>{source.label}</strong> · {source.reference}</li>)}</ul>
+          <ul>{profile.sources.map((source) => <li key={`${source.label}-${source.reference}`}><strong>{source.label}</strong> · {normalizeCharacterNamesForDisplay(source.reference)}</li>)}</ul>
         </article>
       </div>
     </section>

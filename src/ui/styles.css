@@ -255,3 +255,10 @@ header p:last-child { color: #666; }
 @media (max-width: 700px) {
   .character-description, .evaluation-subject-state { max-width: 100%; }
 }
+
+
+/* v0.1.28 multi-evaluation state switcher. */
+.evaluation-state-switcher { display: inline-flex; gap: 6px; margin-top: 10px; padding: 4px; border: 1px solid #ddd; border-radius: 999px; background: #f7f7f4; }
+.evaluation-state-switcher button { border: 0; border-radius: 999px; padding: 7px 12px; background: transparent; color: #666; cursor: pointer; font-size: .8rem; font-weight: 750; }
+.evaluation-state-switcher button.selected { background: #171717; color: white; }
+.evaluation-state-switcher button:focus-visible { outline: 2px solid #888; outline-offset: 2px; }

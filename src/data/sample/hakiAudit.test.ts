@@ -7,9 +7,9 @@ import { validateEvaluation as validateEvidenceLinks } from '../../domain/evalua
 import { validateEvaluation as validateCalculation, calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
 import { getRawHakiContributionTotal, getFinalStatScore } from '../../domain/evaluation/score'
 
-describe('27-person Haki / Evidence audit (0.1.26 draft)', () => {
+describe('27-character / 28-evaluation Haki / Evidence audit', () => {
   it('checks each evaluated character profile, contributions, Evidence ownership and calculation consistency', () => {
-    expect(sampleEvaluations).toHaveLength(27)
+    expect(sampleEvaluations).toHaveLength(28)
     expect(sampleCharacters).toHaveLength(27)
     const refs = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
     for (const evaluation of sampleEvaluations) {
@@ -43,6 +43,9 @@ describe('27-person Haki / Evidence audit (0.1.26 draft)', () => {
     expect(item('shanks', 'techniqueMastery')?.score).toBe(96)
     expect(getRawHakiContributionTotal(item('garp', 'attack')!)).toBe(6)
     expect(item('garp', 'attack')?.score).toBe(99)
+    const currentGarp = sampleEvaluations.find(e => e.characterId === 'garp' && e.subjectState?.id === 'current')
+    expect(getRawHakiContributionTotal(currentGarp?.items.find(i => i.stat === 'attack')!)).toBe(6)
+    expect(currentGarp?.items.find(i => i.stat === 'attack')?.score).toBe(94)
     expect(getRawHakiContributionTotal(item('kuzan', 'techniqueMastery')!)).toBe(4)
     expect(getRawHakiContributionTotal(item('akainu', 'defense')!)).toBe(2)
     expect(getRawHakiContributionTotal(item('kizaru', 'defense')!)).toBe(2)
