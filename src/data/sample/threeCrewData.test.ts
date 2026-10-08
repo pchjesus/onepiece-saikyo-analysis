@@ -10,14 +10,18 @@ import { sampleEvidence } from './evidence'
 const evidenceReferences = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
 
 describe('sample combat data', () => {
-  it('contains three evaluated characters for each initial crew', () => {
+  it('keeps the initial crew baseline and allows later expansion', () => {
     expect(sampleCrews).toHaveLength(3)
     expect(sampleCharacters).toHaveLength(37)
     expect(sampleEvaluations).toHaveLength(39)
 
     for (const crew of sampleCrews) {
-      expect(sampleCharacters.filter(({ crewId }) => crewId === crew.id)).toHaveLength(3)
+      expect(sampleCharacters.filter(({ crewId }) => crewId === crew.id).length).toBeGreaterThanOrEqual(3)
     }
+
+    expect(sampleCharacters.filter(({ crewId }) => crewId === 'whitebeard-pirates')).toHaveLength(4)
+    expect(sampleCharacters.filter(({ crewId }) => crewId === 'beasts-pirates')).toHaveLength(4)
+    expect(sampleCharacters.filter(({ crewId }) => crewId === 'big-mom-pirates')).toHaveLength(4)
   })
 
   it('keeps every evaluation complete, state-safe and referentially valid', () => {
