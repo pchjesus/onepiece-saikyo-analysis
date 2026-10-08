@@ -139,16 +139,16 @@ describe('evaluated roster UI', () => {
 
     const stateButtons = () => [...container.querySelectorAll('.evaluation-state-switcher button')]
     expect(stateButtons().map((button) => button.textContent)).toEqual(['전성기', '현재'])
-    expect(container.querySelector('.power-card strong')?.textContent).toContain('96.0')
+    expect(container.querySelector('.power-card strong')?.textContent).toContain('97.4')
 
     await click(stateButtons().find((button) => button.textContent === '현재') ?? null)
     expect(container.querySelector('main.detail h1')?.textContent).toBe('몽키 D. 가프')
     expect(container.querySelector('.evaluation-subject-state')?.textContent).toContain('평가 시점 · 현재')
-    expect(container.querySelector('.power-card strong')?.textContent).toContain('91.1')
+    expect(container.querySelector('.power-card strong')?.textContent).toContain('93.7')
     expect(container.querySelector('.evaluation-trace-card')?.textContent).toContain('Final 94/100')
 
     await click(stateButtons().find((button) => button.textContent === '전성기') ?? null)
-    expect(container.querySelector('.power-card strong')?.textContent).toContain('96.0')
+    expect(container.querySelector('.power-card strong')?.textContent).toContain('97.4')
   })
 
   it('normalizes character names to Korean canonical display names in analysis prose', async () => {

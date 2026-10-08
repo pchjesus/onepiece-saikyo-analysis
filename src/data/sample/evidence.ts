@@ -1244,6 +1244,23 @@ export const sampleEvidence: Evidence[] = [
     uncertainty: "가프는 코비 보호 과정에서 시류에게 관통상을 입은 직후였다. 노년 가프와 Prime 가프의 스케일을 구분한다.",
   },
   {
+    id: 'evidence-kuzan-blue-hole-return-1081-1087',
+    battleId: 'hachinosu-kuzan-garp-1081-1087',
+    subjectCharacterId: 'kuzan',
+    source: { type: 'canon', reference: 'One Piece Manga Chapters 1081, 1087', description: 'Blue Hole 피격 이후 쿠잔이 다시 전선에 복귀해 가프와 직접 교전' },
+    evidenceStrength: 'strong',
+    fact: '쿠잔은 1081화에서 가프의 Blue Hole에 지면 아래로 내리꽂힌 뒤, 이후 다시 전투에 복귀해 1087화에서 Ice Glove와 패기를 사용해 가프와 근접 충돌했다.',
+    supportedAbilities: ['강한 공격 피격 후 복귀', '전투 지속', '근접 재교전'],
+    statContributions: [
+      { stat: 'stamina', role: 'primary', note: '가프의 강한 직접 공격을 받은 뒤에도 같은 전투에서 다시 상위권 근접 교환을 수행한 지속력 근거다.' },
+      { stat: 'defense', role: 'secondary', note: 'Blue Hole 자체를 막지는 못했으므로 방어 성공이 아니라 해당 피격이 전투 종료로 이어지지 않았다는 보조 맥락으로만 사용한다.' },
+      { stat: 'speed', role: 'context', note: '전선 복귀와 재교전은 확인되지만 복귀에 걸린 정확한 시간은 공개되지 않아 순수 속도 직접치로 과대평가하지 않는다.' },
+    ],
+    interpretation: '쿠잔이 가프의 공격에 일방적으로 무너진 것은 아니며 높은 전투 지속력을 보여준다. 반대로 Blue Hole을 방어하거나 즉시 상쇄한 것으로 바꾸어 해석하지 않는다.',
+    evaluationImpact: 'Kuzan Stamina를 확실히 보강하고 Defense·Speed 상향에는 제한적인 보조 근거로 사용한다.',
+    uncertainty: '1081화와 1087화 사이의 세부 시간 경과와 오프패널 공방은 완전히 공개되지 않았다.',
+  },
+  {
     id: "evidence-kizaru-luffy-clones-1093",
     battleId: "egghead-borsalino-luffy-1093-1108",
     subjectCharacterId: "kizaru",
