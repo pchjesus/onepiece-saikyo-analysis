@@ -160,7 +160,7 @@ export const sampleEvaluations: Evaluation[] = [
       item('combatIQ', 80, '빅맘전에서 해상 환경과 물을 상성 대응·반격에 활용하는 베테랑 판단을 인정하되 1대1에서 상대 메커니즘을 반복 분석하는 최고 수준 표본은 제한적이다.', ['evidence-jinbe-big-mom-890']),
       item('versatility', 80, '근접 어인공수도, 물·수분 매개 공격, 환경 활용, 방어와 반격 전환을 실제 전투에 적용한다. 종족 특성 자체는 별도 가산하지 않는다.', ['evidence-jinbe-fishman-karate-629', 'evidence-jinbe-big-mom-890']),
     ],
-  }
+  },
 
   {
     id: 'evaluation-shanks', characterId: 'shanks', evaluationDataVersion: 'evaluation-0.1.24', status: 'draft',
