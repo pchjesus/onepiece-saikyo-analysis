@@ -74,9 +74,9 @@ describe('Balanced v1.2', () => {
       sanji: 84.4285714286,
       jinbe: 79.5714285714,
       shanks: 92.5714285714,
-      garp: 96,
+      garp: 97.4285714286,
       akainu: 92.4285714286,
-      kuzan: 91.8571428571,
+      kuzan: 92.7142857143,
       kizaru: 92.1428571429,
       fujitora: 89,
       ryokugyu: 87.5714285714,
@@ -89,13 +89,13 @@ describe('Balanced v1.2', () => {
       doflamingo: 79.5714285714,
       hancock: 78.7142857143,
       mihawk: 92.7142857143,
-      crocodile: 80.8571428571,
+      crocodile: 79,
 
     }
 
     for (const evaluation of sampleEvaluations) {
       const expectedScore = evaluation.id === 'evaluation-garp-current'
-        ? 91.1428571429
+        ? 93.7142857143
         : expected[evaluation.characterId]
       expect(calculateBalancedCombatPower(evaluation, balancedV12).finalScore)
         .toBeCloseTo(expectedScore)

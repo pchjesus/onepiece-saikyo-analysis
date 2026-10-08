@@ -11,7 +11,7 @@ const reviewedIds = ['shanks', 'akainu', 'kuzan', 'kizaru', 'teach', 'ryokugyu']
 const expectedOverall = {
   shanks: 92.57142857142857,
   akainu: 92.42857142857143,
-  kuzan: 91.85714285714286,
+  kuzan: 92.71428571428571,
   kizaru: 92.14285714285714,
   teach: 90.57142857142857,
   ryokugyu: 87.57142857142857,
@@ -26,6 +26,7 @@ const newEvidenceIds = [
   'evidence-kuzan-sakazuki-duel-650',
   'evidence-kuzan-garp-iceball-1081',
   'evidence-kuzan-garp-haki-clash-1087',
+  'evidence-kuzan-blue-hole-return-1081-1087',
   'evidence-kizaru-luffy-clones-1093',
   'evidence-kizaru-star-gun-1094',
   'evidence-kizaru-vegapunk-1108',
@@ -60,17 +61,19 @@ describe('evidence-only review before approved calibration', () => {
     }
   })
 
-  it('keeps all 28 evaluation records valid after the state split', () => {
+  it('keeps all 30 evaluation records valid after the state split', () => {
     const references = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
     expect(sampleEvaluations).toHaveLength(30)
     expect(sampleEvaluations.find(({ id }) => id === 'evaluation-garp')?.evaluationDataVersion)
-      .toBe('evaluation-0.1.29-draft')
+      .toBe('evaluation-0.1.30-draft')
     expect(sampleEvaluations.find(({ id }) => id === 'evaluation-garp-current')?.evaluationDataVersion)
-      .toBe('evaluation-0.1.28-draft')
+      .toBe('evaluation-0.1.30-draft')
     expect(sampleEvaluations.find(({ id }) => id === 'evaluation-mihawk')?.evaluationDataVersion)
       .toBe('evaluation-0.1.29-draft')
+    expect(sampleEvaluations.find(({ id }) => id === 'evaluation-kuzan')?.evaluationDataVersion)
+      .toBe('evaluation-0.1.30-draft')
     expect(sampleEvaluations.find(({ id }) => id === 'evaluation-crocodile')?.evaluationDataVersion)
-      .toBe('evaluation-0.1.29-draft')
+      .toBe('evaluation-0.1.30-draft')
     for (const evaluation of sampleEvaluations) {
       expect(validateEvaluation(evaluation, references)).toEqual({ valid: true, errors: [] })
     }

@@ -144,3 +144,24 @@ Haki는 세 층으로 나눈다.
 - 복수 Evaluation 상태가 지정된 Pair는 해당 상태가 선택되었을 때만 표시한다.
 - 신규 prototype: 쥬라큘 미호크 vs 샹크스 / 롤로노아 조로 / 비스타, 크로커다일 vs 돈키호테 도플라밍고 / 죠즈.
 - 총 11개 prototype이며 기존 원칙대로 승률, +N 보너스, Overall→승률 변환을 도입하지 않는다.
+
+
+## 11. v0.1.30 Presentation split — Matchup Arena
+
+Matchup is no longer displayed as a third tab inside Character Detail.
+
+Primary navigation:
+- Stats: default first screen.
+- Matchup: separate top-level arena opened through the VS control.
+
+Arena data flow:
+```text
+MatchupRepository
+→ getMatchupHubEntries
+→ Character/Evaluation/Balanced 1.2
+→ Radar / Tale of the Tape / Matchup Factors
+```
+
+The radar chart is a presentation of the same seven Final Core Stats. It does not introduce a new score. Overall and stat differences are not converted into win probability.
+
+The sports/UFC-style presentation is intentionally more casual, but the underlying factor cards continue to preserve confirmed / supported / unclear evidence and matchup conditions.

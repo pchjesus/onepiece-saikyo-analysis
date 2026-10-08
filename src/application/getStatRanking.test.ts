@@ -31,7 +31,7 @@ describe('getStatRanking', () => {
     const entries = getStatRanking('overall')
     expect(entries).toHaveLength(29)
     expect(entries[0]).toMatchObject({ characterId: 'garp', rank: 1, subjectStateLabel: '전성기' })
-    expect(entries[0].score).toBeCloseTo(96)
+    expect(entries[0].score).toBeCloseTo(97.42857142857143)
     expect(entries[28]).toMatchObject({ characterId: 'pizarro', rank: 29, score: 71.71428571428571 })
     for (let index = 1; index < entries.length; index++) {
       expect(entries[index - 1].score).toBeGreaterThanOrEqual(entries[index].score)

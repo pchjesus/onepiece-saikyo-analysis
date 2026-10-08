@@ -73,7 +73,7 @@ describe('evaluated roster UI', () => {
     expect(rows()).toHaveLength(29)
     expect(document.querySelector('#stat-rank-title')?.textContent).toContain('Overall Combat Power')
     expect(rows()[0].textContent).toContain('몽키 D. 가프')
-    expect(rows()[0].textContent).toContain('96')
+    expect(rows()[0].textContent).toContain('97.429')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows()[0].textContent).toContain('아발로 피사로')
     expect(rows()[0].textContent).toContain('29위')
@@ -139,16 +139,16 @@ describe('evaluated roster UI', () => {
 
     const stateButtons = () => [...container.querySelectorAll('.evaluation-state-switcher button')]
     expect(stateButtons().map((button) => button.textContent)).toEqual(['전성기', '현재'])
-    expect(container.querySelector('.power-card strong')?.textContent).toContain('96.0')
+    expect(container.querySelector('.power-card strong')?.textContent).toContain('97.4')
 
     await click(stateButtons().find((button) => button.textContent === '현재') ?? null)
     expect(container.querySelector('main.detail h1')?.textContent).toBe('몽키 D. 가프')
     expect(container.querySelector('.evaluation-subject-state')?.textContent).toContain('평가 시점 · 현재')
-    expect(container.querySelector('.power-card strong')?.textContent).toContain('91.1')
-    expect(container.querySelector('.evaluation-trace-card')?.textContent).toContain('Final 94/100')
+    expect(container.querySelector('.power-card strong')?.textContent).toContain('93.7')
+    expect(container.querySelector('.evaluation-trace-card')?.textContent).toContain('Final 96/100')
 
     await click(stateButtons().find((button) => button.textContent === '전성기') ?? null)
-    expect(container.querySelector('.power-card strong')?.textContent).toContain('96.0')
+    expect(container.querySelector('.power-card strong')?.textContent).toContain('97.4')
   })
 
   it('normalizes character names to Korean canonical display names in analysis prose', async () => {
@@ -164,21 +164,26 @@ describe('evaluated roster UI', () => {
     expect(battleText).not.toMatch(/\bGarp\b|\bKoby\b/)
   })
 
-  it('shows matchup prototypes in a third detail tab and respects Garp evaluation state', async () => {
-    expect(container.querySelector('#matchup-tab')).not.toBeNull()
-    await click(container.querySelector('#matchup-tab'))
-    expect(container.querySelector('.matchup-section')?.textContent).toContain('알베르')
-    expect(container.querySelector('.matchup-section')?.textContent).toContain('승률이나 고정 상성 보너스를 계산하지 않습니다')
+  it('keeps Stats as the default home and opens Matchup Arena as a separate top-level screen', async () => {
+    expect(container.querySelector('.character-selector')).not.toBeNull()
+    expect(container.querySelector('.matchup-home')).toBeNull()
+    expect(container.querySelector('button[aria-label="스탯 분석 화면"]')?.getAttribute('aria-pressed')).toBe('true')
+    expect(container.querySelector('#matchup-tab')).toBeNull()
 
-    const marineTab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '해군')
-    await click(marineTab ?? null)
-    await click(container.querySelector('#matchup-tab'))
-    expect(container.querySelector('.matchup-section')?.textContent).toContain('연결된 매치업 분석이 없습니다')
+    await click(container.querySelector('button[aria-label="매치업 아레나 화면"]'))
+    expect(container.querySelector('.matchup-home')).not.toBeNull()
+    expect(container.querySelector('.character-selector')).toBeNull()
+    expect(container.querySelector('main.detail')).toBeNull()
+    expect(container.querySelector('.matchup-radar')).not.toBeNull()
+    expect(container.querySelector('.matchup-scoreboard')?.textContent).toContain('쥬라큘 미호크')
+    expect(container.querySelector('.matchup-scoreboard')?.textContent).toContain('샹크스')
+    expect(container.querySelector('.arena-caution')?.textContent).toContain('승률이 아닙니다')
 
-    const current = [...container.querySelectorAll('.evaluation-state-switcher button')].find((button) => button.textContent === '현재')
-    await click(current ?? null)
-    expect(container.querySelector('.matchup-section')?.textContent).toContain('쿠잔')
+    await click(container.querySelector('button[aria-label="스탯 분석 화면"]'))
+    expect(container.querySelector('.character-selector')).not.toBeNull()
+    expect(container.querySelector('.matchup-home')).toBeNull()
   })
+
 
   it('opens small Special combat help and keeps individual evidence counts out of trait cards', async () => {
     const tab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '검은 수염 해적단')

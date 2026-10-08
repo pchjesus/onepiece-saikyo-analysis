@@ -1,7 +1,7 @@
 # One Piece Combat Power Analysis
 ## Project Specification
 
-**Version:** 0.1.24  
+**Version:** 0.1.30  
 **Status:** Active MVP · Expanded Evidence Calibration  
 **Project Type:** Web Application  
 **Primary Purpose:** One Piece 주요 캐릭터의 전투력을 근거 기반으로 분석하고 비교하는 웹 애플리케이션
@@ -467,6 +467,23 @@ Overall Combat Power
 
 ---
 
+## 12.1 Primary Navigation and Matchup Arena
+
+기본 진입 화면은 Character Stats / Evaluation 화면으로 유지한다.
+
+Matchup은 Character Detail 내부에 동시에 배치하지 않고, 상단의 별도 Matchup 진입 아이콘/버튼을 통해 독립 화면으로 이동한다. 목적은 스탯 분석과 매치업 탐색의 시각적 집중을 분리하는 것이다.
+
+Matchup 화면은 UFC·스포츠 홈처럼 비교가 빠르고 캐주얼하게 읽히는 Presentation을 지향할 수 있다. 단, 시각화가 분석 모델의 source of truth가 되어서는 안 된다.
+
+초기 Matchup Arena Presentation:
+- 양 캐릭터 Overall 및 평가 시점
+- 7 Core Stat 레이더 그래프
+- Tale of the Tape 형태의 스탯 비교
+- Evidence-aware Matchup Factor
+- 기본 전투 조건 표시
+
+레이더 그래프와 스탯 차이는 승률을 뜻하지 않는다. 승률·고정 +N 상성 보너스는 별도 검증 전까지 도입하지 않는다.
+
 # 13. Data Architecture
 
 핵심 데이터는 UI에 하드코딩하지 않는다.
@@ -629,6 +646,13 @@ Community 기능은 Official Evaluation과 분리한다.
 사용자의 투표나 커뮤니티 의견이 공식 전투력 점수를 자동으로 변경하지 않는다.
 
 실제 다중 사용자 커뮤니티가 필요해지는 시점에는 Authentication / Backend / Database 구조를 별도로 검토한다.
+
+장기 UX 방향:
+- Character Stat 각 항목과 Evidence record에 의견/댓글 진입 아이콘을 둘 수 있다.
+- 아이콘은 해당 Stat 또는 Evidence에 연결되는 discussion context를 명확히 가져야 한다.
+- 저장·작성자 식별·수정/삭제·moderation 구조가 없는 동안 동작하지 않는 가짜 의견 아이콘은 공개 UI에 두지 않는다.
+- Community Comment/Vote가 Official Evaluation을 자동 수정하지 않는다.
+- Community 기능은 현재 MVP 및 v0.1.30 구현 범위에 포함하지 않는다.
 
 ---
 
