@@ -7,10 +7,10 @@ import { validateEvaluation as validateEvidenceLinks } from '../../domain/evalua
 import { validateEvaluation as validateCalculation, calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
 import { getRawHakiContributionTotal, getFinalStatScore } from '../../domain/evaluation/score'
 
-describe('30-character master pool / 30-evaluation Haki / Evidence audit', () => {
+describe('37-character master pool / 39-evaluation Haki / Evidence audit', () => {
   it('checks each evaluated character profile, contributions, Evidence ownership and calculation consistency', () => {
-    expect(sampleEvaluations).toHaveLength(30)
-    expect(sampleCharacters).toHaveLength(30)
+    expect(sampleEvaluations).toHaveLength(39)
+    expect(sampleCharacters).toHaveLength(37)
     const refs = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
     for (const evaluation of sampleEvaluations) {
       const character = sampleCharacters.find(({ id }) => id === evaluation.characterId)
@@ -66,6 +66,18 @@ describe('30-character master pool / 30-evaluation Haki / Evidence audit', () =>
     expect(getRawHakiContributionTotal(item('hancock', 'attack')!)).toBe(0)
     expect(getRawHakiContributionTotal(item('mihawk', 'attack')!)).toBe(0)
     expect(getRawHakiContributionTotal(item('crocodile', 'attack')!)).toBe(0)
+
+    expect(getRawHakiContributionTotal(item('roger', 'attack')!)).toBe(8)
+    expect(getRawHakiContributionTotal(item('rocks', 'attack')!)).toBe(8)
+    expect(getRawHakiContributionTotal(item('newgate', 'attack')!)).toBe(8)
+    expect(getRawHakiContributionTotal(item('kaido', 'attack')!)).toBe(6)
+    expect(getRawHakiContributionTotal(item('linlin', 'attack')!)).toBe(6)
+    expect(getRawHakiContributionTotal(item('rayleigh', 'attack')!)).toBe(0)
+
+    const currentRayleigh = sampleEvaluations.find(e => e.id === 'evaluation-rayleigh-current')
+    expect(getRawHakiContributionTotal(currentRayleigh?.items.find(i => i.stat === 'attack')!)).toBe(4)
+    const currentGaban = sampleEvaluations.find(e => e.id === 'evaluation-gaban-current')
+    expect(getRawHakiContributionTotal(currentGaban?.items.find(i => i.stat === 'combatIQ')!)).toBe(2)
   })
 
   it('preserves Balanced 1.2 configuration and absence of direct Special points', () => {
