@@ -116,6 +116,15 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
                   {capability.type === 'conquerors' && capability.infusion?.status === 'confirmed' && <span className="haki-infusion">패휘감 확인</span>}
                   {capability.type === 'conquerors' && capability.infusion?.status === 'unclear' && capability.status === 'confirmed' && <span className="haki-infusion muted">패휘감 미확인</span>}
                   {capability.note && <small>{normalizeCharacterNamesForDisplay(capability.note)}</small>}
+                  {profile.haki.excellenceAssessments?.filter(({ type }) => type === capability.type).map((assessment) => (
+                    <div className="haki-excellence" key={assessment.type} aria-label="특출난 패기 응용에 대한 근거 평가">
+                      <strong>{assessment.basis === 'direct-application' ? '특출난 실전 응용 확인' : '고숙련 가능성 · 강한 추론'}</strong>
+                      <small>{normalizeCharacterNamesForDisplay(assessment.interpretation)}</small>
+                      {assessment.eraContext && <small>해당 시점 · {assessment.eraContext}</small>}
+                      <small className="haki-excellence-caveat">불확실성 · {normalizeCharacterNamesForDisplay(assessment.uncertainty)}</small>
+                      <small className="haki-excellence-numeric">정성적 평가 · 자동 점수 가산 없음</small>
+                    </div>
+                  ))}
                 </dd>
               </div>
             ))}
