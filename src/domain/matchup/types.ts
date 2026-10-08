@@ -50,6 +50,9 @@ export type MatchupAnalysis = {
   id: string
   characterAId: string
   characterBId: string
+  /** Optional evaluation state/era. Omitted means the Character's default Evaluation. */
+  characterAStateId?: string
+  characterBStateId?: string
   assumptions: MatchupAssumptions
   factors: MatchupFactorAssessment[]
 }
