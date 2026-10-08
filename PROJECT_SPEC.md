@@ -1,8 +1,8 @@
 # One Piece Combat Power Analysis
 ## Project Specification
 
-**Version:** 0.1.23  
-**Status:** Active MVP · Three-Crew Baseline Calibration  
+**Version:** 0.1.24  
+**Status:** Active MVP · Expanded Evidence Calibration  
 **Project Type:** Web Application  
 **Primary Purpose:** One Piece 주요 캐릭터의 전투력을 근거 기반으로 분석하고 비교하는 웹 애플리케이션
 
@@ -171,6 +171,17 @@ Special Trait
 Special Trait이 강력하다는 사실만으로 Core Stat에 고정 보너스를 부여하지 않는다. 실제 공격·방어·지속·기동·숙련·판단·적응 성과가 확인된 경우 해당 Evidence를 관련 Core Stat의 근거로 사용한다.
 
 별도의 특수 전투요소가 확인되지 않은 비능력자에게 임의의 낮은 Special 점수를 부여하지 않는다. 정보 부재는 감점 근거가 아니다.
+
+## 4.2 Current Calibration Notes
+
+v0.1.24 기준으로 초기 사최간 비교군 외에 밀짚모자 일당, 샹크스, 해군 상위 전투원, 검은수염 해적단 일부까지 동일한 7-Core 모델에 연결한다.
+
+추가 원칙:
+- `Attack ≠ Strength ≠ Area of Effect`. 순수 완력, 공격 크기, 광역 범위, 기습 성공은 실제 강자에 대한 피해·방어 돌파·결정력·반복성 없이 Attack으로 그대로 환산하지 않는다.
+- Prime 평가는 서로 다른 시점의 상호 배타적인 최고점을 합성하지 않고 가장 신뢰할 수 있는 하나의 전투 상태를 기준으로 한다.
+- E2 평가는 현재 Evidence로 7축 산정이 가능하지만 일부 축의 불확실성이 큰 provisional draft다.
+- Evidence 부족이 큰 캐릭터는 억지로 7축 점수를 만들지 않고 미평가 상태로 유지할 수 있다.
+- Overall은 1대1 승률이나 공식 전투력 서열을 의미하지 않는다.
 
 # 5. Haki Model
 
