@@ -32,7 +32,7 @@ export function StatRankingDialog({
           </div>
           <button className="stat-info-close" type="button" aria-label="순위 닫기" onClick={onClose}>×</button>
         </div>
-        <p className="section-note">현재 등록된 {entries.length}명 · {stat === 'overall' ? 'Balanced 1.2의 7개 Final 평균 (정렬은 반올림 전 원값)' : 'Final 점수'} · 동점은 공동 순위. 모든 값은 현재 평가 상태에 따르며 1대1 승률이나 공식 서열이 아닙니다. 이름을 누르면 해당 캐릭터로 이동합니다.</p>
+        <p className="section-note">현재 등록된 {entries.length}명 · {stat === 'overall' ? 'Balanced 1.2의 7개 Final 평균 (정렬은 반올림 전 원값)' : 'Final 점수'} · 동점은 공동 순위. 복수 평가 상태가 있는 캐릭터는 대표(default) 평가만 순위에 포함됩니다. 모든 값은 현재 평가 상태에 따르며 1대1 승률이나 공식 서열이 아닙니다. 이름을 누르면 해당 캐릭터로 이동합니다.</p>
         <div className="rank-sort-controls" role="group" aria-label="순위 정렬 방향">
           <button type="button" className={direction === 'desc' ? 'selected' : ''} aria-pressed={direction === 'desc'} onClick={() => setDirection('desc')}>높은 점수순 ↓</button>
           <button type="button" className={direction === 'asc' ? 'selected' : ''} aria-pressed={direction === 'asc'} onClick={() => setDirection('asc')}>낮은 점수순 ↑</button>
