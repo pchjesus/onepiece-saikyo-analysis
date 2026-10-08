@@ -28,4 +28,10 @@ describe('getCharacterDetail group migration', () => {
     expect(getCharacterDetail('not-in-roster')).toBeUndefined()
     expect(() => getCharacterDetail('zoro', 'marines')).toThrow('Incomplete character data')
   })
+
+  it('exposes Prime subject-state metadata without duplicating Garp identity', () => {
+    const garp = getCharacterDetail('garp', 'marines')
+    expect(garp?.character.name).toBe('몽키 D. 가프')
+    expect(garp?.evaluation.subjectState).toMatchObject({ id: 'prime', label: '전성기' })
+  })
 })
