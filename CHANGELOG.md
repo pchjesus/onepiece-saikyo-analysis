@@ -1,5 +1,25 @@
 # Changelog
 
+## Unreleased — Group Detail, Stat Rankings & Compact UI
+
+### Fixed
+- 신규 집단(밀짚모자/빨간 머리/해군/검은 수염 해적단)의 상세 조회가 레거시 `sampleCrews`의 3개 집단 제한 때문에 실패하던 경로를 Group/Membership 조회로 교체.
+- 캐릭터 상세 안내에서 이전 버전 `v0.1.22` 고정 문자열을 제거하고 실제 Evaluation data version을 표시.
+
+### Added
+- 7개 Final Core Stat을 클릭해 현재 24명 전체의 해당 Stat 내림차순 순위(동점 공동 순위)를 확인하고 캐릭터로 이동하는 대화상자.
+- Evaluation Trace의 각 Stat에 `Base + (Raw Haki × Weight = Effective) = Final` 식을 명시.
+- 모든 신규 그룹의 상세 조회, 7개 Stat 순위 정렬, 주요 UI 전환에 대한 회귀 테스트.
+
+### Changed
+- 상단 종합점수/7축과 전투 프로필을 넓은 화면에서 2열로 배치. 아래 평가근거/전투기록을 탭으로 나눠 내부 스크롤을 적용하고 모바일 대응 CSS 추가.
+- 입문 가이드에 수정된 UI 사용법과 현재 검증 한계를 반영.
+- 핵심 전투력 데이터, 승인 점수, Haki Weight, Balanced 1.2 계산 규칙은 변경하지 않음.
+
+### Manual Verification Required
+- PC/모바일 실제 브라우저에서 24인 상세·순위 선택·모달/탭·긴 카드 레이아웃을 최종 확인.
+- PR #8은 Draft 상태를 유지하고 main에 병합하지 않음.
+
 ## v0.1.24 — Expanded Roster & Evidence Calibration
 
 ### Added

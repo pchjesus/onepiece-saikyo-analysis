@@ -28,22 +28,22 @@
 
 화면 상단에는 **집단 선택 탭(crew/group tabs)**이 있고, 선택한 집단 소속 캐릭터가 그 아래 **이름 버튼(character chips)**으로 나온다. 집단 탭을 누르면 그 집단의 첫 캐릭터가 선택되며, 캐릭터 이름을 누르면 상세 정보를 바꾸도록 구현되어 있다. 초기 선택은 목록의 첫 캐릭터인 **마르코**다.
 
-집단은 해적단뿐 아니라 해군도 포함한다. 현재 검색창, 정렬식 종합 순위표, 두 캐릭터를 나란히 평가하는 매치업 전용 화면은 구현된 것으로 확인되지 않는다.
-
-**중요한 현재 한계:** 이름 선택 UI에는 24명이 연결되어 있지만, 신규 집단의 상세 조회는 현재 `getCharacterDetail.ts`의 레거시 Crew 조회 문제 때문에 예외가 발생할 수 있다. 이에 대해서는 [9장](#9-현재-개발-단계와-확인된-한계)을 먼저 확인하자. **모든 캐릭터의 상세 화면이 실제로 정상 작동한다고 보장하지 않는다.**
+집단은 해적단뿐 아니라 해군도 포함한다. v0.1.24의 신규 집단 상세 조회는 레거시 Crew 대신 Group/Membership 조회를 사용하도록 수정했고 24인 조회 자동 테스트를 추가했다. **실제 브라우저·모바일 수동 확인은 별도 필요하다.** 검색창, 별도 종합 순위 페이지, 1대1 매치업 승률 화면은 아직 구현되지 않았다.
 
 ### 2.2 캐릭터 상세에 표시되는 정보
 
-현재 `CharacterPage.tsx`의 표시 순서:
+현재 `CharacterPage.tsx`는 PC에서 **종합점수·7 Core Stat / 전투 프로필**을 나란히 배치하고, 하단 **평가 근거·계산식 / 전투 기록·Evidence** 탭을 전환하는 구조다. 모바일에서는 상단이 세로로 배치된다. 하단 탭 내용은 내부 스크롤 영역에서 읽을 수 있도록 설계했다(실기기 검증 전).
+
+주요 화면 정보:
 
 | 영역 | 무엇을 읽는가 |
 |---|---|
 | 캐릭터명 및 평가 상태 | 캐릭터 이름, 소속 표기, `draft` 등 진행 상태 |
 | **전투 프로필** | 전투 방식, 특수 전투요소(Special Combat Profile), 패기 보유·확인 상태, Canon Profile 근거 |
 | **Overall Combat Power** | 현재 Balanced 모델로 계산한 종합 점수. 화면에서는 소수점 한 자리로 표시 |
-| **Core Combat Stats** | 7개 최종 스탯. 각 항목의 `?` 버튼으로 정의와 평가 범위 확인 |
-| **평가 근거 연결(Evaluation Trace)** | Stat별 Base, Haki Raw, Weight, Effective, Final, 평가 이유(rationale), 연결된 원작 출처 |
-| **전투 기록(Battle & Canon Evidence)** | 해당 캐릭터와 연결된 전투 목록. 전투를 선택하면 전투 조건과 Evidence가 펼쳐짐 |
+| **Core Combat Stats** | 7개 최종 스탯. **스탯 점수/이름 클릭** 시 24명 전체의 해당 Final 스탯 순위(동점 공동 순위)를 팝업으로 표시하며 캐릭터 이름을 누르면 그 캐릭터로 이동. `?` 버튼은 기존 정의·평가 범위 표시 |
+| **평가 근거 연결(Evaluation Trace)** | 하단 기본 선택 탭. 각 Stat에 `Base + (Raw Haki × Weight = Effective) = Final` 계산식, 평가 이유와 연결 출처 표시 |
+| **전투 기록(Battle & Canon Evidence)** | 하단 다른 탭. 연결 전투 목록에서 항목을 선택하면 전투 조건과 Evidence가 펼쳐짐 |
 
 전투 기록은 연결된 Evidence가 있는 전투를 `chronologyOrder` 순서로 배열한다. 최초 진입 시 첫 전투 항목이 열리도록 코드가 작성되어 있다. 전투 제목·전투 구조·연결 근거 수를 보고 항목을 펼치거나 닫을 수 있다.
 
@@ -51,12 +51,12 @@
 
 ### 2.3 점수와 평가 근거를 확인하는 순서
 
-1. 집단 탭과 캐릭터 이름 버튼을 선택한다. (상세 조회에 알려진 제한이 있음)
+1. 집단 탭과 캐릭터 이름 버튼을 선택한다.
 2. 전투 프로필에서 고유 능력 및 패기 **확인 상태**를 본다.
 3. Overall을 확인하되, **전체 전투력이나 1대1 승률과 동일시하지 않는다.**
-4. Core Stat의 `?` 버튼으로 그 스탯에 **포함하는 내용 / 따로 평가하는 내용**을 읽는다.
-5. Evaluation Trace에서 **각 항목의 점수와 이유, 원작 출처**를 확인한다.
-6. 전투 기록을 펼쳐 해당 출처의 **전투 맥락, 사실, 해석, 한계**를 대조한다.
+4. **스탯 이름/점수**를 누르면 해당 스탯의 24인 Final 순위가 팝업으로 열리고, `?` 버튼은 **포함하는 내용 / 따로 평가하는 내용**을 알려준다.
+5. 하단 **평가 근거·계산식** 탭에서 항목별 `Base + (Raw × 0.5) = Final`, 평가 이유와 원작 출처를 확인한다.
+6. 하단 **전투 기록·원작 Evidence** 탭을 선택해 전투를 펼치고 **전투 맥락, 사실, 해석, 한계**를 대조한다.
 
 Evidence는 그 자체로 점수를 자동 변경하지 않는다. Evaluation에 연결되고 평가자가 해석해야 점수에 반영된다.
 
@@ -223,10 +223,12 @@ Character ──(CharacterMembership)── Group
 관계의 실제 접근 경로는 다음과 같다.
 
 - 목록: `App → getCharacterList → characterRepository + groupRepository → characters / groups / memberships`
-- 상세: `CharacterPage → getCharacterDetail → characterRepository + crewRepository + evaluationRepository` (**현재 레거시 Crew 문제 주의**)
+- 상세: `CharacterPage → getCharacterDetail → characterRepository + groupRepository(Group/Membership) + evaluationRepository` (현재 선택된 groupId 전달)
 - 전투: `getCharacterBattleTimeline → evidenceRepository → battleRepository`
 - 평가 추적: `getCharacterEvaluationTrace → EvaluationItem.evidenceIds → getCharacterEvidence`
 - 계산: `getCombatPower → calculationModelRepository + evaluationRepository → calculateBalancedCombatPower`
+
+각 Stat 비교 UI는 `src/application/getStatRanking.ts`에서 실제 평가 로스터와 Balanced 모델의 **Final**을 조회해 점수순으로 정렬한다. 신규 평가 대상 추가 시 순위 팝업 및 24명 가정이 포함된 테스트도 검토한다.
 
 현재 `sampleCharacters`는 사실상 **Master Pool**과 **UI 평가 로스터** 역할을 함께 맡는다. E3 같은 **미평가 캐릭터를 단순히 여기에 추가하면**, 캐릭터 상세의 필수 Evaluation 전제 및 통합 테스트에 영향을 준다. 두 역할을 분리하는 구조 변경은 영향 분석 없이 하지 말 것.
 
@@ -299,18 +301,17 @@ npm.cmd run preview
 - **MVP 개발 중**이며 **24개 Evaluation 모두 draft**다. 공식 확정(`official`)으로 선언하지 않는다.
 - E2인 시류·바제스·반 오거·피사로의 값은 **provisional**이다. 신규 근거가 나오면 기존 값을 고집하지 않고 재검토한다.
 - 도크 Q(E3), 라피트·카타리나 데본·바스코 샷·산후안 울프 등은 현재 7축 근거 부족으로 수치 평가를 만들지 않았다.
-- **정적 코드 검토로 확인된 상세 조회 참조 문제:** `getCharacterList()`는 24명을 Group/Membership으로 반환하지만, `getCharacterDetail()`은 `crewRepository`를 통해 `sampleCrews`를 조회한다. `sampleCrews`는 흰수염/백수/빅맘 3개뿐이므로 **그 밖의 캐릭터 상세 조회는 `Incomplete character data` 예외 경로로 이어진다.** 정상 작동이라고 표현하지 않는다. 수정 시 Group 기반 조회로 옮기는 영향과 레거시 호환성, 신규 상세 조회 테스트를 먼저 검토한다.
-- 상세의 draft 안내 문구에 아직 **`v0.1.22`**가 하드코딩되어 있어 최신 v0.1.24 표시와 어긋난다. 실제 계산·데이터 버전과 분리된 **UI 잔여 문구**다.
+- **상세 조회 수정:** 기존 `crewRepository`의 3개 집단 제한을 Group/Membership 조회로 교체하고 24인 전체 및 신규 4개 집단의 자동 테스트를 추가했다. 실제 브라우저·모바일 수동 조작 결과는 별도 확인 대상이다.
+- **버전 문구 수정:** 과거 하드코딩된 `v0.1.22` 대신 해당 캐릭터의 실제 `evaluationDataVersion`을 표시한다. 이는 앱 버전 자체와 다를 수 있다.
 - 등록된 Group 전체가 메뉴로 표시되지는 않는다. 매치업 자동 승률 예측, 투표가 점수를 자동 조정하는 시스템, 검색 UI, 관리자 편집·게시·이력 관리, 서버 DB, 로그인은 **현재 구현으로 확인되지 않았다.**
 - **브라우저/모바일 실제 수동 조작과 반응형 레이아웃 검수는 아직 수행되지 않았다.** CSS가 존재하는 것과 실제 기기에서 보기에 적절한지는 다르다.
 - GitHub Pages는 private 개발 정책에 따라 자동 배포하지 않는다. CI의 배포 단계가 건너뛰어진 것은 **실제 서비스 배포 성공**을 의미하지 않는다.
 
 ### 다음 단계로 권장하는 최소 검증
 
-1. **우선순위 높음 — 상세 조회 참조 문제 해결**: 레거시 Crew와 Group/Membership 관계를 확인하고 안전한 경로로 정리한 뒤, 마르코 외 **조로·샹크스·가프·티치** 상세 조회 테스트 및 전환 회귀 테스트 추가.
-2. **표시 정합성**: 상세의 오래된 `v0.1.22` 안내 문구를 실제 데이터/모델 버전과 일치하도록 검토.
-3. **PC/모바일 수동 검수**: 집단 탭→캐릭터 버튼→7축/Trace→Battle/Evidence 펼침, 긴 텍스트 줄바꿈과 가로 스크롤 확인.
-4. **다음 기능은 별도 합의 후**: E3 미평가자 표시, roster / master pool 분리, 검색, 비교·매치업, Evidence coverage 표시. 기존 데이터·평가를 조용히 재구성하지 않는다.
+1. **PC/모바일 수동 검수**: 7개 집단 전환과 24명 선택, 상단 2열 레이아웃, 각 스탯 순위 팝업과 캐릭터 이동, 하단 탭 전환, 내부 스크롤 및 긴 텍스트 줄바꿈 확인.
+2. **통합 회귀**: 신규 Group/Membership 상세 조회, 7축 계산식, 24인 순위 정렬, 기존 Evidence Trace·전투 목록이 모두 정상인지를 자동/수동으로 확인.
+3. **다음 기능은 별도 합의 후**: E3 미평가자 표시, roster / master pool 분리, 검색, 비교·매치업, Evidence coverage 표시. 기존 데이터·평가를 조용히 재구성하지 않는다.
 
 ---
 
