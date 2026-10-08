@@ -16,4 +16,12 @@ export const sampleMemberships: CharacterMembership[] = [
   { characterId: 'zoro', groupId: 'straw-hat-pirates', role: '전투원 / 검사', status: 'current' },
   { characterId: 'sanji', groupId: 'straw-hat-pirates', role: '요리사 / 전투원', status: 'current' },
   { characterId: 'jinbe', groupId: 'straw-hat-pirates', role: '조타수 / 전투원', status: 'current' },
+
+  { characterId: 'shanks', groupId: 'red-hair-pirates', role: '선장', status: 'current' },
+  { characterId: 'garp', groupId: 'marines', role: '중장 / 해군 영웅', status: 'current' },
+  { characterId: 'akainu', groupId: 'marines', role: '원수', status: 'current' },
+  { characterId: 'kuzan', groupId: 'marines', role: '전 대장', status: 'former' },
+  { characterId: 'kizaru', groupId: 'marines', role: '대장', status: 'current' },
+  { characterId: 'fujitora', groupId: 'marines', role: '대장', status: 'current' },
+  { characterId: 'ryokugyu', groupId: 'marines', role: '대장', status: 'current' },
 ]
