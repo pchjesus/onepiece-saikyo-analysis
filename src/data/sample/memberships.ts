@@ -24,4 +24,10 @@ export const sampleMemberships: CharacterMembership[] = [
   { characterId: 'kizaru', groupId: 'marines', role: '대장', status: 'current' },
   { characterId: 'fujitora', groupId: 'marines', role: '대장', status: 'current' },
   { characterId: 'ryokugyu', groupId: 'marines', role: '대장', status: 'current' },
+
+  { characterId: 'teach', groupId: 'blackbeard-pirates', role: '제독 / 선장', status: 'current' },
+  { characterId: 'burgess', groupId: 'blackbeard-pirates', subgroup: '1번선', role: '선장', status: 'current' },
+  { characterId: 'shiryu', groupId: 'blackbeard-pirates', subgroup: '2번선', role: '선장', status: 'current' },
+  { characterId: 'van-augur', groupId: 'blackbeard-pirates', subgroup: '3번선', role: '선장', status: 'current' },
+  { characterId: 'pizarro', groupId: 'blackbeard-pirates', subgroup: '4번선', role: '선장', status: 'current' },
 ]
