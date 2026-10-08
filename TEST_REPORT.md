@@ -555,6 +555,40 @@ npm.cmd run dev
 
 # Test Report
 
+## v0.1.32 Verification Report
+
+### Scope
+- Character ↔ Group multi-Membership support.
+- Membership-expanded Group navigation.
+- Character-unique Ranking / Matchup roster.
+- Search suggestion deduplication.
+- Former Seven Warlords Memberships for 쥬라큘 미호크 / 크로커다일.
+
+### Structural checks
+- Navigation rows: 31 Membership entries.
+- Unique evaluated roster: 29 Characters.
+- Ranking: 29 unique Character IDs.
+- Matchup selector: 29 unique Character IDs.
+- Representative Group for 미호크 / 크로커다일 remains 크로스 길드.
+- Both Characters also resolve correctly inside 왕의 부하 칠무해 context.
+- Exact duplicate Membership validation remains enabled.
+
+### Automated verification
+- PR #19 intermediate passing head: **24 test files / 107 tests passed**.
+- `npm run build`: **passed**.
+- Initial CI found two stale single-Membership assumptions:
+  1. a Character detail test expected the Membership-expanded list itself to remain 29 rows;
+  2. the first unique-roster implementation changed one pre-existing navigation order because it followed Character source order instead of Membership first-occurrence order.
+- Fix: tests now distinguish expanded vs unique views, and the representative roster preserves existing Membership navigation order.
+- No Evaluation score, Balanced 1.2 or Haki Weight change.
+
+### Manual browser checks
+- 왕의 부하 칠무해 tab shows 트라팔가 로 / 돈키호테 도플라밍고 / 보아 핸콕 plus former members 쥬라큘 미호크 / 크로커다일.
+- 크로스 길드 tab still shows 쥬라큘 미호크 / 크로커다일 only.
+- Searching 쥬라큘 미호크 by name yields one suggestion using 크로스 길드 as representative Group.
+- Ranking shows each Character once.
+
+
 ## v0.1.31 Verification Plan / Result
 
 ### Scope
