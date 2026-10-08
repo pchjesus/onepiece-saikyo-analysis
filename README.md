@@ -1,6 +1,6 @@
 # 원피스 전투력 분석
 
-현재 개발 버전: **v0.1.30**  
+현재 개발 버전: **v0.1.31**  
 평가 데이터: **30 Character master pool · 29 evaluated roster · 30 Evaluation · 가프/쿠잔/크로커다일 재보정은 evaluation-0.1.30-draft**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
@@ -21,6 +21,17 @@
 - 크로스 길드: 쥬라큘 미호크 / 크로커다일 (버기는 Character master pool E3 미평가)
 
 Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Special Combat Profile과 Matchup-specific Advantage는 Overall에 직접 합산하지 않는다.
+
+## v0.1.31 주요 변경
+
+- 돈키호테 도플라밍고의 공식 이명 **천야차**를 추가하고 표시 순서를 **천야차 → 조커**로 정리했다.
+- Matchup Arena를 고정 prototype 선택형에서 **좌/우 캐릭터 직접 선택형 Matchup Builder**로 변경했다.
+- 29명 evaluated roster에서 서로 다른 두 캐릭터를 자유롭게 선택할 수 있다. 복수 Evaluation 캐릭터는 평가 시점도 별도로 선택한다.
+- 스포츠/UFC식 기능으로 **SWAP / RANDOM / FEATURED 직접 Evidence 대진 빠른 선택**을 추가했다.
+- 좌/우 각 Character panel에서 수치상 앞서는 Core Stat, 전투 스타일, Special/Haki toolkit, 해당 캐릭터 관점의 유리·주의·조건부 factor를 표시한다.
+- 아래 통합 panel에서 Radar / Tale of the Tape / Evidence-aware 종합 factor를 표시한다.
+- 직접 Matchup Evidence가 없는 임의 조합은 스탯 비교까지만 허용하고 **상성 결론을 자동 생성하지 않는다**.
+- 상성이 좋은/나쁜 상대 자동 추천, scenario 조건 변경, 공유 링크, 커뮤니티 pick 등은 데이터/저장 구조가 준비되는 순서대로 후속 개발한다.
 
 ## v0.1.30 주요 변경
 
