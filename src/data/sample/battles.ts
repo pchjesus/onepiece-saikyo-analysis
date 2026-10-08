@@ -221,7 +221,7 @@ export const sampleBattles: Battle[] = [
   },
   {
     id: 'wano-waterfall-king-big-mom-pirates', title: '와노 폭포 — 킹의 빅맘 해적단 입국 저지', chronologyOrder: 1,
-    combatStructure: 'one-vs-group', combatPurpose: '빅맘 해적단의 와노 입국 저지', combatIntent: 'serious',
+    combatStructure: 'one-vs-multiple', combatPurpose: '빅맘 해적단의 와노 입국 저지', combatIntent: 'serious',
     environment: '와노쿠니 외해 폭포', restrictions: '함선이 폭포를 오르는 특수한 지형·상황의 요격이다.',
     externalFactors: '킹이 비행 능력으로 Queen Mama Chanter를 밀어내 함선을 추락시켰다.', result: 'victory', participantIds: [],
   },
