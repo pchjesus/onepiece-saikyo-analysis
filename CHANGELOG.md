@@ -1,5 +1,26 @@
 # Changelog
 
+## v0.1.29 — Cross Guild, Prime Garp Recalibration & Matchup UI
+
+### Evaluation / Evidence
+- 쥬라큘 미호크와 크로커다일의 Character / Battle / Evidence / Evaluation 추가.
+- 버기는 Character master pool에만 등록하고 E3 미평가 유지.
+- 전성기 몽키 D. 가프에 Ch.1165 Supreme King Haki의 Attack / Defense / Technique Application을 분리 반영.
+- 쥬라큘 미호크는 샹크스와 동일 최상위 밴드에서 sanity-check하되 세계 최강 검사 칭호를 모든 Stat 자동 보너스로 사용하지 않음.
+- 크로커다일은 Technique / Combat IQ 강점을 유지하면서 Attack / Defense / Stamina / Speed를 직접 Evidence 중심으로 보수화.
+
+### Matchup / UI
+- Matchup repository/application/UI 흐름을 추가하고 Character Detail에 세 번째 '매치업 분석' 탭 추가.
+- 기존 6개에 쥬라큘 미호크-샹크스 / 쥬라큘 미호크-롤로노아 조로 / 쥬라큘 미호크-비스타 / 크로커다일-돈키호테 도플라밍고 / 크로커다일-죠즈를 추가해 총 11개.
+- 복수 Evaluation 상태가 지정된 매치업은 선택한 상태에서만 표시.
+- 승률·고정 보너스 미도입.
+
+### Model / Compatibility
+- Balanced 1.2, Haki Weight 0.5, 7 Core Stat, Special 비수치 원칙 유지.
+- PROJECT_SPEC.md 변경 없음.
+- 30 Character master pool / 29 evaluated roster / 30 Evaluation.
+
+
 ## v0.1.28 — Multi-state Evaluation, Korean Analysis Names & Matchup Expansion
 
 ### Evaluation / Data
