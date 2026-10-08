@@ -3,9 +3,9 @@ import { getCharacterList } from './getCharacterList'
 import { getCharacterDetail } from './getCharacterDetail'
 
 describe('getCharacterDetail group migration', () => {
-  it('resolves detail and displayed group for every character in the 27-person roster', () => {
+  it('resolves detail and displayed group for every character in the 29-person evaluated roster', () => {
     const list = getCharacterList()
-    expect(list).toHaveLength(27)
+    expect(list).toHaveLength(29)
     for (const { character, group } of list) {
       const detail = getCharacterDetail(character.id, group.id)
       expect(detail?.character.id).toBe(character.id)
