@@ -1,6 +1,6 @@
 name: Validate / Deploy GitHub Pages
 
-# Private development: main pushes validate only; Pages deployment is manual and reserved for the future public-sharing stage.
+# Public site policy: pull requests validate only; successful main pushes and manual dispatches publish GitHub Pages.
 
 on:
   push:
@@ -31,14 +31,14 @@ jobs:
       - run: npm test
       - run: npm run build
       - uses: actions/configure-pages@v5
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name != 'pull_request'
       - uses: actions/upload-pages-artifact@v3
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name != 'pull_request'
         with:
           path: ./dist
 
   deploy:
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
