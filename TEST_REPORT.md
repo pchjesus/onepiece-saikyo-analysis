@@ -555,6 +555,32 @@ npm.cmd run dev
 
 # Test Report
 
+## v0.1.30 Verification Plan / Result
+
+### Scope
+- Prime/current Garp recalibration.
+- Kuzan defense/endurance recalibration with post-Blue-Hole return Evidence.
+- Crocodile direct-combat down-calibration.
+- Stats-first top-level navigation and separate Matchup Arena.
+- Radar chart / Tale of the Tape / Evidence-aware factor presentation.
+
+### Required regression checks
+- 29 evaluated characters / 30 Evaluation records remain referentially valid.
+- Default ranking still uses Prime Garp once; current Garp remains state-selectable only.
+- Current Garp vs Kuzan Matchup uses current Garp evaluation in the Arena.
+- Character Detail contains only Evaluation / Battle-Evidence tabs.
+- App opens on Stats by default; Matchup Arena is reached through the top-level VS control.
+- Radar values are derived from Evaluation + Balanced 1.2 rather than hardcoded UI scores.
+- Community discussion UI is not rendered yet.
+- Balanced 1.2 / Haki Weight 0.5 / Special non-numeric policy remain unchanged.
+
+### Manual visual checks
+- Desktop and mobile spacing of the top-level Stats / Matchup navigation.
+- Radar labels do not clip at common phone widths.
+- Fighter cards and Tale of the Tape remain readable for long Korean names.
+- Matchup picker horizontal scrolling remains usable on mobile.
+
+
 ## v0.1.29 Verification Report
 
 ### Scope
