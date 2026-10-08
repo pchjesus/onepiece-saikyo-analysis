@@ -2,14 +2,17 @@ import { describe, expect, it } from 'vitest'
 import { getMatchupBuilderView, getMatchupHubEntries, getMatchupRoster } from './getMatchupHub'
 
 describe('matchup builder application', () => {
-  it('builds an evaluated 29-character selection roster', () => {
+  it('builds an evaluated 36-character selection roster', () => {
     const roster = getMatchupRoster()
-    expect(roster).toHaveLength(29)
-    expect(new Set(roster.map(({ characterId }) => characterId)).size).toBe(29)
+    expect(roster).toHaveLength(36)
+    expect(new Set(roster.map(({ characterId }) => characterId)).size).toBe(36)
     expect(roster.find(({ characterId }) => characterId === 'garp')?.states.map(({ label }) => label))
       .toEqual(['전성기', '현재'])
     expect(roster.find(({ characterId }) => characterId === 'mihawk')?.groupName).toBe('크로스 길드')
     expect(roster.find(({ characterId }) => characterId === 'crocodile')?.groupName).toBe('크로스 길드')
+    expect(roster.find(({ characterId }) => characterId === 'rayleigh')?.states.map(({ label }) => label)).toEqual(['전성기', '현재'])
+    expect(roster.find(({ characterId }) => characterId === 'newgate')?.states.map(({ label }) => label)).toEqual(['전성기', '정상결전'])
+    expect(roster.find(({ characterId }) => characterId === 'gaban')?.states.map(({ label }) => label)).toEqual(['현재'])
   })
 
   it('keeps the 11 evidence-aware featured matchups', () => {
@@ -32,7 +35,7 @@ describe('matchup builder application', () => {
     const current = getMatchupBuilderView('garp', 'kuzan', 'current')
     expect(prime?.left.overall).toBeCloseTo(97.4285714286)
     expect(prime?.matchup).toBeUndefined()
-    expect(current?.left.overall).toBeCloseTo(93.7142857143)
+    expect(current?.left.overall).toBeCloseTo(94.4285714286)
     expect(current?.matchup?.id).toBe('matchup-garp-current-kuzan')
   })
 
