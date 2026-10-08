@@ -507,6 +507,22 @@ export const sampleBattles: Battle[] = [
     result: "interrupted",
     participantIds: [],
   },
+  { id: 'hachinosu-garp-impact-1080', title: '하치노스 — 가프 Galaxy Impact', chronologyOrder: 8,
+    combatStructure: 'one-vs-multiple', combatPurpose: '납치된 코비와 해군 구조대원의 구조', combatIntent: 'serious',
+    environment: '하치노스 중앙 광장', restrictions: '노년 가프의 공격이고 다수 해적에 대한 광역 타격이며 Prime의 직접 결투 표본이 아님',
+    externalFactors: '해군 구조대의 연계와 전장 전체의 혼란', result: 'interrupted', participantIds: [] },
+  { id: 'dressrosa-fujitora-gravity-713', title: '그린 비트 — 후지토라의 운석·중력 시연', chronologyOrder: 3,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '트라팔가 로·도플라밍고가 대치한 해군 작전 현장에 개입', combatIntent: 'unknown',
+    environment: '그린 비트 해안', restrictions: '거대 운석 규모가 상위 강자에게 단일 공격 적중을 증명하지 않음',
+    externalFactors: '로·도플라밍고와 해군이 함께 있는 대치 환경', result: 'interrupted', participantIds: [] },
+  { id: 'dressrosa-fujitora-luffy-799', title: '드레스로자 — 후지토라와 루피의 공방 및 시민 보호', chronologyOrder: 4,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '도주하는 루피의 체포를 시도하면서 민간인 피해는 피하는 상황', combatIntent: 'unknown',
+    environment: '드레스로자 항구와 해안', restrictions: '민간인 보호·해군 임무에 따른 제약이 있고 루피도 공격을 예고하며 교전',
+    externalFactors: '민간인이 항구로 집결한 결과 후지토라는 운석·잔해 공격을 보류하고 해적단의 탈출을 허용', result: 'interrupted', participantIds: [] },
+  { id: 'marineford-three-admirals-shield-564', title: '정상결전 — 삼대장의 흰수염 지진파 차단', chronologyOrder: 4,
+    combatStructure: 'multiple-vs-one', combatPurpose: '처형대를 향하는 흰수염의 지진파로부터 핵심 방어선을 보호', combatIntent: 'serious',
+    environment: '마린포드 처형대 주변', restrictions: '사카즈키·쿠잔·보르살리노 세 명이 공동 방어한 장면이므로 개인의 단독 방어력으로 환산하지 않음',
+    externalFactors: '흰수염은 스쿼드의 칼에 찔린 후이며 정상결전 전체의 다수전 맥락', result: 'interrupted', participantIds: [] },
 ]
 
 export const sampleBattleParticipants: BattleParticipant[] = [

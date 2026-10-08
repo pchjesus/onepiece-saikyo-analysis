@@ -9,11 +9,11 @@ import { validateEvaluation } from '../../domain/evaluation/validation'
 
 const reviewedIds = ['shanks', 'akainu', 'kuzan', 'kizaru', 'teach', 'ryokugyu'] as const
 const expectedOverall = {
-  shanks: 92.28571428571429,
-  akainu: 92.42857142857143,
-  kuzan: 93.42857142857143,
-  kizaru: 94,
-  teach: 90.42857142857143,
+  shanks: 94.14285714285714,
+  akainu: 93.14285714285714,
+  kuzan: 93,
+  kizaru: 92.71428571428571,
+  teach: 91.57142857142857,
   ryokugyu: 89.42857142857143,
 }
 const newEvidenceIds = [
@@ -32,6 +32,13 @@ const newEvidenceIds = [
   'evidence-teach-hancock-nullification-1059',
   'evidence-teach-kurouzu-441',
   'evidence-aramaki-shanks-haki-1055',
+  'evidence-garp-galaxy-impact-1080',
+  'evidence-garp-kuzan-haki-1087',
+  'evidence-fujitora-meteor-713',
+  'evidence-fujitora-luffy-observation-799',
+  'evidence-akainu-admiral-barrier-564',
+  'evidence-kuzan-admiral-barrier-564',
+  'evidence-kizaru-admiral-barrier-564',
 ]
 
 describe('evidence-only review before approved calibration', () => {

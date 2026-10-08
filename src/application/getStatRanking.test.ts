@@ -24,7 +24,7 @@ describe('getStatRanking', () => {
     const speed = getStatRanking('speed')
     expect(speed[0]).toMatchObject({ characterId: 'kizaru', score: 99, rank: 1 })
     const versatility = getStatRanking('versatility')
-    expect(versatility[0]).toMatchObject({ characterId: 'kizaru', score: 97, rank: 1 })
+    expect(versatility[0]).toMatchObject({ characterId: 'ryokugyu', score: 97, rank: 1 })
     expect(attack.find(({ characterId }) => characterId === 'zoro')?.score).toBe(90)
   })
   it('sorts the current 24-character Overall from the calculation service', () => {
