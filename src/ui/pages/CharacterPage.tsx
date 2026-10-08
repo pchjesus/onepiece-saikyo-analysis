@@ -40,7 +40,10 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
     <main className="detail">
       <div className="detail-heading">
         <div>
-          <p className="eyebrow">{detail.group.name}</p>
+          <p className="eyebrow">
+            {detail.group.name}
+            {(detail.membership.status === 'former' || detail.membership.status === 'historical') && <span className="membership-context">과거 소속</span>}
+          </p>
           <h1>{detail.character.name}</h1>
           {detail.character.knownAs.length > 0 && (
             <div className="character-known-as" aria-label="공식 이명 및 칭호">
