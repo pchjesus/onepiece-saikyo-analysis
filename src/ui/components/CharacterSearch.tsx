@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { CharacterKnownAs } from '../../domain/character/types'
 
 type CharacterOption = {
-  character: { id: string; name: string; knownAs: CharacterKnownAs[] }
+  character: { id: string; name: string; crewId: string; knownAs: CharacterKnownAs[] }
   group: { id: string; name: string }
 }
 
@@ -50,11 +50,26 @@ export function CharacterSearch({ characters, onSelectCharacter }: {
 
   const term = normalize(query)
   const suggestions = term
-    ? characters
-      .map((entry) => ({ entry, relevance: matchRelevance(entry.character, entry.group.name, term) }))
-      .filter(({ relevance }) => Number.isFinite(relevance))
-      .sort((a, b) => a.relevance - b.relevance || a.entry.character.name.localeCompare(b.entry.character.name, 'ko'))
-      .slice(0, 8).map(({ entry }) => entry)
+    ? (() => {
+      const seen = new Set<string>()
+      return characters
+        .map((entry) => ({
+          entry,
+          relevance: matchRelevance(entry.character, entry.group.name, term),
+          representative: entry.group.id === entry.character.crewId ? 0 : 1,
+        }))
+        .filter(({ relevance }) => Number.isFinite(relevance))
+        .sort((a, b) =>
+          a.relevance - b.relevance
+          || a.representative - b.representative
+          || a.entry.character.name.localeCompare(b.entry.character.name, 'ko'))
+        .flatMap(({ entry }) => {
+          if (seen.has(entry.character.id)) return []
+          seen.add(entry.character.id)
+          return [entry]
+        })
+        .slice(0, 8)
+    })()
     : []
 
   const choose = (entry: CharacterOption) => {
