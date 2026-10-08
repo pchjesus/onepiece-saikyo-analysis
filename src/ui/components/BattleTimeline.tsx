@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { Battle } from '../../domain/battle/types'
 import type { Evidence } from '../../domain/evidence/types'
 import { EvidenceList } from './EvidenceList'
+import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
 
 type TimelineItem = {
   battle: Battle
@@ -37,7 +38,7 @@ export function BattleTimeline({ items }: { items: TimelineItem[] }) {
             >
               <span className="battle-index">{index + 1}</span>
               <span className="battle-summary-main">
-                <strong>{battle.title}</strong>
+                <strong>{normalizeCharacterNamesForDisplay(battle.title)}</strong>
                 <span>{structureLabels[battle.combatStructure]} · 근거 {evidence.length}개</span>
               </span>
               <span className="battle-toggle" aria-hidden="true">{isOpen ? '−' : '+'}</span>
