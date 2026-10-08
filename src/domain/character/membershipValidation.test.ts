@@ -10,9 +10,13 @@ describe('group membership migration', () => {
       .toEqual({ valid: true, errors: [] })
   })
 
-  it('maps every baseline character to the same group as legacy crewId', () => {
+  it('maps evaluated-roster characters to their legacy group and allows E3 master-pool characters without membership', () => {
     for (const character of sampleCharacters) {
       const memberships = sampleMemberships.filter(({ characterId }) => characterId === character.id)
+      if (character.id === 'buggy') {
+        expect(memberships).toHaveLength(0)
+        continue
+      }
       expect(memberships).toHaveLength(1)
       expect(memberships[0].groupId).toBe(character.crewId)
     }

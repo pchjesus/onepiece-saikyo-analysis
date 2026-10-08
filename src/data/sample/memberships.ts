@@ -33,4 +33,7 @@ export const sampleMemberships: CharacterMembership[] = [
   { characterId: 'law', groupId: 'seven-warlords', role: '하트 해적단 선장', status: 'former' },
   { characterId: 'doflamingo', groupId: 'seven-warlords', role: '돈키호테 해적단 선장', status: 'former' },
   { characterId: 'hancock', groupId: 'seven-warlords', role: '구사 해적단 선장', status: 'former' },
+  { characterId: 'mihawk', groupId: 'cross-guild', role: '공동 창설자 / 핵심 전력', status: 'current' },
+  { characterId: 'crocodile', groupId: 'cross-guild', role: '공동 창설자', status: 'current' },
+
 ]

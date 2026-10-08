@@ -262,3 +262,23 @@ header p:last-child { color: #666; }
 .evaluation-state-switcher button { border: 0; border-radius: 999px; padding: 7px 12px; background: transparent; color: #666; cursor: pointer; font-size: .8rem; font-weight: 750; }
 .evaluation-state-switcher button.selected { background: #171717; color: white; }
 .evaluation-state-switcher button:focus-visible { outline: 2px solid #888; outline-offset: 2px; }
+
+
+/* v0.1.29 Evidence-aware Matchup UI. */
+.matchup-section { margin: 0; padding: 0; }
+.matchup-section h2 { margin: 4px 0 8px; font-size: 1.18rem; }
+.matchup-list { display: grid; gap: 12px; margin-top: 14px; }
+.matchup-card { border: 1px solid #deded9; border-radius: 15px; background: white; overflow: hidden; }
+.matchup-header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 8px 16px; padding: 15px 16px; background: #f7f7f3; border-bottom: 1px solid #e5e5e0; }
+.matchup-header small { color: #777; font-size: .72rem; font-weight: 800; }
+.matchup-header h3 { margin: 2px 0 0; font-size: 1.05rem; }
+.matchup-header > span { color: #777; font-size: .74rem; }
+.matchup-factors { display: grid; gap: 0; }
+.matchup-factor { padding: 14px 16px; border-top: 1px solid #ecece8; }
+.matchup-factor:first-child { border-top: 0; }
+.matchup-factor-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 7px 12px; }
+.matchup-factor-meta strong { font-size: .86rem; }
+.matchup-factor-meta span { border-radius: 999px; padding: 4px 8px; background: #f0f0ed; color: #555; font-size: .72rem; font-weight: 750; }
+.matchup-factor p { margin: 9px 0 7px; color: #444; line-height: 1.55; font-size: .88rem; }
+.matchup-factor small { display: block; margin-top: 5px; color: #777; line-height: 1.45; }
+@media (max-width: 700px) { .matchup-header { align-items: flex-start; } }

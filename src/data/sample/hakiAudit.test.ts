@@ -7,10 +7,10 @@ import { validateEvaluation as validateEvidenceLinks } from '../../domain/evalua
 import { validateEvaluation as validateCalculation, calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
 import { getRawHakiContributionTotal, getFinalStatScore } from '../../domain/evaluation/score'
 
-describe('27-character / 28-evaluation Haki / Evidence audit', () => {
+describe('30-character master pool / 30-evaluation Haki / Evidence audit', () => {
   it('checks each evaluated character profile, contributions, Evidence ownership and calculation consistency', () => {
-    expect(sampleEvaluations).toHaveLength(28)
-    expect(sampleCharacters).toHaveLength(27)
+    expect(sampleEvaluations).toHaveLength(30)
+    expect(sampleCharacters).toHaveLength(30)
     const refs = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
     for (const evaluation of sampleEvaluations) {
       const character = sampleCharacters.find(({ id }) => id === evaluation.characterId)
@@ -41,8 +41,10 @@ describe('27-character / 28-evaluation Haki / Evidence audit', () => {
     expect(getRawHakiContributionTotal(item('shanks', 'attack')!)).toBe(6)
     expect(getRawHakiContributionTotal(item('shanks', 'techniqueMastery')!)).toBe(8)
     expect(item('shanks', 'techniqueMastery')?.score).toBe(96)
-    expect(getRawHakiContributionTotal(item('garp', 'attack')!)).toBe(6)
+    expect(getRawHakiContributionTotal(item('garp', 'attack')!)).toBe(8)
     expect(item('garp', 'attack')?.score).toBe(99)
+    expect(getRawHakiContributionTotal(item('garp', 'defense')!)).toBe(8)
+    expect(getRawHakiContributionTotal(item('garp', 'techniqueMastery')!)).toBe(8)
     const currentGarp = sampleEvaluations.find(e => e.characterId === 'garp' && e.subjectState?.id === 'current')
     expect(getRawHakiContributionTotal(currentGarp?.items.find(i => i.stat === 'attack')!)).toBe(6)
     expect(currentGarp?.items.find(i => i.stat === 'attack')?.score).toBe(94)
@@ -62,6 +64,8 @@ describe('27-character / 28-evaluation Haki / Evidence audit', () => {
     expect(getRawHakiContributionTotal(item('law', 'attack')!)).toBe(0)
     expect(getRawHakiContributionTotal(item('doflamingo', 'attack')!)).toBe(0)
     expect(getRawHakiContributionTotal(item('hancock', 'attack')!)).toBe(0)
+    expect(getRawHakiContributionTotal(item('mihawk', 'attack')!)).toBe(0)
+    expect(getRawHakiContributionTotal(item('crocodile', 'attack')!)).toBe(0)
   })
 
   it('preserves Balanced 1.2 configuration and absence of direct Special points', () => {

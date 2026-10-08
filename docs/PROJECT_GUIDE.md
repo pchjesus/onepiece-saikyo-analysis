@@ -1,6 +1,8 @@
 # 원피스 전투력 분석 — 처음 보는 사람을 위한 프로젝트 가이드
 
-> 기준: **v0.1.28** 구현 · 27 Character / 28 Evaluation. 기본 로스터는 v0.1.26 Draft이며 현재 몽키 D. 가프는 v0.1.28 Draft.  
+> **v0.1.29 갱신:** Character master pool 30명 / evaluated roster 29명 / Evaluation 30개. 크로스 길드의 쥬라큘 미호크·크로커다일을 평가 로스터에 추가했고 버기는 E3 master-only다. Evidence-aware Matchup은 이제 Character Detail의 세 번째 탭에서 확인할 수 있다.
+
+> 기준: **v0.1.29** 구현 · 30 Character master pool / 29 evaluated roster / 30 Evaluation.  
 > 대상: ONE PIECE를 아는 일반 사용자 + 코드를 처음 인계받은 개발자.  
 > 주의: 자동 test/build 및 GitHub Pages 배포와 실제 기기 시각 검증은 서로 다른 검증 단계다.
 
@@ -173,11 +175,11 @@ Balanced Overall (7개 Final 평균)
 | **E2** | 7축을 산정할 수 있으나 일부 축의 직접 근거가 약한 단계 | **provisional draft**, 후속 Evidence로 변동 가능 |
 | **E3** | 7축 산정에 필요한 Evidence 자체가 크게 부족한 단계 | 억지 점수를 만들지 않고 **미평가**로 둠 |
 
-현재 검은수염 해적단의 운영 분류는 **티치 E1**, **시류·바제스·반 오거·피사로 E2**, **도크 Q E3**다. E3 미평가자는 아래 **27명 UI 평가 로스터에 포함되지 않는다**.
+현재 검은수염 해적단의 운영 분류는 **티치 E1**, **시류·바제스·반 오거·피사로 E2**, **도크 Q E3**다. E3 미평가자는 아래 **29명 UI 평가 로스터에 포함되지 않는다**. 버기도 같은 정책으로 Character master pool에만 존재한다.
 
-## 7. v0.1.27 평가 로스터
+## 7. v0.1.29 평가 로스터
 
-아래는 `sampleCharacters`, `sampleMemberships`, `getCharacterList.test.ts` 및 현재 Evaluation 데이터 기준 **8개 UI 집단 / 총 27명**이다.
+아래는 `sampleCharacters`, `sampleMemberships`, `getCharacterList.test.ts` 및 현재 Evaluation 데이터 기준 **9개 UI 집단 / 총 29명**이다.
 
 | 집단 | 선택 목록에 있는 캐릭터 |
 |---|---|
@@ -189,6 +191,7 @@ Balanced Overall (7개 Final 평균)
 | 해군·전 해군 (6) | 몽키 D. 가프, 사카즈키, 쿠잔, 보르살리노, 잇쇼, 아라마키 |
 | 검은 수염 해적단 (5) | 마샬 D. 티치, 지저스 바제스, 시류, 반 오거, 아발로 피사로 |
 | 왕의 부하 칠무해 (3) | 트라팔가 로, 돈키호테 도플라밍고, 보아 핸콕 |
+| 크로스 길드 (2) | 쥬라큘 미호크, 크로커다일 |
 
 `sampleGroups`에는 로저 해적단·혁명군·세계정부·크로스 길드 등 **앞으로 활용할 집단도 등록**되어 있지만, 등록만으로 UI 탭이 생기는 것은 아니다. 현행 탭은 **Membership이 있는 평가 로스터**에서 만들어진다. 또한 `sampleCrews`는 아직 최초 3개 해적단만 포함하는 **레거시 배열**이다.
 
@@ -196,7 +199,8 @@ Balanced Overall (7개 Final 평균)
 
 | 캐릭터 | Overall | 설명 |
 |---|---:|---|
-| 전성기 몽키 D. 가프 | 94.429 | God Valley 직접 근거 + 노년 하치노수 보조 근거 |
+| 전성기 몽키 D. 가프 | 96.000 | Ch.1165 Supreme King Haki 직접 Application + 노년 하치노수 보조 근거 |
+| 쥬라큘 미호크 | 92.714 | 세계 최강 검사·샹크스 검술 비교 + 제한된 직접 전투 표본 |
 | 샹크스 | 92.571 | 확인된 직접 성과를 우선 |
 | 사카즈키 | 92.429 | 정상결전·쿠잔 10일 결투 등 |
 | 보르살리노 | 92.143 | 빛 기반 속도·에그헤드 성과 |
@@ -206,7 +210,7 @@ Balanced Overall (7개 Final 평균)
 | 롤로노아 조로 | 84.714 | Attack 90, Technique 87 등 |
 | 마르코 | 81.714 | 지원·방어·전투 지속 근거 |
 
-전체 27명의 현재 수치와 버전별 변화는 루트 `README.md`, `CHANGELOG.md`, `src/data/sample/evaluations.ts` 및 `src/domain/calculation/calculateCombatPower.test.ts`에서 확인한다. **이 표 자체가 별도 데이터 원본(source of truth)은 아니다.**
+전체 29명의 현재 수치와 버전별 변화는 루트 `README.md`, `CHANGELOG.md`, `src/data/sample/evaluations.ts` 및 `src/domain/calculation/calculateCombatPower.test.ts`에서 확인한다. **이 표 자체가 별도 데이터 원본(source of truth)은 아니다.**
 
 ## 8. 후속 개발자를 위한 코드 안내
 

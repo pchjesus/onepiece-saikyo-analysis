@@ -4,10 +4,12 @@ import { getCharacterBattleTimeline } from '../../application/getCharacterBattle
 import { getCharacterDetail } from '../../application/getCharacterDetail'
 import { getCombatPower } from '../../application/getCombatPower'
 import { getCharacterEvaluationTrace } from '../../application/getCharacterEvaluationTrace'
+import { getCharacterMatchups } from '../../application/getCharacterMatchups'
 import { BattleTimeline } from '../components/BattleTimeline'
 import { EvaluationTrace } from '../components/EvaluationTrace'
 import { StatList } from '../components/StatList'
 import { CombatProfile } from '../components/CombatProfile'
+import { MatchupPanel } from '../components/MatchupPanel'
 import type { CharacterKnownAsKind } from '../../domain/character/types'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
 
@@ -24,7 +26,7 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
   onSelectOverall: () => void
 }) {
   const initialDetail = getCharacterDetail(characterId, groupId)
-  const [activeDetail, setActiveDetail] = useState<'evaluation' | 'battle'>('evaluation')
+  const [activeDetail, setActiveDetail] = useState<'evaluation' | 'battle' | 'matchup'>('evaluation')
   const [selectedStateId, setSelectedStateId] = useState(initialDetail?.evaluation.subjectState?.id ?? '')
 
   if (!initialDetail) return <section>캐릭터 데이터를 찾을 수 없습니다.</section>
@@ -34,6 +36,7 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
   const result = getCombatPower(characterId, 'balanced', activeStateId)
   const battleTimeline = getCharacterBattleTimeline(characterId)
   const evaluationTrace = getCharacterEvaluationTrace(characterId, activeStateId)
+  const matchups = getCharacterMatchups(characterId, activeStateId)
   const hasMultipleEvaluations = detail.evaluations.length > 1
 
   return (
@@ -109,14 +112,17 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
           <button id="battle-tab" type="button" role="tab" aria-selected={activeDetail === 'battle'}
             aria-controls="detail-content" className={activeDetail === 'battle' ? 'selected' : ''}
             onClick={() => setActiveDetail('battle')}>전투 기록 · 원작 Evidence</button>
+          <button id="matchup-tab" type="button" role="tab" aria-selected={activeDetail === 'matchup'}
+            aria-controls="detail-content" className={activeDetail === 'matchup' ? 'selected' : ''}
+            onClick={() => setActiveDetail('matchup')}>매치업 분석</button>
         </div>
         <div id="detail-content" className="detail-tab-content" role="tabpanel"
-          aria-labelledby={activeDetail === 'evaluation' ? 'evaluation-tab' : 'battle-tab'}>
+          aria-labelledby={activeDetail === 'evaluation' ? 'evaluation-tab' : activeDetail === 'battle' ? 'battle-tab' : 'matchup-tab'}>
           {activeDetail === 'evaluation' ? (
             evaluationTrace
               ? <EvaluationTrace items={evaluationTrace} status={detail.evaluation.status} evaluationDataVersion={detail.evaluation.evaluationDataVersion} hakiWeight={result.hakiWeight} />
               : <p className="empty-note">평가 근거가 없습니다.</p>
-          ) : (
+          ) : activeDetail === 'battle' ? (
             <section className="evidence-section">
               <p className="eyebrow">BATTLE & CANON EVIDENCE</p>
               <h2>전투 기록</h2>
@@ -125,6 +131,8 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
               </p>
               <BattleTimeline items={battleTimeline} />
             </section>
+          ) : (
+            <MatchupPanel items={matchups} />
           )}
         </div>
       </section>

@@ -1,7 +1,7 @@
 # 원피스 전투력 분석
 
-현재 개발 버전: **v0.1.28**  
-평가 데이터: **27 Character · 28 Evaluation · 기본 로스터는 evaluation-0.1.26-draft / 현재 몽키 D. 가프는 evaluation-0.1.28-draft**  
+현재 개발 버전: **v0.1.29**  
+평가 데이터: **30 Character master pool · 29 evaluated roster · 30 Evaluation · 전성기 몽키 D. 가프/크로스 길드 신규 평가는 evaluation-0.1.29-draft**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
 - [v0.1.26 27인 재보정 보고서](docs/RECALIBRATION_0_1_26_DRAFT.md)
@@ -18,8 +18,18 @@
 - 해군·전 해군: 몽키 D. 가프 / 사카즈키 / 쿠잔 / 보르살리노 / 잇쇼 / 아라마키
 - 검은 수염 해적단: 마샬 D. 티치 / 시류 / 지저스 바제스 / 반 오거 / 아발로 피사로
 - 전 왕의 부하 칠무해: 트라팔가 로 / 돈키호테 도플라밍고 / 보아 핸콕
+- 크로스 길드: 쥬라큘 미호크 / 크로커다일 (버기는 Character master pool E3 미평가)
 
 Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Special Combat Profile과 Matchup-specific Advantage는 Overall에 직접 합산하지 않는다.
+
+## v0.1.29 주요 변경
+
+- 크로스 길드에 **쥬라큘 미호크 / 크로커다일**을 7-Core E2 draft로 추가하고, **버기**는 Character master pool만 등록한 E3 미평가 상태로 유지한다.
+- 전성기 몽키 D. 가프를 Ch.1165의 직접 Supreme King Haki Application까지 반영해 **99 / 98 / 98 / 97 / 99 / 95 / 86 → Overall 96.000**으로 재보정했다.
+- 쥬라큘 미호크는 공식 세계 최강 검사·샹크스와의 검술 비교를 Evidence sparsity와 분리해 **96 / 93 / 91 / 94 / 99 / 92 / 84 → Overall 92.714**로 두었다.
+- 크로커다일은 현재 높은 위상을 미확인 성장량으로 환산하지 않고 **78 / 75 / 79 / 76 / 88 / 86 / 84 → Overall 80.857**로 보수적으로 조정했다.
+- Evidence-aware Matchup은 데이터-only 상태에서 벗어나 캐릭터 상세의 **매치업 분석** 탭으로 노출한다. 기존 6개 + 크로스 길드 관련 5개 = 11개 prototype이며 승률·고정 상성 보너스는 없다.
+- 버기는 Membership/Evaluation을 주지 않아 evaluated roster 검색·탭·순위에는 나타나지 않는다.
 
 ## v0.1.28 주요 변경
 
@@ -48,7 +58,7 @@ Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Speci
 
 ### 현재 UI
 
-- 27명 Overall 및 7 Core Stat 순위
+- 29명 Overall 및 7 Core Stat 순위
 - 높은 점수순 / 낮은 점수순 전환
 - 본명·이명·칭호·소속 검색
 - 캐릭터 상세의 공식 identity 정보와 평가 시점 표시

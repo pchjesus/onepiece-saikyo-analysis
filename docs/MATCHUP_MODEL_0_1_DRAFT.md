@@ -135,3 +135,12 @@ Haki는 세 층으로 나눈다.
 한 Character가 전성기·현재처럼 여러 Evaluation을 가질 경우 Matchup은 `characterAStateId / characterBStateId`로 어떤 상태를 사용하는지 명시할 수 있다. 상태를 생략하면 해당 Character의 default Evaluation을 사용한다.
 
 이 여섯 Pair는 모델 구조와 Evidence 연결을 검증하기 위한 예시이며 자동 승자·승률을 제공하지 않는다.
+
+
+## 10. v0.1.29 UI 노출 및 Cross Guild 확장
+
+- 기존 Matchup v0.1은 Domain/Data validation까지만 존재해 웹 UI에서는 보이지 않았다.
+- v0.1.29부터 Character Detail에 세 번째 **매치업 분석** 탭을 두고 현재 Character와 연결된 prototype을 읽기 전용으로 표시한다.
+- 복수 Evaluation 상태가 지정된 Pair는 해당 상태가 선택되었을 때만 표시한다.
+- 신규 prototype: 쥬라큘 미호크 vs 샹크스 / 롤로노아 조로 / 비스타, 크로커다일 vs 돈키호테 도플라밍고 / 죠즈.
+- 총 11개 prototype이며 기존 원칙대로 승률, +N 보너스, Overall→승률 변환을 도입하지 않는다.

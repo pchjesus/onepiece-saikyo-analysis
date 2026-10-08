@@ -74,7 +74,7 @@ describe('Balanced v1.2', () => {
       sanji: 84.4285714286,
       jinbe: 79.5714285714,
       shanks: 92.5714285714,
-      garp: 94.4285714286,
+      garp: 96,
       akainu: 92.4285714286,
       kuzan: 91.8571428571,
       kizaru: 92.1428571429,
@@ -88,6 +88,8 @@ describe('Balanced v1.2', () => {
       law: 86.4285714286,
       doflamingo: 79.5714285714,
       hancock: 78.7142857143,
+      mihawk: 92.7142857143,
+      crocodile: 80.8571428571,
 
     }
 

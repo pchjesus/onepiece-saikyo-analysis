@@ -555,6 +555,32 @@ npm.cmd run dev
 
 # Test Report
 
+## v0.1.29 Verification Report
+
+### Scope
+- Cross Guild: 쥬라큘 미호크 / 크로커다일 평가 추가, 버기 E3 Character-only.
+- Prime Garp Ch.1165 Haki Application 재보정.
+- Evidence-aware Matchup을 Character Detail UI에 노출하고 총 11 prototype으로 확대.
+
+### Structural expectations
+- 30 Character master pool / 29 evaluated roster / 30 Evaluation.
+- Ranking은 Membership + default Evaluation 기준으로 29명만 포함.
+- 버기는 Membership / Evaluation 없음.
+- Matchup은 승률·고정 수치 없음.
+- Garp current-vs-Kuzan matchup은 current state에서만 표시.
+
+### Automated verification
+- PR #13 GitHub Actions: **23 test files / 97 tests passed**.
+- `npm run build`: **passed** (Vite production build completed).
+- 첫 CI 실패는 27→29 로스터 확장 후 남아 있던 테스트 기대값 3곳의 불일치였고, 해당 fixture/index를 수정한 뒤 전체 CI가 통과했다.
+
+### Manual verification required
+- 크로스 길드 탭에서 쥬라큘 미호크 / 크로커다일 전환.
+- 세 번째 '매치업 분석' 탭의 모바일/PC 가독성.
+- 가프 전성기에서는 현재-쿠잔 매치업이 숨고, 현재 선택 시 표시되는지 확인.
+- 버기가 evaluated roster 검색/순위에 노출되지 않는지 확인.
+
+
 ## v0.1.10
 
 ### Structural verification
