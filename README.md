@@ -1,7 +1,7 @@
 # 원피스 전투력 분석
 
-현재 개발 버전: **v0.1.29**  
-평가 데이터: **30 Character master pool · 29 evaluated roster · 30 Evaluation · 전성기 몽키 D. 가프/크로스 길드 신규 평가는 evaluation-0.1.29-draft**  
+현재 개발 버전: **v0.1.30**  
+평가 데이터: **30 Character master pool · 29 evaluated roster · 30 Evaluation · 가프/쿠잔/크로커다일 재보정은 evaluation-0.1.30-draft**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
 - [v0.1.26 27인 재보정 보고서](docs/RECALIBRATION_0_1_26_DRAFT.md)
@@ -21,6 +21,16 @@
 - 크로스 길드: 쥬라큘 미호크 / 크로커다일 (버기는 Character master pool E3 미평가)
 
 Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Special Combat Profile과 Matchup-specific Advantage는 Overall에 직접 합산하지 않는다.
+
+## v0.1.30 주요 변경
+
+- 전성기 몽키 D. 가프를 **99 / 99 / 99 / 98 / 99 / 97 / 91 → Overall 97.429**로 재보정. 96대가 아니라 향후 로저·흰수염·록스와 비교할 세계관 최상단 밴드의 첫 anchor로 둔다.
+- 현재 몽키 D. 가프는 하치노스에서 쿠잔을 상대로 여러 차례 선제 주도권을 만든 점, 시류 관통상 이후에도 전투를 지속한 점을 반영해 **96 / 92 / 95 / 96 / 96 / 94 / 87 → 93.714**로 상향.
+- 쿠잔은 Blue Hole을 방어한 것으로 처리하지 않고, 피격 후 재교전·10일 결투를 중심으로 **93 / 93 / 97 / 90 / 93 / 91 / 92 → 92.714**로 상향.
+- 크로커다일은 현상금·크로스 길드 위상을 전투 스탯 성장량으로 환산하지 않고 **76 / 72 / 77 / 74 / 86 / 86 / 82 → 79.000**으로 하향. Technique/Combat IQ는 강점으로 유지.
+- 첫 화면은 기존 **Stats**로 유지한다. Matchup은 Character Detail의 탭에서 제거하고 상단 **VS 아이콘 → Matchup Arena**라는 별도 화면으로 분리한다.
+- Matchup Arena는 7-Core 레이더 그래프, Tale of the Tape, Evidence-aware factor cards로 구성한다. 승률·고정 상성 보너스는 도입하지 않는다.
+- 커뮤니티 의견 기능은 후순위다. Stat/Evidence 옆 의견 아이콘은 Authentication/Backend/Database 저장 구조가 준비되는 시점에 실제 기능과 함께 추가하며, 현재는 무동작 아이콘을 노출하지 않는다.
 
 ## v0.1.29 주요 변경
 
@@ -64,7 +74,7 @@ Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Speci
 - 캐릭터 상세의 공식 identity 정보와 평가 시점 표시
 - Special Combat Profile 및 Haki Profile
 - Evaluation Trace와 Battle / Canon Evidence
-- 비수치 Evidence-aware Matchup prototype
+- 별도 Matchup Arena: 7-Core 레이더 비교 / Tale of the Tape / 비수치 Evidence-aware Matchup factors
 
 ## 구조
 UI → Application → Domain
