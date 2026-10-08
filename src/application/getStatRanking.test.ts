@@ -6,8 +6,8 @@ describe('getStatRanking', () => {
   it('sorts all evaluated characters by each Final Core Stat descending', () => {
     for (const stat of COMBAT_STATS) {
       const entries = getStatRanking(stat)
-      expect(entries).toHaveLength(24)
-      expect(new Set(entries.map(({ characterId }) => characterId)).size).toBe(24)
+      expect(entries).toHaveLength(27)
+      expect(new Set(entries.map(({ characterId }) => characterId)).size).toBe(27)
       expect(entries.every(({ status }) => status === 'draft')).toBe(true)
       for (let i = 1; i < entries.length; i++) {
         expect(entries[i - 1].score).toBeGreaterThanOrEqual(entries[i].score)
@@ -24,15 +24,15 @@ describe('getStatRanking', () => {
     const speed = getStatRanking('speed')
     expect(speed[0]).toMatchObject({ characterId: 'kizaru', score: 99, rank: 1 })
     const versatility = getStatRanking('versatility')
-    expect(versatility[0]).toMatchObject({ characterId: 'ryokugyu', score: 97, rank: 1 })
+    expect(versatility[0]).toMatchObject({ characterId: 'fujitora', score: 94, rank: 1 })
     expect(attack.find(({ characterId }) => characterId === 'zoro')?.score).toBe(90)
   })
-  it('sorts the current 24-character Overall from the calculation service', () => {
+  it('sorts the current 27-character Overall from the calculation service', () => {
     const entries = getStatRanking('overall')
-    expect(entries).toHaveLength(24)
+    expect(entries).toHaveLength(27)
     expect(entries[0]).toMatchObject({ characterId: 'garp', rank: 1 })
-    expect(entries[0].score).toBeCloseTo(95.14285714285714)
-    expect(entries[23]).toMatchObject({ characterId: 'pizarro', rank: 24, score: 72 })
+    expect(entries[0].score).toBeCloseTo(94.42857142857143)
+    expect(entries[26]).toMatchObject({ characterId: 'pizarro', rank: 27, score: 71.71428571428571 })
     for (let index = 1; index < entries.length; index++) {
       expect(entries[index - 1].score).toBeGreaterThanOrEqual(entries[index].score)
     }
