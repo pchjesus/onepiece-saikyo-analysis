@@ -1421,7 +1421,7 @@ export const sampleEvidence: Evidence[] = [
     interpretation: '세 대장의 합동 방어와 패기 운용을 보여주는 사례다. 전체 방어 성과를 각 개인에게 100% 중복 귀속하지 않는다.',
     evaluationImpact: '각 대장의 Defense 패기 관련 평가를 검토하되 공동 기여와 불확실성을 명시한다.',
     uncertainty: '패기 세부 형태와 세 사람의 상대 기여도는 장면에서 독립적으로 계량되지 않는다.'
-  },,
+  },
 
   {
     id: 'evidence-law-doflamingo-gamma-knife-781',
