@@ -1,7 +1,7 @@
 # One Piece Combat Power Analysis
 ## Project Specification
 
-**Version:** 0.1.31  
+**Version:** 0.1.32  
 **Status:** Active MVP · Expanded Evidence Calibration  
 **Project Type:** Web Application  
 **Primary Purpose:** One Piece 주요 캐릭터의 전투력을 근거 기반으로 분석하고 비교하는 웹 애플리케이션
@@ -545,6 +545,32 @@ CalculationModel은 Evaluation과 연결된다.
 Matchup은 Character와 Evaluation 데이터를 활용한다.
 
 ---
+
+## 13.1 Character Membership and Unique Roster
+
+Character와 Group의 관계는 장기적으로 **다대다(Many-to-Many)** 로 취급한다.
+
+```text
+Character
+↕
+Membership
+↕
+Group
+```
+
+따라서 한 Character는 현재 소속, 과거 소속, 제도적 지위 등 서로 다른 Group Membership을 동시에 가질 수 있다.
+
+구현 원칙:
+- Group navigation은 **Membership-expanded view**를 사용한다. 동일 Character가 여러 관련 Group에 나타날 수 있다.
+- Ranking, Matchup selector처럼 Character identity가 한 번만 나타나야 하는 기능은 **Character-unique roster**를 사용한다.
+- 복수 Evaluation이 있는 Character도 Ranking에는 default Evaluation 하나만 포함한다.
+- Ranking은 Membership 개수와 무관하게 Character당 한 행만 생성한다.
+- exact duplicate Membership은 validation error로 유지한다.
+- 현재 migration 단계에서는 `Character.crewId`를 대표 UI Group 선택의 우선 기준으로 사용하고, 없으면 current Membership, 그마저 없으면 첫 Membership을 fallback으로 사용한다.
+- 검색은 여러 Membership의 Group 이름으로 Character를 찾을 수 있지만 결과 suggestion은 Character당 한 건으로 deduplicate한다.
+- 과거/보조 Membership 추가가 Overall, Core Stat, Evaluation 또는 Calculation Model을 변경해서는 안 된다.
+
+`crewId`는 대표 Group migration anchor로 임시 유지하며, 향후 명시적 primary/representative Membership 필드가 필요해질 경우 별도 구조 변경으로 검토한다.
 
 # 14. UI / Domain Separation
 
