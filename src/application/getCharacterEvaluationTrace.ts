@@ -1,8 +1,8 @@
 import { getCharacterEvidence } from './getCharacterEvidence'
 import { evaluationRepository } from '../data/repositories/evaluationRepository'
 
-export function getCharacterEvaluationTrace(characterId: string) {
-  const evaluation = evaluationRepository.getEvaluation(characterId)
+export function getCharacterEvaluationTrace(characterId: string, subjectStateId?: string) {
+  const evaluation = evaluationRepository.getEvaluation(characterId, subjectStateId)
   if (!evaluation) return undefined
 
   const evidenceRecords = getCharacterEvidence(characterId)
