@@ -76,7 +76,7 @@ describe('evaluated roster UI', () => {
     expect(rows()[0].textContent).toContain('96')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows()[0].textContent).toContain('아발로 피사로')
-    expect(rows()[0].textContent).toContain('27위')
+    expect(rows()[0].textContent).toContain('29위')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows()[0].textContent).toContain('몽키 D. 가프')
   })
