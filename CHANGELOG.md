@@ -1,5 +1,53 @@
 # Changelog
 
+## v0.1.33 — Legendary Era Expansion & Evidence Readiness
+
+### Character / Evaluation
+- Added 7 Characters: 골 D. 로저, 실버즈 레일리, 스코퍼 가반, 록스 D. 지벡, 에드워드 뉴게이트, 카이도, 샬롯 링링.
+- Added 9 numeric Evaluations:
+  - 로저 전성기
+  - 레일리 전성기 / 현재
+  - 가반 현재
+  - 록스 갓 밸리 자연 상태
+  - 뉴게이트 전성기 / 정상결전
+  - 카이도 오니가시마 전성기
+  - 링링 오니가시마 전성기
+- Prime Gaban remains E3 / no numeric Evaluation.
+
+### Calibration
+- Roger prime: 97.571.
+- Newgate prime: 97.571.
+- Rocks natural God Valley: 97.286.
+- Kaido Onigashima: 96.571.
+- Current Garp: **93.714 → 94.429** after Hachinosu re-review.
+- Big Mom Onigashima: **94.286**, preserving top-tier power/endurance while lowering Speed/Combat IQ relative to the first draft.
+- Prime Rayleigh: **92.857 / E2**, avoiding automatic Admiral+ scaling from title/reputation.
+- Current Gaban: **92.143**, keeping him in the Admiral band rather than treating survival against Imu as proof of 94+ overall.
+- Current Rayleigh: 90.286.
+- Marineford Newgate: 92.857.
+
+### Evidence / Haki
+- Added Canon Battle/Evidence records for Roger/Newgate Ch.966, God Valley, Rayleigh/Kizaru, current Gaban's Elbaf combat, natural Rocks, Marineford Newgate, Onigashima Kaido/Big Mom.
+- Demonized Rocks remains a state-specific scale context and is not imported into natural Rocks Defense/Stamina.
+- Haki Capability, typed Stat Application and Matchup Interaction remain separate.
+- Current Gaban uses confirmed Observation application in Combat IQ; past Conqueror output is not copied into current Raw Haki.
+- Marineford Newgate keeps typed Raw Haki at zero where the current-state application is not clear enough.
+
+### Evidence readiness
+- Added optional per-stat E1/E2/E3 Evidence readiness.
+- Readiness is displayed in Stat / Evaluation Trace UI and does not alter score calculation.
+- Prime Rayleigh uses E2 across all seven stats; Prime Gaban remains unscored E3.
+
+### Membership / UI
+- Added historical Rocks Pirates memberships for Newgate, Kaido and Linlin.
+- Historical/former Group contexts show a compact “과거 소속” label.
+- Ranking and Matchup selector remain Character-unique.
+
+### Compatibility
+- 37 Character master pool / 36 evaluated unique Characters / 41 Memberships / 39 Evaluations.
+- Balanced 1.2, Haki Weight 0.5 and the seven-stat arithmetic mean are unchanged.
+
+
 ## v0.1.32 — Multi-Membership / Character-Unique Roster
 
 ### Architecture
