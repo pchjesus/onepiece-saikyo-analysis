@@ -3,9 +3,9 @@ import { getCharacterList } from './getCharacterList'
 import { getCharacterDetail } from './getCharacterDetail'
 
 describe('getCharacterDetail group migration', () => {
-  it('resolves detail and displayed group for every character in the 24-person roster', () => {
+  it('resolves detail and displayed group for every character in the 27-person roster', () => {
     const list = getCharacterList()
-    expect(list).toHaveLength(24)
+    expect(list).toHaveLength(27)
     for (const { character, group } of list) {
       const detail = getCharacterDetail(character.id, group.id)
       expect(detail?.character.id).toBe(character.id)
@@ -17,7 +17,7 @@ describe('getCharacterDetail group migration', () => {
   it('resolves formerly broken Straw Hat, Red Hair, Marine and Blackbeard details', () => {
     for (const [characterId, groupId] of [
       ['zoro', 'straw-hat-pirates'], ['shanks', 'red-hair-pirates'],
-      ['garp', 'marines'], ['teach', 'blackbeard-pirates'],
+      ['garp', 'marines'], ['teach', 'blackbeard-pirates'], ['law', 'seven-warlords'],
     ]) {
       expect(getCharacterDetail(characterId, groupId)?.group.id).toBe(groupId)
       expect(getCharacterDetail(characterId)?.group.id).toBe(groupId)
