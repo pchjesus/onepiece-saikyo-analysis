@@ -608,6 +608,12 @@ export const sampleBattles: Battle[] = [
     externalFactors: '징베·다즈 보네즈·크로커다일·비스타 등 여러 인물이 순차 개입', result: 'interrupted', participantIds: [],
   },
   {
+    id: 'timeskip-mihawk-zoro-armament-779', title: '시점 회상 — 미호크의 조로 무장색 검술 지도', chronologyOrder: 5,
+    combatStructure: '1v1', combatPurpose: '조로에게 검과 패기 운용 원리를 지도', combatIntent: 'normal',
+    environment: '쿠라이가나섬의 2년 수련 시기', restrictions: '779화에 삽입된 과거 지도 회상이며 독립된 고강도 결투가 아님',
+    externalFactors: '검에 패기를 둘러 파손을 방지한다는 원리를 직접 지도', result: 'unknown', participantIds: [],
+  },
+  {
     id: 'alabasta-crocodile-luffy', title: '알라바스타 — 크로커다일과 루피의 세 차례 대결', chronologyOrder: 1,
     combatStructure: '1v1', combatPurpose: '알라바스타 계획을 방해하는 루피를 제거하고 최종적으로 서로를 쓰러뜨리기 위한 전투', combatIntent: 'lethal-intent',
     environment: '알라바스타 사막·왕궁 지하', restrictions: '세 전투 사이 회복·구조가 있었고 후반에는 물과 피로 모래 신체 타격이 가능해짐',
