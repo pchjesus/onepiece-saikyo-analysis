@@ -176,6 +176,7 @@ export const sampleEvaluations: Evaluation[] = [
   },
   {
     id: 'evaluation-garp', characterId: 'garp', evaluationDataVersion: 'evaluation-0.1.26-draft', status: 'draft',
+    subjectState: { id: 'prime', label: '전성기', note: 'God Valley를 포함한 전성기 직접 근거를 기준으로 평가하며, 노년 하치노스 전투는 기술·기동·지속력의 직접 비교 근거로 보조 사용한다.' },
     items: [
       item('attack', 96, "전성기 God Valley에서 로저와 함께 록스를 상대하며 최고 수준의 패기 강화 공격을 성립시킨 직접 근거와, 노년 Galaxy Impact의 권격 출력을 함께 본다. 공동 공격을 가프 단독 결정력으로 환산하지 않으며 하치노수의 확인된 무장색 운용은 Raw Contribution으로 분리한다.", ["evidence-garp-roger-rocks-1165","evidence-garp-galaxy-impact-1080"], [{ hakiType: 'armament', stat: 'attack', amount: 6, application: "Galaxy Impact의 비접촉 충격파·패기 강화 권격 응용", evidenceIds: ["evidence-garp-galaxy-impact-1080"] }]),
       item('defense', 96, 'God Valley에서 최고 수준 패기 공방을 지속한 전성기 직접 근거를 반영하되, 공동전의 성과를 개인 무적 방어로 확대하지 않고 노년 하치노스의 관통상 등 실제 피격 한계도 함께 고려한다.', ['evidence-garp-roger-rocks-1165', 'evidence-garp-kuzan-haki-1087']),

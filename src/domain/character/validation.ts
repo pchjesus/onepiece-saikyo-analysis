@@ -51,3 +51,25 @@ export function validateCombatProfile(
 
   return { valid: errors.length === 0, errors }
 }
+
+
+export function validateCharacterIdentity(character: Character): CombatProfileValidationResult {
+  const errors: string[] = []
+  const primary = character.name.trim().toLocaleLowerCase('ko')
+  const seen = new Set<string>()
+
+  if (!primary) errors.push('Character primary name is required.')
+
+  for (const entry of character.knownAs) {
+    const normalized = entry.name.trim().toLocaleLowerCase('ko')
+    if (!normalized) errors.push(`Character known-as name is required: ${character.id}.`)
+    if (normalized === primary) errors.push(`Known-as duplicates primary name: ${character.id} -> ${entry.name}.`)
+    if (seen.has(normalized)) errors.push(`Duplicate character known-as: ${character.id} -> ${entry.name}.`)
+    seen.add(normalized)
+    if (!entry.source.label.trim() || !entry.source.reference.trim()) {
+      errors.push(`Character known-as source is required: ${character.id} -> ${entry.name}.`)
+    }
+  }
+
+  return { valid: errors.length === 0, errors }
+}

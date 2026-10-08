@@ -31,10 +31,22 @@ export type EvaluationItem = {
   hakiContributions: HakiStatContribution[]
 }
 
+export type EvaluationSubjectState = {
+  id: string
+  label: string
+  note?: string
+}
+
 export type Evaluation = {
   id: string
   characterId: string
   evaluationDataVersion: string
   status: EvaluationStatus
+  /**
+   * Which canonical state/era this score represents.
+   * Optional while legacy evaluations are migrated; multiple scores per character
+   * require a later repository/API change rather than duplicating Character identity.
+   */
+  subjectState?: EvaluationSubjectState
   items: EvaluationItem[]
 }

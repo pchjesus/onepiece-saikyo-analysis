@@ -30,7 +30,7 @@ describe('getStatRanking', () => {
   it('sorts the current 27-character Overall from the calculation service', () => {
     const entries = getStatRanking('overall')
     expect(entries).toHaveLength(27)
-    expect(entries[0]).toMatchObject({ characterId: 'garp', rank: 1 })
+    expect(entries[0]).toMatchObject({ characterId: 'garp', rank: 1, subjectStateLabel: '전성기' })
     expect(entries[0].score).toBeCloseTo(94.42857142857143)
     expect(entries[26]).toMatchObject({ characterId: 'pizarro', rank: 27, score: 71.71428571428571 })
     for (let index = 1; index < entries.length; index++) {
