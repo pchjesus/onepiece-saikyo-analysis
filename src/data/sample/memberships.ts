@@ -36,4 +36,8 @@ export const sampleMemberships: CharacterMembership[] = [
   { characterId: 'mihawk', groupId: 'cross-guild', role: '공동 창설자 / 핵심 전력', status: 'current' },
   { characterId: 'crocodile', groupId: 'cross-guild', role: '공동 창설자', status: 'current' },
 
+  // Multi-membership regression fixtures using canon former affiliations.
+  { characterId: 'mihawk', groupId: 'seven-warlords', role: '왕의 부하 칠무해', status: 'former', period: '과거' },
+  { characterId: 'crocodile', groupId: 'seven-warlords', role: '왕의 부하 칠무해', status: 'former', period: '과거' },
+
 ]
