@@ -392,7 +392,7 @@ export const sampleCharacters: Character[] = [
   {
     id: 'akainu', name: '사카즈키', crewId: 'marines',
     description: '해군 원수. 마그마 능력의 높은 살상력과 정상결전 및 쿠잔과의 10일 결투에서 확인되는 지속력이 핵심이다.',
-    combatProfile: { combatStyles: ['마그마 근접 타격', '광역 마그마 공격', '장기전'], specialTraits: [{ id: 'special-akainu-magma', category: 'devil-fruit', name: '마그마그 열매', status: 'confirmed', description: '마그마를 생성·변형해 높은 열과 관통력을 공격에 사용한다.' }],
+    combatProfile: { combatStyles: ['마그마 근접 타격', '광역 마그마 공격', '장기전'], specialTraits: [{ id: 'special-akainu-magma', category: 'devil-fruit', name: '마그마그 열매', status: 'confirmed', description: '마그마를 생성·변형해 높은 열과 관통력을 공격에 사용한다.', evidenceIds: [] }],
       haki: { characterId: 'akainu', capabilities: [
         { type: 'armament', status: 'confirmed' }, { type: 'observation', status: 'confirmed' },
         { type: 'conquerors', status: 'unclear', infusion: { status: 'unclear' } },
@@ -401,7 +401,7 @@ export const sampleCharacters: Character[] = [
   {
     id: 'kuzan', name: '쿠잔', crewId: 'marines',
     description: '전 해군대장. 빙결에 의한 광역 제압·환경 통제와 가프식 무투를 함께 사용하는 복합 전투원이다.',
-    combatProfile: { combatStyles: ['빙결', '광역 제압', '근접 무투', 'Ice Glove'], specialTraits: [{ id: 'special-kuzan-ice', category: 'devil-fruit', name: '얼음얼음 열매', status: 'confirmed', description: '빙결을 공격·방어·이동·지형 통제에 폭넓게 사용한다.' }],
+    combatProfile: { combatStyles: ['빙결', '광역 제압', '근접 무투', 'Ice Glove'], specialTraits: [{ id: 'special-kuzan-ice', category: 'devil-fruit', name: '얼음얼음 열매', status: 'confirmed', description: '빙결을 공격·방어·이동·지형 통제에 폭넓게 사용한다.', evidenceIds: [] }],
       haki: { characterId: 'kuzan', capabilities: [
         { type: 'armament', status: 'confirmed' }, { type: 'observation', status: 'confirmed' },
         { type: 'conquerors', status: 'unclear', infusion: { status: 'unclear' } },
@@ -410,7 +410,7 @@ export const sampleCharacters: Character[] = [
   {
     id: 'kizaru', name: '보르살리노', crewId: 'marines',
     description: '해군대장. 빛 기반 최고 수준 기동과 레이저·광검·분신을 결합하며 Egghead에서 임무 우선 판단과 높은 전투 지속력을 보였다.',
-    combatProfile: { combatStyles: ['광속계 기동', '레이저', '광검', '빛 분신', '고속 발차기'], specialTraits: [{ id: 'special-kizaru-light', category: 'devil-fruit', name: '번쩍번쩍 열매', status: 'confirmed', description: '빛으로 이동·사격·무기·분신을 구현한다.' }],
+    combatProfile: { combatStyles: ['광속계 기동', '레이저', '광검', '빛 분신', '고속 발차기'], specialTraits: [{ id: 'special-kizaru-light', category: 'devil-fruit', name: '번쩍번쩍 열매', status: 'confirmed', description: '빛으로 이동·사격·무기·분신을 구현한다.', evidenceIds: [] }],
       haki: { characterId: 'kizaru', capabilities: [
         { type: 'armament', status: 'confirmed' }, { type: 'observation', status: 'confirmed' },
         { type: 'conquerors', status: 'unclear', infusion: { status: 'unclear' } },
@@ -419,7 +419,7 @@ export const sampleCharacters: Character[] = [
   {
     id: 'fujitora', name: '잇쇼', crewId: 'marines',
     description: '해군대장. 검술과 중력 조작, 운석 호출을 결합해 광범위한 전장을 통제한다.',
-    combatProfile: { combatStyles: ['검술', '중력 조작', '운석 공격', '광역 제압'], specialTraits: [{ id: 'special-fujitora-gravity', category: 'devil-fruit', name: '중력 조작 능력', status: 'confirmed', description: '중력을 증감·방향화하고 운석까지 전장에 끌어들인다.' }],
+    combatProfile: { combatStyles: ['검술', '중력 조작', '운석 공격', '광역 제압'], specialTraits: [{ id: 'special-fujitora-gravity', category: 'devil-fruit', name: '중력 조작 능력', status: 'confirmed', description: '중력을 증감·방향화하고 운석까지 전장에 끌어들인다.', evidenceIds: [] }],
       haki: { characterId: 'fujitora', capabilities: [
         { type: 'armament', status: 'confirmed' }, { type: 'observation', status: 'confirmed', note: '시각 없이 전장을 파악하는 전투 운용이 핵심이다.' },
         { type: 'conquerors', status: 'unclear', infusion: { status: 'unclear' } },
@@ -428,7 +428,7 @@ export const sampleCharacters: Character[] = [
   {
     id: 'ryokugyu', name: '아라마키', crewId: 'marines',
     description: '해군대장. 식물 생성·흡수·구속·재생·비행을 통해 넓은 전장을 장악하는 능력형 전투원이다.',
-    combatProfile: { combatStyles: ['식물 생성', '광역 구속', '수분 흡수', '재생', '비행'], specialTraits: [{ id: 'special-ryokugyu-forest', category: 'devil-fruit', name: '숲숲 열매', status: 'confirmed', description: '식물과 숲을 생성·변형해 구속·흡수·재생·이동에 사용한다.' }],
+    combatProfile: { combatStyles: ['식물 생성', '광역 구속', '수분 흡수', '재생', '비행'], specialTraits: [{ id: 'special-ryokugyu-forest', category: 'devil-fruit', name: '숲숲 열매', status: 'confirmed', description: '식물과 숲을 생성·변형해 구속·흡수·재생·이동에 사용한다.', evidenceIds: [] }],
       haki: { characterId: 'ryokugyu', capabilities: [
         { type: 'armament', status: 'confirmed' }, { type: 'observation', status: 'confirmed' },
         { type: 'conquerors', status: 'unclear', infusion: { status: 'unclear' } },
