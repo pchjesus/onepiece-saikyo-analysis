@@ -522,7 +522,7 @@ export const sampleBattles: Battle[] = [
   { id: 'marineford-three-admirals-shield-564', title: '정상결전 — 삼대장의 흰수염 지진파 차단', chronologyOrder: 4,
     combatStructure: 'multiple-vs-one', combatPurpose: '처형대를 향하는 흰수염의 지진파로부터 핵심 방어선을 보호', combatIntent: 'serious',
     environment: '마린포드 처형대 주변', restrictions: '사카즈키·쿠잔·보르살리노 세 명이 공동 방어한 장면이므로 개인의 단독 방어력으로 환산하지 않음',
-    externalFactors: '흰수염은 스쿼드의 칼에 찔린 후이며 정상결전 전체의 다수전 맥락', result: 'interrupted', participantIds: [] },,
+    externalFactors: '흰수염은 스쿼드의 칼에 찔린 후이며 정상결전 전체의 다수전 맥락', result: 'interrupted', participantIds: [] },
 
   {
     id: 'dressrosa-law-doflamingo-769-781',
