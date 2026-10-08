@@ -1,5 +1,29 @@
 # Changelog
 
+## v0.1.34 — Hybrid Haki Standard Ratification, Non-numeric Excellence & Matchup Audit
+
+### Approved methodology
+- Confirmed the guarded Hybrid approach in PROJECT_SPEC §5: routine Haki inseparable from actual performance is included in Base; only exceptional applications with **separately demonstrated, nonduplicated target-Stat marginal impact** can be *considered* for Raw.
+- Neither capability presence nor renowned title nor scene count yields a fixed +N, and indirect proof of mastery is preserved as inference.
+- Current 39 legacy numeric Evaluations and Balanced 1.2 / Haki Weight 0.5 remain unchanged until 273-item canon/context comparison is reviewed and separately approved.
+
+### Haki evidence and profile UI
+- Added optional, backward-compatible `HakiExcellenceAssessment` with `direct-application` vs `strong-inference`, evidence links, era, rationale and uncertainty. This is nonnumeric and is never an input to scoring.
+- Mihawk: confirmed Yoru Black Blade + Ch.779 sword-coating training, high Armament mastery *inference*, not an official statement that he personally permanently forged Yoru.
+- Shanks Conqueror's, Katakuri Observation, Garp Armament and Garp *prime* Conqueror's have carefully distinguished qualitative records.
+- Added Mihawk's training Battle and Evidence without changing Evaluation totals. Render unobtrusive source-strength notes and nonnumeric caveats in combat profile.
+
+### Previously merged changes on v0.1.34 line
+- PR #22: 4 contextual matchups (Sakazuki/Kuzan; current Rayleigh/Kizaru; Kaido/Linlin; Jozu/Kuzan), read-only Haki reuse guard, popup outside-click/Escape.
+- PR #23: 39-Evaluation/273-stat baseline diagnostic and risk-ranked recalibration review, no score changes.
+
+### Validation
+- Existing 37 Characters/41 Membership/36 default evaluated roster, 39 Evaluations/273 stat rows, 15 Matchups, core calculation and feature workflows remain in scope for CI regressions.
+- New source-linked Haki profiles are checked for confirmed capability, owner-matching Evidence, readable interpretation and uncertainty.
+- Full mobile/browser visual verification and new-calibration scoring review are separate from unit/jsdom CI.
+
+
+
 ## v0.1.33 — Legendary Era Expansion & Evidence Readiness
 
 ### Character / Evaluation
