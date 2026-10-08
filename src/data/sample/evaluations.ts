@@ -22,7 +22,7 @@ export const sampleEvaluations: Evaluation[] = [
       item('stamina', 82, '킹과 퀸을 동시에 상대하고 큰 소모가 누적된 뒤에도 다시 전선에 개입했다. 명확한 피로와 능력 자원 한계도 나타나므로 무제한 재생·지속력으로 확대하지 않는다.', ['evidence-marco-regeneration-1006', 'evidence-marco-defense-king-1022', 'evidence-marco-defense-kaido-1043']),
       item('speed', 81, '키자루와의 공중 교전과 아오키지 공격 직후 개입에서 높은 기동·반응 속도가 확인된다. 짧은 개입 장면을 세계관 최상위 속도와 직접 동급으로 확대하지 않는다.', ['evidence-marco-kizaru-554', 'evidence-marco-aokiji-566']),
       item('techniqueMastery', 80, '불사조 능력을 비행·부분 변형·재생·공격·방어·지원에 연속적으로 운용하고 불꽃을 타인의 상태 억제에 정밀하게 활용한다. 역할 폭은 Versatility와 구분하고 실제 운용 숙련만 평가한다.', ['evidence-marco-ice-oni-998', 'evidence-marco-regeneration-1006', 'evidence-marco-defense-king-1022']),
-      item('combatIQ', 79, '아군 보호를 위한 즉각 개입, 상성 대응, 전장 지원 판단이 반복된다. 정상결전에서 흰수염의 상태에 주의가 분산된 장면은 전쟁 맥락으로 보고 단순한 판단력 결함으로 과도하게 감점하지 않되, Katakuri처럼 상대 메커니즘 분석이 반복적으로 강조되는 수준까지는 올리지 않는다.', ['evidence-marco-aokiji-566', 'evidence-marco-big-mom-995', 'evidence-marco-seastone-568-569']),
+      item('combatIQ', 79, '아군 보호를 위한 즉각 개입, 상성 대응, 전장 지원 판단이 반복된다. 정상결전에서 흰수염의 상태에 주의가 분산된 장면은 전쟁 맥락으로 보고 단순한 판단력 결함으로 과도하게 감점하지 않되, Katakuri처럼 상대 메커니즘 분석이 반복적으로 강조되는 수준까지는 올리지 않는다.', ['evidence-marco-aokiji-566', 'evidence-marco-big-mom-995', 'evidence-marco-seastone-568-569', 'evidence-marco-payback-war-820-909']),
       item('versatility', 84, '공중전·근접전·고화력 차단·강자 마크·아군 보호·수송·자기 재생·광역 상태 억제 지원까지 실제 전장 역할 전환 폭이 매우 넓다. 선의로서의 의료 역량 자체를 전투 점수로 직접 가산하지 않지만, 와노에서 지원·상태 억제로 전투 역할에 연결된 부분은 반영한다.', ['evidence-marco-big-mom-995', 'evidence-marco-ice-oni-998', 'evidence-marco-regeneration-1006', 'evidence-marco-defense-akainu-575', 'evidence-marco-defense-kaido-1043']),
     ],
   },
@@ -59,13 +59,13 @@ export const sampleEvaluations: Evaluation[] = [
       item('speed', 81, '불꽃을 끄면 방어를 낮추는 대신 속도를 높이는 상태 전환을 실제 전투에 사용한다. 조건부 Peak Speed를 인정하되 Marco·Katakuri보다 유의하게 빠르다고 단정할 직접 비교 근거는 없다.', ['evidence-king-zoro-1035']),
       item('techniqueMastery', 78, '검·화염·고대종 능력·루나리아 상태 전환을 결합한다. 여러 수단을 능숙하게 다루지만 Katakuri나 Vista처럼 숙련 자체가 반복적으로 강조되는 수준까지는 현재 Evidence가 뒷받침하지 않는다.', ['evidence-king-zoro-1035', 'evidence-king-armament-1032'], [{ hakiType: 'armament', stat: 'techniqueMastery', amount: 2, application: '검술에 무장색을 결합해 실전 공방에 운용', evidenceIds: ['evidence-king-armament-1032'] }]),
       item('combatIQ', 76, '상태 전환과 여러 공격 수단을 활용하지만 상대에게 루나리아 상태 규칙을 파악당해 공략되는 과정도 확인된다. 최상위 전술 분석 능력으로 올릴 근거는 제한적이다.', ['evidence-king-zoro-1035']),
-      item('versatility', 80, '비행·근접전·검술·화염·고대종 변신·루나리아 상태 전환을 실제 전투에 적용한다. 수단은 넓지만 방어와 속도 상태가 상호 배타적이며 동일 메커니즘을 여러 역할로 중복 가산하지 않는다.', ['evidence-king-zoro-1035']),
+      item('versatility', 80, '비행·근접전·검술·화염·고대종 변신·루나리아 상태 전환을 실제 전투에 적용한다. 수단은 넓지만 방어와 속도 상태가 상호 배타적이며 동일 메커니즘을 여러 역할로 중복 가산하지 않는다.', ['evidence-king-zoro-1035', 'evidence-king-waterfall-930']),
     ],
   },
   {
     id: 'evaluation-queen', characterId: 'queen', evaluationDataVersion: 'evaluation-0.1.23', status: 'draft',
     items: [
-      item('attack', 80, '고대종 신체와 구속 공격, 레이저·전격·기계 무장, Germa 계열 재현 기술을 실제 전투에서 사용해 높은 공격 수단과 출력을 보여준다. 다만 수단 수 자체를 단일 공격력으로 중복 가산하지 않는다.', ['evidence-queen-ancient-zoan-1028', 'evidence-queen-cybernetics-1028-1034']),
+      item('attack', 80, '고대종 신체와 구속 공격, 레이저·전격·기계 무장, Germa 계열 재현 기술을 실제 전투에서 사용해 높은 공격 수단과 출력을 보여준다. 다만 수단 수 자체를 단일 공격력으로 중복 가산하지 않는다.', ['evidence-queen-ancient-zoan-1028', 'evidence-queen-cybernetics-1028-1034', 'evidence-queen-big-mom-947']),
       item('defense', 81, '마르코와 상디의 강한 공격을 여러 차례 받은 뒤에도 전투를 이어간 높은 신체 내구와 고대종 특성이 확인된다. 공격을 무효화하는 별도 초고방어 메커니즘은 없어 King보다 낮게 평가한다.', ['evidence-queen-marco-1006', 'evidence-queen-ancient-zoan-1028']),
       item('stamina', 81, '마르코와의 혼전에서 피해를 입은 뒤에도 상디와 장시간 전투를 이어가며 여러 능력을 반복 사용했다. 고대종 보유 자체가 아니라 실제 누적 전투 수행을 근거로 평가한다.', ['evidence-queen-marco-1006', 'evidence-queen-cybernetics-1028-1034']),
       item('speed', 75, '상디와의 전투에서 반응과 공격 전환은 가능하지만 속도 자체가 강점으로 반복적으로 입증되지는 않는다. 장비와 원거리 수단의 다양성을 순수 Speed로 환산하지 않는다.', ['evidence-queen-cybernetics-1028-1034']),
@@ -79,7 +79,7 @@ export const sampleEvaluations: Evaluation[] = [
     items: [
       item('attack', 73, '매머드 신체와 쌍검으로 강한 정면 공격을 수행하고 슈텐마루에게 실제 검격 피해를 줬다. Cracker와 명확한 공격력 우열을 정할 정도의 비교 자료는 부족해 비슷한 범위로 둔다.', ['evidence-jack-ashura-921', 'evidence-jack-zou-809-810']),
       item('defense', 80, '5일 전투와 스론 밍크들의 공격을 견디며 전선을 유지한 높은 신체 내구가 강점이다. 다만 슈텐마루에게 선제 유효타를 허용하고 최종적으로 스론 이누아라시에게 패배한 점을 함께 고려한다.', ['evidence-jack-zou-809-810', 'evidence-jack-ashura-921', 'evidence-jack-sulong-1026']),
-      item('stamina', 82, '밈크족과 5일간의 전선을 유지했고 오니가시마에서도 큰 피해 후 다시 전투에 복귀했다. 상대 교대·병력 구조·전투 강도의 불확실성을 할인하더라도 분석군 최고 수준의 장기전 Evidence다.', ['evidence-jack-zou-809-810', 'evidence-jack-sulong-1026']),
+      item('stamina', 82, '밈크족과 5일간의 전선을 유지했고 오니가시마에서도 큰 피해 후 다시 전투에 복귀했다. 상대 교대·병력 구조·전투 강도의 불확실성을 할인하더라도 분석군 최고 수준의 장기전 Evidence다.', ['evidence-jack-zou-809-810', 'evidence-jack-sulong-1026', 'evidence-jack-convoy-801']),
       item('speed', 73, '정면전에 필요한 반응과 근접 교전은 가능하지만 속도 자체가 대표 강점으로 확인되는 장면은 적다. 애니메이션 전용 연출은 원작 평가를 올리는 근거로 사용하지 않는다.', ['evidence-jack-ashura-921']),
       item('techniqueMastery', 71, '쌍검과 매머드 변신을 전투에 사용하지만 정밀한 무기술·능력 운용이 반복적으로 강조되지는 않는다. 강한 신체 능력과 숙련을 분리해 보수적으로 평가한다.', ['evidence-jack-ashura-921', 'evidence-jack-zou-809-810']),
       item('combatIQ', 70, '지속적인 정면 압박은 수행하지만 Zou에서 장기 교착 끝에 외부 독가스 병기를 사용한 전투 구조와 무모한 해상 행동 등을 고려하면 높은 전술 판단을 부여할 직접 근거가 제한적이다.', ['evidence-jack-zou-809-810', 'evidence-jack-zunesha-824']),
@@ -113,7 +113,7 @@ export const sampleEvaluations: Evaluation[] = [
   {
     id: 'evaluation-cracker', characterId: 'cracker', evaluationDataVersion: 'evaluation-0.1.23', status: 'draft',
     items: [
-      item('attack', 71, '무장색 검격으로 Gear 4 루피의 팔에 실제 피해를 줬지만, Marco보다 높은 상대 질·반복 공격 성과는 부족하고 Jack과의 직접 우열도 명확하지 않다. 실제 무장색 적용은 Base와 분리한다.', ['evidence-cracker-biscuit-837-838'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '무장색을 검에 적용해 Gear 4 루피에게 실제 검격 피해를 줌', evidenceIds: ['evidence-cracker-biscuit-837-838'] }]),
+      item('attack', 71, '무장색 검격으로 Gear 4 루피의 팔에 실제 피해를 줬지만, Marco보다 높은 상대 질·반복 공격 성과는 부족하고 Jack과의 직접 우열도 명확하지 않다. 실제 무장색 적용은 Base와 분리한다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-urouge-837'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '무장색을 검에 적용해 Gear 4 루피에게 실제 검격 피해를 줌', evidenceIds: ['evidence-cracker-biscuit-837-838'] }]),
       item('defense', 71, '비스킷 갑옷·방패가 Gear 4 이전 루피의 공격을 막는 실제 방어 시스템으로 기능했다. Gear 4에는 갑옷이 부서지고 물에 젖으면 약해지는 명확한 상성 한계를 함께 반영한다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-long-battle-842']),
       item('stamina', 73, '약 11시간 동안 비스킷 병사를 계속 생성·조종하며 전투를 이어갔다. 본체가 11시간 내내 피해를 직접 견딘 것으로 과장하지 않고 능력 지속력 중심으로 평가한다.', ['evidence-cracker-long-battle-842']),
       item('speed', 71, 'Gear 4 루피에게 직접 검격을 적중시킬 전투 반응은 있으나 순수 Speed가 강점으로 반복 확인되는 장면은 적다.', ['evidence-cracker-biscuit-837-838']),
