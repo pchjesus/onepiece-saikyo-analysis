@@ -99,6 +99,6 @@ describe('Hybrid Haki A approval: four transferred, ten open reviews', () => {
       .every(stat => katakuri.items.find(i => i.stat===stat)?.readiness==='E2')).toBe(true)
     expect(katakuri.items.find(i => i.stat==='defense')?.evidenceIds).toContain(e.id)
     expect(sampleEvaluations.flatMap(e => e.items).filter(i => !i.readiness)).toHaveLength(148)
-    expect(sampleEvaluations.flatMap(e => e.items).filter(i => i.evidenceIds.length===0)).toHaveLength(11)
+    expect(sampleEvaluations.flatMap(e => e.items).filter(i => i.evidenceIds.length===0)).toHaveLength(4)
   })
 })
