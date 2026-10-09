@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.39 (혁명군·CP0 Evidence 기반 신규 6인 초안)
+- 기존 그룹 `revolutionary-army`, `cp0`에 사보·몰리·카라스 및 로브 루치·카쿠·스튜시 6명 추가; 스튜시는 CP0 이전 소속으로 표기.
+- 공식 원작/애니 프로필 출처를 구분한 신규 전투 맥락 10건, Evidence 14건, 7축 Evaluation 6건(42축, E2/E3)을 등록.
+- 예외적 패기 Raw 신규 추가 없음. 기존 Hybrid A 승인 수치 39개 Evaluation과 15 Matchup의 계산 값 불변.
+- 새 6명 점수는 사용자와 세부 검토할 Draft이며 E3는 능력이 낮다는 증거가 아님. 공식 서열/1대1 승률 확정 아님.
+- [세부 검토 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
+
 ## v0.1.38 (사용자 승인 A — 병합 준비)
 - **A안 승인:** 사카즈키 방어 94/2→95/0, 쿠잔 공격 91/4→93/0, 방어 92/2→93/0, 카타쿠리 공격 79/4→81/0. 39 평가 273 스탯의 Final·Overall·매치업은 변동 없음.
 - Typed Raw 53건/256→49건/244. 기존 Evidence 연결은 유지, 개별 평가 데이터 버전 0.1.38-hybrid-A-approved 기록. B안 중복 위험 Raw 6건은 미승인.
