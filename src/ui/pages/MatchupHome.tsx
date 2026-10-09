@@ -207,12 +207,19 @@ export function MatchupHome() {
 
       <section className="featured-matchups">
         <div><span>FEATURED</span><small>직접 Matchup Evidence가 등록된 대진</small></div>
-        <div className="matchup-picker" role="list" aria-label="등록된 매치업 빠른 선택">
-          {featured.map((entry) => (
-            <button type="button" role="listitem" key={entry.matchup.id} onClick={() => applyFeatured(entry)}>
-              <span>{entry.characterA.name}</span><strong>VS</strong><span>{entry.characterB.name}</span>
-            </button>
-          ))}
+        <div className="matchup-picker" role="group" aria-label="등록된 매치업 빠른 선택">
+          {featured.map((entry) => {
+            // Derive the pressed state from the actual selected fighters and evaluation
+            // states. This also follows manual edits, SWAP and RANDOM without a second,
+            // potentially stale, selected-featured state.
+            const isSelected = matchup?.id === entry.matchup.id
+            return (
+              <button type="button" className={isSelected ? 'selected' : undefined}
+                aria-pressed={isSelected} key={entry.matchup.id} onClick={() => applyFeatured(entry)}>
+                <span>{entry.characterA.name}</span><strong>VS</strong><span>{entry.characterB.name}</span>
+              </button>
+            )
+          })}
         </div>
       </section>
 
