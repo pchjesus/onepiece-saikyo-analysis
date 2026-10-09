@@ -10,6 +10,7 @@ import { validateEvaluation } from '../../domain/evaluation/validation'
 import { validateHakiProfile } from '../../domain/haki/validation'
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
 import { getUniqueCharacterList } from '../../application/getCharacterList'
+import { getStatRanking } from '../../application/getStatRanking'
 import { getCharacterEvaluationTrace } from '../../application/getCharacterEvaluationTrace'
 import { getCharacterBattleTimeline } from '../../application/getCharacterBattleTimeline'
 
@@ -120,6 +121,20 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
       const evaluation = sampleEvaluations.find(e => e.characterId === characterId)!
       expect(evaluation.items.every(i => i.hakiContributions.length === 0)).toBe(true)
     }
+  })
+
+  it('derives stable 42-character ranking while tracking only intended recalibration impact', () => {
+    const ranking = getStatRanking('overall')
+    expect(ranking).toHaveLength(42)
+    expect(new Set(ranking.map(r => r.characterId)).size).toBe(42)
+    expect(ranking.find(r => r.characterId === 'kaku')?.score).toBeCloseTo(82.14285714285714)
+    expect(ranking.find(r => r.characterId === 'kaku')?.rank).toBe(23)
+    expect(ranking.find(r => r.characterId === 'stussy')?.score).toBeCloseTo(77.57142857142857)
+    expect(ranking.find(r => r.characterId === 'stussy')?.rank).toBe(34)
+    expect(ranking.find(r => r.characterId === 'sabo')?.score).toBeCloseTo(85.57142857142857)
+    expect(ranking.find(r => r.characterId === 'morley')?.score).toBeCloseTo(76.85714285714286)
+    expect(ranking.find(r => r.characterId === 'karasu')?.score).toBeCloseTo(80)
+    expect(ranking.find(r => r.characterId === 'lucci')?.score).toBeCloseTo(84.42857142857143)
   })
 
   it('preserves approved old 39 evaluations and no bonus invention under approved Hybrid A', () => {
