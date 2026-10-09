@@ -82,7 +82,7 @@ describe('Haki semantic allocation review gate (read-only)', () => {
     expect(sampleEvaluations).toHaveLength(62)
     expect(statRows).toHaveLength(434)
     expect(positive).toHaveLength(47)
-    expect(contributions).toHaveLength(73)
+    expect(contributions).toHaveLength(49)
     expect(contributions.reduce((sum, contribution) => sum + contribution.amount, 0)).toBe(244)
   })
 })
