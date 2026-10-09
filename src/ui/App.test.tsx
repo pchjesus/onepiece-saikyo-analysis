@@ -339,4 +339,72 @@ describe('evaluated roster UI', () => {
     expect(document.activeElement).toBe(summary)
   })
 
+
+  it('opens searchable 59-person picker and preserves unique identity across memberships', async () => {
+    const trigger = container.querySelector('button[aria-label="전체 캐릭터 찾아보기"]')
+    await click(trigger)
+    expect(document.querySelector('[role="dialog"][aria-labelledby="character-picker-title"]')).not.toBeNull()
+    expect(document.querySelectorAll('.character-picker-result')).toHaveLength(59)
+    expect(document.querySelector('.character-picker-result-count')?.textContent).toContain('59명')
+
+    const input = document.querySelector<HTMLInputElement>('#character-picker-query')!
+    await act(async () => {
+      const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')?.set
+      setter?.call(input, '미호크')
+      input.dispatchEvent(new Event('input', { bubbles: true }))
+    })
+    const found = [...document.querySelectorAll('.character-picker-result')]
+    expect(found).toHaveLength(1)
+    expect(found[0].textContent).toContain('쥬라큘 미호크')
+    expect(found[0].textContent).toContain('크로스 길드')
+
+    await click(found[0])
+    expect(document.querySelector('.character-picker-dialog')).toBeNull()
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('쥬라큘 미호크')
+    expect(selectedGroupLabel()).toBe('크로스 길드')
+    expect(document.activeElement).toBe(trigger)
+  })
+
+  it('filters historical members without duplicating the same Character and supports Escape', async () => {
+    await click(container.querySelector('button[aria-label="전체 캐릭터 찾아보기"]'))
+    const select = document.querySelector<HTMLSelectElement>('#character-picker-group')!
+    const option = [...select.options].find(o => o.textContent === '토비롯포')!
+    await act(async () => {
+      select.value = option.value
+      select.dispatchEvent(new Event('change', { bubbles: true }))
+    })
+    expect(document.querySelectorAll('.character-picker-result')).toHaveLength(6)
+    const drake = [...document.querySelectorAll('.character-picker-result')].find(e => e.textContent?.includes('X 드레이크'))
+    expect(drake?.textContent).toContain('과거 소속')
+    await click(drake ?? null)
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('X 드레이크')
+    expect(selectedGroupLabel()).toBe('토비롯포')
+    expect(container.querySelector('.membership-context')?.textContent).toContain('과거 소속')
+
+    const trigger = container.querySelector('button[aria-label="전체 캐릭터 찾아보기"]')
+    await click(trigger)
+    await act(async () => {
+      document.querySelector('#character-picker-query')?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }))
+    })
+    expect(document.querySelector('.character-picker-dialog')).toBeNull()
+    expect(document.activeElement).toBe(trigger)
+  })
+
+  it('keeps group chips, instant header search and independent Matchup navigation intact', async () => {
+    await selectGroup('백수 해적단')
+    expect(container.querySelector('.character-chips')).not.toBeNull()
+    expect([...container.querySelectorAll('.character-chip')].some(e => e.textContent?.includes('잭'))).toBe(true)
+    const input = container.querySelector<HTMLInputElement>('#character-search-input')!
+    await act(async () => {
+      const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')?.set
+      setter?.call(input, '상디')
+      input.dispatchEvent(new Event('input', { bubbles: true }))
+    })
+    expect(container.querySelector('.search-suggestion')?.textContent).toContain('상디')
+    await click(container.querySelector('button[aria-label="매치업 아레나 화면"]'))
+    expect(container.querySelector('.matchup-home')).not.toBeNull()
+    expect(container.querySelector('.character-picker-open')).toBeNull()
+    expect(container.querySelectorAll('.arena-selector select').length).toBeGreaterThanOrEqual(2)
+  })
+
 })
