@@ -1,3 +1,13 @@
+## v0.1.52 — 189-axis readiness trace, 17 manual ratings, three-character sensitivity study
+
+- Preserve the **entire baseline 189 missing-readiness rows** in an Evidence ID + 7-axis Final Stat trace matrix. After review, 172 remain intentionally unclassified; 10 have no direct Evidence ID link.
+- Manually classify **17 previously missing axes**, without changing their scores: Jozu 7 (E2×3/E3×4), Queen 7 (E2×5/E3×2), Katakuri 3 (E2×3).
+- Default 413 stat distribution: **E1 29 / E2 145 / E3 67 / missing 172** (previously 29/134/61/189). Haki Raw 244, all 59×7 Final values, 62 Evaluations, 434 Stat entries, Balanced v1.2, 15 matchups and picker B unchanged.
+- Review official ONE PIECE.com records of Lucci target selection/cooperation, Queen Germa weapon combinations, Jozu diamond defense. Lucci Combat IQ68 (E3), Queen Versatility80 (E2), Jozu Defense84 (E2) values remain unchanged.
+- Quantify *hypothetical, unapplied* one-axis scenario impacts on Overall and leaderboard; do not mistake scenario deltas for canon-backed correction.
+- Extend readiness tests, add `readinessComparativeAudit.test.ts` for 17 decisions and score/Raw/Matchup invariants.
+- [Full assessment](docs/V0_1_52_READINESS_CALIBRATION_AND_THREE_CHARACTER_ANCHORS_2026-10-09.md) · [189-axis source matrix](docs/V0_1_52_READINESS_189_AXIS_TRACE_MATRIX_2026-10-09.md).
+
 ## v0.1.51 — Evidence readiness metadata consistency and priority canon recheck (59 × 7)
 
 - Audit all 413 default Stat readiness fields. v0.1.50: E1 29/E2 131/E3 61/missing 192. Of 192 missing, 182 had at least one linked Evidence ID and 10 had no directly linked Evidence.
