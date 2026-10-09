@@ -1,3 +1,11 @@
+## v0.1.59 — high-E3 case adjudication and 13 Haki Raw overlap decision gate (read-only)
+
+- Independently review **all 14 high-E3 Final≥85 axes**, preserving each Base/Raw/Final, Evidence ID, source context, same-stat anchors, prime/current uncertainty and individual follow-up. Highlight Ryokugyu Defense89's presently connected Shanks-Haki withdrawal source vs its regeneration-based rationale; document candidate linkage/concept issue, NOT proven numeric error.
+- Individually classify **13 shared-Evidence Haki Raw events**: 1 provisionally retain / 5 require original-panel confirmation / 4 Base-Raw overlap risks / 3 targeted re-evaluation candidates. Event statuses are not confirmed duplicate bugs or authorizations to reduce Raw. Confirm contemporary approved exceptional-Haki increment criteria vs legacy scores.
+- Verify selected ONE PIECE.com episode summaries (Shanks/Kid, Ryokugyu regrowth, Katakuri Future Sight, old Garp Hachinosu) as supplementary context, without claiming independent original manga panel verification.
+- Publish [case-by-case audit](docs/V0_1_59_E3_AND_HAKI_RAW_CASE_AUDIT_2026-10-10.md) and [pre-change/approval/next-release decision gate](docs/V0_1_59_DECISION_GATE_AND_V0_1_60_PLAN_2026-10-10.md). Previous v0.1.58 isolated -5 stress is only hypothetical, not suggested adjustments.
+- Add diagnostics `scoreCalibrationCasesV0159.test.ts` pinning all 14 high E3 keys and numerical values, all 13 Raw evidence IDs and stat axes, existing 59×7/62/434/Raw226+244/15 Matchup and model compatibility. **No source numeric data, calculation code, UI, persistence, SPEC or matchup modification.** GitHub CI/build/deploy verification is recorded separately from implementation.
+
 ## v0.1.58 — 59×7 score calibration baseline, evidence confidence and hypothetical rank sensitivity
 
 - **Read-only numerical validation** of all 59 representative evaluations (413 axes): source-derived Base, per-axis Haki Raw, Final (min(100, Base + Raw×0.5)) and Balanced 1.2 equal-weight Overall, E1/E2/E3 metadata, exact 59-character rank-position baseline and scope of historical revisions. No numeric score changes.

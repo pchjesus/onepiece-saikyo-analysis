@@ -1,3 +1,14 @@
+# v0.1.59 — High-E3 scoring adequacy and individual Haki Raw overlap regression (read-only)
+
+- Baseline `main@ec32987005ebab5c2b3aec5763854e47bfc5c842` (v0.1.58), with **three pre-existing unmerged PRs left untouched**.
+- Added `src/domain/calculation/scoreCalibrationCasesV0159.test.ts`: checks exact 14 representative E3 Final≥85 character/stat/current Final tuples; two high-E3 evidence-unlinked axes; Ryokugyu Defense current Evidence link; exact 13 overlapping Haki Evidence IDs and paired/triple Raw stats including Shanks dual Haki Technique; Evidence ID integrity; existing 59 default/413, full 62 Evaluation/434 Stat, representative Raw226/full Raw244, Balanced v1.2×0.5 and 15 direct Matchups.
+- The preexisting `scoreCalibrationDiagnosticsV0158.test.ts` remains untouched; it already checks all 413 Base+Raw→Final→Overall values, Haki scope, Rank hypothetical sensitivity and no forced winner equivalence.
+- New reports: [14+13 individual case audit](docs/V0_1_59_E3_AND_HAKI_RAW_CASE_AUDIT_2026-10-10.md); [decision-gated v0.1.60 proposal](docs/V0_1_59_DECISION_GATE_AND_V0_1_60_PLAN_2026-10-10.md).
+- **No numeric or runtime source changes**. Existing score/Rank/Matchup values must remain identical. This is not independent validation of all manga panels, a new official score model, nor hands-on mobile/desktop QA.
+- **Execution gate:** locally running npm is unavailable in this connected repository-only environment; record PR CI test and build outcome + actual post-merge `main` Pages same-SHA job result before declaring release confirmed. Historical baseline 50 files/220 passing tests is not automatically the new run outcome.
+
+---
+
 # v0.1.58 — Read-only score calibration and Haki cross-stat overlap diagnostic
 
 - Baseline: `main@85ab40a3c8d92e9aef0795d5a917460423d62d7c` (v0.1.57).
