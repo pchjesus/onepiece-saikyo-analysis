@@ -70,6 +70,8 @@ export type SpecialCombatTrait = {
   category: SpecialCombatTraitCategory
   name: string
   status: SpecialCombatTraitStatus
+  /** Explicit canon-confirmed Devil Fruit awakening; never inferred from description or generic 'awakening'. */
+  awakening?: 'confirmed'
   description: string
   evidenceIds: string[]
   limitations?: string
