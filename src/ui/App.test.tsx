@@ -40,6 +40,13 @@ afterEach(async () => {
 })
 
 describe('evaluated roster UI', () => {
+  it('labels 7-axis Overall as a non-predictive summary rather than an attack-vs-defense win check', () => {
+    const note = container.querySelector('[data-testid="overall-interpretation-note"]')
+    expect(note?.textContent).toContain('동일 가중 평균')
+    expect(note?.textContent).toContain('승률이나 확정 서열은 아니야')
+    expect(container.querySelector('.power-card')?.textContent).toContain('균형형')
+  })
+
   it('shows exactly 59 unique results and filters historical Tobi Roppo membership without duplication', async () => {
     await openPicker()
     expect(container.querySelectorAll('.character-picker-option')).toHaveLength(59)
