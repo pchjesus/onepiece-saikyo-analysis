@@ -149,5 +149,7 @@ describe('v0.1.35 concrete Hybrid Raw decomposition preview (non-production)', (
       .toThrow('stale/mismatched')
     expect(() => previewHybridRawPilot(sampleEvaluations, hybridRawPilotReviews, -1))
       .toThrow('Valid nonnegative Haki weight')
+    expect(() => previewHybridRawPilot(sampleEvaluations, hybridRawPilotReviews, 1))
+      .toThrow('Pilot only supports Balanced 1.2 baseline Haki weight 0.5')
   })
 })
