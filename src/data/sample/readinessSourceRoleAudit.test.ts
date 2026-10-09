@@ -41,7 +41,7 @@ describe('v0.1.53 role-aware readiness reconciliation', () => {
       if (item.readiness) count[item.readiness]++
       else count.missing++
     }
-    expect(count).toEqual({ E1: 43, E2: 208, E3: 111, missing: 51 })
+    expect(count).toEqual({ E1: 53, E2: 243, E3: 117, missing: 0 })
   })
 
   it('adds only three official TV supplementary evidence records tied to existing battles', () => {
