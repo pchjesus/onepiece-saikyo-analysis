@@ -23,8 +23,8 @@ const scores: Record<string, number[]> = {
   sabo: [87,83,82,86,88,86,87],
   morley: [76,80,77,77,83,75,87],
   karasu: [79,75,74,83,83,80,86],
-  lucci: [82,79,83,84,84,78,77],
-  kaku: [76,75,77,80,84,79,78],
+  lucci: [80,77,82,82,83,68,74],
+  kaku: [73,72,75,75,79,72,74],
   stussy: [73,72,70,80,86,85,77],
 }
 
@@ -56,7 +56,7 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
       expect(evals, id).toHaveLength(1)
       const ev=evals[0]
       expect(ev.status).toBe('draft')
-      expect(ev.evaluationDataVersion).toBe(['lucci','kaku','morley'].includes(id) ? 'evaluation-0.1.44-cross-calibrated-draft' : 'evaluation-0.1.43-evidence-audited-draft')
+      expect(ev.evaluationDataVersion).toBe(['lucci','kaku'].includes(id) ? 'evaluation-0.1.45-cross-calibrated-draft' : id === 'morley' ? 'evaluation-0.1.44-cross-calibrated-draft' : 'evaluation-0.1.43-evidence-audited-draft')
       expect(validateEvaluation(ev, refs), id).toEqual({valid:true,errors:[]})
       expect(ev.items).toHaveLength(7)
       expect(ev.items.map(item => item.score), id).toEqual(scores[id])
@@ -107,7 +107,7 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
     expect(kakuDecision.fact).toContain('직접 제안')
     expect(kakuDecision.source.reference).toContain('ONE PIECE.com TV 1109')
     expect(kaku.items.find(i => i.stat === 'combatIQ')).toMatchObject({
-      baseScore: 79, score: 79, readiness: 'E2',
+      baseScore: 72, score: 72, readiness: 'E2',
     })
     expect(stussy.items.find(i => i.stat === 'speed')).toMatchObject({
       baseScore: 80, score: 80, readiness: 'E3',
@@ -125,16 +125,16 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
 
   it('derives stable 42-character ranking while tracking only intended recalibration impact', () => {
     const ranking = getStatRanking('overall')
-    expect(ranking).toHaveLength(42)
-    expect(new Set(ranking.map(r => r.characterId)).size).toBe(42)
-    expect(ranking.find(r => r.characterId === 'kaku')?.score).toBeCloseTo(78.42857142857143)
+    expect(ranking).toHaveLength(59)
+    expect(new Set(ranking.map(r => r.characterId)).size).toBe(59)
+    expect(ranking.find(r => r.characterId === 'kaku')?.score).toBeCloseTo(74.28571428571429)
     expect(ranking.find(r => r.characterId === 'kaku')?.rank).toBe(33)
     expect(ranking.find(r => r.characterId === 'stussy')?.score).toBeCloseTo(77.57142857142857)
     expect(ranking.find(r => r.characterId === 'stussy')?.rank).toBe(35)
     expect(ranking.find(r => r.characterId === 'sabo')?.score).toBeCloseTo(85.57142857142857)
     expect(ranking.find(r => r.characterId === 'morley')?.score).toBeCloseTo(79.28571428571429)
     expect(ranking.find(r => r.characterId === 'karasu')?.score).toBeCloseTo(80)
-    expect(ranking.find(r => r.characterId === 'lucci')?.score).toBeCloseTo(81)
+    expect(ranking.find(r => r.characterId === 'lucci')?.score).toBeCloseTo(78)
   })
 
   it('keeps Lucci and Kaku below comparable commanders and credits Morley for terrain mobility', () => {
@@ -159,9 +159,9 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
   })
 
   it('preserves approved old 39 evaluations and no bonus invention under approved Hybrid A', () => {
-    expect(sampleCharacters).toHaveLength(43) // includes one existing unscored Buggy
-    expect(sampleEvaluations).toHaveLength(45)
-    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(315)
+    expect(sampleCharacters).toHaveLength(60) // includes one existing unscored Buggy
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
     const legacy=sampleEvaluations.filter(e => !ids.includes(e.characterId))
     expect(legacy).toHaveLength(39)
     expect(legacy.flatMap(e=>e.items).flatMap(i=>i.hakiContributions).reduce((n,c)=>n+c.amount,0)).toBe(244)
