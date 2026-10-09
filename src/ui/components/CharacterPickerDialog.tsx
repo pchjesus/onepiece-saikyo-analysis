@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react'
 import { createPortal } from 'react-dom'
 import type { CharacterListEntry } from '../../application/getCharacterList'
 import { findCharacterOptions } from './CharacterSearch'
@@ -45,7 +45,7 @@ export function CharacterPickerDialog({ characters, selectedCharacterId, onSelec
     onClose()
   }
 
-  const onKeys = (event: React.KeyboardEvent<HTMLDivElement>) => {
+  const onKeys = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Escape') { event.preventDefault(); onClose(); return }
     if (event.key !== 'Tab') return
     const focusables = [...(panelRef.current?.querySelectorAll<HTMLElement>(
