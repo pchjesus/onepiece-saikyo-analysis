@@ -23,7 +23,7 @@ describe('Hybrid Haki A approval: four transferred, ten open reviews', () => {
       ['evaluation-akainu', 'defense', 95],
       ['evaluation-kuzan', 'attack', 93],
       ['evaluation-kuzan', 'defense', 93],
-      ['evaluation-katakuri', 'attack', 81],
+      ['evaluation-katakuri', 'attack', 83],
     ] as const
     for (const [id, stat, base] of expected) {
       const item = current(id, stat)
@@ -31,7 +31,7 @@ describe('Hybrid Haki A approval: four transferred, ten open reviews', () => {
       expect(item.hakiContributions).toEqual([])
       expect(item.score).toBe(base)
       expect(sampleEvaluations.find(e => e.id === id)?.evaluationDataVersion)
-        .toBe('evaluation-0.1.38-hybrid-A-approved')
+        .toBe(id === 'evaluation-katakuri' ? 'evaluation-0.1.47-evidence-calibrated-A' : 'evaluation-0.1.38-hybrid-A-approved')
     }
     const ownerByEvidence = new Map(sampleEvidence.map((e) => [e.id, e.subjectCharacterId]))
     const keys = new Set<string>()
@@ -62,7 +62,7 @@ describe('Hybrid Haki A approval: four transferred, ten open reviews', () => {
     expect(rows.every(i => Math.abs(i.score - getFinalStatScore(i)) < 1e-9)).toBe(true)
     const expected = new Map([
       ['evaluation-akainu', 647/7], ['evaluation-kuzan', 649/7],
-      ['evaluation-shanks', 648/7], ['evaluation-katakuri', 579/7],
+      ['evaluation-shanks', 648/7], ['evaluation-katakuri', 590/7],
       ['evaluation-linlin', 660/7], ['evaluation-mihawk', 649/7],
     ])
     for (const [id, sum] of expected) {
