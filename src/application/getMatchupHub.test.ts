@@ -4,8 +4,8 @@ import { getMatchupBuilderView, getMatchupHubEntries, getMatchupRoster } from '.
 describe('matchup builder application', () => {
   it('builds an evaluated 42-character selection roster', () => {
     const roster = getMatchupRoster()
-    expect(roster).toHaveLength(42)
-    expect(new Set(roster.map(({ characterId }) => characterId)).size).toBe(42)
+    expect(roster).toHaveLength(59)
+    expect(new Set(roster.map(({ characterId }) => characterId)).size).toBe(59)
     expect(roster.find(({ characterId }) => characterId === 'garp')?.states.map(({ label }) => label))
       .toEqual(['전성기', '현재'])
     expect(roster.find(({ characterId }) => characterId === 'mihawk')?.groupName).toBe('크로스 길드')

@@ -6,9 +6,9 @@ describe('getCharacterList', () => {
     const unique = getUniqueCharacterList()
     const expanded = getCharacterList()
 
-    expect(unique).toHaveLength(42)
-    expect(expanded).toHaveLength(49)
-    expect(new Set(unique.map(({ character }) => character.id)).size).toBe(42)
+    expect(unique).toHaveLength(59)
+    expect(expanded).toHaveLength(73)
+    expect(new Set(unique.map(({ character }) => character.id)).size).toBe(59)
 
     expect(unique.map((item) => item.character.name).sort()).toEqual([
       '마르코', '죠즈', '비스타',
@@ -22,6 +22,8 @@ describe('getCharacterList', () => {
       '골 D. 로저', '실버즈 레일리', '스코퍼 가반', '록스 D. 지벡',
       '에드워드 뉴게이트', '카이도', '샬롯 링링',
       '사보', '몰리', '카라스', '로브 루치', '카쿠', '스튜시',
+      '유스타스 키드', '킬러', '킨에몬', '덴지로', '아슈라 동자', '카와마츠', '키쿠노죠', '라이조', '이누아라시', '네코마무시', '쿠로즈미 칸주로',
+      '후즈 후', '사사키', '블랙 마리아', '울티', '페이지 원', 'X 드레이크',
     ].sort())
 
     expect(unique.find(({ character }) => character.id === 'mihawk')?.group.id).toBe('cross-guild')

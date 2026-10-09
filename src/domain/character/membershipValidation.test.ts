@@ -28,7 +28,7 @@ describe('group membership migration', () => {
     expect(sampleMemberships.filter(({ characterId }) => characterId === 'linlin')).toHaveLength(2)
     expect(sampleMemberships.filter(({ characterId }) => characterId === 'kuzan')).toHaveLength(2)
     expect(sampleMemberships.filter(({ characterId }) => characterId === 'jinbe')).toHaveLength(2)
-    expect(sampleMemberships).toHaveLength(49)
+    expect(sampleMemberships).toHaveLength(73)
   })
 
   it('rejects unknown character and group references', () => {

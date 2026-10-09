@@ -9,8 +9,8 @@ import { getRawHakiContributionTotal, getFinalStatScore } from '../../domain/eva
 
 describe('37-character master pool / 39-evaluation Haki / Evidence audit', () => {
   it('checks each evaluated character profile, contributions, Evidence ownership and calculation consistency', () => {
-    expect(sampleEvaluations).toHaveLength(45)
-    expect(sampleCharacters).toHaveLength(43)
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(sampleCharacters).toHaveLength(60)
     const refs = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
     for (const evaluation of sampleEvaluations) {
       const character = sampleCharacters.find(({ id }) => id === evaluation.characterId)

@@ -1,3 +1,4 @@
+import { wanoEvaluations } from './wanoExpansion'
 import type { CombatStat, Evaluation, EvaluationItem, EvidenceReadiness } from '../../domain/evaluation/types'
 import type { HakiStatContribution } from '../../domain/haki/types'
 import { getFinalStatScore } from '../../domain/evaluation/score'
@@ -546,30 +547,30 @@ export const sampleEvaluations: Evaluation[] = [
   },
   {
     id: 'evaluation-lucci', characterId: 'lucci',
-    evaluationDataVersion: 'evaluation-0.1.44-cross-calibrated-draft', status: 'draft',
-    subjectState: { id: 'initial-evidence', label: '근거 교차검증 재평가', note: '기어 5·조로 연속 교전과 센토마루 유효타는 인정하되 상위 비교군의 결정력·숙련도와 구분. 1144·1145화 교전 추가 교차검증 후 7축 보정.' },
+    evaluationDataVersion: 'evaluation-0.1.45-cross-calibrated-draft', status: 'draft',
+    subjectState: { id: 'initial-evidence', label: '7축 전투 조건 재검토', note: '기어 5·조로 연속 교전과 센토마루 유효타는 인정하되 상위 비교군의 결정력·숙련도와 구분. 1144·1145화 교전 추가 교차검증 후 7축 보정.' },
     items: [
-      item('attack', 82, '센토마루에게 적중시킨 손가락 공격은 직접 유효타이나, 기어 5 루피에게 동등한 결정적 피해를 입혔다는 증거는 없다. 조로와의 지속 교전도 상위 검사의 공격력에 준하는 직접 피해를 보장하지 않아 킹·카타쿠리의 직접 결정력과 비교해 보정한다.', ['evidence-lucci-awakening-1100', 'evidence-lucci-sentomaru-1100', 'evidence-lucci-zoro-1144'], [], 'E2'),
-      item('defense', 79, '기어 5와의 충돌 및 조로와의 이어진 공방은 일정한 방어·회피 능력을 보여주지만 루피의 우세와 조로의 결정적 검격을 함께 반영한다. 오래 싸운 사실만으로 고방어 능력자 킹·크래커와 동급 방어가 증명되지는 않는다.', ['evidence-lucci-awakening-1100', 'evidence-lucci-seraphim-1109', 'evidence-lucci-zoro-1144'], [], 'E2'),
-      item('stamina', 83, '각성 상태로 루피를 상대하고 이후 조로와 지속 교전한 만큼 전투 지속력은 인정한다. 다만 잭의 5일 전투나 카타쿠리의 장시간 누적 피해와 같은 독립된 반복 지구력 기록과 동일시하지 않는다.', ['evidence-lucci-awakening-1100', 'evidence-lucci-zoro-1144'], [], 'E2'),
-      item('speed', 84, '각성형 근접 체술의 빠른 접근과 조로의 검격에 대응한 반응을 인정한다. 루피의 기어 5에 대응했다는 장면만으로 상디의 초고속 기동이나 조로를 뚜렷하게 능가하는 순수 속도를 추정할 수 없다.', ['evidence-lucci-awakening-1100', 'evidence-lucci-sentomaru-1100', 'evidence-lucci-zoro-1144'], [], 'E2'),
-      item('techniqueMastery', 84, '육식·수건·표범 동물계 각성을 복합 운용하는 숙련은 높지만, 정교한 운용 그 자체를 세계관 최고급 89로 산정할 반복 근거는 제한적이다. 조로의 검술·카타쿠리의 능력 정밀 제어와 횡단 비교해 조정한다.', ['evidence-lucci-awakening-1100', 'evidence-lucci-sentomaru-1100', 'evidence-lucci-zoro-1144'], [], 'E2'),
-      item('combatIQ', 78, '세라핌 지휘권을 가진 센토마루를 노린 판단은 효율적이나 사카즈키의 교전 금지 명령을 무시한 점, 루피·조로 상대 교전에서 관찰되는 전술 변화의 한계를 함께 본다. 역할 전환·정보전 성과를 일률 가산하지 않는다.', ['evidence-lucci-sentomaru-1100', 'evidence-lucci-seraphim-1109'], [], 'E2'),
-      item('versatility', 77, '육식·표범형 근접전·정밀 체술과 제한적 공동전 대응은 확인된다. 퀸의 다중 원거리 장비나 카타쿠리의 지형 제어만큼 다른 거리·목적의 역할 전환이 반복 입증되지는 않는다.', ['evidence-lucci-seraphim-1109'], [], 'E2'),
+      item('attack', 80, '센토마루에게 유효타를 적중시킨 직접 타격력은 인정하지만 기어 5·조로 상대 결정적 유효타의 반복성이 부족하다. 스탯 80은 상대 교전 성립 자체를 상위 공격력과 동일시하지 않은 잠정치다.', ['evidence-lucci-awakening-1100', 'evidence-lucci-sentomaru-1100', 'evidence-lucci-zoro-1144'], [], 'E2'),
+      item('defense', 77, '각성 동물계의 근접 공방·방어를 인정하되 루피와 조로의 결정적 공세에 밀렸고 킹의 조건부 고방어와 동격으로 볼 수 없다.', ['evidence-lucci-awakening-1100', 'evidence-lucci-seraphim-1109', 'evidence-lucci-zoro-1144'], [], 'E2'),
+      item('stamina', 82, '루피전 이후 조로전을 지속한 지구력은 긍정 근거이므로 대폭 감점하지 않는다. 5일 연속 전투나 극심한 반복 누적피해 조건을 시험한 것은 아니다.', ['evidence-lucci-awakening-1100', 'evidence-lucci-zoro-1144'], [], 'E2'),
+      item('speed', 82, '센토마루 급습과 조로 상대로 빠른 근접전은 인정하지만 사황 루피의 속도에 대등하거나 상디의 초고속 기동을 상회한 실증은 부족하다.', ['evidence-lucci-awakening-1100', 'evidence-lucci-sentomaru-1100', 'evidence-lucci-zoro-1144'], [], 'E2'),
+      item('techniqueMastery', 83, '육식과 각성 표범형 전투의 숙련은 인정하되 세라핌의 불꽃 방어 규칙 파악이 지연된 장면 등 실전 운용의 한계도 고려한다.', ['evidence-lucci-awakening-1100', 'evidence-lucci-sentomaru-1100', 'evidence-lucci-zoro-1144'], [], 'E2'),
+      item('combatIQ', 68, '세라핌 지휘권을 가진 센토마루 제거 선택은 유효했으므로 전술 판단을 전면 부정하지 않는다. 그러나 사황 전력과 무리하게 충돌하고, 세라핌의 루나리아 상태를 뒤늦게 이해하는 동안 반복 공격했으며, 동료가 배신할 가능성을 놓친 정황을 종합하면 빠른 상황 재평가·위험 대응이 취약했다. 임무 명령 불복종 그 자체를 IQ 감점으로 환산하지 않으며 전장에서 관찰된 판단만 반영해 68로 조정한다.', ['evidence-lucci-sentomaru-1100', 'evidence-lucci-seraphim-1109'], [], 'E2'),
+      item('versatility', 74, '육식·표범형 근접전 수단이 중심으로 지원·원거리 지형 통제 전환은 제한적이고, 다양한 육식 동작의 수를 별개의 전투 역할로 중복 계산하지 않는다.', ['evidence-lucci-seraphim-1109'], [], 'E2'),
     ],
   },
   {
     id: 'evaluation-kaku', characterId: 'kaku',
-    evaluationDataVersion: 'evaluation-0.1.44-cross-calibrated-draft', status: 'draft',
-    subjectState: { id: 'initial-evidence', label: '근거 교차검증 재평가', note: '조로와 짧은 공방, 세라핌 공동전, 스튜시 기습을 조건별 분리. 숙련은 높되 최고권 검술·장기전 근거는 부족하므로 7축 보수적으로 조정.' },
+    evaluationDataVersion: 'evaluation-0.1.45-cross-calibrated-draft', status: 'draft',
+    subjectState: { id: 'initial-evidence', label: '7축 전투 조건 재검토', note: '조로와 짧은 공방, 세라핌 공동전, 스튜시 기습을 조건별 분리. 숙련은 높되 최고권 검술·장기전 근거는 부족하므로 7축 보수적으로 조정.' },
     items: [
-      item('attack', 76, '조로와의 짧은 검술 교환과 세라핌 상대 연합 공격은 확인되나, 강자에게 독립적으로 유효 피해를 반복 성립시킨 기록은 부족하다. 조로·퀸·비스타의 검격 결정력과 비교해 기존 80을 보수적으로 조정한다.', ['evidence-kaku-zoro-1104', 'evidence-kaku-seraphim-1109'], [], 'E2'),
-      item('defense', 75, '조로의 공격을 일정 시간 대응한 것은 사실이나 짧고 중단된 교전이며 상위권 고방어 성과는 확인되지 않는다. 스튜시의 기습 수면은 동등 조건의 방어 실패로 추가 감점하지 않는다.', ['evidence-kaku-zoro-1104', 'evidence-kaku-seraphim-1109'], [], 'E2'),
-      item('stamina', 77, '조로와의 교전이 세라핌 개입과 스튜시의 기습으로 중단됐고, 이후 세라핌에 대한 공동전도 단독 장기전 표본이 아니다. 각성 보유만으로 반복 고강도 지구력을 80으로 확정하지 않아 E3 잠정치를 완화한다.', ['evidence-kaku-zoro-1104'], [], 'E3'),
-      item('speed', 80, '조로와 근접 공방을 주고받은 반응 능력은 인정하지만 상대가 지속적으로 전력 속도를 겨룬 장기 공방이나 명확한 추월 성과는 확인되지 않는다. 기존 85는 상대 이름에서 과잉 추론한 가능성이 있어 조정한다.', ['evidence-kaku-zoro-1104'], [], 'E2'),
-      item('techniqueMastery', 84, '이도류·람각·육식·기린 각성의 복합 숙련을 인정한다. 다만 조로·비스타처럼 고수 검사와의 장시간 고정밀 검술 대결에서 동급 숙련을 보여준 것으로 단정할 수 없어 기존 최고권 점수를 조정한다.', ['evidence-kaku-zoro-1104'], [], 'E2'),
-      item('combatIQ', 79, '카쿠가 세라핌에 맞서 루피·조로와의 일시 공투를 직접 제안한 것은 의미 있는 독립 판단이다. 다만 단 한 번의 실용적 제안이 조로의 루나리아 방어 규칙 파악과 같은 반복 상대 분석에 준하는 수준까지 끌어올리지는 않아 79를 채택한다.', ['evidence-kaku-seraphim-1109'], [], 'E2'),
-      item('versatility', 78, '검술·육식·기린 변형과 동료 공동전의 적용 폭은 있지만, 여러 상황에서 공격·방어·지원 수단을 전환해 효과를 만든 증거는 퀸·카타쿠리보다 적다. 기술 수 자체와 상황 적응 폭을 구분한다.', ['evidence-kaku-seraphim-1109'], [], 'E2'),
+      item('attack', 73, '조로와 짧은 검술 공방 및 세라핌 공동 공격에 참여했지만 조로·세라핌에게 독립적으로 반복적인 유효타를 입증하지 못했다. 공동의 피해는 혼자 낸 피해로 세지 않는다.', ['evidence-kaku-zoro-1104', 'evidence-kaku-seraphim-1109'], [], 'E2'),
+      item('defense', 72, '상위 검사와 잠시 공방을 주고받았으나 확정된 정면 방어 기록은 부족하다. 스튜시의 내부 기습은 공평한 정면 방어 실패로 추가 감점하지 않는다.', ['evidence-kaku-zoro-1104', 'evidence-kaku-seraphim-1109'], [], 'E2'),
+      item('stamina', 75, '짧은 조로 공방 이후 세라핌 개입과 스튜시 기습이 있었으므로 장기 고강도 체력을 시험한 장면이 적다. 추가 직접 근거가 없는 E3 잠정치다.', ['evidence-kaku-zoro-1104'], [], 'E3'),
+      item('speed', 75, '육식의 고속 공방은 인정되지만 조로와 맞붙은 짧은 장면만으로 조로 또는 대간판급 반응 속도에 근접한다고 정량화하기 어렵다.', ['evidence-kaku-zoro-1104'], [], 'E2'),
+      item('techniqueMastery', 79, '육식·람각·이도류·기린 각성의 실제 사용은 확인되나 조로·비스타의 검술 정밀도에 가까운 84점을 정당화할 지속적인 상대 대응이 부족하다.', ['evidence-kaku-zoro-1104'], [], 'E2'),
+      item('combatIQ', 72, '세라핌을 막기 위한 루피·조로와의 공동전 제안을 카쿠 본인이 한 것은 긍정적이다. 그러나 실제로 세라핌의 루나리아 불꽃 방어를 분석해 해결한 사람은 조로이며, 한 번의 공투 제안만으로 높은 적응 전술 지능을 인증할 수 없으므로 72로 조정한다.', ['evidence-kaku-seraphim-1109'], [], 'E2'),
+      item('versatility', 74, '이도류·육식·동물계 변신을 결합하지만 대부분 근접 교전의 변주로서 로·퀸처럼 지원·사거리·상성 전환에 걸친 여러 역할이 검증되지 않았다.', ['evidence-kaku-seraphim-1109'], [], 'E2'),
     ],
   },
   {
@@ -586,4 +587,5 @@ export const sampleEvaluations: Evaluation[] = [
       item('versatility', 77, '첩보·근접 기습·수면 제압·조직 간 임무 전환을 수행하나 다양한 정면 전투 수단은 아직 불충분하다.', ['evidence-stussy-sleep-1104', 'evidence-stussy-infiltration-1105'], [], 'E2'),
     ],
   },
+  ...wanoEvaluations,
 ]

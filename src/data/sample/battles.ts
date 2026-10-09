@@ -1,3 +1,4 @@
+import { wanoBattles } from './wanoExpansion'
 import type { Battle, BattleParticipant } from '../../domain/battle/types'
 
 export const sampleBattles: Battle[] = [
@@ -823,6 +824,7 @@ export const sampleBattles: Battle[] = [
     result: 'victory', participantIds: [],
   },
 
+  ...wanoBattles,
 ]
 
 export const sampleBattleParticipants: BattleParticipant[] = [

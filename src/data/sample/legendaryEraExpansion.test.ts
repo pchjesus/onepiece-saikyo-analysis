@@ -11,11 +11,11 @@ const score = (characterId: string, stateId?: string) => getCombatPower(characte
 
 describe('v0.1.33 legendary-era expansion', () => {
   it('adds seven Characters, nine Evaluations and historical Memberships without ranking duplication', () => {
-    expect(sampleCharacters).toHaveLength(43)
-    expect(sampleEvaluations).toHaveLength(45)
-    expect(sampleMemberships).toHaveLength(49)
-    expect(getUniqueCharacterList()).toHaveLength(42)
-    expect(new Set(getUniqueCharacterList().map(({ character }) => character.id)).size).toBe(42)
+    expect(sampleCharacters).toHaveLength(60)
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(sampleMemberships).toHaveLength(73)
+    expect(getUniqueCharacterList()).toHaveLength(59)
+    expect(new Set(getUniqueCharacterList().map(({ character }) => character.id)).size).toBe(59)
 
     expect(sampleMemberships.filter(({ characterId }) => characterId === 'newgate').map(({ groupId }) => groupId))
       .toEqual(['whitebeard-pirates', 'rocks-pirates'])

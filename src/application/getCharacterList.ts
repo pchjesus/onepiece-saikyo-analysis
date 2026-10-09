@@ -27,6 +27,7 @@ function membershipPriority(entry: CharacterListEntry): number {
     if (role.startsWith('중장')) return 2
     return 10
   }
+  if (group.id === 'akazaya-nine' && role === '리더') return 0
   if (group.id === 'revolutionary-army') {
     if (role === '참모총장') return 0
     return 10

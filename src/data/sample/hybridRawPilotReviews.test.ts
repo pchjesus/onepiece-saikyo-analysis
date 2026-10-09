@@ -54,9 +54,9 @@ describe('Hybrid Haki A approval: four transferred, ten open reviews', () => {
   })
 
   it('recalculates all 39 post-A scores, with no zero-impact duplicate contributions', () => {
-    expect(sampleEvaluations).toHaveLength(45)
+    expect(sampleEvaluations).toHaveLength(62)
     const rows = sampleEvaluations.flatMap((e) => e.items)
-    expect(rows).toHaveLength(315)
+    expect(rows).toHaveLength(434)
     expect(rows.flatMap(i => i.hakiContributions)).toHaveLength(49)
     expect(rows.flatMap(i => i.hakiContributions).reduce((n,c)=>n+c.amount,0)).toBe(244)
     expect(rows.every(i => Math.abs(i.score - getFinalStatScore(i)) < 1e-9)).toBe(true)
