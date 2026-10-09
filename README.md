@@ -1,6 +1,6 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.1.46** (npm package 버전은 **0.1.34** 유지)  
+현재 구현 패치: **v0.1.47** (npm package 버전은 **0.1.34** 유지)  
 평가 데이터: **60 Character master pool · 59 evaluated unique Character · 73 Membership · 62 Evaluation · 434 Stat**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
@@ -16,6 +16,7 @@
 - [v0.1.37 검토용 — 산먹깨비·한글 용어·패기 수치 승인안](docs/V0_1_37_KOREAN_TERMS_AND_HYBRID_APPROVAL_2026-10-09.md)
 - [신규 2집단 사전 Evidence 조사 — 혁명군·CP0](docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md)
 - [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
+- [v0.1.47 59명×7축 감사 및 A안 6인 재산정 결과](docs/V0_1_47_A_PATH_59_CHARACTER_SEVEN_AXIS_CROSS_AUDIT_2026-10-09.md)
 - [v0.1.46 공식 에피소드·전투 구도 대조 / 루치·카쿠 잠정 평가 점검](docs/V0_1_46_OFFICIAL_EPISODE_CROSSCHECK_2026-10-09.md)
 - [v0.1.45 키드 해적단·아카자야 9남자·토비롯포 17명 근거·스탯 보고서](docs/V0_1_45_WANO_THREE_GROUP_EVIDENCE_RECALIBRATION_2026-10-09.md)
 - [v0.1.44 루치·카쿠·몰리 횡단 재산정 및 다음 집단 후보](docs/V0_1_44_CROSS_CHARACTER_CALIBRATION_AND_NEXT_GROUPS_2026-10-09.md)
@@ -28,10 +29,13 @@
 
 ## 현재 평가 로스터
 
-대표 Group 기준의 42명 evaluated unique Character는 다음과 같다. Group 탭은 Membership-expanded view라 과거 소속이 있는 캐릭터가 다른 Group에도 추가로 표시될 수 있지만 Ranking / Matchup selector에는 한 번만 나타난다.
+대표 Group 기준의 59명 evaluated unique Character는 다음과 같다. Group 탭은 Membership-expanded view라 과거 소속이 있는 캐릭터가 다른 Group에도 추가로 표시될 수 있지만 Ranking / Matchup selector에는 한 번만 나타난다.
 
 - 흰수염 해적단: 마르코 / 죠즈 / 비스타 / 에드워드 뉴게이트
-- 백수 해적단: 알베르(통칭 킹) / 퀸 / 잭 / 카이도
+- 백수 해적단: 알베르(통칭 킹) / 퀸 / 잭 / 카이도 / 토비롯포 6인 (X 드레이크는 현재 SWORD, 과거 백수 해적단 소속)
+- 키드 해적단: 유스타스 키드 / 킬러 (마지막으로 확인된 조직 소속)
+- 아카자야 9남자: 킨에몬 / 덴지로 / 아슈라 동자 / 카와마츠 / 키쿠노죠 / 라이조 / 이누아라시 / 네코마무시 / 쿠로즈미 칸주로(전 구성원)
+- 토비롯포: 후즈 후 / 사사키 / 블랙 마리아 / 울티 / 페이지 원 / X 드레이크(과거 소속)
 - 빅 맘 해적단: 샬롯 카타쿠리 / 샬롯 스무디 / 샬롯 크래커 / 샬롯 링링
 - 밀짚모자 일당: 롤로노아 조로 / 상디 / 징베
 - 빨간 머리 해적단: 샹크스
