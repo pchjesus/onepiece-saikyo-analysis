@@ -1,3 +1,4 @@
+import { wanoEvidence } from './wanoExpansion'
 import type { Evidence } from '../../domain/evidence/types'
 
 export const sampleEvidence: Evidence[] = [
@@ -2734,4 +2735,5 @@ export const sampleEvidence: Evidence[] = [
     evaluationImpact: '본 캐릭터의 해당 핵심 스탯 초안에 근거로 연결한다. E2/E3의 불확실성을 별도로 유지한다.',
     uncertainty: '첩보 능력과 일반 지능이 모두 근접 전투의 판단력·지구력을 직접 입증하는 것은 아니다.',
   },
+  ...wanoEvidence,
 ]
