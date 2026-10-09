@@ -771,4 +771,78 @@ export const sampleCharacters: Character[] = [
     },
   },
 
+  {
+    id: 'sabo', name: '사보', crewId: 'revolutionary-army', knownAs: [],
+    description: '혁명군 참모총장. 드레스로자에서 바스티유·잇쇼와 대치했고 마리조아에서는 쿠마 구출·잠입 임무를 맡았다. 해군 대장 상대 동격 승리는 확인되지 않는다.',
+    combatProfile: {
+      combatStyles: ['용조권', '메라메라 열매의 화염 운용', '지휘·임무 수행'],
+      specialTraits: [
+        { id: 'special-sabo-fire', category: 'devil-fruit', name: '메라메라 열매', status: 'confirmed', description: '화염 형태 변화와 공격을 구사한다. 용조권은 열매 취득 전부터 별도 사용한 무투 기술이다.', evidenceIds: ['evidence-sabo-bastille-687', 'evidence-sabo-fujitora-695'] },
+      ],
+      haki: { characterId: 'sabo', capabilities: [{ type: 'armament', status: 'confirmed', note: '바스티유 무기 파괴 등 체술과 무장색 연계 실전 성과를 근거로 운용 확인' }, { type: 'observation', status: 'unclear', note: '견문색의 고급 예지 등은 현 단일 공식 요약만으로 특정하지 않음' }, { type: 'conquerors', status: 'not-confirmed', note: '패왕색 보유 확인 없음' }] },
+      sources: [{ label: 'ONE PIECE.com', reference: '사보 캐릭터 공식 프로필 · https://one-piece.com/character/sabo/index.html' }, { label: '공식 TV 애니', reference: '687·695·1117·1118화 및 원작 드레스로자·마리조아 장면' }],
+    },
+  },
+  {
+    id: 'morley', name: '몰리', crewId: 'revolutionary-army', knownAs: [],
+    description: '혁명군 서군 군대장인 거인족. 지면을 밀고 지중을 이동해 마리조아 구출 임무를 지원한다. 대장과의 교전은 다수전·성지 제약 조건.',
+    combatProfile: {
+      combatStyles: ['지중 이동', '지형 조작', '거인족 완력', '구출·지원'],
+      specialTraits: [
+        { id: 'special-morley-push', category: 'devil-fruit', name: '밀밀 열매(지면 밀기)', status: 'confirmed', description: '지면을 물결치게 하거나 밀어 지중 통로와 지형 이동을 만든다.', evidenceIds: ['evidence-morley-terrain-profile', 'evidence-morley-marygeoise-1117'] },
+        { id: 'special-morley-giant', category: 'race', name: '거인족', status: 'confirmed', description: '거인족의 체구를 전투 맥락으로 기록한다. 큰 몸집 자체를 자동 공격·방어 보너스로 두지 않는다.', evidenceIds: ['evidence-morley-terrain-profile'] },
+      ],
+      haki: { characterId: 'morley', capabilities: [{ type: 'armament', status: 'unclear', note: '개인 무장색 적용 장면 미확정' }, { type: 'observation', status: 'unclear', note: '견문색 고급 응용 미확정' }, { type: 'conquerors', status: 'not-confirmed', note: '패왕색 보유 확인 없음' }] },
+      sources: [{ label: 'ONE PIECE.com', reference: '몰리 공식 프로필 · https://one-piece.com/character/Morley/index.html' }, { label: '공식 TV 애니', reference: '1117화(성지 다수전)' }],
+    },
+  },
+  {
+    id: 'karasu', name: '카라스', crewId: 'revolutionary-army', knownAs: [],
+    description: '혁명군 북군 군대장. 검댕과 까마귀 형태를 활용한 전투·기동을 보이나 성지 대장전은 동료와 연계한 다수전이다.',
+    combatProfile: {
+      combatStyles: ['검댕 군집', '까마귀 형태 제어', '원거리 견제', '공중 기동'],
+      specialTraits: [
+        { id: 'special-karasu-soot', category: 'devil-fruit', name: '그을음 형태 능력', status: 'confirmed', description: '그을음을 까마귀 군집 형태로 만들어 전장에 분산 운용한다. 정식 한국어 열매 이름은 검증 전 표시 보류.', evidenceIds: ['evidence-karasu-soot-1083'] },
+      ],
+      haki: { characterId: 'karasu', capabilities: [{ type: 'armament', status: 'unclear', note: '무장색의 이 전투 중 독립 발현 자료 부족' }, { type: 'observation', status: 'unclear', note: '견문색 독립 증거 부족' }, { type: 'conquerors', status: 'not-confirmed', note: '패왕색 보유 확인 없음' }] },
+      sources: [{ label: '원작 만화', reference: '1083화 마리조아 전투 및 능력 묘사(추가 원문 대조 필요)' }, { label: '공식 TV 애니', reference: '1117화 혁명군 군대장과 해군 대장 교전 · https://one-piece.com/anime/68630/index.html' }],
+    },
+  },
+  {
+    id: 'lucci', name: '로브 루치', crewId: 'cp0', knownAs: [],
+    description: 'CP0 요원. 에그헤드에서 동물계 각성 형태로 기어 5 루피와 교전하고 센토마루를 제압했지만 동급 사황 전력 판정은 불가하다.',
+    combatProfile: {
+      combatStyles: ['육식', '각성 표범 동물계', '고속 근접 체술', '지건·수건'],
+      specialTraits: [
+        { id: 'special-lucci-leopard', category: 'devil-fruit', name: '고양고양 열매 모델 표범', status: 'confirmed', description: '표범 동물계 각성을 통해 근접 공격과 전투 속도·변형을 활용한다.', evidenceIds: ['evidence-lucci-awakening-1100'] },
+      ],
+      haki: { characterId: 'lucci', capabilities: [{ type: 'armament', status: 'confirmed', note: '각성 체술과 결합된 기본 무장색 운용. 독립 예외적 원점수는 분리하지 않음' }, { type: 'observation', status: 'unclear', note: '미래예지 또는 고급 견문색 기술 직접 미확인' }, { type: 'conquerors', status: 'not-confirmed', note: '패왕색 보유 확인 없음' }] },
+      sources: [{ label: 'ONE PIECE.com', reference: '루치 공식 프로필 · https://one-piece.com/character/Rob_Lucci/index.html' }, { label: '공식 TV 애니', reference: '1100·1109화 에그헤드 교전' }],
+    },
+  },
+  {
+    id: 'kaku', name: '카쿠', crewId: 'cp0', knownAs: [],
+    description: 'CP0 요원. 소소 열매 모델 기린과 쌍도·람각을 결합해 조로와 교전하고 이후 세라핌 상대 공동전에 참가했다.',
+    combatProfile: {
+      combatStyles: ['쌍도류', '람각', '기린 동물계 변형', '육식'],
+      specialTraits: [
+        { id: 'special-kaku-giraffe', category: 'devil-fruit', name: '소소 열매 모델 기린', status: 'confirmed', description: '기린 형태의 체술과 검격을 결합한다. 각성에 대한 추가적 수치 효과는 별도 검증 전 임의 가산하지 않는다.', evidenceIds: ['evidence-kaku-zoro-1104'] },
+      ],
+      haki: { characterId: 'kaku', capabilities: [{ type: 'armament', status: 'confirmed', note: '일반 무장색은 기본 검술·체술 성과에 통합, 독립 원점수 없음' }, { type: 'observation', status: 'unclear', note: '고급 견문색 발현 미확정' }, { type: 'conquerors', status: 'not-confirmed', note: '패왕색 보유 확인 없음' }] },
+      sources: [{ label: 'ONE PIECE.com', reference: '카쿠 공식 프로필 · https://one-piece.com/character/Kaku/index.html' }, { label: '공식 TV 애니', reference: '1104·1109화 에그헤드 교전' }],
+    },
+  },
+  {
+    id: 'stussy', name: '스튜시', crewId: 'cp0', knownAs: [],
+    description: '베가펑크 측으로 잠입한 전 CP0 요원. 루치·카쿠에 대한 기습 수면 성공은 인정하되 정면 승리·순수 공격력 우위로 환산하지 않는다.',
+    combatProfile: {
+      combatStyles: ['잠입·정보전', '기습·수면 제압', '근접 급습', '임무 전환'],
+      specialTraits: [
+        { id: 'special-stussy-bat', category: 'devil-fruit', name: '박쥐박쥐 열매', status: 'confirmed', description: '상대를 물어 수면 상태로 만드는 효과가 공식 자료에 등장한다. 정면 교전 화력과는 구별한다.', evidenceIds: ['evidence-stussy-sleep-1104'] },
+        { id: 'special-stussy-clone', category: 'biology', name: '복제인간', status: 'confirmed', description: '미스 버킹엄 스튜시의 복제인간으로 공개된 출생 배경. 그 사실만으로 점수 가산하지 않는다.', evidenceIds: ['evidence-stussy-infiltration-1105'] },
+      ],
+      haki: { characterId: 'stussy', capabilities: [{ type: 'armament', status: 'unclear', note: '수면 제압 결과만으로 무장색 종류·수준을 단정하지 않음' }, { type: 'observation', status: 'unclear', note: '기습 성공을 미래예지로 설명하지 않음' }, { type: 'conquerors', status: 'not-confirmed', note: '패왕색 보유 확인 없음' }] },
+      sources: [{ label: 'ONE PIECE.com', reference: '스튜시 공식 프로필 · https://one-piece.com/character/Stussy/index.html' }, { label: '공식 TV 애니', reference: '1104·1105화 기습·잠입 반전' }],
+    },
+  },
 ]
