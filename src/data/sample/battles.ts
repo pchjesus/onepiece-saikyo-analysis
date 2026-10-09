@@ -744,6 +744,77 @@ export const sampleBattles: Battle[] = [
     environment: '오니가시마 내부·지하', restrictions: '두 각성 능력자와의 2대1이며 최종 패배는 낙하·폭탄·환경 요인이 복합 작용', externalFactors: '오니가시마 낙하와 폭발물', result: 'defeat', participantIds: [],
   },
 
+  {
+    id: 'dressrosa-sabo-bastille', title: '드레스로자 — 사보와 바스티유', chronologyOrder: 300,
+    combatStructure: 'multiple-vs-one', combatPurpose: '루피 진영으로 향하는 해군 저지',
+    combatIntent: 'serious', environment: '드레스로자 왕궁 인근',
+    restrictions: '사보는 루피를 보호하려 했고 바스티유 부하도 함께 교전했다', externalFactors: '사보의 자연계 능력과 해군 집단 교전',
+    result: 'victory', participantIds: [],
+  },
+  {
+    id: 'dressrosa-sabo-fujitora', title: '드레스로자 — 사보와 잇쇼 대치', chronologyOrder: 301,
+    combatStructure: '1v1', combatPurpose: '해군 대장 저지 및 루피의 진로 보호',
+    combatIntent: 'serious', environment: '드레스로자 왕궁 인근',
+    restrictions: '잇쇼의 정치·민간인 보호 목적이 전력 발휘에 영향을 주어 동격 판정 불가', externalFactors: '주변 민간인과 새장, 해군 전력',
+    result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'marygeoise-sabo-infiltration', title: '마리조아 — 사보의 노예·쿠마 구출 잠입', chronologyOrder: 302,
+    combatStructure: 'one-vs-multiple', combatPurpose: '노예 해방·쿠마 탈환·천룡인 상징 파괴',
+    combatIntent: 'serious', environment: '성지 마리조아 판게아 성',
+    restrictions: '잠입·호위·정보 확보가 목적이라 일반적인 결투와 다름', externalFactors: '보니 및 다른 혁명군의 공동 임무',
+    result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'marygeoise-revolutionary-captains', title: '마리조아 — 혁명군 군대장과 해군 대장들의 교전', chronologyOrder: 303,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '동지 쿠마 구출·퇴로 확보 및 성지 작전',
+    combatIntent: 'serious', environment: '천룡인 거주 성지 마리조아',
+    restrictions: '도시/민간인 피해를 피해야 하는 해군의 지형 제약과 다수전', externalFactors: '몰리·카라스·린드버그, 해군 아라마키·잇쇼 공동 참전',
+    result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'marygeoise-morley-terrain', title: '마리조아 — 몰리의 지면 밀기·지중 기동', chronologyOrder: 304,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '작전 수행과 이동 통로 확보',
+    combatIntent: 'serious', environment: '마리조아 땅속·성지 부지',
+    restrictions: '땅·암반을 이용한 기동 성과이며 순수 맨몸 속도 아님', externalFactors: '다른 혁명군의 협력',
+    result: 'unknown', participantIds: [],
+  },
+  {
+    id: 'egghead-lucci-luffy', title: '에그헤드 — 각성 루치와 기어 5 루피', chronologyOrder: 305,
+    combatStructure: '1v1', combatPurpose: '베가펑크 암살 임무 중 사황 루피와 교전',
+    combatIntent: 'full-power', environment: '에그헤드 연구층',
+    restrictions: '사카즈키가 직접 교전을 금지했으나 루치가 무시; 상대가 웃으며 변형하는 기어 5 상태', externalFactors: '센토마루·세라핌·베가펑크와 정부 지휘 체계',
+    result: 'defeat', participantIds: [],
+  },
+  {
+    id: 'egghead-lucci-sentomaru', title: '에그헤드 — 루치의 센토마루 기습', chronologyOrder: 306,
+    combatStructure: 'one-vs-multiple', combatPurpose: '세라핌 지휘권을 빼앗기 위한 핵심 인원 제압',
+    combatIntent: 'lethal-intent', environment: '에그헤드 방어선',
+    restrictions: '센토마루는 세라핌 통제·보호 중이었으므로 공정한 1대1 결투 아님', externalFactors: '루피 및 세라핌 지휘권·우선순위',
+    result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'egghead-kaku-zoro', title: '에그헤드 — 카쿠의 조로전', chronologyOrder: 307,
+    combatStructure: '1v1', combatPurpose: '사우전드 서니호 주변의 CP0 임무 집행',
+    combatIntent: 'serious', environment: '에그헤드 연구층·사우전드 서니호',
+    restrictions: '세라핌 개입으로 1대1이 중단·확대, 승패 확정 아님', externalFactors: 'S-베어·S-스네이크·S-호크 및 CP0',
+    result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'egghead-cp0-seraphim-coop', title: '에그헤드 — 루치·카쿠·루피·조로의 세라핌 공동전', chronologyOrder: 308,
+    combatStructure: 'multiple-vs-multiple', combatPurpose: '공동 위협인 세라핌을 일시적으로 저지',
+    combatIntent: 'serious', environment: '에그헤드 연구층',
+    restrictions: '적대하던 네 사람이 일시 협력한 다수전으로 개인 1대1 성과와 구별', externalFactors: '세라핌의 루나리아 방어 특성·지휘 명령 변화',
+    result: 'interrupted', participantIds: [],
+  },
+  {
+    id: 'egghead-stussy-sleep', title: '에그헤드 — 스튜시의 루치·카쿠 기습 수면', chronologyOrder: 309,
+    combatStructure: 'one-vs-multiple', combatPurpose: '베가펑크를 보호하기 위한 CP0 임무 방해',
+    combatIntent: 'serious', environment: '에그헤드 연구층',
+    restrictions: '장기간 잠입한 내부 협력자가 예고 없는 기습으로 제압. 정면 1대1 공격력·방어력 승리 아님', externalFactors: '루치·카쿠가 동료라 믿었고 기습을 예상하지 못한 상태',
+    result: 'victory', participantIds: [],
+  },
+
 ]
 
 export const sampleBattleParticipants: BattleParticipant[] = [
