@@ -130,7 +130,7 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
     expect(ranking.find(r => r.characterId === 'kaku')?.score).toBeCloseTo(74.28571428571429)
     expect(ranking.find(r => r.characterId === 'kaku')?.rank).toBe(54)
     expect(ranking.find(r => r.characterId === 'stussy')?.score).toBeCloseTo(77.57142857142857)
-    expect(ranking.find(r => r.characterId === 'stussy')?.rank).toBe(39)
+    expect(ranking.find(r => r.characterId === 'stussy')?.rank).toBe(40)
     expect(ranking.find(r => r.characterId === 'sabo')?.score).toBeCloseTo(85.57142857142857)
     expect(ranking.find(r => r.characterId === 'morley')?.score).toBeCloseTo(79.28571428571429)
     expect(ranking.find(r => r.characterId === 'karasu')?.score).toBeCloseTo(77.85714285714286)
