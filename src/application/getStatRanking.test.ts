@@ -45,7 +45,7 @@ describe('getStatRanking', () => {
     expect(entries.slice(0, 2).map(({ characterId }) => characterId).sort()).toEqual(['newgate', 'roger'].sort())
     expect(entries.slice(0, 2).every(({ rank, score }) => rank === 1 && Math.abs(score - 97.57142857142857) < 1e-10)).toBe(true)
     expect(entries.find(({ characterId }) => characterId === 'garp')).toMatchObject({ rank: 3, subjectStateLabel: '전성기' })
-    expect(entries[41]).toMatchObject({ characterId: 'pizarro', rank: 42, score: 71.71428571428571 })
+    expect(entries[58]).toMatchObject({ characterId: 'page-one', rank: 59, score: 70.14285714285714 })
     for (let index = 1; index < entries.length; index++) {
       expect(entries[index - 1].score).toBeGreaterThanOrEqual(entries[index].score)
     }
