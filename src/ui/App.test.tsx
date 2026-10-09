@@ -39,7 +39,7 @@ describe('evaluated roster UI', () => {
     await click(tab('CP0'))
     expect(container.querySelector('main.detail h1')?.textContent).toBe('로브 루치')
     expect([...container.querySelectorAll('.character-chip')].map(el => el.textContent))
-      .toEqual(['로브 루치', '카쿠', '스튜시과거 소속'])
+      .toEqual(['로브 루치', '스튜시과거 소속', '카쿠'])
     await click([...container.querySelectorAll('.character-chip')].find(el=>el.textContent?.includes('스튜시')) ?? null)
     expect(container.querySelector('main.detail h1')?.textContent).toBe('스튜시')
     expect(container.querySelectorAll('.readiness-badge.e3')).toHaveLength(3)
@@ -49,9 +49,9 @@ describe('evaluated roster UI', () => {
     for (const [group, character] of [
       ['밀짚모자 일당', '롤로노아 조로'],
       ['빨간 머리 해적단', '샹크스'],
-      ['해군', '몽키 D. 가프'],
+      ['해군', '사카즈키'],
       ['검은 수염 해적단', '마샬 D. 티치'],
-      ['왕의 부하 칠무해', '트라팔가 로'],
+      ['왕의 부하 칠무해', '돈키호테 도플라밍고'],
       ['크로스 길드', '쥬라큘 미호크'],
       ['로저 해적단', '골 D. 로저'],
       ['록스 해적단', '록스 D. 지벡'],
@@ -93,7 +93,7 @@ describe('evaluated roster UI', () => {
     expect(mihawkRows[0].textContent).toContain('크로스 길드')
   })
 
-  it('opens sorted 36-person stat ranking and navigates to a chosen group', async () => {
+  it('opens sorted 42-person stat ranking and navigates to a chosen group', async () => {
     const stat = container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]')
     await click(stat)
     const rows = [...document.querySelectorAll('.rank-row')]
@@ -188,6 +188,7 @@ describe('evaluated roster UI', () => {
   it('shows official identity metadata and the selected evaluation era in the intro', async () => {
     const marineTab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '해군')
     await click(marineTab ?? null)
+    await click([...container.querySelectorAll('.character-chip')].find(x => x.textContent?.includes('몽키 D. 가프')) ?? null)
     expect(container.querySelector('main.detail h1')?.textContent).toBe('몽키 D. 가프')
     expect(container.querySelector('.character-known-as')?.textContent).toContain('해군의 영웅')
     expect(container.querySelector('.evaluation-subject-state')?.textContent).toContain('평가 시점 · 전성기')
@@ -197,6 +198,7 @@ describe('evaluated roster UI', () => {
     const marineTab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '해군')
     await click(marineTab ?? null)
 
+    await click([...container.querySelectorAll('.character-chip')].find(x => x.textContent?.includes('몽키 D. 가프')) ?? null)
     const stateButtons = () => [...container.querySelectorAll('.evaluation-state-switcher button')]
     expect(stateButtons().map((button) => button.textContent)).toEqual(['전성기', '현재'])
     expect(container.querySelector('.power-card strong')?.textContent).toContain('97.4')
@@ -212,11 +214,13 @@ describe('evaluated roster UI', () => {
   })
 
   it('normalizes character names to Korean canonical display names in analysis prose', async () => {
+    await click([...container.querySelectorAll('.character-chip')].find(x => x.textContent?.includes('마르코')) ?? null)
     expect(container.querySelector('.evaluation-trace-list')?.textContent).toContain('샬롯 카타쿠리')
     expect(container.querySelector('.evaluation-trace-list')?.textContent).not.toContain('Katakuri')
 
     const marineTab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '해군')
     await click(marineTab ?? null)
+    await click([...container.querySelectorAll('.character-chip')].find(x => x.textContent?.includes('몽키 D. 가프')) ?? null)
     await click(container.querySelector('#battle-tab'))
     const battleText = container.querySelector('.detail-tab-content')?.textContent ?? ''
     expect(battleText).toContain('몽키 D. 가프')
@@ -264,6 +268,34 @@ describe('evaluated roster UI', () => {
     expect(labels.some((name) => name.includes('에드워드 뉴게이트') && name.includes('과거 소속'))).toBe(true)
     expect(labels.some((name) => name.includes('카이도') && name.includes('과거 소속'))).toBe(true)
     expect(labels.some((name) => name.includes('샬롯 링링') && name.includes('과거 소속'))).toBe(true)
+  })
+
+  it('shows Whitebeard as final crew without past-affiliation label, but his Rocks history stays past', async () => {
+    await click([...container.querySelectorAll('.crew-tab')].find(x => x.textContent === '흰수염 해적단') ?? null)
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('에드워드 뉴게이트')
+    expect(container.querySelector('main.detail .membership-context')).toBeNull()
+    expect(container.querySelector('main.detail .identity-mark svg')).not.toBeNull()
+    await click([...container.querySelectorAll('.crew-tab')].find(x => x.textContent === '록스 해적단') ?? null)
+    await click([...container.querySelectorAll('.character-chip')].find(x => x.textContent?.includes('에드워드 뉴게이트')) ?? null)
+    expect(container.querySelector('main.detail .membership-context')?.textContent).toContain('과거 소속')
+  })
+
+  it('shows Jinbe as former Warlord and Kuzan as current Blackbeard captain with Marine history retained', async () => {
+    await click([...container.querySelectorAll('.crew-tab')].find(x => x.textContent === '왕의 부하 칠무해') ?? null)
+    const jinbe = [...container.querySelectorAll('.character-chip')].find(x => x.textContent?.includes('징베'))
+    expect(jinbe?.textContent).toContain('과거 소속')
+    await click(jinbe ?? null)
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('징베')
+    await click([...container.querySelectorAll('.crew-tab')].find(x => x.textContent === '검은 수염 해적단') ?? null)
+    const kuzan = [...container.querySelectorAll('.character-chip')].find(x => x.textContent?.includes('쿠잔'))
+    expect(kuzan).toBeDefined()
+    expect(kuzan?.textContent).not.toContain('과거 소속')
+    await click(kuzan ?? null)
+    expect(container.querySelector('main.detail .identity-mark')).not.toBeNull()
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('쿠잔')
+    await click([...container.querySelectorAll('.crew-tab')].find(x => x.textContent === '해군') ?? null)
+    const former = [...container.querySelectorAll('.character-chip')].find(x => x.textContent?.includes('쿠잔'))
+    expect(former?.textContent).toContain('과거 소속')
   })
 
   it('opens small Special combat help and keeps individual evidence counts out of trait cards', async () => {
