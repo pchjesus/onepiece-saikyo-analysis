@@ -18,9 +18,9 @@ export function EvaluationTrace({
   return (
     <section className="evaluation-section">
       <div>
-        <p className="eyebrow">EVALUATION TRACE</p>
+        <p className="eyebrow">평가 근거</p>
         <h2>평가 근거 연결</h2>
-        <p className="section-note">각 스탯의 계산식, 평가 이유, 연결된 Canon Evidence를 확인할 수 있습니다. Haki Weight는 모델 설정값입니다.</p>
+        <p className="section-note">각 스탯의 계산식, 평가 이유, 연결된 원작 근거를 확인할 수 있습니다. 패기 가중치는 계산 모델의 설정값입니다.</p>
       </div>
       <div className="evaluation-trace-list">
         {items.map(({ item, evidence }) => {
@@ -34,7 +34,7 @@ export function EvaluationTrace({
                 <span>{evidence.length}개 근거{item.readiness ? ` · 근거 ${item.readiness}` : ''} · {status} · {evaluationDataVersion}</span>
               </div>
               <p className="evaluation-formula">
-                Base <strong>{item.baseScore}</strong> + Haki (<strong>{rawHaki}</strong> × {hakiWeight} = <strong>{effectiveHaki}</strong>) = Final <strong>{item.score}/100</strong>{capped && <span> · 100점 상한 적용</span>}
+                기본점수 <strong>{item.baseScore}</strong> + 패기 (<strong>{rawHaki}</strong> × {hakiWeight} = <strong>{effectiveHaki}</strong>) = 최종점수 <strong>{item.score}/100</strong>{capped && <span> · 100점 상한 적용</span>}
               </p>
               <p>{normalizeCharacterNamesForDisplay(item.rationale)}</p>
               {evidence.length > 0 ? <ul>{evidence.map(({ evidence: record }) => <li key={record.id}>{normalizeCharacterNamesForDisplay(record.source.reference)}</li>)}</ul> : <span className="trace-empty">연결된 근거 없음</span>}
