@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import type { CharacterListEntry } from '../../application/getCharacterList'
 import { getCharacterMatches } from './CharacterSearch'
 
@@ -22,7 +22,10 @@ export function CharacterPickerDialog({
   const dialogRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
     searchRef.current?.focus()
+    return () => { document.body.style.overflow = previousOverflow }
   }, [])
 
   // Search from the membership-expanded list, but show each character only once.
@@ -38,7 +41,7 @@ export function CharacterPickerDialog({
     onClose()
   }
 
-  const onDialogKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+  const onDialogKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Escape') {
       event.preventDefault()
       onClose()
