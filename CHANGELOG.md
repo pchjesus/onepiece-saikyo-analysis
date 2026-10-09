@@ -1,3 +1,12 @@
+## v0.1.54 — 37 roleless/context-only axis evidence adjudication
+
+- Complete the highest-risk gap pass among 148 unresolved axes: **23 linked with no statContributions for their own axis** + **14 linked only as context**. Classify **37 individually** with **7 E2 / 30 E3**, while explicitly preserving weak/sparse source uncertainty.
+- Add 5 carefully justified secondary stat contribution roles and refine 3 context roles to conditional secondary: Vista Versatility, Jack CombatIQ, Cracker CombatIQ, Kuzan Versatility×2, Kizaru Attack, Shiryu Attack, Van Augur Speed. **No canon fact/source/uncertainty replacement or added fabricated Evidence**.
+- Readiness distribution E1 **30**, E2 **169**, E3 **103**, missing **111** (59×7 total413). All remaining 111 linked stats have **primary72 / secondary39** evidence contributions, not just context.
+- Preserve every existing Final and Overall score, 62 evaluations, 434 stats, Haki Raw 244, 15 matchups, Balanced1.2, B-picker UI, PROJECT_SPEC. Add direct role-specific regression checks and a 148-row audit trace.
+- Record next development plan beyond evidence audits: finish remaining 111 graded axes; evaluate 59×7 scale and approved score proposals; review UX clarity; expand direct-matchup context only on actual Evidence; then consider content versions/admin/community by explicit approval.
+- [37-axis audit](docs/V0_1_54_ROLELESS_CONTEXT_37_AXIS_ADJUDICATION_2026-10-09.md) · [148-row trace](docs/V0_1_54_148_AXIS_SOURCE_ROLE_MATRIX_2026-10-09.md) · [post-audit roadmap](docs/V0_1_54_POST_AXIS_AUDIT_ROADMAP_2026-10-09.md).
+
 ## v0.1.53 — Fix source-link gaps and audit readiness role fidelity (59 × 7)
 
 - Audit the previous 172 unclassified axes (162 had evidence links, 10 did not); classify 24 reviewed axes: all 10 previously zero-link axes and all seven axes for Marco and King.

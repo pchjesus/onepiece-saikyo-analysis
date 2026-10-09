@@ -492,6 +492,8 @@ export const sampleEvidence: Evidence[] = [
       { stat: 'attack', role: 'secondary', note: '미호크가 직접 응전해야 하는 검격을 지속한 공격 능력의 근거다.' },
       { stat: 'defense', role: 'secondary', note: '검술 공방에서 의미 있는 부상을 허용하지 않고 요격 역할을 수행했다.' },
       { stat: 'speed', role: 'secondary', note: '루피 추격을 차단하고 고속 검술 공방을 성립시킨 반응·기동의 근거다.' },
+    
+      { stat: 'versatility', role: 'secondary', note: '검술로 아군 추격을 차단하는 요격·방어 역할과 근접 공격을 전환했으나, 다른 전투 수단까지 입증된 것은 아니다.' },
     ],
     interpretation: '짧은 정상결전 표본이지만 비스타의 검술 숙련과 강자 상대 공방 능력에 매우 높은 질의 직접 근거다.',
     evaluationImpact: 'Technique를 분석군 최상위권으로 평가하는 핵심 원작 근거로 사용한다.',
@@ -592,6 +594,8 @@ export const sampleEvidence: Evidence[] = [
       { stat: 'stamina', role: 'primary', note: '장기간 전선에 남아 전투를 지속한 매우 강한 Stamina 근거다.' },
       { stat: 'defense', role: 'secondary', note: '다수의 밍크 공격을 받으면서 전투를 지속한 보조 근거다.' },
       { stat: 'attack', role: 'context', note: '밍크족이 잭을 제압하지 못했지만 병력과 전투 구조 때문에 개인 화력만의 성과로 보지 않는다.' },
+    
+      { stat: 'combatIQ', role: 'secondary', note: '교착 뒤 독가스를 택한 전술적 전환은 확인되지만 외부 병기를 잭 개인 전투 능력에 포함하지 않고 판단의 적절성에도 유보를 둔다.' },
     ],
     interpretation: '5일 전투는 잭의 대표적인 지구력 feat지만 혼자 쉬지 않고 두 군주를 동시에 상대했다고 과장하지 않는다.',
     evaluationImpact: 'Stamina를 분석군 상위권으로 평가하는 핵심 근거다.',
@@ -674,6 +678,8 @@ export const sampleEvidence: Evidence[] = [
       { stat: 'stamina', role: 'primary', note: '장시간 능력 생성·조종을 지속한 직접적인 전투 지속 근거다.' },
       { stat: 'techniqueMastery', role: 'secondary', note: '장시간 다수 병사를 생성하고 통제한 능력 운용 근거다.' },
       { stat: 'versatility', role: 'context', note: '강한 시스템이지만 물에 젖는 상성 약점과 반복적인 전투 패턴을 함께 고려한다.' },
+    
+      { stat: 'combatIQ', role: 'secondary', note: '본체를 보호하고 비스킷 병사를 장시간 투입하는 전술 운영을 보여주나 나미의 수분 상성 대응 이후 적응력에는 한계가 있다.' },
     ],
     interpretation: '11시간 전투는 높은 능력 지속력을 보여주지만 본체가 11시간 동안 계속 피해를 견딘 것으로 해석하지 않는다.',
     evaluationImpact: '장시간 병사 생성·조종을 지속한 Stamina 근거이되, 본체의 피격 내구나 Jack·Katakuri 수준의 고강도 결투 지속으로 확대하지 않는다.',
@@ -1021,7 +1027,7 @@ export const sampleEvidence: Evidence[] = [
     evidenceStrength: 'strong', fact: '시류는 투명 상태에서 Koby를 노렸고, 이를 보호하러 들어온 Garp의 복부를 검으로 관통했다.',
     supportedAbilities: ['검술', '투명화', '기습', '무장색 패기'],
     statContributions: [
-      { stat: 'attack', role: 'context', note: '관통 피해는 사실이지만 Garp가 보호 개입 중 맞은 기습이므로 정면 Attack 스케일링의 핵심 근거로 사용하지 않는다.' },
+      { stat: 'attack', role: 'secondary', note: '코비를 보호하려 뛰어든 가프에게 검이 관통한 직접 결과를 인정하지만 보호 개입과 투명 기습을 정면 동급 공격력 근거로 확대하지 않는다.' },
       { stat: 'techniqueMastery', role: 'secondary', note: '투명화와 검격을 연계한 실전 운용 근거다.' },
       { stat: 'combatIQ', role: 'primary', note: '보호 대상을 노려 상대의 개입을 유도한 기습 판단 근거다.' },
       { stat: 'versatility', role: 'primary', note: '검술에 은신·기습 선택지를 추가한 실제 적용 근거다.' },
@@ -1073,7 +1079,7 @@ export const sampleEvidence: Evidence[] = [
     evidenceStrength: 'strong', fact: '반 오거는 Warp 능력으로 바제스와 자신 등 전투 참가자의 위치를 순간적으로 바꾸며 티치의 전투를 지원했다.',
     supportedAbilities: ['워프워프 열매', '저격 위치 조정', '아군 이동 지원'],
     statContributions: [
-      { stat: 'speed', role: 'context', note: '순간이동은 유용하지만 순수 신체 Speed와 동일하게 점수화하지 않는다.' },
+      { stat: 'speed', role: 'secondary', note: '워프는 전장에서 본인과 아군의 공간 위치를 순간적으로 바꾸는 실제 기동 수단이지만 근육 반응 속도나 물리 이동 속도와 동일시하지 않는다.' },
       { stat: 'techniqueMastery', role: 'primary', note: '저격과 공간이동을 전투 지원에 결합한 실제 운용 근거다.' },
       { stat: 'combatIQ', role: 'primary', note: '아군의 위치를 전투에 맞춰 조정하고 위험한 상황에서 후퇴를 제안한 판단 근거다.' },
       { stat: 'versatility', role: 'primary', note: '자신뿐 아니라 아군의 위치까지 바꾸는 실제 역할 전환 폭의 근거다.' },
@@ -1307,6 +1313,8 @@ export const sampleEvidence: Evidence[] = [
     statContributions: [
       { stat: "defense", role: "context", note: "가프의 반격을 허용한 한계가 있어 제압 실패를 무조건 방어 성공으로 해석하지 않는다." },
       { stat: "techniqueMastery", role: "secondary", note: "다수 역할의 빙결 기술을 상위 강자에게 시도했으나 해당 구속은 성립하지 않았다." },
+    
+      { stat: 'versatility', role: 'secondary', note: '빙결 구속이라는 원거리 제압 수단을 시도했다. 가프에게 효과적으로 통하지 않은 조건과 근접 교환 수단을 함께 구분한다.' },
     ],
     interpretation: "빙결 제압 시도 및 가프 상대로 유효하지 않았다는 직접 한계를 동시에 보여준다.",
     evaluationImpact: "Kuzan Defense·Technique 평가의 양면적 근거.",
@@ -1324,6 +1332,8 @@ export const sampleEvidence: Evidence[] = [
       { stat: "attack", role: "secondary", note: "가프와 상호 타격이 성립한 근접전 위력의 보조 근거다." },
       { stat: "techniqueMastery", role: "primary", note: "빙결과 신체 무투·패기를 조합하는 능력 숙련의 직접 근거다." },
       { stat: "speed", role: "secondary", note: "고속 근접 교환에 대응한 기동·반응 근거지만 가프의 부상과 혼전이 있어 속도 일방 우위를 의미하지 않는다." },
+    
+      { stat: 'versatility', role: 'secondary', note: '빙결 구속에 더해 실제 패기 근접 교환을 선택한 전투 수단 전환의 근거이나 단독 지배적 우위의 증거는 아니다.' },
     ],
     interpretation: "쿠잔의 전투는 빙결 제압 외에도 가프식 체술과 패기를 포함함이 확인된다.",
     evaluationImpact: "Kuzan Attack·Technique·Speed의 직접 보강 근거.",
@@ -1390,7 +1400,7 @@ export const sampleEvidence: Evidence[] = [
     supportedAbilities: ["빛 검","기동","임무 수행"],
     statContributions: [
       { stat: "stamina", role: "secondary", note: "이전 강한 타격 이후에도 전장에 재개입한 지속력의 보조 근거다." },
-      { stat: "attack", role: "context", note: "부상 중인 베가펑크에게 가한 유효타를 최상위 전투원에 대한 결정력과 동일시하지 않는다." },
+      { stat: "attack", role: "secondary", note: "광검으로 이미 부상당한 베가펑크를 직접 찌른 유효타는 인정하지만 비전투원 대상 결과를 대장급 결정 화력으로 환산하지 않는다." },
       { stat: "defense", role: "context", note: "루피에게 직접 붙잡힌 장면을 회피·방어 한계로 참고한다." },
     ],
     interpretation: "임무 지속 능력과 상위 상대에게 제압당한 국면이 함께 존재한다.",
