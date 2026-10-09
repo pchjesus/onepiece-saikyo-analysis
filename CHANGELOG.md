@@ -1,3 +1,13 @@
+## v0.1.41 — Special Profile Presentation and Readiness Help
+
+- Display one grouped Special category heading (e.g. **악마의 열매 / 종족 특성**) with the original, separate ability descriptions in two columns, responsive to one column on narrow screens. Display order always prioritizes Devil Fruit; underlying `SpecialCombatTrait` and Evidence data are not modified.
+- Explain the canonical E1/E2/E3 Evidence readiness levels in a core-stat-header '?' dialog. E4 is explicitly **not yet defined**; it is neither a score grade nor silently introduced into types/calculation. Outside pointer, Escape, focus return covered by a new jsdom test.
+- Replace the Beasts Pirates generic chess rook with an original, small horned-skull-and-crossbones SVG motif; it evokes the crew's Jolly Roger but does not claim to reproduce licensed official artwork.
+- Polish six new Revolutionary Army/CP0 characters' Korean ability descriptions and retain their IDs, Event/Evidence links, original powers, and all existing numeric evaluations.
+- All existing global colors, Haki statuses/Raw, scoring/weights, 49 Memberships, 45 Evaluations (315 stats), 42 unique evaluated characters, 15 direct Matchups unchanged.
+- PR #35 CI: **37 test files / 165 tests passed**, `tsc -b && vite build` passed. Postmerge Pages/manual mobile visual QA separately tracked.
+- [Patch review](docs/V0_1_41_SPECIAL_PROFILE_AND_READINESS_2026-10-09.md).
+
 ## v0.1.40 — Compact Haki UI, Character Motifs and Current-Affiliation Ordering
 
 - Three Haki type rows now display compact status and a `?` evidence popover. Keep qualitative greatness/uncertainty text inside the popover, close on outside press or Escape, and preserve the Special combat tooltip.
