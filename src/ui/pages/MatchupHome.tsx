@@ -80,13 +80,13 @@ function FighterSelect({
   )
 }
 
-function CornerPanel({ fighter,개 요인, statEdges, side }: {
+function CornerPanel({ fighter, factors, statEdges, side }: {
   fighter: MatchupHubFighter
- 개 요인: PerspectiveFactor[]
+  factors: PerspectiveFactor[]
   statEdges: MatchupHubFighter['stats']
   side: 'left' | 'right'
 }) {
-  const focusedFactors =개 요인.filter(({ perspective }) => perspective === 'favorable' || perspective === 'risk' || perspective === 'conditional')
+  const focusedFactors = factors.filter(({ perspective }) => perspective === 'favorable' || perspective === 'risk' || perspective === 'conditional')
   return (
     <article className={`corner-panel corner-panel-${side}`}>
       <header>
@@ -224,8 +224,8 @@ export function MatchupHome() {
       </section>
 
       <section className="matchup-corner-grid">
-        <CornerPanel fighter={left}개 요인={leftFactors} statEdges={leftStatEdges} side="left" />
-        <CornerPanel fighter={right}개 요인={rightFactors} statEdges={rightStatEdges} side="right" />
+        <CornerPanel fighter={left} factors={leftFactors} statEdges={leftStatEdges} side="left" />
+        <CornerPanel fighter={right} factors={rightFactors} statEdges={rightStatEdges} side="right" />
       </section>
 
       <section className="combined-matchup-panel">
