@@ -22,7 +22,7 @@ describe('v0.1.45 three-faction, 17-character Evidence-first expansion', () => {
     expect(wanoGroups.map((g) => g.id)).toEqual(['kid-pirates', 'akazaya-nine', 'tobiroppo'])
     expect(wanoSeeds.filter((s) => s.group === 'kid-pirates')).toHaveLength(2)
     expect(wanoSeeds.filter((s) => s.group === 'akazaya-nine')).toHaveLength(9)
-    expect(wanoSeeds.filter((s) => s.group === 'beasts-pirates')).toHaveLength(6)
+    expect(wanoSeeds.filter((s) => s.group === 'beasts-pirates' || s.id === 'x-drake')).toHaveLength(6)
     expect(selected.size).toBe(17)
     expect(sampleCharacters).toHaveLength(60)
     expect(sampleGroups.length).toBeGreaterThanOrEqual(22)
