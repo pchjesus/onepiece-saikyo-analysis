@@ -40,6 +40,37 @@ afterEach(async () => {
 })
 
 describe('evaluated roster UI', () => {
+  it('shows exactly 59 unique results and filters historical Tobi Roppo membership without duplication', async () => {
+    await openPicker()
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(59)
+    const filter = container.querySelector<HTMLSelectElement>('#character-picker-group')!
+    await act(async () => {
+      const setter = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value')?.set
+      setter?.call(filter, 'tobiroppo')
+      filter.dispatchEvent(new Event('change', { bubbles: true }))
+    })
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(6)
+    const drake = [...container.querySelectorAll('.character-picker-option')].find(x => x.textContent?.includes('X 드레이크'))
+    expect(drake?.textContent).toContain('과거 소속')
+    await click(drake ?? null)
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('X 드레이크')
+    expect(selectedGroupName()).toBe('토비롯포')
+    expect(container.querySelector('[role="dialog"][aria-modal="true"]')).toBeNull()
+    await openPicker()
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(59)
+  })
+
+  it('restores trigger focus when closing with Escape and keeps unrelated evaluation data intact', async () => {
+    await openPicker()
+    expect(container.querySelector('#character-picker-search')).toBe(document.activeElement)
+    await act(async () => {
+      document.activeElement?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }))
+    })
+    expect(container.querySelector('[role="dialog"][aria-modal="true"]')).toBeNull()
+    expect(container.querySelector('.open-character-picker')).toBe(document.activeElement)
+    expect(container.querySelectorAll('.evaluation-formula')).toHaveLength(7)
+  })
+
   it('renders both newly populated groups and their E3 uncertainty without extra manual navigation', async () => {
     await selectGroup('혁명군')
     expect(container.querySelector('main.detail h1')?.textContent).toBe('사보')
