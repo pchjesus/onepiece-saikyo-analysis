@@ -1,3 +1,4 @@
+import { wanoMemberships } from './wanoExpansion'
 import type { CharacterMembership } from '../../domain/character/types'
 
 export const sampleMemberships: CharacterMembership[] = [
@@ -61,4 +62,5 @@ export const sampleMemberships: CharacterMembership[] = [
   { characterId: 'lucci', groupId: 'cp0', role: '요원', status: 'current', period: '에그헤드 임무 시점' },
   { characterId: 'kaku', groupId: 'cp0', role: '요원', status: 'current', period: '에그헤드 임무 시점' },
   { characterId: 'stussy', groupId: 'cp0', role: '전 요원 / 베가펑크 측 잠입자', status: 'former', period: '에그헤드 이탈 시점' },
+  ...wanoMemberships,
 ]
