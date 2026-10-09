@@ -1,3 +1,15 @@
+# v0.1.40 — 인물 프로필 간결화 및 현재 소속·서열 검증
+
+- Input: 43 Character master, 45 Evaluations (315 Stats), 47 original Memberships, 15 direct Matchups.
+- Change: +2 Memberships to 49 (Kuzan current Blackbeard 10th while Navy former, Jinbe Warlords former while Straw Hat current). Existing Evaluation/Score and Matchup payloads unchanged.
+- Added / revised tests for Haki three-row '?' popups with outside-pointer and Escape dismissal/focus, verified Devil Fruit awakening badge, default non-awakened Sanji, local group/admiral motifs, Captain-first / numbered seat / Korean alphabet fallback, Kuzan/Jinbe duplicate suppression and Newgate final crew label.
+- Existing snapshot-style 'first Navy character' assertions were updated to explicitly select Garp when required; no UI feature was removed or test disabled.
+- CI run and post-merge Pages: see GitHub Actions for PR #31 after final full tests. **Until confirmed, no verified claims about Pages**.
+- 3 global color palette options documented only; app-wide background/tab/card colors not changed.
+- Browser/mobile device manual visual confirmation not performed in this automated review.
+
+---
+
 # v0.1.38 — A안 승인 후 실제 데이터 반영 및 병합 게이트
 
 - 네 축 A안 실제 `sampleEvaluations` 값 변경: 사카즈키 방어 95/0, 쿠잔 공격 93/0·방어 93/0, 카타쿠리 공격 81/0.
