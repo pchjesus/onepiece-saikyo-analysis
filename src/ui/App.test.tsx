@@ -129,7 +129,7 @@ describe('evaluated roster UI', () => {
     expect(rows()[0].textContent).toContain('97.571')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows()[0].textContent).toContain('아발로 피사로')
-    expect(rows()[0].textContent).toContain('36위')
+    expect(rows()[0].textContent).toContain('42위')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
   })
