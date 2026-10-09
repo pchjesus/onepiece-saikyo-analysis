@@ -17,10 +17,10 @@ describe('v0.1.35 hybrid 39-Evaluation recalibration audit', () => {
   const characterById = new Map(sampleCharacters.map((c) => [c.id, c]))
 
   it('covers all 39 evaluations / 273 stats and detects the inherited evidence-readiness risks', () => {
-    expect(sampleEvaluations).toHaveLength(45)
+    expect(sampleEvaluations).toHaveLength(62)
     const rows = sampleEvaluations.flatMap((evaluation) =>
       evaluation.items.map((item) => ({ evaluation, item })))
-    expect(rows).toHaveLength(315)
+    expect(rows).toHaveLength(434)
 
     let missingLinks = 0
     let unassignedReadiness = 0
