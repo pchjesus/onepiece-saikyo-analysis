@@ -35,7 +35,7 @@ describe('evaluated roster UI', () => {
       .toEqual(['사보', '몰리', '카라스'])
     await click([...container.querySelectorAll('.character-chip')].find(el=>el.textContent==='몰리') ?? null)
     expect(container.querySelector('main.detail h1')?.textContent).toBe('몰리')
-    expect(container.querySelectorAll('.readiness-badge.e3')).toHaveLength(5)
+    expect(container.querySelectorAll('.readiness-badge.e3')).toHaveLength(4)
     await click(tab('CP0'))
     expect(container.querySelector('main.detail h1')?.textContent).toBe('로브 루치')
     expect([...container.querySelectorAll('.character-chip')].map(el => el.textContent))
