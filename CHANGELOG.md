@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.1.35 (Draft) — 14-Application Hybrid Raw Review & Non-Production Base Rebase
+
+- Added typed, evidence-guarded decisions for **all 14 existing Haki Raw contributions** across Sakazuki, Kuzan, Shanks, Katakuri, Big Mom, with Mihawk as no-Raw comparison.
+- Proposed four ordinary-Haki Base transfers with exact original/migration pairs:
+  - Sakazuki Defense `94+0.5×2→95` becomes `95+0`.
+  - Kuzan Attack `91+0.5×4→93` becomes `93+0`.
+  - Kuzan Defense `92+0.5×2→93` becomes `93+0`.
+  - Katakuri Attack `79+0.5×4→81` becomes `81+0`.
+- New **non-mutating preview** checks all 39 Evaluation States and 273 Stat values, and guards unchanged Balanced 1.2 outcomes; remaining ten allocations stay unresolved under approved exceptional marginal-effect/double-counting gates.
+- **Not** a production numeric data migration or endorsement of inherited Base/Final values. At weights other than 0.5, score-equivalence is not guaranteed.
+- Added official ONE PIECE.com Ep.857 supporting Evidence for Katakuri's calm-dependent future sight and mochi-body evasion; labelled as supplementary official-anime corroboration, not a novel standalone attack/point.
+- Katakuri's Attack, Defense, Technique, Combat IQ Evidence readiness recorded **E2**; legacy score/Haki Raw unchanged, Evaluation Data Version advanced for this single evidence review.
+- Across 273 Stats, Evidence readiness unassigned **196→192**, empty Evidence links remain **11**. All matchups, ranking, calculator code and weights unchanged.
+
 ## v0.1.35 (Draft) — Evidence-First Pilot Calibration (No Score Change)
 
 ### Actual data repair
