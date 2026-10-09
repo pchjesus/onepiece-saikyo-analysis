@@ -40,7 +40,7 @@ describe('v0.1.56 top-tier combat-context readiness audit', () => {
     const count = { E1: 0, E2: 0, E3: 0, missing: 0 }
     for (const axis of axes) if (axis.readiness) count[axis.readiness]++
     else count.missing++
-    expect(count).toEqual({ E1: 43, E2: 208, E3: 111, missing: 51 })
+    expect(count).toEqual({ E1: 53, E2: 243, E3: 117, missing: 0 })
   })
 
   it('retains era separation and multi-party fight caveats', () => {
@@ -91,11 +91,11 @@ describe('v0.1.56 top-tier combat-context readiness audit', () => {
     expect(sampleMatchups).toHaveLength(15)
   })
 
-  it('retains only 51 still-unclassified axes, each with role-specific source support', () => {
+  it('has zero still-unclassified default axes at v0.1.57', () => {
     const byEvidence = new Map(sampleEvidence.map((record) => [record.id, record]))
     const unresolved = defaults.flatMap((evaluation) =>
       evaluation.items.filter((axis) => !axis.readiness))
-    expect(unresolved).toHaveLength(51)
+    expect(unresolved).toHaveLength(0)
     const roles = { primary: 0, secondary: 0 }
     for (const axis of unresolved) {
       const contributions = axis.evidenceIds.flatMap((id) =>
@@ -106,6 +106,6 @@ describe('v0.1.56 top-tier combat-context readiness audit', () => {
       else if (contributions.includes('secondary')) roles.secondary++
       else throw new Error('Unreviewed stat lacks explicit supporting role: ' + axis.stat)
     }
-    expect(roles).toEqual({ primary: 29, secondary: 22 })
+    expect(roles).toEqual({ primary: 0, secondary: 0 })
   })
 })
