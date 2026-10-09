@@ -19,8 +19,8 @@ describe('combat stat definitions', () => {
 
   it('keeps technique mastery, combat IQ, versatility, and the non-scoring special profile conceptually distinct', () => {
     expect(COMBAT_STAT_DEFINITIONS.combatIQ.excludes).toContain('다재다능함')
-    expect(COMBAT_STAT_DEFINITIONS.versatility.excludes).toContain('Special Combat Profile')
-    expect(COMBAT_STAT_DEFINITIONS.techniqueMastery.excludes).toContain('Special Combat Profile')
+    expect(COMBAT_STAT_DEFINITIONS.versatility.excludes).toContain('특수 전투 프로필')
+    expect(COMBAT_STAT_DEFINITIONS.techniqueMastery.excludes).toContain('특수 전투 프로필')
     expect(COMBAT_STAT_DEFINITIONS.techniqueMastery.excludes).toContain('Combat IQ')
     expect(COMBAT_STAT_DEFINITIONS.techniqueMastery.excludes).toContain('다재다능함')
     expect(COMBAT_STAT_DEFINITIONS.versatility.excludes).toContain('Combat IQ')
