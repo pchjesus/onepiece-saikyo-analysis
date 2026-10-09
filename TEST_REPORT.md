@@ -1,3 +1,14 @@
+# v0.1.52 — 189-readiness triage and 17-axis reviewed metadata
+
+- Baseline `main@be897e34c8bedc08777a9937a77470d1ca1cd3db`; previous count E1 29/E2 134/E3 61/missing 189.
+- Changed exactly 17 metadata `readiness` values: Jozu 7, Queen 7, Katakuri 3. No changes to Base/Final scores, raw Haki contributions, model formula, Evidence/Battle IDs, matchups, UI, PROJECT_SPEC, or saved data.
+- After: E1 29/E2 145/E3 67/missing 172. Original 189-axis before/after matrix stored under `docs/` to distinguish reviewed vs unresolved records. Remaining 10 zero Evidence-ID links documented.
+- Update three pre-existing count assertions (`readinessMetadataAudit.test.ts`, `overallValidityAudit.test.ts`, `hybridRawPilotReviews.test.ts`). Add 3 scenarios in `readinessComparativeAudit.test.ts`: 17 expected E-levels + 59×7 distribution; four exemplar Final vectors, Overall, Haki Raw and matchups invariants; Lucci/Kaku IQ68/72 retained E3.
+- **PR CI test/build and exact-commit Pages deploy result:** pending workflow; complete acceptance after observed success. No claims of full official manga-panel source verification or manual browser QA.
+- [Evidence and case-by-case audit](docs/V0_1_52_READINESS_CALIBRATION_AND_THREE_CHARACTER_ANCHORS_2026-10-09.md) / [189-axis matrix](docs/V0_1_52_READINESS_189_AXIS_TRACE_MATRIX_2026-10-09.md).
+
+---
+
 # v0.1.51 — readiness text/metadata consistency and unchanged-score regression
 
 - Based on `main@73b0816cccef809f431076300ffc919ed85bf618` (v0.1.50).
