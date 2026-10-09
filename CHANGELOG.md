@@ -1,5 +1,22 @@
 # Changelog
 
+## v0.1.35 (Draft) — Evidence-First Pilot Calibration (No Score Change)
+
+### Actual data repair
+- Added 3 marineford battle-context records and 4 Sakazuki canon Evidence entries: Squard deception (Ch.563), Meteor Volcano (Ch.564–565), Ace protecting Luffy (Ch.574), Luffy/Jinbe escape pursuit (Ch.578), supported by ONE PIECE.com episode summaries 472, 474, 483 and 488.
+- Linked Sakazuki's previously unsupported **Technique / Combat IQ / Versatility** Stat rationales to explicit context-aware Evidence while keeping **Speed without numerical-comparative Evidence**.
+- Sakazuki readiness: six E2 axes and Speed E3. The existing **97/95/96/86/91/91/91, Overall 92.429, Raw 2** are unchanged. Individual evaluation data version updated to `evaluation-0.1.35-evidence-only-draft`.
+
+### Hybrid pilot
+- Published [six-character Raw review](docs/HYBRID_HAKI_PILOT_RECALIBRATION_2026-10-09.md) for Sakazuki, Kuzan, Shanks, Mihawk, Linlin and Katakuri.
+- Explicitly distinguished confirmed exceptional applications from Haki incremental *numeric* bonus eligibility; no +N/-N or revised ranking based only on titles or shared scenes.
+- Missing linked Evidence Stat rows: **14 → 11**; unassigned readiness Stat rows: **203 → 196**. These reductions reflect specific, checked links, not fabricated sources.
+- Legacy 39 Evaluations, 273 Stat rows, 53 typed Raw, total Raw 256, 15 Matchups and Balanced 1.2 / Haki Weight 0.5 remain preserved.
+
+### Gates
+- Retain production v0.1.34 until numerical candidate rubric, whole-roster effects and separate final approval.
+- New regression test guards all canonical links, battle context, Sakazuki E2/E3, Evidence owner, stable 39 scores and no model drift.
+
 ## v0.1.34 — Hybrid Haki Standard Ratification, Non-numeric Excellence & Matchup Audit
 
 ### Approved methodology

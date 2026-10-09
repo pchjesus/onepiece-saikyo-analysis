@@ -202,15 +202,15 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-akainu', characterId: 'akainu', evaluationDataVersion: 'evaluation-0.1.26-draft', status: 'draft',
+    id: 'evaluation-akainu', characterId: 'akainu', evaluationDataVersion: 'evaluation-0.1.35-evidence-only-draft', status: 'draft',
     items: [
-      item('attack', 97, "마그마의 고열·관통 능력과 정상결전의 중상 유발 성과에 따라 높은 결정력을 평가한다. 쿠잔과 10일 결투 승리만으로 공격력 전부를 역산하지는 않는다.", ["evidence-sakazuki-shanks-block-579","evidence-sakazuki-kuzan-duel-650"]),
-      item('defense', 94, "흰수염 공격 후 전선 복귀와 처형대를 향한 지진파의 삼대장 합동 방어를 반영한다. 공동 방어를 개인 단독 성과로 취급하지 않고 최소 무장색 Contribution만 분리한다.", ["evidence-sakazuki-kuzan-duel-650","evidence-akainu-admiral-barrier-564"], [{ hakiType: 'armament', stat: 'defense', amount: 2, application: "삼대장 합동 방어에서 무장색으로 강한 지진파를 차단한 최소 직접 운용", evidenceIds: ["evidence-akainu-admiral-barrier-564"] }]),
-      item('stamina', 96, 'Kuzan과 10일 결투를 지속한 명시적 장기전 최고급 표본이다.', ["evidence-sakazuki-kuzan-duel-650"]),
-      item('speed', 86, '상위권 전투 반응은 충분하지만 속도 특화자와 비교할 직접 기동 표본은 상대적으로 제한적이다.'),
-      item('techniqueMastery', 91, "마그마를 근거리 타격·원거리 유성탄·광역 지형 압박에 사용한 숙련을 평가한다. 공격 규모 자체와 조작성의 평가 의미를 구별한다.", []),
-      item('combatIQ', 91, "정상결전에서 목표 우선순위를 유지하고 상대 심리를 이용한 전술 성과를 높게 평가하지만, 인물의 정치적 판단을 Combat IQ에 포함하지 않는다.", []),
-      item('versatility', 91, '근접 관통·원거리 화산탄·광역 지형 변화와 지속 압박을 모두 수행한다.'),
+      item('attack', 97, "마그마의 고열·관통 능력과 정상결전의 중상 유발 성과에 따라 높은 결정력을 평가한다. 쿠잔과 10일 결투 승리만으로 공격력 전부를 역산하지는 않는다.", ["evidence-sakazuki-shanks-block-579","evidence-sakazuki-kuzan-duel-650","evidence-sakazuki-ace-intervention-574","evidence-sakazuki-meteor-volcano-564-565","evidence-sakazuki-luffy-pursuit-578"], [], 'E2'),
+      item('defense', 94, "흰수염 공격 후 전선 복귀와 처형대를 향한 지진파의 삼대장 합동 방어를 반영한다. 공동 방어를 개인 단독 성과로 취급하지 않고 최소 무장색 Contribution만 분리한다.", ["evidence-sakazuki-kuzan-duel-650","evidence-akainu-admiral-barrier-564"], [{ hakiType: 'armament', stat: 'defense', amount: 2, application: "삼대장 합동 방어에서 무장색으로 강한 지진파를 차단한 최소 직접 운용", evidenceIds: ["evidence-akainu-admiral-barrier-564"] }], 'E2'),
+      item('stamina', 96, 'Kuzan과 10일 결투를 지속한 명시적 장기전 최고급 표본이다.', ["evidence-sakazuki-kuzan-duel-650"], [], 'E2'),
+      item('speed', 86, '상위권 전투 반응은 충분하지만 속도 특화자와 비교할 직접 기동 표본은 상대적으로 제한적이다.', [], [], 'E3'),
+      item('techniqueMastery', 91, "마그마를 근거리 타격·원거리 유성화산 탄막·광역 지형 압박에 사용한 숙련을 평가한다. 공격 규모 자체와 능력 운용의 숙련은 구분하며, 해군 포위벽·쿠잔의 빙결로 만들어진 집단전 전장 조건도 고려한다.", ['evidence-sakazuki-meteor-volcano-564-565','evidence-akainu-admiral-barrier-564'], [], 'E2'),
+      item('combatIQ', 91, "스쿼드의 불신과 과거 원한을 이용한 전시 기만으로 흰수염에게 실제 피해를 유발했고, 루피 탈출 저지를 지속적으로 우선했다. 다만 해군 전체의 계획을 사카즈키 단독 판단으로 전부 귀속하거나 정치적 판단을 Combat IQ에 더하지 않는다.", ['evidence-sakazuki-squard-deception-563','evidence-sakazuki-luffy-pursuit-578'], [], 'E2'),
+      item('versatility', 91, '근접 관통·원거리 유성화산 탄막·해상 이동 기반 차단·대형 함선 파괴와 지속적인 근접 압박을 수행한다. 한 기술의 파생 효과를 서로 다른 독립 능력으로 중복 세지 않는다.', ['evidence-sakazuki-ace-intervention-574','evidence-sakazuki-meteor-volcano-564-565','evidence-sakazuki-luffy-pursuit-578'], [], 'E2'),
     ],
   },
   {
