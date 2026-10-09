@@ -497,9 +497,9 @@ header p:last-child { color: #666; }
 /* v0.1.41: maintain the existing app palette; only arrange compact content. */
 .special-traits-content { min-width: 0; }
 .special-trait-group-heading { color: #52616f; font-size: .78rem; font-weight: 750; border-radius: 999px; background: #f1f2ef; display: inline-flex; padding: 5px 10px; margin: 0 0 10px; max-width: 100%; overflow-wrap: anywhere; }
-.special-trait-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.special-trait-list .special-trait { min-width: 0; padding: 11px 10px; border: 1px solid #ebece8; border-radius: 12px; background: #fff; overflow-wrap: anywhere; }
-.special-trait-list .special-trait:first-child { padding-top: 11px; border-top: 1px solid #ebece8; }
+.special-trait-list { display: block; }
+.special-trait-list .special-trait { min-width: 0; padding: 12px 0; border: 0; border-top: 1px solid #ecece8; border-radius: 0; background: transparent; overflow-wrap: anywhere; }
+.special-trait-list .special-trait:first-child { padding-top: 0; border-top: 0; }
 .special-trait-list .special-trait-meta { justify-content: flex-end; }
 .special-trait-list .special-trait h4 { margin: 5px 0 8px; }
 .stat-heading-title { display: inline-flex; align-items: center; gap: 7px; min-width: 0; }
@@ -512,4 +512,4 @@ header p:last-child { color: #666; }
 .readiness-levels dt { font-weight: 800; }
 .readiness-levels dd { margin: 0; }
 .readiness-help-note { color: #555; border-top: 1px solid #e7e7e4; padding-top: 10px; }
-@media (max-width: 580px) { .special-trait-list { grid-template-columns: minmax(0, 1fr); } }
+

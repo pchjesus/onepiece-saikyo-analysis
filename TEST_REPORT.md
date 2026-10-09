@@ -1,3 +1,13 @@
+# v0.1.42 — vertical Special restoration and fruit localization
+
+- User screenshot comparison: retain a *single combined type label* and restore a *vertical* sequence of explanatory text without bordered two-column cards. No global palette change.
+- Changed only CSS display rules for `special-trait-list` and `special-trait`; one title and full-width sections remain in `CombatProfile`.
+- UI display Korean names: `메라메라` → `이글이글` (Sabo), `오페오페` → `수술수술` (Law), `메로메로` → `매료매료` (Hancock), `모치모치` → `쫀득쫀득` (Katakuri), Karasu `그을음그을음`, Morley `밀어밀어`. Evidence links/trait IDs preserved; unclear official Korean-language naming may need licensed Korean volume verification.
+- Regression assertion covers all six localized traits and category grouping; production build and whole-roster regressions gated by CI. `PROJECT_SPEC.md` and `evaluations.ts` remain untouched.
+- Manual browser/tablet CSS visual verification remains pending; the user screenshot is the acceptance reference.
+
+---
+
 # v0.1.41 — Special Profile / Evidence readiness / motif / localization (PR #35)
 
 - Baseline: 43 Character master / 42 unique evaluated, 45 Evaluations / 315 core Stats, 49 Memberships, 15 direct Matchups, Haki Raw sum 244, Balanced 1.2 / Haki Weight 0.5.

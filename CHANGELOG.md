@@ -1,3 +1,9 @@
+## v0.1.42 — Special explanations vertical again; Korean fruit names
+
+- Per user screenshots, retain **one grouped category heading** (e.g. `악마의 열매 / 종족 특성`) while rendering each Special trait **full-width vertically in its prior plain divider layout**, not two boxed columns. Other profile, Haki and app color styles unchanged.
+- Normalize visible fruit names in character data (not IDs): 사보 **이글이글**, 로 **수술수술**, 핸콕 **매료매료**, 카타쿠리 **쫀득쫀득**, 카라스 **그을음그을음**, 몰리 **밀어밀어** 열매. Korean naming relies on commonly documented Korean localization; original Japanese official pages remain the source for underlying ability descriptions. Do not change Evidence IDs or evaluation data.
+- No overall color theme or model/calculation/evaluation data changes. Numeric six-character recalibration is a **separate review step**, not implied by label corrections.
+
 ## v0.1.41 — Special Profile Presentation and Readiness Help
 
 - Display one grouped Special category heading (e.g. **악마의 열매 / 종족 특성**) with the original, separate ability descriptions in two columns, responsive to one column on narrow screens. Display order always prioritizes Devil Fruit; underlying `SpecialCombatTrait` and Evidence data are not modified.
