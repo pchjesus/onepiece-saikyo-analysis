@@ -88,9 +88,9 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-katakuri', characterId: 'katakuri', evaluationDataVersion: 'evaluation-0.1.35-haki-evidence-review-draft', status: 'draft',
+    id: 'evaluation-katakuri', characterId: 'katakuri', evaluationDataVersion: 'evaluation-0.1.38-hybrid-A-approved', status: 'draft',
     items: [
-      item('attack', 79, '모치 기반 근접·중원거리 공격, 삼지창, 각성 공격으로 강한 공격 시스템을 구축하지만 장시간 루피를 압박한 것에 비해 최상위급 결정력을 반복적으로 입증한 장면은 제한적이다. 무장색 정면 충돌의 우위는 Base와 분리해 반영한다.', ['evidence-katakuri-awakening-882', 'evidence-katakuri-armament-883'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '무장색을 근접 공격에 적용해 루피와의 직접 충돌에서 공격 성능을 강화', evidenceIds: ['evidence-katakuri-armament-883'] }], 'E2'),
+      item('attack', 81, '루피와의 근접 충돌에서 관찰된 일반 무장색 공격 강화 성과를 기본점수에 포함한다. 특별한 추가 패기 보너스를 별도로 부여하지 않으며 상대 상태·모치 능력을 분리한다.', ['evidence-katakuri-awakening-882', 'evidence-katakuri-armament-883'], [], 'E2'),
       item('defense', 79, '모치 신체 변형 자체의 회피·방어 수단과 높은 기본 대응을 평가하되 핵심 회피 성과의 상당 부분을 만드는 미래예지는 Raw 견문색 Contribution으로 분리한다. 침착함이 무너지면 회피 성능도 떨어지는 조건을 함께 고려한다.', ['evidence-katakuri-future-sight-881-884', 'evidence-katakuri-composure-future-sight-857'], [{ hakiType: 'observation', stat: 'defense', amount: 6, application: '미래예지로 공격을 선행 파악하고 모치 신체를 변형해 회피', evidenceIds: ['evidence-katakuri-future-sight-881-884'] }], 'E2'),
       item('stamina', 82, '루피와 장시간 격전을 이어가며 큰 피해와 피로가 누적된 뒤에도 최종 공방까지 전투를 지속했다. 높은 지구력을 확인할 수 있지만 후반의 명확한 소모도 함께 반영한다.', ['evidence-katakuri-endurance-894']),
       item('speed', 83, '미래예지의 선행 예측을 Speed에 직접 가산하지 않더라도 Snakeman의 가속·궤도 변경 공격과 고속 공방을 이어가며 회피와 반격을 수행한 순수 전투 속도가 확인된다.', ['evidence-katakuri-future-sight-881-884', 'evidence-katakuri-snakeman-895']),
@@ -202,10 +202,10 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-akainu', characterId: 'akainu', evaluationDataVersion: 'evaluation-0.1.35-evidence-only-draft', status: 'draft',
+    id: 'evaluation-akainu', characterId: 'akainu', evaluationDataVersion: 'evaluation-0.1.38-hybrid-A-approved', status: 'draft',
     items: [
       item('attack', 97, "마그마의 고열·관통 능력과 정상결전의 중상 유발 성과에 따라 높은 결정력을 평가한다. 쿠잔과 10일 결투 승리만으로 공격력 전부를 역산하지는 않는다.", ["evidence-sakazuki-shanks-block-579","evidence-sakazuki-kuzan-duel-650","evidence-sakazuki-ace-intervention-574","evidence-sakazuki-meteor-volcano-564-565","evidence-sakazuki-luffy-pursuit-578"], [], 'E2'),
-      item('defense', 94, "흰수염 공격 후 전선 복귀와 처형대를 향한 지진파의 삼대장 합동 방어를 반영한다. 공동 방어를 개인 단독 성과로 취급하지 않고 최소 무장색 Contribution만 분리한다.", ["evidence-sakazuki-kuzan-duel-650","evidence-akainu-admiral-barrier-564"], [{ hakiType: 'armament', stat: 'defense', amount: 2, application: "삼대장 합동 방어에서 무장색으로 강한 지진파를 차단한 최소 직접 운용", evidenceIds: ["evidence-akainu-admiral-barrier-564"] }], 'E2'),
+      item('defense', 95, "삼대장 합동 방어에 사용한 통상 무장색을 관찰된 방어 성과의 기본점수에 통합한다. 공동 방어를 개인 단독 패기 특수 보너스로 추가하지 않는다.", ["evidence-sakazuki-kuzan-duel-650","evidence-akainu-admiral-barrier-564"], [], 'E2'),
       item('stamina', 96, 'Kuzan과 10일 결투를 지속한 명시적 장기전 최고급 표본이다.', ["evidence-sakazuki-kuzan-duel-650"], [], 'E2'),
       item('speed', 86, '상위권 전투 반응은 충분하지만 속도 특화자와 비교할 직접 기동 표본은 상대적으로 제한적이다.', [], [], 'E3'),
       item('techniqueMastery', 91, "마그마를 근거리 타격·원거리 유성화산 탄막·광역 지형 압박에 사용한 숙련을 평가한다. 공격 규모 자체와 능력 운용의 숙련은 구분하며, 해군 포위벽·쿠잔의 빙결로 만들어진 집단전 전장 조건도 고려한다.", ['evidence-sakazuki-meteor-volcano-564-565','evidence-akainu-admiral-barrier-564'], [], 'E2'),
@@ -214,10 +214,10 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-kuzan', characterId: 'kuzan', evaluationDataVersion: 'evaluation-0.1.30-draft', status: 'draft',
+    id: 'evaluation-kuzan', characterId: 'kuzan', evaluationDataVersion: 'evaluation-0.1.38-hybrid-A-approved', status: 'draft',
     items: [
-      item('attack', 91, '빙결 제압과 가프와의 근접 맞교환으로 확인된 공격력을 Base에 두고 1087화의 패기 강화 권격을 Raw 무장색에 분리한다. 현재 가프 상향을 이유로 쿠잔의 공격을 자동 상향하지 않고 실제 상호 타격 성과를 유지한다.', ['evidence-kuzan-garp-haki-clash-1087'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: 'Ice Glove와 패기가 실린 주먹으로 가프와 직접 근접 공방', evidenceIds: ['evidence-kuzan-garp-haki-clash-1087'] }]),
-      item('defense', 92, '자연계 신체 운용, 사카즈키와의 10일 결투, 가프의 Blue Hole 이후 다시 전선에 복귀해 근접 교환을 이어간 사실을 함께 반영한다. Blue Hole을 막아낸 것은 아니므로 해당 피격을 방어 성공으로 바꾸지 않고 Final 93의 상한으로 제한한다.', ['evidence-kuzan-sakazuki-duel-650', 'evidence-kuzan-garp-iceball-1081', 'evidence-kuzan-blue-hole-return-1081-1087', 'evidence-kuzan-admiral-barrier-564'], [{ hakiType: 'armament', stat: 'defense', amount: 2, application: '삼대장 합동 방어에서 무장색에 의한 지진파 차단에 공동 참여', evidenceIds: ['evidence-kuzan-admiral-barrier-564'] }]),
+      item('attack', 93, '가프와의 Ice Glove 실전 권격 및 통상 무장색 효과를 기본점수에 통합하되, 가프의 부상·다수전·사제관계를 독립 결투 성과로 확대하지 않는다.', ['evidence-kuzan-garp-haki-clash-1087'], []),
+      item('defense', 93, '삼대장 공동 지진파 방어에 사용한 통상 무장색 성과를 기본점수에 통합한다. 독립적인 예외 패기 원점수로 별도 가산하지 않는다.', ['evidence-kuzan-sakazuki-duel-650', 'evidence-kuzan-garp-iceball-1081', 'evidence-kuzan-blue-hole-return-1081-1087', 'evidence-kuzan-admiral-barrier-564'], []),
       item('stamina', 97, '사카즈키와 10일간 결투한 명시적 장기전 최고급 표본에 더해 Blue Hole 피격 이후 하치노스 전투에 복귀하고 가프와 다시 충돌한 현재 성과를 반영한다.', ['evidence-kuzan-sakazuki-duel-650', 'evidence-kuzan-blue-hole-return-1081-1087', 'evidence-kuzan-garp-haki-clash-1087']),
       item('speed', 90, '가프와 고속 근접 교환이 성립하고 Blue Hole 이후 전선에 복귀했다. 노년 가프가 여러 차례 선제 주도권을 만든 장면을 고려해 가프와 순수 속도 동급으로 올리지는 않지만 기존 89보다 소폭 상향한다.', ['evidence-kuzan-garp-haki-clash-1087', 'evidence-kuzan-blue-hole-return-1081-1087']),
       item('techniqueMastery', 91, '얼음 구속·지형 통제·Ice Glove와 가프식 무투의 결합 숙련을 Base에 두고 패기를 실은 실전 권격 운용을 Raw 무장색에 별도 연결한다.', ['evidence-kuzan-garp-iceball-1081', 'evidence-kuzan-garp-haki-clash-1087'], [{ hakiType: 'armament', stat: 'techniqueMastery', amount: 4, application: 'Ice Glove와 무장색 권격을 결합한 고난도 근접 교환', evidenceIds: ['evidence-kuzan-garp-haki-clash-1087'] }]),
