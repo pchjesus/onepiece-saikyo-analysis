@@ -38,7 +38,7 @@ describe('v0.1.51 readiness metadata and unresolved-evidence diagnostic', () => 
         expect(item.rationale).not.toMatch(/\bE[123]\b/)
       }
     }
-    expect(counts).toEqual({ E1: 29, E2: 134, E3: 61, missing: 189 })
+    expect(counts).toEqual({ E1: 29, E2: 145, E3: 67, missing: 172 })
     const unlinked = defaults.flatMap((evaluation) => evaluation.items.filter((item) =>
       !item.readiness && item.evidenceIds.length === 0).map((item) => `${evaluation.characterId}:${item.stat}`))
     expect(unlinked.length).toBeLessThanOrEqual(10) // targeted gap, not an E3 assignment
