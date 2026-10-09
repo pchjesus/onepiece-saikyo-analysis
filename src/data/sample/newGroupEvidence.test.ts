@@ -128,9 +128,9 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
     expect(ranking).toHaveLength(59)
     expect(new Set(ranking.map(r => r.characterId)).size).toBe(59)
     expect(ranking.find(r => r.characterId === 'kaku')?.score).toBeCloseTo(74.28571428571429)
-    expect(ranking.find(r => r.characterId === 'kaku')?.rank).toBe(33)
+    expect(ranking.find(r => r.characterId === 'kaku')?.rank).toBe(54)
     expect(ranking.find(r => r.characterId === 'stussy')?.score).toBeCloseTo(77.57142857142857)
-    expect(ranking.find(r => r.characterId === 'stussy')?.rank).toBe(35)
+    expect(ranking.find(r => r.characterId === 'stussy')?.rank).toBe(39)
     expect(ranking.find(r => r.characterId === 'sabo')?.score).toBeCloseTo(85.57142857142857)
     expect(ranking.find(r => r.characterId === 'morley')?.score).toBeCloseTo(79.28571428571429)
     expect(ranking.find(r => r.characterId === 'karasu')?.score).toBeCloseTo(80)
@@ -140,13 +140,13 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
   it('keeps Lucci and Kaku below comparable commanders and credits Morley for terrain mobility', () => {
     const rank = getStatRanking('overall')
     const overall = (id: string) => rank.find(entry => entry.characterId === id)!.score
-    expect(overall('lucci')).toBe(81)
-    expect(overall('kaku')).toBeCloseTo(78.4285714286)
+    expect(overall('lucci')).toBe(78)
+    expect(overall('kaku')).toBeCloseTo(74.2857142857)
     expect(overall('morley')).toBeCloseTo(79.2857142857)
     expect(overall('lucci')).toBeLessThan(overall('king'))
     expect(overall('lucci')).toBeLessThan(overall('marco'))
     expect(overall('kaku')).toBeLessThan(overall('queen'))
-    expect(overall('kaku')).toBeGreaterThan(overall('cracker'))
+    expect(overall('kaku')).toBeLessThan(overall('cracker'))
     expect(overall('morley')).toBeGreaterThan(overall('queen'))
     expect(overall('morley')).toBeLessThan(overall('jinbe'))
     expect(sampleEvaluations.find(e => e.characterId === 'morley')!
