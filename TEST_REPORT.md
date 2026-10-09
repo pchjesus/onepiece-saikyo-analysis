@@ -1,3 +1,27 @@
+# v0.1.35 Draft — 14 Haki Raw Disposition & Candidate Base Rebase
+
+**2026-10-09 KST**. PR #27, branch `feature/v0.1.35-hybrid-raw-disposition`.
+
+## Review/implementation
+- All **14 Haki Raw contributions** in Sakazuki/Kuzan/Shanks/Katakuri/Linlin reviewed with exact Evidence, Raw, rationale and uncertainty. Mihawk's Raw=0 preserved without inferring inferior Haki.
+- **4 score-invariant Base/Raw proposals**, 4 exceptional applications with unproved independent marginal bonus, 6 multi-stat overlap unresolved. These are **not** applied to production Evaluation data.
+- New `previewHybridRawPilot` copies the input 39 Evaluation records without mutation. It checks ID/Stat/Haki Type/Evidence ID/Raw/duplicate review, 0–100 Base bounds, exact Final invariance under **Balanced 1.2 Weight 0.5**, and rejects incompatible Haki Weight input.
+- In preview only, aggregate Raw **256→244**, four Base points adjustments total **+6**. All **39 Overall and 273 Final Stat values remain unchanged**. Changing model Haki Weight would alter some scores and needs versioned migration review.
+- New official ONE PIECE.com TV episode 857 supplementary Evidence for Katakuri's composure-dependent Future Sight and mochi-body evasion, with scope-limited role mapping and no invented Raw. Katakuri `Attack/Defense/Technique/Combat IQ` readiness marked E2; evaluationDataVersion updated; all numeric values unchanged.
+- Overall missing readiness items **196→192**, missing Stat Evidence links still **11**, typed Raw in production remains **53 contributions / 256**.
+
+## Regression and CI
+- First PR run [37870705757](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37870705757) **failed 2 previous app tests**: adding the Katakuri source raised his evidence count from 7 to 8, and the old character Evidence query and Battle Timeline tests expected 7.
+- Repaired both tests with a direct check that the extra Episode 857 Evidence is included, owner-matched and attributed to Katakuri's existing battle; did **not** weaken the feature or hide the result.
+- The post-fix implementation commit [37870824214](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37870824214): **31 Test Files passed / 137 Tests passed**, `npm run build` **success**.
+- This report only adds documentation; require final PR-head and post-merge CI verification. Real Android/mobile and manual in-browser UI QA **not** performed.
+
+## Release restrictions
+- There is no change to `PROJECT_SPEC.md`, official 39 score data, Haki Weight 0.5, `Balanced 1.2`, 36-character default Ranking, 15 Matchups or UI behavior except existing Evidence/Readiness content.
+- Proposed Base shifts are **candidate data only**; not approved Haki exceptional Raw amounts. Do not merge numeric candidates into Evaluations without separate comparison and explicit user authorization.
+
+---
+
 # v0.1.35 Draft — Sakazuki Evidence-first Recalibration Pilot
 
 **2026-10-09 KST**, branch `feature/v0.1.35-evidence-recalibration-pilot`, PR #26, product still v0.1.34.
