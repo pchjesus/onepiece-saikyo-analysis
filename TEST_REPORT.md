@@ -1,3 +1,28 @@
+# v0.1.35 Draft — Sakazuki Evidence-first Recalibration Pilot
+
+**2026-10-09 KST**, branch `feature/v0.1.35-evidence-recalibration-pilot`, PR #26, product still v0.1.34.
+
+## Directly verified implementation
+- Three Sakazuki historical Battle Context records: Squard misinformation, Meteor Volcano group siege, Ace protection intervention.
+- Four Sakazuki owner-linked canon Evidence records (Squard, Meteor Volcano, Ace fatal hit, Jinbe/Luffy pursuit); official anime summaries cross-checked and manga chapters explicitly recorded.
+- Evidence IDs added to Attack, Technique, Combat IQ and Versatility without awarding numeric Haki bonuses, inventing pure Speed feats, or double-counting tactical outcomes.
+- Evidence directly empty Stat rows **14 → 11**, unset readiness **203 → 196**. Sakazuki **Attack/Defense/Stamina/Technique/Combat IQ/Versatility = E2** and **Speed = E3**. `EvaluationDataVersion='evaluation-0.1.35-evidence-only-draft'`.
+- Numeric checks preserve all **39 Evaluations/273 Stat rows**, Sakazuki Final `[97,95,96,86,91,91,91]`, Overall `647/7`, typed Raw total `256`, Balanced v1.2/Weight 0.5 and all other comparison anchors.
+
+## CI and discovered issue
+- First run [37869463030](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37869463030) **failed**: shared Evidence stat-role audit detected **103** rows with at least one missing declared stat role against 102 baseline. Caused by new Sakazuki Versatility Evidence referencing an Attack-only note.
+- Corrected the schema semantics **instead of relaxing the test**: classified Ace's close-range hit and Jinbe pursuit as `versatility: context`, not an extra direct Raw or Score contribution.
+- Verified code after correction at [GitHub Actions run 37869536595](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37869536595): **30 Test Files / 132 Tests passed**, `npm run build` **passed**, PR Pages deployment skipped by workflow design.
+- The head after this report has only documentation changes; the latest HEAD CI should be confirmed again before merging.
+- Manual Android and full browser interaction were **not** performed. Historical manga panel-by-panel numeric grading of all 273 Stats is **not** claimed.
+
+## Review conclusions
+- [Pilot report](docs/HYBRID_HAKI_PILOT_RECALIBRATION_2026-10-09.md) compares six anchor characters and their 14 typed Haki contributions; directly demonstrated exceptional application is **not automatically a proven separate numeric Raw benefit**.
+- No official numeric recalibration was performed because Base vs exceptional Raw independently grounded marginal increments are not yet quantifiable at consistent peer anchors.
+- Detailed score-invariant shadow migration and all-273-stat ledger from PR #25 remain intact; any proposed numeric changes need a before/after peer-comparison and user approval.
+
+---
+
 # v0.1.35 Draft — Full 39-Evaluation/273-Stat Haki Recalibration Audit (Non-Mutating)
 
 **2026-10-09 (KST)**. Branch `audit/v0.1.35-full-roster-recalibration`, PR #25.
