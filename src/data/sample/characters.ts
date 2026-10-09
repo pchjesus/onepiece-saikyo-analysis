@@ -222,7 +222,7 @@ export const sampleCharacters: Character[] = [
           id: 'special-katakuri-mochi',
           category: 'devil-fruit',
           awakening: 'confirmed',
-          name: '모치모치 열매',
+          name: '쫀득쫀득 열매',
           status: 'confirmed',
           description: '모치를 생성·변형·경화하고 각성으로 주변 환경까지 모치화해 구속과 공간 제어에 활용한다.',
           evidenceIds: ['evidence-katakuri-awakening-882'],
@@ -531,14 +531,14 @@ export const sampleCharacters: Character[] = [
     id: 'law',
     name: '트라팔가 로',
     crewId: 'seven-warlords', knownAs: [{ kind: 'epithet', name: '죽음의 외과의사 트라팔가 로', source: { label: 'ONE PIECE.com', reference: '트라팔가 로 공식 캐릭터 페이지 — 通称「死の外科医」' } }],
-    description: '전 왕의 부하 칠무해이자 하트 해적단 선장. 오페오페 열매의 공간 조작·내부 파괴·각성을 검술과 결합한다.',
+    description: '전 왕의 부하 칠무해이자 하트 해적단 선장. 수술수술 열매의 공간 조작·내부 파괴·각성을 검술과 결합한다.',
     combatProfile: {
       combatStyles: ['검술', 'ROOM 공간 조작', '위치 교환', '내부 파괴', '지원·구출'],
       specialTraits: [{
         id: 'special-law-ope',
         category: 'devil-fruit',
         awakening: 'confirmed',
-        name: '오페오페 열매',
+        name: '수술수술 열매',
         status: 'confirmed',
         description: 'ROOM 안에서 위치·물체·신체를 조작하고, 각성 이후 K-ROOM·R-ROOM으로 내부 타격과 비접촉 효과를 운용한다.',
         evidenceIds: ['evidence-law-doflamingo-gamma-knife-781', 'evidence-law-big-mom-1039', 'evidence-law-puncture-wille-1039', 'evidence-law-teach-1064'],
@@ -588,13 +588,13 @@ export const sampleCharacters: Character[] = [
     id: 'hancock',
     name: '보아 핸콕',
     crewId: 'seven-warlords', knownAs: [{ kind: 'epithet', name: '해적 여제 보아 핸콕', source: { label: 'ONE PIECE.com', reference: '보아 핸콕 공식 캐릭터 페이지 — 通称「海賊女帝」' } }],
-    description: '전 왕의 부하 칠무해이자 구사 해적단 선장. 체술과 메로메로 열매의 석화 효과를 근·원거리 제압에 사용한다.',
+    description: '전 왕의 부하 칠무해이자 구사 해적단 선장. 체술과 매료매료 열매의 석화 효과를 근·원거리 제압에 사용한다.',
     combatProfile: {
       combatStyles: ['근접 체술', '접촉 석화', '원거리 석화', '다수 제압'],
       specialTraits: [{
         id: 'special-hancock-mero',
         category: 'devil-fruit',
-        name: '메로메로 열매',
+        name: '매료매료 열매',
         status: 'confirmed',
         description: '감정 조건을 이용한 광역 석화뿐 아니라 Slave Arrow·Perfume Femur 등 공격 형태로 석화 효과를 적용한다.',
         evidenceIds: ['evidence-hancock-marineford-559', 'evidence-hancock-amazon-lily-1059'],
@@ -778,9 +778,9 @@ export const sampleCharacters: Character[] = [
     id: 'sabo', name: '사보', crewId: 'revolutionary-army', knownAs: [],
     description: '혁명군 참모총장. 드레스로자에서 바스티유·잇쇼와 대치했고 마리조아에서는 쿠마 구출·잠입 임무를 맡았다. 해군 대장 상대 동격 승리는 확인되지 않는다.',
     combatProfile: {
-      combatStyles: ['용조권', '메라메라 열매 화염 운용', '지휘·구출 임무 수행'],
+      combatStyles: ['용조권', '이글이글 열매 화염 운용', '지휘·구출 임무 수행'],
       specialTraits: [
-        { id: 'special-sabo-fire', category: 'devil-fruit', name: '메라메라 열매', status: 'confirmed', description: '자연계 메라메라 열매로 몸을 불꽃으로 바꾸거나 화염 공격을 펼친다. 용조권은 열매를 먹기 전부터 익힌 별개의 무투 기술이다.', evidenceIds: ['evidence-sabo-bastille-687', 'evidence-sabo-fujitora-695'] },
+        { id: 'special-sabo-fire', category: 'devil-fruit', name: '이글이글 열매', status: 'confirmed', description: '자연계 이글이글 열매로 몸을 불꽃으로 바꾸거나 화염 공격을 펼친다. 용조권은 열매를 먹기 전부터 익힌 별개의 무투 기술이다.', evidenceIds: ['evidence-sabo-bastille-687', 'evidence-sabo-fujitora-695'] },
       ],
       haki: { characterId: 'sabo', capabilities: [{ type: 'armament', status: 'confirmed', note: '바스티유 무기 파괴 등 체술과 무장색 연계 실전 성과를 근거로 운용 확인' }, { type: 'observation', status: 'unclear', note: '견문색의 고급 예지 등은 현 단일 공식 요약만으로 특정하지 않음' }, { type: 'conquerors', status: 'not-confirmed', note: '패왕색 보유 확인 없음' }] },
       sources: [{ label: 'ONE PIECE.com', reference: '사보 캐릭터 공식 프로필 · https://one-piece.com/character/sabo/index.html' }, { label: '공식 TV 애니', reference: '687·695·1117·1118화 및 원작 드레스로자·마리조아 장면' }],
@@ -792,7 +792,7 @@ export const sampleCharacters: Character[] = [
     combatProfile: {
       combatStyles: ['지중 이동', '지형 조작', '거인족 완력', '구출·지원'],
       specialTraits: [
-        { id: 'special-morley-push', category: 'devil-fruit', name: '밀밀 열매', status: 'confirmed', description: '땅을 밀고 물결치게 해 지중 통로를 만들거나 지형을 바꿔 이동한다.', evidenceIds: ['evidence-morley-terrain-profile', 'evidence-morley-marygeoise-1117'] },
+        { id: 'special-morley-push', category: 'devil-fruit', name: '밀어밀어 열매', status: 'confirmed', description: '땅을 밀고 물결치게 해 지중 통로를 만들거나 지형을 바꿔 이동한다.', evidenceIds: ['evidence-morley-terrain-profile', 'evidence-morley-marygeoise-1117'] },
         { id: 'special-morley-giant', category: 'race', name: '거인족', status: 'confirmed', description: '거인족 특유의 큰 체구를 전투 상황에 반영한다. 체구만으로 공격력이나 방어력에 점수를 더하지 않는다.', evidenceIds: ['evidence-morley-terrain-profile'] },
       ],
       haki: { characterId: 'morley', capabilities: [{ type: 'armament', status: 'unclear', note: '개인 무장색 적용 장면 미확정' }, { type: 'observation', status: 'unclear', note: '견문색 고급 응용 미확정' }, { type: 'conquerors', status: 'not-confirmed', note: '패왕색 보유 확인 없음' }] },
@@ -805,7 +805,7 @@ export const sampleCharacters: Character[] = [
     combatProfile: {
       combatStyles: ['검댕 군집', '까마귀 형태 제어', '원거리 견제', '공중 기동'],
       specialTraits: [
-        { id: 'special-karasu-soot', category: 'devil-fruit', name: '검댕을 다루는 능력', status: 'confirmed', description: '검댕을 까마귀 떼 형태로 바꾸어 넓은 전장에 나누어 운용한다. 열매의 정식 한국어 이름은 확인 전이므로 임의로 붙이지 않는다.', evidenceIds: ['evidence-karasu-soot-1083'] },
+        { id: 'special-karasu-soot', category: 'devil-fruit', name: '그을음그을음 열매', status: 'confirmed', description: '검댕을 까마귀 떼 형태로 바꾸어 넓은 전장에 나누어 운용한다. 이 능력만으로 대장과의 단독 승리를 추정하지 않는다.', evidenceIds: ['evidence-karasu-soot-1083'] },
       ],
       haki: { characterId: 'karasu', capabilities: [{ type: 'armament', status: 'unclear', note: '무장색의 이 전투 중 독립 발현 자료 부족' }, { type: 'observation', status: 'unclear', note: '견문색 독립 증거 부족' }, { type: 'conquerors', status: 'not-confirmed', note: '패왕색 보유 확인 없음' }] },
       sources: [{ label: '원작 만화', reference: '1083화 마리조아 전투 및 능력 묘사(추가 원문 대조 필요)' }, { label: '공식 TV 애니', reference: '1117화 혁명군 군대장과 해군 대장 교전 · https://one-piece.com/anime/68630/index.html' }],
