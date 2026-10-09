@@ -12,7 +12,7 @@ export const wanoGroups: Group[] = [
   { id: 'tobiroppo', name: '토비롯포', type: 'institution', parentGroupId: 'beasts-pirates' },
 ]
 
-export const wanoMemberships: CharacterMembership[] = wanoSeeds.flatMap((seed) => {
+export const wanoMemberships: CharacterMembership[] = wanoSeeds.flatMap((seed): CharacterMembership[] => {
   if (seed.group === 'kid-pirates') {
     return [{ characterId: seed.id, groupId: 'kid-pirates', role: seed.role, status: 'historical' as const,
       period: '엘바프 해역의 패배 직전까지 확인된 마지막 해적단; 후속 생사·재조직 미확인' }]
