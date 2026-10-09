@@ -1,3 +1,4 @@
+import { wanoCharacters } from './wanoExpansion'
 import type { Character } from '../../domain/character/types'
 
 export const sampleCharacters: Character[] = [
@@ -848,4 +849,5 @@ export const sampleCharacters: Character[] = [
       sources: [{ label: 'ONE PIECE.com', reference: '스튜시 공식 프로필 · https://one-piece.com/character/Stussy/index.html' }, { label: '공식 TV 애니', reference: '1104·1105화 기습·잠입 반전' }],
     },
   },
+  ...wanoCharacters,
 ]
