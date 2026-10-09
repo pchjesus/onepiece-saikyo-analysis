@@ -27,12 +27,12 @@ export function EvidenceReadinessHelp() {
   }, [open])
 
   return (
-    <span className="readiness-help">
+    <div className="readiness-help">
       <button ref={triggerRef} type="button" className="stat-info-button readiness-help-trigger"
         aria-label="근거 충분도 E1부터 E4까지의 등급 설명 보기" aria-expanded={open}
         onClick={() => setOpen((value) => !value)}>?</button>
       {open && (
-        <span className="stat-info-backdrop readiness-help-backdrop" role="presentation"
+        <div className="stat-info-backdrop readiness-help-backdrop" role="presentation"
           onPointerDown={(event) => { if (event.target === event.currentTarget) close() }}>
           <section ref={dialogRef} tabIndex={-1} className="stat-info-dialog readiness-help-dialog"
             role="dialog" aria-modal="true" aria-labelledby="readiness-help-title">
@@ -57,8 +57,8 @@ export function EvidenceReadinessHelp() {
             </dl>
             <p className="readiness-help-note">E3 또는 근거 미입력은 낮은 전투력의 증거가 아닙니다. 현재 근거가 충분하지 않다는 뜻입니다.</p>
           </section>
-        </span>
+        </div>
       )}
-    </span>
+    </div>
   )
 }
