@@ -27,6 +27,14 @@ describe('small faction and admiral character identity cues', () => {
     expect(rocks).toContain('과거 소속')
     expect(rocks).not.toContain('<svg')
   })
+  it('replaces the generic rook with an original horned-skull Beasts icon', () => {
+    const html = renderToStaticMarkup(<CharacterIdentity group={group('beasts-pirates')}
+      characterId="kaido" showPastMembership={false}/>)
+    expect(html).toContain('백수 해적단의 뿔 달린 해골 상징')
+    expect(html).toContain('<svg')
+    expect(html).not.toContain('♜')
+    expect(html).not.toContain('과거 소속')
+  })
   it('leaves wider application colors untouched and only supplies a local accent style', () => {
     const marks = ['beasts-pirates','big-mom-pirates','straw-hat-pirates',
       'blackbeard-pirates','red-hair-pirates'].map(id =>
