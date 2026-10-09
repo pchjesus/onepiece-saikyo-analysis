@@ -1,3 +1,11 @@
+## v0.1.51 — Evidence readiness metadata consistency and priority canon recheck (59 × 7)
+
+- Audit all 413 default Stat readiness fields. v0.1.50: E1 29/E2 131/E3 61/missing 192. Of 192 missing, 182 had at least one linked Evidence ID and 10 had no directly linked Evidence.
+- Align **three existing rationale statements mentioning E2** with missing readiness metadata: Shiryu Stamina75, Van Augur Stamina68, Mihawk Defense93. **After:** E1 29/E2 134/E3 61/missing 189; no new E2 assessment, only existing textual rating made structured.
+- Record 10 unlinked stat/character axes, outstanding Shiryu armament Source panel check, Lucci/Kaku Combat IQ ambiguity, Jozu Defense, Queen Versatility, Smoothie lack of direct feats.
+- Protect 59 representative×7 values, 62 Evaluations/434 Stat, 244 Raw Haki, 15 matchups, Balanced v1.2, PROJECT_SPEC, picker-B UI, and score/rank outcomes. No invented automatic E3 classification.
+- [Full v0.1.51 audit](docs/V0_1_51_EVIDENCE_READINESS_AND_PRIORITY_CANON_AUDIT_2026-10-09.md).
+
 ## v0.1.50 — 59×7 deep audit and Cracker explanation consistency (no score change)
 
 - Check the unchanged 59-character Final Stat baseline by axis with medians, extrema, concentration, prioritized commander/peer matchups and conditional canon context. Retain the existing v0.1.49 equal-weight Overall diagnostics; do not invent win rates.
