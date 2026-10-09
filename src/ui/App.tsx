@@ -3,6 +3,7 @@ import { getCharacterList } from '../application/getCharacterList'
 import { getStatRanking } from '../application/getStatRanking'
 import type { RankingStat } from '../application/getStatRanking'
 import { CharacterSearch } from './components/CharacterSearch'
+import { CharacterPickerDialog } from './components/CharacterPickerDialog'
 import { StatRankingDialog } from './components/StatRankingDialog'
 import { CharacterPage } from './pages/CharacterPage'
 import { MatchupHome } from './pages/MatchupHome'
@@ -15,6 +16,7 @@ export default function App() {
   const [selectedGroupId, setSelectedGroupId] = useState(characterList[0]?.group.id ?? '')
   const [rankingStat, setRankingStat] = useState<RankingStat | null>(null)
   const [activeView, setActiveView] = useState<'stats' | 'matchup'>('stats')
+  const [pickerOpen, setPickerOpen] = useState(false)
 
   const groups = useMemo(() => {
     const seen = new Set<string>()
@@ -64,13 +66,19 @@ export default function App() {
       </nav>
       {activeView === 'stats' ? <>
       <nav className="character-selector" aria-label="캐릭터 선택">
-        <div className="crew-tabs" role="tablist" aria-label="그룹 선택">
-          {groups.map((group) => (
-            <button key={group.id} className={`crew-tab ${selectedGroupId === group.id ? 'selected' : ''}`}
-              type="button" role="tab" aria-selected={selectedGroupId === group.id} onClick={() => selectGroup(group.id)}>
-              {group.name}
-            </button>
-          ))}
+        <div className="character-selector-tools">
+          <label className="character-group-field" htmlFor="character-group-select">
+            <span>소속 그룹</span>
+            <select id="character-group-select" className="character-group-select"
+              aria-label="소속 그룹 선택" value={selectedGroupId}
+              onChange={(event) => selectGroup(event.target.value)}>
+              {groups.map(group => <option key={group.id} value={group.id}>{group.name}</option>)}
+            </select>
+          </label>
+          <button type="button" className="character-picker-open" onClick={() => setPickerOpen(true)}
+            aria-haspopup="dialog" aria-label="전체 캐릭터 찾아보기">
+            <span aria-hidden="true">⌕</span> 전체 캐릭터 찾아보기
+          </button>
         </div>
         <div className="character-chips" aria-label="그룹 캐릭터">
           {visibleCharacters.map(({ character, membership }) => (
@@ -84,6 +92,8 @@ export default function App() {
           ))}
         </div>
       </nav>
+      {pickerOpen && <CharacterPickerDialog characters={characterList} selectedCharacterId={selectedId}
+        onSelectCharacter={selectCharacter} onClose={() => setPickerOpen(false)} />}
       {selectedId && <CharacterPage key={`${selectedGroupId}:${selectedId}`} characterId={selectedId} groupId={selectedGroupId} onSelectStat={setRankingStat} onSelectOverall={() => setRankingStat('overall')} />}
       {rankingStat && <StatRankingDialog stat={rankingStat} entries={getStatRanking(rankingStat)}
         selectedCharacterId={selectedId} onSelectCharacter={selectCharacter} onClose={() => setRankingStat(null)} />}
