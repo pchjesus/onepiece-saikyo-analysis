@@ -9,6 +9,7 @@
 - Expanded Membership count **47→49**, 43 Characters/42 rated unique/45 Evaluations/315 Stats. Numeric ratings, Haki raw sum and 15 matchups unchanged.
 - Whole-app One Piece palette **requires user confirmation**: [three unimplemented palettes](docs/UI_COLOR_PALETTE_OPTIONS_2026-10-09.md).
 - [Full review](docs/V0_1_40_PROFILE_UI_AND_MEMBERSHIP_2026-10-09.md).
+- Post-merge QA [PR #33](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/33): all three Haki statuses expose `?` even when optional detail notes are absent. The popover states no further explanation is registered instead of inventing Evidence; adds one jsdom regression test, preserving domain data and all scoring.
 
 # Changelog
 

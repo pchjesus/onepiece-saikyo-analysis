@@ -1,3 +1,15 @@
+# v0.1.40 — Haki help completeness fix / final post-merge verification — 2026-10-09
+
+- [PR #33](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/33): status-only Haki records were missing `?` controls. Every Armament/Observation/Conqueror row now provides a button; if optional detail notes are not registered, the content explicitly says so without creating fictional Evidence or altering Haki statuses.
+- Regression coverage added for Akainu status-only records: three help buttons, open with fallback explanation, Escape close.
+- PR CI [37885166603](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37885166603): **36 test files / 162 tests passed**, `tsc -b && vite build` passed, PR Pages deployment skipped.
+- Merged to `main` at `289b91a0e6e5f1b7656b0368f734cb557b42f59d`; [post-merge run 37885213396](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37885213396) completed successfully with build/test and Pages deployment.
+- This fix does not change any Evaluation/Stat/Haki Raw, Balanced 1.2 weights, memberships, score calculation, Matchups or app-wide palette. The existing 43 Character master / 42 evaluated unique / 45 Evaluation / 315 Stat / 49 Membership / 15 direct Matchup baselines are preserved.
+- **Manual QA still needed:** real mobile and desktop site rendering, popup edge-clipping/touch behavior, and keyboard behavior on actual devices. GitHub Actions success is not a browser/device QA result.
+- Product npm package version `0.1.34` remains unchanged; v0.1.40 is the implemented feature-patch label. Changing that versioning convention is a separate release decision.
+
+---
+
 # v0.1.40 — Post-merge CI / Pages verification — 2026-10-09
 
 - PR [#31](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/31) was merged to `main` on 2026-10-09 04:18 UTC (13:18 KST): merge commit `aafdce5d66e14d4603b158fbcb55ff10438e6bdc`, feature HEAD `4759b71b72c87c661fa1402232da707a6465f6b6`.
