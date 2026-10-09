@@ -44,7 +44,7 @@ const categoryFor = (seed: typeof wanoSeeds[number]): SpecialCombatTraitCategory
   return seed.trait.includes('열매') || seed.trait.includes('동물계') ? 'devil-fruit' : 'equipment'
 }
 
-export const wanoCharacters: Character[] = wanoSeeds.map((seed) => {
+export const wanoCharacters: Character[] = wanoSeeds.map((seed): Character => {
   const traitCategory = categoryFor(seed)
   return {
     id: seed.id,
@@ -88,7 +88,7 @@ export const wanoCharacters: Character[] = wanoSeeds.map((seed) => {
   }
 })
 
-export const wanoBattles: Battle[] = wanoSeeds.map((seed, idx) => ({
+export const wanoBattles: Battle[] = wanoSeeds.map((seed, idx): Battle => ({
   id: `battle-wano-${seed.id}`,
   title: `${seed.name} — 공식 전투 근거 대조`,
   chronologyOrder: 400 + idx,
@@ -110,7 +110,7 @@ export const wanoBattles: Battle[] = wanoSeeds.map((seed, idx) => ({
 }))
 
 const stats: CombatStat[] = ['attack','defense','stamina','speed','techniqueMastery','combatIQ','versatility']
-export const wanoEvidence: Evidence[] = wanoSeeds.flatMap((seed) => ([
+export const wanoEvidence: Evidence[] = wanoSeeds.flatMap((seed): Evidence[] => ([
   {
     id: `evidence-wano-${seed.id}-profile`,
     battleId: `battle-wano-${seed.id}`,
@@ -147,7 +147,7 @@ export const wanoEvidence: Evidence[] = wanoSeeds.flatMap((seed) => ([
   },
 ]))
 
-export const wanoEvaluations: Evaluation[] = wanoSeeds.map((seed) => ({
+export const wanoEvaluations: Evaluation[] = wanoSeeds.map((seed): Evaluation => ({
   id: `evaluation-wano-${seed.id}`,
   characterId: seed.id,
   evaluationDataVersion: 'evaluation-0.1.45-multi-group-evidence-draft',
