@@ -1,3 +1,16 @@
+# v0.1.44 — Cross-calibration regression and release checklist
+
+- Baseline: `main@ec8f69f6e08bc485b9206f5e05dc709e58e15dc9`.
+- Changed **3 existing Evaluations / 21 reviewed axes**: Lucci 86/82/85/88/89/81/80 → 82/79/83/84/84/78/77; Kaku 80/78/80/85/88/82/79/82? → 76/75/77/80/84/79/78 (7 stats; prior precisely 80/78/80/85/88/82/82); Morley 76/78/77/69/80/75/83 → 76/80/77/77/83/75/87.
+- Expected Balanced v1.2 overall Lucci **81.000**, Kaku **78.429**, Morley **79.286**; comparator standings and full 42-character rankings tested against calculated data. Unmodified 39 legacy plus Sabo/Karasu/Stussy evaluations retain score/data versions.
+- Added **2 supplementary Evidence / 1 Battle**, preserving legacy canonical evidence links. New Morley Speed evidence changes a role `context→primary`; Kaku short Zoro contact and group attacks are downgraded to `secondary/context` instead of equating exchanges to individual top-tier damage.
+- Expected invariants: **43 character master, 42 unique evaluated, 45 Evaluations, 315 Stats, 49 Memberships, Haki Raw 244, Balanced 1.2 weight 0.5, 15 existing direct Matchups**; `PROJECT_SPEC.md` and full app colors untouched.
+- All prior tests remain enabled; update only affected three calibrated golden Overall fixtures and relevant evidence count (14→16)/new context count (10→11) plus new comparison checks.
+- CI test/build and main Pages deployment must be checked before declaring release success. Actual mobile/desktop browser rendering not verified in this task.
+- [Evidence/context/source/audit plus next group shortlist](docs/V0_1_44_CROSS_CHARACTER_CALIBRATION_AND_NEXT_GROUPS_2026-10-09.md).
+
+---
+
 # v0.1.43 — Six-character evidence recalibration / regression gate
 
 - Baseline `main@0da4af3e0b3bf3b5e504be3e87fc5f7165bf145a` following UI/translation PR #36.
