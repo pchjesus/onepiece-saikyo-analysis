@@ -1,7 +1,7 @@
 # 원피스 전투력 분석
 
 현재 개발 버전: **v0.1.34**  
-평가 데이터: **37 Character master pool · 36 evaluated unique Character · 41 Membership · 39 Evaluation**  
+평가 데이터: **43 Character master pool · 42 evaluated unique Character · 49 Membership · 45 Evaluation · 315 Stat**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
 - [v0.1.26 27인 재보정 보고서](docs/RECALIBRATION_0_1_26_DRAFT.md)
@@ -16,23 +16,27 @@
 - [v0.1.37 검토용 — 산먹깨비·한글 용어·패기 수치 승인안](docs/V0_1_37_KOREAN_TERMS_AND_HYBRID_APPROVAL_2026-10-09.md)
 - [신규 2집단 사전 Evidence 조사 — 혁명군·CP0](docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md)
 - [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
+- [v0.1.40 캐릭터 프로필 UI·소속·서열 개선 검토](docs/V0_1_40_PROFILE_UI_AND_MEMBERSHIP_2026-10-09.md)
+- [전체 UI 색감 3안 · 컨펌 요청(미적용)](docs/UI_COLOR_PALETTE_OPTIONS_2026-10-09.md)
 - [프로젝트 입문 가이드](docs/PROJECT_GUIDE.md)
 
 ## 현재 평가 로스터
 
-대표 Group 기준의 36명 evaluated unique Character는 다음과 같다. Group 탭은 Membership-expanded view라 과거 소속이 있는 캐릭터가 다른 Group에도 추가로 표시될 수 있지만 Ranking / Matchup selector에는 한 번만 나타난다.
+대표 Group 기준의 42명 evaluated unique Character는 다음과 같다. Group 탭은 Membership-expanded view라 과거 소속이 있는 캐릭터가 다른 Group에도 추가로 표시될 수 있지만 Ranking / Matchup selector에는 한 번만 나타난다.
 
 - 흰수염 해적단: 마르코 / 죠즈 / 비스타 / 에드워드 뉴게이트
 - 백수 해적단: 알베르(통칭 킹) / 퀸 / 잭 / 카이도
 - 빅 맘 해적단: 샬롯 카타쿠리 / 샬롯 스무디 / 샬롯 크래커 / 샬롯 링링
 - 밀짚모자 일당: 롤로노아 조로 / 상디 / 징베
 - 빨간 머리 해적단: 샹크스
-- 해군·전 해군: 몽키 D. 가프 / 사카즈키 / 쿠잔 / 보르살리노 / 잇쇼 / 아라마키
-- 검은 수염 해적단: 마샬 D. 티치 / 시류 / 지저스 바제스 / 반 오거 / 아발로 피사로
-- 전 왕의 부하 칠무해: 트라팔가 로 / 돈키호테 도플라밍고 / 보아 핸콕
+- 해군: 사카즈키 / 보르살리노 / 잇쇼 / 아라마키 / 몽키 D. 가프 (쿠잔은 과거 해군 소속)
+- 검은 수염 해적단: 마샬 D. 티치 / 지저스 바제스(1번선) / 시류(2번선) / 반 오거(3번선) / 아발로 피사로(4번선) / 쿠잔(10번선)
+- 전 왕의 부하 칠무해: 트라팔가 로 / 돈키호테 도플라밍고 / 보아 핸콕 / 징베 / 미호크 / 크로커다일 (모두 과거 소속 표시, 본인의 현 소속은 별도)
 - 크로스 길드: 쥬라큘 미호크 / 크로커다일
 - 로저 해적단: 골 D. 로저 / 실버즈 레일리 / 스코퍼 가반
-- 록스 해적단: 록스 D. 지벡
+- 록스 해적단: 록스 D. 지벡 (뉴게이트·카이도·링링도 과거 소속)
+- 혁명군: 사보 / 몰리 / 카라스
+- CP0: 로브 루치 / 스튜시(전 요원) / 카쿠
 
 버기는 Character master pool에는 존재하지만 E3 미평가로 evaluated roster에 포함하지 않는다. 스코퍼 가반의 전성기도 E3로 수치 Evaluation을 만들지 않고 현재 엘바프 Evaluation만 등록한다.
 
