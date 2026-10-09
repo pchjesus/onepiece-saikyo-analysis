@@ -53,4 +53,10 @@ export const sampleMemberships: CharacterMembership[] = [
   { characterId: 'kaido', groupId: 'rocks-pirates', role: '견습 선원', status: 'historical', period: '갓 밸리 이전~당시' },
   { characterId: 'linlin', groupId: 'rocks-pirates', role: '핵심 선원', status: 'historical', period: '갓 밸리 이전~당시' },
 
+  { characterId: 'sabo', groupId: 'revolutionary-army', role: '참모총장', status: 'current' },
+  { characterId: 'morley', groupId: 'revolutionary-army', subgroup: '서군', role: '군대장', status: 'current' },
+  { characterId: 'karasu', groupId: 'revolutionary-army', subgroup: '북군', role: '군대장', status: 'current' },
+  { characterId: 'lucci', groupId: 'cp0', role: '요원', status: 'current', period: '에그헤드 임무 시점' },
+  { characterId: 'kaku', groupId: 'cp0', role: '요원', status: 'current', period: '에그헤드 임무 시점' },
+  { characterId: 'stussy', groupId: 'cp0', role: '전 요원 / 베가펑크 측 잠입자', status: 'former', period: '에그헤드 이탈 시점' },
 ]
