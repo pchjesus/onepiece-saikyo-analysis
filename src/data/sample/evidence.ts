@@ -2482,7 +2482,7 @@ export const sampleEvidence: Evidence[] = [
     id: 'evidence-sabo-fujitora-695', battleId: 'dressrosa-sabo-fujitora', subjectCharacterId: 'sabo',
     source: { type: 'supplementary', reference: 'ONE PIECE.com TV 695화 · https://one-piece.com/anime/o2783/index.html' },
     evidenceStrength: 'moderate',
-    fact: '사보는 잇쇼의 중력도 '맹호'에 대응하며 해군의 루피 추적을 저지했다. 잇쇼는 자신의 의도를 명백하게 드러내지 않았다.',
+    fact: '사보는 잇쇼의 중력도 「맹호」에 대응하며 해군의 루피 추적을 저지했다. 잇쇼는 자신의 의도를 명백하게 드러내지 않았다.',
     supportedAbilities: ['defense', 'combatIQ'],
     statContributions: [
       { stat: 'defense', role: 'primary', note: '중력압·근접전 압박 속 대응' },
