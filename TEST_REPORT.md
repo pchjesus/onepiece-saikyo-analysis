@@ -1,3 +1,13 @@
+# v0.1.51 — readiness text/metadata consistency and unchanged-score regression
+
+- Based on `main@73b0816cccef809f431076300ffc919ed85bf618` (v0.1.50).
+- Scoped metadata-only change: 3 rationale-explicit E2 tags, no point values, Evidence IDs, Haki Raw, UI, calculation, stored memberships, or matchups edited.
+- Existing `overallValidityAudit.test.ts` updated from 29/131/61/192 to **29/134/61/189** readiness counts. New `readinessMetadataAudit.test.ts` checks those three E2 classifications, raw/stat/Overall invariant, that missing-readiness explanations do not claim a specific E level, linked Evidence IDs exist, and at most the 10 known missing-readiness, unlinked-Evidence axes remain.
+- **Automated CI and production build still need successful PR head run**. Then merge main and verify Pages deployment using the exact commit SHA. CI does not establish canon-panel exhaustive checks or real mobile QA.
+- [Details](docs/V0_1_51_EVIDENCE_READINESS_AND_PRIORITY_CANON_AUDIT_2026-10-09.md).
+
+---
+
 # v0.1.50 — Cracker rationale integrity regression plan
 
 - Base: `main@ae26cf49f13b90f7334131e8e9e11c1e20c1ca74` (v0.1.49).

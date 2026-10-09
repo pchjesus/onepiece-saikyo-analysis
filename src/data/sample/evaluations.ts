@@ -280,7 +280,7 @@ export const sampleEvaluations: Evaluation[] = [
     items: [
       item('attack', 78, 'Garp 관통은 Koby를 노린 투명 기습을 Garp가 대신 맞은 상황이므로 정면 공격력 스케일링의 핵심 근거로 사용하지 않는다.', ['evidence-shiryu-garp-1087']),
       item('defense', 74, 'Garp의 즉각적인 반격 한 번에 크게 날아가 피를 흘린 장면이 있어 높은 방어력을 줄 직접 근거가 부족하다.', ['evidence-shiryu-garp-counter-1087']),
-      item('stamina', 75, '고강도 장기전을 지속한 직접 표본이 부족하다. 정보 부족을 약함으로 확정하지 않고 E2 잠정값으로 둔다.', ['evidence-shiryu-garp-1087']),
+      item('stamina', 75, '고강도 장기전을 지속한 직접 표본이 부족하다. 정보 부족을 약함으로 확정하지 않고 E2 잠정값으로 둔다.', ['evidence-shiryu-garp-1087'], [], 'E2'),
       item('speed', 79, '투명화 자체를 순수 속도로 환산하지 않는다. 기습 위치 선정과 상위 전장 개입 반응만 제한적으로 반영한다.', ['evidence-shiryu-garp-1087']),
       item('techniqueMastery', 77, "라이우 검술에 투명화를 결합한 숙련을 Base에 반영하되 1087화의 무장색 검격 사용은 Raw Contribution으로 분리한다. 코비 보호 기습으로 인한 관통상은 정면 공격력과 동일시하지 않는다.", ["evidence-shiryu-garp-1087"], [{ hakiType: 'armament', stat: 'techniqueMastery', amount: 2, application: "코비를 겨냥한 기습 검격에서 무장색을 사용한 근접 무기 운용", evidenceIds: ["evidence-shiryu-garp-1087"] }]),
       item('combatIQ', 78, '보호 대상을 노려 Garp의 개입을 유도한 기습 판단은 유효하지만 반복적인 고난도 전술 표본은 부족하다.', ['evidence-shiryu-garp-1087']),
@@ -292,7 +292,7 @@ export const sampleEvaluations: Evaluation[] = [
     items: [
       item('attack', 72, '초장거리 저격 능력은 강점이지만 Winner Island에서 Jean Bart가 탄환을 막아낸 장면이 있어 상위권 결정력을 직접 입증했다고 보기 어렵다.', ['evidence-augur-jean-bart-1064']),
       item('defense', 67, '직접적인 고강도 방어·내구 표본이 부족하다. Warp의 회피 잠재력을 순수 Defense로 크게 환산하지 않는다.', ['evidence-augur-warp-1063-1064']),
-      item('stamina', 68, '장시간 고강도 개인전 표본이 부족해 E2 잠정값으로 둔다.', ['evidence-augur-warp-1063-1064']),
+      item('stamina', 68, '장시간 고강도 개인전 표본이 부족해 E2 잠정값으로 둔다.', ['evidence-augur-warp-1063-1064'], [], 'E2'),
       item('speed', 75, 'Warp는 공간이동 능력이므로 순수 신체 Speed와 구분한다. 위치 전환의 실전 유용성은 Technique·Versatility에 주로 반영한다.', ['evidence-augur-warp-1063-1064']),
       item('techniqueMastery', 80, '초장거리 저격과 Warp를 전투 위치 조정에 결합하지만 최고 수준 저격수와 직접 비교할 반복 표본은 아직 적다.', ['evidence-augur-warp-1063-1064', 'evidence-augur-jean-bart-1064']),
       item('combatIQ', 78, 'Teach의 위험한 돌진에 후퇴를 제안하고 아군을 적절한 위치로 이동시키는 지원 판단을 반영한다.', ['evidence-augur-warp-1063-1064']),
@@ -364,7 +364,7 @@ export const sampleEvaluations: Evaluation[] = [
     id: 'evaluation-mihawk', characterId: 'mihawk', evaluationDataVersion: 'evaluation-0.1.29-draft', status: 'draft',
     items: [
       item('attack', 96, '대형 원거리 참격·정상결전의 연속 검격과 세계 최강 검사/샹크스급 검술 위상을 함께 보되 현재 최상위 상대에게 결정타를 낸 직접 표본은 샹크스보다 적어 96으로 제한한다.', ['evidence-mihawk-jozu-553', 'evidence-mihawk-luffy-560-561', 'evidence-mihawk-shanks-swordskill-1058']),
-      item('defense', 93, '정밀 검술 방어와 비스타와의 직접 공방에서 유의미한 피해를 허용하지 않은 성과를 중심으로 평가한다. 대장급 고화력 반복 방어 표본 부족은 E2 불확실성으로 남긴다.', ['evidence-mihawk-zoro-49-51', 'evidence-mihawk-vista-561-562', 'evidence-mihawk-shanks-rivalry-profile']),
+      item('defense', 93, '정밀 검술 방어와 비스타와의 직접 공방에서 유의미한 피해를 허용하지 않은 성과를 중심으로 평가한다. 대장급 고화력 반복 방어 표본 부족은 E2 불확실성으로 남긴다.', ['evidence-mihawk-zoro-49-51', 'evidence-mihawk-vista-561-562', 'evidence-mihawk-shanks-rivalry-profile'], [], 'E2'),
       item('stamina', 91, '정상결전의 연속 활동과 샹크스와의 과거 결투 위상을 반영하되 현재 장기 고강도 완전 결투가 직접 공개되지 않아 최상단보다 낮게 둔다.', ['evidence-mihawk-vista-561-562', 'evidence-mihawk-shanks-rivalry-profile']),
       item('speed', 94, '정상결전에서 루피를 연속 추격하고 비스타의 요격에 즉시 대응한 직접 반응·접근 성과와 샹크스와의 과거 검술 경쟁을 함께 반영한다.', ['evidence-mihawk-luffy-560-561', 'evidence-mihawk-vista-561-562', 'evidence-mihawk-shanks-rivalry-profile']),
       item('techniqueMastery', 99, '세계 최강의 검사라는 공식 설정, Ch.1058의 샹크스보다 뛰어난 검술 평가, 작은 단검부터 흑도 「夜」와 원거리 참격까지의 정밀 운용을 종합한다.', ['evidence-mihawk-world-strongest-profile', 'evidence-mihawk-shanks-swordskill-1058', 'evidence-mihawk-zoro-49-51', 'evidence-mihawk-vista-561-562']),
