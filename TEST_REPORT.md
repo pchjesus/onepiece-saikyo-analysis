@@ -1,3 +1,15 @@
+# v0.1.43 — Six-character evidence recalibration / regression gate
+
+- Baseline `main@0da4af3e0b3bf3b5e504be3e87fc5f7165bf145a` following UI/translation PR #36.
+- Audited 6 characters × 7 stats. Three adjusted: Kaku Combat IQ 79→82, Stussy Speed 83→80, Stussy Combat IQ 88→85. Four characters' 7-axis values and the remaining 11 reviewed axes unchanged. Related Episode 1109 and Stussy Evidence interpretation/context updated; all links and IDs preserved.
+- Expected Kaku Overall 82.142857..., Stussy 77.571428..., other four unchanged. Derived 42-character ranking Kaku 23, Stussy 34. No new matchup inference, no win probability.
+- Legacy 39 Evaluations/273 Stats remain untouched. Global 45 Evaluations, 315 Stats, 43 character master / 42 unique evaluated roster, 49 Memberships, 15 existing Matchups, Balanced 1.2, Haki 0.5 and Haki Raw sum 244 unchanged.
+- `src/data/sample/newGroupEvidence.test.ts` updated as a genuine rating-data migration: full six-score arrays, 42-axis calculation, altered Evidence owner/role, 42 unique ranking and fixed old data invariants still tested. No test disabled or weakened to hide failures.
+- PR CI, post-merge `main` tests/build/Pages deployment and actual browser/device checks are separate release gates; do not assert success before checking. Manual browser QA has **not** been performed.
+- [Detailed Evidence/Context/Interpretation audit](docs/V0_1_43_REVOLUTIONARY_CP0_EVIDENCE_RECALIBRATION_2026-10-09.md).
+
+---
+
 # v0.1.42 — vertical Special restoration and fruit localization
 
 - User screenshot comparison: retain a *single combined type label* and restore a *vertical* sequence of explanatory text without bordered two-column cards. No global palette change.
