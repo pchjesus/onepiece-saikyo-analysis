@@ -24,7 +24,7 @@ export const sampleEvaluations: Evaluation[] = [
       item('stamina', 87, '마르코가 킹·퀸 2명과 혼전에서 교전해 큰 소모를 겪고도 다시 개입한 점을 반영한다. 1045화에서 명확한 피로 한계가 드러나므로 무한 지속력은 아니다.', ['evidence-marco-regeneration-1006', 'evidence-marco-defense-king-1022', 'evidence-marco-defense-kaido-1043']),
       item('speed', 82, '키자루·아오키지 상대 고속 개입과 공중 기동을 반영하되 실제 순수 속도가 키자루급임을 증명하지는 않아 82로 조정한다.', ['evidence-marco-kizaru-554', 'evidence-marco-aokiji-566']),
       item('techniqueMastery', 84, '불사조 부분 변형·고속 기동·재생·공격·화염 상태 억제 지원을 실제 전장에 맞춰 활용했다. 다재다능함은 별도 축으로, 이곳은 운용 정밀도만 평가한다.', ['evidence-marco-ice-oni-998', 'evidence-marco-regeneration-1006', 'evidence-marco-defense-king-1022']),
-      item('combatIQ', 80, '아군 보호·상성 대응·강자 교전 중단 등 반복되는 전장 판단은 긍정 근거지만 모든 지휘를 독자적인 일대일 공략 성공으로 보지 않고 80으로 제한한다.', ['evidence-marco-aokiji-566', 'evidence-marco-big-mom-995', 'evidence-marco-seastone-568-569', 'evidence-marco-payback-war-820-909']),
+      item('combatIQ', 80, '아군 보호·상성 대응·강자 교전 중단 등 반복되는 전장 판단은 긍정 근거지만, 샬롯 카타쿠리의 미래예지 기반 선제 전술처럼 정면 결투에서 반복적으로 상대를 읽은 근거까지 확인된 것은 아니다. 모든 지휘를 독자적인 일대일 공략 성공으로 보지 않고 80으로 제한한다.', ['evidence-marco-aokiji-566', 'evidence-marco-big-mom-995', 'evidence-marco-seastone-568-569', 'evidence-marco-payback-war-820-909']),
       item('versatility', 87, '비행·전선 방어·강자 요격·회복 지원·상태 억제·근접전이 확인되어 다양한 전투 임무 수행이 가능하다. 의료 지식만으로 전투 점수를 가산하지 않는다.', ['evidence-marco-big-mom-995', 'evidence-marco-ice-oni-998', 'evidence-marco-regeneration-1006', 'evidence-marco-defense-akainu-575', 'evidence-marco-defense-kaido-1043']),
     ],
   },
