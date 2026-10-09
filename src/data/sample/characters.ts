@@ -314,7 +314,7 @@ export const sampleCharacters: Character[] = [
     id: 'zoro', name: '롤로노아 조로', crewId: 'straw-hat-pirates', knownAs: [{ kind: 'epithet', name: '해적 사냥꾼 조로', source: { label: 'ONE PIECE.com', reference: '롤로노아 조로 공식 캐릭터 페이지 — 通称「海賊狩りのゾロ」' } }],
     description: '밀짚모자 일당의 검사. 삼도류와 높은 수준의 무장색·패왕색 강화를 결합해 강한 공방과 결정력을 발휘한다.',
     combatProfile: {
-      combatStyles: ['일도류·이도류·삼도류', '근접 검술', '비상 참격', '공격 차단·패링', '아수라'],
+      combatStyles: ['일도류·이도류·삼도류', '비상 참격', '공격 차단·패링', '아수라'],
       specialTraits: [],
       haki: { characterId: 'zoro', capabilities: [
         { type: 'armament', status: 'confirmed', note: '검에 무장색을 적용하며 엔마를 포함한 검술에 높은 수준으로 운용한다.' },
@@ -615,7 +615,7 @@ export const sampleCharacters: Character[] = [
     knownAs: [{ kind: 'epithet', name: '매의 눈', source: { label: 'ONE PIECE.com', reference: '쥬라큘 미호크 공식 캐릭터 페이지 — 「鷹の目」' } }],
     description: '크로스 길드의 핵심 전력. 세계 최강의 검사라는 공식 위상과 흑도 「夜」를 바탕으로 싸우며, 제한된 직접 표본과 샹크스와의 공식 경쟁 관계를 함께 고려한 E2 잠정 평가 대상이다.',
     combatProfile: {
-      combatStyles: ['검술', '근접 검격', '원거리 비상 참격', '정밀 절단'],
+      combatStyles: ['검술', '원거리 비상 참격', '정밀 절단'],
       specialTraits: [{ id: 'special-mihawk-yoru', category: 'equipment', name: '흑도 「夜」', status: 'confirmed',
         description: '최상대업물 12공 중 하나인 흑도 「夜」를 사용해 대형 참격과 정밀 검술을 수행한다.',
         evidenceIds: ['evidence-mihawk-world-strongest-profile', 'evidence-mihawk-zoro-49-51'],
