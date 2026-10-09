@@ -694,7 +694,10 @@ export const sampleCharacters: Character[] = [
   },
   {
     id: 'gaban', name: '스코퍼 가반', crewId: 'roger-pirates',
-    knownAs: [{ kind: 'title', name: '해적왕의 왼팔', source: { label: '원작/공식 애니', reference: 'Elbaf 공식 애니·원작 — 로저·레일리와 함께한 핵심 전력' } }],
+    knownAs: [
+      { kind: 'epithet', name: '산먹깨비', source: { label: '한국 정식 단행본', reference: '원피스 112권 제1139화 「산먹깨비」 · 원문 山喰らい, 동일 이명 「산을 먹는 자」' } },
+      { kind: 'title', name: '해적왕의 왼팔', source: { label: '원작/공식 애니', reference: '원작 1139화 — 로저·레일리와 함께한 핵심 전력' } },
+    ],
     description: '로저 해적단 핵심 전력. 엘바프 현재 시점의 직접 전투만 수치화하며, 전성기는 직접 7축 Evidence가 부족해 미평가로 보류한다.',
     combatProfile: {
       combatStyles: ['쌍도끼', '고속 근접전', '비상 참격', '패기 기반 불사 대응', '전투 중 미래 예측'],
