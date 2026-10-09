@@ -105,8 +105,8 @@ describe('v0.1.54 23 untyped roles and 14 context-only axes', () => {
       ['jack', [79, 84, 88, 75, 75, 72, 74], 78.14285714285714],
       ['cracker', [77, 81, 80, 75, 80, 75, 77], 77.85714285714286],
       ['kizaru', [92, 89, 91, 99, 93, 90, 91], 92.14285714285714],
-      ['shiryu', [78, 74, 75, 79, 81, 75, 78], 77.14285714285714],
-      ['van-augur', [72, 67, 68, 75, 76, 78, 77], 73.28571428571429],
+      ['shiryu', [78, 74, 75, 79, 78, 78, 78], 77.14285714285714],
+      ['van-augur', [72, 67, 68, 75, 80, 78, 82], 74.57142857142857],
     ] as const) {
       expect(sampleEvaluations.find((e) => e.characterId === id)!.items.map((i) => i.score), id).toEqual(final)
       expect(getCombatPower(id).finalScore, id).toBeCloseTo(overall, 9)
