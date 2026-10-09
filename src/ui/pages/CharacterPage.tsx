@@ -8,6 +8,7 @@ import { BattleTimeline } from '../components/BattleTimeline'
 import { EvaluationTrace } from '../components/EvaluationTrace'
 import { StatList } from '../components/StatList'
 import { CombatProfile } from '../components/CombatProfile'
+import { EvidenceReadinessHelp } from '../components/EvidenceReadinessHelp'
 import { CharacterIdentity, characterIdentityStyle } from '../components/CharacterIdentity'
 import type { CharacterKnownAsKind } from '../../domain/character/types'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
@@ -96,7 +97,7 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
             <span>{result.calculationModelVersion} · 균형형 · 핵심 스탯 7개 · 패기 가중치 ×{result.hakiWeight}</span>
           </button>
           <div className="stat-heading">
-            <h2>핵심 전투 스탯</h2>
+            <div className="stat-heading-title"><h2>핵심 전투 스탯</h2><EvidenceReadinessHelp /></div>
             <span>점수를 누르면 전체 캐릭터 비교 · 정렬 전환 가능</span>
           </div>
           <StatList items={detail.evaluation.items} hakiWeight={result.hakiWeight} onSelectStat={onSelectStat} />

@@ -1,3 +1,17 @@
+# v0.1.41 — Special Profile / Evidence readiness / motif / localization (PR #35)
+
+- Baseline: 43 Character master / 42 unique evaluated, 45 Evaluations / 315 core Stats, 49 Memberships, 15 direct Matchups, Haki Raw sum 244, Balanced 1.2 / Haki Weight 0.5.
+- Display-only Special ordering: devil-fruit → race → biology → modification → equipment → technology → other. A single slash-separated category heading and two-column individual explanations, single-column on narrow screens; original category/status/description/Evidence links and score logic remain intact.
+- Evidence readiness help: exact model definitions E1/E2/E3 from `src/domain/evaluation/types.ts`; E4 marked as not defined, not added to the canonical union; `?` beside core-stat header, outside-pointer and Escape dismiss/focus return.
+- Beasts Pirates icon: generic `♜` replaced with compact original horned-skull visual reference. This is not the official logo artwork.
+- Polish localized Korean Special descriptions for Sabo, Morley, Karasu, Lucci, Kaku, Stussy. Existing Haki/Evidence/7-axis numbers not recalibrated.
+- Added three jsdom tests across CombatProfile, CharacterIdentity and EvidenceReadinessHelp, plus existing app/roster/matchup/regression coverage.
+- Latest PR build [37887097546](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37887097546) succeeded: **37 test files / 165 tests passed; TypeScript + Vite build passed**.
+- GitHub Pages postmerge status must be independently checked. Real Android/browser mobile scrolling, viewport clipping, touch and visual rendering are **not** verified by jsdom.
+- No change to `PROJECT_SPEC.md`, overall theme, evaluation/rating policy or npm package version. Entire UI palette stays in its already-approved current design.
+
+---
+
 # v0.1.40 — Haki help completeness fix / final post-merge verification — 2026-10-09
 
 - [PR #33](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/33): status-only Haki records were missing `?` controls. Every Armament/Observation/Conqueror row now provides a button; if optional detail notes are not registered, the content explicitly says so without creating fictional Evidence or altering Haki statuses.
