@@ -1,3 +1,12 @@
+## v0.1.57 — Complete 413-axis default Evidence Readiness classification
+
+- Individually resolve the **last 51** previously unclassified default stat axes across 12 characters: Vista4, Jack3, Smoothie4, Zoro6, Sanji6, Fujitora4, Shiryu3, Van Augur3, Burgess3, Pizarro3, Hancock5, Crocodile7.
+- 51 new labels: **E1 +10 / E2 +35 / E3 +6**. Full 59×7 readiness **E1 53/E2 243/E3 117/missing 0**. The complete metadata set is **not** independent verification of every original manga panel or of each numeric score's accuracy; 117 E3 remain explicitly provisional.
+- Ground 51 decisions on existing manga-referenced Evidence, evaluator rationale, per-axis roles and selected official ONE PIECE.com TV/character summaries. Keep 5-day Jack combat (enemy rotation and chemical weapon separate), Zoro King flame-state tactical inference, Sanji Queen high-speed Ifrit, Fujitora civilian/meteor constraints, Shiryu Garp ambush, Pizarro attempted ship attack, Hancock Blackbeard suppression, and Crocodile's water/JoZu damage distinctions.
+- Maintain **zero new or edited Evidence records**, combat score changes, Haki Raw/weight changes, calculations, ranking, Matchup, Character, data schemas, UI/persistence and PROJECT_SPEC. Only 51 readiness fields plus tests/docs updated.
+- Regression: preserve all 59×7 Final, 62 Evaluation/434 Stat, Haki Raw 244 and Matchup15. Add explicit source-role and all-graded readiness coverage test.
+- [Full 51-axis adjudication report](docs/V0_1_57_FINAL_51_AXIS_READINESS_AUDIT_2026-10-10.md) · [Scoring-calibration next-step brief](docs/V0_1_57_POST_READINESS_CALIBRATION_BRIEF_2026-10-10.md).
+
 ## v0.1.56 — Top-tier era- and context-aware readiness (29 axes)
 
 - Individually audit **29 previously unset readiness axes** across **Prime Garp 7, Teach 6, Kuzan 5, Kizaru 6, Mihawk 5**, comparing actual project Evidence, source roles, evaluator context and official ONE PIECE.com TV/character material; preserve unverified manga panel certainty.
