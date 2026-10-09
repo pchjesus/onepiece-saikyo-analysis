@@ -35,8 +35,17 @@ const specialCategoryLabels: Record<SpecialCombatTraitCategory, string> = {
   other: '기타',
 }
 
+// Display-only precedence. Never reorder the underlying Character/Evidence records.
+const specialCategoryOrder: SpecialCombatTraitCategory[] = [
+  'devil-fruit', 'race', 'biology', 'modification', 'equipment', 'technology', 'other',
+]
+
 export function CombatProfile({ profile }: { profile: CombatProfileData }) {
   const profileRef = useRef<HTMLElement>(null)
+  const orderedTraits = [...profile.specialTraits].sort((a, b) =>
+    specialCategoryOrder.indexOf(a.category) - specialCategoryOrder.indexOf(b.category))
+  const categoryHeading = [...new Set(orderedTraits.map((trait) => trait.category))]
+    .map((category) => specialCategoryLabels[category]).join(' / ')
 
   useEffect(() => {
     const closeOutside = (event: PointerEvent) => {
@@ -88,26 +97,28 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
                 <strong>근거와 종합 전투력</strong>
                 <p>특수 전투요소 자체는 종합 전투력에 직접 가산하지 않아. 해당 능력으로 실제 성과가 확인되면 관련 핵심 스탯 평가의 근거로 활용해.</p>
                 {profile.specialTraits.length > 0 ? (
-                  <ul>{profile.specialTraits.map((trait) => <li key={trait.id}>{trait.name} · 연결 근거 {trait.evidenceIds.length}건</li>)}</ul>
+                  <ul>{orderedTraits.map((trait) => <li key={trait.id}>{trait.name} · 연결 근거 {trait.evidenceIds.length}건</li>)}</ul>
                 ) : <p>현재 연결된 특수 전투요소가 없어.</p>}
                 <small>연결 건수는 점수나 근거의 강도를 뜻하지 않아.</small>
               </div>
             </details>
           </div>
-          {profile.specialTraits.length > 0 ? (
-            <div className="special-trait-list">
-              {profile.specialTraits.map((trait) => (
-                <section className="special-trait" key={trait.id}>
-                  <div className="special-trait-meta">
-                    <span>{specialCategoryLabels[trait.category]}</span>
-                    <strong>{specialStatusLabels[trait.status]}</strong>
-                  </div>
-                  <h4>{trait.name}</h4>
-                  <p>{normalizeCharacterNamesForDisplay(trait.description)}</p>
-                  {trait.limitations && <small><strong>한계</strong> · {normalizeCharacterNamesForDisplay(trait.limitations)}</small>}
-                  {trait.uncertainty && <small><strong>불확실성</strong> · {normalizeCharacterNamesForDisplay(trait.uncertainty)}</small>}
-                </section>
-              ))}
+          {orderedTraits.length > 0 ? (
+            <div className="special-traits-content">
+              <div className="special-trait-group-heading">{categoryHeading}</div>
+              <div className="special-trait-list">
+                {orderedTraits.map((trait) => (
+                  <section className="special-trait" key={trait.id}>
+                    <div className="special-trait-meta">
+                      <strong>{specialStatusLabels[trait.status]}</strong>
+                    </div>
+                    <h4>{trait.name}</h4>
+                    <p>{normalizeCharacterNamesForDisplay(trait.description)}</p>
+                    {trait.limitations && <small><strong>한계</strong> · {normalizeCharacterNamesForDisplay(trait.limitations)}</small>}
+                    {trait.uncertainty && <small><strong>불확실성</strong> · {normalizeCharacterNamesForDisplay(trait.uncertainty)}</small>}
+                  </section>
+                ))}
+              </div>
             </div>
           ) : <p className="empty-note">현재 확인된 별도 특수 전투요소 없음. 정보 부재를 감점으로 처리하지 않습니다.</p>}
         </article>
