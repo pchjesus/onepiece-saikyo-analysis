@@ -50,11 +50,22 @@ function WhitebeardEmblem() {
 }
 
 const groupMark = (group: Group): string => {
-  if (group.id === 'marines') return '⚓'
-  if (group.id === 'revolutionary-army') return '✦'
-  if (group.type === 'pirate-crew' || group.type === 'historical') return '☠'
-  if (group.id === 'seven-warlords') return '♟'
-  return '◆'
+  // Decorative echoes of each crew's theme; not asserted to be their canon Jolly Rogers.
+  const markByGroup: Record<string, string> = {
+    'beasts-pirates': '♜',
+    'big-mom-pirates': '♛',
+    'straw-hat-pirates': '☀',
+    'red-hair-pirates': '⚔',
+    'blackbeard-pirates': '☠',
+    'roger-pirates': '✦',
+    'rocks-pirates': '⚔',
+    'cross-guild': '◆',
+    marines: '⚓',
+    'revolutionary-army': '✦',
+    cp0: '♟',
+    'seven-warlords': '♟',
+  }
+  return markByGroup[group.id] ?? '◆'
 }
 
 export function CharacterIdentity({ group, characterId, showPastMembership }: {
