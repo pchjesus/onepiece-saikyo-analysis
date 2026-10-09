@@ -1,3 +1,4 @@
+import { wanoEvaluations } from './wanoExpansion'
 import type { CombatStat, Evaluation, EvaluationItem, EvidenceReadiness } from '../../domain/evaluation/types'
 import type { HakiStatContribution } from '../../domain/haki/types'
 import { getFinalStatScore } from '../../domain/evaluation/score'
@@ -586,4 +587,5 @@ export const sampleEvaluations: Evaluation[] = [
       item('versatility', 77, '첩보·근접 기습·수면 제압·조직 간 임무 전환을 수행하나 다양한 정면 전투 수단은 아직 불충분하다.', ['evidence-stussy-sleep-1104', 'evidence-stussy-infiltration-1105'], [], 'E2'),
     ],
   },
+  ...wanoEvaluations,
 ]
