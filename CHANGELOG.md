@@ -1,3 +1,13 @@
+## v0.1.49 — Overall measurement validity, uncertainty and scenario sensitivity audit (59 × 7)
+
+- Audit the exact Balanced 1.2 calculation model and all 59 default character Final Stat arrays (413 data points), distinguishing arithmetic reproducibility from unmeasured score inter-rater reliability and absent independent matchup predictive validation. Do not alter the calculation algorithm.
+- Quantify evidence readiness metadata: **E1 29 / E2 131 / E3 61 / missing 192** across 413 default axes. Missing is NOT automatically E3 or low power. Add an automated audit regression.
+- Show identical Overall but very different distributions: Kanjuro vs Ulti both **75.143** (sum of seven absolute differences **78**) and Cracker vs Karasu both **77.857** (sum **30**).
+- Diagnostic weighting, explicitly not approved models: physical illustrative 25/20/20/20/5/5/5 and strategy illustrative 10/10/10/10/20/20/20. Jack's sorted position **36→25/44**, with meaningful shifts for Jozu, Kid, Law and other roles. Leave-one-axis-out 7×6-equal-mean comparison included.
+- Provide a compact explanatory note below the existing Character Overall card: equal-weight average, not a win probability or canon power order. Ranking and Matchup semantics stay unchanged. No new colors or UI navigation.
+- Preserve all **60 Characters, 59 unique ranked, 62 Evaluations, 434 Stats, 73 Memberships, 244 Haki Raw**, 15 direct Matchups, the 7 core-stat definitions and `PROJECT_SPEC.md`.
+- [Complete documented metrics, comparison cases and experiment limits](docs/V0_1_49_OVERALL_VALIDITY_AND_SENSITIVITY_59x7_2026-10-09.md).
+
 ## v0.1.48 — B searchable group selector + Overall validity audit
 
 - Replace overcrowded horizontally scrolling group tabs with an accessible labeled Group native dropdown, retain existing current-Group character chips.
