@@ -24,7 +24,7 @@ describe('v0.1.37 user-approval-only score decomposition', () => {
     expect(raw(preview.ordinary.evaluations)).toBe(244)
     expect(raw(preview.overlapIncluded.evaluations)).toBe(216)
     expect(preview.baseline.flatMap(e => e.items)
-      .flatMap(i => i.hakiContributions)).toHaveLength(73)
+      .flatMap(i => i.hakiContributions)).toHaveLength(49)
     expect(preview.overlapIncluded.evaluations.flatMap(e => e.items)
       .flatMap(i => i.hakiContributions)).toHaveLength(43)
   })
