@@ -6,8 +6,8 @@ describe('getStatRanking', () => {
   it('sorts all evaluated characters by each Final Core Stat descending', () => {
     for (const stat of COMBAT_STATS) {
       const entries = getStatRanking(stat)
-      expect(entries).toHaveLength(42)
-      expect(new Set(entries.map(({ characterId }) => characterId)).size).toBe(42)
+      expect(entries).toHaveLength(59)
+      expect(new Set(entries.map(({ characterId }) => characterId)).size).toBe(59)
       expect(entries.every(({ status }) => status === 'draft')).toBe(true)
       for (let i = 1; i < entries.length; i++) {
         expect(entries[i - 1].score).toBeGreaterThanOrEqual(entries[i].score)
@@ -41,7 +41,7 @@ describe('getStatRanking', () => {
 
   it('sorts the current 42-character Overall from the calculation service', () => {
     const entries = getStatRanking('overall')
-    expect(entries).toHaveLength(42)
+    expect(entries).toHaveLength(59)
     expect(entries.slice(0, 2).map(({ characterId }) => characterId).sort()).toEqual(['newgate', 'roger'].sort())
     expect(entries.slice(0, 2).every(({ rank, score }) => rank === 1 && Math.abs(score - 97.57142857142857) < 1e-10)).toBe(true)
     expect(entries.find(({ characterId }) => characterId === 'garp')).toMatchObject({ rank: 3, subjectStateLabel: '전성기' })
