@@ -1,6 +1,5 @@
 import type { Battle } from '../../domain/battle/types'
 import type { Evidence } from '../../domain/evidence/types'
-import type { CombatStat } from '../../domain/evaluation/types'
 
 /** Additional episode-scoped facts so team fights and later duels do not share a fictional single context. */
 export const wanoDetailedBattles: Battle[] = [
