@@ -29,11 +29,11 @@ export const sampleMemberships: CharacterMembership[] = [
   { characterId: 'burgess', groupId: 'blackbeard-pirates', subgroup: '1번선', role: '선장', status: 'current' },
   { characterId: 'shiryu', groupId: 'blackbeard-pirates', subgroup: '2번선', role: '선장', status: 'current' },
   { characterId: 'van-augur', groupId: 'blackbeard-pirates', subgroup: '3번선', role: '선장', status: 'current' },
-  { characterId: 'pizarro', groupId: 'blackbeard-pirates', subgroup: '4번선', role: '선장', status: 'current' }
+  { characterId: 'pizarro', groupId: 'blackbeard-pirates', subgroup: '4번선', role: '선장', status: 'current' },
   { characterId: 'kuzan', groupId: 'blackbeard-pirates', subgroup: '10번선', role: '선장', status: 'current' },
   { characterId: 'law', groupId: 'seven-warlords', role: '하트 해적단 선장', status: 'former' },
   { characterId: 'doflamingo', groupId: 'seven-warlords', role: '돈키호테 해적단 선장', status: 'former' },
-  { characterId: 'hancock', groupId: 'seven-warlords', role: '구사 해적단 선장', status: 'former' }
+  { characterId: 'hancock', groupId: 'seven-warlords', role: '구사 해적단 선장', status: 'former' },
   { characterId: 'jinbe', groupId: 'seven-warlords', role: '전 왕의 부하 칠무해', status: 'former', period: '정상결전 이전' },
   { characterId: 'mihawk', groupId: 'cross-guild', role: '공동 창설자 / 핵심 전력', status: 'current' },
   { characterId: 'crocodile', groupId: 'cross-guild', role: '공동 창설자', status: 'current' },
