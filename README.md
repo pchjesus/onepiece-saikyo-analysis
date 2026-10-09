@@ -1,6 +1,6 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.1.56** (npm package 버전은 **0.1.34** 유지)  
+현재 구현 패치: **v0.1.57** (npm package 버전은 **0.1.34** 유지)  
 평가 데이터: **60 Character master pool · 59 evaluated unique Character · 73 Membership · 62 Evaluation · 434 Stat**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
@@ -16,6 +16,8 @@
 - [v0.1.37 검토용 — 산먹깨비·한글 용어·패기 수치 승인안](docs/V0_1_37_KOREAN_TERMS_AND_HYBRID_APPROVAL_2026-10-09.md)
 - [신규 2집단 사전 Evidence 조사 — 혁명군·CP0](docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md)
 - [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
+- [v0.1.57 잔여 51축 충분도 전체 검수 완료](docs/V0_1_57_FINAL_51_AXIS_READINESS_AUDIT_2026-10-10.md)
+- [v0.1.57 다음 점수 적정성 검증 착수 브리핑](docs/V0_1_57_POST_READINESS_CALIBRATION_BRIEF_2026-10-10.md)
 - [v0.1.56 상위 5명 29축 원작 근거·전투 조건 검수](docs/V0_1_56_TOP_TIER_29_AXIS_SOURCE_CONTEXT_AUDIT_2026-10-09.md)
 - [v0.1.56 80축 전후 Evidence 추적표·51축 미분류](docs/V0_1_56_80_AXIS_BEFORE_AFTER_TRACE_2026-10-09.md)
 - [v0.1.55 5명 31축 원작 기반 충분도 검수](docs/V0_1_55_FIVE_CHARACTER_CANON_READINESS_AUDIT_2026-10-09.md)
