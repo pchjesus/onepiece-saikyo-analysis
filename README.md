@@ -18,6 +18,8 @@
 - [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
 - [v0.1.40 캐릭터 프로필 UI·소속·서열 개선 검토](docs/V0_1_40_PROFILE_UI_AND_MEMBERSHIP_2026-10-09.md)
 - [전체 UI 색감 3안 · 컨펌 요청(미적용)](docs/UI_COLOR_PALETTE_OPTIONS_2026-10-09.md)
+- [v0.1.40 프로필 UI·소속·서열 패치](docs/V0_1_40_PROFILE_UI_AND_MEMBERSHIP_2026-10-09.md)
+- [원피스풍 전체 UI 색감 3안(컨펌 전, 미적용)](docs/UI_COLOR_PALETTE_OPTIONS_2026-10-09.md)
 - [프로젝트 입문 가이드](docs/PROJECT_GUIDE.md)
 
 ## 현재 평가 로스터
