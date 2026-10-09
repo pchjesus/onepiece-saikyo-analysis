@@ -55,8 +55,8 @@ describe('v0.1.45 three-faction, 17-character Evidence-first expansion', () => {
   })
 
   it('links all 119 new axes to owned Evidence and 17 Battle contexts, E2/E3 only, and Haki Raw zero', () => {
-    expect(wanoBattles).toHaveLength(17)
-    expect(wanoEvidence).toHaveLength(34)
+    expect(wanoBattles).toHaveLength(30)
+    expect(wanoEvidence).toHaveLength(55)
     expect(wanoEvaluations).toHaveLength(17)
     const owned = sampleEvidence.map((e) => ({ id: e.id, subjectCharacterId: e.subjectCharacterId }))
     const battleSet = new Set(sampleBattles.map((b) => b.id))
@@ -75,7 +75,7 @@ describe('v0.1.45 three-faction, 17-character Evidence-first expansion', () => {
       expect(evaluation.items.every((item) => ['E2', 'E3'].includes(item.readiness!))).toBe(true)
       expect(evaluation.items.every((item) => item.hakiContributions.length === 0)).toBe(true)
       for (const item of evaluation.items) {
-        expect(item.evidenceIds).toHaveLength(2)
+        expect(item.evidenceIds.length).toBeGreaterThanOrEqual(2)
         for (const evidenceId of item.evidenceIds) {
           const evidence = sampleEvidence.find((e) => e.id === evidenceId)
           expect(evidence?.subjectCharacterId).toBe(seed.id)
@@ -89,7 +89,16 @@ describe('v0.1.45 three-faction, 17-character Evidence-first expansion', () => {
     }
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)
       .reduce((amount, item) => amount + getRawHakiContributionTotal(item), 0)).toBe(244)
-    expect(sampleMatchups).toHaveLength(15)
+    // Episode-specific distinct battle records prevent the Kid & Law 2v1 from being conflated with Shanks' Elbaf encounter.
+    expect(sampleBattles.find((b) => b.id === 'battle-wano-detailed-kid-big-mom-1066')?.combatStructure).toBe('multiple-vs-one')
+    expect(sampleBattles.find((b) => b.id === 'battle-wano-detailed-kid-shanks-1112')?.result).toBe('defeat')
+    const kidAttack = sampleEvaluations.find((e) => e.characterId === 'kid')!.items.find((i) => i.stat === 'attack')!
+    expect(kidAttack.evidenceIds).toContain('evidence-wano-detailed-kid-big-mom-1066-kid')
+    const killerIQ = sampleEvaluations.find((e) => e.characterId === 'killer')!.items.find((i) => i.stat === 'combatIQ')!
+    expect(killerIQ.evidenceIds).toContain('evidence-wano-detailed-killer-hawkins-1054-killer')
+    const iniSpeed = sampleEvaluations.find((e) => e.characterId === 'inuarashi')!.items.find((i) => i.stat === 'speed')!
+    expect(iniSpeed.evidenceIds).toContain('evidence-wano-detailed-inu-jack-1051-inuarashi')
+        expect(sampleMatchups).toHaveLength(15)
   })
 
   it('preserves battle uncertainty, new model semantics and two CP0 recalibrations', () => {
