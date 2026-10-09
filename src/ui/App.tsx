@@ -1,8 +1,8 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { getCharacterList } from '../application/getCharacterList'
 import { getStatRanking } from '../application/getStatRanking'
 import type { RankingStat } from '../application/getStatRanking'
-import { CharacterSearch } from './components/CharacterSearch'
+import { CharacterPickerDialog } from './components/CharacterPickerDialog'
 import { StatRankingDialog } from './components/StatRankingDialog'
 import { CharacterPage } from './pages/CharacterPage'
 import { MatchupHome } from './pages/MatchupHome'
@@ -14,6 +14,8 @@ export default function App() {
   const [selectedId, setSelectedId] = useState(characterList[0]?.character.id ?? '')
   const [selectedGroupId, setSelectedGroupId] = useState(characterList[0]?.group.id ?? '')
   const [rankingStat, setRankingStat] = useState<RankingStat | null>(null)
+  const [pickerOpen, setPickerOpen] = useState(false)
+  const pickerTrigger = useRef<HTMLButtonElement>(null)
   const [activeView, setActiveView] = useState<'stats' | 'matchup'>('stats')
 
   const groups = useMemo(() => {
@@ -27,10 +29,16 @@ export default function App() {
 
   const visibleCharacters = characterList.filter(({ group }) => group.id === selectedGroupId)
 
+  const closePicker = () => {
+    setPickerOpen(false)
+    pickerTrigger.current?.focus()
+  }
+
   const selectGroup = (groupId: string) => {
     setSelectedGroupId(groupId)
     const firstCharacter = characterList.find(({ group }) => group.id === groupId)
     if (firstCharacter) setSelectedId(firstCharacter.character.id)
+    setRankingStat(null)
   }
 
   const selectCharacter = (characterId: string, groupId: string) => {
@@ -48,7 +56,7 @@ export default function App() {
           <h1>원피스 전투력 분석</h1>
           <p>캐릭터 → 평가 → 계산 모델 → 전투력</p>
         </div>
-        {activeView === 'stats' && <CharacterSearch characters={characterList} onSelectCharacter={selectCharacter} />}
+
       </header>
       <nav className="app-mode-nav" aria-label="주요 화면">
         <button type="button" className={activeView === 'stats' ? 'selected' : ''} aria-pressed={activeView === 'stats'}
@@ -64,13 +72,15 @@ export default function App() {
       </nav>
       {activeView === 'stats' ? <>
       <nav className="character-selector" aria-label="캐릭터 선택">
-        <div className="crew-tabs" role="tablist" aria-label="그룹 선택">
-          {groups.map((group) => (
-            <button key={group.id} className={`crew-tab ${selectedGroupId === group.id ? 'selected' : ''}`}
-              type="button" role="tab" aria-selected={selectedGroupId === group.id} onClick={() => selectGroup(group.id)}>
-              {group.name}
-            </button>
-          ))}
+        <div className="character-picker-toolbar">
+          <label className="group-picker-label" htmlFor="group-picker-select">소속 그룹</label>
+          <select id="group-picker-select" className="group-picker-select" aria-label="그룹 선택"
+            value={selectedGroupId} onChange={(event) => selectGroup(event.target.value)}>
+            {groups.map((group) => <option value={group.id} key={group.id}>{group.name}</option>)}
+          </select>
+          <button type="button" className="open-character-picker" ref={pickerTrigger}
+            aria-haspopup="dialog" aria-expanded={pickerOpen}
+            onClick={() => setPickerOpen(true)}>⌕ 전체 캐릭터 찾기</button>
         </div>
         <div className="character-chips" aria-label="그룹 캐릭터">
           {visibleCharacters.map(({ character, membership }) => (
@@ -84,6 +94,8 @@ export default function App() {
           ))}
         </div>
       </nav>
+      {pickerOpen && <CharacterPickerDialog characters={characterList} groups={groups}
+        onSelectCharacter={selectCharacter} onClose={closePicker} />}
       {selectedId && <CharacterPage key={`${selectedGroupId}:${selectedId}`} characterId={selectedId} groupId={selectedGroupId} onSelectStat={setRankingStat} onSelectOverall={() => setRankingStat('overall')} />}
       {rankingStat && <StatRankingDialog stat={rankingStat} entries={getStatRanking(rankingStat)}
         selectedCharacterId={selectedId} onSelectCharacter={selectCharacter} onClose={() => setRankingStat(null)} />}
