@@ -26,7 +26,7 @@ const resultLabels: Record<Battle['result'], string> = {
   unknown: 'Unknown',
 }
 
-const evidenceStrengthLabels = { strong: '높음', moderate: '중간', weak: '제한적' } as const
+const evidenceStrengthLabels = { strong: '높음', moderate: '중간', weak: '제한적', unclear: '불명확' } as const
 
 const contributionRoleLabels = { primary: '주요 근거', secondary: '보조 근거', context: '상황 참고' } as const
 
