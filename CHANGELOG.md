@@ -1,3 +1,11 @@
+## v0.1.48 — Scalable character selector (B) and Overall measurement-validity audit
+
+- Replace 23+ overflowing horizontal Group tabs with an accessible labeled native Group dropdown, **preserving fast group character chips** and their historical-affiliation markers.
+- Add full-roster dialog/mobile sheet to browse and filter 59 unique Characters among 73 Memberships, by name/alias/group and group option, with per-result affiliation context and direct selection of correct `{characterId,groupId}`.
+- Extract one pure generic `findCharacterOptions` matcher from existing CharacterSearch to share fuzzy Korean-name/alias/group retrieval and Character-ID deduplication, preserving the original header instant search. Keyboard arrows/Enter, Escape, outside dismissal, keyboard Tab focus wrap and trigger-focus restoration are implemented.
+- Scope changes to Stats selector: independent left/right Matchup fighter selectors, evaluation eras, switch/random/featured battles, all scores and project palette remain unchanged.
+- [Evidence-grounded model report](docs/V0_1_48_B_PICKER_AND_OVERALL_VALIDITY_AUDIT_2026-10-09.md) distinguishes within-stat order from incomparable cross-stat points and quantifies Overall robustness: 413 representative stats, E1 29/E2 131/E3 61/unset 192; 43 of 58 adjacent rank gaps <0.5. Current arithmetic mean is reproducible but **not** a statistically validated combat power probability, confidence rating, or authoritative fight outcome. No model/PROJECT_SPEC change without approval.
+
 ## v0.1.47 — Evidence-guided A-path 59-character seven-axis cross-audit and six calibrations
 
 - User approved the incremental A approach (keep existing Balanced v1.2, Haki Raw ×0.5, 7 axes, no rank-forcing, no global theme changes). Audited all **59 unique evaluated × 7 Final Core Stat** records and independently asserted **53 untouched character arrays** in a new regression file.
