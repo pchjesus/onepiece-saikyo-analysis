@@ -60,7 +60,7 @@ describe('v0.1.54 23 untyped roles and 14 context-only axes', () => {
     const counts = { E1: 0, E2: 0, E3: 0, missing: 0 }
     for (const item of items) if (item.readiness) counts[item.readiness]++
     else counts.missing++
-    expect(counts).toEqual({ E1: 43, E2: 208, E3: 111, missing: 51 })
+    expect(counts).toEqual({ E1: 53, E2: 243, E3: 117, missing: 0 })
   })
 
   it('preserves source events and adds precisely targeted secondary axis roles', () => {
@@ -79,11 +79,11 @@ describe('v0.1.54 23 untyped roles and 14 context-only axes', () => {
       ?.statContributions.find((x) => x.stat === 'attack')?.note).toMatch(/코비|기습/)
   })
 
-  it('all 111 unresolved axes have primary or secondary Evidence, not context alone', () => {
+  it('completed default roster has no unresolved axis after v0.1.57', () => {
     const roleCounts = { primary: 0, secondary: 0 }
     const unresolved = defaults.flatMap((evaluation) => evaluation.items.filter((item) =>
       !item.readiness))
-    expect(unresolved).toHaveLength(51)
+    expect(unresolved).toHaveLength(0)
     for (const item of unresolved) {
       const roles = item.evidenceIds.flatMap((id) =>
         evidenceById.get(id)?.statContributions.filter((v) => v.stat === item.stat).map((v) => v.role) ?? [])
@@ -91,7 +91,7 @@ describe('v0.1.54 23 untyped roles and 14 context-only axes', () => {
       else if (roles.includes('secondary')) roleCounts.secondary++
       else throw new Error('Unresolved stat has no primary/secondary source: ' + item.stat + ' ' + item.evidenceIds.join(', '))
     }
-    expect(roleCounts).toEqual({ primary: 29, secondary: 22 })
+    expect(roleCounts).toEqual({ primary: 0, secondary: 0 })
   })
 
   it('keeps all protected data sizes, chosen Overall anchors and Haki Raw untouched', () => {
