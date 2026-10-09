@@ -37,7 +37,7 @@ describe('v0.1.52 manual evidence-readiness audit', () => {
       if (item.readiness) distribution[item.readiness] += 1
       else distribution.unset += 1
     }
-    expect(distribution).toEqual({ E1: 29, E2: 145, E3: 67, unset: 172 })
+    expect(distribution).toEqual({ E1: 30, E2: 162, E3: 73, unset: 148 })
   })
 
   it('preserves canonical seven-axis outputs, Raw Haki and matchup count', () => {

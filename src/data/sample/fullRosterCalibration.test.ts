@@ -650,7 +650,7 @@ describe('v0.1.47 evidence-based A-path all-axis calibration regression', () => 
       }
     }
     expect(sampleEvaluations.flatMap(e=>e.items).reduce((sum,i)=>sum+getRawHakiContributionTotal(i),0)).toBe(244)
-    expect(sampleEvaluations.flatMap(e=>e.items).filter(i=>i.evidenceIds.length===0)).toHaveLength(11)
+    expect(sampleEvaluations.flatMap(e=>e.items).filter(i=>i.evidenceIds.length===0)).toHaveLength(4)
     expect(sampleMatchups).toHaveLength(15)
     const king=byId('king'),katakuri=byId('katakuri')
     expect(king.items.find(i=>i.stat==='attack')?.baseScore).toBe(83)

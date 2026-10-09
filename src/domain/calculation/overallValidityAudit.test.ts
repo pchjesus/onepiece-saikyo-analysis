@@ -70,6 +70,6 @@ describe('v0.1.49 Overall validity and uncertainty diagnostic (not an official c
       if (item.readiness) counts[item.readiness]++
       else counts.missing++
     }
-    expect(counts).toEqual({ E1: 29, E2: 145, E3: 67, missing: 172 })
+    expect(counts).toEqual({ E1: 30, E2: 162, E3: 73, missing: 148 })
   })
 })

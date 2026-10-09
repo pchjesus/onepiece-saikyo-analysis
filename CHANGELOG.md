@@ -1,3 +1,13 @@
+## v0.1.53 — Fix source-link gaps and audit readiness role fidelity (59 × 7)
+
+- Audit the previous 172 unclassified axes (162 had evidence links, 10 did not); classify 24 reviewed axes: all 10 previously zero-link axes and all seven axes for Marco and King.
+- Add **3 official anime-synopsis Evidence records** as supplementary, moderate-strength sources. Add **10 Evidence ID links across 7 relevant axes** (Fujitora Defense/Stamina/Speed, Ryokugyu Attack/Stamina/Technique/Versatility). Stamina links only provide context; do not imply independent long-battle proof.
+- Leave three low-sample items (Smoothie Speed, Shanks Stamina, Ryokugyu Speed) with zero Evidence IDs and **E3**. Never fabricate links or downgrade combat score because of missing panels.
+- Marco Defense becomes the only new E1 based on multiple direct defense events. Other new classifications: E2 ×17, E3 ×6. Counts are E1 **30**, E2 **162**, E3 **73**, missing **148** (out of 413 default character stats).
+- Classify all 148 remaining unset axis Evidence-role links: **72 primary, 39 secondary, 14 context, 23 with no explicit stat contribution role**. Record all previous 172 axes in a before/after source-role trace matrix.
+- Protect all 59×7 Final scores, 62 evaluations, 434 total stats, raw Haki 244, Balanced 1.2, all 15 matchups, B-picker and PROJECT_SPEC. Extend tests for source linkage and metadata.
+- [v0.1.53 report](docs/V0_1_53_LINK_GAPS_AND_EVIDENCE_ROLE_REVIEW_2026-10-09.md) · [172-axis matrix](docs/V0_1_53_172_AXIS_EVIDENCE_ROLE_TRACE_2026-10-09.md).
+
 ## v0.1.52 — 189-axis readiness trace, 17 manual ratings, three-character sensitivity study
 
 - Preserve the **entire baseline 189 missing-readiness rows** in an Evidence ID + 7-axis Final Stat trace matrix. After review, 172 remain intentionally unclassified; 10 have no direct Evidence ID link.
