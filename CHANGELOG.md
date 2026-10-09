@@ -1,3 +1,13 @@
+## v0.1.47 — Evidence-guided A-path 59-character seven-axis cross-audit and six calibrations
+
+- User approved the incremental A approach (keep existing Balanced v1.2, Haki Raw ×0.5, 7 axes, no rank-forcing, no global theme changes). Audited all **59 unique evaluated × 7 Final Core Stat** records and independently asserted **53 untouched character arrays** in a new regression file.
+- Recalibrate six targeted **Draft** records (not an automatic commander-position bonus): **Jack 74.857→78.143** (Zou five-day uninterrupted engagement, swapped Mink kings/army, physical durability), **Kid 82.571→84.571** (Big Mom 2v1, Speed **78→82**, Versatility **86→80**, attack/defense/stamina/technique independently scored), **Karasu 80→77.857** (avoid assigning revolutionaries' joint admiral mission to individual IQ/attack), **Marco 81.714→83.429** (defense, fatigue-limited regeneration/support), **King 81.286→83.000** (conditional Lunarian defense / firepower), **Katakuri 82.714→84.286** (precision awakening, Snakeman response separate from Haki Raw).
+- Explicitly compute King's final Attack **85 = Base83 + existing Armament Raw4×0.5**, Technique **81 = Base80 + Raw2×0.5**; Katakuri Defense **84 = Base81 + existing Observation Raw6×0.5**, Technique87 and Combat IQ84 similarly. **Total Haki Raw remains 244** with no new contribution or double-count.
+- Comparative evidence check against Garp's Attack **99** vs Marco **77**, Law's Combat IQ/Versatility vs Kid, Jack vs all Tobi Roppo, and three first commanders vs users' specified other groups; keep skill-specific differences rather than flat commander bonuses.
+- 14 more close peers assessed for data quality/source limits (Jozu, Vista, Smoothie, Shiryu, Cracker, Queen, Inuarashi, Nekomamushi, Denjiro, Ashura Doji, Who's-Who, X Drake, Doflamingo, Hancock) **without inventing new numbers**. The 75–80 band increases from 25 to 27 members, so this patch does **not** attempt arbitrary global score smoothing.
+- All 60 Characters / 59 unique evaluations / 62 Evaluation / 434 Stat / 73 Membership / 15 direct Matchup remain; new data version only on six; existing global theme and `PROJECT_SPEC.md` unchanged. New `fullRosterCalibration.test.ts` checks all seven axes and canonical 53-unchanged baseline.
+- [Full 59×7 cross-comparison and source-cited reasoning](docs/V0_1_47_A_PATH_59_CHARACTER_SEVEN_AXIS_CROSS_AUDIT_2026-10-09.md).
+
 ## v0.1.46 — Official episode evidence source/context verification
 
 - Validate the v0.1.45 Wano three-group and CP0 evaluation records against ONE PIECE.com official TV episode summaries, keeping facts / 1v1 vs supporting troops / judgments separate.
