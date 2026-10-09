@@ -808,6 +808,14 @@ export const sampleBattles: Battle[] = [
     result: 'interrupted', participantIds: [],
   },
   {
+    id: 'egghead-lucci-zoro', title: '에그헤드 — 조로와 각성 루치의 장기 교전', chronologyOrder: 310,
+    combatStructure: '1v1', combatPurpose: 'CP0의 베가펑크 추격을 막는 조로와 임무를 이어가려는 루치의 대치',
+    combatIntent: 'serious', environment: '에그헤드 연구층 주변',
+    restrictions: '조로가 동료 합류·구출을 목표로 하는 전장이고, 두 사람의 완전한 전력 상호 비교가 확인된 통제된 결투는 아니다.',
+    externalFactors: '상디의 교신·진베의 합류 재촉·오로성 마즈의 등장 등 이후 전황 변화',
+    result: 'interrupted', participantIds: [],
+  },
+  {
     id: 'egghead-stussy-sleep', title: '에그헤드 — 스튜시의 루치·카쿠 기습 수면', chronologyOrder: 309,
     combatStructure: 'one-vs-multiple', combatPurpose: '베가펑크를 보호하기 위한 CP0 임무 방해',
     combatIntent: 'serious', environment: '에그헤드 연구층',
