@@ -107,7 +107,7 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
     expect(kakuDecision.fact).toContain('직접 제안')
     expect(kakuDecision.source.reference).toContain('ONE PIECE.com TV 1109')
     expect(kaku.items.find(i => i.stat === 'combatIQ')).toMatchObject({
-      baseScore: 72, score: 72, readiness: 'E2',
+      baseScore: 72, score: 72, readiness: 'E3',
     })
     expect(stussy.items.find(i => i.stat === 'speed')).toMatchObject({
       baseScore: 80, score: 80, readiness: 'E3',
