@@ -186,7 +186,7 @@ describe('evaluated roster UI', () => {
     expect(container.querySelector('main.detail h1')?.textContent).toBe('몽키 D. 가프')
     expect(container.querySelector('.evaluation-subject-state')?.textContent).toContain('평가 시점 · 현재')
     expect(container.querySelector('.power-card strong')?.textContent).toContain('94.4')
-    expect(container.querySelector('.evaluation-trace-card')?.textContent).toContain('Final 96/100')
+    expect(container.querySelector('.evaluation-trace-card')?.textContent).toContain('최종점수 96/100')
 
     await click(stateButtons().find((button) => button.textContent === '전성기') ?? null)
     expect(container.querySelector('.power-card strong')?.textContent).toContain('97.4')
@@ -212,7 +212,7 @@ describe('evaluated roster UI', () => {
 
     expect(container.querySelector('.matchup-home')).not.toBeNull()
     expect(container.querySelectorAll('.arena-selector select').length).toBeGreaterThanOrEqual(2)
-    expect(container.querySelector('.matchup-corner-grid')?.textContent).toContain('RED CORNER')
+    expect(container.querySelector('.matchup-corner-grid')?.textContent).toContain('왼쪽 선수')
     expect(container.querySelector('.matchup-corner-grid')?.textContent).toContain('BLUE CORNER')
     expect(container.querySelector('.combined-matchup-panel')).not.toBeNull()
     expect(container.querySelector('.matchup-radar')).not.toBeNull()
@@ -250,17 +250,17 @@ describe('evaluated roster UI', () => {
   it('opens small Special combat help and keeps individual evidence counts out of trait cards', async () => {
     const tab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '검은 수염 해적단')
     await click(tab ?? null)
-    const summary = container.querySelector('summary[aria-label="특수 전투요소 Evidence 및 점수 반영 설명"]')
+    const summary = container.querySelector('summary[aria-label="특수 전투요소 근거 및 점수 반영 설명"]')
     expect(summary).not.toBeNull()
     await click(summary)
     const bubble = container.querySelector('.special-help-bubble')
-    expect(bubble?.textContent).toContain('연결 Evidence 1건')
+    expect(bubble?.textContent).toContain('연결 근거 1건')
     expect(bubble?.textContent).toContain('Overall에 직접 가산하지 않아')
-    expect(container.querySelector('.special-trait')?.textContent).not.toContain('Overall 직접 가산 없음')
+    expect(container.querySelector('.special-trait')?.textContent).not.toContain('종합 전투력 직접 가산 없음')
   })
 
   it('dismisses Special help on outside pointer without closing on inside clicks, and supports Escape', async () => {
-    const summary = container.querySelector('summary[aria-label="특수 전투요소 Evidence 및 점수 반영 설명"]')
+    const summary = container.querySelector('summary[aria-label="특수 전투요소 근거 및 점수 반영 설명"]')
     await click(summary)
     const help = container.querySelector<HTMLDetailsElement>('.special-help')
     const bubble = container.querySelector('.special-help-bubble')
