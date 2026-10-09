@@ -24,8 +24,8 @@ describe('Haki cross-stat overlap: non-production sensitivity, never a score rec
     const expected = [
       ['evaluation-kuzan', 'techniqueMastery', 93, 91],
       ['evaluation-shanks', 'techniqueMastery', 96, 92],
-      ['evaluation-katakuri', 'techniqueMastery', 86, 83],
-      ['evaluation-katakuri', 'combatIQ', 83, 81],
+      ['evaluation-katakuri', 'techniqueMastery', 87, 84],
+      ['evaluation-katakuri', 'combatIQ', 84, 82],
       ['evaluation-linlin', 'techniqueMastery', 94, 91],
     ] as const
     for (const [id, stat, before, after] of expected) {
@@ -58,7 +58,7 @@ describe('Haki cross-stat overlap: non-production sensitivity, never a score rec
     const score = (id: string) => calculateBalancedCombatPower(simulated.find((e) => e.id === id)!, balancedV12).finalScore
     expect(score('evaluation-kuzan')).toBeCloseTo(647 / 7, 9)
     expect(score('evaluation-shanks')).toBeCloseTo(644 / 7, 9)
-    expect(score('evaluation-katakuri')).toBeCloseTo(574 / 7, 9)
+    expect(score('evaluation-katakuri')).toBeCloseTo(585 / 7, 9)
     expect(score('evaluation-linlin')).toBeCloseTo(657 / 7, 9)
     // Project does not infer probabilities or redraw canon 1v1 matchup winners.
   })

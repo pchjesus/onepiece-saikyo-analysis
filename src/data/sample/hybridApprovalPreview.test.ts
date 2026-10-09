@@ -35,9 +35,9 @@ describe('v0.1.37 user-approval-only score decomposition', () => {
       ['evaluation-kuzan', 'attack', 93, 0, 93],
       ['evaluation-kuzan', 'defense', 93, 0, 93],
       ['evaluation-kuzan', 'techniqueMastery', 93, 0, 93],
-      ['evaluation-katakuri', 'attack', 81, 0, 81],
-      ['evaluation-katakuri', 'techniqueMastery', 86, 0, 86],
-      ['evaluation-katakuri', 'combatIQ', 83, 0, 83],
+      ['evaluation-katakuri', 'attack', 83, 0, 83],
+      ['evaluation-katakuri', 'techniqueMastery', 87, 0, 87],
+      ['evaluation-katakuri', 'combatIQ', 84, 0, 84],
       ['evaluation-shanks', 'techniqueMastery', 96, 0, 96],
       ['evaluation-linlin', 'techniqueMastery', 94, 0, 94],
     ] as const

@@ -22,7 +22,7 @@ const groups: Record<string, string[]> = {
 const scores: Record<string, number[]> = {
   sabo: [87,83,82,86,88,86,87],
   morley: [76,80,77,77,83,75,87],
-  karasu: [79,75,74,83,83,80,86],
+  karasu: [76,74,74,82,81,74,84],
   lucci: [80,77,82,82,83,68,74],
   kaku: [73,72,75,75,79,72,74],
   stussy: [73,72,70,80,86,85,77],
@@ -56,7 +56,7 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
       expect(evals, id).toHaveLength(1)
       const ev=evals[0]
       expect(ev.status).toBe('draft')
-      expect(ev.evaluationDataVersion).toBe(['lucci','kaku'].includes(id) ? 'evaluation-0.1.45-cross-calibrated-draft' : id === 'morley' ? 'evaluation-0.1.44-cross-calibrated-draft' : 'evaluation-0.1.43-evidence-audited-draft')
+      expect(ev.evaluationDataVersion).toBe(['lucci','kaku'].includes(id) ? 'evaluation-0.1.45-cross-calibrated-draft' : id === 'morley' ? 'evaluation-0.1.44-cross-calibrated-draft' : id === 'karasu' ? 'evaluation-0.1.47-evidence-calibrated-A' : 'evaluation-0.1.43-evidence-audited-draft')
       expect(validateEvaluation(ev, refs), id).toEqual({valid:true,errors:[]})
       expect(ev.items).toHaveLength(7)
       expect(ev.items.map(item => item.score), id).toEqual(scores[id])
@@ -130,10 +130,10 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
     expect(ranking.find(r => r.characterId === 'kaku')?.score).toBeCloseTo(74.28571428571429)
     expect(ranking.find(r => r.characterId === 'kaku')?.rank).toBe(54)
     expect(ranking.find(r => r.characterId === 'stussy')?.score).toBeCloseTo(77.57142857142857)
-    expect(ranking.find(r => r.characterId === 'stussy')?.rank).toBe(39)
+    expect(ranking.find(r => r.characterId === 'stussy')?.rank).toBe(40)
     expect(ranking.find(r => r.characterId === 'sabo')?.score).toBeCloseTo(85.57142857142857)
     expect(ranking.find(r => r.characterId === 'morley')?.score).toBeCloseTo(79.28571428571429)
-    expect(ranking.find(r => r.characterId === 'karasu')?.score).toBeCloseTo(80)
+    expect(ranking.find(r => r.characterId === 'karasu')?.score).toBeCloseTo(77.85714285714286)
     expect(ranking.find(r => r.characterId === 'lucci')?.score).toBeCloseTo(78)
   })
 
