@@ -32,7 +32,7 @@ function matchRelevance(character: CharacterOption['character'], group: string, 
 }
 
 /** A single query/ranking/deduplication source for the header search and full-roster picker. */
-export function findCharacterOptions(characters: CharacterOption[], query: string, limit = 8): CharacterOption[] {
+export function findCharacterOptions<T extends CharacterOption>(characters: T[], query: string, limit = 8): T[] {
   const term = normalize(query)
   const seen = new Set<string>()
   return characters
