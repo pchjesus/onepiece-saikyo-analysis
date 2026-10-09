@@ -4,7 +4,7 @@
 - Code-only scope: two Cracker rationale strings in `evaluations.ts`, one old numeric Evidence impact sentence in `evidence.ts`, focused automated regression test, markdown audit/report metadata.
 - New `crackerRationaleConsistency.test.ts`: approved seven Final scores, Attack Raw4, Final77 / Defense Final81, Overall77.857142..., and lack of contradictory historical Stamina phrase.
 - Existing test suites must still verify 59 evaluated unique IDs, historical Evaluations 62, Core Stat434, total Raw Haki244, membership73 and direct matchups15. Existing UI picker B, 7-axis calculations and all baseline scores untouched.
-- **Status at authored commit: pending GitHub pull-request CI and post-merge Pages check.** A passing automated CI is not an independent inspection of all canon panels or mobile device QA.
+- **PR #48 first CI result:** [Actions run #331](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37920367997) at head `e505cedcde136c5d97e2eb99fab3cfc8840caf84`: `npm install`, `npm test`, `npm run build` all succeeded. This document update triggers a new head run; confirm it before merge. Post-merge Pages check remains pending. Passing automated CI is not independent inspection of all canon panels or real-device mobile QA.
 - [Full 59-character axis report](docs/V0_1_50_SEVEN_AXIS_DEEP_AUDIT_AND_CRACKER_RATIONALE_2026-10-09.md).
 
 ---
