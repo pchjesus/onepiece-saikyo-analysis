@@ -59,7 +59,7 @@ function FighterSelect({
   const selected = roster.find((entry) => entry.characterId === characterId)
   return (
     <section className={`arena-selector arena-selector-${side}`}>
-      <span className="corner-label">{side === 'left' ? 'RED CORNER' : 'BLUE CORNER'}</span>
+      <span className="corner-label">{side === 'left' ? '왼쪽 선수' : '오른쪽 선수'}</span>
       <select aria-label={side === 'left' ? '왼쪽 캐릭터 선택' : '오른쪽 캐릭터 선택'}
         value={characterId} onChange={(event) => onCharacter(event.target.value)}>
         {roster.map((entry) => (
@@ -91,11 +91,11 @@ function CornerPanel({ fighter, factors, statEdges, side }: {
     <article className={`corner-panel corner-panel-${side}`}>
       <header>
         <div>
-          <small>{side === 'left' ? 'RED CORNER' : 'BLUE CORNER'} · {fighter.groupName}</small>
+          <small>{side === 'left' ? '왼쪽 선수' : '오른쪽 선수'} · {fighter.groupName}</small>
           <h3>{fighter.name}</h3>
           {fighter.stateLabel && <span>평가 시점 · {fighter.stateLabel}</span>}
         </div>
-        <strong>{fighter.overall.toFixed(1)}<small> OVR</small></strong>
+        <strong>{fighter.overall.toFixed(1)}<small> 종합</small></strong>
       </header>
 
       <div className="corner-section">
@@ -104,7 +104,7 @@ function CornerPanel({ fighter, factors, statEdges, side }: {
           <div className="corner-stat-chips">
             {statEdges.slice(0, 3).map((stat) => <span key={stat.stat}>{stat.label} {stat.score}</span>)}
           </div>
-        ) : <p className="corner-muted">7 Core Stat에서 상대보다 높은 축이 없습니다.</p>}
+        ) : <p className="corner-muted">7개 핵심 스탯에서 상대보다 높은 축이 없습니다.</p>}
       </div>
 
       <div className="corner-section">
@@ -128,7 +128,7 @@ function CornerPanel({ fighter, factors, statEdges, side }: {
             <p>{normalizeCharacterNamesForDisplay(factor.summary)}</p>
           </div>
         )) : (
-          <p className="corner-muted">이 조합의 직접 Matchup Evidence가 아직 없습니다. 수치상 비교는 참고만 하고 상성 판정은 보류합니다.</p>
+          <p className="corner-muted">이 조합의 직접 매치업 근거가 아직 없습니다. 수치상 비교는 참고만 하고 상성 판정은 보류합니다.</p>
         )}
       </div>
     </article>
@@ -187,26 +187,26 @@ export function MatchupHome() {
     <main className="matchup-home">
       <section className="matchup-arena-hero">
         <div>
-          <p className="eyebrow">MATCHUP ARENA</p>
+          <p className="eyebrow">매치업 대결장</p>
           <h2>대진을 직접 만들고, 양쪽 시선으로 본다.</h2>
-          <p>두 캐릭터를 고른 뒤 각 선수의 강점·주의 포인트와 통합 분석을 확인합니다. 승률 숫자 대신 원작 Evidence와 조건을 우선합니다.</p>
+          <p>두 캐릭터를 고른 뒤 각 선수의 강점·주의 포인트와 통합 분석을 확인합니다. 승률 숫자 대신 원작 근거와 조건을 우선합니다.</p>
         </div>
-        <div className="arena-rule-chip">Neutral · No prep · 1v1</div>
+        <div className="arena-rule-chip">중립 전장 · 사전 준비 없음 · 1대1</div>
       </section>
 
       <section className="matchup-builder-controls" aria-label="매치업 대진 선택">
         <FighterSelect side="left" roster={roster} characterId={leftId} stateId={leftStateId} opponentId={rightId}
           onCharacter={chooseLeft} onState={setLeftStateId} />
         <div className="arena-control-stack">
-          <button type="button" className="swap-button" onClick={swap} aria-label="좌우 캐릭터 교체">⇄<span>SWAP</span></button>
-          <button type="button" onClick={randomize} aria-label="랜덤 매치업">⤨<span>RANDOM</span></button>
+          <button type="button" className="swap-button" onClick={swap} aria-label="좌우 캐릭터 교체">⇄<span>교체</span></button>
+          <button type="button" onClick={randomize} aria-label="랜덤 매치업">⤨<span>무작위</span></button>
         </div>
         <FighterSelect side="right" roster={roster} characterId={rightId} stateId={rightStateId} opponentId={leftId}
           onCharacter={chooseRight} onState={setRightStateId} />
       </section>
 
       <section className="featured-matchups">
-        <div><span>FEATURED</span><small>직접 Matchup Evidence가 등록된 대진</small></div>
+        <div><span>추천 대진</span><small>직접 매치업 근거가 등록된 대진</small></div>
         <div className="matchup-picker" role="group" aria-label="등록된 매치업 빠른 선택">
           {featured.map((entry) => {
             // Derive the pressed state from the actual selected fighters and evaluation
@@ -231,37 +231,37 @@ export function MatchupHome() {
       <section className="combined-matchup-panel">
         <div className="combined-heading">
           <div>
-            <p className="eyebrow">COMBINED ANALYSIS</p>
+            <p className="eyebrow">종합 분석</p>
             <h3>{left.name} <span>VS</span> {right.name}</h3>
           </div>
           <span className={matchup ? 'evidence-ready' : 'evidence-pending'}>
-            {matchup ? `직접 상성 Evidence · ${matchup.factors.length} factors` : '직접 상성 Evidence 미등록'}
+            {matchup ? `직접 매치업 근거 · ${matchup.factors.length}개 요인` : '직접 매치업 근거 미등록'}
           </span>
         </div>
 
         <div className="matchup-scoreboard" aria-label="선택한 매치업 요약">
           <article className="fighter-card fighter-a">
-            <small>{left.stateLabel ? `평가 시점 · ${left.stateLabel}` : 'RED CORNER'}</small>
-            <h3>{left.name}</h3><strong>{left.overall.toFixed(1)}</strong><span>Overall</span>
+            <small>{left.stateLabel ? `평가 시점 · ${left.stateLabel}` : '왼쪽 선수'}</small>
+            <h3>{left.name}</h3><strong>{left.overall.toFixed(1)}</strong><span>종합 전투력</span>
           </article>
           <div className="versus-lockup"><span>VS</span><small>판정은 근거로</small></div>
           <article className="fighter-card fighter-b">
-            <small>{right.stateLabel ? `평가 시점 · ${right.stateLabel}` : 'BLUE CORNER'}</small>
-            <h3>{right.name}</h3><strong>{right.overall.toFixed(1)}</strong><span>Overall</span>
+            <small>{right.stateLabel ? `평가 시점 · ${right.stateLabel}` : '오른쪽 선수'}</small>
+            <h3>{right.name}</h3><strong>{right.overall.toFixed(1)}</strong><span>종합 전투력</span>
           </article>
         </div>
 
         <div className="matchup-summary-strip">
-          <span>{left.name} 우세 Stat {leftStatEdges.length}</span>
+          <span>{left.name} 우세 스탯 {leftStatEdges.length}</span>
           <span>동점 {tiedStats.length}</span>
-          <span>{right.name} 우세 Stat {rightStatEdges.length}</span>
+          <span>{right.name} 우세 스탯 {rightStatEdges.length}</span>
         </div>
 
         <section className="matchup-visual-grid">
           <MatchupRadarChart characterA={left} characterB={right} />
           <article className="tale-card">
-            <p className="eyebrow">TALE OF THE TAPE</p>
-            <h3>7 Core Stats</h3>
+            <p className="eyebrow">스탯 비교표</p>
+            <h3>핵심 스탯 7개</h3>
             <div className="tale-list">
               {left.stats.map((leftStat, index) => {
                 const rightStat = right.stats[index]
@@ -280,14 +280,14 @@ export function MatchupHome() {
                 )
               })}
             </div>
-            <p className="arena-caution">Overall과 개별 스탯 차이는 승률이 아닙니다. 직접 상성 Evidence가 없는 조합은 결론을 만들지 않습니다.</p>
+            <p className="arena-caution">종합 전투력과 개별 스탯 차이는 승률이 아닙니다. 직접 매치업 근거가 없는 조합은 결론을 만들지 않습니다.</p>
           </article>
         </section>
 
         <section className="arena-analysis">
           <div className="arena-analysis-heading">
-            <div><p className="eyebrow">MATCHUP FACTORS</p><h3>종합 승부 포인트</h3></div>
-            <span>{matchup ? `${matchup.factors.length} factors` : 'EVIDENCE PENDING'}</span>
+            <div><p className="eyebrow">매치업 요인</p><h3>종합 승부 포인트</h3></div>
+            <span>{matchup ? `${matchup.factors.length}개 요인` : '매치업 근거 확인 중'}</span>
           </div>
           {matchup ? (
             <div className="arena-factor-grid">
@@ -306,7 +306,7 @@ export function MatchupHome() {
           ) : (
             <div className="matchup-empty-analysis">
               <strong>아직 이 조합의 직접 상성 데이터가 없습니다.</strong>
-              <p>위 Core Stat·전투 스타일은 비교할 수 있지만, 특정 능력 상호작용이나 승부 우위는 원작 Evidence가 등록되기 전까지 보류합니다.</p>
+              <p>위 핵심 스탯·전투 스타일은 비교할 수 있지만, 특정 능력 상호작용이나 승부 우위는 원작 근거가 등록되기 전까지 보류합니다.</p>
             </div>
           )}
         </section>

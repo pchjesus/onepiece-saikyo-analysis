@@ -1,3 +1,37 @@
+# v0.1.38 — A안 승인 후 실제 데이터 반영 및 병합 게이트
+
+- 네 축 A안 실제 `sampleEvaluations` 값 변경: 사카즈키 방어 95/0, 쿠잔 공격 93/0·방어 93/0, 카타쿠리 공격 81/0.
+- 역사적 Haki Raw 리뷰 14건 기록은 보존하되 현재 원본 데이터의 4건 Raw가 이미 Base에 이전됐음을 회귀검증으로 구분.
+- 39 Evaluation / 273 stat / 49 typed Raw 합계 244, 기존 Final/Overall, Evidence 소유와 Haki 능력, Matchup 비교 호환성 검증.
+- [검토 브랜치 CI](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37879886144) 성공 후 문서 갱신. 최신 PR HEAD의 최종 CI 및 병합 뒤 main 빌드·배포는 별도 확인 대상.
+- 모바일 실기기 렌더링은 실시하지 않았으며 신규 집단의 데이터 등록은 별도 작업.
+
+---
+
+# v0.1.37 (Draft PR #29) — 가반 산먹깨비, 한국어 용어, Hybrid 재산정 승인안
+
+**2026-10-09 KST**. Product `main` stays at v0.1.34 pending user confirmation.
+
+## Implemented in review branch
+- Verified 112권 1139화 정식 단행본 제목 `산먹깨비`, inserted before `해적왕의 왼팔` as the Gaban epithet without changing any identity, membership, Evaluation state, or score.
+- UI Korean localization: 7 stat labels, all visible Base/Raw/Haki/Final calculation terms, battle structure/intent/result/evidence strength, matchup selection headings and visible analysis, special profile captions, and primary term 카무사리. Internal identifiers, evidence IDs and CalculationModel remain unchanged.
+- Added non-production `buildHybridApprovalPreview` A (4 Raw Base transfers) / B (10 Raw Base transfers across 9 stats), preserving 39 Evaluation/273 Stat Finals and all original OVR. Explicitly notes that score changes are NOT warranted without further canon marginal-effect evidence.
+- Group research `docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md` for Revolutionary Army and CP0 is **research only**. Group/Character/Evaluation data not yet added.
+
+## Validation and regression fixes
+- Initial CI caught English assertions after localization; updated existing React integration tests to retain all prior functionality coverage.
+- Another CI caught translation of the program identifier `factors` due to overly broad string replacement; fixed the program identifiers and retained Korean user-visible labels (test is not disabled).
+- TypeScript CI caught exhaustive EvidenceStrength union `unclear`; added the Korean display string `불명확` rather than weakening types.
+- Verified latest implementation commit at [CI run 37878826898](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37878826898): **34 Test Files / 148 Tests passed**, **TypeScript/Vite production build passed**, deploy skipped because PR branch only.
+- Actual desktop/mobile visual inspection, production `main` deploy and user approval **not performed**. No claims about new character 7-axis scores.
+
+## Approval gate
+- Keep PR #29 **draft**, do not merge or deploy before user selects A (4 ordinary transfers) or B (all 10 with overlap-to-Base) and approves final changes.
+- Full baseline: 39 Evaluations, 273 final Stats, 53 typed Raw sum 256, Balanced 1.2 Weight 0.5, 15 Matchups.
+- The 4 vs 10 candidate impacts live **only in simulation**; production score/Ranking source of truth is unchanged.
+
+---
+
 # v0.1.36 Draft — FEATURED Selection UX & Haki Overlap Scenario (2026-10-09)
 
 ## Scope and before/after

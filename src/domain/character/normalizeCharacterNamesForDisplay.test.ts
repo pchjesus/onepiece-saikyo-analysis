@@ -18,4 +18,17 @@ describe('normalizeCharacterNamesForDisplay', () => {
     expect(normalizeCharacterNamesForDisplay('Garp used Supreme King Haki.'))
       .toBe('몽키 D. 가프 used 패왕색 패기.')
   })
+  it('localizes skill name variants and displayed Haki formula words', () => {
+    expect(normalizeCharacterNamesForDisplay('Divine Departure · 神避 · 신피'))
+      .toBe('카무사리 · 카무사리 · 카무사리')
+    expect(normalizeCharacterNamesForDisplay('Base 94 + Haki Weight 0.5 = Final 95'))
+      .toBe('기본점수 94 + 패기 가중치 0.5 = 최종점수 95')
+    expect(normalizeCharacterNamesForDisplay('Raw Haki Contribution'))
+      .toBe('패기 원점수 기여')
+    expect(normalizeCharacterNamesForDisplay('Overall Combat Power'))
+      .toBe('종합 전투력')
+    expect(normalizeCharacterNamesForDisplay('Gear 5 at God Valley'))
+      .toBe('기어 5 at 갓 밸리')
+  })
+
 })

@@ -41,7 +41,7 @@ describe('evaluated roster UI', () => {
       await click(tab ?? null)
       expect(container.querySelector('main.detail h1')?.textContent).toBe(character)
       expect(container.querySelector('.prototype-note')?.textContent).toContain('evaluation-')
-      expect(container.querySelector('.power-card')?.textContent).toContain('Balanced')
+      expect(container.querySelector('.power-card')?.textContent).toContain('균형형')
     }
   })
 
@@ -67,7 +67,7 @@ describe('evaluated roster UI', () => {
     expect(container.querySelectorAll('.search-suggestion')).toHaveLength(1)
     expect(container.querySelector('.search-suggestion')?.textContent).toContain('크로스 길드')
 
-    await click(container.querySelector('button[aria-label="Attack / 공격력 전체 캐릭터 순위 보기"]'))
+    await click(container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]'))
     const mihawkRows = [...document.querySelectorAll('.rank-row')]
       .filter((row) => row.textContent?.includes('쥬라큘 미호크'))
     expect(mihawkRows).toHaveLength(1)
@@ -75,7 +75,7 @@ describe('evaluated roster UI', () => {
   })
 
   it('opens sorted 36-person stat ranking and navigates to a chosen group', async () => {
-    const stat = container.querySelector('button[aria-label="Attack / 공격력 전체 캐릭터 순위 보기"]')
+    const stat = container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]')
     await click(stat)
     const rows = [...document.querySelectorAll('.rank-row')]
     expect(rows).toHaveLength(36)
@@ -93,7 +93,7 @@ describe('evaluated roster UI', () => {
   it('shows formulas for all seven stats and switches between compact detail tabs', async () => {
     const formula = container.querySelectorAll('.evaluation-formula')
     expect(formula).toHaveLength(7)
-    expect(formula[0].textContent).toMatch(/Base \d+ \+ Haki \(\d+ × 0.5 = \d+\) = Final \d+\/100/)
+    expect(formula[0].textContent).toMatch(/기본점수 \d+ \+ 패기 \(\d+ × 0.5 = \d+\) = 최종점수 \d+\/100/)
     await click(container.querySelector('#battle-tab'))
     expect(container.querySelector('.battle-timeline')).not.toBeNull()
     expect(container.querySelector('.evaluation-trace-list')).toBeNull()
@@ -101,10 +101,10 @@ describe('evaluated roster UI', () => {
     expect(container.querySelectorAll('.evaluation-formula')).toHaveLength(7)
   })
   it('opens Overall rankings in full-precision order and reverses the list without changing canonical ranks', async () => {
-    await click(container.querySelector('button[aria-label="Overall Combat Power 전체 캐릭터 순위 보기"]'))
+    await click(container.querySelector('button[aria-label="종합 전투력 전체 캐릭터 순위 보기"]'))
     const rows = () => [...document.querySelectorAll('.rank-row')]
     expect(rows()).toHaveLength(36)
-    expect(document.querySelector('#stat-rank-title')?.textContent).toContain('Overall Combat Power')
+    expect(document.querySelector('#stat-rank-title')?.textContent).toContain('종합 전투력')
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('에드워드 뉴게이트')
     expect(rows()[0].textContent).toContain('97.571')
@@ -116,7 +116,7 @@ describe('evaluated roster UI', () => {
   })
 
   it('can change existing core-stat rankings to ascending', async () => {
-    await click(container.querySelector('button[aria-label="Attack / 공격력 전체 캐릭터 순위 보기"]'))
+    await click(container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]'))
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     const rows = [...document.querySelectorAll('.rank-row')]
     expect(rows).toHaveLength(36)
@@ -186,7 +186,7 @@ describe('evaluated roster UI', () => {
     expect(container.querySelector('main.detail h1')?.textContent).toBe('몽키 D. 가프')
     expect(container.querySelector('.evaluation-subject-state')?.textContent).toContain('평가 시점 · 현재')
     expect(container.querySelector('.power-card strong')?.textContent).toContain('94.4')
-    expect(container.querySelector('.evaluation-trace-card')?.textContent).toContain('Final 96/100')
+    expect(container.querySelector('.evaluation-trace-card')?.textContent).toContain('최종점수 96/100')
 
     await click(stateButtons().find((button) => button.textContent === '전성기') ?? null)
     expect(container.querySelector('.power-card strong')?.textContent).toContain('97.4')
@@ -212,13 +212,13 @@ describe('evaluated roster UI', () => {
 
     expect(container.querySelector('.matchup-home')).not.toBeNull()
     expect(container.querySelectorAll('.arena-selector select').length).toBeGreaterThanOrEqual(2)
-    expect(container.querySelector('.matchup-corner-grid')?.textContent).toContain('RED CORNER')
-    expect(container.querySelector('.matchup-corner-grid')?.textContent).toContain('BLUE CORNER')
+    expect(container.querySelector('.matchup-corner-grid')?.textContent).toContain('왼쪽 선수')
+    expect(container.querySelector('.matchup-corner-grid')?.textContent).toContain('오른쪽 선수')
     expect(container.querySelector('.combined-matchup-panel')).not.toBeNull()
     expect(container.querySelector('.matchup-radar')).not.toBeNull()
     expect(container.querySelector('button[aria-label="좌우 캐릭터 교체"]')).not.toBeNull()
     expect(container.querySelector('button[aria-label="랜덤 매치업"]')).not.toBeNull()
-    expect(container.querySelector('.featured-matchups')?.textContent).toContain('FEATURED')
+    expect(container.querySelector('.featured-matchups')?.textContent).toContain('추천 대진')
     expect(container.querySelector('.arena-caution')?.textContent).toContain('승률이 아닙니다')
 
     await click(container.querySelector('button[aria-label="좌우 캐릭터 교체"]'))
@@ -250,17 +250,17 @@ describe('evaluated roster UI', () => {
   it('opens small Special combat help and keeps individual evidence counts out of trait cards', async () => {
     const tab = [...container.querySelectorAll('.crew-tab')].find((el) => el.textContent === '검은 수염 해적단')
     await click(tab ?? null)
-    const summary = container.querySelector('summary[aria-label="특수 전투요소 Evidence 및 점수 반영 설명"]')
+    const summary = container.querySelector('summary[aria-label="특수 전투요소 근거 및 점수 반영 설명"]')
     expect(summary).not.toBeNull()
     await click(summary)
     const bubble = container.querySelector('.special-help-bubble')
-    expect(bubble?.textContent).toContain('연결 Evidence 1건')
-    expect(bubble?.textContent).toContain('Overall에 직접 가산하지 않아')
-    expect(container.querySelector('.special-trait')?.textContent).not.toContain('Overall 직접 가산 없음')
+    expect(bubble?.textContent).toContain('연결 근거 1건')
+    expect(bubble?.textContent).toContain('종합 전투력에 직접 가산하지 않아')
+    expect(container.querySelector('.special-trait')?.textContent).not.toContain('종합 전투력 직접 가산 없음')
   })
 
   it('dismisses Special help on outside pointer without closing on inside clicks, and supports Escape', async () => {
-    const summary = container.querySelector('summary[aria-label="특수 전투요소 Evidence 및 점수 반영 설명"]')
+    const summary = container.querySelector('summary[aria-label="특수 전투요소 근거 및 점수 반영 설명"]')
     await click(summary)
     const help = container.querySelector<HTMLDetailsElement>('.special-help')
     const bubble = container.querySelector('.special-help-bubble')

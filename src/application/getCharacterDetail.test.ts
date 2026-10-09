@@ -43,6 +43,15 @@ describe('getCharacterDetail group migration', () => {
     }
   })
 
+  it('keeps the officially translated 산먹깨비 epithet ahead of 해적왕의 왼팔', () => {
+    const gaban = getCharacterDetail('gaban', 'roger-pirates')?.character
+    expect(gaban?.knownAs.map(({ name }) => name)).toEqual(['산먹깨비', '해적왕의 왼팔'])
+    expect(gaban?.knownAs[0]).toMatchObject({
+      kind: 'epithet', source: { label: '한국 정식 단행본' },
+    })
+    expect(gaban?.knownAs[0]?.source.reference).toContain('1139화')
+  })
+
   it('returns undefined for unknown characters and rejects mismatched groups', () => {
     expect(getCharacterDetail('not-in-roster')).toBeUndefined()
     expect(() => getCharacterDetail('zoro', 'marines')).toThrow('Incomplete character data')

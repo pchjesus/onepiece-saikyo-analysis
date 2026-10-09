@@ -15,7 +15,7 @@ export function StatInfoDialog({ stat, onClose }: { stat: CombatStat; onClose: (
       >
         <div className="stat-info-header">
           <div>
-            <p className="eyebrow">STAT DEFINITION</p>
+            <p className="eyebrow">스탯 정의</p>
             <h3 id="stat-info-title">{definition.label}</h3>
           </div>
           <button className="stat-info-close" type="button" onClick={onClose} aria-label="닫기">

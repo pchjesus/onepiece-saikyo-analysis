@@ -84,19 +84,19 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
           )}
         </div>
         <p className="prototype-note">{detail.evaluation.status === 'draft'
-          ? `평가 진행 중 · 7 Core Stat draft · ${detail.evaluation.evaluationDataVersion}`
+          ? `평가 진행 중 · 핵심 스탯 7개 · 초안 · ${detail.evaluation.evaluationDataVersion}`
           : 'MVP 구조 검증용 임시 평가 데이터 · 공식 전투력 평가 아님'}</p>
       </div>
 
       <div className="overview-layout">
         <section className="score-overview" aria-label="종합 전투력과 스탯">
-          <button className="power-card power-card-button" type="button" onClick={onSelectOverall} aria-label="Overall Combat Power 전체 캐릭터 순위 보기">
-            <span>Overall Combat Power · 현재 계산값 <span aria-hidden="true">↗</span></span>
+          <button className="power-card power-card-button" type="button" onClick={onSelectOverall} aria-label="종합 전투력 전체 캐릭터 순위 보기">
+            <span>종합 전투력 · 현재 계산값 <span aria-hidden="true">↗</span></span>
             <strong>{result.finalScore.toFixed(1)}<small>/100</small></strong>
-            <span>{result.calculationModelVersion} · Balanced · 7 Core Stats · Haki Weight ×{result.hakiWeight}</span>
+            <span>{result.calculationModelVersion} · 균형형 · 핵심 스탯 7개 · 패기 가중치 ×{result.hakiWeight}</span>
           </button>
           <div className="stat-heading">
-            <h2>Core Combat Stats</h2>
+            <h2>핵심 전투 스탯</h2>
             <span>점수를 누르면 전체 캐릭터 비교 · 정렬 전환 가능</span>
           </div>
           <StatList items={detail.evaluation.items} hakiWeight={result.hakiWeight} onSelectStat={onSelectStat} />
@@ -111,7 +111,7 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
             onClick={() => setActiveDetail('evaluation')}>평가 근거 · 계산식</button>
           <button id="battle-tab" type="button" role="tab" aria-selected={activeDetail === 'battle'}
             aria-controls="detail-content" className={activeDetail === 'battle' ? 'selected' : ''}
-            onClick={() => setActiveDetail('battle')}>전투 기록 · 원작 Evidence</button>
+            onClick={() => setActiveDetail('battle')}>전투 기록 · 원작 근거</button>
         </div>
         <div id="detail-content" className="detail-tab-content" role="tabpanel"
           aria-labelledby={activeDetail === 'evaluation' ? 'evaluation-tab' : 'battle-tab'}>
@@ -121,7 +121,7 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
               : <p className="empty-note">평가 근거가 없습니다.</p>
           ) : (
             <section className="evidence-section">
-              <p className="eyebrow">BATTLE & CANON EVIDENCE</p>
+              <p className="eyebrow">전투 기록과 원작 근거</p>
               <h2>전투 기록</h2>
               <p className="section-note">
                 전투를 선택하면 상황과 원작 근거가 펼쳐집니다. 전투 기록은 캐릭터 전체 이력이며, 현재 선택한 평가 시점에 실제 사용된 근거는 평가 근거 탭에서 확인합니다.

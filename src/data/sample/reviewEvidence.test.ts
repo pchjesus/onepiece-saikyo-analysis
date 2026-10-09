@@ -71,7 +71,7 @@ describe('evidence-only review before approved calibration', () => {
     expect(sampleEvaluations.find(({ id }) => id === 'evaluation-mihawk')?.evaluationDataVersion)
       .toBe('evaluation-0.1.29-draft')
     expect(sampleEvaluations.find(({ id }) => id === 'evaluation-kuzan')?.evaluationDataVersion)
-      .toBe('evaluation-0.1.30-draft')
+      .toBe('evaluation-0.1.38-hybrid-A-approved')
     expect(sampleEvaluations.find(({ id }) => id === 'evaluation-crocodile')?.evaluationDataVersion)
       .toBe('evaluation-0.1.30-draft')
     for (const evaluation of sampleEvaluations) {

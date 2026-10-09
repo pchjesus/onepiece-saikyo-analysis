@@ -38,7 +38,7 @@ describe('v0.1.35 Sakazuki evidence-first calibration pilot', () => {
     expect(sakazuki.items.filter(({ readiness }) => readiness === 'E2')).toHaveLength(6)
     const refs = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
     expect(validateEvidenceLinks(sakazuki, refs)).toEqual({ valid: true, errors: [] })
-    expect(sakazuki.evaluationDataVersion).toBe('evaluation-0.1.35-evidence-only-draft')
+    expect(sakazuki.evaluationDataVersion).toBe('evaluation-0.1.38-hybrid-A-approved')
   })
 
   it('preserves all prior scores, Haki typed Raw, rankings and source-pool coverage', () => {
@@ -63,6 +63,6 @@ describe('v0.1.35 Sakazuki evidence-first calibration pilot', () => {
     // Additional Katakuri review may improve Readiness beyond the original Sakazuki-only baseline.
     expect(rows.filter(({ readiness }) => !readiness).length).toBeLessThanOrEqual(196)
     expect(rows.flatMap(({ hakiContributions }) => hakiContributions)
-      .reduce((sum, contribution) => sum + contribution.amount, 0)).toBe(256)
+      .reduce((sum, contribution) => sum + contribution.amount, 0)).toBe(244)
   })
 })

@@ -10,10 +10,10 @@ type TimelineItem = {
 }
 
 const structureLabels: Record<Battle['combatStructure'], string> = {
-  '1v1': '1 vs 1',
-  'multiple-vs-one': 'Multiple vs 1',
-  'one-vs-multiple': '1 vs Multiple',
-  'multiple-vs-multiple': 'Multiple vs Multiple',
+  '1v1': '1대1',
+  'multiple-vs-one': '다수 대 1',
+  'one-vs-multiple': '1 대 다수',
+  'multiple-vs-multiple': '다수 대 다수',
 }
 
 export function BattleTimeline({ items }: { items: TimelineItem[] }) {

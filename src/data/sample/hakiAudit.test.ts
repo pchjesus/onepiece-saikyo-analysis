@@ -36,7 +36,7 @@ describe('37-character master pool / 39-evaluation Haki / Evidence audit', () =>
     }
   })
 
-  it('ensures documented positive Haki applications are separately scored without duplicate invention', () => {
+  it('checks verified exceptional Raw and approved ordinary-Haki A transfers without duplicate invention', () => {
     const item = (id: string, stat: string) => sampleEvaluations.find(e => e.characterId === id)?.items.find(i => i.stat === stat)
     expect(getRawHakiContributionTotal(item('shanks', 'attack')!)).toBe(6)
     expect(getRawHakiContributionTotal(item('shanks', 'techniqueMastery')!)).toBe(8)
@@ -49,7 +49,8 @@ describe('37-character master pool / 39-evaluation Haki / Evidence audit', () =>
     expect(getRawHakiContributionTotal(currentGarp?.items.find(i => i.stat === 'attack')!)).toBe(6)
     expect(currentGarp?.items.find(i => i.stat === 'attack')?.score).toBe(96)
     expect(getRawHakiContributionTotal(item('kuzan', 'techniqueMastery')!)).toBe(4)
-    expect(getRawHakiContributionTotal(item('akainu', 'defense')!)).toBe(2)
+    expect(getRawHakiContributionTotal(item('akainu', 'defense')!)).toBe(0)
+    expect(item('akainu', 'defense')?.baseScore).toBe(95)
     expect(getRawHakiContributionTotal(item('kizaru', 'defense')!)).toBe(2)
     expect(getRawHakiContributionTotal(item('fujitora', 'combatIQ')!)).toBe(2)
     expect(getRawHakiContributionTotal(item('shiryu', 'techniqueMastery')!)).toBe(2)

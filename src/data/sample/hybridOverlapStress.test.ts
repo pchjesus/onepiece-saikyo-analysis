@@ -16,10 +16,10 @@ describe('Haki cross-stat overlap: non-production sensitivity, never a score rec
     expect(evaluations.flatMap(({ items }) => items)).toHaveLength(273)
     expect(evaluations.flatMap(({ items }) => items)
       .flatMap(({ hakiContributions }) => hakiContributions)
-      .reduce((sum, c) => sum + c.amount, 0)).toBe(228)
+      .reduce((sum, c) => sum + c.amount, 0)).toBe(216)
     expect(sampleEvaluations.flatMap(({ items }) => items)
       .flatMap(({ hakiContributions }) => hakiContributions)
-      .reduce((sum, c) => sum + c.amount, 0)).toBe(256)
+      .reduce((sum, c) => sum + c.amount, 0)).toBe(244)
 
     const expected = [
       ['evaluation-kuzan', 'techniqueMastery', 93, 91],

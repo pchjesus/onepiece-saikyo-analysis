@@ -1170,10 +1170,10 @@ export const sampleEvidence: Evidence[] = [
     id: "evidence-shanks-kid-divine-departure-1079",
     battleId: "elbaf-shanks-kid-1079",
     subjectCharacterId: "shanks",
-    source: { type: 'canon', reference: "One Piece Manga Chapter 1079", description: "키드의 함대 공격 미래를 본 뒤 신피로 선제 제압" },
+    source: { type: 'canon', reference: "One Piece Manga Chapter 1079", description: "키드의 함대 공격 미래를 본 뒤 카무사리로 선제 제압" },
     evidenceStrength: "strong",
-    fact: "샹크스는 키드가 Damned Punk로 함대에 막대한 피해를 줄 미래를 예견하고 빠르게 접근해 신피로 키드를 한 차례에 제압했다.",
-    supportedAbilities: ["미래예지","고속 접근","신피","검술과 패기의 공격 운용"],
+    fact: "샹크스는 키드가 Damned Punk로 함대에 막대한 피해를 줄 미래를 예견하고 빠르게 접근해 카무사리로 키드를 한 차례에 제압했다.",
+    supportedAbilities: ["미래예지","고속 접근","카무사리","검술과 패기의 공격 운용"],
     statContributions: [
       { stat: "attack", role: "primary", note: "강한 상대를 실제 선제 타격으로 제압한 결정력의 직접 근거다." },
       { stat: "speed", role: "secondary", note: "상대의 대규모 공격 발동 이전에 거리를 좁히고 행동한 접근·실행 성과다." },

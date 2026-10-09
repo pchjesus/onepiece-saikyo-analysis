@@ -4,27 +4,29 @@ import type { Evidence } from '../../domain/evidence/types'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
 
 const structureLabels: Record<Battle['combatStructure'], string> = {
-  '1v1': '1 vs 1',
-  'multiple-vs-one': 'Multiple vs 1',
-  'one-vs-multiple': '1 vs Multiple',
-  'multiple-vs-multiple': 'Multiple vs Multiple',
+  '1v1': '1대1',
+  'multiple-vs-one': '다수 대 1',
+  'one-vs-multiple': '1 대 다수',
+  'multiple-vs-multiple': '다수 대 다수',
 }
 
 const intentLabels: Record<Battle['combatIntent'], string> = {
-  normal: 'Normal',
-  serious: 'Serious',
-  'full-power': 'Full Power',
-  'lethal-intent': 'Lethal Intent',
-  unknown: 'Unknown',
+  normal: '일반 교전',
+  serious: '진지한 교전',
+  'full-power': '전력 발휘',
+  'lethal-intent': '살상 의도',
+  unknown: '불명',
 }
 
 const resultLabels: Record<Battle['result'], string> = {
-  victory: 'Victory',
-  defeat: 'Defeat',
-  draw: 'Draw',
-  interrupted: 'Interrupted',
+  victory: '승리',
+  defeat: '패배',
+  draw: '무승부',
+  interrupted: '중단',
   unknown: 'Unknown',
 }
+
+const evidenceStrengthLabels = { strong: '높음', moderate: '중간', weak: '제한적', unclear: '불명확' } as const
 
 const contributionRoleLabels = { primary: '주요 근거', secondary: '보조 근거', context: '상황 참고' } as const
 
@@ -80,7 +82,7 @@ export function EvidenceList({
         <article className="evidence-card" key={evidence.id}>
           <div className="evidence-meta">
             <span>{normalizeCharacterNamesForDisplay(evidence.source.reference)}</span>
-            <span>{evidence.evidenceStrength}</span>
+            <span>{evidenceStrengthLabels[evidence.evidenceStrength]}</span>
           </div>
           <h3>{battle ? normalizeCharacterNamesForDisplay(battle.title) : '연결된 전투 정보 없음'}</h3>
           {evidence.source.description && <p className="evidence-description">{normalizeCharacterNamesForDisplay(evidence.source.description)}</p>}

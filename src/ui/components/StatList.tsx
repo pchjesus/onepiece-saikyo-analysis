@@ -23,11 +23,11 @@ export function StatList({ items, hakiWeight, onSelectStat }: {
               <button className="stat-rank-trigger" type="button" onClick={() => onSelectStat(item.stat)} aria-label={`${definition.label} 전체 캐릭터 순위 보기`}>
                 <span className="stat-name">
                   {definition.label}
-                  {item.readiness && <small className={`readiness-badge ${item.readiness.toLowerCase()}`} title="Evidence readiness">근거 {item.readiness}</small>}
+                  {item.readiness && <small className={`readiness-badge ${item.readiness.toLowerCase()}`} title="근거 충분도">근거 {item.readiness}</small>}
                 </span>
                 <span className="stat-score">
                   <strong>{item.score}</strong>
-                  {rawHaki > 0 && <small className="stat-breakdown">Base {item.baseScore} + Haki {effectiveHaki}</small>}
+                  {rawHaki > 0 && <small className="stat-breakdown">기본점수 {item.baseScore} + 패기 {effectiveHaki}</small>}
                   <small className="stat-rank-hint">전체 순위 ↗</small>
                 </span>
               </button>

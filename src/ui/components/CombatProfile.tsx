@@ -64,9 +64,9 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
   return (
     <section className="combat-profile-section">
       <div>
-        <p className="eyebrow">CANON COMBAT PROFILE</p>
+        <p className="eyebrow">원작 전투 프로필</p>
         <h2>전투 프로필</h2>
-        <p className="section-note">평가 점수와 분리된 원작 기반 전투 정보입니다. 특수 전투요소는 별도 점수를 갖지 않으며 실제 성과가 확인된 Core Stat의 근거로 사용합니다.</p>
+        <p className="section-note">평가 점수와 분리된 원작 기반 전투 정보입니다. 특수 전투요소는 별도 점수를 갖지 않으며 실제 성과가 확인된 핵심 스탯의 근거로 사용합니다.</p>
       </div>
       <div className="combat-profile-grid">
         <article className="profile-card">
@@ -77,12 +77,12 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
           <div className="special-traits-heading">
             <h3>특수 전투요소</h3>
             <details className="special-help" ref={helpRef}>
-              <summary aria-label="특수 전투요소 Evidence 및 점수 반영 설명" title="특수 전투요소 설명 보기">?</summary>
+              <summary aria-label="특수 전투요소 근거 및 점수 반영 설명" title="특수 전투요소 설명 보기">?</summary>
               <div className="special-help-bubble" role="note">
-                <strong>Evidence와 Overall</strong>
-                <p>특수 전투요소 자체는 Overall에 직접 가산하지 않아. 해당 능력으로 실제 성과가 확인되면 관련 Core Stat 평가의 근거로 활용해.</p>
+                <strong>근거와 종합 전투력</strong>
+                <p>특수 전투요소 자체는 종합 전투력에 직접 가산하지 않아. 해당 능력으로 실제 성과가 확인되면 관련 핵심 스탯 평가의 근거로 활용해.</p>
                 {profile.specialTraits.length > 0 ? (
-                  <ul>{profile.specialTraits.map((trait) => <li key={trait.id}>{trait.name} · 연결 Evidence {trait.evidenceIds.length}건</li>)}</ul>
+                  <ul>{profile.specialTraits.map((trait) => <li key={trait.id}>{trait.name} · 연결 근거 {trait.evidenceIds.length}건</li>)}</ul>
                 ) : <p>현재 연결된 특수 전투요소가 없어.</p>}
                 <small>연결 건수는 점수나 근거의 강도를 뜻하지 않아.</small>
               </div>
@@ -131,7 +131,7 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
           </dl>
         </article>
         <article className="profile-card profile-sources">
-          <h3>Canon Profile 근거</h3>
+          <h3>원작 전투 프로필 근거</h3>
           <ul>{profile.sources.map((source) => <li key={`${source.label}-${source.reference}`}><strong>{source.label}</strong> · {normalizeCharacterNamesForDisplay(source.reference)}</li>)}</ul>
         </article>
       </div>
