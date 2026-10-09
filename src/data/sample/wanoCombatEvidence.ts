@@ -5,13 +5,13 @@ import type { Evidence } from '../../domain/evidence/types'
 export const wanoDetailedBattles: Battle[] = [
   {
     "id": "battle-wano-detailed-kid-big-mom-1066",
-    "title": "키드·로 연계 vs 빅 맘",
+    "title": "키드·로 연계 vs 빅 맘 (1066화 공격·1067화 승리)",
     "chronologyOrder": 620,
     "combatStructure": "multiple-vs-one",
     "combatPurpose": "사건별 전투 목적·상호작용 검증",
     "combatIntent": "unknown",
     "environment": "원작 와노쿠니 전투·신세계 교전",
-    "restrictions": "2대1 공투와 누적 피해; 지형·연속 타격·추락 맥락이 존재한다. 각성 기술의 총소모나 킬러 등 타인의 피해는 분리한다.",
+    "restrictions": "2대1 공투와 누적 피해; 지형·연속 타격·추락 맥락이 존재한다. 1066화는 최종 공격, 1067화에서 지하 추락·폭발 뒤 승리가 확인된다. 각성 기술의 총소모나 타인의 기여는 분리한다.",
     "externalFactors": "공식 TV 요약은 만화 원문의 모든 패널을 직접 대조한 것이 아니며 누적 피해/개입은 각 사실에 포함한다.",
     "result": "victory",
     "participantIds": []
@@ -96,13 +96,13 @@ export const wanoDetailedBattles: Battle[] = [
   },
   {
     "id": "battle-wano-detailed-whos-jinbe-1040",
-    "title": "후즈 후 vs 징베",
+    "title": "후즈 후와 부하들 vs 징베",
     "chronologyOrder": 570,
-    "combatStructure": "1v1",
+    "combatStructure": "multiple-vs-one",
     "combatPurpose": "사건별 전투 목적·상호작용 검증",
     "combatIntent": "unknown",
     "environment": "원작 와노쿠니 전투·신세계 교전",
-    "restrictions": "과거 CP9 경력과 징베에 대한 적대·감정적 발언이 교전에 개입; 기술을 사용했다는 사실과 상대에게 입힌 실질 피해는 구분한다.",
+    "restrictions": "1038화에서 후즈 후 측의 매복 병력이 징베를 총격한 사실이 확인된다. 따라서 전체 장면을 순수 1대1로 환산하지 않는다. CP9 경력과 징베에 대한 감정적 발언은 기술 위력과 분리한다.",
     "externalFactors": "공식 TV 요약은 만화 원문의 모든 패널을 직접 대조한 것이 아니며 누적 피해/개입은 각 사실에 포함한다.",
     "result": "defeat",
     "participantIds": []
@@ -181,7 +181,7 @@ export const wanoDetailedEvidence: Evidence[] = [
     "subjectCharacterId": "kid",
     "source": {
       "type": "supplementary",
-      "reference": "ONE PIECE.com 공식 애니 전투 요약 https://one-piece.com/anime/62293/index.html"
+      "reference": "ONE PIECE.com 공식 애니 1066화(공격) https://one-piece.com/anime/62293/index.html · 1067화(최종 승리) https://one-piece.com/anime/62440/index.html"
     },
     "evidenceStrength": "moderate",
     "fact": "로가 K-ROOM과 관통 기술로 빅 맘에게 큰 손상을 입힌 직후 키드가 전자기포 다무드 펑크를 적중시켰다.",
@@ -1006,7 +1006,7 @@ export const wanoDetailedEvidence: Evidence[] = [
     "subjectCharacterId": "whos-who",
     "source": {
       "type": "supplementary",
-      "reference": "ONE PIECE.com 공식 애니 전투 요약 https://one-piece.com/anime/o6327/index.html"
+      "reference": "ONE PIECE.com 공식 애니 1038화(후즈 후 측 병력 개입) https://one-piece.com/anime/o6323/index.html · 1040화(징베 결정타) https://one-piece.com/anime/o6327/index.html"
     },
     "evidenceStrength": "moderate",
     "fact": "후즈 후는 육식 지건반을 시전했으나 징베가 공격을 견디고 귀와정권을 적중시켜 제압했다.",
