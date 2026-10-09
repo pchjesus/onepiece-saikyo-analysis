@@ -45,9 +45,9 @@ describe('approved qualitative Haki excellence rubric', () => {
   })
 
   it('maintains 39 post-A approved numeric Evaluations and weighted calculation while metadata remains separate', () => {
-    expect(sampleEvaluations).toHaveLength(45)
+    expect(sampleEvaluations).toHaveLength(62)
     const rows = sampleEvaluations.flatMap(({ items }) => items)
-    expect(rows).toHaveLength(315)
+    expect(rows).toHaveLength(434)
     expect(rows.flatMap(({ hakiContributions }) => hakiContributions).reduce((sum, item) => sum + item.amount, 0))
       .toBe(244)
     for (const evaluation of sampleEvaluations) {
