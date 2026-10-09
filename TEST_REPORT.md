@@ -1,3 +1,13 @@
+# v0.1.58 — Read-only score calibration and Haki cross-stat overlap diagnostic
+
+- Baseline: `main@85ab40a3c8d92e9aef0795d5a917460423d62d7c` (v0.1.57).
+- Changed only a **new test file** and diagnostic/docs/README/CHANGELOG/TEST_REPORT; no Base, Raw, Final, Overall, source Evidence, Matchup, Calculation Model, PROJECT_SPEC, app UI or storage data changes.
+- Added `scoreCalibrationDiagnosticsV0158.test.ts` to verify all 59 default Evaluation×7 stat computed Final values, Balanced 1.2 formula and uncapped current range, 413 readiness labels and per-stat density, default Haki Raw226 vs all 62/434 historical-inclusive Raw244, 15 matchups, **13 shared Raw-Evidence across-stat references** with guard examples, and isolated one-Final-only −5 rank stress scenario with original values preserved.
+- Full source-derived 59×7 matrix, high-E3 14, 4 genuinely unlinked E3, and model/score version semantics: [baseline](docs/V0_1_58_59x7_BASE_RAW_FINAL_READINESS_BASELINE_2026-10-10.md). [Risk/Rank/decision brief](docs/V0_1_58_COMPREHENSIVE_SCORING_VALIDITY_AND_DECISION_BRIEF_2026-10-10.md).
+- GitHub PR CI tests/build and main Pages must be checked on the actual head and merge SHA. No claim of independently verifying all original manga pages or manually interacting with mobile browser.
+
+---
+
 # v0.1.57 — Completed default Evidence readiness audit and scoring-model preservation
 
 - Baseline main `4be641e9b0d0aec29c4206f6a0b5462b5bff3c42` (v0.1.56). Classified previously missing **51 EvaluationItem.readiness** metadata axes; E1+10/E2+35/E3+6.
