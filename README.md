@@ -1,6 +1,6 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.1.54** (npm package 버전은 **0.1.34** 유지)  
+현재 구현 패치: **v0.1.55** (npm package 버전은 **0.1.34** 유지)  
 평가 데이터: **60 Character master pool · 59 evaluated unique Character · 73 Membership · 62 Evaluation · 434 Stat**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
@@ -16,6 +16,8 @@
 - [v0.1.37 검토용 — 산먹깨비·한글 용어·패기 수치 승인안](docs/V0_1_37_KOREAN_TERMS_AND_HYBRID_APPROVAL_2026-10-09.md)
 - [신규 2집단 사전 Evidence 조사 — 혁명군·CP0](docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md)
 - [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
+- [v0.1.55 5명 31축 원작 기반 충분도 검수](docs/V0_1_55_FIVE_CHARACTER_CANON_READINESS_AUDIT_2026-10-09.md)
+- [v0.1.55 이전 미분류 111축 전체 전후 Evidence 추적표](docs/V0_1_55_111_AXIS_TRACE_2026-10-09.md)
 - [v0.1.54 37축 Evidence-role & Context 개별 감사](docs/V0_1_54_ROLELESS_CONTEXT_37_AXIS_ADJUDICATION_2026-10-09.md)
 - [v0.1.54 148축 전후 추적표/111축 보류](docs/V0_1_54_148_AXIS_SOURCE_ROLE_MATRIX_2026-10-09.md)
 - [v0.1.54 이후 111축 검수→스케일 검증→Matchup·UX 개발 로드맵](docs/V0_1_54_POST_AXIS_AUDIT_ROADMAP_2026-10-09.md)

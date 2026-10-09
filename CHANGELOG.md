@@ -1,3 +1,13 @@
+## v0.1.55 — Five-character combat-context readiness audit, 31 axes
+
+- Manually adjudicate **31 previously unresolved axes** in five character profiles: **Cracker 5, Law 7, Doflamingo 7, Jinbe 6, Shanks 6**, with existing linked Evidence roles, evaluator rationale, and relevant official ONE PIECE.com anime episode synopses.
+- New metadata **E1 +9, E2 +20, E3 +2**, all source-aligned. Representative (59×7 = 413) distribution E1 **39**, E2 **189**, E3 **105**, unset **80**. The 80 remaining axes have existing Evidence stat roles: primary **49**, secondary **31**.
+- Preserve key combat conditions: Law vs Big Mom was **Law and Kid** vs Big Mom (plus fall/explosion); Cracker vs Luffy involved **Nami** and moisture-based biscuit counter; Doflamingo's organ suture is not full healing, and Gear 4 exposed limits; Jinbe's Ace five-day fight is a project manga citation, not independently confirmed by official TV synopsis; Shanks's **future sight** is separated from pure Speed 95 and Dorry/Brogy's ship destruction.
+- E3 high-score caveats explicitly preserved **Shanks Speed 95 and Law Speed 82**. Readiness change is not a character downgrade and does not change Final/Overall ranks.
+- No new Evidence items, status fields beyond 31 readiness additions, score edits, Haki Raw, Calculation Model, battle/matchup changes, PROJECT_SPEC or UI changes.
+- New full 111-axis before/after trace matrix, 31-axis evidence/canon/context report, and dedicated regression test; update legacy fixed distribution snapshots. Keep v0.1.54 forward product roadmap (after 80 pending axes → 59×7 scale calibration → UX → matchup).
+- [31-axis report](docs/V0_1_55_FIVE_CHARACTER_CANON_READINESS_AUDIT_2026-10-09.md) · [111-axis matrix](docs/V0_1_55_111_AXIS_TRACE_2026-10-09.md).
+
 ## v0.1.54 — 37 roleless/context-only axis evidence adjudication
 
 - Complete the highest-risk gap pass among 148 unresolved axes: **23 linked with no statContributions for their own axis** + **14 linked only as context**. Classify **37 individually** with **7 E2 / 30 E3**, while explicitly preserving weak/sparse source uncertainty.
