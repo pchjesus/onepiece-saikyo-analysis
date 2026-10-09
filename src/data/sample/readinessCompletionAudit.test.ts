@@ -61,7 +61,7 @@ describe('v0.1.57 completed default-readiness evidence audit', () => {
     const unlinked = defaults.flatMap((evaluation) => evaluation.items
       .filter((s) => s.evidenceIds.length === 0)
       .map((s) => evaluation.characterId + ':' + s.stat))
-    expect(unlinked.sort()).toEqual(['ryokugyu:speed', 'shanks:stamina', 'smoothie:speed'].sort())
+    expect(unlinked.sort()).toEqual(['akainu:speed', 'ryokugyu:speed', 'shanks:stamina', 'smoothie:speed'].sort())
     for (const key of unlinked) {
       const [character, stat] = key.split(':')
       expect(axis(character, stat as CombatStat).readiness).toBe('E3')
