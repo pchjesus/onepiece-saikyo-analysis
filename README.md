@@ -9,6 +9,7 @@
 - [하이브리드 Haki 확정 기준](docs/HYBRID_HAKI_CRITERIA_2026-10-09.md)
 - [v0.1.35 초안 — 전체 39 평가 재산정 위험 검토](docs/HYBRID_RECALIBRATION_DECISION_REPORT_2026-10-09.md)
 - [v0.1.35 초안 — 6인 하이브리드 Haki 재산정 파일럿](docs/HYBRID_HAKI_PILOT_RECALIBRATION_2026-10-09.md)
+- [v0.1.35 초안 — Haki Raw 14건 판정 및 4건 실제 Base 이관 후보](docs/HYBRID_HAKI_14_CONTRIBUTION_DISPOSITION_2026-10-09.md)
 - [v0.1.35 초안 — 273축 Base/Raw/Final 전후 감사표](docs/HYBRID_RECALIBRATION_273_STAT_AUDIT_2026-10-09.md)
 - [전체 39 Evaluation 전수 감사](docs/FULL_ROSTER_SCALE_HAKI_REVIEW_2026-10-09.md)
 - [프로젝트 입문 가이드](docs/PROJECT_GUIDE.md)
