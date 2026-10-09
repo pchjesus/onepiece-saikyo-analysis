@@ -15,6 +15,7 @@
 - [전체 39 Evaluation 전수 감사](docs/FULL_ROSTER_SCALE_HAKI_REVIEW_2026-10-09.md)
 - [v0.1.37 검토용 — 산먹깨비·한글 용어·패기 수치 승인안](docs/V0_1_37_KOREAN_TERMS_AND_HYBRID_APPROVAL_2026-10-09.md)
 - [신규 2집단 사전 Evidence 조사 — 혁명군·CP0](docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md)
+- [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
 - [프로젝트 입문 가이드](docs/PROJECT_GUIDE.md)
 
 ## 현재 평가 로스터
