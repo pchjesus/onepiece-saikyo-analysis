@@ -113,6 +113,31 @@ describe('v0.1.35 concrete Hybrid Raw decomposition preview (non-production)', (
     expect(delta(1)).toBeCloseTo(-3, 10)
   })
 
+  it('links new Katakuri composure-based support to the existing battle without making it a numeric Haki bonus', () => {
+    const evidence = sampleEvidence.find((item) =>
+      item.id === 'evidence-katakuri-composure-future-sight-857')!
+    expect(evidence.subjectCharacterId).toBe('katakuri')
+    expect(evidence.battleId).toBe('whole-cake-katakuri-luffy')
+    expect(evidence.source.type).toBe('supplementary')
+    expect(evidence.fact).toContain('침착함')
+    expect(evidence.uncertainty).toContain('독립')
+    expect(evidence.statContributions.find((item) => item.stat === 'defense')?.role).toBe('primary')
+    expect(evidence.statContributions.find((item) => item.stat === 'techniqueMastery')?.role)
+      .toBe('secondary')
+    const katakuri = sampleEvaluations.find((e) => e.id === 'evaluation-katakuri')!
+    expect(katakuri.evaluationDataVersion).toBe('evaluation-0.1.35-haki-evidence-review-draft')
+    for (const stat of ['attack', 'defense', 'techniqueMastery', 'combatIQ']) {
+      expect(katakuri.items.find((item) => item.stat === stat)?.readiness, stat).toBe('E2')
+    }
+    for (const stat of ['defense', 'techniqueMastery', 'combatIQ']) {
+      expect(katakuri.items.find((item) => item.stat === stat)?.evidenceIds).toContain(evidence.id)
+    }
+    expect(sampleEvaluations.flatMap((e) => e.items).filter((item) => !item.readiness))
+      .toHaveLength(192)
+    expect(sampleEvaluations.flatMap((e) => e.items).filter((item) =>
+      item.evidenceIds.length === 0)).toHaveLength(11)
+  })
+
   it('rejects stale, duplicated or unsupported proposals instead of silently applying them', () => {
     expect(() => previewHybridRawPilot(sampleEvaluations,
       [...hybridRawPilotReviews, hybridRawPilotReviews[0]], 0.5)).toThrow('Duplicate pilot review')
