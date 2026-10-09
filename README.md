@@ -1,6 +1,6 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.1.47** (npm package 버전은 **0.1.34** 유지)  
+현재 구현 패치: **v0.1.48** (npm package 버전은 **0.1.34** 유지)  
 평가 데이터: **60 Character master pool · 59 evaluated unique Character · 73 Membership · 62 Evaluation · 434 Stat**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
@@ -16,6 +16,7 @@
 - [v0.1.37 검토용 — 산먹깨비·한글 용어·패기 수치 승인안](docs/V0_1_37_KOREAN_TERMS_AND_HYBRID_APPROVAL_2026-10-09.md)
 - [신규 2집단 사전 Evidence 조사 — 혁명군·CP0](docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md)
 - [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
+- [v0.1.48 B안 전체 인물 선택기 및 Overall 신뢰성 감사](docs/V0_1_48_B_PICKER_AND_OVERALL_VALIDITY_AUDIT_2026-10-09.md)
 - [v0.1.47 59명×7축 감사 및 A안 6인 재산정 결과](docs/V0_1_47_A_PATH_59_CHARACTER_SEVEN_AXIS_CROSS_AUDIT_2026-10-09.md)
 - [v0.1.46 공식 에피소드·전투 구도 대조 / 루치·카쿠 잠정 평가 점검](docs/V0_1_46_OFFICIAL_EPISODE_CROSSCHECK_2026-10-09.md)
 - [v0.1.45 키드 해적단·아카자야 9남자·토비롯포 17명 근거·스탯 보고서](docs/V0_1_45_WANO_THREE_GROUP_EVIDENCE_RECALIBRATION_2026-10-09.md)
