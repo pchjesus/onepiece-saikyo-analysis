@@ -71,7 +71,7 @@ export const sampleCharacters: Character[] = [
     crewId: 'whitebeard-pirates', knownAs: [{ kind: 'epithet', name: '화검의 비스타', source: { label: 'ONE PIECE.com', reference: '비스타 공식 캐릭터 페이지 — 通称「花剣のビスタ」' } }],
     description: '흰수염 해적단 5번대 대장. 이도류 대검호로 미호크와 직접 검술 공방을 성립시킨다.',
     combatProfile: {
-      combatStyles: ['이도류 검술', '근접 검격', '강자 요격'],
+      combatStyles: ['이도류 검술', '정밀 검격'],
       specialTraits: [],
       haki: {
         characterId: 'vista',
@@ -216,11 +216,12 @@ export const sampleCharacters: Character[] = [
     crewId: 'big-mom-pirates', knownAs: [],
     description: '빅 맘 해적단 스위트 3장성. 모치 능력과 고도로 단련된 견문색을 결합하는 전투가 핵심이다.',
     combatProfile: {
-      combatStyles: ['근접 격투', '삼지창', '중·원거리 모치 공격', '미래예지 기반 회피·대응', '각성 능력 활용'],
+      combatStyles: ['근접 격투', '삼지창', '중·원거리 모치 공격', '미래예지 기반 회피·대응'],
       specialTraits: [
         {
           id: 'special-katakuri-mochi',
           category: 'devil-fruit',
+          awakening: 'confirmed',
           name: '모치모치 열매',
           status: 'confirmed',
           description: '모치를 생성·변형·경화하고 각성으로 주변 환경까지 모치화해 구속과 공간 제어에 활용한다.',
@@ -330,7 +331,7 @@ export const sampleCharacters: Character[] = [
     id: 'sanji', name: '상디', crewId: 'straw-hat-pirates', knownAs: [{ kind: 'epithet', name: '검은 다리 상디', source: { label: 'ONE PIECE.com', reference: '상디 공식 캐릭터 페이지 — 通称「黒足のサンジ」' } }],
     description: '밀짚모자 일당의 요리사이자 전투원. 발기술, 초고속 기동, 공중전과 각성한 신체·Ifrit Jambe를 결합한다.',
     combatProfile: {
-      combatStyles: ['발기술', '공중전', 'Sky Walk', 'Diable Jambe', 'Ifrit Jambe', '고속 요격·구조'],
+      combatStyles: ['발기술', 'Sky Walk', 'Diable Jambe', 'Ifrit Jambe', '고속 요격·구조'],
       specialTraits: [{
         id: 'special-sanji-genetic-modification', category: 'modification', name: 'Germa 계열 신체 개조 각성', status: 'confirmed',
         description: '오니가시마에서 외골격·높은 신체 강도와 회복 특성이 각성해 전투에 직접 사용된다.',
@@ -410,7 +411,7 @@ export const sampleCharacters: Character[] = [
       ]}, sources: [{ label: '원작 Evidence', reference: 'Marineford / Punk Hazard 10-day duel / Egghead-era Kuma encounter' }] },
   },
   {
-    id: 'kuzan', name: '쿠잔', crewId: 'marines', knownAs: [{ kind: 'alias', name: '아오키지', source: { label: 'ONE PIECE.com', reference: '쿠잔 공식 캐릭터 페이지 — 通称「青雉」' } }],
+    id: 'kuzan', name: '쿠잔', crewId: 'blackbeard-pirates', knownAs: [{ kind: 'alias', name: '아오키지', source: { label: 'ONE PIECE.com', reference: '쿠잔 공식 캐릭터 페이지 — 通称「青雉」' } }],
     description: '전 해군대장. 빙결에 의한 광역 제압·환경 통제와 가프식 무투를 함께 사용하는 복합 전투원이다.',
     combatProfile: { combatStyles: ['빙결', '광역 제압', '근접 무투', 'Ice Glove'], specialTraits: [{ id: 'special-kuzan-ice', category: 'devil-fruit', name: '얼음얼음 열매', status: 'confirmed', description: '빙결을 공격·방어·이동·지형 통제에 폭넓게 사용한다.', evidenceIds: [] }],
       haki: { characterId: 'kuzan', capabilities: [
@@ -483,7 +484,7 @@ export const sampleCharacters: Character[] = [
     id: 'burgess', name: '지저스 바제스', crewId: 'blackbeard-pirates', knownAs: [{ kind: 'epithet', name: '챔피언', source: { label: 'ONE PIECE.com', reference: '지저스 바제스 공식 캐릭터 페이지 — 通称「チャンピオン」' } }],
     description: '검은 수염 해적단 1번선 선장. 강한 완력과 힘힘 열매를 바탕으로 한 근접 격투·대형 투척이 중심이다.',
     combatProfile: {
-      combatStyles: ['근접 격투', '완력 기반 타격', '대형 물체 투척'],
+      combatStyles: ['완력 기반 근접전', '대형 물체 투척'],
       specialTraits: [
         { id: 'special-burgess-strength', category: 'devil-fruit', name: '힘힘 열매', status: 'confirmed', description: '비정상적으로 큰 물체를 들어 던질 수 있을 정도로 완력을 증폭한다.', evidenceIds: ['evidence-burgess-mountain-1063'], limitations: '완력의 크기를 동급 강자에 대한 실제 Attack 결정력과 동일시하지 않는다.' },
       ],
@@ -532,10 +533,11 @@ export const sampleCharacters: Character[] = [
     crewId: 'seven-warlords', knownAs: [{ kind: 'epithet', name: '죽음의 외과의사 트라팔가 로', source: { label: 'ONE PIECE.com', reference: '트라팔가 로 공식 캐릭터 페이지 — 通称「死の外科医」' } }],
     description: '전 왕의 부하 칠무해이자 하트 해적단 선장. 오페오페 열매의 공간 조작·내부 파괴·각성을 검술과 결합한다.',
     combatProfile: {
-      combatStyles: ['검술', 'ROOM 공간 조작', '위치 교환', '내부 파괴', '각성 K-ROOM·R-ROOM', '지원·구출'],
+      combatStyles: ['검술', 'ROOM 공간 조작', '위치 교환', '내부 파괴', '지원·구출'],
       specialTraits: [{
         id: 'special-law-ope',
         category: 'devil-fruit',
+        awakening: 'confirmed',
         name: '오페오페 열매',
         status: 'confirmed',
         description: 'ROOM 안에서 위치·물체·신체를 조작하고, 각성 이후 K-ROOM·R-ROOM으로 내부 타격과 비접촉 효과를 운용한다.',
@@ -561,10 +563,11 @@ export const sampleCharacters: Character[] = [
     ],
     description: '전 왕의 부하 칠무해. 실실 열매의 정밀 조작과 각성, 공중 기동·구속·분신·전장 통제를 결합한다.',
     combatProfile: {
-      combatStyles: ['실 절단', '구속·조종', '공중 이동', '분신', 'Birdcage', '각성 지형 변환'],
+      combatStyles: ['실 절단', '구속·조종', '공중 이동', '분신', 'Birdcage'],
       specialTraits: [{
         id: 'special-doflamingo-ito',
         category: 'devil-fruit',
+        awakening: 'confirmed',
         name: '실실 열매',
         status: 'confirmed',
         description: '실을 절단·구속·조종·이동·분신·응급 봉합에 활용하고, 각성으로 주변 건물과 지형을 실로 변환한다.',
@@ -612,7 +615,7 @@ export const sampleCharacters: Character[] = [
     knownAs: [{ kind: 'epithet', name: '매의 눈', source: { label: 'ONE PIECE.com', reference: '쥬라큘 미호크 공식 캐릭터 페이지 — 「鷹の目」' } }],
     description: '크로스 길드의 핵심 전력. 세계 최강의 검사라는 공식 위상과 흑도 「夜」를 바탕으로 싸우며, 제한된 직접 표본과 샹크스와의 공식 경쟁 관계를 함께 고려한 E2 잠정 평가 대상이다.',
     combatProfile: {
-      combatStyles: ['검술', '근접 검격', '원거리 비상 참격', '정밀 절단', '강자 요격'],
+      combatStyles: ['검술', '근접 검격', '원거리 비상 참격', '정밀 절단'],
       specialTraits: [{ id: 'special-mihawk-yoru', category: 'equipment', name: '흑도 「夜」', status: 'confirmed',
         description: '최상대업물 12공 중 하나인 흑도 「夜」를 사용해 대형 참격과 정밀 검술을 수행한다.',
         evidenceIds: ['evidence-mihawk-world-strongest-profile', 'evidence-mihawk-zoro-49-51'],
@@ -812,9 +815,9 @@ export const sampleCharacters: Character[] = [
     id: 'lucci', name: '로브 루치', crewId: 'cp0', knownAs: [],
     description: 'CP0 요원. 에그헤드에서 동물계 각성 형태로 기어 5 루피와 교전하고 센토마루를 제압했지만 동급 사황 전력 판정은 불가하다.',
     combatProfile: {
-      combatStyles: ['육식', '각성 표범 동물계', '고속 근접 체술', '지건·수건'],
+      combatStyles: ['육식', '표범 동물계 변형', '고속 근접 체술', '지건·수건'],
       specialTraits: [
-        { id: 'special-lucci-leopard', category: 'devil-fruit', name: '고양고양 열매 모델 표범', status: 'confirmed', description: '표범 동물계 각성을 통해 근접 공격과 전투 속도·변형을 활용한다.', evidenceIds: ['evidence-lucci-awakening-1100'] },
+        { id: 'special-lucci-leopard', category: 'devil-fruit', awakening: 'confirmed', name: '고양고양 열매 모델 표범', status: 'confirmed', description: '표범 동물계 각성을 통해 근접 공격과 전투 속도·변형을 활용한다.', evidenceIds: ['evidence-lucci-awakening-1100'] },
       ],
       haki: { characterId: 'lucci', capabilities: [{ type: 'armament', status: 'confirmed', note: '각성 체술과 결합된 기본 무장색 운용. 독립 예외적 원점수는 분리하지 않음' }, { type: 'observation', status: 'unclear', note: '미래예지 또는 고급 견문색 기술 직접 미확인' }, { type: 'conquerors', status: 'not-confirmed', note: '패왕색 보유 확인 없음' }] },
       sources: [{ label: 'ONE PIECE.com', reference: '루치 공식 프로필 · https://one-piece.com/character/Rob_Lucci/index.html' }, { label: '공식 TV 애니', reference: '1100·1109화 에그헤드 교전' }],
@@ -826,7 +829,7 @@ export const sampleCharacters: Character[] = [
     combatProfile: {
       combatStyles: ['쌍도류', '람각', '기린 동물계 변형', '육식'],
       specialTraits: [
-        { id: 'special-kaku-giraffe', category: 'devil-fruit', name: '소소 열매 모델 기린', status: 'confirmed', description: '기린 형태의 체술과 검격을 결합한다. 각성에 대한 추가적 수치 효과는 별도 검증 전 임의 가산하지 않는다.', evidenceIds: ['evidence-kaku-zoro-1104'] },
+        { id: 'special-kaku-giraffe', category: 'devil-fruit', awakening: 'confirmed', name: '소소 열매 모델 기린', status: 'confirmed', description: '기린 형태의 체술과 검격을 결합한다. 각성에 대한 추가적 수치 효과는 별도 검증 전 임의 가산하지 않는다.', evidenceIds: ['evidence-kaku-zoro-1104'] },
       ],
       haki: { characterId: 'kaku', capabilities: [{ type: 'armament', status: 'confirmed', note: '일반 무장색은 기본 검술·체술 성과에 통합, 독립 원점수 없음' }, { type: 'observation', status: 'unclear', note: '고급 견문색 발현 미확정' }, { type: 'conquerors', status: 'not-confirmed', note: '패왕색 보유 확인 없음' }] },
       sources: [{ label: 'ONE PIECE.com', reference: '카쿠 공식 프로필 · https://one-piece.com/character/Kaku/index.html' }, { label: '공식 TV 애니', reference: '1104·1109화 에그헤드 교전' }],
