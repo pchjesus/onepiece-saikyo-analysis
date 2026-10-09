@@ -1,3 +1,11 @@
+## v0.1.50 — 59×7 deep audit and Cracker explanation consistency (no score change)
+
+- Check the unchanged 59-character Final Stat baseline by axis with medians, extrema, concentration, prioritized commander/peer matchups and conditional canon context. Retain the existing v0.1.49 equal-weight Overall diagnostics; do not invent win rates.
+- **Confirmed data-text bug fixed:** Cracker Attack rationale Final 74 → 77 (Base 75 + Armament Raw 4 × 0.5), Defense rationale 76 → Final 81 (Base 81). Stamina Evidence impact's stale “70대 초반” phrasing rewritten to match the current 80 and distinguish ability use from body durability.
+- Add regression test locking Cracker Final [77,81,80,75,80,75,77], Raw 4, Overall 77.857 and explanatory consistency.
+- Preserve numeric stats, 244 Haki Raw, 59 evaluated characters, 62 Evaluations, 434 Core Stats, 73 Memberships, 15 Matchups, Balanced v1.2, `PROJECT_SPEC.md`, picker B UI and theme. Pending canon decisions (Jozu Defense, Queen Versatility, Shiryu Haki source, Smoothie evidence scarcity, Lucci Combat IQ) remain **unmodified**.
+- [59-character final score table and full audit](docs/V0_1_50_SEVEN_AXIS_DEEP_AUDIT_AND_CRACKER_RATIONALE_2026-10-09.md).
+
 ## v0.1.49 — Overall measurement validity, uncertainty and scenario sensitivity audit (59 × 7)
 
 - Audit the exact Balanced 1.2 calculation model and all 59 default character Final Stat arrays (413 data points), distinguishing arithmetic reproducibility from unmeasured score inter-rater reliability and absent independent matchup predictive validation. Do not alter the calculation algorithm.

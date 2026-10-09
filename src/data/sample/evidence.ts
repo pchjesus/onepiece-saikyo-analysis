@@ -676,7 +676,7 @@ export const sampleEvidence: Evidence[] = [
       { stat: 'versatility', role: 'context', note: '강한 시스템이지만 물에 젖는 상성 약점과 반복적인 전투 패턴을 함께 고려한다.' },
     ],
     interpretation: '11시간 전투는 높은 능력 지속력을 보여주지만 본체가 11시간 동안 계속 피해를 견딘 것으로 해석하지 않는다.',
-    evaluationImpact: 'Stamina를 70대 초반으로 평가하는 핵심 근거이되 Jack·Katakuri 수준으로 확대하지 않는다.',
+    evaluationImpact: '장시간 병사 생성·조종을 지속한 Stamina 근거이되, 본체의 피격 내구나 Jack·Katakuri 수준의 고강도 결투 지속으로 확대하지 않는다.',
     uncertainty: '나미의 지원과 상성 개입이 지속되었고 전투의 세부 강도는 시간 전체에서 동일하지 않다.',
   },
   {
