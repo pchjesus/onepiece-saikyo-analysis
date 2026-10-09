@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.37 (검토용, 사용자 컨펌 대기 — 미출시)
+- 정식 단행본 112권 1139화 표제에 근거해 스코퍼 가반 이명 **산먹깨비**를 **해적왕의 왼팔**보다 우선 표시.
+- UI 스탯·계산식·전투 맥락·선택 화면의 영어를 한국어 표기로 통일; 카무사리 및 패기·기본점수·최종점수 통일.
+- 계산 원본/ID/평가 데이터 유지. Hybrid Raw 4건 및 확장 10건의 승인 전 Base 재분류 후보를 독립 시뮬레이션으로 검증.
+- 차기 혁명군·CP0의 근거 조사 문서를 추가했으나 신규 캐릭터/점수는 아직 미등록.
+- **승인 전 main 병합/배포 금지. 패키지 버전 v0.1.34 유지.**
+
 ## v0.1.36 (Draft) — Featured Matchup Selection and Haki Overlap Stress
 
 - Matchup Arena FEATURED pills now highlight the actual selected matchup with dark fill, strong outline and checkmark; `aria-pressed` and keyboard focus ring preserve accessible button semantics. Selection follows swap, manual roster/era changes and randomization without duplicated state.
