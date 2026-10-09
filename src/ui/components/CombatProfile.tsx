@@ -116,19 +116,19 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
           <dl>
             {profile.haki.capabilities.map((capability) => {
               const assessments = profile.haki.excellenceAssessments?.filter(({ type }) => type === capability.type) ?? []
-              const hasExplanation = Boolean(capability.note || capability.infusion?.note ||
-                capability.infusion || assessments.length)
               return (
                 <div key={capability.type}>
                   <dt>{hakiLabels[capability.type]}</dt>
                   <dd>
                     <strong>{statusLabels[capability.status]}</strong>
-                    {hasExplanation && <details className="haki-help">
+                    <details className="haki-help">
                       <summary aria-label={`${hakiLabels[capability.type]} 근거 확인`} title="패기 근거 확인">?</summary>
                       <div className="haki-help-bubble" role="note">
                         <strong>{hakiLabels[capability.type]} · 근거 확인</strong>
                         <p>보유 상태 · {statusLabels[capability.status]}</p>
                         {capability.note && <p>{normalizeCharacterNamesForDisplay(capability.note)}</p>}
+                        {!capability.note && !capability.infusion && assessments.length === 0
+                          && <p>추가 설명이 등록되지 않았습니다. 현재 표시된 패기 보유 상태는 기존 데이터에 따른 것으로, 세부 설명이 없다는 이유로 능력의 부재나 추가 점수를 추정하지 않습니다.</p>}
                         {capability.infusion && <p>패휘감 · {statusLabels[capability.infusion.status]}
                           {capability.infusion.note && <span> · {normalizeCharacterNamesForDisplay(capability.infusion.note)}</span>}
                         </p>}
@@ -143,7 +143,7 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
                           </section>
                         ))}
                       </div>
-                    </details>}
+                    </details>
                   </dd>
                 </div>
               )

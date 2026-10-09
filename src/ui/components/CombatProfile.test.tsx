@@ -63,6 +63,29 @@ describe('qualitative Haki evidence UI', () => {
     }
   })
 
+  it('provides the Haki question control for all three statuses even when details are not yet registered', async () => {
+    const mount = document.createElement('div')
+    document.body.appendChild(mount)
+    const root = createRoot(mount)
+    try {
+      const akainu = sampleCharacters.find((item) => item.id === 'akainu')!
+      await act(async () => { root.render(<CombatProfile profile={akainu.combatProfile}/>) })
+      const rows = [...mount.querySelectorAll('.haki-card dl > div')]
+      expect(rows).toHaveLength(3)
+      expect(rows.every((row) => row.querySelector('.haki-help > summary') !== null)).toBe(true)
+      expect(rows[0].querySelector('.haki-help > summary')?.getAttribute('aria-label')).toBe('무장색 근거 확인')
+      const help = rows[0].querySelector<HTMLDetailsElement>('.haki-help')!
+      await act(async () => { (help.querySelector('summary') as HTMLElement).click() })
+      expect(help.open).toBe(true)
+      expect(help.querySelector('.haki-help-bubble')?.textContent).toContain('추가 설명이 등록되지 않았습니다')
+      await act(async () => { document.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Escape' })) })
+      expect(help.open).toBe(false)
+    } finally {
+      await act(async () => { root.unmount() })
+      mount.remove()
+    }
+  })
+
   it('shows fruit-awakening badge only for explicitly confirmed Devil Fruit awakenings', async () => {
     const mount = document.createElement('div')
     document.body.appendChild(mount)
