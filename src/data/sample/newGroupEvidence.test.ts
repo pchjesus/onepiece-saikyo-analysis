@@ -21,10 +21,10 @@ const groups: Record<string, string[]> = {
 
 const scores: Record<string, number[]> = {
   sabo: [87,83,82,86,88,86,87],
-  morley: [76,78,77,69,80,75,83],
+  morley: [76,80,77,77,83,75,87],
   karasu: [79,75,74,83,83,80,86],
-  lucci: [86,82,85,88,89,81,80],
-  kaku: [80,78,80,85,88,82,82],
+  lucci: [82,79,83,84,84,78,77],
+  kaku: [76,75,77,80,84,79,78],
   stussy: [73,72,70,80,86,85,77],
 }
 
@@ -56,7 +56,7 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
       expect(evals, id).toHaveLength(1)
       const ev=evals[0]
       expect(ev.status).toBe('draft')
-      expect(ev.evaluationDataVersion).toBe('evaluation-0.1.43-evidence-audited-draft')
+      expect(ev.evaluationDataVersion).toBe(['lucci','kaku','morley'].includes(id) ? 'evaluation-0.1.44-cross-calibrated-draft' : 'evaluation-0.1.43-evidence-audited-draft')
       expect(validateEvaluation(ev, refs), id).toEqual({valid:true,errors:[]})
       expect(ev.items).toHaveLength(7)
       expect(ev.items.map(item => item.score), id).toEqual(scores[id])
@@ -78,12 +78,12 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
     }
   })
 
-  it('links 14 distinct official-source Evidence to 10 contexts, without mixing anime supplementary and manga canon', () => {
-    expect(ids.reduce((n,id)=>n+sampleEvidence.filter(e=>e.subjectCharacterId===id).length,0)).toBe(14)
+  it('links 16 checked Evidence records to 11 contexts, without mixing anime supplementary and manga canon', () => {
+    expect(ids.reduce((n,id)=>n+sampleEvidence.filter(e=>e.subjectCharacterId===id).length,0)).toBe(16)
     const expectedBattles = new Set([
       'dressrosa-sabo-bastille','dressrosa-sabo-fujitora','marygeoise-sabo-infiltration',
       'marygeoise-revolutionary-captains','marygeoise-morley-terrain',
-      'egghead-lucci-luffy','egghead-lucci-sentomaru','egghead-kaku-zoro',
+      'egghead-lucci-luffy','egghead-lucci-sentomaru','egghead-lucci-zoro','egghead-kaku-zoro',
       'egghead-cp0-seraphim-coop','egghead-stussy-sleep',
     ])
     for(const id of ids){
@@ -107,7 +107,7 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
     expect(kakuDecision.fact).toContain('직접 제안')
     expect(kakuDecision.source.reference).toContain('ONE PIECE.com TV 1109')
     expect(kaku.items.find(i => i.stat === 'combatIQ')).toMatchObject({
-      baseScore: 82, score: 82, readiness: 'E2',
+      baseScore: 79, score: 79, readiness: 'E2',
     })
     expect(stussy.items.find(i => i.stat === 'speed')).toMatchObject({
       baseScore: 80, score: 80, readiness: 'E3',
@@ -127,14 +127,14 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
     const ranking = getStatRanking('overall')
     expect(ranking).toHaveLength(42)
     expect(new Set(ranking.map(r => r.characterId)).size).toBe(42)
-    expect(ranking.find(r => r.characterId === 'kaku')?.score).toBeCloseTo(82.14285714285714)
-    expect(ranking.find(r => r.characterId === 'kaku')?.rank).toBe(23)
+    expect(ranking.find(r => r.characterId === 'kaku')?.score).toBeCloseTo(78.42857142857143)
+    expect(ranking.find(r => r.characterId === 'kaku')?.rank).toBe(33)
     expect(ranking.find(r => r.characterId === 'stussy')?.score).toBeCloseTo(77.57142857142857)
     expect(ranking.find(r => r.characterId === 'stussy')?.rank).toBe(34)
     expect(ranking.find(r => r.characterId === 'sabo')?.score).toBeCloseTo(85.57142857142857)
-    expect(ranking.find(r => r.characterId === 'morley')?.score).toBeCloseTo(76.85714285714286)
+    expect(ranking.find(r => r.characterId === 'morley')?.score).toBeCloseTo(79.28571428571429)
     expect(ranking.find(r => r.characterId === 'karasu')?.score).toBeCloseTo(80)
-    expect(ranking.find(r => r.characterId === 'lucci')?.score).toBeCloseTo(84.42857142857143)
+    expect(ranking.find(r => r.characterId === 'lucci')?.score).toBeCloseTo(81)
   })
 
   it('preserves approved old 39 evaluations and no bonus invention under approved Hybrid A', () => {
