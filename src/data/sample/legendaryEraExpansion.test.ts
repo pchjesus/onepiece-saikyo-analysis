@@ -13,7 +13,7 @@ describe('v0.1.33 legendary-era expansion', () => {
   it('adds seven Characters, nine Evaluations and historical Memberships without ranking duplication', () => {
     expect(sampleCharacters).toHaveLength(43)
     expect(sampleEvaluations).toHaveLength(45)
-    expect(sampleMemberships).toHaveLength(47)
+    expect(sampleMemberships).toHaveLength(49)
     expect(getUniqueCharacterList()).toHaveLength(42)
     expect(new Set(getUniqueCharacterList().map(({ character }) => character.id)).size).toBe(42)
 
