@@ -41,7 +41,7 @@ describe('evaluated roster UI', () => {
       await click(tab ?? null)
       expect(container.querySelector('main.detail h1')?.textContent).toBe(character)
       expect(container.querySelector('.prototype-note')?.textContent).toContain('evaluation-')
-      expect(container.querySelector('.power-card')?.textContent).toContain('Balanced')
+      expect(container.querySelector('.power-card')?.textContent).toContain('균형형')
     }
   })
 
@@ -67,7 +67,7 @@ describe('evaluated roster UI', () => {
     expect(container.querySelectorAll('.search-suggestion')).toHaveLength(1)
     expect(container.querySelector('.search-suggestion')?.textContent).toContain('크로스 길드')
 
-    await click(container.querySelector('button[aria-label="Attack / 공격력 전체 캐릭터 순위 보기"]'))
+    await click(container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]'))
     const mihawkRows = [...document.querySelectorAll('.rank-row')]
       .filter((row) => row.textContent?.includes('쥬라큘 미호크'))
     expect(mihawkRows).toHaveLength(1)
@@ -75,7 +75,7 @@ describe('evaluated roster UI', () => {
   })
 
   it('opens sorted 36-person stat ranking and navigates to a chosen group', async () => {
-    const stat = container.querySelector('button[aria-label="Attack / 공격력 전체 캐릭터 순위 보기"]')
+    const stat = container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]')
     await click(stat)
     const rows = [...document.querySelectorAll('.rank-row')]
     expect(rows).toHaveLength(36)
@@ -101,10 +101,10 @@ describe('evaluated roster UI', () => {
     expect(container.querySelectorAll('.evaluation-formula')).toHaveLength(7)
   })
   it('opens Overall rankings in full-precision order and reverses the list without changing canonical ranks', async () => {
-    await click(container.querySelector('button[aria-label="Overall Combat Power 전체 캐릭터 순위 보기"]'))
+    await click(container.querySelector('button[aria-label="종합 전투력 전체 캐릭터 순위 보기"]'))
     const rows = () => [...document.querySelectorAll('.rank-row')]
     expect(rows()).toHaveLength(36)
-    expect(document.querySelector('#stat-rank-title')?.textContent).toContain('Overall Combat Power')
+    expect(document.querySelector('#stat-rank-title')?.textContent).toContain('종합 전투력')
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('에드워드 뉴게이트')
     expect(rows()[0].textContent).toContain('97.571')
@@ -116,7 +116,7 @@ describe('evaluated roster UI', () => {
   })
 
   it('can change existing core-stat rankings to ascending', async () => {
-    await click(container.querySelector('button[aria-label="Attack / 공격력 전체 캐릭터 순위 보기"]'))
+    await click(container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]'))
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     const rows = [...document.querySelectorAll('.rank-row')]
     expect(rows).toHaveLength(36)
