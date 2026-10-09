@@ -1,3 +1,14 @@
+# v0.1.56 — Top-tier readiness and era-context regression
+
+- Baseline `main@0e7cc6522558b5bb029c80388f40de3ada9dfa1a` (v0.1.55).
+- Exactly **29 `EvaluationItem.readiness`** fields classified (Garp7, Teach6, Kuzan5, Kizaru6, Mihawk5): new E1 4/E2 19/E3 6. Baseline E1 39/E2 189/E3 105/missing80 → **43/208/111/51**. Remaining Primary29/Secondary22.
+- All Base/Final vectors, historical data, Evidence IDs and original fact texts, Haki contributions, calculation/matchup source, UI, storage, PROJECT_SPEC **unchanged**.
+- Updated seven existing absolute readiness distribution assertions. New `readinessTopTierReview.test.ts` (4 tests) checks 29 labels, exact distribution, Prime/older Garp separation and high-score E3 uncertainty, original evidence role constraints, unchanged 62 evaluations/434 stats, Raw Haki244, Matchup15, five full Final vectors/Overall, and all remaining 51 primary/secondary-linked axes.
+- [Detailed 29-axis provenance/conditions](docs/V0_1_56_TOP_TIER_29_AXIS_SOURCE_CONTEXT_AUDIT_2026-10-09.md) · [80-axis before/after trace](docs/V0_1_56_80_AXIS_BEFORE_AFTER_TRACE_2026-10-09.md).
+- **PR CI + main Pages deployment:** pending until GitHub Actions confirms green for the **specific commit SHA**. No actual browser/manual mobile verification or universal original manga panel proof is claimed.
+
+---
+
 # v0.1.55 — Five-character source-readiness and calculation invariants
 
 - Parent main baseline `39383ba5ed1f43085a4f509e782bfe8ddf723553` (v0.1.54).
