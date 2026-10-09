@@ -86,7 +86,7 @@ describe('qualitative Haki evidence UI', () => {
     }
   })
 
-  it('groups Special categories in one header, sorts fruit first, and keeps separate detail sections', async () => {
+  it('groups Special categories in one header, retains vertical individual descriptions and fruit-first order', async () => {
     const mount = document.createElement('div')
     document.body.appendChild(mount)
     const root = createRoot(mount)
@@ -107,10 +107,30 @@ describe('qualitative Haki evidence UI', () => {
           character.combatProfile.specialTraits.find((trait) => trait.category === 'devil-fruit')?.name)
         expect(shown.every((element) => element.querySelector('.special-trait-meta strong')?.textContent === '확인')).toBe(true)
         expect(mount.querySelectorAll('.special-trait-group-heading')).toHaveLength(1)
+        expect(mount.querySelector('.special-traits-content .special-trait-list')).not.toBeNull()
+        expect(mount.querySelectorAll('.special-trait-list .special-trait')).toHaveLength(count)
       }
     } finally {
       await act(async () => { root.unmount() })
       mount.remove()
+    }
+  })
+
+  it('localizes displayed fruit names without changing trait IDs and Evidence links', () => {
+    const expected = [
+      ['sabo', '이글이글 열매'],
+      ['law', '수술수술 열매'],
+      ['hancock', '매료매료 열매'],
+      ['katakuri', '쫀득쫀득 열매'],
+      ['karasu', '그을음그을음 열매'],
+      ['morley', '밀어밀어 열매'],
+    ] as const
+    for (const [characterId, fruitName] of expected) {
+      const character = sampleCharacters.find((item) => item.id === characterId)!
+      const original = character.combatProfile.specialTraits.find((trait) => trait.category === 'devil-fruit')!
+      expect(original.name).toBe(fruitName)
+      expect(original.id).toMatch(/^special-/)
+      expect(original.evidenceIds.length).toBeGreaterThan(0)
     }
   })
 
