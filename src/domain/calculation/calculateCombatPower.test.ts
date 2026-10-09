@@ -97,6 +97,12 @@ describe('Balanced v1.2', () => {
       newgate: 97.5714285714,
       kaido: 96.5714285714,
       linlin: 94.2857142857,
+      sabo: 85.5714285714,
+      morley: 76.8571428571,
+      karasu: 80,
+      lucci: 84.4285714286,
+      kaku: 81.7142857143,
+      stussy: 78.4285714286,
     }
 
     const stateExpected: Record<string, number> = {
