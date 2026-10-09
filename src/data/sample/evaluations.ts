@@ -31,13 +31,13 @@ export const sampleEvaluations: Evaluation[] = [
   {
     id: 'evaluation-jozu', characterId: 'jozu', evaluationDataVersion: 'evaluation-0.1.26-draft', status: 'draft',
     items: [
-      item('attack', 76, '다이아몬드화한 신체의 돌진과 완력으로 크로커다일과 아오키지에게 실제 유효타를 만들었다. 자연계 상대에게 직접 타격이 성립하므로 최소 무장색 적용을 Base와 분리한다.', ['evidence-jozu-crocodile-560', 'evidence-jozu-aokiji-567'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '자연계 능력자인 크로커다일·아오키지에게 실제 근접 타격을 성립시킴', evidenceIds: ['evidence-jozu-crocodile-560', 'evidence-jozu-aokiji-567'] }]),
-      item('defense', 84, '미호크의 흰수염 방향 참격을 다이아몬드화로 정면 차단한 매우 강한 물리 방어 성과가 있다. 반면 아오키지의 빙결에는 제압되어 다이아몬드 방어를 모든 공격 유형에 대한 절대 방어로 보지 않는다.', ['evidence-jozu-mihawk-553', 'evidence-jozu-frozen-568']),
-      item('stamina', 78, '정상결전에서 장시간 전선에 남아 아오키지와도 교전했지만, Jack·Katakuri처럼 지속시간과 강도가 명확한 장기 결투 자료는 부족하다. 높은 기본 체력은 인정하되 표본 부족을 과대해석하지 않는다.', ['evidence-jozu-aokiji-567', 'evidence-jozu-frozen-568']),
-      item('speed', 79, '거대한 체격에도 크로커다일과 아오키지에게 빠르게 개입해 유효타를 만든다. 상위 속도 특화 캐릭터와 직접 비교할 반복 표본은 적어 80대 초반까지는 올리지 않는다.', ['evidence-jozu-crocodile-560', 'evidence-jozu-aokiji-567']),
-      item('techniqueMastery', 74, '다이아몬드화를 공격과 방어에 활용하고 근접 돌진을 수행하지만, Vista·Katakuri처럼 정밀한 무기술이나 복합 능력 운용이 반복적으로 묘사되지는 않는다.', ['evidence-jozu-mihawk-553', 'evidence-jozu-crocodile-560']),
-      item('combatIQ', 75, '전장에서 강자를 요격하고 아군을 보호하는 역할은 수행한다. 흰수염의 상태 악화와 마르코 피격에 주의가 분산된 순간 제압된 장면은 정상결전 맥락을 고려해 단순한 저지능 근거로 사용하지 않는다.', ['evidence-jozu-aokiji-567', 'evidence-jozu-frozen-568']),
-      item('versatility', 74, '주된 역할은 강한 물리 방어와 근접 돌진이지만 공격·방어·강자 요격을 실제로 수행한다. 다양한 거리·지원 역할까지 폭넓게 보여준 캐릭터보다는 낮게 평가한다.', ['evidence-jozu-mihawk-553', 'evidence-jozu-crocodile-560', 'evidence-jozu-aokiji-567']),
+      item('attack', 76, '다이아몬드화한 신체의 돌진과 완력으로 크로커다일과 아오키지에게 실제 유효타를 만들었다. 자연계 상대에게 직접 타격이 성립하므로 최소 무장색 적용을 Base와 분리한다.', ['evidence-jozu-crocodile-560', 'evidence-jozu-aokiji-567'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '자연계 능력자인 크로커다일·아오키지에게 실제 근접 타격을 성립시킴', evidenceIds: ['evidence-jozu-crocodile-560', 'evidence-jozu-aokiji-567'] }] , 'E2'),
+      item('defense', 84, '미호크의 흰수염 방향 참격을 다이아몬드화로 정면 차단한 매우 강한 물리 방어 성과가 있다. 반면 아오키지의 빙결에는 제압되어 다이아몬드 방어를 모든 공격 유형에 대한 절대 방어로 보지 않는다.', ['evidence-jozu-mihawk-553', 'evidence-jozu-frozen-568'], [], 'E2'),
+      item('stamina', 78, '정상결전에서 장시간 전선에 남아 아오키지와도 교전했지만, Jack·Katakuri처럼 지속시간과 강도가 명확한 장기 결투 자료는 부족하다. 높은 기본 체력은 인정하되 표본 부족을 과대해석하지 않는다.', ['evidence-jozu-aokiji-567', 'evidence-jozu-frozen-568'], [], 'E3'),
+      item('speed', 79, '거대한 체격에도 크로커다일과 아오키지에게 빠르게 개입해 유효타를 만든다. 상위 속도 특화 캐릭터와 직접 비교할 반복 표본은 적어 80대 초반까지는 올리지 않는다.', ['evidence-jozu-crocodile-560', 'evidence-jozu-aokiji-567'], [], 'E2'),
+      item('techniqueMastery', 74, '다이아몬드화를 공격과 방어에 활용하고 근접 돌진을 수행하지만, Vista·Katakuri처럼 정밀한 무기술이나 복합 능력 운용이 반복적으로 묘사되지는 않는다.', ['evidence-jozu-mihawk-553', 'evidence-jozu-crocodile-560'], [], 'E3'),
+      item('combatIQ', 75, '전장에서 강자를 요격하고 아군을 보호하는 역할은 수행한다. 흰수염의 상태 악화와 마르코 피격에 주의가 분산된 순간 제압된 장면은 정상결전 맥락을 고려해 단순한 저지능 근거로 사용하지 않는다.', ['evidence-jozu-aokiji-567', 'evidence-jozu-frozen-568'], [], 'E3'),
+      item('versatility', 74, '주된 역할은 강한 물리 방어와 근접 돌진이지만 공격·방어·강자 요격을 실제로 수행한다. 다양한 거리·지원 역할까지 폭넓게 보여준 캐릭터보다는 낮게 평가한다.', ['evidence-jozu-mihawk-553', 'evidence-jozu-crocodile-560', 'evidence-jozu-aokiji-567'], [], 'E3'),
     ],
   },
   {
@@ -67,13 +67,13 @@ export const sampleEvaluations: Evaluation[] = [
   {
     id: 'evaluation-queen', characterId: 'queen', evaluationDataVersion: 'evaluation-0.1.26-draft', status: 'draft',
     items: [
-      item('attack', 80, '고대종 신체와 구속 공격, 레이저·전격·기계 무장, Germa 계열 재현 기술을 실제 전투에서 사용해 높은 공격 수단과 출력을 보여준다. 다만 수단 수 자체를 단일 공격력으로 중복 가산하지 않는다.', ['evidence-queen-ancient-zoan-1028', 'evidence-queen-cybernetics-1028-1034', 'evidence-queen-big-mom-947']),
-      item('defense', 81, '마르코와 상디의 강한 공격을 여러 차례 받은 뒤에도 전투를 이어간 높은 신체 내구와 고대종 특성이 확인된다. 공격을 무효화하는 별도 초고방어 메커니즘은 없어 King보다 낮게 평가한다.', ['evidence-queen-marco-1006', 'evidence-queen-ancient-zoan-1028']),
-      item('stamina', 81, '마르코와의 혼전에서 피해를 입은 뒤에도 상디와 장시간 전투를 이어가며 여러 능력을 반복 사용했다. 고대종 보유 자체가 아니라 실제 누적 전투 수행을 근거로 평가한다.', ['evidence-queen-marco-1006', 'evidence-queen-cybernetics-1028-1034']),
-      item('speed', 75, '상디와의 전투에서 반응과 공격 전환은 가능하지만 속도 자체가 강점으로 반복적으로 입증되지는 않는다. 장비와 원거리 수단의 다양성을 순수 Speed로 환산하지 않는다.', ['evidence-queen-cybernetics-1028-1034']),
-      item('techniqueMastery', 79, '고대종 신체와 복잡한 사이보그 무장, Germa 계열 기술을 다수 운용한다. 다만 자기 발사장치 오발 등 운용 완성도의 한계도 보여 최상위 숙련으로 올리지 않는다.', ['evidence-queen-ancient-zoan-1028', 'evidence-queen-cybernetics-1028-1034']),
-      item('combatIQ', 74, '과학 지식 자체는 높지만 Combat IQ는 별도로 평가한다. 다양한 기술을 활용하면서도 자기 무장 오발과 오소메에게 주의가 분산되어 결정타를 허용하는 등 전투 판단의 불안정성이 확인된다.', ['evidence-queen-cybernetics-1028-1034']),
-      item('versatility', 80, '근접·구속·원거리 레이저·전격·은신·고대종 변신 등 수단은 매우 넓다. 다만 많은 수단이 공격 중심이며 Marco처럼 공격·방어·수송·지원까지 역할 자체를 폭넓게 전환하거나 Katakuri처럼 지형 제어·회피까지 아우르는 정도는 아니다.', ['evidence-queen-ancient-zoan-1028', 'evidence-queen-cybernetics-1028-1034']),
+      item('attack', 80, '고대종 신체와 구속 공격, 레이저·전격·기계 무장, Germa 계열 재현 기술을 실제 전투에서 사용해 높은 공격 수단과 출력을 보여준다. 다만 수단 수 자체를 단일 공격력으로 중복 가산하지 않는다.', ['evidence-queen-ancient-zoan-1028', 'evidence-queen-cybernetics-1028-1034', 'evidence-queen-big-mom-947'], [], 'E2'),
+      item('defense', 81, '마르코와 상디의 강한 공격을 여러 차례 받은 뒤에도 전투를 이어간 높은 신체 내구와 고대종 특성이 확인된다. 공격을 무효화하는 별도 초고방어 메커니즘은 없어 King보다 낮게 평가한다.', ['evidence-queen-marco-1006', 'evidence-queen-ancient-zoan-1028'], [], 'E2'),
+      item('stamina', 81, '마르코와의 혼전에서 피해를 입은 뒤에도 상디와 장시간 전투를 이어가며 여러 능력을 반복 사용했다. 고대종 보유 자체가 아니라 실제 누적 전투 수행을 근거로 평가한다.', ['evidence-queen-marco-1006', 'evidence-queen-cybernetics-1028-1034'], [], 'E2'),
+      item('speed', 75, '상디와의 전투에서 반응과 공격 전환은 가능하지만 속도 자체가 강점으로 반복적으로 입증되지는 않는다. 장비와 원거리 수단의 다양성을 순수 Speed로 환산하지 않는다.', ['evidence-queen-cybernetics-1028-1034'], [], 'E3'),
+      item('techniqueMastery', 79, '고대종 신체와 복잡한 사이보그 무장, Germa 계열 기술을 다수 운용한다. 다만 자기 발사장치 오발 등 운용 완성도의 한계도 보여 최상위 숙련으로 올리지 않는다.', ['evidence-queen-ancient-zoan-1028', 'evidence-queen-cybernetics-1028-1034'], [], 'E2'),
+      item('combatIQ', 74, '과학 지식 자체는 높지만 Combat IQ는 별도로 평가한다. 다양한 기술을 활용하면서도 자기 무장 오발과 오소메에게 주의가 분산되어 결정타를 허용하는 등 전투 판단의 불안정성이 확인된다.', ['evidence-queen-cybernetics-1028-1034'], [], 'E3'),
+      item('versatility', 80, '근접·구속·원거리 레이저·전격·은신·고대종 변신 등 수단은 매우 넓다. 다만 많은 수단이 공격 중심이며 Marco처럼 공격·방어·수송·지원까지 역할 자체를 폭넓게 전환하거나 Katakuri처럼 지형 제어·회피까지 아우르는 정도는 아니다.', ['evidence-queen-ancient-zoan-1028', 'evidence-queen-cybernetics-1028-1034'], [], 'E2'),
     ],
   },
   {
@@ -93,11 +93,11 @@ export const sampleEvaluations: Evaluation[] = [
     items: [
       item('attack', 83, '루피와 장시간 고위 근접 격전에서 강력한 모치 타격과 무기 공격을 사용했으나 미래예지에 따른 맞히기 쉬움을 순수 공격력으로 중복 더하지 않는다.', ['evidence-katakuri-awakening-882', 'evidence-katakuri-armament-883'], [], 'E2'),
       item('defense', 81, '모치 신체의 부분 변형 및 회피·방어 전술이 뛰어나며 루피의 Snakeman 고속 공격에 대처했다. 미래예지의 핵심 회피 성과는 기존 Raw 견문색 기여를 별도로 보존하므로 기본 방어와 혼동하지 않는다.', ['evidence-katakuri-future-sight-881-884', 'evidence-katakuri-composure-future-sight-857'], [{ hakiType: 'observation', stat: 'defense', amount: 6, application: '미래예지로 공격을 선행 파악하고 모치 신체를 변형해 회피', evidenceIds: ['evidence-katakuri-future-sight-881-884'] }], 'E2'),
-      item('stamina', 84, '장시간 루피와 격렬한 공방을 지속하고 자신에게 가한 상처의 영향까지 겪었으며 후반에도 다시 일어섰다. 타인의 개입·자발적 상처 등 특수 조건을 반영한다.', ['evidence-katakuri-endurance-894']),
-      item('speed', 84, '미래예지가 알려 주는 선행 정보와 별개로 고속 Snakeman 공격에 실제 대응한 기동·반응을 제한적으로 반영한다. 예측 그 자체를 Speed 고정 보너스로 만들지 않는다.', ['evidence-katakuri-future-sight-881-884', 'evidence-katakuri-snakeman-895']),
+      item('stamina', 84, '장시간 루피와 격렬한 공방을 지속하고 자신에게 가한 상처의 영향까지 겪었으며 후반에도 다시 일어섰다. 타인의 개입·자발적 상처 등 특수 조건을 반영한다.', ['evidence-katakuri-endurance-894'], [], 'E2'),
+      item('speed', 84, '미래예지가 알려 주는 선행 정보와 별개로 고속 Snakeman 공격에 실제 대응한 기동·반응을 제한적으로 반영한다. 예측 그 자체를 Speed 고정 보너스로 만들지 않는다.', ['evidence-katakuri-future-sight-881-884', 'evidence-katakuri-snakeman-895'], [], 'E2'),
       item('techniqueMastery', 84, '모치 부분 변형·무기 활용·각성 지형 제어·상대 공격 형태 모방을 고도로 결합한다. 이미 반영된 미래예지 Raw와 독립적인 능력 정밀성을 중심으로 평가한다.', ['evidence-katakuri-future-sight-881-884', 'evidence-katakuri-composure-future-sight-857', 'evidence-katakuri-awakening-882', 'evidence-katakuri-armament-883', 'evidence-katakuri-gear4-counter-883-885'], [{ hakiType: 'observation', stat: 'techniqueMastery', amount: 6, application: '고급 견문색의 미래예지와 모치 신체 변형을 정밀하게 결합', evidenceIds: ['evidence-katakuri-future-sight-881-884'] }], 'E2'),
       item('combatIQ', 82, '변신 방해, 상대 공세를 선제 차단하는 판단과 침착함 유지의 중요성을 반영한다. 미래예지로 얻은 정보 자체는 기존 Raw에만 남기고 실제 선택의 적절성만 Base에 산정한다.', ['evidence-katakuri-future-sight-881-884', 'evidence-katakuri-composure-future-sight-857', 'evidence-katakuri-gear4-counter-883-885'], [{ hakiType: 'observation', stat: 'combatIQ', amount: 4, application: '미래예지로 얻은 정보를 선제 차단과 대응 선택에 연결', evidenceIds: ['evidence-katakuri-future-sight-881-884'] }], 'E2'),
-      item('versatility', 84, '근접 타격·삼지창·모치 변형·환경 각성·구속·장거리 공격 등 역할을 다양하게 수행한다. 같은 모치 능력의 파생기 개수만으로 수치가 높아지는 것은 피한다.', ['evidence-katakuri-awakening-882', 'evidence-katakuri-conquerors-893', 'evidence-katakuri-gear4-counter-883-885']),
+      item('versatility', 84, '근접 타격·삼지창·모치 변형·환경 각성·구속·장거리 공격 등 역할을 다양하게 수행한다. 같은 모치 능력의 파생기 개수만으로 수치가 높아지는 것은 피한다.', ['evidence-katakuri-awakening-882', 'evidence-katakuri-conquerors-893', 'evidence-katakuri-gear4-counter-883-885'], [], 'E2'),
     ],
   },
   {
