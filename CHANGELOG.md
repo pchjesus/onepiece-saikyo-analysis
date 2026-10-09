@@ -1,3 +1,13 @@
+## v0.1.46 — Official episode evidence source/context verification
+
+- Validate the v0.1.45 Wano three-group and CP0 evaluation records against ONE PIECE.com official TV episode summaries, keeping facts / 1v1 vs supporting troops / judgments separate.
+- Correct X Drake's **mistaken Sasaki/Black Maria 1042 episode URL** to the actually relevant 1060 and 1069 CP0 skirmish references; add Ulti's 1038 Zeus/Nami finishing source alongside Big Mom's 1033 attack.
+- Fix the **Kid & Law vs Big Mom event**: 1066 documents Kid's Damned Punk and Law's contribution while 1067 confirms the win after fall/explosion. Preserve their 2v1 outcome and distinguish the individual feat.
+- Fix **Who's-Who vs Jinbe** from isolated `1v1` to `multiple-vs-one` for Who's-Who's hidden soldiers (1038) prior to Jinbe's finishing strike (1040). Do not treat this as pure 1v1.
+- Audit Lucci and Kaku `combatIQ` rationale: late Seraphim/Lunarian insight happened even to Zoro (1110); Kaku proposing a joint battle is a positive feat (1109); Sentomaru command attack (1100/1101) and Vegapunk surprise attack (1125) are Lucci positives. Preserve numeric IQ **68/72** and overalls **78.000/74.286** but mark both IQ axes **E3 provisional**, requiring evidence-driven follow-up rather than asserting unsupported individual stupidity.
+- Add `officialEpisodeCrosscheck.test.ts` to lock source pairings, combat scenario, IQ uncertainty and roster/calculation invariants. Preserve 60 Character / 59 unique evaluations / 62 Evaluation / 434 Stat / 73 Membership, Haki Raw 244, 15 direct matchups, Balanced 1.2, global UI colors and `PROJECT_SPEC.md`.
+- [Cross-check and remaining limits](docs/V0_1_46_OFFICIAL_EPISODE_CROSSCHECK_2026-10-09.md). Original manga panel-level full access remains outstanding; evidence is still `supplementary` and new scores are still drafts.
+
 ## v0.1.45 — Kid Pirates / Akazaya Nine / Tobi Roppo, evidence-first draft evaluations
 
 - Add 3 groups, 17 **draft** Characters (Kid Pirates 2, founding Akazaya Nine 9 incl. former Kanjuro, Tobiroppo 6 incl. undercover marine X Drake), 17 Evaluations/119 draft stats, **30 contextual Battle records** and **55 supplementary Evidence records** referencing ONE PIECE.com profiles and official TV recaps. Individual scenes still require direct manga panel audit before canon-level promotion.
