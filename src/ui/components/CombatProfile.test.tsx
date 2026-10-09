@@ -86,6 +86,34 @@ describe('qualitative Haki evidence UI', () => {
     }
   })
 
+  it('groups Special categories in one header, sorts fruit first, and keeps separate detail sections', async () => {
+    const mount = document.createElement('div')
+    document.body.appendChild(mount)
+    const root = createRoot(mount)
+    try {
+      const checks = [
+        ['king', '악마의 열매 / 종족 특성', 2],
+        ['morley', '악마의 열매 / 종족 특성', 2],
+        ['stussy', '악마의 열매 / 특수 생리', 2],
+        ['sabo', '악마의 열매', 1],
+      ] as const
+      for (const [id, heading, count] of checks) {
+        const character = sampleCharacters.find((item) => item.id === id)!
+        await act(async () => { root.render(<CombatProfile profile={character.combatProfile} />) })
+        expect(mount.querySelector('.special-trait-group-heading')?.textContent).toBe(heading)
+        const shown = [...mount.querySelectorAll('.special-trait-list .special-trait')]
+        expect(shown).toHaveLength(count)
+        expect(shown[0].querySelector('h4')?.textContent).toBe(
+          character.combatProfile.specialTraits.find((trait) => trait.category === 'devil-fruit')?.name)
+        expect(shown.every((element) => element.querySelector('.special-trait-meta strong')?.textContent === '확인')).toBe(true)
+        expect(mount.querySelectorAll('.special-trait-group-heading')).toHaveLength(1)
+      }
+    } finally {
+      await act(async () => { root.unmount() })
+      mount.remove()
+    }
+  })
+
   it('shows fruit-awakening badge only for explicitly confirmed Devil Fruit awakenings', async () => {
     const mount = document.createElement('div')
     document.body.appendChild(mount)
