@@ -77,7 +77,9 @@ export default function App() {
             <button key={character.id} className={`character-chip ${selectedId === character.id ? 'selected' : ''}`}
               type="button" aria-pressed={selectedId === character.id} onClick={() => setSelectedId(character.id)}>
               <span>{character.name}</span>
-              {(membership.status === 'former' || membership.status === 'historical') && <small>과거 소속</small>}
+              {(membership.status === 'former' || membership.status === 'historical')
+                && !(character.id === 'newgate' && membership.groupId === 'whitebeard-pirates')
+                && <small>과거 소속</small>}
             </button>
           ))}
         </div>
