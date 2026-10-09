@@ -162,7 +162,8 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
     expect(sampleCharacters).toHaveLength(60) // includes one existing unscored Buggy
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
-    const legacy=sampleEvaluations.filter(e => !ids.includes(e.characterId))
+    const expansionIds = new Set(['kid','killer','kinemon','denjiro','ashura-doji','kawamatsu','kikunojo','raizo','inuarashi','nekomamushi','kanjuro','whos-who','sasaki','black-maria','ulti','page-one','x-drake'])
+    const legacy=sampleEvaluations.filter(e => !ids.includes(e.characterId) && !expansionIds.has(e.characterId))
     expect(legacy).toHaveLength(39)
     expect(legacy.flatMap(e=>e.items).flatMap(i=>i.hakiContributions).reduce((n,c)=>n+c.amount,0)).toBe(244)
     expect(sampleEvaluations.flatMap(e=>e.items).flatMap(i=>i.hakiContributions).reduce((n,c)=>n+c.amount,0)).toBe(244)
