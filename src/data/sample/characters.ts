@@ -331,7 +331,7 @@ export const sampleCharacters: Character[] = [
     id: 'sanji', name: '상디', crewId: 'straw-hat-pirates', knownAs: [{ kind: 'epithet', name: '검은 다리 상디', source: { label: 'ONE PIECE.com', reference: '상디 공식 캐릭터 페이지 — 通称「黒足のサンジ」' } }],
     description: '밀짚모자 일당의 요리사이자 전투원. 발기술, 초고속 기동, 공중전과 각성한 신체·Ifrit Jambe를 결합한다.',
     combatProfile: {
-      combatStyles: ['발기술', 'Sky Walk', 'Diable Jambe', 'Ifrit Jambe', '고속 요격·구조'],
+      combatStyles: ['발기술', '스카이워크', 'Diable Jambe', 'Ifrit Jambe', '고속 요격·구조'],
       specialTraits: [{
         id: 'special-sanji-genetic-modification', category: 'modification', name: 'Germa 계열 신체 개조 각성', status: 'confirmed',
         description: '오니가시마에서 외골격·높은 신체 강도와 회복 특성이 각성해 전투에 직접 사용된다.',
