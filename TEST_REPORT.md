@@ -1,3 +1,15 @@
+# v0.1.53 — three supplementary evidence records and 24 readiness classifications
+
+- Baseline `main@5ff5b9ab345463b2469a155ccbd2cbe0eb2adfd5` (v0.1.52).
+- Scope: exactly 24 existing EvaluationItem readiness metadata fields, 10 Evidence links on 7 items, 3 new official TV supplementary Evidence objects referencing existing Battle IDs. No Base/Final score, Haki Raw, scoring model, Matchup/Battle participant, Character, save state, PROJECT_SPEC, or UI changes.
+- Distribution baseline E1 29/E2 145/E3 67/missing 172 → **30/162/73/148**. The three no-link axes with E3 remain intentionally unlinked.
+- Updated historical readiness count tests in `readinessMetadataAudit.test.ts`, `readinessComparativeAudit.test.ts`, `overallValidityAudit.test.ts`, `hybridRawPilotReviews.test.ts`. Historical absolute Evidence ID-empty count in hybrid test updated 11 → 4 because seven representative items gained legitimate links.
+- New `readinessSourceRoleAudit.test.ts`: 24 explicit labels, 3 official-source records and their existing Battle links, role-specific context handling, 3 legitimate E3 no-Evidence gaps and all exemplar 7-axis Final/Overall Haki Raw/Matchup invariants. `docs/V0_1_53_172_AXIS_EVIDENCE_ROLE_TRACE_2026-10-09.md` records full 172 prior unclassified axes, 148 still unclassified, per-axis source-role quality.
+- **GitHub PR test/build and main-commit Pages deployment:** pending until observed green status, then report results with exact SHA. No manual mobile-browser assertions.
+- [Report](docs/V0_1_53_LINK_GAPS_AND_EVIDENCE_ROLE_REVIEW_2026-10-09.md) · [172-axis trace](docs/V0_1_53_172_AXIS_EVIDENCE_ROLE_TRACE_2026-10-09.md).
+
+---
+
 # v0.1.52 — 189-readiness triage and 17-axis reviewed metadata
 
 - Baseline `main@be897e34c8bedc08777a9937a77470d1ca1cd3db`; previous count E1 29/E2 134/E3 61/missing 189.
