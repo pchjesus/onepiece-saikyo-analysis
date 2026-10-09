@@ -42,7 +42,7 @@ describe('v0.1.55 five-character canon-readiness review', () => {
       if (stat.readiness) counts[stat.readiness]++
       else counts.unset++
     }
-    expect(counts).toEqual({ E1: 39, E2: 189, E3: 105, unset: 80 })
+    expect(counts).toEqual({ E1: 43, E2: 208, E3: 111, unset: 51 })
     expect(item('law', 'speed').score).toBe(82)
     expect(item('shanks', 'speed').score).toBe(95)
     expect(item('law', 'speed').readiness).toBe('E3')

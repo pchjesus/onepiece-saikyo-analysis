@@ -60,7 +60,7 @@ describe('v0.1.54 23 untyped roles and 14 context-only axes', () => {
     const counts = { E1: 0, E2: 0, E3: 0, missing: 0 }
     for (const item of items) if (item.readiness) counts[item.readiness]++
     else counts.missing++
-    expect(counts).toEqual({ E1: 39, E2: 189, E3: 105, missing: 80 })
+    expect(counts).toEqual({ E1: 43, E2: 208, E3: 111, missing: 51 })
   })
 
   it('preserves source events and adds precisely targeted secondary axis roles', () => {
@@ -83,7 +83,7 @@ describe('v0.1.54 23 untyped roles and 14 context-only axes', () => {
     const roleCounts = { primary: 0, secondary: 0 }
     const unresolved = defaults.flatMap((evaluation) => evaluation.items.filter((item) =>
       !item.readiness))
-    expect(unresolved).toHaveLength(80)
+    expect(unresolved).toHaveLength(51)
     for (const item of unresolved) {
       const roles = item.evidenceIds.flatMap((id) =>
         evidenceById.get(id)?.statContributions.filter((v) => v.stat === item.stat).map((v) => v.role) ?? [])
@@ -91,7 +91,7 @@ describe('v0.1.54 23 untyped roles and 14 context-only axes', () => {
       else if (roles.includes('secondary')) roleCounts.secondary++
       else throw new Error('Unresolved stat has no primary/secondary source: ' + item.stat + ' ' + item.evidenceIds.join(', '))
     }
-    expect(roleCounts).toEqual({ primary: 49, secondary: 31 })
+    expect(roleCounts).toEqual({ primary: 29, secondary: 22 })
   })
 
   it('keeps all protected data sizes, chosen Overall anchors and Haki Raw untouched', () => {

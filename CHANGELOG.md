@@ -1,3 +1,11 @@
+## v0.1.56 — Top-tier era- and context-aware readiness (29 axes)
+
+- Individually audit **29 previously unset readiness axes** across **Prime Garp 7, Teach 6, Kuzan 5, Kizaru 6, Mihawk 5**, comparing actual project Evidence, source roles, evaluator context and official ONE PIECE.com TV/character material; preserve unverified manga panel certainty.
+- Assign readiness E1 **+4**, E2 **+19**, E3 **+6** with no numerical evaluation edits. Total default 59×7 readiness: **E1 43/E2 208/E3 111/missing 51** (from 39/189/105/80). The 51 remaining all link primary29/secondary22 Evidence.
+- Critical distinctions: Garp **Prime** values use God Valley *Garp+Roger joint* battle while Hachinosu is **older Garp** and cannot independently prove 99 Stamina/98 Speed/97 Combat IQ/91 Versatility. Kuzan's ten-day Sakazuki fight is exceptional **Stamina**, not complete data on Defense/Speed. Kizaru's repeated light-speed movements are E1 for source support, **not proof of the exact 99 score**. Mihawk is strongest in *swordsmanship*, not necessarily all total stats or pure Speed94. Teach dual abilities support multiple combat roles but are not equivalent to Prime Whitebeard power on each axis.
+- Protect 59×7 Final/Overall rank, Haki Raw total244 and weight0.5, 62 Evaluations/434 Stat, 15 Matchups, Balanced1.2, B selector, PROJECT_SPEC, UI/persistence, and *all* existing Evidence fact/source/battle metadata. Only readiness metadata and snapshot tests were updated.
+- New top-tier regression tests and comprehensive [29-axis audit](docs/V0_1_56_TOP_TIER_29_AXIS_SOURCE_CONTEXT_AUDIT_2026-10-09.md), [80-axis source trace matrix](docs/V0_1_56_80_AXIS_BEFORE_AFTER_TRACE_2026-10-09.md). Next focus remaining 51 axes, then 59×7 score model validation via opt-in numeric revisions.
+
 ## v0.1.55 — Five-character combat-context readiness audit, 31 axes
 
 - Manually adjudicate **31 previously unresolved axes** in five character profiles: **Cracker 5, Law 7, Doflamingo 7, Jinbe 6, Shanks 6**, with existing linked Evidence roles, evaluator rationale, and relevant official ONE PIECE.com anime episode synopses.
