@@ -4,6 +4,7 @@ import type { Evidence } from '../../domain/evidence/types'
 import type { Battle } from '../../domain/battle/types'
 import { getFinalStatScore } from '../../domain/evaluation/score'
 import { wanoSeeds } from './wanoSeeds'
+import { wanoDetailedBattles, wanoDetailedEvidence } from './wanoCombatEvidence'
 
 /** Additive, fully referenced v0.1.45 expansion. No pre-existing evaluation mutation here. */
 export const wanoGroups: Group[] = [
@@ -88,7 +89,7 @@ export const wanoCharacters: Character[] = wanoSeeds.map((seed): Character => {
   }
 })
 
-export const wanoBattles: Battle[] = wanoSeeds.map((seed, idx): Battle => ({
+export const wanoBattles: Battle[] = [...wanoSeeds.map((seed, idx): Battle => ({
   id: `battle-wano-${seed.id}`,
   title: `${seed.name} — 공식 전투 근거 대조`,
   chronologyOrder: 400 + idx,
@@ -107,10 +108,10 @@ export const wanoBattles: Battle[] = wanoSeeds.map((seed, idx): Battle => ({
     ? 'victory' : ['kid','whos-who','sasaki','black-maria','ulti','page-one','kanjuro'].includes(seed.id)
       ? 'defeat' : 'unknown',
   participantIds: [],
-}))
+})), ...wanoDetailedBattles]
 
 const stats: CombatStat[] = ['attack','defense','stamina','speed','techniqueMastery','combatIQ','versatility']
-export const wanoEvidence: Evidence[] = wanoSeeds.flatMap((seed): Evidence[] => ([
+export const wanoEvidence: Evidence[] = [...wanoSeeds.flatMap((seed): Evidence[] => ([
   {
     id: `evidence-wano-${seed.id}-profile`,
     battleId: `battle-wano-${seed.id}`,
@@ -145,7 +146,7 @@ export const wanoEvidence: Evidence[] = wanoSeeds.flatMap((seed): Evidence[] => 
     evaluationImpact: '해당 7축 Draft 숫자는 단독 사실이 아니라 기존 비교군과 판단한 가설적 점수이며 별도의 피해량·패기 보너스는 만들지 않는다.',
     uncertainty: seed.context + ' 추가 원작 만화 페이지 대조 이전의 E2/E3 잠정 평가다.',
   },
-]))
+])), ...wanoDetailedEvidence]
 
 export const wanoEvaluations: Evaluation[] = wanoSeeds.map((seed): Evaluation => ({
   id: `evaluation-wano-${seed.id}`,
@@ -163,7 +164,7 @@ export const wanoEvaluations: Evaluation[] = wanoSeeds.map((seed): Evaluation =>
       rationale: seed.notes[i] + ' ' + (seed.readiness[i] === 'E3'
         ? '추가 직접 근거가 부족하여 수치의 잠정성이 크며 낮은 능력을 확정하지 않는다.'
         : '비슷한 급의 기존 캐릭터와 대조해 초안으로 채택하며 공식 전투력 수치는 아니다.'),
-      evidenceIds: [`evidence-wano-${seed.id}-combat`, `evidence-wano-${seed.id}-profile`],
+      evidenceIds: [`evidence-wano-${seed.id}-combat`, `evidence-wano-${seed.id}-profile`, ...wanoDetailedEvidence.filter((e) => e.subjectCharacterId === seed.id && e.statContributions.some((c) => c.stat === stat && c.role !== 'context')).map((e) => e.id)],
       hakiContributions: [],
       readiness: seed.readiness[i],
     }
