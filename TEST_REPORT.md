@@ -1,3 +1,13 @@
+# v0.1.38 — A안 승인 후 실제 데이터 반영 및 병합 게이트
+
+- 네 축 A안 실제 `sampleEvaluations` 값 변경: 사카즈키 방어 95/0, 쿠잔 공격 93/0·방어 93/0, 카타쿠리 공격 81/0.
+- 역사적 Haki Raw 리뷰 14건 기록은 보존하되 현재 원본 데이터의 4건 Raw가 이미 Base에 이전됐음을 회귀검증으로 구분.
+- 39 Evaluation / 273 stat / 49 typed Raw 합계 244, 기존 Final/Overall, Evidence 소유와 Haki 능력, Matchup 비교 호환성 검증.
+- [검토 브랜치 CI](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37879886144) 성공 후 문서 갱신. 최신 PR HEAD의 최종 CI 및 병합 뒤 main 빌드·배포는 별도 확인 대상.
+- 모바일 실기기 렌더링은 실시하지 않았으며 신규 집단의 데이터 등록은 별도 작업.
+
+---
+
 # v0.1.37 (Draft PR #29) — 가반 산먹깨비, 한국어 용어, Hybrid 재산정 승인안
 
 **2026-10-09 KST**. Product `main` stays at v0.1.34 pending user confirmation.
