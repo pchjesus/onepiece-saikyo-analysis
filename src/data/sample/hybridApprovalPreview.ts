@@ -16,8 +16,9 @@ import { balancedV12 } from './calculationModels'
  */
 export function buildHybridApprovalPreview() {
   const weight = balancedV12.configuration.hakiWeight
-  const ordinaryReviews = hybridRawPilotReviews.filter((r) => r.disposition === 'base-rebase-proposal')
-  const overlapReviews = hybridRawPilotReviews.map((r) =>
+  // The user-approved four A transfers are now already present in live Evaluations.
+  const ordinaryReviews: typeof hybridRawPilotReviews[number][] = []
+  const overlapReviews = hybridRawPilotReviews.filter((r) => r.disposition !== 'base-rebase-proposal').map((r) =>
     r.disposition === 'cross-stat-overlap-unresolved'
       ? { ...r, disposition: 'base-rebase-proposal' as const }
       : r)
@@ -44,7 +45,7 @@ export function buildHybridApprovalPreview() {
     comparison: compare,
     modelVersion: balancedV12.version,
     hakiWeight: weight,
-    status: 'user-approval-required' as const,
+    status: 'A-merged-B-user-approval-required' as const,
     description: '표시상 기본점수/패기 원점수만 재분류한 조건부 수치 제안. 최종 전투력의 정당성 자체는 별도 평가.',
   }
 }
