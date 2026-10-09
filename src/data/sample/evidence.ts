@@ -1202,6 +1202,7 @@ export const sampleEvidence: Evidence[] = [
     supportedAbilities: ['마그마 근접 공격', '실제 치명적 관통'],
     statContributions: [
       { stat: 'attack', role: 'primary', note: '강한 상대에게 치명적 근접 피해를 가한 직접 공격력 근거이지만 에이스는 루피 보호 임무로 공격을 대신 받았다.' },
+      { stat: 'versatility', role: 'context', note: '단발 근접 마그마 타격의 실전 사용을 기록하며 유성화산의 원거리 탄막과 역할을 비교한다. 이 공격 하나만으로 여러 독립 기술을 입증하지 않는다.' },
     ],
     interpretation: '실제 마그마 공격의 높은 관통 성능을 지지하되 에이스가 정상적인 1대1 방어를 준비한 동등 조건의 승리로 환산하지 않는다.',
     evaluationImpact: '기존 Attack 97의 직접 성과 근거를 보강하되 점수 변경 없음.',
@@ -1218,6 +1219,7 @@ export const sampleEvidence: Evidence[] = [
       { stat: 'attack', role: 'secondary', note: '도주·보호 상대에 대해 근접 마그마 압박을 유지했지만 동급 상대의 방어를 돌파한 1대1과는 조건이 다르다.' },
       { stat: 'combatIQ', role: 'secondary', note: '전황이 복잡한 상황에서도 자신의 전술 목표를 일관되게 유지한 직접 선택 근거다.' },
       { stat: 'speed', role: 'context', note: '추격 장면 자체는 존재하지만 보호·탈출 상대의 속도 제약 탓에 순수 Speed 수치를 고정할 직접 비교는 아니다.' },
+      { stat: 'versatility', role: 'context', note: '광역 해상 봉쇄와 다른, 개별 도주자를 추격해 압박하는 용례의 상황 참고. 별도의 기술 종류 보유를 확정하지 않는다.' },
     ],
     interpretation: '임무 수행의 일관성과 공격 범위를 평가하되 무조건적 추격 속도 최상위를 뜻하지 않는다.',
     evaluationImpact: '기존 Combat IQ의 임무 선택 맥락과 Attack 근거를 보강하지만 Speed 86은 E2/E3 논의가 필요한 미확정 수치로 유지한다.',
