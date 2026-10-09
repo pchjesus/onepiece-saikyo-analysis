@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { getCharacterList } from '../application/getCharacterList'
 import { getStatRanking } from '../application/getStatRanking'
 import type { RankingStat } from '../application/getStatRanking'
@@ -17,6 +17,7 @@ export default function App() {
   const [rankingStat, setRankingStat] = useState<RankingStat | null>(null)
   const [activeView, setActiveView] = useState<'stats' | 'matchup'>('stats')
   const [pickerOpen, setPickerOpen] = useState(false)
+  const pickerTriggerRef = useRef<HTMLButtonElement>(null)
 
   const groups = useMemo(() => {
     const seen = new Set<string>()
@@ -75,7 +76,7 @@ export default function App() {
               {groups.map(group => <option key={group.id} value={group.id}>{group.name}</option>)}
             </select>
           </label>
-          <button type="button" className="character-picker-open" onClick={() => setPickerOpen(true)}
+          <button type="button" className="character-picker-open" ref={pickerTriggerRef} onClick={() => setPickerOpen(true)}
             aria-haspopup="dialog" aria-label="전체 캐릭터 찾아보기">
             <span aria-hidden="true">⌕</span> 전체 캐릭터 찾아보기
           </button>
@@ -93,7 +94,7 @@ export default function App() {
         </div>
       </nav>
       {pickerOpen && <CharacterPickerDialog characters={characterList} selectedCharacterId={selectedId}
-        onSelectCharacter={selectCharacter} onClose={() => setPickerOpen(false)} />}
+        onSelectCharacter={selectCharacter} onClose={() => setPickerOpen(false)} returnFocusTo={pickerTriggerRef} />}
       {selectedId && <CharacterPage key={`${selectedGroupId}:${selectedId}`} characterId={selectedId} groupId={selectedGroupId} onSelectStat={setRankingStat} onSelectOverall={() => setRankingStat('overall')} />}
       {rankingStat && <StatRankingDialog stat={rankingStat} entries={getStatRanking(rankingStat)}
         selectedCharacterId={selectedId} onSelectCharacter={selectCharacter} onClose={() => setRankingStat(null)} />}
