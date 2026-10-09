@@ -35,7 +35,7 @@ describe('v0.1.51 readiness metadata and unresolved-evidence diagnostic', () => 
       else {
         counts.missing++
         // Existing explanation and actual metadata must not contradict each other.
-        expect(item.rationale).not.toMatch(/\\bE[123]\\b/)
+        expect(item.rationale).not.toMatch(/\bE[123]\b/)
       }
     }
     expect(counts).toEqual({ E1: 29, E2: 134, E3: 61, missing: 189 })
