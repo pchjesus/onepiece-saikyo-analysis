@@ -1,6 +1,6 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.1.40** (npm package 버전은 **0.1.34** 유지)  
+현재 구현 패치: **v0.1.41** (npm package 버전은 **0.1.34** 유지)  
 평가 데이터: **43 Character master pool · 42 evaluated unique Character · 49 Membership · 45 Evaluation · 315 Stat**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
@@ -16,6 +16,7 @@
 - [v0.1.37 검토용 — 산먹깨비·한글 용어·패기 수치 승인안](docs/V0_1_37_KOREAN_TERMS_AND_HYBRID_APPROVAL_2026-10-09.md)
 - [신규 2집단 사전 Evidence 조사 — 혁명군·CP0](docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md)
 - [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
+- [v0.1.41 특수 전투요소·근거 충분도·소속 상징·한글화 검증](docs/V0_1_41_SPECIAL_PROFILE_AND_READINESS_2026-10-09.md)
 - [v0.1.40 캐릭터 프로필 UI·소속·서열 개선 검토](docs/V0_1_40_PROFILE_UI_AND_MEMBERSHIP_2026-10-09.md)
 - [전체 UI 색감 3안 · 컨펌 요청(미적용)](docs/UI_COLOR_PALETTE_OPTIONS_2026-10-09.md)
 - [프로젝트 입문 가이드](docs/PROJECT_GUIDE.md)
