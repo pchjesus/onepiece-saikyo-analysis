@@ -1,3 +1,11 @@
+## v0.1.44 — Cross-character evidence recalibration (Lucci / Kaku / Morley)
+
+- Compare 7-axis source-specific evidence for Lucci and Kaku against Zoro/Sanji/King/Marco/Katakuri/Queen/Cracker. Lucci's repeated inflated assumptions from fighting Gear 5 and Zoro and Kaku's brief/unresolved Zoro clash corrected; **Lucci 84.429→81.000**, **Kaku 82.143→78.429**.
+- Evaluate Morley's canonically demonstrated underground movement, terrain shaping and restricted Mariejois engagement under the full Speed definition (mobility and repositioning included). **Morley 76.857→79.286**, while acknowledging that protected Celestial Dragons restricted Admirals and no decisive individual damaging feat is proven.
+- Add **2 Evidence** records (Lucci vs Zoro official 1141/1144/1145; Morley vs Aramaki Ch.1083 cross-checked, marked supplementary) and **1 Battle** context. The Morley account is explicitly caveated as supplementary pending direct verification of Chapter 1083 panels.
+- Change only three draft Evaluations (21 Stat values assessed; 3 unchanged Lucci/Kaku? all 7 Lucci/Kaku adjusted, Morley 4 adjusted), version `evaluation-0.1.44-cross-calibrated-draft`. Preserve legacy 39 plus Sabo/Karasu/Stussy, all memberships, current global UI colors, Haki Raw 244, Balanced 1.2 and 15 existing direct matchups.
+- [Full before/after, evidence, rank and next-group shortlist](docs/V0_1_44_CROSS_CHARACTER_CALIBRATION_AND_NEXT_GROUPS_2026-10-09.md).
+
 ## v0.1.43 — Evidence-only recalibration of six Revolutionary Army / CP0 drafts
 
 - Re-audited all 42 evaluation axes, 14 linked Evidence records and 10 Battle contexts. Kept 39 previous Evaluations, approved Hybrid A Haki Raw sum 244 and 15 direct matchups exactly unchanged.
