@@ -1,3 +1,14 @@
+# v0.1.54 — 23 missing Evidence-role axes and 14 context-only axes
+
+- Baseline `main@69c530ab38cb6cd319216bed5d012bcd10b2b14e` (v0.1.53).
+- Scope: 37 individually reviewed `EvaluationItem.readiness` metadata fields; 5 added `statContributions` secondary roles, 3 existing context→secondary role clarifications. Zero new Evidence records, numeric ratings, Haki Raw, Calculation Model, Matchup, UI, stored state or PROJECT_SPEC changes.
+- Distribution E1 30/E2 162/E3 73/missing 148 → **E1 30/E2 169/E3 103/missing 111**.
+- Previous fixed distribution assertions updated in `readinessMetadataAudit.test.ts`, `readinessSourceRoleAudit.test.ts`, `readinessComparativeAudit.test.ts`, `overallValidityAudit.test.ts`, `hybridRawPilotReviews.test.ts`. New `evidenceStatRoleGapAudit.test.ts` checks 37 explicit choices; 8 precise per-axis Evidence roles; 111 remaining primary72/secondary39; 59×7, 62 Evaluation/434 Stat, Haki Raw244, 15 Matchups and representative score/Overall invariance.
+- Canon-vs-official-TV-vs-interpretation uncertainty documented by [37-axis report](docs/V0_1_54_ROLELESS_CONTEXT_37_AXIS_ADJUDICATION_2026-10-09.md); [148-axis trace](docs/V0_1_54_148_AXIS_SOURCE_ROLE_MATRIX_2026-10-09.md). Post-audit development intentions in [roadmap](docs/V0_1_54_POST_AXIS_AUDIT_ROADMAP_2026-10-09.md).
+- **PR CI and main Pages verification:** pending successful workflow observation. No claim of personally inspecting all manga panels or running manual mobile QA.
+
+---
+
 # v0.1.53 — three supplementary evidence records and 24 readiness classifications
 
 - Baseline `main@5ff5b9ab345463b2469a155ccbd2cbe0eb2adfd5` (v0.1.52).
