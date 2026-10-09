@@ -137,6 +137,27 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
     expect(ranking.find(r => r.characterId === 'lucci')?.score).toBeCloseTo(81)
   })
 
+  it('keeps Lucci and Kaku below comparable commanders and credits Morley for terrain mobility', () => {
+    const rank = getStatRanking('overall')
+    const overall = (id: string) => rank.find(entry => entry.characterId === id)!.score
+    expect(overall('lucci')).toBe(81)
+    expect(overall('kaku')).toBeCloseTo(78.4285714286)
+    expect(overall('morley')).toBeCloseTo(79.2857142857)
+    expect(overall('lucci')).toBeLessThan(overall('king'))
+    expect(overall('lucci')).toBeLessThan(overall('marco'))
+    expect(overall('kaku')).toBeLessThan(overall('queen'))
+    expect(overall('kaku')).toBeGreaterThan(overall('cracker'))
+    expect(overall('morley')).toBeGreaterThan(overall('queen'))
+    expect(overall('morley')).toBeLessThan(overall('jinbe'))
+    expect(sampleEvaluations.find(e => e.characterId === 'morley')!
+      .items.find(i => i.stat === 'speed')?.readiness).toBe('E2')
+    expect(sampleEvidence.find(e => e.id === 'evidence-morley-terrain-profile')
+      ?.statContributions.find(c => c.stat === 'speed')?.role).toBe('primary')
+    expect(sampleEvidence.find(e => e.id === 'evidence-morley-aramaki-1083')?.source.type).toBe('supplementary')
+    expect(sampleEvidence.find(e => e.id === 'evidence-lucci-zoro-1144')?.source.type).toBe('supplementary')
+    expect(sampleBattles.find(b => b.id === 'egghead-lucci-zoro')?.result).toBe('interrupted')
+  })
+
   it('preserves approved old 39 evaluations and no bonus invention under approved Hybrid A', () => {
     expect(sampleCharacters).toHaveLength(43) // includes one existing unscored Buggy
     expect(sampleEvaluations).toHaveLength(45)
