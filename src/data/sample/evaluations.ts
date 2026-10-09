@@ -115,8 +115,8 @@ export const sampleEvaluations: Evaluation[] = [
   {
     id: 'evaluation-cracker', characterId: 'cracker', evaluationDataVersion: 'evaluation-0.1.26-draft', status: 'draft',
     items: [
-      item('attack', 75, '무장색 검격으로 Gear 4 루피의 팔에 실제 피해를 줬지만 Marco·Jozu보다 높은 반복 결정력을 보여줬다고 보기는 어렵다. 실제 무장색 적용은 Base와 분리해 Final 74로 제한한다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-urouge-837'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '무장색을 검에 적용해 Gear 4 루피에게 실제 검격 피해를 줌', evidenceIds: ['evidence-cracker-biscuit-837-838'] }]),
-      item('defense', 81, '비스킷 갑옷·방패가 Gear 4 이전 루피의 공격을 막는 실제 방어 시스템으로 기능했다. 다만 Gear 4에는 갑옷이 부서지고 물에 젖으면 약해지는 명확한 상성 한계를 함께 반영해 76으로 제한한다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-long-battle-842']),
+      item('attack', 75, '무장색 검격으로 Gear 4 루피의 팔에 실제 피해를 줬지만 Marco·Jozu보다 높은 반복 결정력을 보여줬다고 보기는 어렵다. 실제 무장색 적용은 Base와 분리해 Final 77로 평가한다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-urouge-837'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '무장색을 검에 적용해 Gear 4 루피에게 실제 검격 피해를 줌', evidenceIds: ['evidence-cracker-biscuit-837-838'] }]),
+      item('defense', 81, '비스킷 갑옷·방패가 Gear 4 이전 루피의 공격을 막는 실제 방어 시스템으로 기능했다. 다만 Gear 4에는 갑옷이 부서지고 물에 젖으면 약해지는 명확한 상성 한계를 함께 반영해 Final 81로 평가한다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-long-battle-842']),
       item('stamina', 80, '약 11시간 동안 비스킷 병사를 계속 생성·조종하며 전투를 이어간 능력 지속력은 인정한다. 다만 본체가 11시간 내내 고강도 피해를 직접 견딘 것은 아니므로 상위 장기전 캐릭터보다 낮게 제한한다.', ['evidence-cracker-long-battle-842']),
       item('speed', 75, 'Gear 4 루피에게 직접 검격을 적중시킬 전투 반응은 있으나 순수 Speed가 강점으로 반복 확인되는 장면은 적다.', ['evidence-cracker-biscuit-837-838']),
       item('techniqueMastery', 80, '비스킷을 병사·갑옷·무기 형태로 만들고 장시간 조종하는 숙련은 확인된다. 다만 King·Katakuri처럼 복수 메커니즘을 고도로 전환하는 수준과는 구분하고 능력 강도 자체를 숙련도로 중복 가산하지 않는다.', ['evidence-cracker-biscuit-837-838', 'evidence-cracker-long-battle-842']),
