@@ -1,3 +1,15 @@
+## v0.1.40 — Compact Haki UI, Character Motifs and Current-Affiliation Ordering
+
+- Three Haki type rows now display compact status and a `?` evidence popover. Keep qualitative greatness/uncertainty text inside the popover, close on outside press or Escape, and preserve the Special combat tooltip.
+- Show **열매 각성자** only with explicitly verified Devil Fruit awakening metadata (Law, Doflamingo, Katakuri, Lucci, Kaku); remove redundant Combat Style awakening tags. Sanji uses **스카이워크** without overlapping `공중전`.
+- Remove Mihawk `강자 요격`: canon Marineford obstruction is a *battle purpose* not an independent fighting style; reduce redundant swordsman/brawler labels.
+- Character detail shows a small group symbol, custom simplified Whitebeard moustache-skull, and muted admiral red/blue/yellow/violet/green individual accents. Whole app theme stays unchanged.
+- Sort each group **captain → explicit deputy/unit number → ko-KR name** where rank is unproven, with marine/revolutionary official rank order. Never derive hierarchy from Overall score.
+- Kuzan now has **current Blackbeard Pirates 10th ship captain** Membership and previous Marine Membership; Jinbe has former Warlords Membership while retaining current Straw Hat; only the Whitebeard Pirates' deceased final captain Newgate is exempted from a misleading `과거 소속` UI tag in that final crew, his Rocks-era membership remains historical.
+- Expanded Membership count **47→49**, 43 Characters/42 rated unique/45 Evaluations/315 Stats. Numeric ratings, Haki raw sum and 15 matchups unchanged.
+- Whole-app One Piece palette **requires user confirmation**: [three unimplemented palettes](docs/UI_COLOR_PALETTE_OPTIONS_2026-10-09.md).
+- [Full review](docs/V0_1_40_PROFILE_UI_AND_MEMBERSHIP_2026-10-09.md).
+
 # Changelog
 
 ## v0.1.39 (혁명군·CP0 Evidence 기반 신규 6인 초안)
