@@ -1,3 +1,15 @@
+# v0.1.55 — Five-character source-readiness and calculation invariants
+
+- Parent main baseline `39383ba5ed1f43085a4f509e782bfe8ddf723553` (v0.1.54).
+- Changed only 31 `EvaluationItem.readiness` metadata fields in `src/data/sample/evaluations.ts`: Cracker 5, Law 7, Doflamingo 7, Jinbe 6, Shanks 6. 9 E1 + 20 E2 + 2 E3; representative readiness `39/189/105/80`.
+- Existing Evidence records, Base/Final scores, Haki Raw (244), 59 default×7, all Evaluation 62/434 stats, Matchups 15, Balanced 1.2, PROJEC_SPEC, B selector and UI are unmodified. Source fact vs combat conditions vs inference are distinguished in detailed audit and trace matrix.
+- Added `src/data/sample/readinessFiveCharacterAudit.test.ts` with 3 comprehensive tests: all 31 chosen labels, current 59×7 distribution and E3 high-score caveat, existing battle evidence source-role integrity, Five Character Final vector/Overall unchanged, legacy data sizes and Haki raw 244. Updated 6 prior fixed-count fixtures.
+- **PR workflow npm test/npm run build and post-merge Pages main deployment:** confirm with exact commit SHA once completed; until then no success assumed.
+- No browser/mobile manual UI run and no complete independent manga-page inspection.
+- [Audit report](docs/V0_1_55_FIVE_CHARACTER_CANON_READINESS_AUDIT_2026-10-09.md) / [111-axis trace](docs/V0_1_55_111_AXIS_TRACE_2026-10-09.md)
+
+---
+
 # v0.1.54 — 23 missing Evidence-role axes and 14 context-only axes
 
 - Baseline `main@69c530ab38cb6cd319216bed5d012bcd10b2b14e` (v0.1.53).
