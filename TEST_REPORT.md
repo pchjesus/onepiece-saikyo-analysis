@@ -1,3 +1,23 @@
+# v0.1.36 Draft — FEATURED Selection UX & Haki Overlap Scenario (2026-10-09)
+
+## Scope and before/after
+- Project scope and 39 Evaluation/273 Stat official draft source values remain unchanged; 15 direct Matchups and v0.1.34 Balanced 1.2 remain intact.
+- FEATURED quick-pick buttons now have visually selected dark fill, stronger border, checkmark, and accessible `aria-pressed`; state derived from resolved Matchup pair + evaluation state, no separate stale selection state.
+- Added `src/ui/pages/MatchupHome.test.tsx` (jsdom React) verifying initial selected pairing, changing FEATURED, SWAP retention, manual roster clearing, era-specific change/restore, RANDOM pair coherence.
+- Non-mutating `src/domain/evaluation/hybridOverlapStress.ts` + `src/data/sample/hybridOverlapStress.test.ts` simulate removing exactly six **unresolved** cross-stat Haki Raw allocations, Raw sum 28, with Base fixed only to measure sensitivity. Tests cover the impact on all 39 Evaluations and preservation of all other 273 Stat values; the stress output is NOT a canon score correction or a lower bound.
+- [Scene review and exact caveats](docs/HYBRID_HAKI_OVERLAP_SCENE_REVIEW_2026-10-09.md) distinguishes anime summary statements from manga interpretation, duplicated outcomes from independent effects, and matchup conditions.
+
+## Verification
+- PR #28 [CI 37875341097](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37875341097): **33 test files / 143 tests passed; `npm run build` passed**.
+- Current PR HEAD after this test report needs CI recheck before merging.
+- No actual desktop/mobile browser rendering or device-specific interaction test was run. jsdom covers React state and attributes, CSS selected selectors have been added but visual rendering was not manually inspected.
+
+## Data/version guarantees
+- No changes to `PROJECT_SPEC.md`, official Raw, Base, Final, rating formula, ranking source, matchup factors/winners, saving/restoration and product/package version.
+- Explicit approval and full evidence audit still required before any production Haki data/version migration.
+
+---
+
 # v0.1.35 Draft — 14 Haki Raw Disposition & Candidate Base Rebase
 
 **2026-10-09 KST**. PR #27, branch `feature/v0.1.35-hybrid-raw-disposition`.
