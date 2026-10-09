@@ -49,10 +49,27 @@ function WhitebeardEmblem() {
   </svg>
 }
 
+/** Minimal original horned-skull motif inspired by the Beasts Pirates Jolly Roger.
+ * This is an icon-sized interpretation, not a traced official flag asset.
+ */
+function BeastsEmblem() {
+  return <svg viewBox="0 0 48 48" width="25" height="25" role="img"
+    aria-label="백수 해적단의 뿔 달린 해골 상징">
+    <g fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round">
+      <path d="M8 8L40 40M40 8L8 40M5 24H43M24 4V44"/>
+      <path d="M14 14C7 10 6 6 8 3C10 10 17 11 20 12M34 14C41 10 42 6 40 3C38 10 31 11 28 12"/>
+    </g>
+    <path d="M14 17Q24 8 34 17L36 29L31 35H17L12 29Z"
+      fill="#fff" stroke="currentColor" strokeWidth="2"/>
+    <path d="M16 21L22 24L20 27L16 26ZM32 21L26 24L28 27L32 26Z" fill="currentColor"/>
+    <path d="M24 27L22 30H26Z" fill="currentColor"/>
+    <path d="M20 33V35M24 32V35M28 33V35" stroke="currentColor" strokeWidth="1.7"/>
+  </svg>
+}
+
 const groupMark = (group: Group): string => {
   // Decorative echoes of each crew's theme; not asserted to be their canon Jolly Rogers.
   const markByGroup: Record<string, string> = {
-    'beasts-pirates': '♜',
     'big-mom-pirates': '♛',
     'straw-hat-pirates': '☀',
     'red-hair-pirates': '⚔',
@@ -77,7 +94,9 @@ export function CharacterIdentity({ group, characterId, showPastMembership }: {
     <span className="identity-mark">
       {group.id === 'whitebeard-pirates'
         ? <WhitebeardEmblem/>
-        : <span aria-hidden="true">{groupMark(group)}</span>}
+        : group.id === 'beasts-pirates'
+          ? <BeastsEmblem/>
+          : <span aria-hidden="true">{groupMark(group)}</span>}
     </span>
     <span className="eyebrow">{group.name}</span>
     {showPastMembership && <span className="membership-context">과거 소속</span>}
