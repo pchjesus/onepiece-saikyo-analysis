@@ -1,3 +1,27 @@
+# v0.1.37 (Draft PR #29) — 가반 산먹깨비, 한국어 용어, Hybrid 재산정 승인안
+
+**2026-10-09 KST**. Product `main` stays at v0.1.34 pending user confirmation.
+
+## Implemented in review branch
+- Verified 112권 1139화 정식 단행본 제목 `산먹깨비`, inserted before `해적왕의 왼팔` as the Gaban epithet without changing any identity, membership, Evaluation state, or score.
+- UI Korean localization: 7 stat labels, all visible Base/Raw/Haki/Final calculation terms, battle structure/intent/result/evidence strength, matchup selection headings and visible analysis, special profile captions, and primary term 카무사리. Internal identifiers, evidence IDs and CalculationModel remain unchanged.
+- Added non-production `buildHybridApprovalPreview` A (4 Raw Base transfers) / B (10 Raw Base transfers across 9 stats), preserving 39 Evaluation/273 Stat Finals and all original OVR. Explicitly notes that score changes are NOT warranted without further canon marginal-effect evidence.
+- Group research `docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md` for Revolutionary Army and CP0 is **research only**. Group/Character/Evaluation data not yet added.
+
+## Validation and regression fixes
+- Initial CI caught English assertions after localization; updated existing React integration tests to retain all prior functionality coverage.
+- Another CI caught translation of the program identifier `factors` due to overly broad string replacement; fixed the program identifiers and retained Korean user-visible labels (test is not disabled).
+- TypeScript CI caught exhaustive EvidenceStrength union `unclear`; added the Korean display string `불명확` rather than weakening types.
+- Verified latest implementation commit at [CI run 37878826898](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37878826898): **34 Test Files / 148 Tests passed**, **TypeScript/Vite production build passed**, deploy skipped because PR branch only.
+- Actual desktop/mobile visual inspection, production `main` deploy and user approval **not performed**. No claims about new character 7-axis scores.
+
+## Approval gate
+- Keep PR #29 **draft**, do not merge or deploy before user selects A (4 ordinary transfers) or B (all 10 with overlap-to-Base) and approves final changes.
+- Full baseline: 39 Evaluations, 273 final Stats, 53 typed Raw sum 256, Balanced 1.2 Weight 0.5, 15 Matchups.
+- The 4 vs 10 candidate impacts live **only in simulation**; production score/Ranking source of truth is unchanged.
+
+---
+
 # v0.1.36 Draft — FEATURED Selection UX & Haki Overlap Scenario (2026-10-09)
 
 ## Scope and before/after
