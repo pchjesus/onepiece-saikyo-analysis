@@ -1,3 +1,14 @@
+# v0.1.57 — Completed default Evidence readiness audit and scoring-model preservation
+
+- Baseline main `4be641e9b0d0aec29c4206f6a0b5462b5bff3c42` (v0.1.56). Classified previously missing **51 EvaluationItem.readiness** metadata axes; E1+10/E2+35/E3+6.
+- Representative 59×7=413 exact readiness E1 **53**, E2 **243**, E3 **117**, missing **0**. The 3 previously unlinked default items (Smoothie Speed, Shanks Stamina, Ryokugyu Speed) remain intentionally **E3 with no fabricated IDs**.
+- No score/Final/Overall changes, Haki Raw244, Balanced1.2 ×0.5, 62 Evaluations/434 Stats, 15 Matchups, battle/character/Evidence/PROJECT_SPEC/UI/save-data model changes. New `readinessCompletionAudit.test.ts` has four tests for all 51 explicit labels, full 413, E3 unlinked legitimate gaps, source role, twelve Final vectors/Overall, model/historical integrity. Eight historical readiness snapshot files updated to current distribution; `unresolved` now zero for default roster, not a hard requirement that every original manga panel has been independently read.
+- Detailed per-axis facts, battle conditions, evidential limits: [51-axis source audit](docs/V0_1_57_FINAL_51_AXIS_READINESS_AUDIT_2026-10-10.md). Next-score-model gate: [Post-readiness brief](docs/V0_1_57_POST_READINESS_CALIBRATION_BRIEF_2026-10-10.md).
+- **PR GitHub CI, production build and post-merge Pages deployment:** verify against exact head/merge commit, do not assume success at document creation.
+- No claim of manual browser/mobile UI verification or all manga chapter panels being independently accessed.
+
+---
+
 # v0.1.56 — Top-tier readiness and era-context regression
 
 - Baseline `main@0e7cc6522558b5bb029c80388f40de3ada9dfa1a` (v0.1.55).
