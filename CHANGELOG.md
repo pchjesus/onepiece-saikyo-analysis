@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.1.36 (Draft) — Featured Matchup Selection and Haki Overlap Stress
+
+- Matchup Arena FEATURED pills now highlight the actual selected matchup with dark fill, strong outline and checkmark; `aria-pressed` and keyboard focus ring preserve accessible button semantics. Selection follows swap, manual roster/era changes and randomization without duplicated state.
+- Evaluated **six potentially cross-stat duplicated Haki Raw entries** using scene-specific canon/official context for Shanks, Katakuri, Linlin and Kuzan.
+- Added **non-production-only** `previewHybridOverlapStress()` excluding precisely Raw 28 at a fixed Base to show 39-Evaluation numeric sensitivity. This **is not a score recommendation or a legitimate statistical lower bound**, since valid Haki effects can also be excluded.
+- Current official draft scores, 39 Evaluations/273 Stats, 15 Matchups, 36-default-character roster, all calculation models, PROJECT_SPEC and v0.1.34 product version remain unchanged.
+- Added jsdom selection/reverse/era/random regression tests, score impact/nonmutation/stale-review tests and detailed [scene report](docs/HYBRID_HAKI_OVERLAP_SCENE_REVIEW_2026-10-09.md).
+
 ## v0.1.35 (Draft) — 14-Application Hybrid Raw Review & Non-Production Base Rebase
 
 - Added typed, evidence-guarded decisions for **all 14 existing Haki Raw contributions** across Sakazuki, Kuzan, Shanks, Katakuri, Big Mom, with Mihawk as no-Raw comparison.
