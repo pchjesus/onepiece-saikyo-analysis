@@ -218,7 +218,7 @@ describe('evaluated roster UI', () => {
     expect(container.querySelector('.matchup-radar')).not.toBeNull()
     expect(container.querySelector('button[aria-label="좌우 캐릭터 교체"]')).not.toBeNull()
     expect(container.querySelector('button[aria-label="랜덤 매치업"]')).not.toBeNull()
-    expect(container.querySelector('.featured-matchups')?.textContent).toContain('FEATURED')
+    expect(container.querySelector('.featured-matchups')?.textContent).toContain('추천 대진')
     expect(container.querySelector('.arena-caution')?.textContent).toContain('승률이 아닙니다')
 
     await click(container.querySelector('button[aria-label="좌우 캐릭터 교체"]'))
