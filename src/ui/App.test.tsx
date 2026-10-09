@@ -93,7 +93,7 @@ describe('evaluated roster UI', () => {
   it('shows formulas for all seven stats and switches between compact detail tabs', async () => {
     const formula = container.querySelectorAll('.evaluation-formula')
     expect(formula).toHaveLength(7)
-    expect(formula[0].textContent).toMatch(/Base \d+ \+ Haki \(\d+ × 0.5 = \d+\) = Final \d+\/100/)
+    expect(formula[0].textContent).toMatch(/기본점수 \d+ \+ 패기 \(\d+ × 0.5 = \d+\) = 최종점수 \d+\/100/)
     await click(container.querySelector('#battle-tab'))
     expect(container.querySelector('.battle-timeline')).not.toBeNull()
     expect(container.querySelector('.evaluation-trace-list')).toBeNull()
