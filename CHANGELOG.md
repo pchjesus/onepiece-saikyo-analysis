@@ -1,3 +1,12 @@
+## v0.1.45 — Kid Pirates / Akazaya Nine / Tobi Roppo, evidence-first draft evaluations
+
+- Add 3 groups, 17 **draft** Characters (Kid Pirates 2, founding Akazaya Nine 9 incl. former Kanjuro, Tobiroppo 6 incl. undercover marine X Drake), 17 Evaluations/119 draft stats, 17 conditional Battle records and 34 supplementary Evidence records referencing ONE PIECE.com profiles and official TV recaps. Individual scenes still require direct manga panel audit before canon-level promotion.
+- Record Kinemon as Akazaya leader without power-based ordering, Kanjuro as former, fallen Ashura Doji as historical, Drake's Tobiroppo/Beasts membership as former while SWORD Marines is primary. Kid crew's last documented organization is historical after its defeat; do not claim personal deaths or new affiliations.
+- Additional Lucci/Kaku cross-calibration: Lucci `80/77/82/82/83/68/74` Overall **81→78**, Combat IQ **78→68** based on repeated situation-assessment failures while preserving successful Sentomaru command disruption; Kaku `73/72/75/75/79/72/74` Overall **78.429→74.286**. Evaluation points remain interpretations, not canonical ratings. No generic positional/celebrity debuff.
+- Totals: **60 Character master, 59 unique evaluated, 62 Evaluation, 434 Stat, 73 Membership**. Existing typed Haki application count **49** and Raw sum **244**, 15 direct matchups, Balanced v1.2 and Haki weight0.5 remain unchanged.
+- Added additive `wanoSeeds.ts` and `wanoExpansion.ts` (not hardcoded in UI) and four direct Wano-domain regression tests. Existing regression tests were updated to retain legacy checks while verifying 59-member ranking, all 17 new scores, old totals, no Haki double count. No deletion or weakening to mask failures.
+- [Full character score/evidence/context report](docs/V0_1_45_WANO_THREE_GROUP_EVIDENCE_RECALIBRATION_2026-10-09.md). No change to `PROJECT_SPEC.md` or app-wide color theme.
+
 ## v0.1.44 — Cross-character evidence recalibration (Lucci / Kaku / Morley)
 
 - Compare 7-axis source-specific evidence for Lucci and Kaku against Zoro/Sanji/King/Marco/Katakuri/Queen/Cracker. Lucci's repeated inflated assumptions from fighting Gear 5 and Zoro and Kaku's brief/unresolved Zoro clash corrected; **Lucci 84.429→81.000**, **Kaku 82.143→78.429**.
