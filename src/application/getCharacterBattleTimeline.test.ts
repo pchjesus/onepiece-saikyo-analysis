@@ -22,7 +22,9 @@ describe('getCharacterBattleTimeline', () => {
     const timeline = getCharacterBattleTimeline('katakuri')
     expect(timeline).toHaveLength(1)
     expect(timeline[0]?.battle.id).toBe('whole-cake-katakuri-luffy')
-    expect(timeline[0]?.evidence).toHaveLength(7)
+    expect(timeline[0]?.evidence).toHaveLength(8)
+    expect(timeline[0]?.evidence.map(({ id }) => id))
+      .toContain('evidence-katakuri-composure-future-sight-857')
   })
   it('returns Law battles across Dressrosa, Wano, and Winner Island', () => {
     const timeline = getCharacterBattleTimeline('law')

@@ -21,8 +21,12 @@ describe('getCharacterEvidence', () => {
 
   it('returns Katakuri Canon Evidence with speed and Combat IQ coverage', () => {
     const records = getCharacterEvidence('katakuri')
-    expect(records).toHaveLength(7)
+    expect(records).toHaveLength(8)
     expect(records.every((record) => record.battle?.id === 'whole-cake-katakuri-luffy')).toBe(true)
+    const composure = records.find((record) => record.evidence.id === 'evidence-katakuri-composure-future-sight-857')
+    expect(composure?.evidence.source.type).toBe('supplementary')
+    expect(composure?.evidence.fact).toContain('침착함')
+    expect(composure?.evidence.statContributions.find(({ stat }) => stat === 'defense')?.role).toBe('primary')
     expect(records.map((record) => record.evidence.id)).toContain('evidence-katakuri-snakeman-895')
     expect(records.map((record) => record.evidence.id)).toContain('evidence-katakuri-gear4-counter-883-885')
   })

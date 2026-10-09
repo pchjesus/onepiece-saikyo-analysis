@@ -297,6 +297,28 @@ export const sampleEvidence: Evidence[] = [
     uncertainty: '미래예지는 침착함과 집중 상태의 영향을 받으며 모든 상황에서 절대적인 회피를 보장하지 않는다.',
   },
   {
+    id: 'evidence-katakuri-composure-future-sight-857',
+    battleId: 'whole-cake-katakuri-luffy',
+    subjectCharacterId: 'katakuri',
+    source: {
+      type: 'supplementary',
+      reference: 'ONE PIECE.com — TV Episode 857 (2018-10-14): Katakuri foresight and composure limitation',
+      description: '공식 애니메이션 줄거리에서 카타쿠리가 침착함을 잃자 루피의 공격이 통하고, 다시 침착함을 되찾은 후 공격을 읽어 모치 신체를 변형해 회피하는 흐름을 설명',
+    },
+    evidenceStrength: 'strong',
+    fact: '공식 애니메이션 857화 줄거리는 카타쿠리가 침착함을 잃었을 때 루피에게 공격을 허용했고, 침착함을 되찾은 뒤 견문색으로 루피의 공격을 예측하며 모치 신체를 변형해 회피했다고 설명한다.',
+    supportedAbilities: ['견문색의 조건부 미래예지', '모치 신체 부분변형', '침착함에 따른 운용 제한'],
+    statContributions: [
+      { stat: 'defense', role: 'primary', note: '회피 성공·실패가 침착함과 견문색 운용 상태에 좌우될 수 있음을 직접 보여주는 조건 근거다.' },
+      { stat: 'techniqueMastery', role: 'secondary', note: '예측과 신체 부분 변형이 결합된 숙련을 보여주지만 같은 회피 성공을 Defense와 각각 독립 보너스로 계산하지 않는다.' },
+      { stat: 'combatIQ', role: 'context', note: '예측정보 획득과 전술 판단은 다르므로 특정 회피를 전술 IQ의 독립 득점 장면으로 처리하지 않는다.' },
+      { stat: 'speed', role: 'context', note: '선행 예측과 반응·이동 속도의 차이를 명시하는 보조 조건이다.' },
+    ],
+    interpretation: '미래예지 숙련은 원작에서 강하게 확인되지만 침착함이 필요한 조건부 성과이고, 한 회피를 세 독립 Raw 기여로 자동 정당화하지 않는다.',
+    evaluationImpact: 'Defense·Technique·Combat IQ의 조건과 중복 평가 위험을 보강하며 기존 점수와 Raw는 변경하지 않는다.',
+    uncertainty: '이 항목은 공식 애니메이션 줄거리의 보조적 교차 확인이다. 별도의 독립 승리 장면이나 Haki로 인한 정확한 추가 점수는 아니다.',
+  },
+  {
     id: 'evidence-katakuri-awakening-882',
     battleId: 'whole-cake-katakuri-luffy',
     subjectCharacterId: 'katakuri',
