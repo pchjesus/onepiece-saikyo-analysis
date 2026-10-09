@@ -3,9 +3,9 @@ import { getCharacterList, getUniqueCharacterList } from './getCharacterList'
 import { getCharacterDetail } from './getCharacterDetail'
 
 describe('getCharacterDetail group migration', () => {
-  it('resolves representative detail for every Character in the 36-person evaluated roster', () => {
+  it('resolves representative detail for every Character in the 42-person evaluated roster', () => {
     const list = getUniqueCharacterList()
-    expect(list).toHaveLength(36)
+    expect(list).toHaveLength(42)
     for (const { character, group } of list) {
       const detail = getCharacterDetail(character.id, group.id)
       expect(detail?.character.id).toBe(character.id)
@@ -16,7 +16,7 @@ describe('getCharacterDetail group migration', () => {
 
   it('resolves every expanded Membership context, including historical secondary Groups', () => {
     const expanded = getCharacterList()
-    expect(expanded).toHaveLength(41)
+    expect(expanded).toHaveLength(47)
 
     for (const { character, group } of expanded) {
       const detail = getCharacterDetail(character.id, group.id)
