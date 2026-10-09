@@ -1,3 +1,14 @@
+# v0.1.49 — Balanced Overall reliability/validity distinction and 59×7 diagnostic
+
+- Baseline `main@ee48392a74a645258d0bbf5475467711a6dfe883`, v0.1.48. This patch updates explanatory text only, adds a non-production weighting experiment report and `overallValidityAudit.test.ts`. No stats/Raw/CombatPower calculation changes.
+- Regression protects 59 unique IDs, Balanced equal-weight result across all 59, 244 Raw Haki (over 62 Evaluations), alternative weighting only in test scope, and 413 default-axis readiness metadata (29 E1/131 E2/61 E3/192 missing).
+- Same Overall yet different 7-axis distribution: Kanjuro/Ulti and Cracker/Karasu; Jack/Kid alternate-weight position checks. Scenarios are NOT alternative official models or a probability forecast.
+- `CharacterPage` now clarifies Overall is not a 1v1 win rate or certain rank; `App.test.tsx` checks the message. PROJECT_SPEC, Rank sorting, Matchup, B picker and UI palette are unchanged.
+- New CI/test/build, PR merge and exact main Pages deployment to be verified separately. Automated jsdom is not real-device mobile visual QA.
+- [Full 59×7 sensitivity and model-validity audit](docs/V0_1_49_OVERALL_VALIDITY_AND_SENSITIVITY_59x7_2026-10-09.md).
+
+---
+
 # v0.1.48 — Group dropdown/all-roster picker and score semantics regression
 
 - Baseline v0.1.47 main `6f4a19cc80a9f577cd3f26bfbce8cfdb24d12fee`.
