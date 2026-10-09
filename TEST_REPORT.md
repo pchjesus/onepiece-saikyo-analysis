@@ -1,3 +1,15 @@
+# v0.1.46 — Canon source matching / conditional combat context regression
+
+- Baseline `main@09786f1fac2a8922a125bc44cb43f61e5b808f21` (v0.1.45).
+- Verified ONE PIECE.com TV source correspondence: Kid's 1066 attack vs 1067 victory, Drake's actual 1060/1069 CP0 engagements, Ulti's 1033 Big Mom intervention vs 1038 Zeus/Nami follow-up, Who's-Who's hidden troops (1038) vs Jinbe finishing blow (1040).
+- Corrected Who's-Who `combatStructure=multiple-vs-one`. Revised source references and Lucci/Kaku IQ explanations; readiness `E2→E3` for only those two Combat IQ axes. **No Base/Final/Overall scores, affiliations, Haki Raw or direct matchups were recalculated in this source-verification patch.**
+- Added `officialEpisodeCrosscheck.test.ts` (four source/context and integrity assertions). Previous regression tests remain enabled and existing values unchanged.
+- 60 Characters / 59 unique evaluated / 62 Evaluations / 434 Stats / 73 Memberships / Haki Raw 244 / 15 direct Matchups, Balanced 1.2 weight0.5 remain release invariants.
+- Final build and merge+Pages CI must be checked separately before declaring published; manual device visual verification not performed.
+- Detailed verification: `docs/V0_1_46_OFFICIAL_EPISODE_CROSSCHECK_2026-10-09.md`.
+
+---
+
 # v0.1.45 — 17 new characters, three groups, CP0 recalibration release gate
 
 - Baseline `main@1ed24e8e8404dfb84d0348517b529972a06be19c`, v0.1.44. This patch adds exactly 17 evaluated draft characters and 3 historical/current contextual groups without changing old Character identities.

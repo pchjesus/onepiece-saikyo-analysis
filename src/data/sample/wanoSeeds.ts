@@ -570,7 +570,7 @@ export const wanoSeeds: WanoSeed[] = [
     "style": "박치기·근접 돌진",
     "trait": "동물계 고대종 파키케팔로사우루스",
     "profile": "https://one-piece.com/character/ulti/index.html",
-    "fight": "https://one-piece.com/anime/o6243/index.html",
+    "fight": "https://one-piece.com/anime/o6243/index.html · https://one-piece.com/anime/o6323/index.html",
     "fact": "울티는 나미·우솝을 압박하고 빅 맘의 강력한 명광포를 받은 뒤 제우스를 이용한 나미의 공격으로 쓰러졌다.",
     "context": "상대들은 중간에 바뀌고 빅 맘의 직접 개입이 있어 나미가 순수 1대1 공격력으로 울티를 이겼다는 의미가 아니다.",
     "score": [
@@ -650,8 +650,8 @@ export const wanoSeeds: WanoSeed[] = [
     "style": "고대종 알로사우루스·검술",
     "trait": "동물계 고대종 알로사우루스",
     "profile": "https://one-piece.com/character/X_Drake/index.html",
-    "fight": "https://one-piece.com/anime/o6337/index.html",
-    "fact": "X 드레이크는 백수해적단 토비롯포로 신분을 숨기던 해군 SWORD 대장으로, 오니가시마에서 아푸·CP0 관련 다수전 전황에 개입했다.",
+    "fight": "https://one-piece.com/anime/61598/index.html · https://one-piece.com/anime/62672/index.html",
+    "fact": "X 드레이크는 백수해적단 토비롯포로 신분을 숨기던 해군 SWORD 대장으로, 오니가시마에서 아푸와 CP0 측의 교전에 참여했으며, CP0 요원에 맞서 기습 공격을 성공시켰지만 이후 지건으로 제압됐다.",
     "context": "잠입·지휘 역할은 직접 전투 피해와 구분하며, 에그헤드 기준 현 소속과 와노 과거 소속이 다르다.",
     "score": [
       78,
