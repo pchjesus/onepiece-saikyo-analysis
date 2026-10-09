@@ -12,8 +12,8 @@ const evidenceReferences = sampleEvidence.map(({ id, subjectCharacterId }) => ({
 describe('sample combat data', () => {
   it('keeps the initial crew baseline and allows later expansion', () => {
     expect(sampleCrews).toHaveLength(3)
-    expect(sampleCharacters).toHaveLength(37)
-    expect(sampleEvaluations).toHaveLength(39)
+    expect(sampleCharacters).toHaveLength(43)
+    expect(sampleEvaluations).toHaveLength(45)
 
     for (const crew of sampleCrews) {
       expect(sampleCharacters.filter(({ crewId }) => crewId === crew.id).length).toBeGreaterThanOrEqual(3)

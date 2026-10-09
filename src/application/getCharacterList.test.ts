@@ -2,13 +2,13 @@ import { describe, expect, it } from 'vitest'
 import { getCharacterList, getUniqueCharacterList } from './getCharacterList'
 
 describe('getCharacterList', () => {
-  it('keeps a 36-Character representative roster while allowing expanded Membership rows', () => {
+  it('keeps a 42-Character representative roster while allowing expanded Membership rows', () => {
     const unique = getUniqueCharacterList()
     const expanded = getCharacterList()
 
-    expect(unique).toHaveLength(36)
-    expect(expanded).toHaveLength(41)
-    expect(new Set(unique.map(({ character }) => character.id)).size).toBe(36)
+    expect(unique).toHaveLength(42)
+    expect(expanded).toHaveLength(47)
+    expect(new Set(unique.map(({ character }) => character.id)).size).toBe(42)
 
     expect(unique.map((item) => item.character.name)).toEqual([
       '마르코', '죠즈', '비스타',
@@ -21,6 +21,7 @@ describe('getCharacterList', () => {
       '쥬라큘 미호크', '크로커다일',
       '골 D. 로저', '실버즈 레일리', '스코퍼 가반', '록스 D. 지벡',
       '에드워드 뉴게이트', '카이도', '샬롯 링링',
+      '사보', '몰리', '카라스', '로브 루치', '카쿠', '스튜시',
     ])
 
     expect(unique.find(({ character }) => character.id === 'mihawk')?.group.id).toBe('cross-guild')
