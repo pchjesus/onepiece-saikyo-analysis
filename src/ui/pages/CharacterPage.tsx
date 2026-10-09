@@ -96,6 +96,9 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
             <strong>{result.finalScore.toFixed(1)}<small>/100</small></strong>
             <span>{result.calculationModelVersion} · 균형형 · 핵심 스탯 7개 · 패기 가중치 ×{result.hakiWeight}</span>
           </button>
+          <p className="section-note" data-testid="overall-interpretation-note">
+            종합점수는 7개 스탯의 동일 가중 평균이야. 캐릭터의 강점·약점 분포, 상대 능력과 상성, 전투 조건까지 검증한 승률이나 확정 서열은 아니야.
+          </p>
           <div className="stat-heading">
             <div className="stat-heading-title"><h2>핵심 전투 스탯</h2><EvidenceReadinessHelp /></div>
             <span>점수를 누르면 전체 캐릭터 비교 · 정렬 전환 가능</span>
