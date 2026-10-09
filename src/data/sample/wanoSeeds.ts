@@ -1,5 +1,5 @@
 /* v0.1.45 evidence-first seeds. Every numeric axis is draft interpretation, not canon power. */
-import type { CombatStat, EvidenceReadiness } from '../../domain/evaluation/types'
+import type { EvidenceReadiness } from '../../domain/evaluation/types'
 export type WanoSeed = {id:string;name:string;group:string;role:string;style:string;trait:string;profile:string;fight:string;fact:string;context:string;score:number[];notes:string[];readiness:EvidenceReadiness[];hakiConquerors:string}
 export const wanoSeeds: WanoSeed[] = [
   {
