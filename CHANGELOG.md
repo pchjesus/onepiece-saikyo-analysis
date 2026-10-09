@@ -1,3 +1,10 @@
+## v0.1.48 — B searchable group selector + Overall validity audit
+
+- Replace overcrowded horizontally scrolling group tabs with an accessible labeled Group native dropdown, retain existing current-Group character chips.
+- Add '전체 캐릭터 찾기' search picker: share the proven name/alias/group matching algorithm, 59 unique characters regardless of 73 memberships, explicit current/historical affiliation, group filter, Enter/Arrow/Escape, focus restoration, backdrop close, scroll lock, responsive mobile sheet.
+- Preserve independent Matchup Arena's left/right character selection and evaluation states, rankings, 62 evaluations/434 stats, original Balanced1.2, Haki weight0.5, Haki raw sum244, 15 direct matchups, and global colors.
+- [Detailed assessment](docs/V0_1_48_PICKER_B_AND_OVERALL_VALIDITY_2026-10-09.md): Attack90 vs Defense89 does NOT establish a breach/win; 7-axis arithmetic-mean Overall is reproducible but not externally validated as matchup predictor. No change to rating model or PROJECT_SPEC.
+
 ## v0.1.47 — Evidence-guided A-path 59-character seven-axis cross-audit and six calibrations
 
 - User approved the incremental A approach (keep existing Balanced v1.2, Haki Raw ×0.5, 7 axes, no rank-forcing, no global theme changes). Audited all **59 unique evaluated × 7 Final Core Stat** records and independently asserted **53 untouched character arrays** in a new regression file.

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { CharacterKnownAs } from '../../domain/character/types'
 
-type CharacterOption = {
+export type CharacterOption = {
   character: { id: string; name: string; crewId: string; knownAs: CharacterKnownAs[] }
   group: { id: string; name: string }
 }
@@ -31,6 +31,29 @@ function matchRelevance(character: CharacterOption['character'], group: string, 
   return normalize(group).includes(query) ? 3 : Number.POSITIVE_INFINITY
 }
 
+/** One suggestion per Character, even when its name is discovered via a historical Group. */
+export function getCharacterMatches<T extends CharacterOption>(characters: T[], query: string, limit = 8): T[] {
+  const term = normalize(query)
+  const seen = new Set<string>()
+  return characters
+    .map((entry) => ({
+      entry,
+      relevance: matchRelevance(entry.character, entry.group.name, term),
+      representative: entry.group.id === entry.character.crewId ? 0 : 1,
+    }))
+    .filter(({ relevance }) => Number.isFinite(relevance))
+    .sort((a, b) =>
+      a.relevance - b.relevance
+      || a.representative - b.representative
+      || a.entry.character.name.localeCompare(b.entry.character.name, 'ko'))
+    .flatMap(({ entry }) => {
+      if (seen.has(entry.character.id)) return []
+      seen.add(entry.character.id)
+      return [entry]
+    })
+    .slice(0, limit)
+}
+
 export function CharacterSearch({ characters, onSelectCharacter }: {
   characters: CharacterOption[]
   onSelectCharacter: (characterId: string, groupId: string) => void
@@ -49,28 +72,7 @@ export function CharacterSearch({ characters, onSelectCharacter }: {
   }, [])
 
   const term = normalize(query)
-  const suggestions = term
-    ? (() => {
-      const seen = new Set<string>()
-      return characters
-        .map((entry) => ({
-          entry,
-          relevance: matchRelevance(entry.character, entry.group.name, term),
-          representative: entry.group.id === entry.character.crewId ? 0 : 1,
-        }))
-        .filter(({ relevance }) => Number.isFinite(relevance))
-        .sort((a, b) =>
-          a.relevance - b.relevance
-          || a.representative - b.representative
-          || a.entry.character.name.localeCompare(b.entry.character.name, 'ko'))
-        .flatMap(({ entry }) => {
-          if (seen.has(entry.character.id)) return []
-          seen.add(entry.character.id)
-          return [entry]
-        })
-        .slice(0, 8)
-    })()
-    : []
+  const suggestions = term ? getCharacterMatches(characters, term) : []
 
   const choose = (entry: CharacterOption) => {
     onSelectCharacter(entry.character.id, entry.group.id)

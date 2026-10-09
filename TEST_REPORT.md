@@ -1,3 +1,14 @@
+# v0.1.48 — Group dropdown/all-roster picker and score semantics regression
+
+- Baseline v0.1.47 main `6f4a19cc80a9f577cd3f26bfbce8cfdb24d12fee`.
+- Preserve all 59 distinct IDs and 73 memberships: dialog dedupes historical group membership, filter preserves group context on click, ranking and matchup unchanged.
+- Existing `src/ui/App.test.tsx` cases use actual native group select instead of discontinued tab buttons and verify historical groups, rankings and alias search; add independent dialog focus Escape and unique roster/group-filter tests.
+- Full `npm test`, `npm run build`, CI PR, post-merge main and GitHub Pages gate required. Real-device visual/touch QA remains distinct from jsdom tests.
+- Model assurance is a logical review, NOT empirical psychometric validation: 7 Final Stats arithmetic mean remains unchanged.
+- [Evidence/UX explanation](docs/V0_1_48_PICKER_B_AND_OVERALL_VALIDITY_2026-10-09.md).
+
+---
+
 # v0.1.47 — A-path calibration, baseline and regression gates
 
 - Baseline `main@7ee57a475e1d9721bfdca03d8fcd1c6bd0cf748d` (v0.1.46), 59 evaluated unique / 62 evaluations / 434 core stats, Haki Raw 244 and 15 existing direct matchups.
