@@ -1,3 +1,14 @@
+# v0.1.48 — Character picker B implementation and Overall validation gate
+
+- Baseline `main@6f4a19cc80a9f577cd3f26bfbce8cfdb24d12fee`, v0.1.47. Data unchanged: 60 Character masters, 59 unique evaluated, 73 Membership, 62 Evaluation, 434 Stats, Haki Raw244 / weight0.5, Balanced 1.2, 15 direct Matchups.
+- UI changes: group native select, keep group chips, 59-character searchable browse dialog/mobile sheet, group filter and historical affiliation text. Existing header CharacterSearch shares same matcher. Existing MatchupHome is untouched.
+- Added App.test regressions for modal open and 59 unique results, name matching + representative grouping (Mihawk Cross Guild), filtering 6 Tobi Roppo incl. former Drake, selection + historical detail, Escape and focus return, existing header quick search and Matchup independence. Existing group-tab tests migrated to dropdown interaction instead of removing them.
+- First CI `37912502691` tested 183 cases, 181 passed / 2 failed due to focus restore on dialog close in jsdom. Fixed actual accessibility behavior by passing a stable trigger ref and restoring focus after closing. Full re-run CI must pass before merge; never declare success from the old run.
+- Overall numeric code unchanged; audit explains 7-axis equal mean and evidence readiness independence. Full manga-panel inspection and actual Android/touch browser QA are not substituted by jsdom tests.
+- Audit: `docs/V0_1_48_B_PICKER_AND_OVERALL_VALIDITY_AUDIT_2026-10-09.md`.
+
+---
+
 # v0.1.47 — A-path calibration, baseline and regression gates
 
 - Baseline `main@7ee57a475e1d9721bfdca03d8fcd1c6bd0cf748d` (v0.1.46), 59 evaluated unique / 62 evaluations / 434 core stats, Haki Raw 244 and 15 existing direct matchups.
