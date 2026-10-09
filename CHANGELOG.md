@@ -1,3 +1,13 @@
+## v0.1.43 — Evidence-only recalibration of six Revolutionary Army / CP0 drafts
+
+- Re-audited all 42 evaluation axes, 14 linked Evidence records and 10 Battle contexts. Kept 39 previous Evaluations, approved Hybrid A Haki Raw sum 244 and 15 direct matchups exactly unchanged.
+- ONE PIECE.com TV Episode 1109 explicitly documents **Kaku personally proposing** a temporary Luffy/Zoro alliance against Seraphim; Combat IQ **79→82** (E2), without double counting group damage.
+- Stussy's Episode 1104 surprise betrayal does not establish equal-condition physical speed: Speed **83→80** (E3). Episode 1105's 20-year intelligence infiltration is not a direct proxy for close-combat judgment: Combat IQ **88→85** (E2), related Evidence role `primary→secondary`.
+- Sabo, Morley, Karasu and Lucci retain all seven existing draft scores after condition-aware evidence audit; insufficient new independent evidence to select a justified numerical change, especially E3 stamina/power/speed axes.
+- Kaku Overall **81.714→82.143** (overall rank 23 unchanged), Stussy **78.429→77.571** (overall rank 33→34). Calculated from original seven-stat Balanced 1.2, Haki Weight 0.5, and no new numeric Haki bonuses.
+- New v0.1.43 evaluationDataVersion on all six reviewed records; `PROJECT_SPEC.md`, global colors, roster/memberships, other 39 evaluations and numeric model unaffected. These six are still *Draft*, not canon ratings.
+- [Full six-character before/after and source audit](docs/V0_1_43_REVOLUTIONARY_CP0_EVIDENCE_RECALIBRATION_2026-10-09.md).
+
 ## v0.1.42 — Special explanations vertical again; Korean fruit names
 
 - Per user screenshots, retain **one grouped category heading** (e.g. `악마의 열매 / 종족 특성`) while rendering each Special trait **full-width vertically in its prior plain divider layout**, not two boxed columns. Other profile, Haki and app color styles unchanged.

@@ -504,7 +504,7 @@ export const sampleEvaluations: Evaluation[] = [
 
   {
     id: 'evaluation-sabo', characterId: 'sabo',
-    evaluationDataVersion: 'evaluation-0.1.39-evidence-initial-draft', status: 'draft',
+    evaluationDataVersion: 'evaluation-0.1.43-evidence-audited-draft', status: 'draft',
     subjectState: { id: 'initial-evidence', label: '근거 기반 초기 평가', note: '드레스로자·마리조아의 실제 화염/용조권·임무 상황 중심. 잇쇼의 전력 억제를 감안하여 대장 동격 추정 불가.' },
     items: [
       item('attack', 87, '바스티유의 무기 파괴·드레스로자의 화염 압박은 직접 확인된다. 잇쇼와 대치했다고 대장급 일격 위력으로 역산하지 않는다.', ['evidence-sabo-bastille-687', 'evidence-sabo-fujitora-695'], [], 'E2'),
@@ -518,7 +518,7 @@ export const sampleEvaluations: Evaluation[] = [
   },
   {
     id: 'evaluation-morley', characterId: 'morley',
-    evaluationDataVersion: 'evaluation-0.1.39-evidence-initial-draft', status: 'draft',
+    evaluationDataVersion: 'evaluation-0.1.43-evidence-audited-draft', status: 'draft',
     subjectState: { id: 'initial-evidence', label: '근거 기반 초기 평가', note: '서군 군대장. 능력 운용 확인과 대장 연합전 구분. 체력·순수 속도·공격 위력은 E3 강한 잠정치.' },
     items: [
       item('attack', 76, '거인족 체구와 지형의 압박 수단은 있으나 동급 고수에게 유효타를 낸 단독 표본이 부족하다.', ['evidence-morley-terrain-profile', 'evidence-morley-marygeoise-1117'], [], 'E3'),
@@ -532,7 +532,7 @@ export const sampleEvaluations: Evaluation[] = [
   },
   {
     id: 'evaluation-karasu', characterId: 'karasu',
-    evaluationDataVersion: 'evaluation-0.1.39-evidence-initial-draft', status: 'draft',
+    evaluationDataVersion: 'evaluation-0.1.43-evidence-audited-draft', status: 'draft',
     subjectState: { id: 'initial-evidence', label: '근거 기반 초기 평가', note: '검댕 까마귀 군집 운용, 마리조아 집단 대장전 환경 구분. 개인 장기전은 미확정.' },
     items: [
       item('attack', 79, '검댕 까마귀 군집으로 적 진형을 견제하지만 최고 전력 직접 유효타의 독립 표본은 적다.', ['evidence-karasu-soot-1083', 'evidence-karasu-marygeoise-1117'], [], 'E3'),
@@ -546,7 +546,7 @@ export const sampleEvaluations: Evaluation[] = [
   },
   {
     id: 'evaluation-lucci', characterId: 'lucci',
-    evaluationDataVersion: 'evaluation-0.1.39-evidence-initial-draft', status: 'draft',
+    evaluationDataVersion: 'evaluation-0.1.43-evidence-audited-draft', status: 'draft',
     subjectState: { id: 'initial-evidence', label: '근거 기반 초기 평가', note: '에그헤드 각성 표범 체술, 센토마루 공격, 세라핌 공동전. 루피와의 교전이 동급을 뜻하지 않음.' },
     items: [
       item('attack', 86, '각성 표범의 근접 체술과 센토마루 대상 유효타는 직접 입증된다. 사황과 전투했다는 이유만으로 동급 피해는 아니다.', ['evidence-lucci-awakening-1100', 'evidence-lucci-sentomaru-1100'], [], 'E2'),
@@ -560,7 +560,7 @@ export const sampleEvaluations: Evaluation[] = [
   },
   {
     id: 'evaluation-kaku', characterId: 'kaku',
-    evaluationDataVersion: 'evaluation-0.1.39-evidence-initial-draft', status: 'draft',
+    evaluationDataVersion: 'evaluation-0.1.43-evidence-audited-draft', status: 'draft',
     subjectState: { id: 'initial-evidence', label: '근거 기반 초기 평가', note: '에그헤드 쌍도류·람각·기린 능력과 조로 교전 및 세라핌 공동전. 기습으로 전투 중단.' },
     items: [
       item('attack', 80, '조로와 검술·체술 교환 및 세라핌 연합 공격 참가를 반영한다. 조로에게 확정 우위를 만든 증거는 아니다.', ['evidence-kaku-zoro-1104', 'evidence-kaku-seraphim-1109'], [], 'E2'),
@@ -568,21 +568,21 @@ export const sampleEvaluations: Evaluation[] = [
       item('stamina', 80, '교전이 세라핌·스튜시 개입으로 끊겨 개별 장기전 실전 표본이 부족해 잠정값이다.', ['evidence-kaku-zoro-1104'], [], 'E3'),
       item('speed', 85, '조로와 근접 검격 대응이 성립했다는 점을 반영하나 동급 순수 속도 측정치는 아니다.', ['evidence-kaku-zoro-1104'], [], 'E2'),
       item('techniqueMastery', 88, '기린 형태·람각과 이도류 검술의 조합, 육식을 이용한 전투 수단 숙련이 확인된다.', ['evidence-kaku-zoro-1104'], [], 'E2'),
-      item('combatIQ', 79, '적대자들과 일시 연합해 세라핌을 막는 판단은 확인되나 전장 전체 계획의 개인 공로와 분리한다.', ['evidence-kaku-seraphim-1109'], [], 'E2'),
+      item('combatIQ', 82, '세라핌에 대응하기 위해 과거 적대 상대와의 일시 공투를 카쿠가 직접 제안한 판단을 반영한다. 합동 공격의 모든 성과를 카쿠의 단독 전술 능력으로 합산하지 않는다.', ['evidence-kaku-seraphim-1109'], [], 'E2'),
       item('versatility', 82, '검술·체술·동물계 변신·합동전을 전환하는 실제 적용 폭을 인정한다.', ['evidence-kaku-seraphim-1109'], [], 'E2'),
     ],
   },
   {
     id: 'evaluation-stussy', characterId: 'stussy',
-    evaluationDataVersion: 'evaluation-0.1.39-evidence-initial-draft', status: 'draft',
+    evaluationDataVersion: 'evaluation-0.1.43-evidence-audited-draft', status: 'draft',
     subjectState: { id: 'initial-evidence', label: '근거 기반 초기 평가', note: '에그헤드 잠입 중 루치·카쿠 기습 수면. 잠입/조건부 제압 강점과 정면 화력·내구의 미확인 축 구분.' },
     items: [
       item('attack', 73, '조건부 수면 효과로 루치·카쿠를 제압했으나 기습이므로 동급 상대의 순수 공격력 관통 능력과는 다르다.', ['evidence-stussy-sleep-1104'], [], 'E2'),
       item('defense', 72, '회피·차단·피해 경감의 정면 상위 강자 상대 직접 표본이 부족해 중립적 잠정값이다.', ['evidence-stussy-sleep-1104'], [], 'E3'),
       item('stamina', 70, '20년 잠입 경력은 전투 체력·장기전의 증거가 아니므로 별도 수치의 직접 근거가 부족하다.', ['evidence-stussy-infiltration-1105'], [], 'E3'),
-      item('speed', 83, '기습 접근 성공을 평가하되 표적의 무방비·동료로 여긴 상태를 반영해 순수 신체 최고속으로 추정하지 않는다.', ['evidence-stussy-sleep-1104'], [], 'E3'),
+      item('speed', 80, '루치·카쿠에게 접근해 기습 제압한 사실은 인정하지만, 두 인물이 동료라고 믿어 경계하지 않았으므로 정면 반응·이동 속도 우위의 증거로 환산하지 않는다.', ['evidence-stussy-sleep-1104'], [], 'E3'),
       item('techniqueMastery', 86, '접근·수면 제압 실행의 정밀성은 직접 확인되지만 기습 조건 의존성도 함께 기록한다.', ['evidence-stussy-sleep-1104', 'evidence-stussy-infiltration-1105'], [], 'E2'),
-      item('combatIQ', 88, '장기간 첩보기관 잠입·배신 시점 선택은 매우 강하지만 일반 지능과 근접전 판단은 구분한다.', ['evidence-stussy-infiltration-1105', 'evidence-stussy-sleep-1104'], [], 'E2'),
+      item('combatIQ', 85, '카쿠·루치를 동시에 무력화할 기습 시점과 순서를 선택한 실전 판단은 강점이다. 다만 20년 잠입 경력은 정보전 성과여서 근접 교전 판단력에 동일하게 가산하지 않는다.', ['evidence-stussy-infiltration-1105', 'evidence-stussy-sleep-1104'], [], 'E2'),
       item('versatility', 77, '첩보·근접 기습·수면 제압·조직 간 임무 전환을 수행하나 다양한 정면 전투 수단은 아직 불충분하다.', ['evidence-stussy-sleep-1104', 'evidence-stussy-infiltration-1105'], [], 'E2'),
     ],
   },

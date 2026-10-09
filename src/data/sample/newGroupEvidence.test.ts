@@ -10,6 +10,7 @@ import { validateEvaluation } from '../../domain/evaluation/validation'
 import { validateHakiProfile } from '../../domain/haki/validation'
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
 import { getUniqueCharacterList } from '../../application/getCharacterList'
+import { getStatRanking } from '../../application/getStatRanking'
 import { getCharacterEvaluationTrace } from '../../application/getCharacterEvaluationTrace'
 import { getCharacterBattleTimeline } from '../../application/getCharacterBattleTimeline'
 
@@ -23,8 +24,8 @@ const scores: Record<string, number[]> = {
   morley: [76,78,77,69,80,75,83],
   karasu: [79,75,74,83,83,80,86],
   lucci: [86,82,85,88,89,81,80],
-  kaku: [80,78,80,85,88,79,82],
-  stussy: [73,72,70,83,86,88,77],
+  kaku: [80,78,80,85,88,82,82],
+  stussy: [73,72,70,80,86,85,77],
 }
 
 describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', () => {
@@ -55,7 +56,7 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
       expect(evals, id).toHaveLength(1)
       const ev=evals[0]
       expect(ev.status).toBe('draft')
-      expect(ev.evaluationDataVersion).toBe('evaluation-0.1.39-evidence-initial-draft')
+      expect(ev.evaluationDataVersion).toBe('evaluation-0.1.43-evidence-audited-draft')
       expect(validateEvaluation(ev, refs), id).toEqual({valid:true,errors:[]})
       expect(ev.items).toHaveLength(7)
       expect(ev.items.map(item => item.score), id).toEqual(scores[id])
@@ -97,6 +98,43 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
       }
       expect(getCharacterBattleTimeline(id).length, id).toBeGreaterThanOrEqual(1)
     }
+  })
+
+  it('links recalibrated Kaku and Stussy scores only to documented combat conditions', () => {
+    const kaku = sampleEvaluations.find(e => e.characterId === 'kaku')!
+    const stussy = sampleEvaluations.find(e => e.characterId === 'stussy')!
+    const kakuDecision = sampleEvidence.find(e => e.id === 'evidence-kaku-seraphim-1109')!
+    expect(kakuDecision.fact).toContain('직접 제안')
+    expect(kakuDecision.source.reference).toContain('ONE PIECE.com TV 1109')
+    expect(kaku.items.find(i => i.stat === 'combatIQ')).toMatchObject({
+      baseScore: 82, score: 82, readiness: 'E2',
+    })
+    expect(stussy.items.find(i => i.stat === 'speed')).toMatchObject({
+      baseScore: 80, score: 80, readiness: 'E3',
+    })
+    expect(stussy.items.find(i => i.stat === 'combatIQ')).toMatchObject({
+      baseScore: 85, score: 85, readiness: 'E2',
+    })
+    expect(sampleEvidence.find(e => e.id === 'evidence-stussy-infiltration-1105')
+      ?.statContributions.find(c => c.stat === 'combatIQ')?.role).toBe('secondary')
+    for (const characterId of ['sabo','morley','karasu','lucci','kaku','stussy']) {
+      const evaluation = sampleEvaluations.find(e => e.characterId === characterId)!
+      expect(evaluation.items.every(i => i.hakiContributions.length === 0)).toBe(true)
+    }
+  })
+
+  it('derives stable 42-character ranking while tracking only intended recalibration impact', () => {
+    const ranking = getStatRanking('overall')
+    expect(ranking).toHaveLength(42)
+    expect(new Set(ranking.map(r => r.characterId)).size).toBe(42)
+    expect(ranking.find(r => r.characterId === 'kaku')?.score).toBeCloseTo(82.14285714285714)
+    expect(ranking.find(r => r.characterId === 'kaku')?.rank).toBe(23)
+    expect(ranking.find(r => r.characterId === 'stussy')?.score).toBeCloseTo(77.57142857142857)
+    expect(ranking.find(r => r.characterId === 'stussy')?.rank).toBe(34)
+    expect(ranking.find(r => r.characterId === 'sabo')?.score).toBeCloseTo(85.57142857142857)
+    expect(ranking.find(r => r.characterId === 'morley')?.score).toBeCloseTo(76.85714285714286)
+    expect(ranking.find(r => r.characterId === 'karasu')?.score).toBeCloseTo(80)
+    expect(ranking.find(r => r.characterId === 'lucci')?.score).toBeCloseTo(84.42857142857143)
   })
 
   it('preserves approved old 39 evaluations and no bonus invention under approved Hybrid A', () => {
