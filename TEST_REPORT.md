@@ -1,3 +1,24 @@
+# v0.1.35 Draft — Full 39-Evaluation/273-Stat Haki Recalibration Audit (Non-Mutating)
+
+**2026-10-09 (KST)**. Branch `audit/v0.1.35-full-roster-recalibration`, PR #25.
+
+## Change summary
+- 273-row [Base/Raw/Final and shadow comparison matrix](docs/HYBRID_RECALIBRATION_273_STAT_AUDIT_2026-10-09.md) across all 39 Evaluation states.
+- [Risk-ranked calibration review](docs/HYBRID_RECALIBRATION_DECISION_REPORT_2026-10-09.md), preserving known facts and separating uncertain inference.
+- New `src/data/sample/hybridRecalibrationAudit.test.ts` guards no Evidence owner mismatch and no increase from inherited 14 unlinked / 203 unassigned readiness / 102 stat-role-context mismatches, plus Haki duplicate allocations and exact neutral rebasing across 39 Evaluations.
+- Official Evaluation numbers, Haki Raw/Weight, Calculation Model, project scope and runtime Matchups **unchanged**. No novel win probabilities.
+
+## CI
+- Initial PR code/test commit `1c1892172f80ff7d5d12d52540faf5205c0aa9fb`: [GitHub Actions run 37866967816](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37866967816): **29 Test Files / 129 Tests passed, `npm run build` passed**.
+- Later changes are documentation-only; latest head check should still confirm before merging.
+- GitHub Actions does not substitute for original manga panel-by-panel adjudication or real-device manual QA.
+
+## Limits
+- Structural audit **273/273** performed; this is not a complete 273-panel canon reread and is **not** a re-rated official 39-character leaderboard. Shadow numeric columns are exactly score-invariant.
+- Numeric Base/exceptional Raw re-estimation and versioned production dataset migration await explicit evidence-backed candidate table and approval.
+
+---
+
 # v0.1.34 — Approved Hybrid Haki Standard & Nonnumeric Expertise Evidence
 
 **2026-10-09 KST**. Branch: `feature/v0.1.34-hybrid-haki-criteria`.
