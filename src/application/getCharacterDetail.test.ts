@@ -16,7 +16,7 @@ describe('getCharacterDetail group migration', () => {
 
   it('resolves every expanded Membership context, including historical secondary Groups', () => {
     const expanded = getCharacterList()
-    expect(expanded).toHaveLength(47)
+    expect(expanded).toHaveLength(49)
 
     for (const { character, group } of expanded) {
       const detail = getCharacterDetail(character.id, group.id)

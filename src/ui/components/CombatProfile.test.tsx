@@ -33,4 +33,58 @@ describe('qualitative Haki evidence UI', () => {
       container.remove()
     }
   })
+  it('keeps only Haki statuses and question icons visible until opened, closes outside and on Escape', async () => {
+    const mount = document.createElement('div')
+    document.body.appendChild(mount)
+    const root = createRoot(mount)
+    try {
+      const katakuri = sampleCharacters.find((item) => item.id === 'katakuri')!
+      await act(async () => { root.render(<CombatProfile profile={katakuri.combatProfile}/>) })
+      const rows = [...mount.querySelectorAll('.haki-card dl > div')]
+      expect(rows).toHaveLength(3)
+      expect(rows.every(row => row.querySelector<HTMLDetailsElement>('.haki-help')?.open === false)).toBe(true)
+      expect(rows[1].querySelector('dd > strong')?.textContent).toBe('확인')
+      const help = rows[1].querySelector<HTMLDetailsElement>('.haki-help')!
+      expect(help.querySelector('summary')?.getAttribute('aria-label')).toBe('견문색 근거 확인')
+      await act(async () => { (help.querySelector('summary') as HTMLElement).click() })
+      expect(help.open).toBe(true)
+      expect(help.querySelector('.haki-excellence')?.textContent).toContain('특출난 실전 응용 확인')
+      expect(help.querySelector('.haki-excellence-caveat')?.textContent).toContain('침착함')
+      await act(async () => { document.body.dispatchEvent(new Event('pointerdown', { bubbles: true })) })
+      expect(help.open).toBe(false)
+      await act(async () => { (help.querySelector('summary') as HTMLElement).click() })
+      expect(help.open).toBe(true)
+      await act(async () => { document.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Escape' })) })
+      expect(help.open).toBe(false)
+      expect(document.activeElement).toBe(help.querySelector('summary'))
+    } finally {
+      await act(async () => { root.unmount() })
+      mount.remove()
+    }
+  })
+
+  it('shows fruit-awakening badge only for explicitly confirmed Devil Fruit awakenings', async () => {
+    const mount = document.createElement('div')
+    document.body.appendChild(mount)
+    const root = createRoot(mount)
+    try {
+      for (const id of ['law','doflamingo','katakuri','lucci','kaku']) {
+        const character = sampleCharacters.find((item) => item.id === id)!
+        await act(async () => { root.render(<CombatProfile profile={character.combatProfile}/>) })
+        expect(mount.querySelector('.fruit-awakening-badge')?.textContent, id).toBe('열매 각성자')
+        expect([...mount.querySelectorAll('.profile-tags span')].some(span => span.textContent?.startsWith('각성')), id)
+          .toBe(false)
+      }
+      const sanji = sampleCharacters.find((item) => item.id === 'sanji')!
+      await act(async () => { root.render(<CombatProfile profile={sanji.combatProfile}/>) })
+      expect(mount.querySelector('.fruit-awakening-badge')).toBeNull()
+      const styles = [...mount.querySelectorAll('.profile-tags span')].map(x => x.textContent)
+      expect(styles).toContain('스카이워크')
+      expect(styles).not.toContain('공중전')
+    } finally {
+      await act(async () => { root.unmount() })
+      mount.remove()
+    }
+  })
+
 })

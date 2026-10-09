@@ -36,33 +36,35 @@ const specialCategoryLabels: Record<SpecialCombatTraitCategory, string> = {
 }
 
 export function CombatProfile({ profile }: { profile: CombatProfileData }) {
-  const helpRef = useRef<HTMLDetailsElement>(null)
+  const profileRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const closeWhenOutside = (event: PointerEvent) => {
-      const help = helpRef.current
-      if (help?.open && event.target instanceof Node && !help.contains(event.target)) {
-        help.open = false
-      }
+    const closeOutside = (event: PointerEvent) => {
+      const target = event.target
+      if (!(target instanceof Node)) return
+      profileRef.current?.querySelectorAll<HTMLDetailsElement>('.special-help, .haki-help')
+        .forEach((details) => {
+          if (details.open && !details.contains(target)) details.open = false
+        })
     }
-
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && helpRef.current?.open) {
-        helpRef.current.open = false
-        helpRef.current.querySelector('summary')?.focus()
+      if (event.key !== 'Escape') return
+      const opened = profileRef.current?.querySelector<HTMLDetailsElement>('.special-help[open], .haki-help[open]')
+      if (opened) {
+        opened.open = false
+        opened.querySelector('summary')?.focus()
       }
     }
-
-    document.addEventListener('pointerdown', closeWhenOutside)
+    document.addEventListener('pointerdown', closeOutside)
     document.addEventListener('keydown', closeOnEscape)
     return () => {
-      document.removeEventListener('pointerdown', closeWhenOutside)
+      document.removeEventListener('pointerdown', closeOutside)
       document.removeEventListener('keydown', closeOnEscape)
     }
   }, [])
 
   return (
-    <section className="combat-profile-section">
+    <section className="combat-profile-section" ref={profileRef}>
       <div>
         <p className="eyebrow">원작 전투 프로필</p>
         <h2>전투 프로필</h2>
@@ -70,13 +72,17 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
       </div>
       <div className="combat-profile-grid">
         <article className="profile-card">
-          <h3>전투 방식</h3>
+          <div className="combat-style-heading">
+            <h3>전투 방식</h3>
+            {profile.specialTraits.some((trait) => trait.category === 'devil-fruit' && trait.awakening === 'confirmed')
+              && <span className="fruit-awakening-badge">열매 각성자</span>}
+          </div>
           <div className="profile-tags">{profile.combatStyles.map((style) => <span key={style}>{normalizeCharacterNamesForDisplay(style)}</span>)}</div>
         </article>
         <article className="profile-card special-traits-card">
           <div className="special-traits-heading">
             <h3>특수 전투요소</h3>
-            <details className="special-help" ref={helpRef}>
+            <details className="special-help">
               <summary aria-label="특수 전투요소 근거 및 점수 반영 설명" title="특수 전투요소 설명 보기">?</summary>
               <div className="special-help-bubble" role="note">
                 <strong>근거와 종합 전투력</strong>
@@ -108,26 +114,40 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
         <article className="profile-card haki-card">
           <h3>패기</h3>
           <dl>
-            {profile.haki.capabilities.map((capability) => (
-              <div key={capability.type}>
-                <dt>{hakiLabels[capability.type]}</dt>
-                <dd>
-                  <strong>{statusLabels[capability.status]}</strong>
-                  {capability.type === 'conquerors' && capability.infusion?.status === 'confirmed' && <span className="haki-infusion">패휘감 확인</span>}
-                  {capability.type === 'conquerors' && capability.infusion?.status === 'unclear' && capability.status === 'confirmed' && <span className="haki-infusion muted">패휘감 미확인</span>}
-                  {capability.note && <small>{normalizeCharacterNamesForDisplay(capability.note)}</small>}
-                  {profile.haki.excellenceAssessments?.filter(({ type }) => type === capability.type).map((assessment) => (
-                    <div className="haki-excellence" key={assessment.type} aria-label="특출난 패기 응용에 대한 근거 평가">
-                      <strong>{assessment.basis === 'direct-application' ? '특출난 실전 응용 확인' : '고숙련 가능성 · 강한 추론'}</strong>
-                      <small>{normalizeCharacterNamesForDisplay(assessment.interpretation)}</small>
-                      {assessment.eraContext && <small>해당 시점 · {assessment.eraContext}</small>}
-                      <small className="haki-excellence-caveat">불확실성 · {normalizeCharacterNamesForDisplay(assessment.uncertainty)}</small>
-                      <small className="haki-excellence-numeric">정성적 평가 · 자동 점수 가산 없음</small>
-                    </div>
-                  ))}
-                </dd>
-              </div>
-            ))}
+            {profile.haki.capabilities.map((capability) => {
+              const assessments = profile.haki.excellenceAssessments?.filter(({ type }) => type === capability.type) ?? []
+              const hasExplanation = Boolean(capability.note || capability.infusion?.note ||
+                capability.infusion || assessments.length)
+              return (
+                <div key={capability.type}>
+                  <dt>{hakiLabels[capability.type]}</dt>
+                  <dd>
+                    <strong>{statusLabels[capability.status]}</strong>
+                    {hasExplanation && <details className="haki-help">
+                      <summary aria-label={`${hakiLabels[capability.type]} 근거 확인`} title="패기 근거 확인">?</summary>
+                      <div className="haki-help-bubble" role="note">
+                        <strong>{hakiLabels[capability.type]} · 근거 확인</strong>
+                        <p>보유 상태 · {statusLabels[capability.status]}</p>
+                        {capability.note && <p>{normalizeCharacterNamesForDisplay(capability.note)}</p>}
+                        {capability.infusion && <p>패휘감 · {statusLabels[capability.infusion.status]}
+                          {capability.infusion.note && <span> · {normalizeCharacterNamesForDisplay(capability.infusion.note)}</span>}
+                        </p>}
+                        {assessments.map((assessment) => (
+                          <section className="haki-excellence" key={assessment.type}
+                            aria-label="특출난 패기 응용에 대한 근거 평가">
+                            <strong>{assessment.basis === 'direct-application' ? '특출난 실전 응용 확인' : '고숙련 가능성 · 강한 추론'}</strong>
+                            <small>{normalizeCharacterNamesForDisplay(assessment.interpretation)}</small>
+                            {assessment.eraContext && <small>해당 시점 · {assessment.eraContext}</small>}
+                            <small className="haki-excellence-caveat">불확실성 · {normalizeCharacterNamesForDisplay(assessment.uncertainty)}</small>
+                            <small className="haki-excellence-numeric">정성적 평가 · 자동 점수 가산 없음</small>
+                          </section>
+                        ))}
+                      </div>
+                    </details>}
+                  </dd>
+                </div>
+              )
+            })}
           </dl>
         </article>
         <article className="profile-card profile-sources">

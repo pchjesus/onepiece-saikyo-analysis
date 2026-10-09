@@ -8,6 +8,7 @@ import { BattleTimeline } from '../components/BattleTimeline'
 import { EvaluationTrace } from '../components/EvaluationTrace'
 import { StatList } from '../components/StatList'
 import { CombatProfile } from '../components/CombatProfile'
+import { CharacterIdentity, characterIdentityStyle } from '../components/CharacterIdentity'
 import type { CharacterKnownAsKind } from '../../domain/character/types'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
 
@@ -35,15 +36,14 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
   const battleTimeline = getCharacterBattleTimeline(characterId)
   const evaluationTrace = getCharacterEvaluationTrace(characterId, activeStateId)
   const hasMultipleEvaluations = detail.evaluations.length > 1
+  const showPastMembership = (detail.membership.status === 'former' || detail.membership.status === 'historical')
+    && !(characterId === 'newgate' && detail.group.id === 'whitebeard-pirates')
 
   return (
     <main className="detail">
-      <div className="detail-heading">
+      <div className="detail-heading" style={characterIdentityStyle(detail.group.id, characterId)}>
         <div>
-          <p className="eyebrow">
-            {detail.group.name}
-            {(detail.membership.status === 'former' || detail.membership.status === 'historical') && <span className="membership-context">과거 소속</span>}
-          </p>
+          <CharacterIdentity group={detail.group} characterId={characterId} showPastMembership={showPastMembership}/>
           <h1>{detail.character.name}</h1>
           {detail.character.knownAs.length > 0 && (
             <div className="character-known-as" aria-label="공식 이명 및 칭호">
