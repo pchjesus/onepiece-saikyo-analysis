@@ -1,3 +1,17 @@
+# v0.1.45 — 17 new characters, three groups, CP0 recalibration release gate
+
+- Baseline `main@1ed24e8e8404dfb84d0348517b529972a06be19c`, v0.1.44. This patch adds exactly 17 evaluated draft characters and 3 historical/current contextual groups without changing old Character identities.
+- Expected totals: 60 Character master / 59 unique evaluated / 62 Evaluation / 434 Stats / 73 Membership, plus 34 supplementary new Evidence and 17 battle context records.
+- Lucci 81.000→78.000 (combat IQ 78→68), Kaku 78.4286→74.2857; other prior 43 Evaluations' Base scores untouched; total Haki Raw 244 (49 typed contributions) preserved. Old 15 direct Matchups unchanged.
+- New `wanoExpansion.test.ts` verifies 17 unique IDs, all 119 new axes with Evidence ownership, 3 source groups, Drake/Kanjuro/Ashura affiliation, Kinemon leader, 59-ranking dedupe, special Killer failed SMILE, 0 new Raw, legacy user ratings unchanged.
+- Regression tests across historical Haki audit files retain original 49 Haki-contribution entries; **49 is not 73 Memberships** (fixed an initial test migration confusion).
+- Prior CI run `37893323754` passed 38 test files / 173 tests but failed TypeScript on multi-affiliation `flatMap` inference. Fixed explicitly typed `CharacterMembership[]` callback; final post-change CI must be checked separately, then post-merge main and Pages.
+- No browser/tablet manual UX has been performed; treat automatic jsdom tests and Pages deployment as distinct from hands-on device validation.
+- Audit limitations: sources are official character profile and official anime plot synopses, not direct full manga chapter review; source.type supplementary and E2/E3 draft accordingly. Do not infer new current allegiances or canonical numbers.
+- [Full 17-member 7-axis and CP0 audit](docs/V0_1_45_WANO_THREE_GROUP_EVIDENCE_RECALIBRATION_2026-10-09.md).
+
+---
+
 # v0.1.44 — Cross-calibration regression and release checklist
 
 - Baseline: `main@ec8f69f6e08bc485b9206f5e05dc709e58e15dc9`.
