@@ -151,10 +151,10 @@ export const wanoEvidence: Evidence[] = [...wanoSeeds.flatMap((seed): Evidence[]
 export const wanoEvaluations: Evaluation[] = wanoSeeds.map((seed): Evaluation => ({
   id: `evaluation-wano-${seed.id}`,
   characterId: seed.id,
-  evaluationDataVersion: 'evaluation-0.1.45-multi-group-evidence-draft',
+  evaluationDataVersion: seed.id === 'kid' ? 'evaluation-0.1.47-evidence-calibrated-A' : 'evaluation-0.1.45-multi-group-evidence-draft',
   status: 'draft',
   subjectState: { id: 'wano-record', label: '원작 근거 기반 초기 Draft',
-    note: '공식 프로필과 에피소드 요약을 교차한 초기 비교값이다. 조건부 능력과 집단전·특수 상성은 점수와 분리했다.' },
+    note: seed.id === 'kid' ? '로와의 빅 맘 2대1 협동 공세·엘바프 샹크스전 위험을 분리해 공격·방어·지구력·속도·숙련을 재산정하고 자력 파생기의 다재다능함 중복을 축소했다.' : '공식 프로필과 에피소드 요약을 교차한 초기 비교값이다. 조건부 능력과 집단전·특수 상성은 점수와 분리했다.' },
   isDefault: true,
   items: stats.map((stat, i): EvaluationItem => {
     const draft: EvaluationItem = {
