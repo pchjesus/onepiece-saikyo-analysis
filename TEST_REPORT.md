@@ -1,3 +1,16 @@
+# v0.1.40 — Post-merge CI / Pages verification — 2026-10-09
+
+- PR [#31](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/31) was merged to `main` on 2026-10-09 04:18 UTC (13:18 KST): merge commit `aafdce5d66e14d4603b158fbcb55ff10438e6bdc`, feature HEAD `4759b71b72c87c661fa1402232da707a6465f6b6`.
+- Final PR run [37883157194](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37883157194) completed successfully: `npm test`, `npm run build` passed; Pages deployment correctly skipped on PR.
+- Post-merge `main` run [37883219757](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/37883219757) completed successfully: **36 test files / 161 tests passed**; `tsc -b && vite build` passed; Pages artifact upload passed.
+- Post-merge deploy job `113667467309` reported **success** for exactly `aafdce5d66e14d4603b158fbcb55ff10438e6bdc`; GitHub evaluated environment URL: https://pchjesus.github.io/onepiece-saikyo-analysis/.
+- This release-verification entry changes **documentation only**. No Evaluation, Haki Raw, Balanced 1.2, existing direct Matchup, Membership or UI source changes are introduced. The v0.1.40 global UI palette item #3 **remains unimplemented** pending user approval.
+- **Still unverified:** actual desktop/mobile browser visual inspection, touch placement and clipping of Haki help popovers across small screens, and end-user site rendering. A successful Pages deployment is not proof of manual UI verification.
+- Nonblocking build/deploy maintenance note: GitHub Actions warned about Node.js 20-based actions being forced to Node.js 24. Review action major-version upgrades separately; do not mix them into this patch.
+- The previous entry's note that post-merge Pages required verification is historical; the successful deployment is verified in this section.
+
+---
+
 # v0.1.40 — 인물 프로필 간결화 및 현재 소속·서열 검증
 
 - Input: 43 Character master, 45 Evaluations (315 Stats), 47 original Memberships, 15 direct Matchups.
