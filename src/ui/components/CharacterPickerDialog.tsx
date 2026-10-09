@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react'
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent, type RefObject } from 'react'
 import { createPortal } from 'react-dom'
 import type { CharacterListEntry } from '../../application/getCharacterList'
 import { findCharacterOptions } from './CharacterSearch'
@@ -8,6 +8,7 @@ type Props = {
   selectedCharacterId: string
   onSelectCharacter: (characterId: string, groupId: string) => void
   onClose: () => void
+  returnFocusTo: RefObject<HTMLButtonElement | null>
 }
 
 /**
@@ -15,7 +16,7 @@ type Props = {
  * Unlike the current-group chips, a historical affiliation is only
  * a navigational context, not a new character identity.
  */
-export function CharacterPickerDialog({ characters, selectedCharacterId, onSelectCharacter, onClose }: Props) {
+export function CharacterPickerDialog({ characters, selectedCharacterId, onSelectCharacter, onClose, returnFocusTo }: Props) {
   const [query, setQuery] = useState('')
   const [groupId, setGroupId] = useState('all')
   const [activeIndex, setActiveIndex] = useState(0)
@@ -35,10 +36,9 @@ export function CharacterPickerDialog({ characters, selectedCharacterId, onSelec
   }, [characters, groupId, query])
 
   useEffect(() => {
-    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null
     inputRef.current?.focus()
-    return () => { previousFocus?.focus() }
-  }, [])
+    return () => { returnFocusTo.current?.focus() }
+  }, [returnFocusTo])
 
   const choose = (characterId: string, targetGroupId: string) => {
     onSelectCharacter(characterId, targetGroupId)
