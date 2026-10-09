@@ -1,3 +1,14 @@
+# v0.1.50 — Cracker rationale integrity regression plan
+
+- Base: `main@ae26cf49f13b90f7334131e8e9e11c1e20c1ca74` (v0.1.49).
+- Code-only scope: two Cracker rationale strings in `evaluations.ts`, one old numeric Evidence impact sentence in `evidence.ts`, focused automated regression test, markdown audit/report metadata.
+- New `crackerRationaleConsistency.test.ts`: approved seven Final scores, Attack Raw4, Final77 / Defense Final81, Overall77.857142..., and lack of contradictory historical Stamina phrase.
+- Existing test suites must still verify 59 evaluated unique IDs, historical Evaluations 62, Core Stat434, total Raw Haki244, membership73 and direct matchups15. Existing UI picker B, 7-axis calculations and all baseline scores untouched.
+- **Status at authored commit: pending GitHub pull-request CI and post-merge Pages check.** A passing automated CI is not an independent inspection of all canon panels or mobile device QA.
+- [Full 59-character axis report](docs/V0_1_50_SEVEN_AXIS_DEEP_AUDIT_AND_CRACKER_RATIONALE_2026-10-09.md).
+
+---
+
 # v0.1.49 — Balanced Overall reliability/validity distinction and 59×7 diagnostic
 
 - Baseline `main@ee48392a74a645258d0bbf5475467711a6dfe883`, v0.1.48. This patch updates explanatory text only, adds a non-production weighting experiment report and `overallValidityAudit.test.ts`. No stats/Raw/CombatPower calculation changes.
