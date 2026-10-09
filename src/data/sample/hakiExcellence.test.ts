@@ -44,12 +44,12 @@ describe('approved qualitative Haki excellence rubric', () => {
     expect(record.statContributions[0].role).toBe('context')
   })
 
-  it('maintains all 39 legacy numeric Evaluations and their weighted calculation while metadata is introduced', () => {
+  it('maintains 39 post-A approved numeric Evaluations and weighted calculation while metadata remains separate', () => {
     expect(sampleEvaluations).toHaveLength(39)
     const rows = sampleEvaluations.flatMap(({ items }) => items)
     expect(rows).toHaveLength(273)
     expect(rows.flatMap(({ hakiContributions }) => hakiContributions).reduce((sum, item) => sum + item.amount, 0))
-      .toBe(256)
+      .toBe(244)
     for (const evaluation of sampleEvaluations) {
       const result = calculateBalancedCombatPower(evaluation, balancedV12)
       const independentMean = evaluation.items.reduce((total, item) => total + item.score, 0) / 7
