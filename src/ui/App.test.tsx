@@ -213,7 +213,7 @@ describe('evaluated roster UI', () => {
     expect(container.querySelector('.matchup-home')).not.toBeNull()
     expect(container.querySelectorAll('.arena-selector select').length).toBeGreaterThanOrEqual(2)
     expect(container.querySelector('.matchup-corner-grid')?.textContent).toContain('왼쪽 선수')
-    expect(container.querySelector('.matchup-corner-grid')?.textContent).toContain('BLUE CORNER')
+    expect(container.querySelector('.matchup-corner-grid')?.textContent).toContain('오른쪽 선수')
     expect(container.querySelector('.combined-matchup-panel')).not.toBeNull()
     expect(container.querySelector('.matchup-radar')).not.toBeNull()
     expect(container.querySelector('button[aria-label="좌우 캐릭터 교체"]')).not.toBeNull()
@@ -255,7 +255,7 @@ describe('evaluated roster UI', () => {
     await click(summary)
     const bubble = container.querySelector('.special-help-bubble')
     expect(bubble?.textContent).toContain('연결 근거 1건')
-    expect(bubble?.textContent).toContain('Overall에 직접 가산하지 않아')
+    expect(bubble?.textContent).toContain('종합 전투력에 직접 가산하지 않아')
     expect(container.querySelector('.special-trait')?.textContent).not.toContain('종합 전투력 직접 가산 없음')
   })
 
