@@ -80,13 +80,13 @@ function FighterSelect({
   )
 }
 
-function CornerPanel({ fighter, factors, statEdges, side }: {
+function CornerPanel({ fighter,개 요인, statEdges, side }: {
   fighter: MatchupHubFighter
-  factors: PerspectiveFactor[]
+ 개 요인: PerspectiveFactor[]
   statEdges: MatchupHubFighter['stats']
   side: 'left' | 'right'
 }) {
-  const focusedFactors = factors.filter(({ perspective }) => perspective === 'favorable' || perspective === 'risk' || perspective === 'conditional')
+  const focusedFactors =개 요인.filter(({ perspective }) => perspective === 'favorable' || perspective === 'risk' || perspective === 'conditional')
   return (
     <article className={`corner-panel corner-panel-${side}`}>
       <header>
@@ -198,8 +198,8 @@ export function MatchupHome() {
         <FighterSelect side="left" roster={roster} characterId={leftId} stateId={leftStateId} opponentId={rightId}
           onCharacter={chooseLeft} onState={setLeftStateId} />
         <div className="arena-control-stack">
-          <button type="button" className="swap-button" onClick={swap} aria-label="좌우 캐릭터 교체">⇄<span>SWAP</span></button>
-          <button type="button" onClick={randomize} aria-label="랜덤 매치업">⤨<span>RANDOM</span></button>
+          <button type="button" className="swap-button" onClick={swap} aria-label="좌우 캐릭터 교체">⇄<span>교체</span></button>
+          <button type="button" onClick={randomize} aria-label="랜덤 매치업">⤨<span>무작위</span></button>
         </div>
         <FighterSelect side="right" roster={roster} characterId={rightId} stateId={rightStateId} opponentId={leftId}
           onCharacter={chooseRight} onState={setRightStateId} />
@@ -224,44 +224,44 @@ export function MatchupHome() {
       </section>
 
       <section className="matchup-corner-grid">
-        <CornerPanel fighter={left} factors={leftFactors} statEdges={leftStatEdges} side="left" />
-        <CornerPanel fighter={right} factors={rightFactors} statEdges={rightStatEdges} side="right" />
+        <CornerPanel fighter={left}개 요인={leftFactors} statEdges={leftStatEdges} side="left" />
+        <CornerPanel fighter={right}개 요인={rightFactors} statEdges={rightStatEdges} side="right" />
       </section>
 
       <section className="combined-matchup-panel">
         <div className="combined-heading">
           <div>
-            <p className="eyebrow">COMBINED ANALYSIS</p>
+            <p className="eyebrow">종합 분석</p>
             <h3>{left.name} <span>VS</span> {right.name}</h3>
           </div>
           <span className={matchup ? 'evidence-ready' : 'evidence-pending'}>
-            {matchup ? `직접 상성 Evidence · ${matchup.factors.length} factors` : '직접 상성 Evidence 미등록'}
+            {matchup ? `직접 매치업 근거 · ${matchup.factors.length}개 요인` : '직접 매치업 근거 미등록'}
           </span>
         </div>
 
         <div className="matchup-scoreboard" aria-label="선택한 매치업 요약">
           <article className="fighter-card fighter-a">
             <small>{left.stateLabel ? `평가 시점 · ${left.stateLabel}` : '왼쪽 선수'}</small>
-            <h3>{left.name}</h3><strong>{left.overall.toFixed(1)}</strong><span>Overall</span>
+            <h3>{left.name}</h3><strong>{left.overall.toFixed(1)}</strong><span>종합 전투력</span>
           </article>
           <div className="versus-lockup"><span>VS</span><small>판정은 근거로</small></div>
           <article className="fighter-card fighter-b">
             <small>{right.stateLabel ? `평가 시점 · ${right.stateLabel}` : '오른쪽 선수'}</small>
-            <h3>{right.name}</h3><strong>{right.overall.toFixed(1)}</strong><span>Overall</span>
+            <h3>{right.name}</h3><strong>{right.overall.toFixed(1)}</strong><span>종합 전투력</span>
           </article>
         </div>
 
         <div className="matchup-summary-strip">
-          <span>{left.name} 우세 Stat {leftStatEdges.length}</span>
+          <span>{left.name} 우세 스탯 {leftStatEdges.length}</span>
           <span>동점 {tiedStats.length}</span>
-          <span>{right.name} 우세 Stat {rightStatEdges.length}</span>
+          <span>{right.name} 우세 스탯 {rightStatEdges.length}</span>
         </div>
 
         <section className="matchup-visual-grid">
           <MatchupRadarChart characterA={left} characterB={right} />
           <article className="tale-card">
-            <p className="eyebrow">TALE OF THE TAPE</p>
-            <h3>7개 핵심 스탯s</h3>
+            <p className="eyebrow">스탯 비교표</p>
+            <h3>핵심 스탯 7개</h3>
             <div className="tale-list">
               {left.stats.map((leftStat, index) => {
                 const rightStat = right.stats[index]
@@ -280,14 +280,14 @@ export function MatchupHome() {
                 )
               })}
             </div>
-            <p className="arena-caution">Overall과 개별 스탯 차이는 승률이 아닙니다. 직접 상성 Evidence가 없는 조합은 결론을 만들지 않습니다.</p>
+            <p className="arena-caution">종합 전투력과 개별 스탯 차이는 승률이 아닙니다. 직접 매치업 근거가 없는 조합은 결론을 만들지 않습니다.</p>
           </article>
         </section>
 
         <section className="arena-analysis">
           <div className="arena-analysis-heading">
-            <div><p className="eyebrow">MATCHUP FACTORS</p><h3>종합 승부 포인트</h3></div>
-            <span>{matchup ? `${matchup.factors.length} factors` : 'EVIDENCE PENDING'}</span>
+            <div><p className="eyebrow">매치업 요인</p><h3>종합 승부 포인트</h3></div>
+            <span>{matchup ? `${matchup.factors.length}개 요인` : '매치업 근거 확인 중'}</span>
           </div>
           {matchup ? (
             <div className="arena-factor-grid">
@@ -306,7 +306,7 @@ export function MatchupHome() {
           ) : (
             <div className="matchup-empty-analysis">
               <strong>아직 이 조합의 직접 상성 데이터가 없습니다.</strong>
-              <p>위 Core Stat·전투 스타일은 비교할 수 있지만, 특정 능력 상호작용이나 승부 우위는 원작 Evidence가 등록되기 전까지 보류합니다.</p>
+              <p>위 핵심 스탯·전투 스타일은 비교할 수 있지만, 특정 능력 상호작용이나 승부 우위는 원작 근거가 등록되기 전까지 보류합니다.</p>
             </div>
           )}
         </section>
