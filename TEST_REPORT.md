@@ -1,3 +1,15 @@
+# v0.1.47 — A-path calibration, baseline and regression gates
+
+- Baseline `main@7ee57a475e1d9721bfdca03d8fcd1c6bd0cf748d` (v0.1.46), 59 evaluated unique / 62 evaluations / 434 core stats, Haki Raw 244 and 15 existing direct matchups.
+- Only 6 of 59 default character arrays change, with 53 full seven-axis arrays frozen as Golden baseline in `fullRosterCalibration.test.ts`; all 59 unique remain. King/Katakuri Base adjustments accounted for their **pre-existing Haki Raw**, no recalculation rule changes.
+- Changed overall: Jack 74.857→78.143, Kid 82.571→84.571 (Speed 78→82, Versatility 86→80), Karasu 80→77.857, Marco 81.714→83.429, King 81.286→83, Katakuri 82.714→84.286.
+- 59×7 axis-specific comparisons include Garp Attack99 vs Marco77, Kid Attack92 > Law86 but Combat IQ73 < Law88 and Versatility80 < Law91, Jack Stamina88 > Ulti84 and Jack overall above six Tobi Roppo, commander minimum 83 > specified peer group max 79.571. These are explicit project evaluation constraints, not official canon tiers.
+- 14 peer records retained pending better independent evidence. Numeric distribution remains concentrated at 75–80 (25→27) rather than forcing aesthetic normalization.
+- CI full-test/build and postmerge Pages deploy must pass before release declaration; manual mobile/device QA and manga full-panel evidence verification remain pending.
+- [Detailed 59×7 source/evaluation audit](docs/V0_1_47_A_PATH_59_CHARACTER_SEVEN_AXIS_CROSS_AUDIT_2026-10-09.md).
+
+---
+
 # v0.1.46 — Canon source matching / conditional combat context regression
 
 - Baseline `main@09786f1fac2a8922a125bc44cb43f61e5b808f21` (v0.1.45).
