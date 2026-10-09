@@ -1,3 +1,12 @@
+## v0.1.58 — 59×7 score calibration baseline, evidence confidence and hypothetical rank sensitivity
+
+- **Read-only numerical validation** of all 59 representative evaluations (413 axes): source-derived Base, per-axis Haki Raw, Final (min(100, Base + Raw×0.5)) and Balanced 1.2 equal-weight Overall, E1/E2/E3 metadata, exact 59-character rank-position baseline and scope of historical revisions. No numeric score changes.
+- Freeze [full 59×7 Base/Raw/Final/readiness matrix](docs/V0_1_58_59x7_BASE_RAW_FINAL_READINESS_BASELINE_2026-10-10.md): E1 53/E2 243/E3 117/unset0; representative Raw **226** vs all **62 Evaluations/434 Stats Raw 244** (historical three evaluations account for difference18). E3 **14** with Final≥85; **9** with Final≥90; Speed has E3 **32/59**.
+- Document **13 same-Evidence Haki Raw cross-stat reuse instances** for individual Base-vs-Raw and distinct-effect review; these are **possible overlap review items, NOT 13 confirmed bugs**. Highlight source/canon limits and the new Hybrid Haki exceptional-application standard before any edits.
+- Stress-test isolated temporary Final Stat ±5 scenarios without changing any stored scores, weighting, ranks, matchups, or Haki. Even a single imagined -5 yields Garp position3→4, Shanks Speed position10→13, Mihawk Speed position9→13, Kuzan CombatIQ position8→13; figures are 59-character sorted positions with ID tie-break, not UI shared Rank or battle win-rate.
+- Provide actual same-stat comparison framework and [user decision brief](docs/V0_1_58_COMPREHENSIVE_SCORING_VALIDITY_AND_DECISION_BRIEF_2026-10-10.md): A keep ratings, B explicitly approve only source-supported targeted scores or Haki reviews, C broad formula redesign (not recommended). No automatic E3 penalties, no weighted-model alterations, no SPEC edits.
+- New regression `src/domain/calculation/scoreCalibrationDiagnosticsV0158.test.ts`; no production code/UI/data source changes. Follow-on v0.1.59 should perform source-grounded review of high-E3 values and Raw overlap candidates **before** requesting any numerical adjustment approval.
+
 ## v0.1.57 — Complete 413-axis default Evidence Readiness classification
 
 - Individually resolve the **last 51** previously unclassified default stat axes across 12 characters: Vista4, Jack3, Smoothie4, Zoro6, Sanji6, Fujitora4, Shiryu3, Van Augur3, Burgess3, Pizarro3, Hancock5, Crocodile7.
