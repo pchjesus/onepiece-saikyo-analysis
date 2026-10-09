@@ -1,6 +1,6 @@
 import type { CombatStat, Evaluation } from './types'
 import type { HakiType } from '../haki/types'
-import { getFinalStatScore } from './score'
+import { DEFAULT_HAKI_WEIGHT, getFinalStatScore } from './score'
 
 /**
  * A human-reviewed proposed disposition, not an official scoring rule.
@@ -60,6 +60,9 @@ export function previewHybridRawPilot(
   hakiWeight: number,
 ): HybridPilotPreview {
   if (!Number.isFinite(hakiWeight) || hakiWeight < 0) throw new Error('Valid nonnegative Haki weight required')
+  if (Math.abs(hakiWeight - DEFAULT_HAKI_WEIGHT) > 1e-9) {
+    throw new Error('Pilot only supports Balanced 1.2 baseline Haki weight 0.5; other weights require model-version review')
+  }
   const original = new Map(evaluations.map((evaluation) => [evaluation.id, evaluation]))
   if (original.size !== evaluations.length) throw new Error('Duplicate Evaluation IDs in pilot input')
   const seen = new Set<string>()
