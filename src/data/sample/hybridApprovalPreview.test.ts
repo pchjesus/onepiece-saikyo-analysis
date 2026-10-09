@@ -10,26 +10,26 @@ describe('v0.1.37 user-approval-only score decomposition', () => {
     preview.overlapIncluded.evaluations.find((e) => e.id === evaluationId)!
       .items.find((item) => item.stat === stat)!
 
-  it('proposes 4 direct Base transfers and 6 risk-labeled overlap transfers without changing production', () => {
-    expect(preview.status).toBe('user-approval-required')
+  it('keeps approved A live and previews 6 additional overlap transfers without changing production', () => {
+    expect(preview.status).toBe('A-merged-B-user-approval-required')
     expect(preview.baseline).toHaveLength(39)
-    expect(preview.ordinary.changes).toHaveLength(4)
-    expect(preview.overlapIncluded.changes).toHaveLength(10)
-    expect(preview.overlapIncluded.reviewCount).toBe(14)
+    expect(preview.ordinary.changes).toHaveLength(0)
+    expect(preview.overlapIncluded.changes).toHaveLength(6)
+    expect(preview.overlapIncluded.reviewCount).toBe(10)
     expect(preview.overlapIncluded.unresolvedCount).toBe(4)
     expect(preview.overlapIncluded.evaluations.flatMap(e => e.items)).toHaveLength(273)
     const raw = (items: typeof preview.baseline) =>
       items.flatMap(e => e.items).reduce((sum, item) => sum + getRawHakiContributionTotal(item), 0)
-    expect(raw(preview.baseline)).toBe(256)
+    expect(raw(preview.baseline)).toBe(244)
     expect(raw(preview.ordinary.evaluations)).toBe(244)
     expect(raw(preview.overlapIncluded.evaluations)).toBe(216)
     expect(preview.baseline.flatMap(e => e.items)
-      .flatMap(i => i.hakiContributions)).toHaveLength(53)
+      .flatMap(i => i.hakiContributions)).toHaveLength(49)
     expect(preview.overlapIncluded.evaluations.flatMap(e => e.items)
       .flatMap(i => i.hakiContributions)).toHaveLength(43)
   })
 
-  it('checks the exact 10 before/after Base/Raw/Final triples', () => {
+  it('checks 4 already approved and 6 hypothetical transfers across 9 Stat rows', () => {
     const expected = [
       ['evaluation-akainu', 'defense', 95, 0, 95],
       ['evaluation-kuzan', 'attack', 93, 0, 93],
