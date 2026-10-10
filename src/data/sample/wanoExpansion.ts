@@ -101,7 +101,7 @@ export const wanoBattles: Battle[] = [...wanoSeeds.map((seed, idx): Battle => ({
     : seed.group === 'kid-pirates' ? '와노·엘바프에서 해적단 전력 보존 및 교전 수행'
       : '오니가시마 전투 중 각자의 임무 또는 상대 전투원 제압',
   combatIntent: 'unknown',
-  environment: seed.group === 'kid-pirates' ? '신세계 해역·와노쿠니' : '와노쿠니 오니가시마 등',
+  environment: seed.group === 'kid-pirates' ? '와노쿠니 및 엘바프 근해의 서로 다른 교전 기록 — 개별 Battle 장소 우선' : '와노쿠니 오니가시마 등',
   restrictions: seed.context,
   externalFactors: '공식 에피소드 요약은 장면 전체와 모든 참전 인원의 세부 상태를 일대일 재구성하지 않는다. 원작 해당 만화 장면 직접 감수가 필요하다.',
   result: seed.id === 'killer' || ['inuarashi','nekomamushi','kikunojo'].includes(seed.id)
