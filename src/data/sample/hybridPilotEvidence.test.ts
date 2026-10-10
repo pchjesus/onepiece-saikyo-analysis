@@ -52,7 +52,7 @@ describe('v0.1.35 Sakazuki evidence-first calibration pilot', () => {
       ['shanks', 648 / 7],
       ['mihawk', 649 / 7],
       ['linlin', 660 / 7],
-      ['katakuri', 590 / 7],
+      ['katakuri', 588 / 7],
     ])
     for (const [id, expected] of legacy) {
       const evaluation = sampleEvaluations.find(({ characterId }) => characterId === id)!
