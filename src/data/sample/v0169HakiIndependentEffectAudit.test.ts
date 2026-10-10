@@ -27,7 +27,7 @@ describe('v0.1.69 same-effect vs independent exceptional Haki review: read-only 
       expect(matching, row.characterId + '/' + row.stat).toBeDefined()
       expect(matching?.amount).toBe(row.existingRaw)
       expect(matching?.evidenceIds).toEqual([...row.evidenceIds])
-      expect(stat?.evidenceIds).toEqual(expect.arrayContaining(row.evidenceIds))
+      expect(stat?.evidenceIds).toEqual(expect.arrayContaining([...row.evidenceIds]))
       expect(row.canonicEffect.length, row.characterId).toBeGreaterThan(12)
       expect(row.claimToReexamine.length, row.characterId).toBeGreaterThan(12)
       expect(row.exclusionFromBaseQuestion.length, row.characterId).toBeGreaterThan(30)
