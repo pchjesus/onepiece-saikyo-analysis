@@ -1,3 +1,8 @@
+## v0.1.66 follow-up — Jinbe Stamina Evidence description consistency
+
+- Correct `evidence-jinbe-ace-five-days-552` `evaluationImpact` from the stale phrase “Stamina 79” to actual existing Jinbe **Stamina 80**; its 5-day Ace duel fact, Evidence ID, source and all numeric Evaluation values remain unchanged.
+- Extend the v0.1.66 regression test to prevent the old value from resurfacing. No changes to scores, 59-character ranks, model, Matchups, UI or persistence.
+
 ## v0.1.66 — Vista/Shanks seven-axis independent-effect audit and approval-gated Technique calibration
 
 - Re-open the **full seven axes** for Vista (not merely Technique) and Shanks, separating canon/official episode facts, battle constraints, interpretation, E1/E2/E3 evidence readiness, same-stat peer anchors, Base, Raw, Final, and uncertain independent effects. Refer to the [v0.1.66 decision report](docs/V0_1_66_VISTA_SHANKS_SEVEN_AXIS_HAKI_DECISION_GATE_2026-10-10.md).
