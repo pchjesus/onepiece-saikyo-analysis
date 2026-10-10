@@ -102,7 +102,7 @@ describe('v0.1.63 full seven-axis upside and Haki independent-effect review (rea
   })
 
   it('protects complete v0.1.62 original score source and all derived results against this documentation-only release', () => {
-    expect(evaluated('vista').evaluationDataVersion).toBe('evaluation-0.1.26-draft')
+    expect(evaluated('vista').evaluationDataVersion).toBe('evaluation-0.1.68-vista-battle-context-only')
     expect(evaluated('shanks').evaluationDataVersion).toBe('evaluation-0.1.26-draft')
     expect(evaluated('vista').items.map(item => item.score)).toEqual([82, 79, 77, 80, 87, 77, 74])
     expect(evaluated('shanks').items.map(item => item.score)).toEqual([97, 91, 88, 95, 96, 93, 88])
