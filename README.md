@@ -1,6 +1,6 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.1.65** (npm package 버전은 **0.1.34** 유지)  
+현재 구현 패치: **v0.1.66** (근거 재검토·승인 전 상향안 및 회귀 테스트; 실제 평가 점수는 v0.1.65와 동일) (npm package 버전은 **0.1.34** 유지)  
 평가 데이터: **60 Character master pool · 59 evaluated unique Character · 73 Membership · 62 Evaluation · 434 Stat**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
@@ -16,6 +16,7 @@
 - [v0.1.37 검토용 — 산먹깨비·한글 용어·패기 수치 승인안](docs/V0_1_37_KOREAN_TERMS_AND_HYBRID_APPROVAL_2026-10-09.md)
 - [신규 2집단 사전 Evidence 조사 — 혁명군·CP0](docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md)
 - [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
+- [v0.1.66 비스타·샹크스 7축 및 Haki Raw 독립효과 검증, 승인 전 Technique 상향안](docs/V0_1_66_VISTA_SHANKS_SEVEN_AXIS_HAKI_DECISION_GATE_2026-10-10.md)
 - [v0.1.65 Supreme 알베르·버킹엄·탱킹 등 문자열 변환 오류 및 전수 회귀검증](docs/V0_1_65_DISPLAY_STRING_NORMALIZATION_AND_REGRESSION_2026-10-10.md)
 - [v0.1.64 60인 전투 설명·캐릭터 귀속·근거·전투 장소 교정 보고서](docs/V0_1_64_ROSTER_COMBAT_NARRATIVE_SOURCE_ATTRIBUTION_AUDIT_2026-10-10.md)
 - [v0.1.63 비스타 전체 7축 상향 심사·샹크스 7축·카타쿠리/징베 Haki 독립효과 검증](docs/V0_1_63_VISTA_ALL_SEVEN_STATS_SHANKS_UPSIDE_AND_HAKI_OVERLAP_2026-10-10.md)
