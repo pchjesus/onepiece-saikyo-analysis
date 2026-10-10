@@ -26,13 +26,13 @@ const axis = (id: string, stat: CombatStat) => {
 const cases = [
   ['vista', 'attack', 80, 4, 82, 'E2'],
   ['vista', 'techniqueMastery', 86, 2, 87, 'E1'],
-  ['king', 'attack', 83, 4, 85, 'E2'],
-  ['king', 'techniqueMastery', 80, 2, 81, 'E2'],
-  ['jinbe', 'attack', 76, 4, 78, 'E2'],
+  ['king', 'attack', 83, 0, 83, 'E2'],
+  ['king', 'techniqueMastery', 80, 0, 80, 'E2'],
+  ['jinbe', 'attack', 76, 0, 76, 'E2'],
   ['jinbe', 'defense', 78, 4, 80, 'E1'],
   ['katakuri', 'defense', 81, 6, 84, 'E2'],
   ['katakuri', 'techniqueMastery', 84, 6, 87, 'E2'],
-  ['katakuri', 'combatIQ', 82, 4, 84, 'E2'],
+  ['katakuri', 'combatIQ', 82, 0, 82, 'E2'],
   ['shanks', 'attack', 94, 6, 97, 'E2'],
   ['shanks', 'techniqueMastery', 92, 8, 96, 'E2'],
   ['shanks', 'combatIQ', 91, 4, 93, 'E2'],
@@ -46,7 +46,7 @@ const eventCases = [
   ['shanks', 'evidence-shanks-kid-divine-departure-1079', ['attack', 'techniqueMastery', 'combatIQ']],
 ] as const
 
-describe('v0.1.61 independent Haki Raw review: audit only, no unapproved recalibration', () => {
+describe('v0.1.61 source-trace guards reconciled to approved v0.1.62 targeted recalibration', () => {
   it('pins all twelve audited axes with their existing Base/Raw/Final and readiness', () => {
     for (const [id, stat, base, raw, final, readiness] of cases) {
       const item = axis(id, stat)
@@ -67,7 +67,10 @@ describe('v0.1.61 independent Haki Raw review: audit only, no unapproved recalib
       for (const stat of stats) {
         const item = axis(id, stat)
         expect(item.evidenceIds).toContain(evidenceId)
-        expect(item.hakiContributions.some(h => h.amount > 0 && h.evidenceIds.includes(evidenceId))).toBe(true)
+        const adjusted = (id === 'king' && (stat === 'attack' || stat === 'techniqueMastery'))
+          || (id === 'jinbe' && stat === 'attack')
+          || (id === 'katakuri' && stat === 'combatIQ')
+        expect(item.hakiContributions.some(h => h.amount > 0 && h.evidenceIds.includes(evidenceId))).toBe(!adjusted)
         expect(evidence?.statContributions.some(contribution =>
           contribution.stat === stat && contribution.role !== 'context')).toBe(true)
       }
@@ -92,30 +95,11 @@ describe('v0.1.61 independent Haki Raw review: audit only, no unapproved recalib
     expect(axis('kaido', 'defense').score).toBe(100)
   })
 
-  it('quantifies a diagnostic Raw-off sensitivity WITHOUT proposing those Base-only values as approved scores', () => {
-    const expected = [
-      ['vista', 79 + 3/7, 79],
-      ['king', 83, 83 - 3/7],
-      ['jinbe', 79 + 4/7, 79],
-      ['katakuri', 84 + 2/7, 84 + 2/7 - 8/7],
-      ['shanks', 92 + 4/7, 92 + 4/7 - 9/7],
-    ] as const
-    for (const [id, original, hypothetical] of expected) {
-      const before = evaluation(id)
-      const unchanged = calculateBalancedCombatPower(before, balancedV12).finalScore
-      const diagnostic = {
-        ...before,
-        items: before.items.map(item => {
-          const noHaki = { ...item, hakiContributions: [] }
-          return { ...noHaki, score: getFinalStatScore(noHaki) }
-        }),
-      }
-      expect(unchanged).toBeCloseTo(original, 10)
-      expect(calculateBalancedCombatPower(diagnostic, balancedV12).finalScore)
-        .toBeCloseTo(hypothetical, 10)
-      // The original evaluation remains unchanged after making the local diagnostic copy.
-      expect(calculateBalancedCombatPower(before, balancedV12).finalScore).toBeCloseTo(original, 10)
-    }
+  it('keeps Vista and Shanks production scores while their upward-only evidence candidates remain unresolved', () => {
+    expect(calculateBalancedCombatPower(evaluation('vista'), balancedV12).finalScore).toBeCloseTo(556 / 7, 10)
+    expect(calculateBalancedCombatPower(evaluation('shanks'), balancedV12).finalScore).toBeCloseTo(648 / 7, 10)
+    expect(axis('vista', 'attack').score).toBe(82)
+    expect(axis('shanks', 'attack').score).toBe(97)
   })
 
   it('retains full production data/model and direct matchup invariants', () => {
