@@ -1,14 +1,14 @@
 # v0.1.61 — Haki Raw 독립 효과 검증 및 제한적 재산정 의사결정
 
-**기준:** v0.1.60 안정화 main \`068edcd6fd33d9a3b94734285066d36e3ce20df2\`; 2026-10-10.  
+**기준:** v0.1.60 안정화 main `068edcd6fd33d9a3b94734285066d36e3ce20df2`; 2026-10-10.  
 **성격:** 읽기 전용 검수·진단 테스트·의사결정 문서. 사용자 개별 승인 없는 전투력 수치 수정 0건.  
 **정책:** [HYBRID_HAKI_CRITERIA_2026-10-09](./HYBRID_HAKI_CRITERIA_2026-10-09.md)와 PROJECT_SPEC.md를 유지한다. Haki 능력 보유 → 뛰어난 사용 → **Base에 없는 독립적인 추가 효과**를 서로 다른 질문으로 심사한다. 원작의 공식 점수가 아닌 평가자의 상대 척도다.
 
 ## 1. 검증 범위 및 신뢰도
 
 - 데이터: Character Master 60명, 대표 Evaluation 59명×7축=413축, 전체 Evaluation 62개/Stat 434개, 대표 Haki Raw 226/전체 Haki Raw 244, Evidence readiness E1=53/E2=243/E3=117.
-- 계산: Balanced v1.2, Weight 0.5; \`Final = min(100, Base + 0.5×Raw)\`; Overall=7축 Final의 산술평균; 기존 직접 Evidence-aware Matchup 15개. 카이도 Defense100 불변.
-- 이번 심사: 비스타·킹·징베·카타쿠리·샹크스, 대표 Evaluation의 12개 관련 축. 사건당 다축 Evidence 재사용은 **그 자체로 버그가 아니다**. 그러나 \`Evidence.statContributions.role = primary\`는 예외적 Raw의 독립 증분을 계량했다는 뜻도 아니다.
+- 계산: Balanced v1.2, Weight 0.5; `Final = min(100, Base + 0.5×Raw)`; Overall=7축 Final의 산술평균; 기존 직접 Evidence-aware Matchup 15개. 카이도 Defense100 불변.
+- 이번 심사: 비스타·킹·징베·카타쿠리·샹크스, 대표 Evaluation의 12개 관련 축. 사건당 다축 Evidence 재사용은 **그 자체로 버그가 아니다**. 그러나 `Evidence.statContributions.role = primary`는 예외적 Raw의 독립 증분을 계량했다는 뜻도 아니다.
 - 출처 방법: (a) 저장소의 Ch.574/1032/1018/881–884/1079 기반 Evidence **서술**을 확인함, (b) 아래 ONE PIECE.com 공식 프로필·TV 줄거리와 확인 가능한 부분을 교차 확인함. **만화 해당 화의 모든 원본 컷을 독립 열람·대조하지 않았다.** 따라서 근거가 부족한 부분을 원작에서 부정됐다고 단정하지 않는다. E1/E2/E3는 성능이 아닌 근거 충분도다.
 - v0.1.60의 다섯 검토 카드를 반복 생성하지 않고 **Base/Raw 배제 사유·비교군·우선 의사결정**으로 확장한다.
 
@@ -35,7 +35,7 @@
 
 ### H01 · 비스타 — 일반 무장색과 이도류의 중첩
 
-- **Character / state:** \`vista\`, 정상결전 기준 대표 Evaluation \`evaluation-vista\`; Evidence \`evidence-vista-armament-akainu-574\` (원작 Ch.574 인용).
+- **Character / state:** `vista`, 정상결전 기준 대표 Evaluation `evaluation-vista`; Evidence `evidence-vista-armament-akainu-574` (원작 Ch.574 인용).
 - **Canon fact(저장소 서술):** 마르코와 함께 아카이누에게 검격을 가하고 아카이누가 패기 사용자라고 지칭. ONE PIECE.com의 비스타 공식 프로필은 이도류 대검호이며 미호크와 공방 가능한 검술을 설명하지만, 아카이누전 무장색의 **예외적 증가량**을 제공하지 않는다.
 - **Combat context:** 2인 합동 공격, 아카이누의 장기 누적 손상은 확인되지 않음; 미호크와의 제한된 교전은 검술 비교이지 패기 단독 비교가 아님.
 - **Interpretation / Base coverage:** 미호크 상대 요격·검술 공방과 아카이누 상대 실전 검격은 Attack Base80·Technique Base86 설명에 이미 등장한다. 무장색 적용 사실 자체는 확인해도 **독립적인 초상위 무장색 위력/제어**는 특정되지 않는다.
@@ -45,7 +45,7 @@
 
 ### H02 · 킹 — 검 패기와 루나리아·열매 기제 구분
 
-- **Character / state:** \`king\`, 오니가시마 \`evaluation-king\`; \`evidence-king-armament-1032\` (Ch.1032 인용).
+- **Character / state:** `king`, 오니가시마 `evaluation-king`; `evidence-king-armament-1032` (Ch.1032 인용).
 - **Canon fact(저장소 서술):** 무장색을 검에 둘러 조로와 충돌. 공식 TV1062 줄거리는 킹의 루나리아 화염 상태, 조로의 방어 취약점 파악, 화염 공격 및 최종 패배를 보조 확인한다. **그 공식 줄거리 자체가 킹의 무장색 정밀도를 독립적으로 평가하지는 않는다.**
 - **Combat context:** 조로의 패기 검격, 루나리아 Flame ON/OFF에 따른 방어/기동 트레이드오프, 고대종 능력과 화염 공격이 혼재.
 - **Interpretation / Base coverage:** Attack83의 화염·고대종·검격의 총체적 위협과 Technique80의 무기·신체 상태 운용에 통상 무장색 검격이 포함될 가능성이 높다. 루나리아의 신체 방어를 무장색 독립 방어로 옮기지 않는다.
@@ -55,7 +55,7 @@
 
 ### H03 · 징베 — 방어와 공격은 다르지만 두 Raw가 자동으로 정당화되지 않음
 
-- **Character / state:** \`jinbe\`, 현행 복수 교전 통합 평가 \`evaluation-jinbe\`; \`evidence-jinbe-whos-who-1018\`, 추가 Defense \`evidence-jinbe-big-mom-890\`.
+- **Character / state:** `jinbe`, 현행 복수 교전 통합 평가 `evaluation-jinbe`; `evidence-jinbe-whos-who-1018`, 추가 Defense `evidence-jinbe-big-mom-890`.
 - **Canon fact(저장소 서술):** 후즈후의 근접 공격을 무장색으로 방어하고 상대 손가락에 손상을 입힌 뒤 어인공수도 반격으로 격파. 빅맘의 공격은 순간적으로 받아냈으나 힘에서 밀려났음. 공식 TV1040은 후즈후의 공격을 견디고 어인공수도 귀와정권으로 마무리한 사건을 확인하지만 **무장색 증분을 숫자로 분리하지 않는다**.
 - **Combat context:** 후즈후 육식·근접전, 어인공수도 특유의 타격/수분 활용, 빅맘 방어 사례는 별도 장소와 다른 상대·조건.
 - **Interpretation / Base coverage:** Attack Base76은 실제 공수도 타격 성과, Defense Base78은 빅맘·후즈후 공격을 받아낸 성과를 이미 평가한다. 공격·방어는 **관찰 대상이 서로 다른 두 성과**이므로 동일 Evidence를 두 Stat에 사용하는 것은 가능하다.
@@ -65,7 +65,7 @@
 
 ### H04 · 카타쿠리 — 미래예지는 독립 메커니즘, 3축 독립 증분은 미확정
 
-- **Character / state:** \`katakuri\`, 루피전 \`evaluation-katakuri\`; \`evidence-katakuri-future-sight-881-884\` (Ch.881–884 인용).
+- **Character / state:** `katakuri`, 루피전 `evaluation-katakuri`; `evidence-katakuri-future-sight-881-884` (Ch.881–884 인용).
 - **Canon fact / external verification:** ONE PIECE.com TV830은 미래를 엿보는 견문색을 명시하고, TV857은 냉정함을 잃으면 회피가 무너지며 미래예지로 공격을 예측하고 모치 몸체를 변형해 회피한다고 설명한다.
 - **Combat context:** 루피와의 1대1 장기 교전, 마음의 평정/집중 조건, 모치 능력과 견문색의 연동. 미리 본 정보는 순수 신체 Speed 자체가 아님.
 - **Interpretation / Base coverage:** Defense Base81은 방어·모치 회피의 총합, Technique Base84는 능력 운용·지형 제어·변형 숙련, IQ Base82는 방해·전술 선택 능력. 각각 다른 축이지만 미래정보가 그 Base에 이미 반영되었을 수 있다.
@@ -75,7 +75,7 @@
 
 ### H05 · 샹크스 — 위협 예지→기동→검격→제압의 원인 사슬
 
-- **Character / state:** \`shanks\`, 키드전 \`evaluation-shanks\`; \`evidence-shanks-kid-divine-departure-1079\` (Ch.1079 인용).
+- **Character / state:** `shanks`, 키드전 `evaluation-shanks`; `evidence-shanks-kid-divine-departure-1079` (Ch.1079 인용).
 - **Canon fact / external verification:** ONE PIECE.com TV1112는 산하 함대의 피해 미래를 보고 **샹크스 혼자 키드의 배에 접근**, 카무사리로 키드와 다무드 펑크를 제압, **도리·브로기가 이후 배를 파괴**했다고 명시한다. 이는 분리 가능한 시간적 단계이지, 전부 별개 수치 증분이라는 뜻이 아니다. 공식 TV 줄거리는 특정 공격의 패왕색 코팅량·이종 Haki 별개 제어량을 숫자로 설명하지 않는다.
 - **Combat context:** 키드는 대형 공격을 준비 중, 샹크스의 우선 임무는 산하 함대 보호. 접근 속도와 미래 정보의 선행 경고를 혼동하지 않고 도리·브로기의 함선 파괴는 샹크스 Attack에 가산하지 않는다. 장기 정면 결투 결과로 일반화하지 않는다.
 - **Interpretation / Base coverage:** Attack Base94에 일격 제압, Technique Base92에 검술 운용, IQ Base91에 위험 우선순위 결정·선제 대응이 **이미** 포함돼 있다.
@@ -113,12 +113,12 @@
 
 - **실제 변경 0건:** 기존 대표 59인 점수·순위와 직접 Matchup 15개의 Evidence·판정·조건은 그대로다.
 - **가상 시나리오:** Overall만 변화해도 기존 Evidence-aware Matchup에 임의의 승리 확률이나 'Overall 높은 캐릭터 자동 승리'를 새로 만들지 않는다. 향후 승인 B안에서는 관련 Character/CalculationResult와 Rank, 상대 비교에 표시되는 숫자, 관련 Matchup의 출처·조건·판정 변화 여부를 별도 검증한다.
-- **데이터 버전:** 현행 \`evaluationDataVersion\` 유지. 실제 승인 보정 시 변경한 Evaluation에만 새 버전을 부여하고 과거와 비교·롤백 추적표를 남긴다. 프로젝트 계산 모델 Balanced 1.2/Weight0.5는 승인 없이 변경하지 않는다.
+- **데이터 버전:** 현행 `evaluationDataVersion` 유지. 실제 승인 보정 시 변경한 Evaluation에만 새 버전을 부여하고 과거와 비교·롤백 추적표를 남긴다. 프로젝트 계산 모델 Balanced 1.2/Weight0.5는 승인 없이 변경하지 않는다.
 
 ## 5. 구현 안전성 · QA
 
-- 신규 읽기 전용 진단: \`src/domain/calculation/hakiIndependentRawAuditV0161.test.ts\` — 5 캐릭터/12축 수치 고정, 5개 핵심 Evidence 사건 다축 연결, 샹크스 Technique 이종 기여, 비교 앵커, 복제 객체의 Raw-off 민감도, 59/413·62/434·E1-3·Raw226/244·Balanced v1.2·15 매치업·카이도 Defense100을 확인하도록 설계.
-- **변경 제외:** \`evaluations.ts\`, \`evidence.ts\`, \`battles.ts\`, \`matchups.ts\`, 계산 생산 코드, UI, 저장·복원, \`PROJECT_SPEC.md\`, \`package.json\`.
+- 신규 읽기 전용 진단: `src/domain/calculation/hakiIndependentRawAuditV0161.test.ts` — 5 캐릭터/12축 수치 고정, 5개 핵심 Evidence 사건 다축 연결, 샹크스 Technique 이종 기여, 비교 앵커, 복제 객체의 Raw-off 민감도, 59/413·62/434·E1-3·Raw226/244·Balanced v1.2·15 매치업·카이도 Defense100을 확인하도록 설계.
+- **변경 제외:** `evaluations.ts`, `evidence.ts`, `battles.ts`, `matchups.ts`, 계산 생산 코드, UI, 저장·복원, `PROJECT_SPEC.md`, `package.json`.
 - 실행/CI/병합/Pages는 **각 실제 GitHub 기록으로 따로 확인해야 하며**, 이 문서의 분석 결과 자체가 빌드 통과·원작 컷 전수 검증·브라우저 직접 QA를 의미하지 않는다.
 - 출처가 직접 뒷받침하지 않는 독립 예외 Raw를 **확정 오류**라고 낙인찍지 않는다. '제외 이유 불충분'을 우선 *심사 상태*로 남긴다.
 
@@ -145,4 +145,4 @@ ONE PIECE.com. (2023, May 21). *第1062話 覇王の三刀流！ゾロVSキン�
 
 ONE PIECE.com. (2024, July 14). *第1112話 激突！シャンクスVSユースタス・キッド*. https://one-piece.com/anime/67527/index.html
 
-프로젝트 내부 기준: \`docs/HYBRID_HAKI_CRITERIA_2026-10-09.md\`, \`docs/V0_1_60_KAIDO_DEFENSE100_HAKI_AND_RYOKUGYU_SOURCE_REVIEW_2026-10-10.md\`, \`docs/V0_1_59_E3_AND_HAKI_RAW_CASE_AUDIT_2026-10-10.md\`.
+프로젝트 내부 기준: `docs/HYBRID_HAKI_CRITERIA_2026-10-09.md`, `docs/V0_1_60_KAIDO_DEFENSE100_HAKI_AND_RYOKUGYU_SOURCE_REVIEW_2026-10-10.md`, `docs/V0_1_59_E3_AND_HAKI_RAW_CASE_AUDIT_2026-10-10.md`.
