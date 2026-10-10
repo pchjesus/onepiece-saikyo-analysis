@@ -12,6 +12,9 @@ describe('Hybrid Haki A approval: four transferred, ten open reviews', () => {
     .find((e) => e.id === id)!.items.find((i) => i.stat === stat)!
   const approved = hybridRawPilotReviews.filter((r) => r.disposition === 'base-rebase-proposal')
   const unresolved = hybridRawPilotReviews.filter((r) => r.disposition !== 'base-rebase-proposal')
+  // Historical Ch.881-884 Katakuri IQ review was resolved in v0.1.62.
+  const unresolvedCurrent = unresolved.filter(r =>
+    !(r.evaluationId === 'evaluation-katakuri' && r.stat === 'combatIQ'))
 
   it('preserves exact audit of 14 applications while applying only four A transfers', () => {
     expect(hybridRawPilotReviews).toHaveLength(14)
@@ -31,7 +34,7 @@ describe('Hybrid Haki A approval: four transferred, ten open reviews', () => {
       expect(item.hakiContributions).toEqual([])
       expect(item.score).toBe(base)
       expect(sampleEvaluations.find(e => e.id === id)?.evaluationDataVersion)
-        .toBe(id === 'evaluation-katakuri' ? 'evaluation-0.1.47-evidence-calibrated-A' : 'evaluation-0.1.38-hybrid-A-approved')
+        .toBe(id === 'evaluation-katakuri' ? 'evaluation-0.1.62-haki-independent-review' : 'evaluation-0.1.38-hybrid-A-approved')
     }
     const ownerByEvidence = new Map(sampleEvidence.map((e) => [e.id, e.subjectCharacterId]))
     const keys = new Set<string>()
@@ -42,7 +45,7 @@ describe('Hybrid Haki A approval: four transferred, ten open reviews', () => {
       expect(item.evidenceIds).toContain(review.evidenceId)
       const matches = item.hakiContributions.filter(c => c.hakiType === review.hakiType &&
         c.amount === review.expectedRaw && c.evidenceIds.includes(review.evidenceId))
-      expect(matches, review.evidenceId).toHaveLength(review.disposition === 'base-rebase-proposal' ? 0 : 1)
+      expect(matches, review.evidenceId).toHaveLength(review.disposition === 'base-rebase-proposal' || (review.evaluationId === 'evaluation-katakuri' && review.stat === 'combatIQ') ? 0 : 1)
       expect(review.reason.length).toBeGreaterThan(30)
       expect(review.uncertainty.length).toBeGreaterThan(20)
       const key = [review.evaluationId, review.stat, review.hakiType, review.evidenceId].join('::')
@@ -57,12 +60,12 @@ describe('Hybrid Haki A approval: four transferred, ten open reviews', () => {
     expect(sampleEvaluations).toHaveLength(62)
     const rows = sampleEvaluations.flatMap((e) => e.items)
     expect(rows).toHaveLength(434)
-    expect(rows.flatMap(i => i.hakiContributions)).toHaveLength(49)
+    expect(rows.flatMap(i => i.hakiContributions)).toHaveLength(45)
     expect(rows.flatMap(i => i.hakiContributions).reduce((n,c)=>n+c.amount,0)).toBe(230)
     expect(rows.every(i => Math.abs(i.score - getFinalStatScore(i)) < 1e-9)).toBe(true)
     const expected = new Map([
       ['evaluation-akainu', 647/7], ['evaluation-kuzan', 649/7],
-      ['evaluation-shanks', 648/7], ['evaluation-katakuri', 590/7],
+      ['evaluation-shanks', 648/7], ['evaluation-katakuri', 588/7],
       ['evaluation-linlin', 660/7], ['evaluation-mihawk', 649/7],
     ])
     for (const [id, sum] of expected) {
@@ -72,21 +75,21 @@ describe('Hybrid Haki A approval: four transferred, ten open reviews', () => {
   })
 
   it('leaves remaining unresolved applications as a zero-modification guarded preview', () => {
-    const preview = previewHybridRawPilot(sampleEvaluations, unresolved, 0.5)
-    expect(preview.reviewCount).toBe(10)
-    expect(preview.unresolvedCount).toBe(10)
+    const preview = previewHybridRawPilot(sampleEvaluations, unresolvedCurrent, 0.5)
+    expect(preview.reviewCount).toBe(9)
+    expect(preview.unresolvedCount).toBe(9)
     expect(preview.changes).toHaveLength(0)
     for (let i=0;i<45;i++) {
       expect(preview.evaluations[i]).not.toBe(sampleEvaluations[i])
       expect(preview.evaluations[i].items).toEqual(sampleEvaluations[i].items)
     }
-    expect(() => previewHybridRawPilot(sampleEvaluations, [...unresolved, unresolved[0]], 0.5))
+    expect(() => previewHybridRawPilot(sampleEvaluations, [...unresolvedCurrent, unresolvedCurrent[0]], 0.5))
       .toThrow('Duplicate pilot review')
-    expect(() => previewHybridRawPilot(sampleEvaluations, [{...unresolved[0], expectedRaw:99}], 0.5))
+    expect(() => previewHybridRawPilot(sampleEvaluations, [{...unresolvedCurrent[0], expectedRaw:99}], 0.5))
       .toThrow('stale/mismatched')
-    expect(() => previewHybridRawPilot(sampleEvaluations, [{...unresolved[0], evidenceId:'missing'}], 0.5))
+    expect(() => previewHybridRawPilot(sampleEvaluations, [{...unresolvedCurrent[0], evidenceId:'missing'}], 0.5))
       .toThrow('stale/mismatched')
-    expect(() => previewHybridRawPilot(sampleEvaluations, unresolved, 1))
+    expect(() => previewHybridRawPilot(sampleEvaluations, unresolvedCurrent, 1))
       .toThrow('Pilot only supports Balanced 1.2')
   })
 
