@@ -1,3 +1,11 @@
+## v0.1.62 — Approved targeted Haki overlap score calibration; upside-only Shanks/Vista review
+
+- User authorizes bounded Overall adjustments and **explicitly excludes Shanks and Vista from any Raw-off/downward hypothetical**; their scores remain exactly unchanged, and official Vista/Mihawk swordsman and Shanks Ch.1055/1079 feats are reviewed for future upside without arbitrary +N.
+- King Attack Raw4→0 and Technique Raw2→0; Jinbe Attack Raw4→0 (Defense Raw4 retained); Katakuri Combat IQ Raw4→0 (Defense/Technique future-sight Raw6 each retained). **All four Base values unchanged**, since each removed Raw duplicates the same already scored Base performance. Corresponding Evaluation data versions updated; source facts, Evidence IDs, score model, UI, saved-state format and 15 matchups unchanged.
+- New [v0.1.62 decision and impact report](docs/V0_1_62_APPROVED_MULTISTAT_HAKI_PATCH_AND_SHANKS_VISTA_UPSIDE_2026-10-10.md), plus targeted tests. Representative Raw226→212/full Raw244→230; no blanket Haki removal, no E1-3 changes.
+- v0.1.61 Shanks/Vista Raw-off simulation is explicitly **retired as a decision aid** and removed from active diagnostic tests; historical documents kept with supersession notice.
+- Actions testing/build/Pages release result must be verified for the exact merged SHA; direct full manga-panel review and browser manual QA remain unverified.
+
 ## v0.1.61 — Haki Raw independent-effect review (no numeric amendment)
 
 - Apply the already approved Hybrid/Exceptional Haki rubric to **Vista, King, Jinbe, Katakuri, Shanks (12 stat axes)**, individually separating canon reference, combat context, Base coverage, independently demonstrated Raw, baseline-exclusion gaps and same-stat peer anchors. Classify ordinary Armament as a recalibration *review* candidate, not as automatically zero; preserve potentially independent future-sight and Conqueror's applications without asserting every Raw is separately proven.
