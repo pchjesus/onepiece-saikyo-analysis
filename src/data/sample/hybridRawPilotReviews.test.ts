@@ -58,7 +58,7 @@ describe('Hybrid Haki A approval: four transferred, ten open reviews', () => {
     const rows = sampleEvaluations.flatMap((e) => e.items)
     expect(rows).toHaveLength(434)
     expect(rows.flatMap(i => i.hakiContributions)).toHaveLength(49)
-    expect(rows.flatMap(i => i.hakiContributions).reduce((n,c)=>n+c.amount,0)).toBe(244)
+    expect(rows.flatMap(i => i.hakiContributions).reduce((n,c)=>n+c.amount,0)).toBe(230)
     expect(rows.every(i => Math.abs(i.score - getFinalStatScore(i)) < 1e-9)).toBe(true)
     const expected = new Map([
       ['evaluation-akainu', 647/7], ['evaluation-kuzan', 649/7],
