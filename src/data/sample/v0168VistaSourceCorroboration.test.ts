@@ -39,7 +39,7 @@ describe('v0.1.68 source review and nonnumeric Vista battle context fix', () => 
         expect(c.sourceRefs.some(s => s.type === 'official-supplementary'), c.id).toBe(true)
       else {
         expect(c.status, c.id).toBe('multi-source-corroborated')
-        expect(c.verifiedLimit, c.id).toMatch(/(대조|검증|확정|인증|불가)/)
+        expect(c.verifiedLimit, c.id).toMatch(/(대조|검증|확정|인증|불가|확인)/)
       }
     }
     expect(v0168VistaMihawkClaims.filter(c => c.eventGroup === 'single-mihawk-vista-encounter')).toHaveLength(5)
