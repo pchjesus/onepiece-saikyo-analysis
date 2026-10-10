@@ -100,3 +100,7 @@ ONE PIECE.com. (2022, November 13). *第1040話 操舵手の誇り 怒りのジ�
 ONE PIECE.com. (2023, November 5). *第1082話 新時代到来！赤髪の皇帝の怒り*. https://one-piece.com/anime/64187/index.html
 
 ONE PIECE.com. (2024, July 14). *第1112話 激突！シャンクスVSユースタス・キッド*. https://one-piece.com/anime/67527/index.html
+
+## 8. v0.1.66 사후 데이터 설명 정합성 패치
+
+정밀 검수에서 징베의 Ch.552 에이스와 5일 결투 Evidence `evidence-jinbe-ace-five-days-552`의 `evaluationImpact`에 과거 **Stamina 79** 표기가 남아 있음을 확인했다. 실제 `evaluation-jinbe`의 현재 Stamina는 **80**이며, 전투 시간·결과·점수와 Evidence ID 자체는 변하지 않는다. 해당 설명 숫자만 **80**으로 정정하고 `v0166EvidenceDecisionGate.test.ts`에서 현행 점수·문구 일치를 검증한다. 이 수정은 비스타/샹크스 및 징베의 다른 Stat에 어떠한 수치 변화도 만들지 않는다.

@@ -1,3 +1,11 @@
+# v0.1.66 source-note follow-up regression — pending CI at document edit
+
+- **Confirmed stale explanatory value:** `evidence-jinbe-ace-five-days-552` describes Jinbe's current Stamina as 79, although `evaluation-jinbe` Stamina is **80**. Correct only the text to 80.
+- Add a targeted assertion tying the Evidence `evaluationImpact` wording to the actual Evaluation Stamina80.
+- Original v0.1.66 PR #64 at `10e15caea9145136cf15baa00a35107fb1359852`: **58 files / 257 tests + production build passed**. Main merge `60031f35db97cb30509fc61477147b6ba3566db9`: **58 / 257 + build + Pages deploy passed**. Follow-up patch requires its own PR-head and main-merge SHA validation.
+
+---
+
 # v0.1.66 verification — source-backed seven-axis review, read-only upside and regression
 
 - Base: `main@4368c0ae4abc7de89647fd91274c757281ccf66d` (v0.1.65).

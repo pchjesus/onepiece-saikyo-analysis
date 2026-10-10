@@ -886,7 +886,7 @@ export const sampleEvidence: Evidence[] = [
     supportedAbilities: ['장기전 지속력'],
     statContributions: [{ stat: 'stamina', role: 'primary', note: '명시적인 5일 1대1 장기전으로 징베의 높은 지속력을 보여주는 직접 근거다.' }],
     interpretation: '강한 Stamina 근거지만 과거 시점의 전투이며 현재 상위권 상대와의 성능을 자동 보장하지 않는다.',
-    evaluationImpact: 'Stamina 79가 정보 부족에 따른 임의값이 아니라 확인된 장기전 성과를 포함하도록 보강한다.',
+    evaluationImpact: 'Stamina 80이 정보 부족에 따른 임의값이 아니라 확인된 장기전 성과를 포함하도록 보강한다.',
     uncertainty: '과거 에이스의 당시 전투력을 현재 인물들과 직접 등치하지 않는다.',
   },
   {
