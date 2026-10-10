@@ -85,12 +85,12 @@ describe('v0.1.60 approved Kaido Defense 100 and Ryokugyu source-link review', (
       .toBeCloseTo(e.items.reduce((v,i)=>v+i.score,0)/7,10)
   })
 
-  it('retains five previously audited Haki events with unchanged Base/Raw pending individual approval', () => {
+  it('retains five previously audited Haki events with unchanged Base and approved v0.1.62 Raw adjudication', () => {
     const cases = [
       ['vista','attack',80,4],['vista','techniqueMastery',86,2],
-      ['king','attack',83,4],['king','techniqueMastery',80,2],
-      ['jinbe','attack',76,4],['jinbe','defense',78,4],
-      ['katakuri','defense',81,6],['katakuri','techniqueMastery',84,6],['katakuri','combatIQ',82,4],
+      ['king','attack',83,0],['king','techniqueMastery',80,0],
+      ['jinbe','attack',76,0],['jinbe','defense',78,4],
+      ['katakuri','defense',81,6],['katakuri','techniqueMastery',84,6],['katakuri','combatIQ',82,0],
       ['shanks','attack',94,6],['shanks','techniqueMastery',92,8],['shanks','combatIQ',91,4],
     ] as const
     for (const [id,stat,base,raw] of cases) {
