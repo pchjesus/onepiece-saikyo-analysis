@@ -89,6 +89,13 @@ describe('v0.1.66 seven-axis Vista/Shanks evidence and user-approval gate', () =
       .toEqual(['conquerors', 'observation'])
     expect(itemFor('katakuri', 'combatIQ').hakiContributions).toHaveLength(0)
     expect(itemFor('jinbe', 'attack').hakiContributions).toHaveLength(0)
+    // v0.1.66 follow-up: the Ace five-day duel evidence must reflect
+    // Jinbe's live Stamina80, never a historical Stamina79 narrative.
+    const jinbeFiveDays = sampleEvidence.find(e => e.id === 'evidence-jinbe-ace-five-days-552')
+    expect(itemFor('jinbe', 'stamina').score).toBe(80)
+    expect(jinbeFiveDays?.evaluationImpact).toContain('Stamina 80')
+    expect(jinbeFiveDays?.evaluationImpact).not.toContain('Stamina 79')
+
     expect(itemFor('king', 'attack').hakiContributions).toHaveLength(0)
     expect(itemFor('king', 'techniqueMastery').hakiContributions).toHaveLength(0)
   })
