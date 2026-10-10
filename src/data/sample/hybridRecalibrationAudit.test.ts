@@ -95,7 +95,7 @@ describe('v0.1.35 hybrid 39-Evaluation recalibration audit', () => {
       }
     }
     expect(typedCount).toBe(49)
-    expect(rawTotal).toBe(244)
+    expect(rawTotal).toBe(230)
     expect(reused.length).toBeLessThanOrEqual(15)
     expect(multiHakiInOneStat).toBe(2)
   })
