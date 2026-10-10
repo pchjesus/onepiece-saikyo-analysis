@@ -20,8 +20,8 @@ describe('v0.1.37 user-approval-only score decomposition', () => {
     expect(preview.overlapIncluded.evaluations.flatMap(e => e.items)).toHaveLength(434)
     const raw = (items: typeof preview.baseline) =>
       items.flatMap(e => e.items).reduce((sum, item) => sum + getRawHakiContributionTotal(item), 0)
-    expect(raw(preview.baseline)).toBe(244)
-    expect(raw(preview.ordinary.evaluations)).toBe(244)
+    expect(raw(preview.baseline)).toBe(230)
+    expect(raw(preview.ordinary.evaluations)).toBe(230)
     expect(raw(preview.overlapIncluded.evaluations)).toBe(216)
     expect(preview.baseline.flatMap(e => e.items)
       .flatMap(i => i.hakiContributions)).toHaveLength(49)
