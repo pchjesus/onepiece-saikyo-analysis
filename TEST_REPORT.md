@@ -1,3 +1,18 @@
+# v0.1.66 verification — source-backed seven-axis review, read-only upside and regression
+
+- Base: `main@4368c0ae4abc7de89647fd91274c757281ccf66d` (v0.1.65).
+- Change scope: **review document, 4-test approval-gate source regression, README/CHANGELOG/TEST_REPORT only**. No production score, models, UI, save/restore or Matchup logic edit.
+- Vista current: Base86/Raw2/Final87 Technique, Overall556/7, rank26. Nonproduction approval-gated proposed Technique Base89/Raw2/Final90, Overall559/7, rank25. **These candidate values are not published score data.**
+- Shanks current Overall648/7, rank10. No candidate increase, no Raw-off hypothetical decrease. All seven existing Stat values preserved.
+- Cross-case guards: Vista Attack4/Technique2; Shanks Attack6/Technique8/IQ4; Katakuri Defense6/Technique6; Jinbe Defense4, tied to existing source IDs. A guard does not demonstrate an independently proven incremental Haki effect.
+- Existing invariants: 60 Characters / 59 defaults / 62 Evaluations / 434 total axes / representative Raw212 / all Raw230 / Balanced1.2 Haki0.5 / 15 direct Matchups; v0.1.65 name-conversion tests unchanged.
+- **Evidence limitations:** ONE PIECE.com primary official profile and TV summaries crosschecked; no complete original manga panel/manual phone/desktop verification claimed.
+- **CI:** pending actual PR-head GitHub Actions results at document creation. See PR checks for measured result.
+- **Pages:** pending exact merge-SHA deployment result; do not assume deployment success from build alone.
+- **Manual verification:** not performed in this review environment.
+
+---
+
 # v0.1.65 — Safe prose normalization, Unicode token boundaries, full-roster render regressions
 
 - Baseline: `main@c18ccc0a7345a03bc06b4e68ae41dd51e99dade0` (v0.1.64 passed 244 tests and Pages deploy). Existing bug: `Supreme King Raw` in Newgate's Evidence `evaluationImpact` is partially mapped to `Supreme 알베르 패기 원점수` because `/King/g` is applied after only complete `Supreme King Haki` recognition.
