@@ -49,7 +49,7 @@ describe('approved qualitative Haki excellence rubric', () => {
     const rows = sampleEvaluations.flatMap(({ items }) => items)
     expect(rows).toHaveLength(434)
     expect(rows.flatMap(({ hakiContributions }) => hakiContributions).reduce((sum, item) => sum + item.amount, 0))
-      .toBe(244)
+      .toBe(230)
     for (const evaluation of sampleEvaluations) {
       const result = calculateBalancedCombatPower(evaluation, balancedV12)
       const independentMean = evaluation.items.reduce((total, item) => total + item.score, 0) / 7

@@ -5,27 +5,31 @@ import { sampleEvaluations } from './evaluations'
 import { hybridRawPilotReviews } from './hybridRawPilotReviews'
 import { balancedV12 } from './calculationModels'
 
-describe('Haki cross-stat overlap: non-production sensitivity, never a score recommendation', () => {
-  it('covers all six flagged allocations with an explicitly non-conserving Base', () => {
+describe('Haki cross-stat overlap: historical diagnostic, exclude Shanks/Vista downward simulation', () => {
+  // User excludes Shanks and Vista from current Raw-off/downward scenarios.
+  // Katakuri IQ was resolved in v0.1.62; it is no longer a candidate.
+  const scopedReviews = hybridRawPilotReviews.filter(r =>
+    r.evaluationId !== 'evaluation-shanks' &&
+    !(r.evaluationId === 'evaluation-katakuri' && r.stat === 'combatIQ'))
+
+  it('covers all three remaining flagged allocations with an explicitly non-conserving Base', () => {
     const { evaluations, affected, reviewCount, suppressedRaw } =
-      previewHybridOverlapStress(sampleEvaluations, hybridRawPilotReviews, 0.5)
-    expect(reviewCount).toBe(6)
-    expect(suppressedRaw).toBe(28)
-    expect(affected).toHaveLength(5)
+      previewHybridOverlapStress(sampleEvaluations, scopedReviews, 0.5)
+    expect(reviewCount).toBe(3)
+    expect(suppressedRaw).toBe(16)
+    expect(affected).toHaveLength(3)
     expect(evaluations).toHaveLength(62)
     expect(evaluations.flatMap(({ items }) => items)).toHaveLength(434)
     expect(evaluations.flatMap(({ items }) => items)
       .flatMap(({ hakiContributions }) => hakiContributions)
-      .reduce((sum, c) => sum + c.amount, 0)).toBe(216)
+      .reduce((sum, c) => sum + c.amount, 0)).toBe(214)
     expect(sampleEvaluations.flatMap(({ items }) => items)
       .flatMap(({ hakiContributions }) => hakiContributions)
-      .reduce((sum, c) => sum + c.amount, 0)).toBe(244)
+      .reduce((sum, c) => sum + c.amount, 0)).toBe(230)
 
     const expected = [
       ['evaluation-kuzan', 'techniqueMastery', 93, 91],
-      ['evaluation-shanks', 'techniqueMastery', 96, 92],
       ['evaluation-katakuri', 'techniqueMastery', 87, 84],
-      ['evaluation-katakuri', 'combatIQ', 84, 82],
       ['evaluation-linlin', 'techniqueMastery', 94, 91],
     ] as const
     for (const [id, stat, before, after] of expected) {
@@ -36,10 +40,10 @@ describe('Haki cross-stat overlap: non-production sensitivity, never a score rec
   })
 
   it('preserves all unaffected Stats and exposes precise Overall sensitivity across all 39 states', () => {
-    const { evaluations: simulated } = previewHybridOverlapStress(sampleEvaluations, hybridRawPilotReviews, 0.5)
+    const { evaluations: simulated } = previewHybridOverlapStress(sampleEvaluations, scopedReviews, 0.5)
     const expectedLoss = new Map([
-      ['evaluation-kuzan', 2], ['evaluation-shanks', 4],
-      ['evaluation-katakuri', 5], ['evaluation-linlin', 3],
+      ['evaluation-kuzan', 2],
+      ['evaluation-katakuri', 3], ['evaluation-linlin', 3],
     ])
     const originals = new Map(sampleEvaluations.map((e) => [e.id, e]))
     for (const e of simulated) {
@@ -57,14 +61,14 @@ describe('Haki cross-stat overlap: non-production sensitivity, never a score rec
     }
     const score = (id: string) => calculateBalancedCombatPower(simulated.find((e) => e.id === id)!, balancedV12).finalScore
     expect(score('evaluation-kuzan')).toBeCloseTo(647 / 7, 9)
-    expect(score('evaluation-shanks')).toBeCloseTo(644 / 7, 9)
+    expect(score('evaluation-shanks')).toBeCloseTo(648 / 7, 9) // never down-simulate Shanks
     expect(score('evaluation-katakuri')).toBeCloseTo(585 / 7, 9)
     expect(score('evaluation-linlin')).toBeCloseTo(657 / 7, 9)
     // Project does not infer probabilities or redraw canon 1v1 matchup winners.
   })
 
   it('rejects invalid and stale review data instead of altering the production record', () => {
-    const reviews = hybridRawPilotReviews.filter((r) => r.disposition === 'cross-stat-overlap-unresolved')
+    const reviews = scopedReviews.filter((r) => r.disposition === 'cross-stat-overlap-unresolved')
     expect(() => previewHybridOverlapStress(sampleEvaluations, [...reviews, reviews[0]], 0.5))
       .toThrow('Duplicate overlap review')
     expect(() => previewHybridOverlapStress(sampleEvaluations, [{ ...reviews[0], expectedRaw: 100 }], 0.5))

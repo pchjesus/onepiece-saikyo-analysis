@@ -53,13 +53,13 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-king', characterId: 'king', evaluationDataVersion: 'evaluation-0.1.47-evidence-calibrated-A', status: 'draft',
+    id: 'evaluation-king', characterId: 'king', evaluationDataVersion: 'evaluation-0.1.62-haki-independent-review', status: 'draft',
     items: [
-      item('attack', 83, '거대한 화염 용, 고대종 돌진 및 검격이 조로에게 실전 위협이 됐으며 1062화에서 강한 화염 공격까지 사용했다. 카이도나 대장의 포괄적인 화력과 같은 수치로 단정하지 않고 85로 상향한다.', ['evidence-king-marco-1006', 'evidence-king-zoro-1035', 'evidence-king-armament-1032'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '검에 무장색을 두르고 조로의 패기 검격과 직접 충돌', evidenceIds: ['evidence-king-armament-1032'] }], 'E2'),
+      item('attack', 83, '대형 화염룡·고대종 돌진·검격이 조로에게 가한 실제 위협을 Base83에 반영한다. Ch.1032의 무장색 검 충돌은 이 검격 성과와 별개의 예외적 추가 타격으로 분리되지 않아 Raw4를 제거한다. Flame ON/OFF, 종족 특성과 검 패기를 혼동하지 않으며 조로전 패배가 곧 공격력 부재를 뜻하지 않는다. v0.1.62 검수로 Final83.', ['evidence-king-marco-1006', 'evidence-king-zoro-1035', 'evidence-king-armament-1032'], [], 'E2'),
       item('defense', 88, '루나리아 불꽃이 켜진 상태에서 강한 참격도 견디지만 속도를 위해 불꽃을 끄면 방어력에 취약점이 생긴다. 최고 방어 성과와 실제 취약 구간을 함께 반영한 조건부 88이다.', ['evidence-king-lunarian-1032', 'evidence-king-zoro-1035'], [], 'E2'),
       item('stamina', 85, '마르코와의 혼전 및 조로와의 후반 전투, 강한 공격 이후에도 교전을 지속한 기록이 있다. 최후엔 패왕색을 두른 조로의 일격에 패배하므로 무한 지구력은 아니다.', ['evidence-king-marco-1006', 'evidence-king-zoro-1035'], [], 'E2'),
       item('speed', 83, '불꽃을 끈 뒤 속도 중심 상태를 직접 활용했다. 상시 최고속으로 보지 않고 모드별 속도·방어 교환을 인정해 83으로 조정한다.', ['evidence-king-zoro-1035'], [], 'E2'),
-      item('techniqueMastery', 80, '검술·고대종·화염·루나리아 상태를 실제 공방에 결합한다. 상태 교환은 조로에게 간파당해 공략됐고 고급 무장색 Raw는 기존 항목만 인정하므로 81로 한정한다.', ['evidence-king-zoro-1035', 'evidence-king-armament-1032'], [{ hakiType: 'armament', stat: 'techniqueMastery', amount: 2, application: '검술에 무장색을 결합해 실전 공방에 운용', evidenceIds: ['evidence-king-armament-1032'] }], 'E2'),
+      item('techniqueMastery', 80, '검술·고대종·화염·루나리아 상태 전환을 결합한 실전 기술을 Base80으로 평가한다. 무장색 검격의 통상 결합은 이미 검술 운용에 포함됐으므로 Ch.1032 하나를 독립적인 예외 패기 숙련 Raw2로 반복 가산하지 않는다. 상태 전환의 한계는 조로전에서 확인되며 Final80.', ['evidence-king-zoro-1035', 'evidence-king-armament-1032'], [], 'E2'),
       item('combatIQ', 77, '상황에 맞게 루나리아 속도/방어 상태를 전환했으나 상태의 규칙을 조로가 파악해 대처했다. 강점과 실수를 둘 다 반영해 77로 평가한다.', ['evidence-king-zoro-1035'], [], 'E3'),
       item('versatility', 82, '검술·비행·화염·고대종 변신·속도/방어 상태를 전환하되 수단별 상호 배타적 제한이 존재한다. 단순 능력 목록을 독립 점수로 합산하지 않는다.', ['evidence-king-zoro-1035', 'evidence-king-waterfall-930'], [], 'E2'),
     ],
@@ -89,14 +89,14 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-katakuri', characterId: 'katakuri', evaluationDataVersion: 'evaluation-0.1.47-evidence-calibrated-A', status: 'draft',
+    id: 'evaluation-katakuri', characterId: 'katakuri', evaluationDataVersion: 'evaluation-0.1.62-haki-independent-review', status: 'draft',
     items: [
       item('attack', 83, '루피와 장시간 고위 근접 격전에서 강력한 모치 타격과 무기 공격을 사용했으나 미래예지에 따른 맞히기 쉬움을 순수 공격력으로 중복 더하지 않는다.', ['evidence-katakuri-awakening-882', 'evidence-katakuri-armament-883'], [], 'E2'),
       item('defense', 81, '모치 신체의 부분 변형 및 회피·방어 전술이 뛰어나며 루피의 Snakeman 고속 공격에 대처했다. 미래예지의 핵심 회피 성과는 기존 Raw 견문색 기여를 별도로 보존하므로 기본 방어와 혼동하지 않는다.', ['evidence-katakuri-future-sight-881-884', 'evidence-katakuri-composure-future-sight-857'], [{ hakiType: 'observation', stat: 'defense', amount: 6, application: '미래예지로 공격을 선행 파악하고 모치 신체를 변형해 회피', evidenceIds: ['evidence-katakuri-future-sight-881-884'] }], 'E2'),
       item('stamina', 84, '장시간 루피와 격렬한 공방을 지속하고 자신에게 가한 상처의 영향까지 겪었으며 후반에도 다시 일어섰다. 타인의 개입·자발적 상처 등 특수 조건을 반영한다.', ['evidence-katakuri-endurance-894'], [], 'E2'),
       item('speed', 84, '미래예지가 알려 주는 선행 정보와 별개로 고속 Snakeman 공격에 실제 대응한 기동·반응을 제한적으로 반영한다. 예측 그 자체를 Speed 고정 보너스로 만들지 않는다.', ['evidence-katakuri-future-sight-881-884', 'evidence-katakuri-snakeman-895'], [], 'E2'),
       item('techniqueMastery', 84, '모치 부분 변형·무기 활용·각성 지형 제어·상대 공격 형태 모방을 고도로 결합한다. 이미 반영된 미래예지 Raw와 독립적인 능력 정밀성을 중심으로 평가한다.', ['evidence-katakuri-future-sight-881-884', 'evidence-katakuri-composure-future-sight-857', 'evidence-katakuri-awakening-882', 'evidence-katakuri-armament-883', 'evidence-katakuri-gear4-counter-883-885'], [{ hakiType: 'observation', stat: 'techniqueMastery', amount: 6, application: '고급 견문색의 미래예지와 모치 신체 변형을 정밀하게 결합', evidenceIds: ['evidence-katakuri-future-sight-881-884'] }], 'E2'),
-      item('combatIQ', 82, '변신 방해, 상대 공세를 선제 차단하는 판단과 침착함 유지의 중요성을 반영한다. 미래예지로 얻은 정보 자체는 기존 Raw에만 남기고 실제 선택의 적절성만 Base에 산정한다.', ['evidence-katakuri-future-sight-881-884', 'evidence-katakuri-composure-future-sight-857', 'evidence-katakuri-gear4-counter-883-885'], [{ hakiType: 'observation', stat: 'combatIQ', amount: 4, application: '미래예지로 얻은 정보를 선제 차단과 대응 선택에 연결', evidenceIds: ['evidence-katakuri-future-sight-881-884'] }], 'E2'),
+      item('combatIQ', 82, '루피의 변신·공세를 방해하고 선제 차단·대응을 선택한 실제 전술 판단 및 침착함 유지 능력을 Base82에 반영한다. Ch.881–884의 미래예지 정보를 활용했다는 사실은 판단의 전제이지 별도의 결정 성과가 아니므로 같은 선제 선택을 IQ Raw4로 또 가산하지 않는다. 미래예지의 Defense 회피와 Technique 제어 Raw는 별도 검토 대상으로 보존한다. Final82.', ['evidence-katakuri-future-sight-881-884', 'evidence-katakuri-composure-future-sight-857', 'evidence-katakuri-gear4-counter-883-885'], [], 'E2'),
       item('versatility', 84, '근접 타격·삼지창·모치 변형·환경 각성·구속·장거리 공격 등 역할을 다양하게 수행한다. 같은 모치 능력의 파생기 개수만으로 수치가 높아지는 것은 피한다.', ['evidence-katakuri-awakening-882', 'evidence-katakuri-conquerors-893', 'evidence-katakuri-gear4-counter-883-885'], [], 'E2'),
     ],
   },
@@ -152,9 +152,9 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-jinbe', characterId: 'jinbe', evaluationDataVersion: 'evaluation-0.1.26-draft', status: 'draft',
+    id: 'evaluation-jinbe', characterId: 'jinbe', evaluationDataVersion: 'evaluation-0.1.62-haki-independent-review', status: 'draft',
     items: [
-      item('attack', 76, '어인공수도로 후즈후를 격파하고 물·수분을 활용해 충격을 전달하는 높은 기본 공격 숙련을 평가하며, 실제 무장색 강화는 별도 Contribution으로 분리한다.', ['evidence-jinbe-fishman-karate-629', 'evidence-jinbe-whos-who-1018'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '후즈후와의 근접 공방에서 무장색을 어인공수도 공격에 결합', evidenceIds: ['evidence-jinbe-whos-who-1018'] }], 'E2'),
+      item('attack', 76, '어인공수도의 수분·충격 운용과 후즈후에게 가한 실제 결정타를 Base76에 반영한다. Ch.1018의 공방에서 무장색 사용 사실은 확인되지만 최종 어인공수도 타격에서 Base 밖으로 분리되는 독립적 예외 무장색 공격 효과가 증명되지 않아 Attack Raw4를 중복 배제했다. 무장색 보유 자체는 부정하지 않으며 Defense의 별도 경화 성과는 유지한다. Final76.', ['evidence-jinbe-fishman-karate-629', 'evidence-jinbe-whos-who-1018'], [], 'E2'),
       item('defense', 78, '빅맘의 공격을 잠시 받아낸 성과와 후즈후의 공격을 견딘 방어력을 평가하되 빅맘에게 힘에서 밀린 한계와 King급 특수 방어와의 차이를 반영한다.', ['evidence-jinbe-big-mom-890', 'evidence-jinbe-whos-who-1018'], [{ hakiType: 'armament', stat: 'defense', amount: 4, application: '빅맘·후즈후의 공격에 무장색 경화를 실제 방어로 적용', evidenceIds: ['evidence-jinbe-big-mom-890', 'evidence-jinbe-whos-who-1018'] }], 'E1'),
       item('stamina', 80, '높은 기본 체력과 전투 지속력을 인정하되 현재 상위권 상대의 장기 고강도 전투 표본이 Jack·Katakuri만큼 직접적이지 않아 보수적으로 평가한다.', ['evidence-jinbe-ace-five-days-552', 'evidence-jinbe-akainu-575', 'evidence-jinbe-whos-who-1018'], [], 'E1'),
       item('speed', 77, '상위권 근접전에 대응 가능한 반응은 있으나 순수 속도 자체가 대표 강점으로 반복 검증되지는 않았다.', ['evidence-jinbe-whos-who-1018'], [], 'E3'),

@@ -276,7 +276,7 @@ export const sampleEvidence: Evidence[] = [
       { stat: 'techniqueMastery', role: 'secondary', note: '검과 무장색을 결합해 실전에서 운용한 숙련의 보조 근거다.' },
     ],
     interpretation: '패기 보유 사실이 아니라 무장색을 자신의 검술에 실제 적용한 장면으로 본다.',
-    evaluationImpact: 'Attack과 Technique / Mastery의 Haki Contribution 근거로 사용할 수 있다. 같은 무장색 사용을 Base Score에도 다시 포함하지 않는다.',
+    evaluationImpact: 'v0.1.62 검수: 통상 무장색 검격의 사실은 Attack/Technique Base에 유지하되 독립적인 예외적 Raw 추가 효과가 확인되지 않아 두 축의 Haki Raw는 제거했다. 루나리아와 화염은 별개 기제다.',
     uncertainty: '이 장면만으로 킹의 무장색이 세계관 최상위 수준이라고 단정하지 않는다.',
   },
   {
@@ -294,7 +294,7 @@ export const sampleEvidence: Evidence[] = [
       { stat: 'speed', role: 'context', note: '선행 예측으로 빠른 대응처럼 보일 수 있으므로 순수 신체 속도와 구분하기 위한 맥락이다.' },
     ],
     interpretation: '카타쿠리의 회피 성능은 순수 속도만이 아니라 미래예지와 능력 제어의 결합에서 나온다.',
-    evaluationImpact: '견문색의 실제 활용은 Defense, Technique / Mastery, Combat IQ에 기여시키되 Speed에 자동 가산하지 않는다.',
+    evaluationImpact: 'v0.1.62 검수: 미래예지의 선행 회피(Defense)와 모치 변형의 정밀 결합(Technique)은 별도 심사 대상으로 유지한다. Combat IQ의 정보 활용은 이미 Base82의 전술 판단에 포함돼 독립 Raw4를 배제한다. Speed 자동 가산은 없다.',
     uncertainty: '미래예지는 침착함과 집중 상태의 영향을 받으며 모든 상황에서 절대적인 회피를 보장하지 않는다.',
   },
   {
@@ -877,7 +877,7 @@ export const sampleEvidence: Evidence[] = [
       { stat: 'defense', role: 'primary', note: '무장색 방어로 상대의 근접 공격을 견디고 역으로 손상을 준 근거다.' },
       { stat: 'techniqueMastery', role: 'secondary', note: '패기와 어인공수도를 안정적으로 실전에 결합한 근거다.' },
     ],
-    interpretation: '징베의 안정적인 공방 완성도를 보여주지만 King급 특수 방어와 동급으로 확대하지 않는다.', evaluationImpact: 'Attack·Defense Haki Contribution과 Technique 평가에 연결한다.', uncertainty: '',
+    interpretation: '징베의 안정적인 공방 완성도를 보여주지만 King급 특수 방어와 동급으로 확대하지 않는다.', evaluationImpact: 'v0.1.62 검수: 후즈후 상대 어인공수도 결정타는 Attack Base에 남기고 독립 공격 Raw는 배제한다. 무장색 경화의 방어 효과는 다른 빅맘전 근거와 함께 Defense Raw를 조건부로 유지한다. Technique는 Base 평가에 연결한다.', uncertainty: '',
   },
   {
     id: 'evidence-jinbe-ace-five-days-552', battleId: 'pre-timeskip-jinbe-ace', subjectCharacterId: 'jinbe',

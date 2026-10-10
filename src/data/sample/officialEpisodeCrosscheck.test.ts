@@ -52,7 +52,7 @@ describe('v0.1.46 official episode cross-check: sources, scene context, score in
     expect(getUniqueCharacterList()).toHaveLength(59)
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
-    expect(sampleEvaluations.flatMap(e => e.items).reduce((n, i) => n + getRawHakiContributionTotal(i), 0)).toBe(244)
+    expect(sampleEvaluations.flatMap(e => e.items).reduce((n, i) => n + getRawHakiContributionTotal(i), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
   })
 })

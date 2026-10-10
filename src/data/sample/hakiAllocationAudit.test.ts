@@ -13,9 +13,7 @@ const REVIEW_REQUIRED_SHARED_EVIDENCE = [
   'evaluation-vista::evidence-vista-armament-akainu-574',
   'evaluation-shanks::evidence-shanks-kid-divine-departure-1079',
   'evaluation-zoro::evidence-zoro-conquerors-1033-1035',
-  'evaluation-king::evidence-king-armament-1032',
   'evaluation-katakuri::evidence-katakuri-future-sight-881-884',
-  'evaluation-jinbe::evidence-jinbe-whos-who-1018',
   'evaluation-garp::evidence-garp-roger-rocks-1165',
   'evaluation-roger::evidence-roger-haki-analysis-rocks-1165',
   'evaluation-rayleigh-current::evidence-rayleigh-haki-training-597',
@@ -81,8 +79,8 @@ describe('Haki semantic allocation review gate (read-only)', () => {
       .filter((contribution) => contribution.amount > 0)
     expect(sampleEvaluations).toHaveLength(62)
     expect(statRows).toHaveLength(434)
-    expect(positive).toHaveLength(47)
-    expect(contributions).toHaveLength(49)
-    expect(contributions.reduce((sum, contribution) => sum + contribution.amount, 0)).toBe(244)
+    expect(positive).toHaveLength(43)
+    expect(contributions).toHaveLength(45)
+    expect(contributions.reduce((sum, contribution) => sum + contribution.amount, 0)).toBe(230)
   })
 })

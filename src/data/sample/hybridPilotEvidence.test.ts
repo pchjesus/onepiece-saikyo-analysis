@@ -52,7 +52,7 @@ describe('v0.1.35 Sakazuki evidence-first calibration pilot', () => {
       ['shanks', 648 / 7],
       ['mihawk', 649 / 7],
       ['linlin', 660 / 7],
-      ['katakuri', 590 / 7],
+      ['katakuri', 588 / 7],
     ])
     for (const [id, expected] of legacy) {
       const evaluation = sampleEvaluations.find(({ characterId }) => characterId === id)!
@@ -63,6 +63,6 @@ describe('v0.1.35 Sakazuki evidence-first calibration pilot', () => {
     // Additional Katakuri review may improve Readiness beyond the original Sakazuki-only baseline.
     expect(rows.filter(({ readiness }) => !readiness).length).toBeLessThanOrEqual(196)
     expect(rows.flatMap(({ hakiContributions }) => hakiContributions)
-      .reduce((sum, contribution) => sum + contribution.amount, 0)).toBe(244)
+      .reduce((sum, contribution) => sum + contribution.amount, 0)).toBe(230)
   })
 })

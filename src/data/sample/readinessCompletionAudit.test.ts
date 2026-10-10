@@ -109,7 +109,7 @@ describe('v0.1.57 completed default-readiness evidence audit', () => {
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)
-      .reduce((sum, stat) => sum + getRawHakiContributionTotal(stat), 0)).toBe(244)
+      .reduce((sum, stat) => sum + getRawHakiContributionTotal(stat), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
   })
 })

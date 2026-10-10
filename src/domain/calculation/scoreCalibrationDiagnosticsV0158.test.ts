@@ -75,11 +75,11 @@ describe('v0.1.58 all-roster score calibration and versioned baseline (read-only
     const items = profiles.flatMap((p) => p.evaluation.items)
     expect(items.filter((i) => i.readiness === 'E3' && i.score >= 85)).toHaveLength(14)
     expect(items.filter((i) => i.readiness === 'E3' && i.score >= 90)).toHaveLength(9)
-    expect(items.reduce((n, item) => n + getRawHakiContributionTotal(item), 0)).toBe(226)
+    expect(items.reduce((n, item) => n + getRawHakiContributionTotal(item), 0)).toBe(212)
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap((e) => e.items)).toHaveLength(434)
     expect(sampleEvaluations.flatMap((e) => e.items)
-      .reduce((n, item) => n + getRawHakiContributionTotal(item), 0)).toBe(244)
+      .reduce((n, item) => n + getRawHakiContributionTotal(item), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
   })
 
@@ -99,7 +99,7 @@ describe('v0.1.58 all-roster score calibration and versioned baseline (read-only
         reused.push({ id: profile.id, evidenceId, stats: [...stats] })
       }
     }
-    expect(reused).toHaveLength(13)
+    expect(reused).toHaveLength(11)
     expect(reused.find((x) => x.id === 'shanks'
       && x.evidenceId === 'evidence-shanks-kid-divine-departure-1079')?.stats)
       .toEqual(['attack', 'techniqueMastery', 'combatIQ'])
@@ -108,7 +108,7 @@ describe('v0.1.58 all-roster score calibration and versioned baseline (read-only
       .toEqual(['attack', 'defense', 'techniqueMastery'])
     expect(reused.find((x) => x.id === 'katakuri'
       && x.evidenceId === 'evidence-katakuri-future-sight-881-884')?.stats)
-      .toEqual(['defense', 'techniqueMastery', 'combatIQ'])
+      .toEqual(['defense', 'techniqueMastery'])
     // Same reference on several axes is a REVIEW QUEUE, not proof of double counting.
   })
 

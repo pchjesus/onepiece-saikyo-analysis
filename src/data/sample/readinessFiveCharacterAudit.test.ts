@@ -78,7 +78,7 @@ describe('v0.1.55 five-character canon-readiness review', () => {
       ['cracker', [77, 81, 80, 75, 80, 75, 77]],
       ['law', [86, 83, 85, 82, 90, 88, 91]],
       ['doflamingo', [76, 74, 81, 75, 87, 81, 83]],
-      ['jinbe', [78, 80, 80, 77, 83, 80, 79]],
+      ['jinbe', [76, 80, 80, 77, 83, 80, 79]],
       ['shanks', [97, 91, 88, 95, 96, 93, 88]],
     ] as const
     for (const [id, stats] of finalVectors) {
@@ -89,7 +89,7 @@ describe('v0.1.55 five-character canon-readiness review', () => {
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)
-      .reduce((sum, stat) => sum + getRawHakiContributionTotal(stat), 0)).toBe(244)
+      .reduce((sum, stat) => sum + getRawHakiContributionTotal(stat), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
   })
 })

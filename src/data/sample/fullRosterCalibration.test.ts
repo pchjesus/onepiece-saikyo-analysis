@@ -129,7 +129,7 @@ const untouchedBaseline: Record<string, number[]> = {
     76
   ],
   "jinbe": [
-    78,
+    76,
     80,
     80,
     77,
@@ -581,11 +581,11 @@ const changed: Record<string, {before:number[];after:number[]}> = {
       80
     ],
     "after": [
-      85,
+      83,
       88,
       85,
       83,
-      81,
+      80,
       77,
       82
     ]
@@ -606,7 +606,7 @@ const changed: Record<string, {before:number[];after:number[]}> = {
       84,
       84,
       87,
-      84,
+      82,
       84
     ]
   }
@@ -630,7 +630,7 @@ describe('v0.1.47 evidence-based A-path all-axis calibration regression', () => 
       expect(expected.before).toHaveLength(7)
       expect(vals(id),id).toEqual(expected.after)
       expect(overall(id),id).toBeCloseTo(expected.after.reduce((a,b)=>a+b,0)/7,8)
-      expect(byId(id).evaluationDataVersion).toBe('evaluation-0.1.47-evidence-calibrated-A')
+      expect(byId(id).evaluationDataVersion).toBe(['king', 'katakuri'].includes(id) ? 'evaluation-0.1.62-haki-independent-review' : 'evaluation-0.1.47-evidence-calibrated-A')
     }
   })
 
@@ -649,12 +649,12 @@ describe('v0.1.47 evidence-based A-path all-axis calibration regression', () => 
         expect(evaluation.items.every(i=>i.evidenceIds.length>0),evaluation.characterId).toBe(true)
       }
     }
-    expect(sampleEvaluations.flatMap(e=>e.items).reduce((sum,i)=>sum+getRawHakiContributionTotal(i),0)).toBe(244)
+    expect(sampleEvaluations.flatMap(e=>e.items).reduce((sum,i)=>sum+getRawHakiContributionTotal(i),0)).toBe(230)
     expect(sampleEvaluations.flatMap(e=>e.items).filter(i=>i.evidenceIds.length===0)).toHaveLength(4)
     expect(sampleMatchups).toHaveLength(15)
     const king=byId('king'),katakuri=byId('katakuri')
     expect(king.items.find(i=>i.stat==='attack')?.baseScore).toBe(83)
-    expect(king.items.find(i=>i.stat==='attack')?.score).toBe(85)
+    expect(king.items.find(i=>i.stat==='attack')?.score).toBe(83)
     expect(katakuri.items.find(i=>i.stat==='defense')?.baseScore).toBe(81)
     expect(katakuri.items.find(i=>i.stat==='defense')?.score).toBe(84)
     expect(katakuri.items.find(i=>i.stat==='techniqueMastery')?.score).toBe(87)

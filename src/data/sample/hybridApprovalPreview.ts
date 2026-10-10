@@ -18,7 +18,11 @@ export function buildHybridApprovalPreview() {
   const weight = balancedV12.configuration.hakiWeight
   // The user-approved four A transfers are now already present in live Evaluations.
   const ordinaryReviews: typeof hybridRawPilotReviews[number][] = []
-  const overlapReviews = hybridRawPilotReviews.filter((r) => r.disposition !== 'base-rebase-proposal').map((r) =>
+  // Katakuri IQ Raw4 was actually resolved in v0.1.62; do not replay the
+  // v0.1.35 historical, now-stale proposal against live data.
+  const overlapReviews = hybridRawPilotReviews.filter((r) =>
+    r.disposition !== 'base-rebase-proposal' &&
+    !(r.evaluationId === 'evaluation-katakuri' && r.stat === 'combatIQ')).map((r) =>
     r.disposition === 'cross-stat-overlap-unresolved'
       ? { ...r, disposition: 'base-rebase-proposal' as const }
       : r)
