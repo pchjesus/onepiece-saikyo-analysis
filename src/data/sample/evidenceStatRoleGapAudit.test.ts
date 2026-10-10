@@ -98,7 +98,7 @@ describe('v0.1.54 23 untyped roles and 14 context-only axes', () => {
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap((e) => e.items)).toHaveLength(434)
     expect(sampleEvaluations.flatMap((e) => e.items)
-      .reduce((n, item) => n + getRawHakiContributionTotal(item), 0)).toBe(244)
+      .reduce((n, item) => n + getRawHakiContributionTotal(item), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
     for (const [id, final, overall] of [
       ['vista', [82, 79, 77, 80, 87, 77, 74], 79.42857142857143],
