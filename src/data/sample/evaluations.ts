@@ -251,10 +251,10 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-ryokugyu', characterId: 'ryokugyu', evaluationDataVersion: 'evaluation-0.1.26-draft', status: 'draft',
+    id: 'evaluation-ryokugyu', characterId: 'ryokugyu', evaluationDataVersion: 'evaluation-0.1.60-defense-link-reviewed', status: 'draft',
     items: [
       item('attack', 90, '대장급 전투원으로서 광역 구속·흡수와 강한 직접 제압 성과를 인정하되, 현재 묘사상 막타 결정력은 Fujitora와 동급 이상으로 올릴 직접 근거는 제한적이다.', ['evidence-aramaki-scabbards-tv1081'], [], 'E2'),
-      item('defense', 89, '식물 신체와 재생을 통해 큰 공격 뒤에도 전투 형태를 복구하는 방어 성과를 반영한다.', ["evidence-aramaki-shanks-haki-1055"], [], 'E3'),
+      item('defense', 89, '모모노스케 보로 브레스로 식물형 신체가 불탄 뒤 재구성한 성과는 확인되지만 이는 공격의 사전 차단이나 무피해 방어가 아니라 피격 후 재생이다. 재생을 피해 경감·순수 방어와 혼동하지 않고 샹크스 패기 및 해적단 접근에 따른 철수 맥락도 분리한다. 직접 방어 표본 부족으로 E3 및 잠정89를 유지하고 수치 보너스는 추가하지 않는다.', ['evidence-aramaki-regrowth-tv1082', 'evidence-aramaki-shanks-haki-1055'], [], 'E3'),
       item('stamina', 89, '다수 상대 연속 제압과 재생 후 전투 지속을 반영하되 명시적 초장기전 표본은 없다.', ['evidence-aramaki-scabbards-tv1081', 'evidence-aramaki-regrowth-tv1082'], [], 'E3'),
       item('speed', 84, '비행·기동 수단은 있으나 속도 자체가 최상위 직접 강점으로 묘사되지는 않는다.', [], [], 'E3'),
       item('techniqueMastery', 87, '다양한 식물 형태와 흡수·구속·재생을 안정적으로 운용한다.', ['evidence-aramaki-scabbards-tv1081', 'evidence-aramaki-regrowth-tv1082'], [], 'E2'),
@@ -477,11 +477,11 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-kaido', characterId: 'kaido', evaluationDataVersion: 'evaluation-0.1.33-draft', status: 'draft', isDefault: true,
+    id: 'evaluation-kaido', characterId: 'kaido', evaluationDataVersion: 'evaluation-0.1.60-defense-evidence-calibrated', status: 'draft', isDefault: true,
     subjectState: { id: 'onigashima-prime', label: '전성기 · 오니가시마', note: '오니가시마 연속전 상태를 전성기로 본다. 다수 상대·누적 피해·섬 이동 부담을 포함해 최종 패배를 해석한다.' },
     items: [
       item('attack', 95, '샬롯 링링과 하늘을 가르는 공방, 패해, 패왕색 두르기 공격으로 최상위 결정력을 반복적으로 보여준다. 패왕색 두르기의 명시적 적용은 Raw로 분리한다.', ['evidence-kaido-linlin-951', 'evidence-kaido-hakai-haki-1009', 'evidence-kaido-zoro-luffy-1010'], [{ hakiType: 'conquerors', stat: 'attack', amount: 6, application: '금쇄봉과 근접 공격에 Supreme King Haki를 직접 두름', evidenceIds: ['evidence-kaido-zoro-luffy-1010'] }], 'E1'),
-      item('defense', 98, '다양한 상위권 공격을 반복적으로 버티고 미래예지로 Snakeman에 대응한다. 고급 견문색의 방어 적용은 Raw로 분리한다.', ['evidence-kaido-linlin-951', 'evidence-kaido-future-sight-1042', 'evidence-kaido-raid-endurance-1000-1049'], [{ hakiType: 'observation', stat: 'defense', amount: 2, application: '고급 견문색으로 Snakeman 공격을 예측해 회피·대응', evidenceIds: ['evidence-kaido-future-sight-1042'] }], 'E1'),
+      item('defense', 99, '링링과 최고 수준 정면 패기 공방을 유지하고 Snakeman의 고속 공격에 미래예지로 회피·대응하는 서로 다른 직접 방어 성과를 갖는다. 외부 공식 TV936화의 카이도 비늘 돌파를 위한 류오 수련 설명도 일반 타격에 대한 높은 기본 피해 경감의 보조 맥락이다(해당 우동 수련을 오니가시마 전투로 오인하지 않는다). Defense에서는 공격 차단·경감·회피만 평가하고 Stamina100에 이미 반영한 다수전 지속·피격 후 버팀을 다시 더하지 않는다. 류오·조로의 참격 등은 실제 피해를 입혔고 기어5 루피에게 패했으므로 Final100은 비교 척도의 상한이지 무피해·무적이 아니다. 기존 Raw2는 유지하고 Base98→99만 보정한다.', ['evidence-kaido-linlin-951', 'evidence-kaido-future-sight-1042', 'evidence-kaido-raid-endurance-1000-1049'], [{ hakiType: 'observation', stat: 'defense', amount: 2, application: '고급 견문색으로 Snakeman 공격을 예측해 회피·대응', evidenceIds: ['evidence-kaido-future-sight-1042'] }], 'E1'),
       item('stamina', 100, '아카자야·최악의 세대·야마토·루피와 연속 교전하고 누적 피해 속에서 오니가시마 이동까지 병행한 최고 수준 장기전 표본이다.', ['evidence-kaido-zoro-luffy-1010', 'evidence-kaido-raid-endurance-1000-1049'], [], 'E1'),
       item('speed', 96, 'Gear 4 루피와 최고 수준 근접 교환을 이어가고 고급 견문색을 실제 기동에 연결한다. 순수 예측 효과와 신체 속도를 중복 가산하지 않는다.', ['evidence-kaido-future-sight-1042', 'evidence-kaido-raid-endurance-1000-1049'], [], 'E1'),
       item('techniqueMastery', 93, '청룡·인수형·금쇄봉·자연현상 공격·패왕색을 상황에 맞게 전환한다. Supreme King Haki의 명시적 공격 운용은 Raw로 분리한다.', ['evidence-kaido-zoro-luffy-1010', 'evidence-kaido-raid-endurance-1000-1049'], [{ hakiType: 'conquerors', stat: 'techniqueMastery', amount: 6, application: '패왕색을 금쇄봉 공격에 안정적으로 결합', evidenceIds: ['evidence-kaido-zoro-luffy-1010'] }], 'E1'),

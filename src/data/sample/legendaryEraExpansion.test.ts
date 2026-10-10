@@ -30,7 +30,7 @@ describe('v0.1.33 legendary-era expansion', () => {
     expect(score('newgate')).toBeCloseTo(97.5714285714)
     expect(score('garp')).toBeCloseTo(97.4285714286)
     expect(score('rocks')).toBeCloseTo(97.2857142857)
-    expect(score('kaido')).toBeCloseTo(96.5714285714)
+    expect(score('kaido')).toBeCloseTo(96.7142857143)
     expect(score('garp', 'current')).toBeCloseTo(94.4285714286)
     expect(score('linlin')).toBeCloseTo(94.2857142857)
     expect(score('rayleigh')).toBeCloseTo(92.8571428571)

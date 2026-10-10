@@ -56,7 +56,7 @@ describe('v0.1.59 source review queue preserves official scores (no automated re
     }
     expect(find('shanks','stamina').evidenceIds).toHaveLength(0)
     expect(find('akainu','speed').evidenceIds).toHaveLength(0)
-    expect(find('ryokugyu','defense').evidenceIds).toEqual(['evidence-aramaki-shanks-haki-1055'])
+    expect(find('ryokugyu','defense').evidenceIds).toEqual(['evidence-aramaki-regrowth-tv1082', 'evidence-aramaki-shanks-haki-1055'])
   })
 
   it('audits all thirteen specific multi-axis Raw Evidence keys without presuming bugs', () => {

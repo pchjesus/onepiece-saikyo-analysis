@@ -148,7 +148,7 @@ const untouchedBaseline: Record<string, number[]> = {
   ],
   "kaido": [
     98,
-    99,
+    100,
     100,
     96,
     96,
