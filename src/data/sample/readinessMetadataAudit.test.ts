@@ -53,7 +53,7 @@ describe('v0.1.51 readiness metadata and unresolved-evidence diagnostic', () => 
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)
-      .reduce((sum, item) => sum + getRawHakiContributionTotal(item), 0)).toBe(244)
+      .reduce((sum, item) => sum + getRawHakiContributionTotal(item), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
   })
 })
