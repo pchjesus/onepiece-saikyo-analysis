@@ -1,3 +1,15 @@
+# v0.1.68 — Vista/Mihawk annotated-source and Combat IQ text-context regression
+
+- Initial baseline main SHA: `f3abfa13844a6f332d5a20523e5fe7fb1a0d061f`.
+- **Source provenance:** official ONE PIECE.com Vista/Mihawk + 2011 official merchandising description; contemporary 2009 561/562 Japanese dialogue reproductions and page-indexed fan summaries; some original-manga **partial panels from a third-party repost** are distinguishable from full authorized manga-page verification. Original manga full-page direct check **not done**.
+- **Text-only adjusted live data**: Ch.561 Marco-assigned interception clarified in the `marineford-vista-mihawk` `externalFactors`, Vista CombatIQ rationale credits execution rather than autonomous mission design, and the two related Evidence uncertainty fields flag direct-access limits. Vista evaluation data version bumped to `evaluation-0.1.68-vista-battle-context-only`; no numeric data/Raw/weights or E grades altered.
+- **New tests** `v0168VistaSourceCorroboration.test.ts`: provenance truthfulness, Ch.561/562 source separation and attribution, same event deduplication, seven-stat and 60/59/62/434/15/Raw212 model invariants; prior v0.1.66/67 version guards updated.
+- **GitHub PR-head CI / build:** pending final workflow confirmation.
+- **Merge SHA CI & GitHub Pages deploy:** pending final workflow confirmation.
+- **Real desktop/mobile browser manual test:** not done (not equivalent to CI passing).
+
+---
+
 # v0.1.67 verification — Vista/Mihawk Ch.561–562 source fidelity and six Technique peers
 
 - **Baseline:** `main@d9cd478aec80dee2e891bb55c7227e111faab419` (v0.1.66); target `v0.1.67`.
