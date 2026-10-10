@@ -1,3 +1,13 @@
+# v0.1.62 — User-approved targeted Raw/Overall correction and multi-axis QA
+
+- Baseline: `main@75cb8e19a2a20b182f9dd634bc3715b2023fd335`. Four existing Stat Raw allocations removed due explicit Base overlap: King Attack4→0, Technique2→0, Jinbe Attack4→0, Katakuri CombatIQ4→0; **Base scores unchanged**.
+- Overall: King 83→82.57142857, Jinbe 79.57142857→79.28571429, Katakuri 84.28571429→84.00000000. Vista 79.42857143 / Shanks 92.57142857 both unchanged; no downward simulations generated for them.
+- Expected invariants: 59×7 / 62 Evaluations-434 items, E1=53 E2=243 E3=117, representative Raw212 / all Raw230, Balanced v1.2/Weight0.5, Kaido Defense100, 15 direct Matchups. New `hakiMultiaxisCalibrationV0162.test.ts` pins four updated axes, three direct Overall changes, upside-only Shanks/Vista stability and index checks.
+- Updated previous version regression assertions which validate **current shared data** rather than immutable historical payload. Historical v0.1.60/v0.1.61 reports remain traceable; supersession stated explicitly.
+- **CI outcome to be entered by exact GitHub Actions record**; standalone local git clone unavailable in the current connected environment. Original manga panels not independently verified; official ONE PIECE.com summaries crosschecked.
+
+---
+
 # v0.1.61 — Haki Raw independent effect decision-only audit
 
 - Baseline: `main@068edcd6fd33d9a3b94734285066d36e3ce20df2` (v0.1.60). The only TypeScript change is a **new Vitest read-only test** `src/domain/calculation/hakiIndependentRawAuditV0161.test.ts` containing **5 checks**. No production data, scoring algorithm, model configuration, UI, persistence or Matchup changes.
