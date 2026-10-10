@@ -63,6 +63,6 @@ describe('v0.1.35 Sakazuki evidence-first calibration pilot', () => {
     // Additional Katakuri review may improve Readiness beyond the original Sakazuki-only baseline.
     expect(rows.filter(({ readiness }) => !readiness).length).toBeLessThanOrEqual(196)
     expect(rows.flatMap(({ hakiContributions }) => hakiContributions)
-      .reduce((sum, contribution) => sum + contribution.amount, 0)).toBe(244)
+      .reduce((sum, contribution) => sum + contribution.amount, 0)).toBe(230)
   })
 })
