@@ -41,14 +41,14 @@ export const sampleEvaluations: Evaluation[] = [
     ],
   },
   {
-    id: 'evaluation-vista', characterId: 'vista', evaluationDataVersion: 'evaluation-0.1.26-draft', status: 'draft',
+    id: 'evaluation-vista', characterId: 'vista', evaluationDataVersion: 'evaluation-0.1.68-vista-battle-context-only', status: 'draft',
     items: [
       item('attack', 80, '미호크를 직접 요격해 검술 공방을 성립시키고 아카이누에게 무장색 검격을 적용했다. 미호크와의 짧은 교전을 전체 전투력 동급으로 확대하지 않되 공격 기술의 질은 높게 평가하며, 실제 무장색 적용은 Base와 분리한다.', ['evidence-vista-mihawk-561-562', 'evidence-vista-official-mihawk-profile', 'evidence-vista-armament-akainu-574'], [{ hakiType: 'armament', stat: 'attack', amount: 4, application: '아카이누에게 실제 무장색 검격을 적용', evidenceIds: ['evidence-vista-armament-akainu-574'] }], 'E2'),
       item('defense', 79, '미호크와의 검술 공방에서 요격 역할을 수행하며 의미 있는 부상을 허용하지 않았다. 다만 별도의 초고방어 능력이나 장시간 방어전 표본은 적다.', ['evidence-vista-mihawk-561-562'], [], 'E2'),
       item('stamina', 77, '정상결전에서 전선을 유지했지만 개인의 장시간 고강도 전투 지속력을 분리해 확인할 직접 표본이 제한적이다. 정보 부족을 약함으로 보지 않되 임시 중립값을 유지한다.', ['evidence-vista-mihawk-561-562', 'evidence-vista-armament-akainu-574'], [], 'E3'),
       item('speed', 80, '루피를 추격하는 미호크를 요격하고 검술 공방을 성립시킨 반응·접근 능력을 반영한다. 속도 특화 캐릭터와 직접 비교 가능한 반복 표본은 적으므로 80으로 제한한다.', ['evidence-vista-mihawk-561-562'], [], 'E3'),
       item('techniqueMastery', 86, '원작에서 미호크와 직접 검술 공방을 이어갔고 공식 ONE PIECE.com도 비스타를 이도류 대검호이자 미호크와 호각으로 싸울 정도의 실력자로 설명한다. 무장색을 검술에 실제 결합한 부분은 최소 Raw Contribution으로 분리하며 Final 87을 형성한다.', ['evidence-vista-mihawk-561-562', 'evidence-vista-official-mihawk-profile', 'evidence-vista-armament-akainu-574'], [{ hakiType: 'armament', stat: 'techniqueMastery', amount: 2, application: '이도류 검술에 무장색을 결합해 아카이누에게 실전 적용', evidenceIds: ['evidence-vista-armament-akainu-574'] }], 'E1'),
-      item('combatIQ', 77, '전쟁 상황에서 적절한 강자 요격과 교전 중단 판단을 수행한 점을 반영한다. 상대 메커니즘 분석·전술 전환을 반복적으로 보여주는 표본은 제한적이므로 소폭 상향에 그친다.', ['evidence-vista-mihawk-561-562'], [], 'E3'),
+      item('combatIQ', 77, '마르코의 루피 원호 지시에 따라 미호크를 요격했다는 당시 대사 기록과 Ch.562의 교전 연기 동의(미호크가 먼저 제안)를 전장 역할 수행·상황 대응의 근거로 본다. 임무를 지시받은 것을 비스타의 독자적인 목표 설계로 중복 가산하지 않으며, 상대 메커니즘 분석·독자 전술 전환의 반복 직접 표본은 제한적이다. 원작 전체 컷의 재확인은 남아 있고 기존 Combat IQ77·E3를 유지한다.', ['evidence-vista-mihawk-561-562'], [], 'E3'),
       item('versatility', 74, '순수 검사에 가깝지만 공격·방어·요격 등 여러 전장 역할을 검술 하나로 수행한다. 특수 능력이 없다는 사실 자체를 감점하지 않으며, 역할 폭이 넓은 Marco·Katakuri보다는 낮게 평가한다.', ['evidence-vista-mihawk-561-562', 'evidence-vista-armament-akainu-574'], [], 'E2'),
     ],
   },

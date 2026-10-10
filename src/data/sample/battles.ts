@@ -132,7 +132,7 @@ export const sampleBattles: Battle[] = [
     combatIntent: 'serious',
     environment: '마린포드 전장',
     restrictions: '정상결전 중의 제한된 교전이며 양측의 완전한 결착전은 아님',
-    externalFactors: '전장 상황 변화 속에서 미호크가 교전을 미루자고 제안하고 비스타가 동의함',
+    externalFactors: 'Ch.561에서 마르코가 비스타에게 루피 원호를 지시했다는 동시대 대사 기록과 복수 2차 요약이 일치한다(원작 전체 컷 직접 대조는 별도 필요). Ch.562 포위·전선 변화 속에서 미호크가 교전 연기를 제안하고 비스타가 동의했다는 대사 재현이 교차 확인된다.',
     result: 'interrupted',
     participantIds: [],
   },

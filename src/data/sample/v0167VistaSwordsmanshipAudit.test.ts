@@ -108,7 +108,7 @@ describe('v0.1.67 Vista/Mihawk Ch.561–562 nonnumeric source and peer audit', (
 
   it('keeps Technique90 as an unapproved historical candidate rather than altering actual score or matchup inputs', () => {
     const vista = evaluationOf('vista')
-    expect(vista.evaluationDataVersion).toBe('evaluation-0.1.26-draft')
+    expect(vista.evaluationDataVersion).toBe('evaluation-0.1.68-vista-battle-context-only')
     expect(vista.items.map(i => i.score)).toEqual([82, 79, 77, 80, 87, 77, 74])
     expect(techniqueOf('vista').baseScore).toBe(86)
     expect(getRawHakiContributionTotal(techniqueOf('vista'))).toBe(2)

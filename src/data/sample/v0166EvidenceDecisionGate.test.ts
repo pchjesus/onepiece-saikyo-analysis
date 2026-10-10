@@ -143,7 +143,7 @@ describe('v0.1.66 seven-axis Vista/Shanks evidence and user-approval gate', () =
     expect(sampleMatchups).toHaveLength(15)
     expect(sampleMatchups.some(m => m.id === 'matchup-mihawk-vista')).toBe(true)
     expect(sampleMatchups.some(m => m.id === 'matchup-mihawk-shanks')).toBe(true)
-    expect(evaluationFor('vista').evaluationDataVersion).toBe('evaluation-0.1.26-draft')
+    expect(evaluationFor('vista').evaluationDataVersion).toBe('evaluation-0.1.68-vista-battle-context-only')
     expect(evaluationFor('shanks').evaluationDataVersion).toBe('evaluation-0.1.26-draft')
     expect(itemFor('kaido', 'defense').score).toBe(100)
     for (const e of defaults) expect(overall(e)).toBeCloseTo(e.items.reduce((s, i) => s + i.score, 0) / 7, 10)

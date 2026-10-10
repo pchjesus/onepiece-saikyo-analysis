@@ -497,7 +497,7 @@ export const sampleEvidence: Evidence[] = [
     ],
     interpretation: '짧은 정상결전 표본이지만 비스타의 검술 숙련과 강자 상대 공방 능력에 매우 높은 질의 직접 근거다.',
     evaluationImpact: 'Technique를 분석군 최상위권으로 평가하는 핵심 원작 근거로 사용한다.',
-    uncertainty: '결착까지 간 전투가 아니므로 총합 전투력이 미호크와 완전히 동급이라고 단정하지 않는다.',
+    uncertainty: '단기간의 전시 교전이며 Ch.561의 마르코 원호 지시와 Ch.562의 미호크 선제 교전 연기·비스타 동의는 동시대 대사 기록·상세 요약으로 교차 확인하되 정식 원작 전체 컷은 직접 대조하지 못했다. 비스타의 독자적 작전 설계, 양측 전력·7축 동급은 입증하지 않는다.',
   },
   {
     id: 'evidence-vista-official-mihawk-profile',
@@ -1941,7 +1941,7 @@ export const sampleEvidence: Evidence[] = [
     ],
     interpretation: '비스타가 공방을 성립시킨 사실과 쥬라큘 미호크의 공식 최고 위상을 동시에 보존한다.',
     evaluationImpact: 'Technique·Defense 직접 근거와 Speed 보조 근거로 사용한다.',
-    uncertainty: '결착까지 간 장기전이 아니므로 최대 출력·지구력 비교는 불명확하다.',
+    uncertainty: '미호크가 먼저 승부 연기를 제안했다는 Ch.562 동시대 대사 기록은 일치하지만 정식 원작 전체 컷은 재확인하지 못했다. 양측 최대 출력·장기전 지구력·검술 점수 차이는 불명확하다.',
   },
   {
     id: 'evidence-crocodile-alabasta-mastery-178-209', battleId: 'alabasta-crocodile-luffy', subjectCharacterId: 'crocodile',
