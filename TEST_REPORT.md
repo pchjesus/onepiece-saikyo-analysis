@@ -1,3 +1,13 @@
+# v0.1.65 — Safe prose normalization, Unicode token boundaries, full-roster render regressions
+
+- Baseline: `main@c18ccc0a7345a03bc06b4e68ae41dd51e99dade0` (v0.1.64 passed 244 tests and Pages deploy). Existing bug: `Supreme King Raw` in Newgate's Evidence `evaluationImpact` is partially mapped to `Supreme 알베르 패기 원점수` because `/King/g` is applied after only complete `Supreme King Haki` recognition.
+- Change `src/domain/character/normalizeCharacterNamesForDisplay.ts` **only** in runtime code: preemptively resolve abbreviated/full Haki title, protect Korean `킹` inside words, quoted official alias, use ASCII Romanized whole-name boundaries, protect URLs. Preserve `킹은/이/을/과/에게/의/전` grammar and single-word King/Queen labels.
+- Six focused tests in existing normalizer test file plus 3 live UI/whole-corpus tests in `displayNormalizationRegression.test.tsx`: actual Newgate `BattleTimeline` + `EvaluationTrace`, Stussy `CombatProfile` + `EvidenceList`, sample Character 60, Evaluation 62/434, Battle/Evidence/Wano seed corpus scanning for in-word corruption, URL safety and idempotence. Existing prior regression tests also required.
+- No current score, Haki Raw, model, evaluation, source, matchup, character/crew, domain state or storage mutation; v0.1.66+ Vista upside review remains a separate later task. No manual physical device QA or full manga panel verification is implied.
+- **Execution status: PR CI build and post-merge Pages outcome to be verified by exact SHA**. [Audit report](docs/V0_1_65_DISPLAY_STRING_NORMALIZATION_AND_REGRESSION_2026-10-10.md).
+
+---
+
 # v0.1.64 — 60-character combat narrative integrity & source attribution QA
 
 - Baseline `main@dbd20ffc0fe7123f16d4c50ffd553b003506fcad` (v0.1.63). Audited 60 Character profiles and 62 Evaluation/434 Stat narrative and evidence references through identity checks plus focused human/official-scene review; **not** a claim to have read every manga page for all 60 characters.
