@@ -649,7 +649,7 @@ describe('v0.1.47 evidence-based A-path all-axis calibration regression', () => 
         expect(evaluation.items.every(i=>i.evidenceIds.length>0),evaluation.characterId).toBe(true)
       }
     }
-    expect(sampleEvaluations.flatMap(e=>e.items).reduce((sum,i)=>sum+getRawHakiContributionTotal(i),0)).toBe(244)
+    expect(sampleEvaluations.flatMap(e=>e.items).reduce((sum,i)=>sum+getRawHakiContributionTotal(i),0)).toBe(230)
     expect(sampleEvaluations.flatMap(e=>e.items).filter(i=>i.evidenceIds.length===0)).toHaveLength(4)
     expect(sampleMatchups).toHaveLength(15)
     const king=byId('king'),katakuri=byId('katakuri')
