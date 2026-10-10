@@ -148,7 +148,7 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
     expect(overall('kaku')).toBeLessThan(overall('queen'))
     expect(overall('kaku')).toBeLessThan(overall('cracker'))
     expect(overall('morley')).toBeGreaterThan(overall('queen'))
-    expect(overall('morley')).toBeLessThan(overall('jinbe'))
+    // v0.1.62 Jinbe's Attack overlap correction produces an Overall tie with Morley.\n    expect(overall('morley')).toBeLessThanOrEqual(overall('jinbe'))
     expect(sampleEvaluations.find(e => e.characterId === 'morley')!
       .items.find(i => i.stat === 'speed')?.readiness).toBe('E2')
     expect(sampleEvidence.find(e => e.id === 'evidence-morley-terrain-profile')
@@ -165,8 +165,8 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
     const expansionIds = new Set(['kid','killer','kinemon','denjiro','ashura-doji','kawamatsu','kikunojo','raizo','inuarashi','nekomamushi','kanjuro','whos-who','sasaki','black-maria','ulti','page-one','x-drake'])
     const legacy=sampleEvaluations.filter(e => !ids.includes(e.characterId) && !expansionIds.has(e.characterId))
     expect(legacy).toHaveLength(39)
-    expect(legacy.flatMap(e=>e.items).flatMap(i=>i.hakiContributions).reduce((n,c)=>n+c.amount,0)).toBe(244)
-    expect(sampleEvaluations.flatMap(e=>e.items).flatMap(i=>i.hakiContributions).reduce((n,c)=>n+c.amount,0)).toBe(244)
+    expect(legacy.flatMap(e=>e.items).flatMap(i=>i.hakiContributions).reduce((n,c)=>n+c.amount,0)).toBe(230)
+    expect(sampleEvaluations.flatMap(e=>e.items).flatMap(i=>i.hakiContributions).reduce((n,c)=>n+c.amount,0)).toBe(230)
     const akainu=legacy.find(e=>e.id==='evaluation-akainu')!
     expect(akainu.items.find(i=>i.stat==='defense')?.baseScore).toBe(95)
     expect(akainu.items.find(i=>i.stat==='defense')?.hakiContributions).toEqual([])
