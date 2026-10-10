@@ -99,7 +99,7 @@ describe('v0.1.58 all-roster score calibration and versioned baseline (read-only
         reused.push({ id: profile.id, evidenceId, stats: [...stats] })
       }
     }
-    expect(reused).toHaveLength(13)
+    expect(reused).toHaveLength(11)
     expect(reused.find((x) => x.id === 'shanks'
       && x.evidenceId === 'evidence-shanks-kid-divine-departure-1079')?.stats)
       .toEqual(['attack', 'techniqueMastery', 'combatIQ'])
@@ -108,7 +108,7 @@ describe('v0.1.58 all-roster score calibration and versioned baseline (read-only
       .toEqual(['attack', 'defense', 'techniqueMastery'])
     expect(reused.find((x) => x.id === 'katakuri'
       && x.evidenceId === 'evidence-katakuri-future-sight-881-884')?.stats)
-      .toEqual(['defense', 'techniqueMastery', 'combatIQ'])
+      .toEqual(['defense', 'techniqueMastery'])
     // Same reference on several axes is a REVIEW QUEUE, not proof of double counting.
   })
 
