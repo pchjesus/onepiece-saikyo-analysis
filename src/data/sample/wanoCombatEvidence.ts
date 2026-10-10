@@ -36,7 +36,7 @@ export const wanoDetailedBattles: Battle[] = [
     "combatStructure": "multiple-vs-multiple",
     "combatPurpose": "사건별 전투 목적·상호작용 검증",
     "combatIntent": "unknown",
-    "environment": "원작 와노쿠니 전투·신세계 교전",
+    "environment": "엘바프 근해 — 신세계 해역 (와노쿠니 전장과 별개)",
     "restrictions": "샹크스의 미래예지·선제 접근, 전자기포 준비 동작과 산하 함대 보호 목적, 거인들의 후속 개입이 있다. 키드의 모든 능력을 이 한 순간만으로 일괄 감점하지 않는다.",
     "externalFactors": "공식 TV 요약은 만화 원문의 모든 패널을 직접 대조한 것이 아니며 누적 피해/개입은 각 사실에 포함한다.",
     "result": "defeat",
@@ -1229,7 +1229,7 @@ export const wanoDetailedEvidence: Evidence[] = [
       "reference": "ONE PIECE.com 공식 애니 전투 요약 https://one-piece.com/anime/o6229/index.html"
     },
     "evidenceStrength": "moderate",
-    "fact": "빅 맘이 무장색을 실은 일격을 페이지 원의 얼굴에 적중시켜 그 자리에서 쓰러뜨렸다.",
+    "fact": "빅 맘이 패왕색을 두른 강력한 주먹을 페이지 원의 얼굴에 적중시켜 그 자리에서 쓰러뜨렸다.",
     "supportedAbilities": [
       "페이지 원 vs 빅 맘",
       "실전 교전과 전투 조건"
