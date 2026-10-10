@@ -62,7 +62,7 @@ describe('v0.1.62 user-approved bounded numeric audit; Shanks and Vista never do
 
   it('locks Shanks and Vista at their prior Base/Raw/Final and Overall, without hypothetical downward score tests', () => {
     expect(target('shanks').evaluationDataVersion).toBe('evaluation-0.1.26-draft')
-    expect(target('vista').evaluationDataVersion).toBe('evaluation-0.1.26-draft')
+    expect(target('vista').evaluationDataVersion).toBe('evaluation-0.1.68-vista-battle-context-only')
     expect(target('shanks').items.map(i => i.score)).toEqual([97, 91, 88, 95, 96, 93, 88])
     expect(target('vista').items.map(i => i.score)).toEqual([82, 79, 77, 80, 87, 77, 74])
     expect(getRawHakiContributionTotal(axis('shanks', 'techniqueMastery'))).toBe(8)
