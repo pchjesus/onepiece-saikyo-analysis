@@ -1,3 +1,15 @@
+# v0.1.69 — Exceptional Haki independent-effect source audit
+
+- **Baseline:** main `fd45c55c095369f8fc52f6df917987d9f602e1b6` (v0.1.68).
+- **New four tests:** nine current Raw uses across four character evaluations, grouped by five observed effects and matched to existing same-owner Evidence/Battle IDs; guard six shared applications across four repeated-effect groups, explicit Jinbe Ch.1018 uncertainty fix, and unchanged 60/59/62/434 roster/evaluation/axes, 15 matchups, Raw212/230, Balanced1.2 Haki0.5.
+- **Source-layer check:** ONE PIECE.com TV1082/1112/857/1040 cross-reviews, keep supplemental anime distinct from direct original manga; manga all-panel reading not performed.
+- **No numeric impact:** existing Vista, Shanks, Katakuri, Jinbe 7-stat evaluation, Raw and direct matchups remain frozen; Technique90 never applied. No hypothetical Raw-off Overall calculated.
+- **PR-head CI / build:** pending verification.
+- **Merge SHA Pages verification:** pending verification.
+- **Manual browser/real devices:** not checked.
+
+---
+
 # v0.1.68 — Vista/Mihawk annotated-source and Combat IQ text-context regression
 
 - Initial baseline main SHA: `f3abfa13844a6f332d5a20523e5fe7fb1a0d061f`.
