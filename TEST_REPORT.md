@@ -1,3 +1,15 @@
+# v0.1.60 — Targeted Kaido Defense100 adjustment and Haki/source provenance verification
+
+- Baseline `main@91ecd36c0e9c684b8c1f12e570a283b971fc96eb` (v0.1.59). User authorizes a **conditional** Kaido Defense100 *if justified*, not global formula/Haki changes. Other open PRs untouched.
+- Adjust exactly one scoring item: Kaido default Defense **Base98→99**, **Raw2 unchanged**, Final **99→100**, Overall **96.571429→96.714286**; other 412 core stats retain numerical values. New evaluation data version for Kaido documents this explicit change. Rank position5 preserved in 59-person audit; Kaido–Linlin direct Matchup factor unchanged.
+- Ryokugyu Defense **89/E3 unchanged**, its evidence links now explicitly include existing `evidence-aramaki-regrowth-tv1082` (secondary) and existing Shanks source (context). Evaluation data version updated; source Evidence itself unchanged.
+- Read-only Haki five case cards (Vista/King/Jinbe/Katakuri/Shanks) with BaselineExclusion reasons and pending original-canon check. No Raw changes; 13 cross-stat reused events not removed. [Detailed v0.1.60 findings](docs/V0_1_60_KAIDO_DEFENSE100_HAKI_AND_RYOKUGYU_SOURCE_REVIEW_2026-10-10.md).
+- New `scoreAdjustmentReviewV0160.test.ts` (4 tests) covers Kaido vector and no dual counting; Ryokugyu E3 and Evidence roles, preservation of 59×7/62/434/Raw226+244/E1-3/15 direct matchups/Weight0.5, unchanged five Haki Raw allocations and 59-character overall calculation. v0.1.59 read-only source-link expectation updated and historical known Kaido vector snapshots aligned. No unapproved mass recalibration.
+- First PR run exposed two stale historical snapshot assertions (Kaido Overall and capped 100-score count); both fixtures were updated after checking the intended single-axis diff. Re-run full test/build before merge.
+- **CI confirmation to follow from exact PR head and merged main SHA**; this document's listing of tests is coverage description, not a claim that local CI has completed. Supplementary official TV summaries crosschecked; **all original manga panels and manual mobile browser not independently tested**.
+
+---
+
 # v0.1.59 — High-E3 scoring adequacy and individual Haki Raw overlap regression (read-only)
 
 - Baseline `main@ec32987005ebab5c2b3aec5763854e47bfc5c842` (v0.1.58), with **three pre-existing unmerged PRs left untouched**.
