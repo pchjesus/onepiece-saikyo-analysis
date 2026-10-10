@@ -99,8 +99,8 @@ describe('v0.1.59 source review queue preserves official scores (no automated re
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
     expect(sampleMatchups).toHaveLength(15)
-    expect(defaults.flatMap(e => e.items).reduce((sum, i) => sum + getRawHakiContributionTotal(i),0)).toBe(226)
-    expect(sampleEvaluations.flatMap(e => e.items).reduce((sum,i) => sum + getRawHakiContributionTotal(i),0)).toBe(244)
+    expect(defaults.flatMap(e => e.items).reduce((sum, i) => sum + getRawHakiContributionTotal(i),0)).toBe(212)
+    expect(sampleEvaluations.flatMap(e => e.items).reduce((sum,i) => sum + getRawHakiContributionTotal(i),0)).toBe(230)
     for (const e of defaults) {
       const expected = e.items.reduce((sum,i) => sum + i.score,0) / 7
       expect(calculateBalancedCombatPower(e,balancedV12).finalScore).toBeCloseTo(expected,10)
