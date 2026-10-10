@@ -1,6 +1,6 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.1.60** (npm package 버전은 **0.1.34** 유지)  
+현재 구현 패치: **v0.1.61** (npm package 버전은 **0.1.34** 유지)  
 평가 데이터: **60 Character master pool · 59 evaluated unique Character · 73 Membership · 62 Evaluation · 434 Stat**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
@@ -16,6 +16,7 @@
 - [v0.1.37 검토용 — 산먹깨비·한글 용어·패기 수치 승인안](docs/V0_1_37_KOREAN_TERMS_AND_HYBRID_APPROVAL_2026-10-09.md)
 - [신규 2집단 사전 Evidence 조사 — 혁명군·CP0](docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md)
 - [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
+- [v0.1.61 Haki Raw 독립효과·5인 12축 의사결정·가상 민감도](docs/V0_1_61_HAKI_RAW_INDEPENDENT_EFFECT_AND_DECISION_2026-10-10.md)
 - [v0.1.60 카이도 Defense100 승인 적용·로쿠규 방어 근거·Haki Raw 5건 심화검수](docs/V0_1_60_KAIDO_DEFENSE100_HAKI_AND_RYOKUGYU_SOURCE_REVIEW_2026-10-10.md)
 - [v0.1.59 고득점 E3 14축·Haki Raw 13건 개별 심화검수](docs/V0_1_59_E3_AND_HAKI_RAW_CASE_AUDIT_2026-10-10.md)
 - [v0.1.59 점수 보정 전 영향분석·v0.1.60 사용자 의사결정](docs/V0_1_59_DECISION_GATE_AND_V0_1_60_PLAN_2026-10-10.md)
