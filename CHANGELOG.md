@@ -1,3 +1,11 @@
+## v0.1.68 — Vista/Mihawk Ch.561–562 source corroboration and nonnumeric context correction
+
+- Multi-source crosscheck: contemporary Ch.561 Japanese dialogue reports **Marco assigned Vista to support Luffy**, partial manga panel third-party repost visually shows the crossing of swords, contemporary Ch.562 dialogue reports **Mihawk first proposed deferral and Vista agreed**, and official TV471 depicts the Pacifista encirclement war context. All derivative sources are labeled, and full official manga pages remain uninspected.
+- Source-context **text-only patch**: `marineford-vista-mihawk.externalFactors` now distinguishes third-party-reported Marco assignment and battlefield interruption; Vista Combat IQ77 `rationale` now credits carrying out an assigned interception and accepting an opponent-proposed deferment rather than inventing independent command authorship. Both sides' canon Evidence `uncertainty` clarifies whole-panel access limits. **No scores or Raw contributions altered.**
+- Version Vista's changed rationale as `evaluation-0.1.68-vista-battle-context-only`. Previous v0.1.66/67 guard expectations align to new description-version, keeping all previously measured numeric and ranking invariants unchanged.
+- Add six sourced nonproduction corroboration claims and five primary-source follow-up questions in `v0168VistaSourceCorroboration.ts`; four regression cases and detailed provenance report in `docs/V0_1_68_...`.
+- Unapproved Vista Technique90 remains unimplemented; `PROJECT_SPEC`, core models, matchmaking, rank, persistence, visual UI and character membership untouched; full CI required.
+
 ## v0.1.67 — Vista/Mihawk Ch.561–562 official-source and technique-peer audit (NO numeric patch)
 
 - **User directive:** Vista Technique90 candidate is not approved; **production Base86/Raw2/Final87**, Overall 79.428571 / rank26 remain unchanged. No new speculative +N is generated or applied.
