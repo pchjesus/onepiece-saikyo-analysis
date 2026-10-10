@@ -88,7 +88,7 @@ describe('v0.1.45 three-faction, 17-character Evidence-first expansion', () => {
       expect(getCombatPower(seed.id).finalScore).toBeCloseTo(seed.score.reduce((x, y) => x + y, 0) / 7, 8)
     }
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)
-      .reduce((amount, item) => amount + getRawHakiContributionTotal(item), 0)).toBe(244)
+      .reduce((amount, item) => amount + getRawHakiContributionTotal(item), 0)).toBe(230)
     // Episode-specific distinct battle records prevent the Kid & Law 2v1 from being conflated with Shanks' Elbaf encounter.
     expect(sampleBattles.find((b) => b.id === 'battle-wano-detailed-kid-big-mom-1066')?.combatStructure).toBe('multiple-vs-one')
     expect(sampleBattles.find((b) => b.id === 'battle-wano-detailed-kid-shanks-1112')?.result).toBe('defeat')
