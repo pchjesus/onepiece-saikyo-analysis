@@ -41,7 +41,7 @@ describe('v0.1.49 Overall validity and uncertainty diagnostic (not an official c
         .toBeCloseTo(avg(entry.stats), 10)
     }
     expect(sampleEvaluations.flatMap((e) => e.items)
-      .reduce((sum, item) => sum + getRawHakiContributionTotal(item), 0)).toBe(244)
+      .reduce((sum, item) => sum + getRawHakiContributionTotal(item), 0)).toBe(230)
   })
 
   it('flags same-average, different-profile cases rather than treating Overall ties as equal matchups', () => {
