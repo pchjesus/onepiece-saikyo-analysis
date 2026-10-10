@@ -1,6 +1,6 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.1.68** (비스타–미호크 Ch.561–562 대사·부분 컷 추가 교차검증 및 마르코 지시/Combat IQ 근거 문구 정정; 실제 점수 불변) (npm package 버전은 **0.1.34** 유지)  
+현재 구현 패치: **v0.1.69** (비스타·샹크스·카타쿠리·징베 9개 Haki Raw의 5개 실제 사건효과 교차검수; 수치 불변) (npm package 버전은 **0.1.34** 유지)  
 평가 데이터: **60 Character master pool · 59 evaluated unique Character · 73 Membership · 62 Evaluation · 434 Stat**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
@@ -16,6 +16,7 @@
 - [v0.1.37 검토용 — 산먹깨비·한글 용어·패기 수치 승인안](docs/V0_1_37_KOREAN_TERMS_AND_HYBRID_APPROVAL_2026-10-09.md)
 - [신규 2집단 사전 Evidence 조사 — 혁명군·CP0](docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md)
 - [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
+- [v0.1.69 4인 Haki Raw 독립효과/중복 원인 감사·징베 Evidence 불확실성 보완](docs/V0_1_69_FOUR_CHARACTER_HAKI_INDEPENDENT_EFFECT_REVIEW_2026-10-11.md)
 - [v0.1.68 비스타–미호크 원작 회차 대사 교차검증·전투 맥락 설명 정정](docs/V0_1_68_VISTA_MIHAWK_SOURCE_CORROBORATION_CONTEXT_PATCH_2026-10-11.md)
 - [v0.1.67 비스타–미호크 Ch.561–562 검술 검증·6명 동축 비교·Technique90 미적용](docs/V0_1_67_VISTA_MIHAWK_CH561_562_PRIMARY_SOURCE_AND_PEER_AUDIT_2026-10-11.md)
 - [v0.1.66 비스타·샹크스 7축 및 Haki Raw 독립효과 검증, 승인 전 Technique 상향안](docs/V0_1_66_VISTA_SHANKS_SEVEN_AXIS_HAKI_DECISION_GATE_2026-10-10.md)
