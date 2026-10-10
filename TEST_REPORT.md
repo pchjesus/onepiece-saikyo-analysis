@@ -1,3 +1,15 @@
+# v0.1.67 verification — Vista/Mihawk Ch.561–562 source fidelity and six Technique peers
+
+- **Baseline:** `main@d9cd478aec80dee2e891bb55c7227e111faab419` (v0.1.66); target `v0.1.67`.
+- **Source access:** official profiles + 2021 official battle-recap crosscheck completed. VIZ official Ch.561 and Ch.562 subscriber-gated; full manga-panel direct reading **NOT performed**. Chapter-by-chapter actions and Marco command in secondary accounts not marked first-hand canon verification. Official TV470/471 synopses provide war context, not detailed Vista parries.
+- **New four guard tests:** chapter 561/562 distinction, official vs secondary vs inaccessible source tagging, non-automatic IQ attribution, Ch.574 Haki exclusion from Mihawk duel, six Technique peers' live Base/Raw/Final/E-grades and same-owner evidence, 60/59/62/434 + raw212/230 + Balanced1.2/Haki0.5 + 15 matchups.
+- **Production untouched:** Vista Technique86/2/87 and Overall556/7 (review rank26), all seven stats, Shanks, whole roster, direct Matchup inputs, v0.1.65 text normalization tests.
+- **Automated PR-head tests/build:** pending actual Actions result at document writing.
+- **Exact merge-SHA GitHub Pages:** pending after PR-head success and safe merge.
+- **Manual desktop/mobile site QA:** not performed in this environment.
+
+---
+
 # v0.1.66 source-note follow-up regression — pending CI at document edit
 
 - **Confirmed stale explanatory value:** `evidence-jinbe-ace-five-days-552` describes Jinbe's current Stamina as 79, although `evaluation-jinbe` Stamina is **80**. Correct only the text to 80.
