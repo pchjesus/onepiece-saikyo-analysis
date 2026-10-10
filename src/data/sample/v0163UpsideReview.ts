@@ -75,7 +75,7 @@ export const v0163UpsideAxisReviews: readonly UpsideAxisReview[] = [
     characterId: 'vista', stat: 'versatility', priority: 'medium', finding: 'promising-but-unquantified',
     evidenceIds: ['evidence-vista-mihawk-561-562', 'evidence-vista-armament-akainu-574'],
     comparatorIds: ['mihawk', 'zoro', 'marco'],
-    independentObservedEffect: '검 하나의 기술 체계로 공격·방어·강자 요격·아군 보호 및 대장 상대 합동 개입에 참여해 기능별 역할을 전환했다.',
+    independentObservedEffect: '이도류라는 하나의 검술 체계로 공격·방어·강자 요격·아군 보호 및 대장 상대 합동 개입에 참여해 기능별 역할을 전환했다.',
     constraints: '독립 사거리·광역 절단·비검술 특수능력은 현 채택 자료에서 미확인. 꽃잎 연출을 실체적 능력으로 가산하지 않음.',
     approvalGate: '전투 수단의 개수 아닌 확인된 범위·목적·다중 상대 역할을 미호크/조로/마르코와 같은 기준으로 비교해 Base74 재평가.',
   },
