@@ -1,3 +1,11 @@
+## v0.1.61 — Haki Raw independent-effect review (no numeric amendment)
+
+- Apply the already approved Hybrid/Exceptional Haki rubric to **Vista, King, Jinbe, Katakuri, Shanks (12 stat axes)**, individually separating canon reference, combat context, Base coverage, independently demonstrated Raw, baseline-exclusion gaps and same-stat peer anchors. Classify ordinary Armament as a recalibration *review* candidate, not as automatically zero; preserve potentially independent future-sight and Conqueror's applications without asserting every Raw is separately proven.
+- New [decision report](docs/V0_1_61_HAKI_RAW_INDEPENDENT_EFFECT_AND_DECISION_2026-10-10.md): A(current) vs B(approval-gated only), explicit uncertainty, **read-only** Raw-off sensitivity on all 59 default characters, and v0.1.62 evidence-first queue. The hypothetical Base-only results are **not authorized revised scores**. Original manga-panel independent inspection remains outstanding; official anime/profile summaries provide limited cross-checks.
+- New `hakiIndependentRawAuditV0161.test.ts` (5 diagnostic assertions/groups) for twelve Base/Raw/Final/E axes, five source-linked cross-stat Haki IDs, Shanks same-axis two Haki types, peer anchors, read-only calculation stress and 59×7/62/434/readiness/Haki totals/Balanced v1.2/15 direct Matchups/Kaido Defense100 invariants.
+- **No changes to** the 60-character roster, `evaluations.ts`, `evidence.ts`, `battles.ts`, `matchups.ts`, production calculation logic, scores, E-labels, model, UI, storage/restore or `PROJECT_SPEC.md`. No changes to any unrelated open PR.
+- Test/build/Actions/Pages success must be verified against actual runs, not inferred from added test code.
+
 ## v0.1.60 — Kaido Defense100 conditional approval; Ryokugyu evidence provenance; 5 Haki cards
 
 - **Owner-approved conditional targeted adjustment:** Canon/official anime defense comparison supports assigning Kaido an *upper-band relative* Defense100, explicitly not invulnerability. Only `evaluation-kaido` Defense **Base98→99**, Haki Observation Raw **2 unchanged**, Final **99→100**, Overall **96.571429→96.714286**; sorted placement 5→5. Kaido other six axes, same Haki methods and Beat matchup factors stay unchanged.
