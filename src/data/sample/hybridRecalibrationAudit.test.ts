@@ -50,7 +50,8 @@ describe('v0.1.35 hybrid 39-Evaluation recalibration audit', () => {
     expect(missingLinks).toBeLessThanOrEqual(14)
     expect(unassignedReadiness).toBeLessThanOrEqual(203)
     expect(linksWithoutMatchingStatRole).toBeLessThanOrEqual(102)
-    expect(cappedStats).toBeLessThanOrEqual(4)
+    // v0.1.60 explicitly approved Kaido Defense 99→100: one extra full-cap Stat.
+    expect(cappedStats).toBeLessThanOrEqual(5)
   })
 
   it('shows that neutral rebasing of legacy Raw into Base is score-invariant, not a new canon valuation', () => {

@@ -5,6 +5,7 @@
 - Ryokugyu Defense **89/E3 unchanged**, its evidence links now explicitly include existing `evidence-aramaki-regrowth-tv1082` (secondary) and existing Shanks source (context). Evaluation data version updated; source Evidence itself unchanged.
 - Read-only Haki five case cards (Vista/King/Jinbe/Katakuri/Shanks) with BaselineExclusion reasons and pending original-canon check. No Raw changes; 13 cross-stat reused events not removed. [Detailed v0.1.60 findings](docs/V0_1_60_KAIDO_DEFENSE100_HAKI_AND_RYOKUGYU_SOURCE_REVIEW_2026-10-10.md).
 - New `scoreAdjustmentReviewV0160.test.ts` (4 tests) covers Kaido vector and no dual counting; Ryokugyu E3 and Evidence roles, preservation of 59×7/62/434/Raw226+244/E1-3/15 direct matchups/Weight0.5, unchanged five Haki Raw allocations and 59-character overall calculation. v0.1.59 read-only source-link expectation updated and historical known Kaido vector snapshots aligned. No unapproved mass recalibration.
+- First PR run exposed two stale historical snapshot assertions (Kaido Overall and capped 100-score count); both fixtures were updated after checking the intended single-axis diff. Re-run full test/build before merge.
 - **CI confirmation to follow from exact PR head and merged main SHA**; this document's listing of tests is coverage description, not a claim that local CI has completed. Supplementary official TV summaries crosschecked; **all original manga panels and manual mobile browser not independently tested**.
 
 ---
