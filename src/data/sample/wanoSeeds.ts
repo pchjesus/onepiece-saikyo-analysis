@@ -108,7 +108,7 @@ export const wanoSeeds: WanoSeed[] = [
       "큰 피해와 이탈을 겪은 뒤 전투를 이어간 실전 버팀을 인정하되 특별한 회복 메커니즘으로 보지 않는다.",
       "불꽃을 절단할 수 있는 빠른 검격은 확인되나 일반 이동 최고 속도는 별개다.",
       "여우불류로 화염을 베고 검기를 응용하는 기술 숙련은 확인된다.",
-      "작전 지휘는 인정하지만 작전도 오독을 전술적 천재성의 증거로 취급하지 않는다.",
+      "연합군의 작전 수행과 동료 보호는 판단 근거지만, 오니가시마 집단전의 성과 전체를 킨에몬 개인의 전투지능으로 환산하지 않는다.",
       "검술·화염 절단·능력에 의한 위장·보호 대상 지원을 수행하되 전투용 공격과 의상 능력의 점수 중복을 피한다."
     ],
     "readiness": [
@@ -207,7 +207,7 @@ export const wanoSeeds: WanoSeed[] = [
     "name": "카와마츠",
     "group": "akazaya-nine",
     "role": "검사",
-    "style": "물길류 검술·수중 기동",
+    "style": "카파류 검술·수중 기동",
     "trait": "어인 특성",
     "profile": "https://one-piece.com/character/Kawamatsu/index.html",
     "fight": "https://one-piece.com/anime/o5993/index.html",
@@ -228,7 +228,7 @@ export const wanoSeeds: WanoSeed[] = [
       "감옥을 견딘 생존 경험과 전투 지구력은 동일하지 않아 E3 잠정값을 유지한다.",
       "강한 검격이 있지만 수중 기동의 성능을 지상 속도에 자동 반영하지 않는다.",
       "카파류 검술의 안정적 활용을 긍정 평가한다.",
-      "성지 작전과는 무관하며 전장 개인 전술을 장면별로 별도 확인하기 어렵다.",
+      "아카자야의 공동전 참여와 검술 활용은 확인되지만, 카이도에 대한 독립적인 약점 분석이나 개인 전술 전환 성과는 자료가 부족하다.",
       "검술과 수중 생리의 맥락이 있으나 확인된 광역 지원·공격 수단은 제한적이다."
     ],
     "readiness": [
@@ -611,7 +611,7 @@ export const wanoSeeds: WanoSeed[] = [
     "trait": "동물계 고대종 스피노사우루스",
     "profile": "https://one-piece.com/character/Page_One/index.html",
     "fight": "https://one-piece.com/anime/o6229/index.html",
-    "fact": "페이지 원은 추격 과정에서 빅 맘이 무장색을 실은 강타를 가하자 한 방에 제압됐다.",
+    "fact": "페이지 원은 나미·우솝·오타마를 추격하던 중 빅 맘의 패왕색을 두른 강력한 주먹에 맞아 한 방에 제압됐다.",
     "context": "빅 맘의 공격은 사황급으로 피해자에게 통제된 반응 기회를 제공하지 않았다. 이 패배 하나로 고대종의 모든 방어 능력을 부정하지 않는다.",
     "score": [
       74,
@@ -652,7 +652,7 @@ export const wanoSeeds: WanoSeed[] = [
     "profile": "https://one-piece.com/character/X_Drake/index.html",
     "fight": "https://one-piece.com/anime/61598/index.html · https://one-piece.com/anime/62672/index.html",
     "fact": "X 드레이크는 백수해적단 토비롯포로 신분을 숨기던 해군 SWORD 대장으로, 오니가시마에서 아푸와 CP0 측의 교전에 참여했으며, CP0 요원에 맞서 기습 공격을 성공시켰지만 이후 지건으로 제압됐다.",
-    "context": "잠입·지휘 역할은 직접 전투 피해와 구분하며, 에그헤드 기준 현 소속과 와노 과거 소속이 다르다.",
+    "context": "잠입·지휘 역할은 직접 전투 피해와 구분한다. 해군 SWORD 소속과 오니가시마 전투 당시 토비롯포 위장 신분을 혼동하지 않는다.",
     "score": [
       78,
       79,

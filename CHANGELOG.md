@@ -1,3 +1,12 @@
+## v0.1.64 — 60-character combat narrative / evidence attribution audit and targeted fixes
+
+- Review Character Master 60 narrative profiles, 62 Evaluations/434 axis explanations and Evidence/Battle owner relationships; preserve all 59 default 7-stat scores and previously approved v0.1.62 totals. Add reproducible cross-character narrative integrity tests.
+- Correct **Page One** losing to Big Mom's Conqueror's Haki-infused punch (Ch.1011), not an Armament-only punch: fix Wano seeded fact and detailed page-one Evidence, aligning with preexisting Linlin Evaluation/Evidence.
+- Correct **Kid/Shanks battle environment** to waters near Elbaf (NOT Wano); composite Kid records now explicitly distinguish Wano and Elbaf. Dorry/Brogy ship destruction remains distinct from Shanks's Divine Departure hit.
+- Replace **Kawamatsu** Combat IQ's irrelevant Holy Land operation copied-context with his own Akazaya/Kaido group battle uncertainty, normalize combat style to Kappa swordsmanship; rewrite ambiguous **Kin'emon** group-strategy wording and clarify **X Drake** SWORD vs hidden Tobi Roppo identity.
+- Update [narrative source/character attribution audit report](docs/V0_1_64_ROSTER_COMBAT_NARRATIVE_SOURCE_ATTRIBUTION_AUDIT_2026-10-10.md). No numerical score change, no user-unapproved Vista/Shanks uplift, no hypothetical downside, model/Rank/Matchup changes, Character IDs, storage or UI modifications. Full original manga-panel manual review remains outstanding.
+- Test/build/Pages claims must match actual GitHub Actions commit runs.
+
 ## v0.1.63 — Vista all-seven-stat upside/source audit; Shanks and Haki independent-effect gates (no numeric amendments)
 
 - User requires **all seven Vista core stats** to be individually evaluated for potential increases, not Technique alone. Source-linked findings: Technique highest priority; Attack/Defense/Speed/Versatility conditional; Combat IQ weakly conditional; Stamina lacks comparable sustained-battle evidence. No +N asserted without observed distinct effect, peer comparison and user approval.

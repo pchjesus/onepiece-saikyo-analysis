@@ -1,3 +1,13 @@
+# v0.1.64 — 60-character combat narrative integrity & source attribution QA
+
+- Baseline `main@dbd20ffc0fe7123f16d4c50ffd553b003506fcad` (v0.1.63). Audited 60 Character profiles and 62 Evaluation/434 Stat narrative and evidence references through identity checks plus focused human/official-scene review; **not** a claim to have read every manga page for all 60 characters.
+- Targeted corrections: Wano seed and detailed Page One's Big Mom Conqueror's vs Armament mislabel; Elbaf (not Wano) Kid/Shanks battle environment; Kawamatsu's mistakenly borrowed Mary Geoise mission language + sword-style label; Kinemon unclear strategy sentence; X Drake SWORD vs undercover Tobi Roppo timing; clarify composite Kid battles.
+- New `src/data/sample/v0164NarrativeIntegrity.test.ts`: verifies 60 profiled Characters, 62/434 evaluation texts and evidence ownership, 17 Wano ×7 narratives, updated facts/locations, 59×7 overall and 212/230 Raw invariant, Balanced v1.2 / Haki0.5 / 15 Matchups, Vista/Shanks score stability. Focus test does not determine canon truth of each statement.
+- No new Base/Raw/Final/Overall value, Evaluation ID/state, Matchup, calculation rule, official ranking, UI or saved data change. v0.1.63 all-7-stat Vista upside review remains active; original Ch.561–562/574 directly checked before any +N approval.
+- **CI/build/deploy status to be filled from SHA-matched workflow logs, not inferred.**
+
+---
+
 # v0.1.63 — Vista/Shanks full seven-axis upside and independent Haki review
 
 - Baseline `main@5a3730ea839326c4bf708da8e4750f170fe4bed1` (passed 236/236 tests and deployed as v0.1.62).
