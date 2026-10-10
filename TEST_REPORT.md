@@ -1,3 +1,12 @@
+# v0.1.61 — Haki Raw independent effect decision-only audit
+
+- Baseline: `main@068edcd6fd33d9a3b94734285066d36e3ce20df2` (v0.1.60). The only TypeScript change is a **new Vitest read-only test** `src/domain/calculation/hakiIndependentRawAuditV0161.test.ts` containing **5 checks**. No production data, scoring algorithm, model configuration, UI, persistence or Matchup changes.
+- The five tests pin twelve current axes across Vista/King/Jinbe/Katakuri/Shanks (Base/Raw/Final/Readiness), verify the five case Evidence IDs and their supported Stat roles including Shanks dual Haki Technique and Jinbe independent Big Mom Defense reference, compare three anchors, test hypothetical Raw-off on separate **copies** (never scores proposed to users), and preserve 59 default/413 items; 62 evaluations/434 items; E1=53/E2=243/E3=117; Raw226/244; Balanced v1.2 Weight0.5; 15 direct Matchups; Kaido Defense100.
+- [Decision report](docs/V0_1_61_HAKI_RAW_INDEPENDENT_EFFECT_AND_DECISION_2026-10-10.md). Canon chapter IDs from the existing source catalog; independent full manga-panel verification **not completed**. This report documents a score review, not an approved scoring amendment.
+- **Execution status:** GitHub PR CI and post-merge GitHub Pages must be checked by exact SHA before they can be reported as verified. Local machine execution and real browser/mobile QA are not implied by this report.
+
+---
+
 # v0.1.60 — Targeted Kaido Defense100 adjustment and Haki/source provenance verification
 
 - Baseline `main@91ecd36c0e9c684b8c1f12e570a283b971fc96eb` (v0.1.59). User authorizes a **conditional** Kaido Defense100 *if justified*, not global formula/Haki changes. Other open PRs untouched.
