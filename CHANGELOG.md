@@ -1,3 +1,11 @@
+## v0.1.63 — Vista all-seven-stat upside/source audit; Shanks and Haki independent-effect gates (no numeric amendments)
+
+- User requires **all seven Vista core stats** to be individually evaluated for potential increases, not Technique alone. Source-linked findings: Technique highest priority; Attack/Defense/Speed/Versatility conditional; Combat IQ weakly conditional; Stamina lacks comparable sustained-battle evidence. No +N asserted without observed distinct effect, peer comparison and user approval.
+- Shanks independently reviewed across all seven axes, with TV1082 long-range Conqueror pressure vs TV1112 Kid/foreknowledge/Divine Departure roles separated. His Versatility88 already accounts for pressure; Technique96 overlaps two Haki types on one scene. No Shanks/Vista hypothetical overall decreases.
+- Add `src/data/sample/v0163UpsideReview.ts` read-only review cards (14 axes + 4 unresolved Haki event cards) with evidence ownership IDs, peer anchors, limitations, and subsequent approval gates; new regression tests guard 14-axis coverage and unchanged production 59×7 / 62 Evaluations / 434 Stats / 15 Matchups / readiness / 212+230 Raw / model 1.2.
+- [Detailed v0.1.63 audit](docs/V0_1_63_VISTA_ALL_SEVEN_STATS_SHANKS_UPSIDE_AND_HAKI_OVERLAP_2026-10-10.md). No changes to Evaluation/Base/Raw/Final/Overall, Evidence canon records, Character/Battle/Matchup data, production calculation, UI, storage, PROJECT_SPEC or `package.json`.
+- Source limitations: official series portal and internal canon citations reviewed; original manga chapter panels not fully independently checked. CI/build/Pages and manual browser status are reported only after verified runs.
+
 ## v0.1.62 — Approved targeted Haki overlap score calibration; upside-only Shanks/Vista review
 
 - User authorizes bounded Overall adjustments and **explicitly excludes Shanks and Vista from any Raw-off/downward hypothetical**; their scores remain exactly unchanged, and official Vista/Mihawk swordsman and Shanks Ch.1055/1079 feats are reviewed for future upside without arbitrary +N.
