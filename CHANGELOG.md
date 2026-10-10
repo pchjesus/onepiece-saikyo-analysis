@@ -1,3 +1,12 @@
+## v0.1.67 — Vista/Mihawk Ch.561–562 official-source and technique-peer audit (NO numeric patch)
+
+- **User directive:** Vista Technique90 candidate is not approved; **production Base86/Raw2/Final87**, Overall 79.428571 / rank26 remain unchanged. No new speculative +N is generated or applied.
+- Cross-check official Vista/Mihawk profiles and official 2021 Whitebeard Pirates news; **official Ch.561–562 VIZ pages are subscriber-gated**, so original manga panels cannot be claimed as directly read. Separate direct official statements, current Chapter-based project Evidence, 3rd-party chapter synopses and unresolved details.
+- **Chapter-level source distinctions:** Ch.561 interception/exchange; Ch.562 reported continuation and deferred duel; separate Ch.574 joint Sakazuki Haki scene is not evidence of Haki usage against Mihawk. Chapter 561 secondary recaps suggest **Marco assigned Vista the interception**, so avoid crediting Vista with independently designing the task in Combat IQ before actual source confirmation.
+- Compare **six Technique peers using actual Base/Raw/Final/readiness**: Mihawk99/0/99 E1, Vista86/2/87 E1, Zoro85/4/87 E1, King80/0/80 E2, Marco84/0/84 E2, Katakuri84/6/87 E2. Highlight pure swordsmanship vs mixed/Devil Fruit technique and Haki normalization differences.
+- Add read-only `v0167VistaSwordsmanshipAudit.ts` and `v0167VistaSwordsmanshipAudit.test.ts` (4 test cases), plus the [source and peer review](docs/V0_1_67_VISTA_MIHAWK_CH561_562_PRIMARY_SOURCE_AND_PEER_AUDIT_2026-10-11.md). No production Evaluation, Evidence, Battle, models, ranking, matchup, membership, UI, save/restore or `PROJECT_SPEC.md` changes.
+- Full CI regression must retain the v0.1.65 displayed-name normalization tests and existing 59/62/434, 15 matchup, Raw212/230, Balanced1.2 Haki0.5 invariants. Manual original manga-panel and browser/device review remains unverified.
+
 ## v0.1.66 follow-up — Jinbe Stamina Evidence description consistency
 
 - Correct `evidence-jinbe-ace-five-days-552` `evaluationImpact` from the stale phrase “Stamina 79” to actual existing Jinbe **Stamina 80**; its 5-day Ace duel fact, Evidence ID, source and all numeric Evaluation values remain unchanged.
