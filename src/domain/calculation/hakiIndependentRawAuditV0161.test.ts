@@ -1,0 +1,140 @@
+import { describe, expect, it } from 'vitest'
+import { sampleEvaluations } from '../../data/sample/evaluations'
+import { sampleEvidence } from '../../data/sample/evidence'
+import { sampleMatchups } from '../../data/sample/matchups'
+import { balancedV12 } from '../../data/sample/calculationModels'
+import { COMBAT_STATS, type CombatStat } from '../evaluation/types'
+import { getFinalStatScore, getRawHakiContributionTotal } from '../evaluation/score'
+import { calculateBalancedCombatPower } from './calculateCombatPower'
+
+/**
+ * v0.1.61 audit: immutable diagnostics, NOT a score amendment.
+ * An Evidence ID may support different observed effects, but its reuse
+ * does not prove an independent exceptional Haki increment beyond Base.
+ */
+const defaults = sampleEvaluations.filter(e => e.isDefault !== false)
+const evaluation = (id: string) => {
+  const found = defaults.find(e => e.characterId === id)
+  if (!found) throw new Error('Missing default Evaluation: ' + id)
+  return found
+}
+const axis = (id: string, stat: CombatStat) => {
+  const found = evaluation(id).items.find(item => item.stat === stat)
+  if (!found) throw new Error('Missing stat: ' + id + '/' + stat)
+  return found
+}
+const cases = [
+  ['vista', 'attack', 80, 4, 82, 'E2'],
+  ['vista', 'techniqueMastery', 86, 2, 87, 'E1'],
+  ['king', 'attack', 83, 4, 85, 'E2'],
+  ['king', 'techniqueMastery', 80, 2, 81, 'E2'],
+  ['jinbe', 'attack', 76, 4, 78, 'E2'],
+  ['jinbe', 'defense', 78, 4, 80, 'E1'],
+  ['katakuri', 'defense', 81, 6, 84, 'E2'],
+  ['katakuri', 'techniqueMastery', 84, 6, 87, 'E2'],
+  ['katakuri', 'combatIQ', 82, 4, 84, 'E2'],
+  ['shanks', 'attack', 94, 6, 97, 'E2'],
+  ['shanks', 'techniqueMastery', 92, 8, 96, 'E2'],
+  ['shanks', 'combatIQ', 91, 4, 93, 'E2'],
+] as const
+
+const eventCases = [
+  ['vista', 'evidence-vista-armament-akainu-574', ['attack', 'techniqueMastery']],
+  ['king', 'evidence-king-armament-1032', ['attack', 'techniqueMastery']],
+  ['jinbe', 'evidence-jinbe-whos-who-1018', ['attack', 'defense']],
+  ['katakuri', 'evidence-katakuri-future-sight-881-884', ['defense', 'techniqueMastery', 'combatIQ']],
+  ['shanks', 'evidence-shanks-kid-divine-departure-1079', ['attack', 'techniqueMastery', 'combatIQ']],
+] as const
+
+describe('v0.1.61 independent Haki Raw review: audit only, no unapproved recalibration', () => {
+  it('pins all twelve audited axes with their existing Base/Raw/Final and readiness', () => {
+    for (const [id, stat, base, raw, final, readiness] of cases) {
+      const item = axis(id, stat)
+      expect(item.baseScore).toBe(base)
+      expect(getRawHakiContributionTotal(item)).toBe(raw)
+      expect(item.score).toBe(final)
+      expect(item.readiness).toBe(readiness)
+      expect(getFinalStatScore(item, balancedV12.configuration.hakiWeight)).toBe(final)
+    }
+  })
+
+  it('preserves Evidence provenance and distinguishes a linked stat role from independent Raw proof', () => {
+    for (const [id, evidenceId, stats] of eventCases) {
+      const evidence = sampleEvidence.find(e => e.id === evidenceId)
+      expect(evidence, evidenceId).toBeDefined()
+      expect(evidence?.subjectCharacterId).toBe(id)
+      expect(evidence?.source.type).toBe('canon')
+      for (const stat of stats) {
+        const item = axis(id, stat)
+        expect(item.evidenceIds).toContain(evidenceId)
+        expect(item.hakiContributions.some(h => h.amount > 0 && h.evidenceIds.includes(evidenceId))).toBe(true)
+        expect(evidence?.statContributions.some(contribution =>
+          contribution.stat === stat && contribution.role !== 'context')).toBe(true)
+      }
+    }
+    const jinbeDef = axis('jinbe', 'defense')
+    expect(jinbeDef.hakiContributions[0].evidenceIds).toContain('evidence-jinbe-big-mom-890')
+    // Two different Haki types share a SINGLE Shanks Technique event:
+    // neither the number of types nor the shared ID guarantees two independent increments.
+    const shanksTechnique = axis('shanks', 'techniqueMastery').hakiContributions
+    expect(shanksTechnique.map(h => h.hakiType).sort()).toEqual(['conquerors', 'observation'])
+    expect(shanksTechnique.map(h => h.amount).sort((a,b) => a-b)).toEqual([4, 4])
+    expect(shanksTechnique.every(h => h.evidenceIds.includes('evidence-shanks-kid-divine-departure-1079'))).toBe(true)
+  })
+
+  it('checks comparison anchors without presuming that ordinary Armament earns exceptional Raw', () => {
+    expect(axis('marco', 'attack').baseScore).toBe(76)
+    expect(getRawHakiContributionTotal(axis('marco', 'attack'))).toBe(2)
+    expect(axis('mihawk', 'techniqueMastery').score).toBe(99)
+    expect(getRawHakiContributionTotal(axis('mihawk', 'techniqueMastery'))).toBe(0)
+    expect(axis('zoro', 'combatIQ').score).toBe(82)
+    expect(getRawHakiContributionTotal(axis('zoro', 'combatIQ'))).toBe(0)
+    expect(axis('kaido', 'defense').score).toBe(100)
+  })
+
+  it('quantifies a diagnostic Raw-off sensitivity WITHOUT proposing those Base-only values as approved scores', () => {
+    const expected = [
+      ['vista', 79 + 3/7, 79],
+      ['king', 83, 83 - 3/7],
+      ['jinbe', 79 + 4/7, 79],
+      ['katakuri', 84 + 2/7, 84 + 2/7 - 8/7],
+      ['shanks', 92 + 4/7, 92 + 4/7 - 9/7],
+    ] as const
+    for (const [id, original, hypothetical] of expected) {
+      const before = evaluation(id)
+      const unchanged = calculateBalancedCombatPower(before, balancedV12).finalScore
+      const diagnostic = {
+        ...before,
+        items: before.items.map(item => {
+          const noHaki = { ...item, hakiContributions: [] }
+          return { ...noHaki, score: getFinalStatScore(noHaki) }
+        }),
+      }
+      expect(unchanged).toBeCloseTo(original, 10)
+      expect(calculateBalancedCombatPower(diagnostic, balancedV12).finalScore)
+        .toBeCloseTo(hypothetical, 10)
+      // The original evaluation remains unchanged after making the local diagnostic copy.
+      expect(calculateBalancedCombatPower(before, balancedV12).finalScore).toBeCloseTo(original, 10)
+    }
+  })
+
+  it('retains full production data/model and direct matchup invariants', () => {
+    expect(COMBAT_STATS).toHaveLength(7)
+    expect(defaults).toHaveLength(59)
+    expect(defaults.flatMap(e => e.items)).toHaveLength(413)
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
+    expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E1')).toHaveLength(53)
+    expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E2')).toHaveLength(243)
+    expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E3')).toHaveLength(117)
+    expect(defaults.flatMap(e => e.items).reduce((v, i) => v + getRawHakiContributionTotal(i), 0)).toBe(226)
+    expect(sampleEvaluations.flatMap(e => e.items).reduce((v, i) => v + getRawHakiContributionTotal(i), 0)).toBe(244)
+    expect(balancedV12.version).toBe('1.2')
+    expect(balancedV12.configuration.hakiWeight).toBe(0.5)
+    expect(sampleMatchups).toHaveLength(15)
+    for (const e of defaults) {
+      expect(calculateBalancedCombatPower(e, balancedV12).finalScore)
+        .toBeCloseTo(e.items.reduce((v, i) => v + i.score, 0) / 7, 10)
+    }
+  })
+})
