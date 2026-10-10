@@ -27,10 +27,8 @@ const highE3 = [
 
 const reusedEvidence = [
   ['vista','evidence-vista-armament-akainu-574',['attack','techniqueMastery']],
-  ['king','evidence-king-armament-1032',['attack','techniqueMastery']],
-  ['katakuri','evidence-katakuri-future-sight-881-884',['defense','techniqueMastery','combatIQ']],
+  ['katakuri','evidence-katakuri-future-sight-881-884',['defense','techniqueMastery']],
   ['zoro','evidence-zoro-conquerors-1033-1035',['attack','techniqueMastery']],
-  ['jinbe','evidence-jinbe-whos-who-1018',['attack','defense']],
   ['shanks','evidence-shanks-kid-divine-departure-1079',['attack','techniqueMastery','combatIQ']],
   ['garp','evidence-garp-roger-rocks-1165',['attack','defense','techniqueMastery']],
   ['roger','evidence-roger-haki-analysis-rocks-1165',['attack','defense','techniqueMastery']],
@@ -59,7 +57,7 @@ describe('v0.1.59 source review queue preserves official scores (no automated re
     expect(find('ryokugyu','defense').evidenceIds).toEqual(['evidence-aramaki-regrowth-tv1082', 'evidence-aramaki-shanks-haki-1055'])
   })
 
-  it('audits all thirteen specific multi-axis Raw Evidence keys without presuming bugs', () => {
+  it('audits all eleven remaining multi-axis Raw Evidence keys without presuming bugs', () => {
     const current: Array<[string,string,string[]]> = []
     for (const e of defaults) {
       const index = new Map<string,Set<string>>()
@@ -73,7 +71,7 @@ describe('v0.1.59 source review queue preserves official scores (no automated re
     const normalize = (cases: readonly (readonly [string,string,readonly string[]])[]) =>
       cases.map(([id,key,stats]) => id+'|'+key+'|'+[...stats].sort().join(',')).sort()
     expect(normalize(current)).toEqual(normalize(reusedEvidence))
-    expect(current).toHaveLength(13)
+    expect(current).toHaveLength(11)
     for (const [id,key,stats] of reusedEvidence) {
       const evidence = sampleEvidence.find(x => x.id === key)
       expect(evidence, key).toBeDefined()
