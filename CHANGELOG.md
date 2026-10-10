@@ -1,3 +1,10 @@
+## v0.1.69 — four-character Haki Raw source/independent-effect review (NO numeric patch)
+
+- Preserve all current **nine existing Raw Haki entries** on Vista (2), Shanks (4), Katakuri (2), Jinbe (1). Link them to **five distinct observed event/effect groups**, explicitly identifying shared effects across multiple Stats vs independently measured marginal effects.
+- Source-check ONE PIECE.com anime official TV1082 (Shanks distant Conquerors vs Aramaki), TV1112 (Shanks future warning, Kid defeated with Divine Departure; **Dorry/Brogy ship destruction**), TV857 (Katakuri future sight/morph, composure conditional), TV1040 (Jinbe Who's-Who); retain canon-vs-official-anime-vs-inference separation.
+- Fix confirmed descriptive completeness issue: `evidence-jinbe-whos-who-1018.uncertainty` was blank and now explicitly flags Base Defense vs exceptional Raw uncertainty without altering fact, IDs, Raw or score.
+- Add `v0169HakiIndependentEffectAudit.ts`, four guard tests, and the source-ledger/decision-gate doc. **No** Base/Raw/Final, overall, derived ranking, Matchup verdict, model, character data, UI/UX, save/restore or PROJECT_SPEC change; no speculative Raw-off downsides or automatic Vista Technique90.
+
 ## v0.1.68 — Vista/Mihawk Ch.561–562 source corroboration and nonnumeric context correction
 
 - Multi-source crosscheck: contemporary Ch.561 Japanese dialogue reports **Marco assigned Vista to support Luffy**, partial manga panel third-party repost visually shows the crossing of swords, contemporary Ch.562 dialogue reports **Mihawk first proposed deferral and Vista agreed**, and official TV471 depicts the Pacifista encirclement war context. All derivative sources are labeled, and full official manga pages remain uninspected.

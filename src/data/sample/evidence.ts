@@ -877,7 +877,7 @@ export const sampleEvidence: Evidence[] = [
       { stat: 'defense', role: 'primary', note: '무장색 방어로 상대의 근접 공격을 견디고 역으로 손상을 준 근거다.' },
       { stat: 'techniqueMastery', role: 'secondary', note: '패기와 어인공수도를 안정적으로 실전에 결합한 근거다.' },
     ],
-    interpretation: '징베의 안정적인 공방 완성도를 보여주지만 King급 특수 방어와 동급으로 확대하지 않는다.', evaluationImpact: 'v0.1.62 검수: 후즈후 상대 어인공수도 결정타는 Attack Base에 남기고 독립 공격 Raw는 배제한다. 무장색 경화의 방어 효과는 다른 빅맘전 근거와 함께 Defense Raw를 조건부로 유지한다. Technique는 Base 평가에 연결한다.', uncertainty: '',
+    interpretation: '징베의 안정적인 공방 완성도를 보여주지만 King급 특수 방어와 동급으로 확대하지 않는다.', evaluationImpact: 'v0.1.62 검수: 후즈후 상대 어인공수도 결정타는 Attack Base에 남기고 독립 공격 Raw는 배제한다. 무장색 경화의 방어 효과는 다른 빅맘전 근거와 함께 Defense Raw를 조건부로 유지한다. Technique는 Base 평가에 연결한다.', uncertainty: '후즈후의 공격을 무장색 경화로 막고 역으로 상대 손가락을 손상시킨 방어 성과가 있으나, 어인공수도의 최종 결정타와는 별개 효과다. 경화의 통상 방어 성과가 Defense Base78에 이미 반영된 범위를 넘어 예외적 Raw4로 얼마만큼 독립 가산되는지는 직접 분리 검증되지 않았다.',
   },
   {
     id: 'evidence-jinbe-ace-five-days-552', battleId: 'pre-timeskip-jinbe-ace', subjectCharacterId: 'jinbe',
