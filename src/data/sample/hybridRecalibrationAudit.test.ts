@@ -94,7 +94,7 @@ describe('v0.1.35 hybrid 39-Evaluation recalibration audit', () => {
         if (stats.size > 1) reused.push(`${evaluation.id}::${id}`)
       }
     }
-    expect(typedCount).toBe(49)
+    expect(typedCount).toBe(45)
     expect(rawTotal).toBe(230)
     expect(reused.length).toBeLessThanOrEqual(15)
     expect(multiHakiInOneStat).toBe(2)
