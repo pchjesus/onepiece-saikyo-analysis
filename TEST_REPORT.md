@@ -1,3 +1,14 @@
+# v0.1.63 — Vista/Shanks full seven-axis upside and independent Haki review
+
+- Baseline `main@5a3730ea839326c4bf708da8e4750f170fe4bed1` (passed 236/236 tests and deployed as v0.1.62).
+- No numeric patch without source-specific Base-exclusion and owner approval. Add read-only typed audit `src/data/sample/v0163UpsideReview.ts` for 7 Vista and 7 Shanks Stat cards, plus four unresolved same-Evidence Haki events (Vista, Shanks, Katakuri, Jinbe); show qualitative evidence, constraints, comparator IDs, approval gates, never use in ranking.
+- New `src/data/sample/v0163UpsideReview.test.ts` checks exactly 14 unique axis cards, source ownership and Evaluation reference links, stat-matched peers, all seven Vista candidate pathways, genuine E3 sparsity, existing 4 overlap amounts, unchanged current baseline vectors and 59×7/62/434 readiness/Haki model/15 direct matchup invariants. No Shanks/Vista down-simulation or mock overall revision.
+- Official source cross-check: ONE PIECE.com Vista official profile, 2021 crew news and 2011 figure product (duplicate narrative, not separate feat), TV857/1040/1082/1112 and Shanks official profile. Original manga panels Ch.561–562/574/etc **not directly fully verified**; no manual mobile/desktop browser QA.
+- **CI run/test/build/Pages status: verify by PR SHA and post-merge main SHA; do not infer from source.**
+- [Evidence decision report](docs/V0_1_63_VISTA_ALL_SEVEN_STATS_SHANKS_UPSIDE_AND_HAKI_OVERLAP_2026-10-10.md).
+
+---
+
 # v0.1.62 — User-approved targeted Raw/Overall correction and multi-axis QA
 
 - Baseline: `main@75cb8e19a2a20b182f9dd634bc3715b2023fd335`. Four existing Stat Raw allocations removed due explicit Base overlap: King Attack4→0, Technique2→0, Jinbe Attack4→0, Katakuri CombatIQ4→0; **Base scores unchanged**.
