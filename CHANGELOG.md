@@ -1,3 +1,12 @@
+## v0.1.65 — Safe token-level display normalization and full-roster presentation regression
+
+- Fix observed **Supreme 알베르** in Whitebeard's `Supreme King Raw` Evidence explanation and seven other known `Supreme King` shorthand instances: resolve Supreme King's Haki/Supreme King Haki and abbreviations to Conqueror's Haki / 패왕색 before any character-alias replacement.
+- Prevent Korean `킹` substring replacement inside **버킹엄/탱킹/랭킹/스모킹**, preserve quoted official alias `「킹」`, and retain existing independent `킹은/이/을/과/에게/의/전` conversion with correct grammar.
+- Restrict Romanized name replacements to whole tokens, protecting **Kingdom/Lawrence/Kidney/Queenly**, as well as Pirate King and King of Hell. Preserve source URLs verbatim while normalizing adjacent prose.
+- Add focused unit tests for all failure/risk classes plus a new live data/UI regression suite with Whitebeard BattleTimeline and EvaluationTrace, Stussy CombatProfile and EvidenceList, plus all 60 profiles, 62 Evaluations/434 Stat records, Battle/Evidence and Wano 17 Seeds.
+- **Only presentation utility/test files and docs change; no original Canon Evidence, numeric Base/Raw/Final/Overall, ranks, Haki Model, 15 direct Matchups, UI layout, or persistence data changed.**
+- [Detailed v0.1.65 risk and regression report](docs/V0_1_65_DISPLAY_STRING_NORMALIZATION_AND_REGRESSION_2026-10-10.md). Full manga-panel inspection and real device manual QA not claimed. PR CI, merge and Pages require exact SHA verification.
+
 ## v0.1.64 — 60-character combat narrative / evidence attribution audit and targeted fixes
 
 - Review Character Master 60 narrative profiles, 62 Evaluations/434 axis explanations and Evidence/Battle owner relationships; preserve all 59 default 7-stat scores and previously approved v0.1.62 totals. Add reproducible cross-character narrative integrity tests.
