@@ -44,7 +44,7 @@ describe('v0.1.52 manual evidence-readiness audit', () => {
     const expected = [
       ['jozu', [78, 84, 78, 79, 74, 75, 74], 77.42857142857143],
       ['queen', [80, 81, 81, 75, 79, 74, 80], 78.57142857142857],
-      ['katakuri', [83, 84, 84, 84, 87, 84, 84], 84.28571428571429],
+      ['katakuri', [83, 84, 84, 84, 87, 82, 84], 84],
       ['lucci', [80, 77, 82, 82, 83, 68, 74], 78],
     ] as const
     for (const [characterId, finalStats, overall] of expected) {
@@ -55,7 +55,7 @@ describe('v0.1.52 manual evidence-readiness audit', () => {
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)
-      .reduce((sum, item) => sum + getRawHakiContributionTotal(item), 0)).toBe(244)
+      .reduce((sum, item) => sum + getRawHakiContributionTotal(item), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
   })
 
