@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations as expandedEvaluations } from './evaluations'
+import { historicalEvaluationsBeforeV0174 as expandedEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { sampleMatchups } from './matchups'
