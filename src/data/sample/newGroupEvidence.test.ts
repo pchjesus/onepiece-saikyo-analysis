@@ -3,7 +3,9 @@ import { sampleGroups } from './groups'
 import { sampleMemberships } from './memberships'
 import { sampleCharacters } from './characters'
 import { sampleBattles } from './battles'
-import { sampleEvidence } from './evidence'
+import { sampleEvidence as latestEvidence } from './evidence'
+// This v0.1.39 audit deliberately excludes new v0.1.74 scene records.
+const sampleEvidence=latestEvidence.filter(e=>!e.id.startsWith('evidence-v0174-'))
 import { historicalEvaluationsBeforeV0174 as expandedEvaluations } from './evaluations'
 import { balancedV12 } from './calculationModels'
 import { validateEvaluation } from '../../domain/evaluation/validation'
