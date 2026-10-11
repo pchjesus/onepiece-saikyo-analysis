@@ -57,7 +57,7 @@ describe('v0.1.80 patch history UI',()=>{
     const dialog=container.querySelector<HTMLElement>('[aria-labelledby="patch-history-title"][role="dialog"]')!
     const tabs=[...dialog.querySelectorAll<HTMLButtonElement>('.patch-category-tab')]
     expect(tabs).toHaveLength(5)
-    expect(tabs.map(x=>x.textContent?.trim().replace(/\\s*\\d+$/,'').trim()))
+    expect(tabs.map(x=>x.textContent?.trim().replace(/\s*\d+$/,'').trim()))
       .toEqual(['전체','스탯 조정','캐릭터·소속','UI·기능','근거·분석'])
     const choose=async(name:string)=>click(tabs.find(x=>x.textContent?.startsWith(name))??null)
     await choose('스탯 조정')
