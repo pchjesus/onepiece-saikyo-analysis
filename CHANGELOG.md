@@ -1,3 +1,12 @@
+## v0.1.72 — read-only seven-axis calibration anchor cohort (2026-10-11)
+
+- Following user choice of Roger/prime Whitebeard/prime Garp/Kaido, admiral group, Law and first commanders, establish source-reviewed **13-person calibration registry** without changing actual Evaluations or calculation model.
+- **Five frozen Overall reference snapshots**: Roger97.571, prime Whitebeard97.571, Kaido96.714, Kizaru92.143 and Katakuri84.000. An Overall reference lock does NOT imply that every axis is E1. Selected E1 individual axes are identified explicitly. Any justified subsequent change must be separately versioned rather than offset with arbitrary edits to unrelated axes.
+- **Six conditional** prime Garp97.429, Sakazuki92.429, Kuzan92.714, Law86.429, Marco83.429, King82.571. **Two deferred** Fujitora89.000, Ryokugyu87.571 due E3 and evidence context.
+- Five paired reviews: Garp Versatility91 vs Law91, Sakazuki-Kuzan duel vs +0.286 Overall Kuzan, Law Speed82 vs King83 (ROOM!=physical Speed), Marco Attack77 vs Who's Who79 (actual damage!=interception), King Defense88/Speed83 mode switching (no simultaneous maximum assumption).
+- Seven frozen high-axis anchors (Kaido Attack98/Defense100/Stamina100/Versatility96; Kizaru Speed99; Roger Technique99/CombatIQ97). Record assumptions and citations to official anime synopses; original manga page-by-page independent reading is NOT claimed.
+- Current app roster still 66 Character / 65 ranked / 84 Membership / 68 Evaluation / 476 Stat rows, Raw Haki 212/230, Balanced1.2, 15 direct Matchups. No edits to `PROJECT_SPEC.md` or live UI. Add independent regression tests and research report.
+
 ## v0.1.71 — Ace seven-axis recalibration after user evidence/peer challenge (2026-10-11)
 
 - Correct original v0.1.70 Ace draft **[84,77,82,78,85,78,85] Overall 81.286** to **[79,76,82,78,78,67,78] Overall 76.857** (balanced seven-axis mean). Only Ace's current Evaluation changes; former v0.1.70 Ace Evaluation remains a retrievable immutable rollback/peer baseline in v0170Evaluations. Ace version `evaluation-0.1.71-ace-context-recalibrated`.
