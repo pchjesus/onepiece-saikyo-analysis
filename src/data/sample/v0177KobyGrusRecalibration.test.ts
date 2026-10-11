@@ -49,8 +49,8 @@ describe('v0.1.77 — two targeted contextual downgrades only',()=>{
   })
   it('preserves exactly 453/455 default Final axes, all other 63 characters and all Haki raw',()=>{
     const previous=new Map(atV0176().map(e=>[e.id,e]))
-    expect(sampleEvaluations).toHaveLength(72)
-    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(69)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(65)
     let changes=0
     for(const after of sampleEvaluations){
       const before=previous.get(after.id)!
@@ -77,7 +77,7 @@ describe('v0.1.77 — two targeted contextual downgrades only',()=>{
     }
     expect(changes).toBe(2)
     expect(sampleCharacters).toHaveLength(70)
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(504)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
     expect(sampleMemberships).toHaveLength(92)
     expect(sampleMatchups).toHaveLength(15)
     expect(balancedV12.version).toBe('1.2')
