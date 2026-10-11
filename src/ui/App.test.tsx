@@ -39,6 +39,29 @@ afterEach(async () => {
   container.remove()
 })
 
+describe('v0.1.80 patch history UI',()=>{
+  it('opens history, displays numeric changes and reasons, closes on demand',async()=>{
+    const button=container.querySelector<HTMLButtonElement>('.patch-history-trigger')
+    expect(button?.textContent).toContain('v0.1.80')
+    await click(button)
+    const dialog=container.querySelector('[role="dialog"][aria-labelledby="patch-history-title"]')
+    expect(dialog?.textContent).toContain('퀸 범용성 조정')
+    expect(dialog?.textContent).toContain('80 →')
+    expect(dialog?.textContent).toContain('이유·근거')
+    expect(dialog?.querySelectorAll('a[href^="https://one-piece.com"]')?.length).toBeGreaterThan(0)
+    await click(container.querySelector('.patch-close'))
+    expect(container.querySelector('#patch-history-title')).toBeNull()
+  })
+  it('shows two new characters in original organizations and the two additional groups',async()=>{
+    await selectGroup('해군 G-5')
+    expect(container.textContent).toContain('스모커')
+    await selectGroup('혁명군')
+    expect(container.textContent).toContain('엠포리오 이완코프')
+    await selectGroup('뉴커머 랜드')
+    expect(container.textContent).toContain('엠포리오 이완코프')
+  })
+})
+
 describe('evaluated roster UI', () => {
   it('labels 7-axis Overall as a non-predictive summary rather than an attack-vs-defense win check', () => {
     const note = container.querySelector('[data-testid="overall-interpretation-note"]')
