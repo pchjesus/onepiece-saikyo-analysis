@@ -7,7 +7,8 @@
 - **Expected invariants:** 65 default ×7 = 455 Final unchanged; Haki Raw default212/full230; character66, evaluation68 (65 default) and stat items476, Membership84, Matchup15, Balanced1.2/HakiWeight0.5, fixed anchor5 unchanged.
 - **Additions:** one Battle+Evidence for Koby TV1113, one supplementary Evidence for existing Smoothie chase TV868, versioned evaluation metadata for Koby and Smoothie only; existing other63 live Evaluations remain identical.
 - **Tests:** `v0178KobySmoothieContextAudit.test.ts` validates all 455 final values/Raw and prior snapshots, source ownership, fight linking, non-double-counting, rank, fixed anchors and Wano preexisting evidence; earlier tests amended to account for metadata-only new versions without loosening numeric preservation.
-- **CI:** Await actual GitHub PR head verification and independent post-merge main workflow & Pages; no browser-device manual smoke test claimed.
+- **PR verified code-head CI:** [GitHub Actions #38147304187](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38147304187), SHA `74f99149e9f9eb5f6dad8683179eaeb893f727b2`: **70/70 test files and 312/312 tests passed**; `tsc -b && vite build` succeeded. Two initial test runs failed because independently reconstructed immutable Evaluation snapshots were incorrectly compared by object reference rather than deep content; corrected without disabling numeric or historical verification. Documentation-only final commit requires another green PR CI.
+- **Final deployment gate:** verify a new main-merge SHA with independent successful push CI and Pages job. No browser-device manual smoke test claimed.
 
 ---
 
