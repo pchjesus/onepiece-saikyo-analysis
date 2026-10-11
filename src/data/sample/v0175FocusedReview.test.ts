@@ -71,6 +71,11 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
       } else if(e.characterId==='prince-grus'){
         expect(old!.items.map(i=>getFinalStatScore(i))).toEqual([72,77,74,71,81,78,85])
         expect(e.items.map(i=>getFinalStatScore(i))).toEqual([72,77,74,71,81,78,80])
+      } else if(e.characterId==='queen'){
+        expect(old!.items.find(i=>i.stat==='versatility')?.score).toBe(80)
+        expect(e.items.find(i=>i.stat==='versatility')?.score).toBe(82)
+        expect(e.items.filter(i=>i.stat!=='versatility').map(i=>i.score))
+          .toEqual(old!.items.filter(i=>i.stat!=='versatility').map(i=>i.score))
       } else expect(e.items.map(i=>getFinalStatScore(i)),e.characterId).toEqual(old!.items.map(i=>getFinalStatScore(i)))
       expect(e.items.map(i=>getRawHakiContributionTotal(i)),e.characterId)
         .toEqual(old!.items.map(i=>getRawHakiContributionTotal(i)))
