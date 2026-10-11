@@ -83,10 +83,10 @@ describe('v0.1.62 user-approved bounded numeric audit; Shanks and Vista never do
       // integration test that imports the complete pool below.
       expect(ranked.findIndex(e => e.characterId === id) + 1).toBe(expectedPosition)
     }
-    expect(defaults).toHaveLength(59)
-    expect(defaults.flatMap(e => e.items)).toHaveLength(413)
-    expect(sampleEvaluations).toHaveLength(62)
-    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
+    expect(defaults).toHaveLength(65)
+    expect(defaults.flatMap(e => e.items)).toHaveLength(455)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(476)
     expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E1')).toHaveLength(53)
     expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E2')).toHaveLength(243)
     expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E3')).toHaveLength(117)
