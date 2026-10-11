@@ -1,9 +1,12 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from './evaluations'
+import { sampleEvaluations as expandedEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleMatchups } from './matchups'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { getCombatPower } from '../../application/getCombatPower'
+
+// Historical 59-person calibration stays stable; v0.1.70 is checked in a separate new-cohort suite.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 const defaults = sampleEvaluations.filter((evaluation) => evaluation.isDefault !== false)
 const getStat = (id: string, stat: string) => defaults.find((evaluation) => evaluation.characterId === id)
@@ -26,9 +29,9 @@ describe('v0.1.51 readiness metadata and unresolved-evidence diagnostic', () => 
   })
 
   it('retains missing-readiness uncertainty rather than silently setting all unclassified axes to E3', () => {
-    expect(defaults).toHaveLength(65)
+    expect(defaults).toHaveLength(59)
     const all = defaults.flatMap((evaluation) => evaluation.items)
-    expect(all).toHaveLength(455)
+    expect(all).toHaveLength(413)
     const counts = { E1: 0, E2: 0, E3: 0, missing: 0 }
     for (const item of all) {
       if (item.readiness) counts[item.readiness] += 1
@@ -50,8 +53,8 @@ describe('v0.1.51 readiness metadata and unresolved-evidence diagnostic', () => 
   })
 
   it('preserves data size, Haki and matchup records', () => {
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(476)
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)
       .reduce((sum, item) => sum + getRawHakiContributionTotal(item), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
