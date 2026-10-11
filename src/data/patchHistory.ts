@@ -3,8 +3,8 @@ const commanderNames:Record<string,string>={queen:'퀸',cracker:'크래커',smoo
 export type PatchChange = {
   kind: 'score' | 'character' | 'group' | 'feature' | 'evidence'
   title: string
-  detail: string
-  reason: string
+  detail?: string
+  reason?: string
   characterId?: string
   stat?: string
   before?: number
@@ -20,14 +20,37 @@ export type PatchRecord = {
   report?: string
 }
 
+/** Shared release-note categories: consistent mapping for filtering and grouped rendering. */
+export const PATCH_CATEGORIES = [
+  { id:'stats', label:'스탯 조정', kinds:['score'] },
+  { id:'characters', label:'캐릭터·소속', kinds:['character','group'] },
+  { id:'features', label:'UI·기능', kinds:['feature'] },
+  { id:'analysis', label:'근거·분석', kinds:['evidence'] },
+] as const
+export type PatchCategory = (typeof PATCH_CATEGORIES)[number]['id']
+export type PatchCategoryFilter = PatchCategory | 'all'
+export function categoryForPatchChange(change:PatchChange):PatchCategory {
+  const category=PATCH_CATEGORIES.find(section=>(section.kinds as readonly string[]).includes(change.kind))
+  if(!category)throw new Error('Uncategorized patch change: '+change.kind)
+  return category.id
+}
+
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {
+    version:'v0.1.81',date:'2026-10-12',title:'패치 내역 카테고리 정리',
+    summary:'버전별 변경점을 스탯 조정, 캐릭터·소속, UI·기능, 근거·분석으로 구분했다.',
+    changes:[
+      {kind:'feature',title:'패치 내역 카테고리별 보기',detail:'전체/스탯 조정/캐릭터·소속/UI·기능/근거·분석 필터와 버전별 카테고리 묶음을 추가했다.'},
+      {kind:'feature',title:'패치 내역 버튼 항목 간소화',detail:'버튼 추가 항목에서는 설명과 근거를 생략하고 변경 이름만 표시한다.'},
+    ],
+  },
   {
     version: 'v0.1.80', date: '2026-10-12', title: '패치 내역 UI · 해군/혁명군 4명 · 사최간 공격력 감사',
     report:'https://github.com/pchjesus/onepiece-saikyo-analysis/blob/main/docs/V0_1_80_PATCH_HISTORY_AND_CHARACTER_EXPANSION_2026-10-12.md',
     summary: '스모커·타시기는 해군, 이완코프·이나즈마는 혁명군에만 추가. 사최간급 6명 대인 공격력 4요소를 검증.',
     changes: [
-      {kind:'feature',title:'패치 내역 버튼',detail:'버전·변경점·변경 이유·스탯 조정 전후·근거 링크를 확인한다.',reason:'이전 패치 내역과 평가 이유를 앱에서 바로 검증하도록 지원한다.'},
+      {kind:'feature',title:'패치 내역 버튼 추가'},
       {kind:'character',title:'스모커 추가',detail:'해군 소속으로 전투 근거와 7축 잠정 평가를 등록.',reason:'로우·베르고와의 교전 조건을 평가하기 위해.',characterId:'smoker'},
       {kind:'character',title:'타시기 추가',detail:'해군 소속으로 검술·모네 교전 근거와 7축 잠정 평가를 등록.',reason:'모네의 공격과 조로의 개입을 타시기 개인 성과와 분리한다.',characterId:'tashigi',evidence:[{label:'타시기 공식 프로필',url:'https://one-piece.com/character/tashigi/index.html'}]},
       {kind:'character',title:'이완코프 추가',detail:'혁명군 소속으로 호르몬·지원·전투 근거와 7축 잠정 평가를 등록.',reason:'호르몬 치료·강화와 강자 상대 직접 공격을 구분한다.',characterId:'ivankov'},
