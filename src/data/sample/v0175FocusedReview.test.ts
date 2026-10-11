@@ -122,6 +122,9 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
       } else if(decision.characterId==='prince-grus'){
         expect(decision.finalScore).toBe(85) // original v0.1.75 historical judgement
         expect(score('prince-grus','versatility')).toBe(80)
+      } else if(decision.characterId==='queen'){
+        expect(decision.finalScore).toBe(80) // Retrospective v0.1.75 judgement remains frozen.
+        expect(score('queen','versatility')).toBe(82) // Current v0.1.79 independent calibration.
       } else expect(score(decision.characterId,decision.axis)).toBe(decision.finalScore)
     }
   })
