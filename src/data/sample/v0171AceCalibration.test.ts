@@ -38,14 +38,19 @@ describe('v0.1.71 Ace direct-evidence correction, deterministic rollback and ori
     expect(sampleEvaluations.filter(e=>e.isDefault!==false).flatMap(e=>e.items).reduce((s,e)=>s+getRawHakiContributionTotal(e),0)).toBe(212)
   })
 
-  it('keeps every other character/variant identical to the existing 0.1.70 data source',()=>{
+  it('preserves historical v0.1.70 source and all post-Ace values except separately versioned Grus evidence metadata',()=>{
     expect(sampleEvaluations.filter(e=>e.characterId==='ace')).toHaveLength(1)
     expect(v0170Evaluations.filter(e=>e.characterId==='ace')).toHaveLength(1)
     expect(sampleEvaluations.filter(e=>e.characterId!=='ace')).toHaveLength(67)
     const priorMap=new Map(v0170Evaluations.filter(e=>e.characterId!=='ace').map(e=>[e.characterId,e]))
     for(const [id,baseline] of priorMap){
       const current=sampleEvaluations.find(e=>e.characterId===id)!
-      expect(current).toEqual(baseline)
+      if(id==='prince-grus'){
+        expect(current.evaluationDataVersion).toBe('evaluation-0.1.75-grus-evidence-expanded-no-score-change')
+        expect(current.items.map(i=>i.score)).toEqual(baseline.items.map(i=>i.score))
+        expect(current.items.map(i=>i.hakiContributions)).toEqual(baseline.items.map(i=>i.hakiContributions))
+        expect(baseline.evaluationDataVersion).toBe('evaluation-0.1.70-expansion-draft')
+      } else expect(current).toEqual(baseline)
     }
     expect(sampleEvaluations.find(e=>e.characterId==='teach')?.items.map(x=>x.score)).toEqual([95,89,95,82,93,87,93])
     expect(sampleEvaluations.find(e=>e.characterId==='vista')?.items.map(x=>x.score)).toEqual([82,79,77,80,87,77,74])
