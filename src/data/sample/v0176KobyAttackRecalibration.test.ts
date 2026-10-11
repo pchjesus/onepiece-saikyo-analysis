@@ -41,7 +41,7 @@ describe('v0.1.76 — Koby single-burst Attack review and unchanged IQ peer audi
     expect(current('koby').items[0].evidenceIds).toEqual(base.items[0].evidenceIds)
     expect(current('koby').items.slice(1)).toEqual(base.items.slice(1))
     expect(current('koby').items[0].hakiContributions).toEqual([])
-    expect(current('koby').items[0].rationale).toContain('단발')
+    expect(current('koby').items[0].rationale).toContain('반복')
     expect(()=>applyV0176KobyAttackCorrection(current('koby'))).toThrow(/source version mismatch/)
     const corrupted={...base,items:base.items.map(i=>i.stat==='attack'?{...i,baseScore:81,score:81}:i)}
     expect(()=>applyV0176KobyAttackCorrection(corrupted)).toThrow(/baseline mismatch/)
