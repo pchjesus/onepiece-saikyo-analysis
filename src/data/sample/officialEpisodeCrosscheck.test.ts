@@ -49,9 +49,9 @@ describe('v0.1.46 official episode cross-check: sources, scene context, score in
       expect(item.hakiContributions).toHaveLength(0)
       expect(getCombatPower(id).finalScore).toBeCloseTo(overall)
     }
-    expect(getUniqueCharacterList()).toHaveLength(65)
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(476)
+    expect(getUniqueCharacterList()).toHaveLength(69)
+    expect(sampleEvaluations).toHaveLength(72)
+    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(504)
     expect(sampleEvaluations.flatMap(e => e.items).reduce((n, i) => n + getRawHakiContributionTotal(i), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
   })
