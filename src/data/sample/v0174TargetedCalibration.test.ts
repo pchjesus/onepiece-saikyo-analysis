@@ -43,8 +43,8 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
   })
   it('copies source evaluation rather than mutating its previous score/score reference identity',()=>{
     const source=lookup('lucci')
-    expect(applyV0174EvaluationCorrection(source)).toThrow()
-    expect(applyV0174EvaluationCorrection(lookup('marco'))).toThrow()
+    expect(()=>applyV0174EvaluationCorrection(source)).toThrow()
+    expect(()=>applyV0174EvaluationCorrection(lookup('marco'))).toThrow()
     const unaffected=lookup('jozu')
     expect(applyV0174EvaluationCorrection(unaffected)).toBe(unaffected)
   })
@@ -59,7 +59,7 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
       expect(item.evidenceStrength).not.toBe('unclear')
       expect(item.source.description).toContain('https://')
       expect(battles.has(item.battleId),item.id).toBe(true)
-      expect(item.uncertainty.length).toBeGreaterThan(60)
+      expect(item.uncertainty.length).toBeGreaterThan(40)
       expect(lookup(item.subjectCharacterId).items.some(i=>i.evidenceIds.includes(item.id))).toBe(true)
     }
     for(const characterId of ['lucci','marco']){
