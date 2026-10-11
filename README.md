@@ -1,7 +1,7 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.1.80** (스무디·크래커·퀸 Attack/Technique/Versatility 9축 재검증, 퀸 Versatility80→82/Overall78.571→78.857 보정; 크래커 공식 TV799/805·퀸 TV1005/1061 근거 확장; 패기 Raw·5개 고정축·15개 매치업 보존) (npm package 버전은 **0.1.34** 유지)  
-평가 데이터: **66 Character master pool · 65 evaluated unique Character · 84 Membership · 68 Evaluation · 476 Stat**  
+현재 구현 패치: **v0.1.80** (상단 패치 내역 버튼/버전별 변경 사유·근거 표시, 스모커·타시기=해군/이완코프·이나즈마=혁명군 4명 추가, 사최간급 6명 대인 Attack의 최대출력·유효타·지속화력·상성 감사; 기존 65명 Attack 및 7축 점수 불변) (npm package 버전은 **0.1.34** 유지)  
+평가 데이터: **70 Character master pool · 69 evaluated unique Character · 88 Membership · 72 Evaluation · 504 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
 - [v0.1.26 27인 재보정 보고서](docs/RECALIBRATION_0_1_26_DRAFT.md)
