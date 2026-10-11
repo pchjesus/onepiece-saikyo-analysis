@@ -1,3 +1,4 @@
+import { v0180Evidence } from './v0180CharacterExpansion'
 import { wanoEvidence } from './wanoExpansion'
 import { v0170Evidence } from './v0170GroupAceExpansion'
 import { v0171AceEvidence } from './v0171AceCalibration'
@@ -2812,4 +2813,5 @@ export const sampleEvidence: Evidence[] = [
   v0178KobyCaptivesEvidence,
   v0178SmoothieEvasionEvidence,
   ...v0179OfficialEvidence,
+  ...v0180Evidence,
 ]
