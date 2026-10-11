@@ -1,6 +1,6 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.1.75** (코비·그루스·도플라밍고 등 12인 동축 후속 심사 및 그루스 TV1114 점토 인형 Evidence 보완; 전 65명 점수·패기 Raw·매치업·고정 기준점 불변) (npm package 버전은 **0.1.34** 유지)  
+현재 구현 패치: **v0.1.76** (코비 단발 실직권골 파괴력과 반복 대인 화력 구분: Attack82→77, Overall75.714→75.000; 나머지 64인·Haki Raw·기준점·매치업 불변; IQ·그루스·후속 집단 근거 재감사) (npm package 버전은 **0.1.34** 유지)  
 평가 데이터: **66 Character master pool · 65 evaluated unique Character · 84 Membership · 68 Evaluation · 476 Stat**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
@@ -16,6 +16,7 @@
 - [v0.1.37 검토용 — 산먹깨비·한글 용어·패기 수치 승인안](docs/V0_1_37_KOREAN_TERMS_AND_HYBRID_APPROVAL_2026-10-09.md)
 - [신규 2집단 사전 Evidence 조사 — 혁명군·CP0](docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md)
 - [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
+- [v0.1.76 코비 실직권골 단발 화력 재평가(Attack82→77) 및 IQ·그루스·토비롯포 등 후속 근거 감사](docs/V0_1_76_KOBY_SINGLE_BURST_ATTACK_AND_IQ_COHORT_REVIEW_2026-10-11.md)
 - [v0.1.75 집중 동축 재평가·그루스 점토 인형 전장 통제 Evidence 추가(수치 불변)](docs/V0_1_75_FOCUSED_COHORT_REVIEW_AND_GRUS_EVIDENCE_2026-10-11.md)
 - [v0.1.74 루치·마르코 2축 근거형 재산정 및 도플라밍고/코비/징베 등 미수정 비교 보고서](docs/V0_1_74_LUCCI_MARCO_TARGETED_RECALIBRATION_AND_PEER_REVIEW_2026-10-11.md)
 - [v0.1.73 65명 7축 Final 전수 감사·122쌍 간극·38개 비교 심사 및 65명 전체 점수표](docs/V0_1_73_ALL_65_SEVEN_AXIS_GAP_AUDIT_2026-10-11.md)
