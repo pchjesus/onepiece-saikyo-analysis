@@ -34,10 +34,10 @@ describe('v0.1.55 five-character canon-readiness review', () => {
       }
     }
     expect(new Set(examined).size).toBe(31)
-    expect(defaults).toHaveLength(59)
+    expect(defaults).toHaveLength(65)
     const counts = { E1: 0, E2: 0, E3: 0, unset: 0 }
     const all = defaults.flatMap((evaluation) => evaluation.items)
-    expect(all).toHaveLength(413)
+    expect(all).toHaveLength(455)
     for (const stat of all) {
       if (stat.readiness) counts[stat.readiness]++
       else counts.unset++
@@ -86,8 +86,8 @@ describe('v0.1.55 five-character canon-readiness review', () => {
       const expected = stats.reduce((sum, stat) => sum + stat, 0) / 7
       expect(getCombatPower(id).finalScore, id).toBeCloseTo(expected, 9)
     }
-    expect(sampleEvaluations).toHaveLength(62)
-    expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(476)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)
       .reduce((sum, stat) => sum + getRawHakiContributionTotal(stat), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
