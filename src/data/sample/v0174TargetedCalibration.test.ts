@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { sampleCharacters } from './characters'
-import { sampleEvaluations } from './evaluations'
+import { sampleEvaluations, historicalEvaluationsBeforeV0174 } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { sampleMemberships } from './memberships'
@@ -48,6 +48,30 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
     const unaffected=lookup('jozu')
     expect(applyV0174EvaluationCorrection(unaffected)).toBe(unaffected)
   })
+  it('proves exact conservation for all 66 unrelated and historic Evaluation records and other 12 axes',()=>{
+    expect(historicalEvaluationsBeforeV0174).toHaveLength(68)
+    expect(sampleEvaluations).toHaveLength(68)
+    const beforeById=new Map(historicalEvaluationsBeforeV0174.map(e=>[e.id,e]))
+    const changedIds=new Set(['lucci','marco'])
+    for(const after of sampleEvaluations){
+      const before=beforeById.get(after.id)
+      expect(before,after.id).toBeDefined()
+      if(!changedIds.has(after.characterId)){
+        expect(after,after.id).toBe(before)
+        expect(after).toEqual(before)
+        continue
+      }
+      expect(before?.evaluationDataVersion,after.id).not.toBe(after.evaluationDataVersion)
+      const changedAxis=after.characterId==='lucci'?'combatIQ':'attack'
+      for(const item of after.items){
+        const previous=before?.items.find(x=>x.stat===item.stat)
+        if(item.stat!==changedAxis)expect(item,after.characterId+':'+item.stat).toEqual(previous)
+        else expect(previous?.score,after.characterId).not.toBe(item.score)
+      }
+    }
+    expect(sampleEvaluations.filter(x=>!changedIds.has(x.characterId))).toHaveLength(66)
+  })
+
   it('uses only owned supplementary Evidence with already-existing Battle references and correct ties',()=>{
     expect(v0174Evidence).toHaveLength(3)
     const ids=new Set(sampleEvidence.map(e=>e.id))
