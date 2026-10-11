@@ -585,9 +585,9 @@ const eventBattleId = (s: typeof v0170Seeds[number], e: typeof v0170Seeds[number
 export const v0170Battles: Battle[] = v0170Seeds.flatMap((s,idx)=>s.events.map((e,i)=>({
   id:eventBattleId(s,e),title:`${s.name} — ${e.title}`,
   chronologyOrder:500+idx*10+i,combatStructure:e.structure as Battle['combatStructure'],
-  combatPurpose:e.purpose,combatIntent:'unknown',environment:s.era,
+  combatPurpose:e.purpose,combatIntent:'unknown' as const,environment:s.era,
   restrictions:e.context,externalFactors:e.uncertainty,
-  result:['loss','teach','defeat'].includes(e.key)?'defeat':['impact','clay'].includes(e.key)?'interrupted':'unknown',
+  result:(['loss','teach','defeat'].includes(e.key)?'defeat':['impact','clay'].includes(e.key)?'interrupted':'unknown') as Battle['result'],
   participantIds:[],
 }))).filter((b,i,all)=>b.id!=='banaro-teach-ace' && all.findIndex(other=>other.id===b.id)===i)
 export const v0170Evidence: Evidence[] = v0170Seeds.flatMap(s=>s.events.map(e=>({
