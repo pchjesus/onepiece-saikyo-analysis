@@ -46,7 +46,7 @@ describe('v0.1.71 Ace direct-evidence correction, deterministic rollback and ori
     for(const [id,baseline] of priorMap){
       const current=sampleEvaluations.find(e=>e.characterId===id)!
       if(id==='koby'){
-        expect(current.evaluationDataVersion).toBe('evaluation-0.1.77-koby-combat-iq-context-calibrated')
+        expect(current.evaluationDataVersion).toBe('evaluation-0.1.78-koby-hachinosu-risk-context-evidence-only')
         expect(current.items.map(i=>i.score)).toEqual([77,73,77,78,77,72,67])
         expect(baseline.items.map(i=>i.score)).toEqual([82,73,77,78,77,76,67])
         expect(current.items.filter(i=>!['attack','combatIQ'].includes(i.stat))).toEqual(baseline.items.filter(i=>!['attack','combatIQ'].includes(i.stat)))
