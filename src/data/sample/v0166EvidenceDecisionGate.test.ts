@@ -131,11 +131,11 @@ describe('v0.1.66 seven-axis Vista/Shanks evidence and user-approval gate', () =
   })
 
   it('preserves evaluation/model/matchup/roster baselines and the v0.1.65 presentation-only separation', () => {
-    expect(sampleCharacters).toHaveLength(60)
-    expect(defaults).toHaveLength(59)
-    expect(sampleEvaluations).toHaveLength(62)
-    expect(defaults.flatMap(e => e.items)).toHaveLength(413)
-    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
+    expect(sampleCharacters).toHaveLength(66)
+    expect(defaults).toHaveLength(65)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(defaults.flatMap(e => e.items)).toHaveLength(455)
+    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(476)
     expect(defaults.flatMap(e => e.items).reduce((sum, i) => sum + getRawHakiContributionTotal(i), 0)).toBe(212)
     expect(sampleEvaluations.flatMap(e => e.items).reduce((sum, i) => sum + getRawHakiContributionTotal(i), 0)).toBe(230)
     expect(balancedV12.version).toBe('1.2')
