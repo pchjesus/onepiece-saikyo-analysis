@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import { historicalEvaluationsBeforeV0174 } from './evaluations'
-import { sampleCharacters } from './characters'
-import { sampleEvidence } from './evidence'
-import { sampleBattles } from './battles'
-import { sampleMemberships } from './memberships'
+import { legacyCharacters as sampleCharacters } from './v0180LegacyCohort'
+import { legacyEvidence as sampleEvidence } from './v0180LegacyCohort'
+import { legacyBattles as sampleBattles } from './v0180LegacyCohort'
+import { legacyMemberships as sampleMemberships } from './v0180LegacyCohort'
 import { sampleMatchups } from './matchups'
 import { balancedV12 } from './calculationModels'
 import { calibrationAnchorsV0172 } from './v0172AnchorBaseline'
@@ -14,7 +14,7 @@ import { v0177Corrections, v0177RosterFollowup, applyV0177KobyGrusRecalibration 
 import { getFinalStatScore, getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
 import { validateEvaluation } from '../../domain/evaluation/validation'
-import { getStatRanking } from '../../application/getStatRanking'
+import { getLegacyStatRanking as getStatRanking } from './v0180LegacyCohort'
 
 // Historical v0.1.77 snapshot; v0.1.78 live evidence metadata is tested separately.
 const sampleEvaluations=historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection)
