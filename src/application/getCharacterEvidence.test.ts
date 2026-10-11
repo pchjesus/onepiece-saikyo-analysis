@@ -4,8 +4,9 @@ import { getCharacterEvidence } from './getCharacterEvidence'
 describe('getCharacterEvidence', () => {
   it('joins Marco evidence with Battle context including limits and defensive feats', () => {
     const records = getCharacterEvidence('marco')
-    expect(records).toHaveLength(12)
+    expect(records).toHaveLength(13)
     expect(records.map((record) => record.evidence.id)).toContain('evidence-marco-armament-akainu-574')
+    expect(records.map((record) => record.evidence.id)).toContain('evidence-v0174-marco-phoenix-brand-queen-1006')
     expect(records.map((record) => record.evidence.id)).toContain('evidence-marco-defense-kaido-1043')
     expect(records.map((record) => record.evidence.id)).toContain('evidence-marco-garp-567')
     expect(records.find((record) => record.evidence.id === 'evidence-marco-defense-kaido-1043')?.battle?.id).toBe('onigashima-marco-boro-breath')
