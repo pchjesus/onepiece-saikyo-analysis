@@ -132,6 +132,25 @@ export const v0173ManualCases:readonly GapReviewCase[] = [
   {first:'burgess',second:'van-augur',axes:['attack','versatility','stamina'],priority:'medium',kind:'evidence-deficit',
    reason:'바제스74.143(5 E3)와 반 오거74.571의 근접: 힘힘 열매와 워프워프/저격의 7축 정보량·역할 비교',
    contextCaution:'워프 지원·순간 이동을 개인 Speed 또는 사격 탄속으로 모두 합산 금지',sourceRefs:['evaluation-burgess','evaluation-van-augur'],recommendation:'source-audit-first'},
+
+  {first:'crocodile',second:'lucci',axes:['combatIQ','techniqueMastery','defense'],priority:'high',kind:'mechanism-overlap',
+   reason:'크로커다일79.000·루치78.000으로 1점 차이이나 Combat IQ86 vs68로 18점 간극. 작전 지휘·계획을 전투 중 판단과 혼동하거나 루치 성향에 과도한 벌점을 줬는지 검증',
+   contextCaution:'알라바스타 시점/크로스길드 현재 배경을 동일 인물 최신 정면전 1개로 섞지 말 것',sourceRefs:['evaluation-crocodile','evaluation-lucci'],recommendation:'source-audit-first'},
+  {first:'stussy',second:'lucci',axes:['combatIQ','techniqueMastery'],priority:'high',kind:'direct-fight-context',
+   reason:'스튜시 IQ85 vs 루치 IQ68(17점 차이); 스튜시의 기습·정보 우위 성과와 루치의 반응 실패를 일반적 동조건 전술 지능으로 확대했는지 검증',
+   contextCaution:'잠입과 기습/수면 제압은 두 사람이 준비된 정면전의 전술 판단력을 직접 비교하지 못함',sourceRefs:['evaluation-stussy','evaluation-lucci'],recommendation:'source-audit-first'},
+  {first:'koby',second:'marco',axes:['attack','stamina','techniqueMastery'],priority:'high',kind:'evidence-deficit',
+   reason:'코비 Attack82 vs 마르코77(+5); 실직권골 대형 지형 파괴 한 번과 마르코의 반복 강자전 대인 피해량을 분리해 같은 공격력 척도로 다시 대조',
+   contextCaution:'코비의 거대 팔 격파는 가프 선행 타격·다른 인원의 군함 구출 지원 뒤의 복합 상황',sourceRefs:['evaluation-v0170-koby','evaluation-marco'],recommendation:'source-audit-first'},
+  {first:'koby',second:'prince-grus',axes:['attack','versatility','speed'],priority:'medium',kind:'mechanism-overlap',
+   reason:'코비 Overall75.714 vs 그루스76.857인데 Attack82 vs72, Versatility67 vs85(18점 차이). 전투 역할 분화가 큰 것은 가능하지만 그루스 85의 근거 밀도를 검토',
+   contextCaution:'코비의 실직권골과 그루스의 낙석 보호는 같은 하치노스 구조 임무의 다른 역할',sourceRefs:['evaluation-v0170-koby','evaluation-v0170-prince-grus'],recommendation:'check-scale-and-overlap'},
+  {first:'crocodile',second:'queen',axes:['attack','defense','techniqueMastery','combatIQ'],priority:'medium',kind:'era-and-state',
+   reason:'크로커다일79.000이 퀸78.571을 근소하게 앞섬. 오래된 대인전 시점과 현재 크로스길드 위상을 현재의 실제 전투 성과와 분리해 86 기술·86 IQ 확인',
+   contextCaution:'알라바스타 루피와 와노 상디는 전혀 다른 상태/시점이고 크로커다일 현재 전투 상한은 불확실',sourceRefs:['evaluation-crocodile','evaluation-queen'],recommendation:'source-audit-first'},
+  {first:'hancock',second:'doflamingo',axes:['attack','defense','versatility'],priority:'medium',kind:'evidence-deficit',
+   reason:'핸콕78.714과 도플라밍고79.571은 0.857점 차이; 매료/석화 상성과 실 절단·각성 운용의 대인 실효 범위는 상대 조건 의존',
+   contextCaution:'핸콕의 석화는 매료 조건/상대 능력 대응과 연결되어 보편적 일대일 승률로 자동 전환 불가',sourceRefs:['evaluation-hancock','evaluation-doflamingo'],recommendation:'check-scale-and-overlap'},
 ] as const
 
 export function buildV0173FullRosterGapAudit(){
