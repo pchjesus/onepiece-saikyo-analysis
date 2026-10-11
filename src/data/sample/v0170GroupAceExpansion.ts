@@ -391,7 +391,7 @@ export const v0170Seeds = [
     ],
     "notes": [
       "퀴로스에게 검과 다양한 무기로 공세를 이어갔지만 최종 제압됐고 치명적인 독립 고점 성과는 부족하다.",
-      "철제 우산 방어와 전장 물체 활용은 확인되지만 퀴로스가 이를 절단하고 돌파했다.",
+      "검술·펄럭펄럭 열매의 무기 변형과 흩뿌리는 철구 공격은 확인되지만 퀴로스에게 최종 돌파당했다. 공격 규모와 본체 방어는 분리한다.",
       "퀴로스와 공방을 이어가지만 높은 피로 누적 상태에서 장기 전과 반복 회복한 표본은 제한된다.",
       "근거리 무기 교환은 가능하지만 매우 빠른 적을 상대로 한 우월한 반응 표본은 적다.",
       "검과 열매를 활용한 무기·방어 변형의 숙련을 인정하되 다른 최고 검사와 동일시하지 않는다.",
@@ -401,12 +401,12 @@ export const v0170Seeds = [
     "events": [
       {
         "key": "kyros",
-        "ep": "717",
-        "url": "https://one-piece.com/anime/o2827/index.html",
-        "title": "퀴로스와의 무기 공방",
+        "ep": "716",
+        "url": "https://one-piece.com/anime/o2825/index.html",
+        "title": "퀴로스와의 무기·철구 공격 공방",
         "structure": "1v1",
         "purpose": "퀴로스 공격을 막고 기존 정권을 지키려는 시도",
-        "fact": "디아만테는 퀴로스와 검격을 교환했지만 퀴로스는 철제 우산을 절단했고 디아만테는 반격 기회를 노렸다.",
+        "fact": "디아만테는 퀴로스를 상대로 펄럭펄럭 열매로 얇게 만든 철구를 공중에 뿌린 뒤 원상태로 돌려 철구를 떨어뜨리고, 퀴로스는 레베카를 보호하면서 검으로 철구를 쳐냈다.",
         "roles": {
           "attack": "primary",
           "defense": "primary",
@@ -415,7 +415,7 @@ export const v0170Seeds = [
           "versatility": "secondary"
         },
         "context": "퀴로스는 반복 피격과 가족 보호라는 임무 속에서 싸웠다.",
-        "uncertainty": "우산의 손상이 디아만테 개인 신체의 내구도와 같지는 않다."
+        "uncertainty": "공식 TV716이 확인하는 것은 무기 변형·철구 견제와 보호 임무 속의 대응이다. 무기의 공격 규모를 별도 본체 타격력이나 방어력의 확정치로 만들지 않는다."
       },
       {
         "key": "loss",
@@ -453,7 +453,7 @@ export const v0170Seeds = [
     "haki": [
       "unclear",
       "unclear",
-      "unclear"
+      "confirmed"
     ],
     "profile": "https://one-piece.com/character/ace/index.html",
     "scores": [
@@ -570,12 +570,13 @@ export const v0170Characters: Character[] = v0170Seeds.map(s=>({
     }],
     haki:{characterId:s.id,capabilities:(['armament','observation','conquerors'] as const).map((type,i)=>({
       type,status:s.haki[i],
-      note:s.haki[i]==='confirmed'?'ONE PIECE.com의 기존 공식 자료 또는 명시된 TV 실전에서 확인한 패기 사용·보유. 예외적 Raw 가산은 하지 않는다.':'보유/사용의 직접 확인과 예외적 독립 성과를 혼동하지 않고 이번 평가의 Raw는 0으로 유지한다.',
+      note:s.id==='ace' && type==='conquerors' ? '어린 시절 원작 Ch.587의 블루잼 부하 기절 사건으로 패왕색 발현이 알려져 있다. 제3자 회차 요약과 TV501 장면 맥락을 교차 대조했으며 원작 전 컷 직접 확인은 미완료. 성인 전투에서 고급 패휘감 사용은 확인되지 않아 Raw0.' : s.haki[i]==='confirmed'?'확인 자료에서 보유/사용이 지지되나 패기 종류별 독립적인 예외 Raw 성과는 별도 입증하지 않는다.':'보유/사용의 직접 확인과 예외적 독립 성과를 혼동하지 않고 이번 평가의 Raw는 0으로 유지한다.',
       ...(type==='conquerors'?{infusion:{status:'not-confirmed' as const,note:'패휘감은 이번 근거에서 확인하지 못했다.'}}:{}),
     }))},
     sources:[
       {label:'ONE PIECE.com 공식 인물 프로필',reference:s.profile},
       ...s.events.map(e=>({label:`ONE PIECE.com 공식 애니 TV ${e.ep}화`,reference:e.url})),
+      ...(s.id==='ace'?[{label:'ONE PIECE 원작 Ch.587(팬 회차 상세 요약 — 1차 원문 전체 미열람)',reference:'https://onepiece.fandom.com/wiki/Chapter_587'},{label:'ONE PIECE.com 공식 TV501화(어린 시절 발현 장면의 시점)',reference:'https://one-piece.com/anime/501/index.html'}]:[]),
     ],
   },
 }))
