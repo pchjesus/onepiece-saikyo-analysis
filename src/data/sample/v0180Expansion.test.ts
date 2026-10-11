@@ -16,13 +16,17 @@ import {v0180Characters,v0180Groups,v0180Memberships,v0180Battles,v0180Evidence,
 
 describe('v0.1.80 patch history and additive roster',()=>{
   it('exposes newest-first versioned reasons and numeric source links',()=>{
-    expect(patchHistory[0].version).toBe('v0.1.80')
-    expect(patchHistory.map(p=>p.version)).toEqual(['v0.1.80','v0.1.79','v0.1.78','v0.1.77','v0.1.76','v0.1.75'])
+    expect(patchHistory[0].version).toBe('v0.1.81')
+    expect(patchHistory.map(p=>p.version)).toEqual(['v0.1.81','v0.1.80','v0.1.79','v0.1.78','v0.1.77','v0.1.76','v0.1.75'])
     const q=patchHistory.find(p=>p.version==='v0.1.79')!.changes.find(c=>c.characterId==='queen')!
     expect([q.before,q.after,q.stat]).toEqual([80,82,'versatility'])
     expect(q.reason.length).toBeGreaterThan(40)
     expect(q.evidence?.length).toBe(2)
-    expect(patchHistory.every(p=>p.changes.every(c=>c.reason&&c.detail))).toBe(true)
+    expect(patchHistory.flatMap(p=>p.changes).filter(c=>c.kind==='score')
+      .every(c=>c.before!==undefined&&c.after!==undefined&&Boolean(c.reason))).toBe(true)
+    const historyButton=patchHistory.find(p=>p.version==='v0.1.80')!.changes.find(c=>c.title==='패치 내역 버튼 추가')!
+    expect(historyButton.detail).toBeUndefined()
+    expect(historyButton.reason).toBeUndefined()
   })
   it('adds four new characters in two existing groups, with preserved historical baselines',()=>{
     expect(v0180Characters).toHaveLength(4)
