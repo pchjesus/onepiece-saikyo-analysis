@@ -552,7 +552,7 @@ export const v0170Memberships: CharacterMembership[] = [
   { characterId:'x-drake', groupId:'sword', role:'대장', status:'current' },
   { characterId:'doflamingo', groupId:'donquixote-family', role:'선장', status:'historical', period:'드레스로자 조직 활동기' },
   ...v0170Seeds.flatMap((s): CharacterMembership[] => [
-    { characterId:s.id, groupId:s.group, role:s.role, status:s.id==='ace'?'historical':s.group==='donquixote-family'?'historical':'current', period:s.era },
+    { characterId:s.id, groupId:s.group, role:s.role, ...(s.id==='ace'?{subgroup:'2번대'}:{}), status:s.id==='ace'?'historical':s.group==='donquixote-family'?'historical':'current', period:s.era },
     ...(s.group==='sword'?[{ characterId:s.id, groupId:'marines', role:s.role, status:'current' as const }]:[]),
     ...(s.id==='vergo'?[{characterId:s.id,groupId:'marines',role:'전 G-5 중장 / 도플라밍고 첩자',status:'former' as const,period:'펑크 하자드 전까지'}]:[]),
   ]),
