@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { historicalEvaluationsBeforeV0174, sampleEvaluations } from './evaluations'
+import { historicalEvaluationsBeforeV0174 } from './evaluations'
 import { sampleCharacters } from './characters'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
@@ -16,6 +16,10 @@ import { calculateBalancedCombatPower } from '../../domain/calculation/calculate
 import { validateEvaluation } from '../../domain/evaluation/validation'
 import { getStatRanking } from '../../application/getStatRanking'
 
+// Historical v0.1.77 snapshot; v0.1.78 live evidence metadata is tested separately.
+const sampleEvaluations=historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection)
+  .map(applyV0175GrusEvidenceReview).map(applyV0176KobyAttackCorrection)
+  .map(applyV0177KobyGrusRecalibration)
 const atV0176=()=>historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection)
   .map(applyV0175GrusEvidenceReview).map(applyV0176KobyAttackCorrection)
 const live=(id:string)=>{
