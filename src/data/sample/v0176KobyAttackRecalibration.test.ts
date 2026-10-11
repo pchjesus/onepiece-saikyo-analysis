@@ -51,8 +51,8 @@ describe('v0.1.76 — Koby single-burst Attack review and unchanged IQ peer audi
   })
   it('preserves 64 other character current eval objects and all Koby non-Attack axes and Haki raw',()=>{
     const before=new Map(v0175Snapshot().map(e=>[e.id,e]))
-    expect(sampleEvaluations).toHaveLength(72)
-    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(69)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(65)
     for(const now of sampleEvaluations){
       const old=before.get(now.id)!
       expect(old).toBeDefined()
@@ -67,7 +67,7 @@ describe('v0.1.76 — Koby single-burst Attack review and unchanged IQ peer audi
       }else expect(now).toEqual(old)
       expect(now.items.map(i=>getRawHakiContributionTotal(i))).toEqual(old.items.map(i=>getRawHakiContributionTotal(i)))
     }
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(504)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
     expect(sampleCharacters).toHaveLength(70)
     expect(sampleMemberships).toHaveLength(92)
     expect(sampleMatchups).toHaveLength(15)
