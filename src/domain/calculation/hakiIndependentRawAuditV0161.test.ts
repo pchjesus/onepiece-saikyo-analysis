@@ -1,11 +1,14 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from '../../data/sample/evaluations'
+import { sampleEvaluations as expandedEvaluations } from '../../data/sample/evaluations'
 import { sampleEvidence } from '../../data/sample/evidence'
 import { sampleMatchups } from '../../data/sample/matchups'
 import { balancedV12 } from '../../data/sample/calculationModels'
 import { COMBAT_STATS, type CombatStat } from '../evaluation/types'
 import { getFinalStatScore, getRawHakiContributionTotal } from '../evaluation/score'
 import { calculateBalancedCombatPower } from './calculateCombatPower'
+
+// This historic baseline audit isolates the original 62 evaluations; v0.1.70 is checked separately.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 /**
  * v0.1.61 audit: immutable diagnostics, NOT a score amendment.
@@ -104,10 +107,10 @@ describe('v0.1.61 source-trace guards reconciled to approved v0.1.62 targeted re
 
   it('retains full production data/model and direct matchup invariants', () => {
     expect(COMBAT_STATS).toHaveLength(7)
-    expect(defaults).toHaveLength(65)
-    expect(defaults.flatMap(e => e.items)).toHaveLength(455)
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(476)
+    expect(defaults).toHaveLength(59)
+    expect(defaults.flatMap(e => e.items)).toHaveLength(413)
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
     expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E1')).toHaveLength(53)
     expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E2')).toHaveLength(243)
     expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E3')).toHaveLength(117)
