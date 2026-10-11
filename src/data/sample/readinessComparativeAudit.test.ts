@@ -53,7 +53,10 @@ describe('v0.1.52 manual evidence-readiness audit', () => {
     for (const [characterId, finalStats, overall] of expected) {
       const evaluation = sampleEvaluations.find((value) => value.characterId === characterId)!
       expect(evaluation.items.map((item) => item.score), characterId).toEqual(finalStats)
-      expect(getCombatPower(characterId).finalScore).toBeCloseTo(overall, 9)
+      // Historical v0.1.52 snapshot stays at Queen78.571; live v0.1.79
+      // only adds +2/7 to her Versatility without mutating historical data.
+      const liveExpected=characterId==='queen'?552/7:overall
+      expect(getCombatPower(characterId).finalScore).toBeCloseTo(liveExpected, 9)
     }
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
