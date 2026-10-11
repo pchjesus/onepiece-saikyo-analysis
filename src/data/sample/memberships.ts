@@ -1,5 +1,6 @@
 import { wanoMemberships } from './wanoExpansion'
 import { v0170Memberships } from './v0170GroupAceExpansion'
+import { v0180Memberships } from './v0180GroupsAndCharacters'
 import type { CharacterMembership } from '../../domain/character/types'
 
 export const sampleMemberships: CharacterMembership[] = [
@@ -65,4 +66,5 @@ export const sampleMemberships: CharacterMembership[] = [
   { characterId: 'stussy', groupId: 'cp0', role: '전 요원 / 베가펑크 측 잠입자', status: 'former', period: '에그헤드 이탈 시점' },
   ...wanoMemberships,
   ...v0170Memberships,
+  ...v0180Memberships,
 ]
