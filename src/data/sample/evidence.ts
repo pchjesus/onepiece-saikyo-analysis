@@ -4,6 +4,7 @@ import { v0171AceEvidence } from './v0171AceCalibration'
 import { v0174Evidence } from './v0174TargetedCalibration'
 import { v0175GrusEvidence } from './v0175FocusedReview'
 import { v0178KobyCaptivesEvidence, v0178SmoothieEvasionEvidence } from './v0178KobySmoothieContextAudit'
+import { v0179OfficialEvidence } from './v0179CommanderAxisReview'
 import type { Evidence } from '../../domain/evidence/types'
 
 export const sampleEvidence: Evidence[] = [
@@ -2810,4 +2811,5 @@ export const sampleEvidence: Evidence[] = [
   v0175GrusEvidence,
   v0178KobyCaptivesEvidence,
   v0178SmoothieEvasionEvidence,
+  ...v0179OfficialEvidence,
 ]
