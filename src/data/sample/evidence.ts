@@ -2,6 +2,7 @@ import { wanoEvidence } from './wanoExpansion'
 import { v0170Evidence } from './v0170GroupAceExpansion'
 import { v0171AceEvidence } from './v0171AceCalibration'
 import { v0174Evidence } from './v0174TargetedCalibration'
+import { v0175GrusEvidence } from './v0175FocusedReview'
 import type { Evidence } from '../../domain/evidence/types'
 
 export const sampleEvidence: Evidence[] = [
@@ -2805,4 +2806,5 @@ export const sampleEvidence: Evidence[] = [
   ...v0170Evidence,
   ...v0171AceEvidence,
   ...v0174Evidence,
+  v0175GrusEvidence,
 ]

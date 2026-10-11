@@ -1,3 +1,12 @@
+## v0.1.75 — focused cohort review and Grus official-episode evidence expansion (2026-10-11)
+
+- **Zero numeric re-ratings after evidence review.** Reviewed Koby Attack82, Grus Versatility85, Doflamingo/Queen/Cracker, Jinbe/Who's Who, Vista/Jozu, and Lucci/Crocodile/Stussy Combat IQ against existing 7-axis scales and opponent conditions. Marco79/King83 Attack kept as comparators. No unsupported ±point adjustments.
+- **One new supplementary Battle and Evidence**: ONE PIECE.com TV1114 confirms Grus's clay-golem area denial during the SWORD/Garp rescue. Distinct from the already recorded TV1122 clay nest protecting the ship from falling debris. Grus current Versatility85 E2 and Technique81 E2 rationale/evidence links updated; historical v0.1.70 seed preserved.
+- **Full preservation**: all 65 default 455 Final scores, 5 locked Overall anchors, Balanced1.2 Haki×0.5, Raw212/230, 68 Evaluations/476 items, 66 Characters, 84 Memberships, 15 direct Matchups, all rank positions. No new Haki or scoring formulas. Readiness E1=53 E2=272 E3=130 unchanged.
+- `v0175FocusedReview.ts` provides a versioned Grus-only non-numeric evidence adapter; `v0175FocusedReview.test.ts` guards scores, rankings, baseline history, referential IDs and Raw. Direct manga panels not re-read; official anime summary is tagged supplementary.
+- Full rationale and citations: `docs/V0_1_75_FOCUSED_COHORT_REVIEW_AND_GRUS_EVIDENCE_2026-10-11.md`.
+- CI/build/Pages status to be reported from exact PR head and merge SHA; no unsupported manual-browser or first-hand manga claims.
+
 ## v0.1.74 — Lucci Combat IQ and Marco Attack source-calibrated minimal score patch (2026-10-11)
 
 - **Exactly two changed Final Stats** after v0.1.73 all-65 review: Lucci Combat IQ **68(E3)→74(E2)** (Overall 78→78.857); Marco Attack **77(E2)→79(E2)** (Overall 83.429→83.714). Marco Base76→78 and existing 2 Raw Haki contribution stays intact (0.5×2=+1).

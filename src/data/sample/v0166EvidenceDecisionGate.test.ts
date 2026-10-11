@@ -8,8 +8,10 @@ import { calculateBalancedCombatPower } from '../../domain/calculation/calculate
 import { getFinalStatScore, getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import type { Evaluation } from '../../domain/evaluation/types'
 
-// Historical 59-person calibration stays stable; v0.1.70 is checked in a separate new-cohort suite.
-const sampleEvaluations = expandedEvaluations.filter(e=>!['evaluation-0.1.70-expansion-draft','evaluation-0.1.71-ace-context-recalibrated'].includes(e.evaluationDataVersion))
+// Historical 59-person cohort is defined by character identity, NOT by mutable evaluationDataVersion.
+// v0.1.75 adds Grus evidence to the live evaluation but does not add him to this old cohort.
+const laterCohort = new Set(['koby','prince-grus','vergo','pica','diamante','ace'])
+const sampleEvaluations = expandedEvaluations.filter(e=>!laterCohort.has(e.characterId))
 
 /**
  * v0.1.66 review-only decision gate.

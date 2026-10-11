@@ -90,7 +90,7 @@ describe('v0.1.70 SWORD + Donquixote + Ace actual additive data and Teach no-sco
     for(const seed of v0170Seeds){
       const ev=evalFor(seed.id)
       expect(ev.status).toBe('draft')
-      expect(ev.evaluationDataVersion).toBe(seed.id==='ace'?'evaluation-0.1.71-ace-context-recalibrated':'evaluation-0.1.70-expansion-draft')
+      expect(ev.evaluationDataVersion).toBe(seed.id==='ace'?'evaluation-0.1.71-ace-context-recalibrated':seed.id==='prince-grus'?'evaluation-0.1.75-grus-evidence-expanded-no-score-change':'evaluation-0.1.70-expansion-draft')
       expect(ev.items.map(i=>i.score)).toEqual(seed.id==='ace'?[79,76,82,78,78,67,78]:[...seed.scores])
       expect(ev.items.map(i=>i.readiness)).toEqual([...seed.read])
       expect(ev.items.flatMap(i=>i.hakiContributions)).toHaveLength(0)

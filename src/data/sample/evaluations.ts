@@ -2,6 +2,7 @@ import { wanoEvaluations } from './wanoExpansion'
 import { v0170Evaluations } from './v0170GroupAceExpansion'
 import { v0171AceEvaluation } from './v0171AceCalibration'
 import { applyV0174EvaluationCorrection } from './v0174TargetedCalibration'
+import { applyV0175GrusEvidenceReview } from './v0175FocusedReview'
 import type { CombatStat, Evaluation, EvaluationItem, EvidenceReadiness } from '../../domain/evaluation/types'
 import type { HakiStatContribution } from '../../domain/haki/types'
 import { getFinalStatScore } from '../../domain/evaluation/score'
@@ -597,4 +598,4 @@ export const historicalEvaluationsBeforeV0174: Evaluation[] = [
 ]
 
 /** Live current evaluations: only Lucci IQ and Marco Attack changed in v0.1.74. */
-export const sampleEvaluations: Evaluation[] = historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection)
+export const sampleEvaluations: Evaluation[] = historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection).map(applyV0175GrusEvidenceReview)

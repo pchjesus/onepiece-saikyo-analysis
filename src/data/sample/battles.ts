@@ -1,6 +1,7 @@
 import { wanoBattles } from './wanoExpansion'
 import { v0170Battles } from './v0170GroupAceExpansion'
 import { v0171AceBattles } from './v0171AceCalibration'
+import { v0175GrusBattle } from './v0175FocusedReview'
 import type { Battle, BattleParticipant } from '../../domain/battle/types'
 
 export const sampleBattles: Battle[] = [
@@ -829,6 +830,7 @@ export const sampleBattles: Battle[] = [
   ...wanoBattles,
   ...v0170Battles,
   ...v0171AceBattles,
+  v0175GrusBattle,
 ]
 
 export const sampleBattleParticipants: BattleParticipant[] = [

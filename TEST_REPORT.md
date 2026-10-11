@@ -1,3 +1,15 @@
+# v0.1.75 — Grus evidence-only calibration after 14-person cohort comparison
+
+- **Baseline:** main `d5b3587e20d4485cbc88827f3699e0027d83cd02` (v0.1.74), PR #73 merge push workflow successful.
+- **Patch scope:** 1 Battle (TV1114 Hachinosu) + 1 supplementary Evidence (Grus clay-go­lem area denial); update two current Grus Evaluation rationales/evidenceIds and its evaluationDataVersion; read-only 13 axis-specific review decisions. No numeric change anywhere.
+- **Hard regression target:** 65 current ×7 Final scores and all 68 ×7 Raw allocations exactly equal post-v0.1.74; 5 frozen Overall anchors; ranks, Haki Raw representative212/all230, Balanced1.2 0.5; 66 characters, 68 Eval/476 axes, 84 Membership, 15 matchups unchanged. E1/E2/E3 remain 53/272/130. Grus 85(E2)/81(E2), Koby Attack82, Lucci IQ74, Marco Attack79 unchanged.
+- **Source tier:** official ONE PIECE.com TV1114/TV1122 synopses, new record supplementary. No direct panel-by-panel primary manga examination.
+- **Added tests:** `v0175FocusedReview.test.ts` ensures unique Battle/Evidence ids, links, support role attribution, stable old seed and stable original scores/Raw/anchors/rank.
+- **PR CI verified:** GitHub Actions [#38140974508](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38140974508) on PR head `fd4f880b3acf47a4b1e92f0fcc1a2caf8da4ac93` completed SUCCESS: **67/67 test files, 299/299 individual tests**, TypeScript `tsc -b` and `vite build` successful. Four pre-existing, version-pinned historical assertions revealed by the first CI were corrected without disabling tests.
+- **Deployment:** PR workflow deploy is intentionally skipped; require independent post-merge `main` push CI and Pages confirmation. No local desktop/mobile smoke test or first-hand manga panels claimed.
+
+---
+
 # v0.1.74 — targeted numerical recalibration after whole-roster gap audit
 
 - **Baseline:** main `e1b43259cdb7a7caf8e01aafa11cb3769ad94da8` (v0.1.73).

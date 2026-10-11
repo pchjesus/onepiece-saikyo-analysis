@@ -56,6 +56,20 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
     for(const after of sampleEvaluations){
       const before=beforeById.get(after.id)
       expect(before,after.id).toBeDefined()
+      if(after.characterId==='prince-grus'){
+        // v0.1.75: new supplementary evidence and rationale only; zero numeric/Haki change.
+        expect(before!.evaluationDataVersion).toBe('evaluation-0.1.70-expansion-draft')
+        expect(after.evaluationDataVersion).toBe('evaluation-0.1.75-grus-evidence-expanded-no-score-change')
+        for(const item of after.items){
+          const prior=before!.items.find(x=>x.stat===item.stat)!
+          expect(item.score).toBe(prior.score)
+          expect(item.baseScore).toBe(prior.baseScore)
+          expect(item.hakiContributions).toEqual(prior.hakiContributions)
+          expect(item.readiness).toBe(prior.readiness)
+          if(!['versatility','techniqueMastery'].includes(item.stat))expect(item).toBe(prior)
+        }
+        continue
+      }
       if(!changedIds.has(after.characterId)){
         expect(after,after.id).toBe(before)
         expect(after).toEqual(before)
