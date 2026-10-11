@@ -551,3 +551,52 @@ header p:last-child { color: #666; }
   .character-picker-group-label { grid-row: 3; }
   .character-picker-filters select { grid-column: 1; grid-row: 4; }
 }
+
+
+/* v0.1.80: compact changelog affordance, usable in both Stats and Matchup modes. */
+.app-header-actions { display:flex;align-items:center;gap:10px;flex-wrap:wrap }
+.app-current-version { color:#666;font-size:.75rem;font-weight:750 }
+.open-patch-history { border:1px solid #222;background:#fff;color:#222;padding:9px 15px;border-radius:11px;font-size:.84rem;font-weight:800;cursor:pointer }
+.open-patch-history:hover { background:#222;color:white }
+.open-patch-history:focus-visible,.patch-close:focus-visible,.patch-release summary:focus-visible,.patch-sources a:focus-visible,.patch-full-report:focus-visible { outline:3px solid #6366f1;outline-offset:3px }
+.patch-backdrop { position:fixed;inset:0;z-index:150;background:rgb(0 0 0 / 55%);padding:18px;display:grid;place-items:center }
+.patch-history-dialog { width:min(760px,100%);max-height:min(820px,92dvh);background:#fff;border-radius:20px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 70px rgb(0 0 0 / 26%);color:#222 }
+.patch-dialog-header { margin:0;padding:21px 24px 16px;border-bottom:1px solid #e7e7e7;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-shrink:0 }
+.patch-dialog-header h2 { margin:3px 0 7px;font-size:1.5rem }
+.patch-dialog-header p:not(.eyebrow) { font-size:.82rem;color:#666;margin:0;line-height:1.5 }
+.patch-close { font-size:1.7rem;line-height:1;border:0;background:#f2f2f0;border-radius:10px;padding:4px 12px;cursor:pointer }
+.patch-dialog-list { padding:15px 22px;overflow-y:auto;min-height:0;overscroll-behavior:contain }
+.patch-release { border:1px solid #deded9;border-radius:13px;margin-bottom:10px;overflow:hidden;background:#fff }
+.patch-release[open] { border-color:#999 }
+.patch-release > summary { list-style:none;display:flex;align-items:center;gap:10px;padding:14px;cursor:pointer }
+.patch-release > summary::-webkit-details-marker { display:none }
+.patch-version { border-radius:7px;background:#232323;color:#fff;font-size:.74rem;font-weight:800;padding:5px 8px;white-space:nowrap }
+.patch-summary-title { min-width:0;flex:1;font-size:.91rem;font-weight:750;line-height:1.35 }
+.patch-summary-title small { display:block;color:#777;font-size:.75rem;font-weight:500;margin-top:4px }
+.patch-expand { color:#666;transition:transform .15s }
+.patch-release[open] .patch-expand { transform:rotate(180deg) }
+.patch-release-body { padding:0 16px 17px }
+.patch-lead { margin:2px 0 14px;color:#555;font-size:.86rem;line-height:1.65 }
+.patch-changes { margin:0;padding:0;list-style:none;display:grid;gap:12px }
+.patch-changes li { border-top:1px solid #efefeb;padding-top:12px;min-width:0 }
+.patch-change-head { display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.9rem }
+.patch-category { font-size:.7rem;color:#555;border-radius:6px;background:#f0f0ec;padding:3px 7px;white-space:nowrap;font-weight:800 }
+.patch-category-stat { background:#e6ebff;color:#273c88 }
+.patch-score-delta { display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:9px 11px;margin-top:9px;border-radius:9px;background:#f7f7f4;font-size:.8rem }
+.patch-score-delta strong { font-size:1.1rem }
+.patch-score-delta small { color:#646464 }
+.patch-changes li > p { margin:8px 0 0;color:#444;font-size:.84rem;line-height:1.65;overflow-wrap:anywhere }
+.patch-sources { display:flex;flex-wrap:wrap;gap:5px 10px;font-size:.75rem;margin-top:10px;align-items:center }
+.patch-sources > span { color:#777 }
+.patch-sources a,.patch-full-report { color:#294d9c;text-decoration:underline;text-underline-offset:3px }
+.patch-full-report { display:inline-block;font-weight:750;margin-top:17px;font-size:.82rem }
+.patch-dialog-footer { border-top:1px solid #e8e8e3;padding:9px 24px;flex-shrink:0 }
+.patch-dialog-footer p { color:#777;font-size:.74rem;line-height:1.55;margin:0 }
+@media(max-width:700px){
+ .app-header-actions { width:100%;justify-content:space-between }
+ .patch-backdrop { padding:0;align-items:end }
+ .patch-history-dialog { width:100%;max-height:93dvh;border-radius:18px 18px 0 0 }
+ .patch-dialog-header { padding:16px 16px 12px }
+ .patch-dialog-list { padding:12px }
+ .patch-dialog-footer { padding:8px 15px max(10px,env(safe-area-inset-bottom)) }
+}
