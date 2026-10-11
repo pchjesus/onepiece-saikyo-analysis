@@ -13,7 +13,6 @@ import { v0180Characters, v0180Evaluations, v0180Evidence, v0180Battles, v0180Gr
 import { getFinalStatScore, getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { validateEvaluation } from '../../domain/evaluation/validation'
 import { validateCombatProfile } from '../../domain/character/validation'
-import { validateMemberships } from '../../domain/character/membershipValidation'
 
 describe('v0.1.80 — four character + two group expansion and patch changelog',()=>{
   it('adds exactly 4 unique character masters and 2 real populated subgroups with 8 new memberships',()=>{
