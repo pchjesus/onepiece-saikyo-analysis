@@ -52,7 +52,7 @@
 - **TV95:** 스모커와 짧은 자연계 공방으로 루피의 이동을 지원. 결착전 아님.
 - **TV325:** 티치가 어둠어둠 열매의 흡인·접촉 능력 봉쇄를 활용해 에이스를 격파. 특수 상성/지속 피격을 구분하고 에이스의 모든 상대에 대한 일반 열세로 환산하지 않는다. 티치는 이때 흔들흔들 열매를 아직 보유하지 않았다.
 - **TV483:** 에이스가 루피 대신 사카즈키의 공격을 받음. 아군 보호를 목적으로 한 희생 피격을 상시 Defense 1대1 실패로 기계적으로 취급하지 않는다.
-- **패기:** 보유 확인의 정확한 장면과 예외적 Haki 효과는 별도 검증 전까지 신규 Raw0. 확정하지 못한 capability는 일단 unclear이며 부정 확정이 아니다.
+- **패기:** 보유 확인의 정확한 장면과 예외적 Haki 효과는 별도 검증 전까지 신규 Raw0. 패왕색은 어린 시절 원작 Ch.587에서 발현한 사실을 2차 회차 요약과 TV501 시점으로 보조 확인해 **confirmed**로 표기한다. 다만 원작 전체 컷을 직접 확인하지 못했고 성인기 패왕색 검격·패휘감의 예외적 기여는 확인되지 않아 **Raw0**을 유지한다. 나머지 미확정 capability는 unclear로 남겨 미보유 확정과 구분한다.
 
 ## 3. 티치 7축 상향 가능성 정밀 검토
 
@@ -92,10 +92,12 @@
 - 디아만테: https://one-piece.com/character/diamante/index.html
 - 스모커/베르고 TV610: https://one-piece.com/anime/610/index.html
 - 베르고 결착 TV616: https://one-piece.com/anime/616/index.html
-- 디아만테 TV717: https://one-piece.com/anime/o2827/index.html
+- 디아만테 TV717: https://one-piece.com/anime/o2825/index.html
 - 피카 진격 TV718: https://one-piece.com/anime/o2829/index.html
 - 피카 격파 TV719: https://one-piece.com/anime/o2831/index.html
 - 에이스: https://one-piece.com/character/ace/index.html
+- 에이스 어린 시절 패왕색 발현(원작 Ch.587 보조 요약): https://onepiece.fandom.com/wiki/Chapter_587
+- 애니 501화 시점: https://one-piece.com/anime/501/index.html
 - 에이스/스모커 TV95: https://one-piece.com/anime/95/index.html
 - 에이스/티치 TV325: https://one-piece.com/anime/325/index.html
 - 에이스 보호 TV483: https://one-piece.com/anime/483/index.html
