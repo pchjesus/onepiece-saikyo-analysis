@@ -59,8 +59,8 @@ describe('v0.1.65 display-only normalization end-to-end regression', () => {
   })
 
   it('scans all 60 profiles, 62 evaluations, battle contexts, Evidence explanations and 17 Wano seed notes for destructive token substitutions', () => {
-    expect(sampleCharacters).toHaveLength(60)
-    expect(sampleEvaluations).toHaveLength(62)
+    expect(sampleCharacters).toHaveLength(66)
+    expect(sampleEvaluations).toHaveLength(68)
     expect(wanoSeeds).toHaveLength(17)
     const text: string[] = [
       ...sampleCharacters.flatMap(c => [
@@ -83,7 +83,7 @@ describe('v0.1.65 display-only normalization end-to-end regression', () => {
       ]),
       ...wanoSeeds.flatMap(s => [s.fact, s.context, s.style, s.trait, ...s.notes]),
     ]
-    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
+    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(476)
     expect(text.length).toBeGreaterThan(3000)
     let supremeInputs = 0
     let protectedTermInputs = 0
