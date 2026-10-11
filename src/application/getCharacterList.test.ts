@@ -6,9 +6,9 @@ describe('getCharacterList', () => {
     const unique = getUniqueCharacterList()
     const expanded = getCharacterList()
 
-    expect(unique).toHaveLength(59)
-    expect(expanded).toHaveLength(73)
-    expect(new Set(unique.map(({ character }) => character.id)).size).toBe(59)
+    expect(unique).toHaveLength(65)
+    expect(expanded).toHaveLength(84)
+    expect(new Set(unique.map(({ character }) => character.id)).size).toBe(65)
 
     expect(unique.map((item) => item.character.name).sort()).toEqual([
       '마르코', '죠즈', '비스타',
