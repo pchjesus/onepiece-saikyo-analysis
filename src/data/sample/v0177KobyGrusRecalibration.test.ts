@@ -66,9 +66,9 @@ describe('v0.1.77 — two targeted contextual downgrades only',()=>{
           expect(i.evidenceIds).toEqual(prior.evidenceIds)
           expect(i.hakiContributions).toEqual(prior.hakiContributions)
           changes++
-        } else expect(i).toBe(prior)
+        } else expect(i).toEqual(prior)
       }
-      if(!['koby','prince-grus'].includes(after.characterId))expect(after).toBe(before)
+      if(!['koby','prince-grus'].includes(after.characterId))expect(after).toEqual(before)
       if(!['koby','prince-grus'].includes(after.characterId))expect(overall(after)).toBeCloseTo(overall(before),10)
     }
     expect(changes).toBe(2)
