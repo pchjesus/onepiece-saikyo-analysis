@@ -42,8 +42,8 @@ describe('v0.1.35 Sakazuki evidence-first calibration pilot', () => {
   })
 
   it('preserves all prior scores, Haki typed Raw, rankings and source-pool coverage', () => {
-    expect(sampleEvaluations).toHaveLength(62)
-    expect(sampleEvaluations.flatMap(({ items }) => items)).toHaveLength(434)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.flatMap(({ items }) => items)).toHaveLength(476)
     expect(sakazuki.items.map(({ score }) => score)).toEqual([97, 95, 96, 86, 91, 91, 91])
     expect(calculateBalancedCombatPower(sakazuki, balancedV12).finalScore).toBeCloseTo(647 / 7, 10)
 

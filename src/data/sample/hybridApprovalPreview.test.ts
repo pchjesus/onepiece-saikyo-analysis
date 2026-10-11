@@ -12,12 +12,12 @@ describe('v0.1.37 user-approval-only score decomposition', () => {
 
   it('keeps approved A live and previews 5 remaining overlap transfers without changing production', () => {
     expect(preview.status).toBe('A-merged-B-user-approval-required')
-    expect(preview.baseline).toHaveLength(62)
+    expect(preview.baseline).toHaveLength(68)
     expect(preview.ordinary.changes).toHaveLength(0)
     expect(preview.overlapIncluded.changes).toHaveLength(5)
     expect(preview.overlapIncluded.reviewCount).toBe(9)
     expect(preview.overlapIncluded.unresolvedCount).toBe(4)
-    expect(preview.overlapIncluded.evaluations.flatMap(e => e.items)).toHaveLength(434)
+    expect(preview.overlapIncluded.evaluations.flatMap(e => e.items)).toHaveLength(476)
     const raw = (items: typeof preview.baseline) =>
       items.flatMap(e => e.items).reduce((sum, item) => sum + getRawHakiContributionTotal(item), 0)
     expect(raw(preview.baseline)).toBe(230)
@@ -54,7 +54,7 @@ describe('v0.1.37 user-approval-only score decomposition', () => {
   })
 
   it('preserves all original 39 scores and ranking inputs; preview references do not mutate original records', () => {
-    expect(preview.comparison).toHaveLength(62)
+    expect(preview.comparison).toHaveLength(68)
     for (let i = 0; i < 62; i++) {
       const old = preview.baseline[i]
       const next = preview.overlapIncluded.evaluations[i]

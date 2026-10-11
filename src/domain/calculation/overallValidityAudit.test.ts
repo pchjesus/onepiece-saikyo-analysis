@@ -1,9 +1,12 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from '../../data/sample/evaluations'
+import { sampleEvaluations as expandedEvaluations } from '../../data/sample/evaluations'
 import { calculateBalancedCombatPower } from './calculateCombatPower'
 import { balancedV12 } from '../../data/sample/calculationModels'
 import { getFinalStatScore, getRawHakiContributionTotal } from '../evaluation/score'
 import { COMBAT_STATS } from '../evaluation/types'
+
+// This historic baseline audit isolates the original 62 evaluations; v0.1.70 is checked separately.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 // This test is a *diagnostic* for the v0.1.48 data baseline.
 // Neither alternative weighting is a CalculationModel or a proposed win probability.

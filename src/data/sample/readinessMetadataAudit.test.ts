@@ -1,9 +1,12 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from './evaluations'
+import { sampleEvaluations as expandedEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleMatchups } from './matchups'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { getCombatPower } from '../../application/getCombatPower'
+
+// Historical 59-person calibration stays stable; v0.1.70 is checked in a separate new-cohort suite.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 const defaults = sampleEvaluations.filter((evaluation) => evaluation.isDefault !== false)
 const getStat = (id: string, stat: string) => defaults.find((evaluation) => evaluation.characterId === id)

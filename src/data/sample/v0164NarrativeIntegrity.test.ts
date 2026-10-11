@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { sampleCharacters } from './characters'
-import { sampleEvaluations } from './evaluations'
+import { sampleEvaluations as expandedEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { wanoSeeds } from './wanoSeeds'
@@ -11,6 +11,9 @@ import { balancedV12 } from './calculationModels'
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 
+// Historical 59-person calibration stays stable; v0.1.70 is checked in a separate new-cohort suite.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
+
 /**
  * v0.1.64 semantic regression. Source content is reviewed separately; these checks
  * detect copy/paste owner, stat and battle-context regressions but cannot replace
@@ -18,7 +21,7 @@ import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
  */
 describe('v0.1.64 character-specific combat narrative and event attribution audit', () => {
   it('tracks all 60 character descriptions and 62 seven-axis evaluations to their own subject', () => {
-    expect(sampleCharacters).toHaveLength(60)
+    expect(sampleCharacters).toHaveLength(66)
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
     const characters = new Map(sampleCharacters.map(c => [c.id, c]))

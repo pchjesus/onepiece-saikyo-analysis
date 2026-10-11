@@ -2,12 +2,15 @@ import { describe, expect, it } from 'vitest'
 import { COMBAT_STATS } from '../../domain/evaluation/types'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
-import { sampleEvaluations } from './evaluations'
+import { sampleEvaluations as expandedEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleCharacters } from './characters'
 import { sampleMatchups } from './matchups'
 import { balancedV12 } from './calculationModels'
 import { v0163UpsideAxisReviews, v0163UnresolvedHakiOverlaps } from './v0163UpsideReview'
+
+// Historical 59-person calibration stays stable; v0.1.70 is checked in a separate new-cohort suite.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 const defaults = sampleEvaluations.filter(e => e.isDefault !== false)
 const evaluated = (id: string) => {

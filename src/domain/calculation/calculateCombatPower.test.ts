@@ -120,6 +120,12 @@ describe('Balanced v1.2', () => {
       'ulti': 75.1428571429,
       'page-one': 70.1428571429,
       'x-drake': 77.2857142857,
+      koby: 75.7142857143,
+      'prince-grus': 76.8571428571,
+      vergo: 76.0000000000,
+      pica: 74.1428571429,
+      diamante: 73.0000000000,
+      ace: 81.2857142857,
     }
 
     const stateExpected: Record<string, number> = {

@@ -1,10 +1,13 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from './evaluations'
+import { sampleEvaluations as expandedEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleMatchups } from './matchups'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { getCombatPower } from '../../application/getCombatPower'
 import type { CombatStat } from '../../domain/evaluation/types'
+
+// v0.1.70 new evaluations are reviewed in their own suite; preserve this source audit's historical cohort.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 const reviewedE2: Array<[string, CombatStat]> = [
   ['vista', 'versatility'], ['jack', 'combatIQ'], ['cracker', 'combatIQ'],

@@ -1,7 +1,7 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.1.69** (비스타·샹크스·카타쿠리·징베 9개 Haki Raw의 5개 실제 사건효과 교차검수; 수치 불변) (npm package 버전은 **0.1.34** 유지)  
-평가 데이터: **60 Character master pool · 59 evaluated unique Character · 73 Membership · 62 Evaluation · 434 Stat**  
+현재 구현 패치: **v0.1.70** (SWORD·돈키호테 패밀리·에이스 6인 Evidence-first 신규 평가; 티치 7축 상향 가능성 검토, 기존 점수 불변) (npm package 버전은 **0.1.34** 유지)  
+평가 데이터: **66 Character master pool · 65 evaluated unique Character · 84 Membership · 68 Evaluation · 476 Stat**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
 - [v0.1.26 27인 재보정 보고서](docs/RECALIBRATION_0_1_26_DRAFT.md)
@@ -16,6 +16,7 @@
 - [v0.1.37 검토용 — 산먹깨비·한글 용어·패기 수치 승인안](docs/V0_1_37_KOREAN_TERMS_AND_HYBRID_APPROVAL_2026-10-09.md)
 - [신규 2집단 사전 Evidence 조사 — 혁명군·CP0](docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md)
 - [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
+- [v0.1.70 SWORD·돈키호테 패밀리·에이스 추가 / 티치 상향 재검토 보고서](docs/V0_1_70_SWORD_DONQUIXOTE_ACE_TEACH_REVIEW_2026-10-11.md)
 - [v0.1.69 4인 Haki Raw 독립효과/중복 원인 감사·징베 Evidence 불확실성 보완](docs/V0_1_69_FOUR_CHARACTER_HAKI_INDEPENDENT_EFFECT_REVIEW_2026-10-11.md)
 - [v0.1.68 비스타–미호크 원작 회차 대사 교차검증·전투 맥락 설명 정정](docs/V0_1_68_VISTA_MIHAWK_SOURCE_CORROBORATION_CONTEXT_PATCH_2026-10-11.md)
 - [v0.1.67 비스타–미호크 Ch.561–562 검술 검증·6명 동축 비교·Technique90 미적용](docs/V0_1_67_VISTA_MIHAWK_CH561_562_PRIMARY_SOURCE_AND_PEER_AUDIT_2026-10-11.md)
@@ -60,9 +61,9 @@
 
 ## 현재 평가 로스터
 
-대표 Group 기준의 59명 evaluated unique Character는 다음과 같다. Group 탭은 Membership-expanded view라 과거 소속이 있는 캐릭터가 다른 Group에도 추가로 표시될 수 있지만 Ranking / Matchup selector에는 한 번만 나타난다.
+대표 Group 기준의 65명 evaluated unique Character는 다음과 같다. Group 탭은 Membership-expanded view라 과거 소속이 있는 캐릭터가 다른 Group에도 추가로 표시될 수 있지만 Ranking / Matchup selector에는 한 번만 나타난다.
 
-- 흰수염 해적단: 마르코 / 죠즈 / 비스타 / 에드워드 뉴게이트
+- 흰수염 해적단: 마르코 / 죠즈 / 비스타 / 에드워드 뉴게이트 / 포트거스 D. 에이스(생전)
 - 백수 해적단: 알베르(통칭 킹) / 퀸 / 잭 / 카이도 / 토비롯포 6인 (X 드레이크는 현재 SWORD, 과거 백수 해적단 소속)
 - 키드 해적단: 유스타스 키드 / 킬러 (마지막으로 확인된 조직 소속)
 - 아카자야 9남자: 킨에몬 / 덴지로 / 아슈라 동자 / 카와마츠 / 키쿠노죠 / 라이조 / 이누아라시 / 네코마무시 / 쿠로즈미 칸주로(전 구성원)
@@ -76,6 +77,8 @@
 - 크로스 길드: 쥬라큘 미호크 / 크로커다일
 - 로저 해적단: 골 D. 로저 / 실버즈 레일리 / 스코퍼 가반
 - 록스 해적단: 록스 D. 지벡 (뉴게이트·카이도·링링도 과거 소속)
+- SWORD: X 드레이크(기존 평가 재사용) / 코비 / 프린스 그루스
+- 돈키호테 패밀리: 돈키호테 도플라밍고(기존 평가 재사용) / 베르고 / 피카 / 디아만테
 - 혁명군: 사보 / 몰리 / 카라스
 - CP0: 로브 루치 / 스튜시(전 요원) / 카쿠
 

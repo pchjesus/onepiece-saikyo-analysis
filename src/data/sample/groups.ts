@@ -1,4 +1,5 @@
 import { wanoGroups } from './wanoExpansion'
+import { v0170Groups } from './v0170GroupAceExpansion'
 import type { Group } from '../../domain/character/types'
 
 /**
@@ -32,4 +33,5 @@ export const sampleGroups: Group[] = [
   { id: 'skypiea', name: '하늘섬', type: 'regional' },
   { id: 'elbaf-giants', name: '엘바프 / 거인족', type: 'regional' },
   ...wanoGroups,
+  ...v0170Groups,
 ]
