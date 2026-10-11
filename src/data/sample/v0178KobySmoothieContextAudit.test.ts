@@ -95,7 +95,7 @@ describe('v0.1.78 — Hachinosu hostage probability and Smoothie opponent-evasio
             expect(item.score).toBe(earlier.score)
             expect(item.hakiContributions).toEqual(earlier.hakiContributions)
             expect(item.readiness).toBe(earlier.readiness)
-          }else expect(item).toBe(earlier)
+          }else expect(item).toEqual(earlier)
         }
       }else expect(now).toEqual(old)
     }
