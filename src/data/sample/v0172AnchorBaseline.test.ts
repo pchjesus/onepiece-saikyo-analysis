@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest'
 import { calibrationAnchorsV0172, calibrationAxisOrder, v0172AxisGuide, v0172ReviewPairs, v0172AnchorPolicy } from './v0172AnchorBaseline'
-import { sampleEvaluations } from './evaluations'
-import { sampleCharacters } from './characters'
+import { legacyEvaluations as sampleEvaluations } from './v0180LegacyCohort'
+import { legacyCharacters as sampleCharacters } from './v0180LegacyCohort'
 import { sampleMatchups } from './matchups'
-import { sampleMemberships } from './memberships'
+import { legacyMemberships as sampleMemberships } from './v0180LegacyCohort'
 import { balancedV12 } from './calculationModels'
 import { getFinalStatScore, getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
-import { getStatRanking } from '../../application/getStatRanking'
+import { getLegacyStatRanking as getStatRanking } from './v0180LegacyCohort'
 import type { CombatStat } from '../../domain/evaluation/types'
 
 const present = (id:string)=>{
