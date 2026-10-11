@@ -168,6 +168,7 @@ export const v0170Seeds = [
         "purpose": "피사로 팔 파손 뒤 낙석으로부터 군함과 인원을 보호",
         "fact": "그루스는 점토 능력으로 피사로 거대 팔의 낙석을 받아 군함을 보호했다.",
         "roles": {
+          "attack": "context",
           "defense": "primary",
           "techniqueMastery": "primary",
           "versatility": "primary",
@@ -237,6 +238,7 @@ export const v0170Seeds = [
           "defense": "primary",
           "speed": "secondary",
           "techniqueMastery": "primary",
+          "versatility": "secondary",
           "stamina": "secondary"
         },
         "context": "도플라밍고 측 잠입 사실이 드러난 상황에서 스모커가 추궁했다.",
