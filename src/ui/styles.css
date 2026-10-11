@@ -571,3 +571,27 @@ header p:last-child { color: #666; }
 .patch-change .patch-score{font-weight:700;background:#f4f4f1;display:inline-block;padding:4px 9px;border-radius:7px}
 .patch-links{display:flex;gap:10px;flex-wrap:wrap}.patch-links a,.patch-report-link{color:#185b9b;text-decoration:underline;text-underline-offset:3px;font-size:.88rem}
 @media(max-width:560px){.patch-dialog-header{padding:18px 16px}.patch-dialog-scroll{padding:16px}.patch-dialog-header h2{font-size:1.35rem}}
+
+/* v0.1.81 — stable category navigation for release notes, including narrow screens. */
+.patch-category-tabs{
+  display:flex;gap:7px;align-items:center;padding:12px 24px;
+  overflow-x:auto;overscroll-behavior-inline:contain;flex-shrink:0;
+  border-bottom:1px solid #e6e6e6;scrollbar-width:thin;
+}
+.patch-category-tab{
+  flex:0 0 auto;border:1px solid #d7d7d7;background:#fff;color:#393939;
+  border-radius:999px;padding:7px 11px;cursor:pointer;font:inherit;
+  font-size:.84rem;font-weight:650;white-space:nowrap;
+}
+.patch-category-tab small{margin-left:4px;opacity:.78;font-size:.75rem}
+.patch-category-tab[aria-pressed="true"]{background:#252525;border-color:#252525;color:#fff}
+.patch-category-tab:focus-visible{outline:3px solid #4987bb;outline-offset:2px}
+.patch-category-section{margin:14px 0 17px}
+.patch-category-heading{
+  display:flex;align-items:center;gap:7px;margin:0 0 9px;
+  font-size:.9rem;font-weight:750;line-height:1.35;color:#383838;
+}
+.patch-category-heading span{font-size:.72rem;color:#666;font-weight:550}
+.patch-category-section .patch-change{margin:7px 0}
+.patch-category-section .patch-change h5{margin:0 0 7px;font-size:1rem;font-weight:700}
+@media(max-width:560px){.patch-category-tabs{padding:10px 16px;gap:6px}.patch-category-tab{padding:7px 10px}}

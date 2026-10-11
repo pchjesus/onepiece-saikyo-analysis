@@ -42,7 +42,7 @@ afterEach(async () => {
 describe('v0.1.80 patch history UI',()=>{
   it('opens history, displays numeric changes and reasons, closes on demand',async()=>{
     const button=container.querySelector<HTMLButtonElement>('.patch-history-trigger')
-    expect(button?.textContent).toContain('v0.1.80')
+    expect(button?.textContent).toContain('v0.1.81')
     await click(button)
     const dialog=container.querySelector('[role="dialog"][aria-labelledby="patch-history-title"]')
     expect(dialog?.textContent).toContain('퀸 범용성 조정')
@@ -52,6 +52,45 @@ describe('v0.1.80 patch history UI',()=>{
     await click(container.querySelector('.patch-close'))
     expect(container.querySelector('#patch-history-title')).toBeNull()
   })
+  it('filters historical entries into four categories and keeps UI button announcement concise',async()=>{
+    await click(container.querySelector('.patch-history-trigger'))
+    const dialog=container.querySelector<HTMLElement>('[aria-labelledby="patch-history-title"][role="dialog"]')!
+    const tabs=[...dialog.querySelectorAll<HTMLButtonElement>('.patch-category-tab')]
+    expect(tabs).toHaveLength(5)
+    expect(tabs.map(x=>x.textContent?.trim().replace(/\s*\d+$/,'').trim()))
+      .toEqual(['전체','스탯 조정','캐릭터·소속','UI·기능','근거·분석'])
+    const choose=async(name:string)=>click(tabs.find(x=>x.textContent?.startsWith(name))??null)
+    await choose('스탯 조정')
+    expect(tabs[1].getAttribute('aria-pressed')).toBe('true')
+    expect(dialog.querySelectorAll('.patch-change')).toHaveLength(4)
+    expect(dialog.textContent).toContain('퀸 범용성 조정')
+    expect(dialog.textContent).toContain('80 →')
+    expect(dialog.textContent).not.toContain('타시기 추가')
+    expect([...dialog.querySelectorAll('.patch-category-section')].every(x=>x.getAttribute('aria-label')==='스탯 조정')).toBe(true)
+
+    await choose('캐릭터·소속')
+    expect(dialog.textContent).toContain('타시기 추가')
+    expect(dialog.textContent).toContain('스모커 추가')
+    expect(dialog.textContent).not.toContain('퀸 범용성 조정')
+    expect([...dialog.querySelectorAll('.patch-category-section')].every(x=>x.getAttribute('aria-label')==='캐릭터·소속')).toBe(true)
+
+    await choose('UI·기능')
+    const concise=[...dialog.querySelectorAll('.patch-change')].find(x=>x.querySelector('h5')?.textContent==='패치 내역 버튼 추가')
+    expect(concise).toBeDefined()
+    expect(concise?.querySelectorAll('p')).toHaveLength(0)
+    expect(dialog.textContent).not.toContain('이전 패치 내역과 평가 이유를 앱에서 바로 검증하도록')
+
+    await choose('근거·분석')
+    expect(dialog.textContent).toContain('퀸 Attack 검토')
+    expect(dialog.textContent).toContain('실제 유효타')
+    expect(dialog.textContent).not.toContain('스모커 추가')
+
+    await choose('전체')
+    expect(tabs[0].getAttribute('aria-pressed')).toBe('true')
+    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(7)
+    expect(dialog.querySelectorAll('.patch-category-section').length).toBeGreaterThan(7)
+  })
+
   it('shows Smoker and Tashigi in Marines and Ivankov and Inazuma in Revolutionary Army',async()=>{
     const options=[...container.querySelector<HTMLSelectElement>('#group-picker-select')!.options].map(o=>o.text)
     expect(options).not.toContain('해군 G-5')

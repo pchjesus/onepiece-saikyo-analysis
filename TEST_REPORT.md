@@ -1,3 +1,14 @@
+# v0.1.81 — categorized patch history / zero combat-model changes
+
+- Baseline: v0.1.80 stable `main@d6325491a3fdf0acea9d4e685c78bcc0f6cb928d` (72 test files, 322 tests, Pages success).
+- New `src/data/patchHistory.test.ts`: four exclusive categories for existing change types, complete numeric `score` before/after + reasons, title-only original patch-button entry, preservation of six commander Attack review entries.
+- Updated `src/ui/App.test.tsx`: UI filter controls, per-version grouped category sections, all/individual category filter transitions, title-only button entry, visible stat-score evidence, version label.
+- Updated `src/data/sample/v0180Expansion.test.ts`: historical v0.1.80 record now found by version and new latest v0.1.81 recognized; numeric score justification remains enforced while UI changes can be concise.
+- The implementation modifies only the structured release notes, release-notes dialog/styles and header version display. Character/Evaluation/Battle/Evidence/Membership/Matchup/Calculation data files unchanged; PROJECT_SPEC.md untouched.
+- **Verification status:** test/build CI and final Pages deployment are to be recorded after running against the final commit. Do not assume these are successful merely because the tests are written.
+
+---
+
 # v0.1.80 — four-character additive roster and commander Attack regression
 
 - **Before:** v0.1.79 main `f893b676169b531e6ca821f2911186c0ff620aa0`. Historical snapshots fixed at 66 Characters, 68 Evaluations, 65 defaults/455 Final, 84 Memberships.
