@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { sampleEvaluations, historicalEvaluationsBeforeV0174 } from './evaluations'
+import { sampleEvaluations as liveSampleEvaluations, historicalEvaluationsBeforeV0174 } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { sampleCharacters } from './characters'
@@ -18,6 +18,8 @@ import { calculateBalancedCombatPower } from '../../domain/calculation/calculate
 import { getStatRanking } from '../../application/getStatRanking'
 import { validateEvaluation } from '../../domain/evaluation/validation'
 
+// v0.1.79 score calibration locked to the 65-character cohort; v0.1.80 expansion audited separately.
+const sampleEvaluations=liveSampleEvaluations.filter(e=>!['smoker','tashigi','ivankov','inazuma'].includes(e.characterId))
 const oldSnapshot=()=>historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection)
   .map(applyV0175GrusEvidenceReview).map(applyV0176KobyAttackCorrection)
   .map(applyV0177KobyGrusRecalibration).map(applyV0178FocusedEvidenceReview)
@@ -63,9 +65,9 @@ describe('v0.1.79 — nine-axis Smoothie/Cracker/Queen source and scoring audit'
 
   it('preserves exactly 454/455 default Final stats, other 63 people and all Raw and non-target data',()=>{
     const before=new Map(oldSnapshot().map(e=>[e.id,e]))
-    expect(sampleEvaluations).toHaveLength(72)
-    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(69)
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(504)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(65)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
     let numericChanges=0
     let metadataChanges=0
     for(const after of sampleEvaluations){
