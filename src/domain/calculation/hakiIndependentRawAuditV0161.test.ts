@@ -8,7 +8,7 @@ import { getFinalStatScore, getRawHakiContributionTotal } from '../evaluation/sc
 import { calculateBalancedCombatPower } from './calculateCombatPower'
 
 // This historic baseline audit isolates the original 62 evaluations; v0.1.70 is checked separately.
-const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
+const sampleEvaluations = expandedEvaluations.filter(e=>!['evaluation-0.1.70-expansion-draft','evaluation-0.1.71-ace-context-recalibrated'].includes(e.evaluationDataVersion))
 
 /**
  * v0.1.61 audit: immutable diagnostics, NOT a score amendment.

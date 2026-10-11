@@ -1,3 +1,11 @@
+## v0.1.71 — Ace seven-axis recalibration after user evidence/peer challenge (2026-10-11)
+
+- Correct original v0.1.70 Ace draft **[84,77,82,78,85,78,85] Overall 81.286** to **[79,76,82,78,78,67,78] Overall 76.857** (balanced seven-axis mean). Only Ace's current Evaluation changes; former v0.1.70 Ace Evaluation remains a retrievable immutable rollback/peer baseline in v0170Evaluations. Ace version `evaluation-0.1.71-ace-context-recalibrated`.
+- Separate **Ch.573/TV482 emotional tactical return to fight Sakazuki despite Whitebeard's final withdrawal order** from Ace shielding Luffy (TV483): major Combat IQ 78→67 evidence with multiple incidents including the previously warned Teach pursuit; not a claim of globally low intelligence.
+- Link **Ace vs Jinbe five-day stalemate Ch.552** as Ace-owned supplementary Evidence using existing shared Battle `pre-timeskip-jinbe-ace`; Stamina remains **82** (not inflated from ancient-vs-current comparative scale). Attack79 vs Jack79/Vista82/Cracker75, Technique78 vs Cracker/King80, Versatility78 vs Vista/Jozu74 with explicit fire-only mechanism limitation. Speed78 remains E3 tentative.
+- Add 5 new supplementary Evidence, 3 unique new Battle scenes (retreat, Aokiji fire/ice, Marine ships); reuse existing Teach and Jinbe Battle identity. All new episode/chapter sources explicitly labeled anime/secondary; original manga panel audit not claimed.
+- Preserve **all 67 other current evaluations**, 66 Characters, 65 evaluated unique, 68 Evaluations, 476 Stat items, 84 Memberships, 15 matchups, Haki Raw212/230, Balanced1.2 HakiWeight0.5. No change to PROJECT_SPEC or UI semantics. Current 65-person ranking may reorder as a consequence of Ace's new number; old 59-person historic audits remain reproducible.
+
 ## v0.1.70 — SWORD + Donquixote Family + Ace and Teach upside audit (2026-10-11)
 
 - **Six truly new evaluated characters**: Koby, Prince Grus, Vergo, Pica, Diamante, Portgas D. Ace; **two new Groups** SWORD and Donquixote Family. Reuse existing X Drake and Doflamingo identity, including multiple temporal Memberships. Vergo also retains former covert Marine affiliation. Ace is historic Whitebeard second division captain.

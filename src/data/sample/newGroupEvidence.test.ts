@@ -15,7 +15,7 @@ import { getCharacterEvaluationTrace } from '../../application/getCharacterEvalu
 import { getCharacterBattleTimeline } from '../../application/getCharacterBattleTimeline'
 
 // v0.1.70 new evaluations are reviewed in their own suite; preserve this source audit's historical cohort.
-const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
+const sampleEvaluations = expandedEvaluations.filter(e=>!['evaluation-0.1.70-expansion-draft','evaluation-0.1.71-ace-context-recalibrated'].includes(e.evaluationDataVersion))
 
 const groups: Record<string, string[]> = {
   'revolutionary-army': ['sabo', 'morley', 'karasu'],
