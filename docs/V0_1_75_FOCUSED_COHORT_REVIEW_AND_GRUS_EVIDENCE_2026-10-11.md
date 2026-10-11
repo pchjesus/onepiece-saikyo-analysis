@@ -75,7 +75,7 @@
 - **기존 자료 보존:** `v0170Seeds` 원형과 v0.1.70 그루스 역사 Evaluation 보존. v0.1.72 고정 Overall 5명 불변; v0.1.73 전수 감사 문서 이전 당시의 정적 표 유지; v0.1.74 루치·마르코 수정 유지.
 - **점수:** 65명 × 7축 **455개 Final 전부 불변**. 전체 순위도 불변. E1=53/E2=272/E3=130, Haki Raw 현재212/전체230, Balanced1.2 ×0.5, 계산 모델 불변. 66 Characters / 68 Evaluation(과거 3) / 476 Stat / 84 Membership / 15 직접 Matchup 보존.
 - **새 근거 데이터**의 Source Type은 `supplementary`. 기존 TV1122의 그루스 낙석 완충 Evidence와 중복 아님. 새 Battle은 TV1114의 광장 접근 통제, 기존 Battle은 TV1122의 피사로 파손 후 낙석 보호. Chronology 509와 510/511 구분.
-- **검증:** `v0175FocusedReview.test.ts`는 신규 Evidence 링크·Source Type, 기존 역사 스냅샷 보존, 65인 각 7 Final/Raw 값, 5개 기준점·기존 순위/상대 점수, 계산·매치업 호환성을 자동 검증한다. 전체 CI·빌드·배포 결과는 **PR 및 merge main 실제 결과를 확인한 후** 기록해야 한다.
+- **검증:** `v0175FocusedReview.test.ts`는 신규 Evidence 링크·Source Type, 기존 역사 스냅샷 보존, 65인 각 7 Final/Raw 값, 5개 기준점·기존 순위/상대 점수, 계산·매치업 호환성을 자동 검증한다. PR head `fd4f880b3acf47a4b1e92f0fcc1a2caf8da4ac93` GitHub Actions #38140974508: **67/67 파일, 299/299 테스트 성공 및 TypeScript/Vite 빌드 성공**. 최초 CI의 과거 버전 동일성 가정 4건은 검증 유지 조건으로 수정했다. Pages 배포는 **병합 후 main** 별도 확인 대상.
 - **불확실성:** 이번 패치는 원작 Ch.1080/1081/1088 모든 컷의 직접 대조가 아니다. 일회성 공격 성과를 임의 숫자 단위 가감하지 않는다. 추가 전투 샘플 확보 전 Grus85·Koby82를 고정 기준점으로 만들지 않는다.
 
 ## 5. 다음 심사
