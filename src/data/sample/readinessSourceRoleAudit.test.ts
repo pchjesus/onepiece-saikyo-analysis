@@ -1,11 +1,14 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from './evaluations'
+import { sampleEvaluations as expandedEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { sampleMatchups } from './matchups'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { getCombatPower } from '../../application/getCombatPower'
 import type { CombatStat, EvidenceReadiness } from '../../domain/evaluation/types'
+
+// Historical 59-person calibration stays stable; v0.1.70 is checked in a separate new-cohort suite.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 const manualLabels: Record<string, Partial<Record<CombatStat, EvidenceReadiness>>> = {
   smoothie: { speed: 'E3' },
@@ -33,9 +36,9 @@ describe('v0.1.53 role-aware readiness reconciliation', () => {
       }
     }
     const states = sampleEvaluations.filter((evaluation) => evaluation.isDefault !== false)
-    expect(states).toHaveLength(65)
+    expect(states).toHaveLength(59)
     const stats = states.flatMap((evaluation) => evaluation.items)
-    expect(stats).toHaveLength(455)
+    expect(stats).toHaveLength(413)
     const count = { E1: 0, E2: 0, E3: 0, missing: 0 }
     for (const item of stats) {
       if (item.readiness) count[item.readiness]++
@@ -99,8 +102,8 @@ describe('v0.1.53 role-aware readiness reconciliation', () => {
         .map((item) => item.score), id).toEqual(final)
       expect(getCombatPower(id).finalScore, id).toBeCloseTo(overall, 9)
     }
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(476)
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)
       .reduce((sum, item) => sum + getRawHakiContributionTotal(item), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
