@@ -582,7 +582,7 @@ export const v0170Battles: Battle[] = v0170Seeds.flatMap((s,idx)=>s.events.map((
   chronologyOrder:500+idx*10+i,combatStructure:e.structure as Battle['combatStructure'],
   combatPurpose:e.purpose,combatIntent:'unknown',environment:s.era,
   restrictions:e.context,externalFactors:e.uncertainty,
-  result:e.key==='loss'||e.key==='teach'?'defeat':e.key==='impact'||e.key==='clay'||e.key==='defeat'?'interrupted':'unknown',
+  result:['loss','teach','defeat'].includes(e.key)?'defeat':['impact','clay'].includes(e.key)?'interrupted':'unknown',
   participantIds:[],
 })))
 export const v0170Evidence: Evidence[] = v0170Seeds.flatMap(s=>s.events.map(e=>({
