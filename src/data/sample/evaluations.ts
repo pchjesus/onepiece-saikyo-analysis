@@ -1,6 +1,7 @@
 import { wanoEvaluations } from './wanoExpansion'
 import { v0170Evaluations } from './v0170GroupAceExpansion'
 import { v0171AceEvaluation } from './v0171AceCalibration'
+import { applyV0174EvaluationCorrection } from './v0174TargetedCalibration'
 import type { CombatStat, Evaluation, EvaluationItem, EvidenceReadiness } from '../../domain/evaluation/types'
 import type { HakiStatContribution } from '../../domain/haki/types'
 import { getFinalStatScore } from '../../domain/evaluation/score'
@@ -592,4 +593,4 @@ export const sampleEvaluations: Evaluation[] = [
   ...wanoEvaluations,
   ...v0170Evaluations.filter(e=>e.characterId!=='ace'),
   v0171AceEvaluation,
-]
+].map(applyV0174EvaluationCorrection)
