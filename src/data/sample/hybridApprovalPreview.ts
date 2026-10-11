@@ -1,4 +1,4 @@
-import { sampleEvaluations } from './evaluations'
+import { legacyEvaluations as sampleEvaluations } from './v0180LegacyCohort'
 import { hybridRawPilotReviews } from './hybridRawPilotReviews'
 import { previewHybridRawPilot } from '../../domain/evaluation/hybridRawPilot'
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'

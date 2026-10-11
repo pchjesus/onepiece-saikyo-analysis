@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { balancedV12 } from '../../data/sample/calculationModels'
-import { sampleEvaluations } from '../../data/sample/evaluations'
+import { legacyEvaluations as sampleEvaluations } from '../../data/sample/v0180LegacyCohort'
 import { getEffectiveHakiContributionTotal, getFinalStatScore, getRawHakiContributionTotal } from '../evaluation/score'
 import { calculateBalancedCombatPower, validateEvaluation } from './calculateCombatPower'
 
