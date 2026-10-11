@@ -18,7 +18,7 @@ const lookup=(id:string)=>{
 describe('v0.1.73 all-65 all-455 axis gap audit: read-only no re-score',()=>{
   it('surveys ALL 65 default characters and 455 current Final axes, not 68 historic state evaluations',()=>{
     expect(report.rows).toHaveLength(69)
-    expect(new Set(report.rows.map(r=>r.characterId)).size).toBe(65)
+    expect(new Set(report.rows.map(r=>r.characterId)).size).toBe(69)
     expect(report.rows.every(r=>r.name.length>0)).toBe(true)
     expect(report.rows.every(r=>Object.keys(r.stats).length===7&&Object.keys(r.readiness).length===7)).toBe(true)
     expect(report.rows.flatMap(r=>Object.values(r.stats))).toHaveLength(455)
@@ -28,10 +28,10 @@ describe('v0.1.73 all-65 all-455 axis gap audit: read-only no re-score',()=>{
     expect(buildV0173FullRosterGapAudit()).toEqual(report)
   })
   it('exposes evidence gaps without making E3 a downward score adjustment',()=>{
-    expect(report.evidenceReadinessTotals).toEqual({E1:53,E2:272,E3:130})
+    expect(report.evidenceReadinessTotals).toEqual({E1:53,E2:287,E3:143})
     expect(report.perAxis.map(a=>a.axis)).toEqual([...calibrationAxisOrder])
     expect(report.perAxis.map(a=>a.e3)).toEqual([8,18,29,35,5,20,15])
-    expect(report.perAxis.reduce((s,a)=>s+a.e1+a.e2+a.e3,0)).toBe(455)
+    expect(report.perAxis.reduce((s,a)=>s+a.e1+a.e2+a.e3,0)).toBe(483)
     expect(report.rows.filter(r=>r.e3Count>=3).length).toBeGreaterThan(18)
     expect(lookup('garp').e3Count).toBe(4)
     expect(lookup('ryokugyu').e3Count).toBe(4)
