@@ -33,9 +33,9 @@ describe('v0.1.53 role-aware readiness reconciliation', () => {
       }
     }
     const states = sampleEvaluations.filter((evaluation) => evaluation.isDefault !== false)
-    expect(states).toHaveLength(59)
+    expect(states).toHaveLength(65)
     const stats = states.flatMap((evaluation) => evaluation.items)
-    expect(stats).toHaveLength(413)
+    expect(stats).toHaveLength(455)
     const count = { E1: 0, E2: 0, E3: 0, missing: 0 }
     for (const item of stats) {
       if (item.readiness) count[item.readiness]++
@@ -99,8 +99,8 @@ describe('v0.1.53 role-aware readiness reconciliation', () => {
         .map((item) => item.score), id).toEqual(final)
       expect(getCombatPower(id).finalScore, id).toBeCloseTo(overall, 9)
     }
-    expect(sampleEvaluations).toHaveLength(62)
-    expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(476)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)
       .reduce((sum, item) => sum + getRawHakiContributionTotal(item), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
