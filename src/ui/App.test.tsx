@@ -82,7 +82,7 @@ describe('evaluated roster UI', () => {
     await selectGroup('혁명군')
     expect(container.querySelector('main.detail h1')?.textContent).toBe('사보')
     expect([...container.querySelectorAll('.character-chip')].map(el => el.textContent))
-      .toEqual(['사보', '몰리', '이나즈마', '이완코브', '카라스'])
+      .toEqual(['사보', '몰리', '엠포리오 이완코브', '이나즈마', '카라스'])
     await click([...container.querySelectorAll('.character-chip')].find(el=>el.textContent==='몰리') ?? null)
     expect(container.querySelector('main.detail h1')?.textContent).toBe('몰리')
     expect(container.querySelectorAll('.readiness-badge.e3')).toHaveLength(4)
@@ -176,8 +176,8 @@ describe('evaluated roster UI', () => {
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('에드워드 뉴게이트')
     expect(rows()[0].textContent).toContain('97.571')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
-    expect(rows()[0].textContent).toContain('페이지 원')
-    expect(rows()[0].textContent).toContain('65위')
+    expect(rows()[0].textContent).toContain('타시기')
+    expect(rows()[0].textContent).toContain('69위')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
   })
@@ -393,7 +393,7 @@ describe('v0.1.80 patch history and two populated groups',()=>{
     expect(dialog?.textContent).toContain('스모커')
     expect(dialog?.textContent).toContain('이완코브')
     expect(dialog?.querySelectorAll('details.patch-release')).toHaveLength(6)
-    const v79=[...dialog!.querySelectorAll<HTMLDetailsElement>('details.patch-release')].find(x=>x.textContent?.includes('v0.1.79'))!
+    const v79=[...dialog!.querySelectorAll<HTMLDetailsElement>('details.patch-release')].find(x=>x.querySelector('.patch-version')?.textContent==='v0.1.79')!
     await click(v79.querySelector('summary'))
     expect(v79.open).toBe(true)
     expect(v79.textContent).toContain('80 → 82')
