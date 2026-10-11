@@ -60,8 +60,8 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
     const previous=historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection)
     const baselineV0175=previous.map(applyV0175GrusEvidenceReview)
     const before=new Map(baselineV0175.map(e=>[e.id,e]))
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(65)
+    expect(sampleEvaluations).toHaveLength(72)
+    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(69)
     for(const e of sampleEvaluations){
       const old=before.get(e.id)
       expect(old).toBeDefined()
@@ -80,9 +80,9 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
       expect(e.items.map(i=>getRawHakiContributionTotal(i)),e.characterId)
         .toEqual(old!.items.map(i=>getRawHakiContributionTotal(i)))
     }
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
-    expect(sampleCharacters).toHaveLength(66)
-    expect(sampleMemberships).toHaveLength(84)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(504)
+    expect(sampleCharacters).toHaveLength(70)
+    expect(sampleMemberships).toHaveLength(92)
     expect(sampleMatchups).toHaveLength(15)
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
@@ -112,7 +112,7 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
     expect(score('stussy','combatIQ')).toBe(85)
     expect(overall('lucci')).toBeCloseTo(552/7,10)
     expect(overall('marco')).toBeCloseTo(586/7,10)
-    expect(getStatRanking('overall')).toHaveLength(65)
+    expect(getStatRanking('overall')).toHaveLength(69)
     expect(v0175ReviewDecisions.every(d=>d.decision.startsWith('retain'))).toBe(true)
     for(const decision of v0175ReviewDecisions){
       if(decision.characterId==='koby'){
