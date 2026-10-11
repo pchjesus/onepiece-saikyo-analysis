@@ -1,3 +1,12 @@
+## v0.1.81 — categorized patch history and concise feature entry (2026-10-12)
+
+- Added **All / Stat adjustments / Character & group / UI & features / Evidence & analysis** filters inside the patch-history dialog. Existing release changes are consistently grouped by category within each version; the selected filter shows only relevant releases with item counts and mobile-friendly scrolling.
+- Classification comes from `PatchChange.kind` through centralized `PATCH_CATEGORIES` and `categoryForPatchChange`, not ad hoc display keyword matching. `score` maps to stats, `character/group` to roster, `feature` to UI, `evidence` to analysis.
+- The **v0.1.80 '패치 내역 버튼 추가'** release entry now displays **title only**; no redundant description or justification. Optional `detail/reason` are rendered only if present. Numeric score changes still preserve `before/after`, rationale and Evidence links.
+- Header version label is now read from the most recent structured patch record, avoiding manually mismatched version text.
+- Added data-level and interactive UI tests for every category, filter/reset flow, absence of the button-entry rationale and unchanged numeric-reason invariants. No combat data/model/group/matchup changes.
+- Full UX and rationale: `docs/V0_1_81_PATCH_HISTORY_CATEGORIES_2026-10-12.md`.
+
 ## v0.1.80 — patch history, four Marine/Revolutionary characters, six-commander Attack audit (2026-10-12)
 
 - Added site-header **패치 내역** button with accessible overlay. User-visible typed `src/data/patchHistory.ts` contains version, summary, each change, reason, score before/after where relevant, reference links and review report.
