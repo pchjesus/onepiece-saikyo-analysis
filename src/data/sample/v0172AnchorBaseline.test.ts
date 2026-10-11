@@ -28,7 +28,12 @@ describe('v0.1.72 cross-roster reference-point baseline, NO numeric modification
     expect(calibrationAnchorsV0172).toHaveLength(13)
     expect(new Set(calibrationAnchorsV0172.map(a=>a.characterId)).size).toBe(13)
     expect(calibrationAxisOrder).toEqual(['attack','defense','stamina','speed','techniqueMastery','combatIQ','versatility'])
-    const groups=Object.groupBy(calibrationAnchorsV0172,a=>a.cohort)
+    const groups={
+      legend:calibrationAnchorsV0172.filter(a=>a.cohort==='legend'),
+      admiral:calibrationAnchorsV0172.filter(a=>a.cohort==='admiral'),
+      bridge:calibrationAnchorsV0172.filter(a=>a.cohort==='bridge'),
+      'first-commander':calibrationAnchorsV0172.filter(a=>a.cohort==='first-commander'),
+    }
     expect(groups.legend?.map(a=>a.characterId)).toEqual(['roger','newgate','garp','kaido'])
     expect(groups.admiral?.map(a=>a.characterId)).toEqual(['akainu','kuzan','kizaru','fujitora','ryokugyu'])
     expect(groups.bridge?.map(a=>a.characterId)).toEqual(['law'])
