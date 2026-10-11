@@ -61,7 +61,7 @@ describe('v0.1.76 — Koby single-burst Attack review and unchanged IQ peer audi
             expect(getFinalStatScore(prior)).toBe(82)
           } else expect(i).toBe(prior)
         }
-      }else expect(now).toBe(old)
+      }else expect(now).toEqual(old)
       expect(now.items.map(i=>getRawHakiContributionTotal(i))).toEqual(old.items.map(i=>getRawHakiContributionTotal(i)))
     }
     expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
