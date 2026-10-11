@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { sampleCharacters } from './characters'
-import { sampleEvaluations, historicalEvaluationsBeforeV0174 } from './evaluations'
+import { sampleEvaluations as liveSampleEvaluations, historicalEvaluationsBeforeV0174 } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { sampleMemberships } from './memberships'
@@ -13,6 +13,8 @@ import { getStatRanking } from '../../application/getStatRanking'
 import { applyV0174EvaluationCorrection } from './v0174TargetedCalibration'
 import { applyV0175GrusEvidenceReview, v0175GrusBattle, v0175GrusEvidence, v0175ReviewDecisions } from './v0175FocusedReview'
 
+// Locked cohort from v0.1.75 through current overlays, excluding v0.1.80 additions.
+const sampleEvaluations=liveSampleEvaluations.filter(e=>!['smoker','tashigi','ivankov','inazuma'].includes(e.characterId))
 const current=(id:string)=>{
   const e=sampleEvaluations.find(x=>x.characterId===id && x.isDefault!==false)
   if(!e)throw Error('missing '+id)
@@ -60,8 +62,8 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
     const previous=historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection)
     const baselineV0175=previous.map(applyV0175GrusEvidenceReview)
     const before=new Map(baselineV0175.map(e=>[e.id,e]))
-    expect(sampleEvaluations).toHaveLength(72)
-    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(69)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(65)
     for(const e of sampleEvaluations){
       const old=before.get(e.id)
       expect(old).toBeDefined()
@@ -80,7 +82,7 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
       expect(e.items.map(i=>getRawHakiContributionTotal(i)),e.characterId)
         .toEqual(old!.items.map(i=>getRawHakiContributionTotal(i)))
     }
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(504)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
     expect(sampleCharacters).toHaveLength(70)
     expect(sampleMemberships).toHaveLength(92)
     expect(sampleMatchups).toHaveLength(15)
