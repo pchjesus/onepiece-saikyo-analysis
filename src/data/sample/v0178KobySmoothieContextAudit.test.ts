@@ -77,9 +77,9 @@ describe('v0.1.78 — Hachinosu hostage probability and Smoothie opponent-evasio
   it('preserves exact 65×7 Final, all Haki Raw, 63 other evaluation object identities and historic score replay',()=>{
     const snapshot=v0177Snapshot()
     const prior=new Map(snapshot.map(e=>[e.id,e]))
-    expect(sampleEvaluations).toHaveLength(72)
-    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(69)
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(504)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(65)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
     let changedMeta=0
     for(const now of sampleEvaluations){
       const old=prior.get(now.id)!
