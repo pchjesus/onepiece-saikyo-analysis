@@ -77,7 +77,7 @@
 - **Core formula/Raw 불변:** Balanced 1.2 / HakiWeight 0.5 / Raw212(대표)·230(전체); 66 Characters, 65 대표+3 상태 Evaluation, 476 EvaluationItems, 84 Memberships, 15 explicit Matchups; 다섯 고정 Overall 변화 없음; Evidence readiness E1/E2/E3 수량 변화 없음.
 - 기존 TV1114/1121/1122와 기존 `Evidence` 연결을 **재사용**하고 신규 Battle/Evidence를 중복 생성하지 않음. 기존 그루스 참고자료는 최종 수치만 버전드 조정하므로 v0.1.75 과거 설명이 최신 점수라고 오독되지 않도록 현재 평가만 갱신.
 - 정확한 UI 순위/리더보드 파급은 `getStatRanking('overall')`로 재계산되는 것만 허용. 정렬 하드코딩 금지.
-- 자동 테스트 `v0177KobyGrusRecalibration.test.ts` 및 연관 세대 스냅샷 테스트에서 기준 68 Evaluation, 455 대표 축, Haki Raw, 다섯 고정 Overall과 근거 소유 관계, IQ·Versatility 변화, 다른 캐릭터 불변을 직접 확인한다. 빌드/웹 배포 성공은 PR/main 각각의 실제 GitHub Actions 결과로 별도 확인한다.
+- 자동 테스트 `v0177KobyGrusRecalibration.test.ts` 및 연관 세대 스냅샷 테스트에서 기준 68 Evaluation, 455 대표 축, Haki Raw, 다섯 고정 Overall과 근거 소유 관계, IQ·Versatility 변화, 다른 캐릭터 불변을 직접 확인한다. [PR 코드 검증](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38144750308)에서는 2026-10-11 기준 69/69 테스트 파일 및 307/307 테스트, TypeScript 빌드, Vite 프로덕션 빌드가 모두 성공했다 (코드 헤드 SHA `81a3f2987c30d29cd504392307f76d44e86db608`). 최초 실패 1건은 구버전 스냅샷 테스트가 최신 순위를 참조하던 문제로, 테스트를 삭제하지 않고 참조한 버전과 기대값을 분리했다. **최종 main 배포 상태는 실제 병합 SHA의 푸시 CI/Pages 성공으로만 확정한다.**
 
 ## 5. APA 7 참고자료
 
