@@ -57,11 +57,11 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
 
   it('keeps all 65 default seven-axis Final scores exactly at post-v0.1.74 baseline',()=>{
     const previous=historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection)
-    const before=new Map(previous.map(e=>[e.characterId,e]))
+    const before=new Map(previous.map(e=>[e.id,e]))
     expect(sampleEvaluations).toHaveLength(68)
     expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(65)
     for(const e of sampleEvaluations){
-      const old=before.get(e.characterId)
+      const old=before.get(e.id)
       expect(old).toBeDefined()
       expect(e.items.map(i=>getFinalStatScore(i)),e.characterId).toEqual(old!.items.map(i=>getFinalStatScore(i)))
       expect(e.items.map(i=>getRawHakiContributionTotal(i)),e.characterId)
