@@ -6,7 +6,8 @@
 - **Regression targets:** 64 other characters entirely preserved; Koby six non-Attack axes unchanged; all 68 Evaluations, 476 core items, 66 Characters, 84 Membership, 15 Matchups; Balanced1.2 Haki0.5; Haki Raw 212 (representative) / 230 (all), E1=53/E2=272/E3=130; all 5 locked Overall anchors.
 - **Historical fidelity:** v0.1.70 Koby score82 remains original in seed; v0.1.75 read-only Koby82 judgement not silently rewritten. v0.1.76 current score explicit versioned adapter.
 - **Companion audit:** Crocodile/Stussy/Lucci IQ, Grus Versatility, Smoothie, Tobi Roppo, Akazaya, Revolutionary Army and Blackbeard Pirates retained absent independent corrective evidence.
-- **Tests:** add v0176-specific baseline regression; update older version-pinned tests to distinguish preserved original scores from current Koby score. CI status must be read from actual PR head; post-merge main build & Pages must be independently verified. No local/desktop/mobile UI manual smoke check performed.
+- **PR code-head verification:** GitHub Actions [#38143360554](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38143360554) at head `83568e94c0b48c1751876d6a5c2632ae66412823`: **68/68 test files and 303/303 tests passed**, TypeScript `tsc -b` and Vite production build successful. First PR CI exposed two version-dependent tests (old Koby Overall snapshot and reference identity for recreated snapshots); both were corrected without disabling tests. Documentation-only commit after this check requires final PR CI replay.
+- **Post-merge:** confirm same `main` SHA in push workflow with successful test/build and Pages deploy job; no local/desktop/mobile UI manual smoke check or complete original manga reading performed.
 
 ---
 
