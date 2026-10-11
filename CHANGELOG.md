@@ -1,3 +1,12 @@
+## v0.1.76 — Koby single-burst Attack normalization and IQ/roster follow-up (2026-10-11)
+
+- **One Final stat correction:** Koby Attack **82(E2) → 77(E2)**, Balanced Overall **75.714286 → 75.000000** (−5/7), after crosschecking official ONE PIECE.com TV1121/1122: a single gigantic stone-arm destruction, Garp's prior body strike creating an opening, Helmeppo escort and Grus falling-debris rescue. Actual Koby strike was real but NOT verified as repeatedly sustainable top-tier 1v1 damage. This is a calibrated subjective value, not a fixed penalty per one-off feat.
+- Original v0.1.70 Koby score82 preserved; apply only new current version `evaluation-0.1.76-koby-single-burst-attack-calibrated` after v0.1.74 and v0.1.75 adapters. Other six Koby stats and Raw remain intact.
+- **Follow-up unchanged:** Crocodile Combat IQ86, Stussy IQ85, Lucci IQ74, Grus Versatility85, Smoothie Attack76; spot-checked Ulti/Page One/Sasaki/Raizo/Kawamatsu/Karasu/Shiryu/Van Augur with no ungrounded E3 penalties.
+- All other 64 characters' seven Final stats unchanged, five frozen anchors unchanged; Haki Raw 212/230, Balanced1.2 Haki0.5, 68 evaluations/476 items, 66 characters, 84 memberships, 15 direct Matchups unchanged. Rank effect is Koby only and downstream relative positions; no manual rank patches.
+- New `v0176KobyAttackRecalibration.ts`, `v0176KobyAttackRecalibration.test.ts` and detailed `docs/V0_1_76_KOBY_SINGLE_BURST_ATTACK_AND_IQ_COHORT_REVIEW_2026-10-11.md`. Official anime synopses remain supplementary, not claimed as direct manga panels.
+- PR CI, build and post-merge Pages are separately verified and reported against actual workflow SHAs.
+
 ## v0.1.75 — focused cohort review and Grus official-episode evidence expansion (2026-10-11)
 
 - **Zero numeric re-ratings after evidence review.** Reviewed Koby Attack82, Grus Versatility85, Doflamingo/Queen/Cracker, Jinbe/Who's Who, Vista/Jozu, and Lucci/Crocodile/Stussy Combat IQ against existing 7-axis scales and opponent conditions. Marco79/King83 Attack kept as comparators. No unsupported ±point adjustments.
