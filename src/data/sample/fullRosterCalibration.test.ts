@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest'
 import { historicalEvaluationsBeforeV0174 as sampleEvaluations } from './evaluations'
-import { sampleCharacters } from './characters'
+import { legacyCharacters as sampleCharacters } from './v0180LegacyCohort'
 import { sampleMatchups } from './matchups'
-import { sampleMemberships } from './memberships'
-import { getStatRanking } from '../../application/getStatRanking'
+import { legacyMemberships as sampleMemberships } from './v0180LegacyCohort'
+import { getLegacyStatRanking as getStatRanking } from './v0180LegacyCohort'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { validateEvaluation } from '../../domain/evaluation/validation'
-import { sampleEvidence } from './evidence'
+import { legacyEvidence as sampleEvidence } from './v0180LegacyCohort'
 
 /** v0.1.46 Golden baseline: check all 53 untouched characters, not only modified scores. */
 const untouchedBaseline: Record<string, number[]> = {

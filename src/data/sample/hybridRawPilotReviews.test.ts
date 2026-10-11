@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from './evaluations'
-import { sampleEvidence } from './evidence'
+import { legacyEvaluations as sampleEvaluations } from './v0180LegacyCohort'
+import { legacyEvidence as sampleEvidence } from './v0180LegacyCohort'
 import { balancedV12 } from './calculationModels'
 import { getFinalStatScore } from '../../domain/evaluation/score'
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'

@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
-import { getUniqueCharacterList } from '../../application/getCharacterList'
+import { getLegacyUniqueCharacterList as getUniqueCharacterList } from './v0180LegacyCohort'
 import { getCombatPower } from '../../application/getCombatPower'
-import { sampleCharacters } from './characters'
-import { sampleEvaluations } from './evaluations'
-import { sampleEvidence } from './evidence'
-import { sampleMemberships } from './memberships'
+import { legacyCharacters as sampleCharacters } from './v0180LegacyCohort'
+import { legacyEvaluations as sampleEvaluations } from './v0180LegacyCohort'
+import { legacyEvidence as sampleEvidence } from './v0180LegacyCohort'
+import { legacyMemberships as sampleMemberships } from './v0180LegacyCohort'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 
 const score = (characterId: string, stateId?: string) => getCombatPower(characterId, 'balanced', stateId).finalScore

@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import { validateCombatProfile } from '../../domain/character/validation'
 import { validateEvaluation } from '../../domain/evaluation/validation'
-import { sampleBattles } from './battles'
-import { sampleCharacters } from './characters'
+import { legacyBattles as sampleBattles } from './v0180LegacyCohort'
+import { legacyCharacters as sampleCharacters } from './v0180LegacyCohort'
 import { sampleCrews } from './crews'
-import { sampleEvaluations } from './evaluations'
-import { sampleEvidence } from './evidence'
+import { legacyEvaluations as sampleEvaluations } from './v0180LegacyCohort'
+import { legacyEvidence as sampleEvidence } from './v0180LegacyCohort'
 
 const evidenceReferences = sampleEvidence.map(({ id, subjectCharacterId }) => ({ id, subjectCharacterId }))
 
