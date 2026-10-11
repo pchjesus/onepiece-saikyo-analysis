@@ -7,6 +7,7 @@ import { StatRankingDialog } from './components/StatRankingDialog'
 import { CharacterPage } from './pages/CharacterPage'
 import { MatchupHome } from './pages/MatchupHome'
 import { PatchHistoryDialog } from './components/PatchHistoryDialog'
+import { patchHistory } from '../data/patchHistory'
 import './styles.css'
 
 const characterList = getCharacterList()
@@ -57,7 +58,7 @@ export default function App() {
           <p className="eyebrow">ONE PIECE · MVP</p>
           <h1>원피스 전투력 분석</h1>
           <p>캐릭터 → 평가 → 계산 모델 → 전투력</p>
-          <button className="patch-history-trigger" type="button" onClick={() => setPatchOpen(true)}>패치 내역 <span>v0.1.80</span></button>
+          <button className="patch-history-trigger" type="button" onClick={() => setPatchOpen(true)}>패치 내역 <span>{patchHistory[0].version}</span></button>
         </div>
 
       </header>
