@@ -57,7 +57,7 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
       const before=beforeById.get(after.id)
       expect(before,after.id).toBeDefined()
       if(after.characterId==='koby'){
-        expect(after.evaluationDataVersion).toBe('evaluation-0.1.77-koby-combat-iq-context-calibrated')
+        expect(after.evaluationDataVersion).toBe('evaluation-0.1.78-koby-hachinosu-risk-context-evidence-only')
         expect(before!.evaluationDataVersion).toBe('evaluation-0.1.70-expansion-draft')
         for(const item of after.items){
           const prior=before!.items.find(x=>x.stat===item.stat)!
@@ -65,6 +65,21 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
             expect(prior.score).toBe(item.stat==='attack'?82:76)
             expect(item.score).toBe(item.stat==='attack'?77:72)
             expect(item.hakiContributions).toEqual(prior.hakiContributions)
+          } else expect(item).toBe(prior)
+        }
+        continue
+      }
+      if(after.characterId==='smoothie'){
+        expect(before!.evaluationDataVersion).toBe('evaluation-0.1.26-draft')
+        expect(after.evaluationDataVersion).toBe('evaluation-0.1.78-smoothie-jinbe-steering-evidence-only')
+        for(const item of after.items){
+          const prior=before!.items.find(x=>x.stat===item.stat)!
+          expect(item.baseScore).toBe(prior.baseScore)
+          expect(item.score).toBe(prior.score)
+          expect(item.readiness).toBe(prior.readiness)
+          expect(item.hakiContributions).toEqual(prior.hakiContributions)
+          if(item.stat==='attack'){
+            expect(item.evidenceIds).toContain('evidence-v0178-smoothie-nami-jinbe-steering-tv868')
           } else expect(item).toBe(prior)
         }
         continue
