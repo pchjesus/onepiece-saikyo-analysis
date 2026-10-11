@@ -1,3 +1,12 @@
+## v0.1.74 — Lucci Combat IQ and Marco Attack source-calibrated minimal score patch (2026-10-11)
+
+- **Exactly two changed Final Stats** after v0.1.73 all-65 review: Lucci Combat IQ **68(E3)→74(E2)** (Overall 78→78.857); Marco Attack **77(E2)→79(E2)** (Overall 83.429→83.714). Marco Base76→78 and existing 2 Raw Haki contribution stays intact (0.5×2=+1).
+- Lucci source-based positive tactical acts: priority targeting Sentomaru to disrupt higher Pacifista/Seraphim control (official TV1100/1101), time-limited alliance vs Seraphim (TV1109), information relay (TV1124). Counterbalance disregard of admiral instructions, high-level opponent threat and late Lunarian detection; 74 is an internal judgment, not official canon IQ.
+- Marco chapter 1006 secondhand chapter-indexed source records **actual Queen blood/cough on Phoenix Brand**, successive attack on King, and limitation (both All-Stars resumed combat); official TV1045–1046 supports multi-enemy/fatigue context. New Evidence explicitly **supplementary**, not claim to original manga full-panel audit.
+- **Three new supplementary Evidence, zero new Battles**. Preserve all other 63 default seven-axis ratings, previous actual five Overall locks, 66 characters/84 memberships/68 evaluations/476 axes, 15 direct Matchups, Balanced1.2/Haki0.5 and Haki Raw212/230. Readiness current total E1=53/E2=272/E3=130 (vs v0.1.73 snapshot 53/271/131).
+- Doflamingo, Cracker, Queen, Jinbe, Who's Who, Vista, Jozu, Koby, Grus reviewed but **not re-scored** absent sufficiently independent comparable damage/technique evidence. Further investigation items and exact source tiers documented.
+- Existing v0.1.72 conditional Marco baseline and v0.1.73 historical audit preserved as earlier snapshots; dynamic current comparison tests follow v0.1.74 current live stats. No automatic compensation to other characters.
+
 ## v0.1.73 — full 65-person, 455-axis gap audit with zero numeric patches (2026-10-11)
 
 - Read all **65 default Character Evaluations and 455 Final core stats**, not the 3 historical extra-state evaluations (68 total/476 stats). Dynamic audit uses live `sampleEvaluations`, `getFinalStatScore`, and v0.1.72 immutable reference anchors.
