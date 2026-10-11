@@ -1,10 +1,13 @@
-## v0.1.80 — patch history UI, Smoker/Ivankov, G-5/Newkama Land (2026-10-12)
+## v0.1.80 — patch history, four Marine/Revolutionary characters, six-commander Attack audit (2026-10-12)
 
-- Added top-level **패치 내역 v0.1.80** button and scrollable, accessible dialog; version-by-version summaries, changes, score before/after, reasons and direct evidence links. Structured source `src/data/patchHistory.ts`; verified summaries v0.1.75–0.1.80 without inventing unsupported historical numeric details.
-- Added **Smoker** (marine/G-5) and **Emporio Ivankov** (Revolutionary Army, historical Newkama Land) as 2 new draft Characters with 14 provisional stats, official profile links, 6 supplementary TV episode Evidence and 6 Battles; Haki Raw0 for both. Distinguish multi-party goals and special ability counters.
-- Added exactly 2 Groups: G-5 under marines; Newkama Land under Impel Down (historical, not falsely Revolutionary Army subgroup). Four Memberships preserve both primary and historical organizations.
-- Additive data: 66→68 characters, 68→70 Evaluations (65→67 default), 476→490 stat items, 84→88 memberships; prior 455 default stats, Raw230, 5 anchors, 15 matchups, Balanced1.2 unchanged.
-- See `docs/V0_1_80_PATCH_HISTORY_AND_CHARACTER_EXPANSION_2026-10-12.md`.
+- Added site-header **패치 내역** button with accessible overlay. User-visible typed `src/data/patchHistory.ts` contains version, summary, each change, reason, score before/after where relevant, reference links and review report.
+- Added 4 **draft** Characters to **existing** groups only: **Smoker and Tashigi → Marines; Emporio Ivankov and Inazuma → Revolutionary Army**. No new G-5/Newkama Land group or navigation option. Roles may mention G-5 and Impel Down as context but do not create a new primary organization.
+- 28 new qualitative 7-axis scores (4×7), 10 new supplementary event Evidence records, 10 new Battle records, four Memberships. Each new Character has a profile; no exceptional Haki Raw added.
+- Six commander Attack scale audit in `src/data/sample/v0180CommanderAttackAudit.ts`: Queen80, Cracker77, Smoothie76, Marco79, King83, Katakuri83. Separate **peak output / actually landed effective hits / sustained pressure / matchup limits**. All six remain unchanged because these facts alone do not justify finer-grained absolute power adjustments; UI patch history also exposes each review.
+- Added `src/data/sample/v0180LegacyCohort.ts` to keep historical prior-version regression cohorts (66 Characters, 68 Evaluations, 455 default Final axes) reproducible without rewriting them when new Characters are added. Future/current dataset now **70 Characters, 72 Evaluations (69 default), 504 Stat items, 88 Memberships**. Previous 15 explicit Matchups, original Haki Raw total230 and Balanced1.2 remain unchanged.
+- Source provenance: official ONE PIECE.com character profiles, TV episode summaries and previously registered manga-linked evidence. Newly authored supplementary sources do not pretend independent fights; score and historical data never derive from community votes.
+- Documentation: `docs/V0_1_80_PATCH_HISTORY_AND_CHARACTER_EXPANSION_2026-10-12.md`.
+- CI success/deployment should be verified against the final main SHA, not inferred from authored tests.
 
 ## v0.1.79 — Smoothie, Cracker and Queen nine-axis commander audit (2026-10-12)
 
