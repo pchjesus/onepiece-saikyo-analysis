@@ -63,9 +63,9 @@ describe('v0.1.79 — nine-axis Smoothie/Cracker/Queen source and scoring audit'
 
   it('preserves exactly 454/455 default Final stats, other 63 people and all Raw and non-target data',()=>{
     const before=new Map(oldSnapshot().map(e=>[e.id,e]))
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(65)
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
+    expect(sampleEvaluations).toHaveLength(72)
+    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(69)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(504)
     let numericChanges=0
     let metadataChanges=0
     for(const after of sampleEvaluations){
@@ -92,8 +92,8 @@ describe('v0.1.79 — nine-axis Smoothie/Cracker/Queen source and scoring audit'
     }
     expect(numericChanges).toBe(1)
     expect(metadataChanges).toBe(2)
-    expect(sampleCharacters).toHaveLength(66)
-    expect(sampleMemberships).toHaveLength(84)
+    expect(sampleCharacters).toHaveLength(70)
+    expect(sampleMemberships).toHaveLength(92)
     expect(sampleMatchups).toHaveLength(15)
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(.5)
@@ -150,7 +150,7 @@ describe('v0.1.79 — nine-axis Smoothie/Cracker/Queen source and scoring audit'
       expect(overall(get(a.characterId))).toBeCloseTo(a.finalScores.reduce((s,v)=>s+v,0)/7,10)
     }
     const ranks=getStatRanking('overall')
-    expect(ranks).toHaveLength(65)
+    expect(ranks).toHaveLength(69)
     expect(ranks.find(x=>x.characterId==='queen')?.score).toBeCloseTo(552/7,10)
     expect(ranks.find(x=>x.characterId==='cracker')?.score).toBeCloseTo(545/7,10)
     expect(ranks.find(x=>x.characterId==='smoothie')?.score).toBeCloseTo(536/7,10)
