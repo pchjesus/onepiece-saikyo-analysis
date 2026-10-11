@@ -86,7 +86,8 @@ describe('v0.1.76 — Koby single-burst Attack review and unchanged IQ peer audi
     }
     const rank=getStatRanking('overall')
     expect(rank).toHaveLength(65)
-    expect(rank.find(x=>x.characterId==='koby')?.score).toBeCloseTo(75,10)
+    // Ranking reads the live v0.1.77 cohort; v0.1.76 snapshot assertions above remain 75.
+    expect(rank.find(x=>x.characterId==='koby')?.score).toBeCloseTo(521/7,10)
     expect(rank.find(x=>x.characterId==='marco')?.score).toBeCloseTo(586/7,10)
     expect(rank.find(x=>x.characterId==='lucci')?.score).toBeCloseTo(552/7,10)
     expect(overall('koby')).toBeLessThan(overall('ulti'))
