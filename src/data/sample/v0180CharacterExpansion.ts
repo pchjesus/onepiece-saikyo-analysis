@@ -9,7 +9,7 @@ type Seed={id:string;name:string;group:string;role:string;profile:string;styles:
 const seeds:Seed[]=[
   {
     id:'smoker',name:'스모커',group:'marines',role:'해군 중장 (G-5 지부 근무 이력)',
-    profile:'https://one-piece.com/character/Smoker/index.html',
+    profile:'https://one-piece.com/character/smoker/index.html',
     styles:['연기 자연계','해루석 끝봉','근접 봉술·체술','연기 비행·구속'],
     fruit:'자연계 뭉게뭉게 열매',
     fruitNote:'연기를 생성·변형하고 신체를 연기화하여 이동·구속에 활용. 패기 사용자와 해루석, 상성·전투 환경의 제한이 있다.',
@@ -152,7 +152,7 @@ export const v0180Battles:Battle[]=seeds.flatMap((s,si)=>s.scenes.map((e,i)=>({
 })))
 export const v0180Evidence:Evidence[]=seeds.flatMap(s=>s.scenes.map(e=>({
   id:`evidence-v0180-${s.id}-${e.key}`,battleId:`battle-v0180-${s.id}-${e.key}`,subjectCharacterId:s.id,
-  source:{type:'supplementary',reference:`ONE PIECE.com TV${e.ep}`,description:e.url},
+  source:{type:'supplementary',reference:e.url.includes('/story/')?'ONE PIECE.com official Impel Down story':`ONE PIECE.com TV${e.ep}`,description:e.url},
   evidenceStrength:'moderate',fact:e.fact,supportedAbilities:s.styles,
   statContributions:Object.entries(e.roles).map(([stat,role])=>({stat:stat as CombatStat,role:role!,
     note:`${e.context} | ${stat} 근거. 결과·다인전·상성의 영향을 분리한다.`})),
