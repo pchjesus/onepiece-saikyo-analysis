@@ -104,10 +104,10 @@ describe('v0.1.61 source-trace guards reconciled to approved v0.1.62 targeted re
 
   it('retains full production data/model and direct matchup invariants', () => {
     expect(COMBAT_STATS).toHaveLength(7)
-    expect(defaults).toHaveLength(59)
-    expect(defaults.flatMap(e => e.items)).toHaveLength(413)
-    expect(sampleEvaluations).toHaveLength(62)
-    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
+    expect(defaults).toHaveLength(65)
+    expect(defaults.flatMap(e => e.items)).toHaveLength(455)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(476)
     expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E1')).toHaveLength(53)
     expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E2')).toHaveLength(243)
     expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E3')).toHaveLength(117)
