@@ -1,3 +1,15 @@
+# v0.1.70 — SWORD, Donquixote, Ace / Teach upside source review — validation
+
+- **Baseline:** v0.1.69 `main@68ef8baeda976f2b2241a68bca3fa3a5833ccc81`.
+- **Added:** two Groups, six actual new Characters and draft Evaluations, eleven Membership records, ten deduplicated new Battle records, thirteen supplementary Evidence, forty-two new Core Stat items.
+- **Source type:** official ONE PIECE.com profile and TV 95/325/483/610/616/717/718/719/1121/1122 summaries. Source in domain is `supplementary`, never pretend all manga panels read directly.
+- **Historical regression split:** Original 59-person calibration/readiness tests now explicitly use 62 pre-v0.1.70 Evaluations; current product tests expect 65 evaluated/66 characters/68 evaluations/476 axes/84 Membership, 15 matchups and 212/230 raw totals; X Drake and Doflamingo remain single identity each.
+- **Read-only Teach:** Original seven Base/Final axes [95,89,95,82,93,87,93], model, Raw and all prior Evidence untouched. New 7-axis upside review states unresolved independent evidence requirements.
+- **GitHub PR CI / exact merge-SHA Pages:** check final workflow / PR comment; no local browser actual tap/scroll/swap manual verification.
+- **Observed temporary failures during implementation**: older fixtures tied to 59-person rank/readiness proportions; resolved by preserving old-cohort statistical meaning and new-cohort UI tests. Do not claim previous iterations passed.
+
+---
+
 # v0.1.69 — Exceptional Haki independent-effect source audit
 
 - **Baseline:** main `fd45c55c095369f8fc52f6df917987d9f602e1b6` (v0.1.68).
