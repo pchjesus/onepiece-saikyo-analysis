@@ -69,4 +69,20 @@ describe('v0.1.80 patch history and additive roster',()=>{
     expect(calculateBalancedCombatPower(v0180Evaluations[0],balancedV12).finalScore).toBeCloseTo(535/7,10)
     expect(calculateBalancedCombatPower(v0180Evaluations[1],balancedV12).finalScore).toBeCloseTo(556/7,10)
   })
+  it('ties each of six Attack reviews to owned evidence without changing any existing Final scores',()=>{
+    expect(v0180CommanderAttackAudit).toHaveLength(6)
+    expect(new Set(v0180CommanderAttackAudit.map(a=>a.characterId)).size).toBe(6)
+    for(const a of v0180CommanderAttackAudit){
+      const e=sampleEvaluations.find(x=>x.characterId===a.characterId&&x.isDefault!==false)!
+      const attack=e.items.find(x=>x.stat==='attack')!
+      expect(getFinalStatScore(attack)).toBe(a.finalAttack)
+      expect(attack.readiness).toBe('E2')
+      for(const evidenceId of a.evidenceIds)
+        expect(sampleEvidence.find(x=>x.id===evidenceId)?.subjectCharacterId).toBe(a.characterId)
+      for(const dimension of [a.peakOutput,a.verifiedHit,a.sustainedPressure,a.matchup,a.rationale])
+        expect(dimension.length).toBeGreaterThan(10)
+      expect(patchHistory[0].changes.some(x=>x.characterId===a.characterId&&x.detail.includes('실제 유효타'))).toBe(true)
+    }
+  })
+
 })
