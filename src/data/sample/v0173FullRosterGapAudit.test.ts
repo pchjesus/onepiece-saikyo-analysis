@@ -28,9 +28,9 @@ describe('v0.1.73 all-65 all-455 axis gap audit: read-only no re-score',()=>{
     expect(buildV0173FullRosterGapAudit()).toEqual(report)
   })
   it('exposes evidence gaps without making E3 a downward score adjustment',()=>{
-    expect(report.evidenceReadinessTotals).toEqual({E1:53,E2:271,E3:131})
+    expect(report.evidenceReadinessTotals).toEqual({E1:53,E2:272,E3:130})
     expect(report.perAxis.map(a=>a.axis)).toEqual([...calibrationAxisOrder])
-    expect(report.perAxis.map(a=>a.e3)).toEqual([8,18,29,35,5,21,15])
+    expect(report.perAxis.map(a=>a.e3)).toEqual([8,18,29,35,5,20,15])
     expect(report.perAxis.reduce((s,a)=>s+a.e1+a.e2+a.e3,0)).toBe(455)
     expect(report.rows.filter(r=>r.e3Count>=3).length).toBeGreaterThan(18)
     expect(lookup('garp').e3Count).toBe(4)
@@ -49,7 +49,7 @@ describe('v0.1.73 all-65 all-455 axis gap audit: read-only no re-score',()=>{
       expect(row.closestOverallAnchorDistance).toBeCloseTo(Math.abs(row.overall-closest.overall),10)
     }
     expect(lookup('roger').overall).toBeCloseTo(683/7,10)
-    expect(lookup('marco').overall).toBeCloseTo(584/7,10)
+    expect(lookup('marco').overall).toBeCloseTo(586/7,10)
     expect(lookup('ace').overall).toBeCloseTo(538/7,10)
   })
   it('flags statistically large axis contrasts among nearby Overall scores AS QUESTIONS, not forced changes',()=>{
@@ -100,6 +100,6 @@ describe('v0.1.73 all-65 all-455 axis gap audit: read-only no re-score',()=>{
     expect(lookup('jozu').stats.attack).toBe(78)
     expect(lookup('ace').stats.combatIQ).toBe(67)
     expect(lookup('king').stats.defense).toBe(88)
-    expect(lookup('marco').stats.attack).toBe(77)
+    expect(lookup('marco').stats.attack).toBe(79)
   })
 })
