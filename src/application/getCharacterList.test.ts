@@ -8,7 +8,7 @@ describe('getCharacterList', () => {
 
     expect(unique).toHaveLength(69)
     expect(expanded).toHaveLength(92)
-    expect(new Set(unique.map(({ character }) => character.id)).size).toBe(65)
+    expect(new Set(unique.map(({ character }) => character.id)).size).toBe(69)
 
     expect(unique.map((item) => item.character.name).sort()).toEqual([
       '마르코', '죠즈', '비스타',
