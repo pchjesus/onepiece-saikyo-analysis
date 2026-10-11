@@ -26,7 +26,7 @@ describe('v0.1.45 three-faction, 17-character Evidence-first expansion', () => {
     expect(selected.size).toBe(17)
     expect(sampleCharacters).toHaveLength(70)
     expect(sampleGroups.length).toBeGreaterThanOrEqual(22)
-    expect(new Set(sampleCharacters.map((c) => c.id)).size).toBe(66)
+    expect(new Set(sampleCharacters.map((c) => c.id)).size).toBe(70)
     expect(wanoCharacters.map((c) => c.id).sort()).toEqual([...selected].sort())
     expect(sampleEvaluations).toHaveLength(72)
     expect(sampleEvaluations.flatMap((e) => e.items)).toHaveLength(504)
@@ -50,7 +50,7 @@ describe('v0.1.45 three-faction, 17-character Evidence-first expansion', () => {
     expect(tobi).toHaveLength(6)
     const ranked = getStatRanking('overall')
     expect(ranked).toHaveLength(69)
-    expect(new Set(ranked.map((r) => r.characterId)).size).toBe(65)
+    expect(new Set(ranked.map((r) => r.characterId)).size).toBe(69)
     expect(ranked.filter((r) => r.characterId === 'x-drake')).toHaveLength(1)
   })
 
