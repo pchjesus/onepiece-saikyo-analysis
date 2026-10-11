@@ -7,7 +7,7 @@ import { getCombatPower } from '../../application/getCombatPower'
 import type { CombatStat } from '../../domain/evaluation/types'
 
 // v0.1.70 new evaluations are reviewed in their own suite; preserve this source audit's historical cohort.
-const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
+const sampleEvaluations = expandedEvaluations.filter(e=>!['evaluation-0.1.70-expansion-draft','evaluation-0.1.71-ace-context-recalibrated'].includes(e.evaluationDataVersion))
 
 const reviewedE2: Array<[string, CombatStat]> = [
   ['vista', 'versatility'], ['jack', 'combatIQ'], ['cracker', 'combatIQ'],
