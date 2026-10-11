@@ -1,16 +1,16 @@
 import { describe, expect, it } from 'vitest'
 import { v0171AceScoring, v0171AceEvidence, v0171AceBattles, v0171AceEvaluation } from './v0171AceCalibration'
 import { v0170Evaluations } from './v0170GroupAceExpansion'
-import { sampleCharacters } from './characters'
-import { sampleEvaluations } from './evaluations'
-import { sampleEvidence } from './evidence'
-import { sampleBattles } from './battles'
+import { legacyCharacters as sampleCharacters } from './v0180LegacyCohort'
+import { legacyEvaluations as sampleEvaluations } from './v0180LegacyCohort'
+import { legacyEvidence as sampleEvidence } from './v0180LegacyCohort'
+import { legacyBattles as sampleBattles } from './v0180LegacyCohort'
 import { sampleMatchups } from './matchups'
 import { balancedV12 } from './calculationModels'
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
 import { validateEvaluation } from '../../domain/evaluation/validation'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
-import { getStatRanking } from '../../application/getStatRanking'
+import { getLegacyStatRanking as getStatRanking } from './v0180LegacyCohort'
 
 const ace=()=>sampleEvaluations.find(e=>e.characterId==='ace')!
 const oldAce=()=>v0170Evaluations.find(e=>e.characterId==='ace')!

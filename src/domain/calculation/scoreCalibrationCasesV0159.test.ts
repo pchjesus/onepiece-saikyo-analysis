@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from '../../data/sample/evaluations'
-import { sampleEvidence } from '../../data/sample/evidence'
+import { legacyEvaluations as sampleEvaluations } from '../../data/sample/v0180LegacyCohort'
+import { legacyEvidence as sampleEvidence } from '../../data/sample/v0180LegacyCohort'
 import { sampleMatchups } from '../../data/sample/matchups'
 import { balancedV12 } from '../../data/sample/calculationModels'
 import { getFinalStatScore, getRawHakiContributionTotal } from '../evaluation/score'

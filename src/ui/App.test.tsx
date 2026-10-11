@@ -39,6 +39,34 @@ afterEach(async () => {
   container.remove()
 })
 
+describe('v0.1.80 patch history UI',()=>{
+  it('opens history, displays numeric changes and reasons, closes on demand',async()=>{
+    const button=container.querySelector<HTMLButtonElement>('.patch-history-trigger')
+    expect(button?.textContent).toContain('v0.1.80')
+    await click(button)
+    const dialog=container.querySelector('[role="dialog"][aria-labelledby="patch-history-title"]')
+    expect(dialog?.textContent).toContain('퀸 범용성 조정')
+    expect(dialog?.textContent).toContain('80 →')
+    expect(dialog?.textContent).toContain('이유·근거')
+    expect(dialog?.querySelectorAll('a[href^="https://one-piece.com"]')?.length).toBeGreaterThan(0)
+    await click(container.querySelector('.patch-close'))
+    expect(container.querySelector('#patch-history-title')).toBeNull()
+  })
+  it('shows Smoker and Tashigi in Marines and Ivankov and Inazuma in Revolutionary Army',async()=>{
+    const options=[...container.querySelector<HTMLSelectElement>('#group-picker-select')!.options].map(o=>o.text)
+    expect(options).not.toContain('해군 G-5')
+    expect(options).not.toContain('뉴커머 랜드')
+    await selectGroup('해군')
+    const marine=[...container.querySelectorAll('.character-chip')].map(x=>x.textContent)
+    expect(marine).toContain('스모커')
+    expect(marine).toContain('타시기')
+    await selectGroup('혁명군')
+    const revolutionary=[...container.querySelectorAll('.character-chip')].map(x=>x.textContent)
+    expect(revolutionary).toContain('엠포리오 이완코프')
+    expect(revolutionary).toContain('이나즈마')
+  })
+})
+
 describe('evaluated roster UI', () => {
   it('labels 7-axis Overall as a non-predictive summary rather than an attack-vs-defense win check', () => {
     const note = container.querySelector('[data-testid="overall-interpretation-note"]')
@@ -49,7 +77,7 @@ describe('evaluated roster UI', () => {
 
   it('shows exactly 59 unique results and filters historical Tobi Roppo membership without duplication', async () => {
     await openPicker()
-    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(65)
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(69)
     const filter = container.querySelector<HTMLSelectElement>('#character-picker-group')!
     await act(async () => {
       const setter = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value')?.set
@@ -64,7 +92,7 @@ describe('evaluated roster UI', () => {
     expect(selectedGroupName()).toBe('토비롯포')
     expect(container.querySelector('[role="dialog"][aria-modal="true"]')).toBeNull()
     await openPicker()
-    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(65)
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(69)
   })
 
   it('restores trigger focus when closing with Escape and keeps unrelated evaluation data intact', async () => {
@@ -82,7 +110,7 @@ describe('evaluated roster UI', () => {
     await selectGroup('혁명군')
     expect(container.querySelector('main.detail h1')?.textContent).toBe('사보')
     expect([...container.querySelectorAll('.character-chip')].map(el => el.textContent))
-      .toEqual(['사보', '몰리', '카라스'])
+      .toEqual(expect.arrayContaining(['사보','몰리','카라스','이나즈마','엠포리오 이완코프']))
     await click([...container.querySelectorAll('.character-chip')].find(el=>el.textContent==='몰리') ?? null)
     expect(container.querySelector('main.detail h1')?.textContent).toBe('몰리')
     expect(container.querySelectorAll('.readiness-badge.e3')).toHaveLength(4)
@@ -145,7 +173,7 @@ describe('evaluated roster UI', () => {
     const stat = container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]')
     await click(stat)
     const rows = [...document.querySelectorAll('.rank-row')]
-    expect(rows).toHaveLength(65)
+    expect(rows).toHaveLength(69)
     expect(rows.slice(0, 3).every((row) => row.textContent?.includes('100'))).toBe(true)
     expect(rows.slice(0, 3).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
     expect(rows.slice(0, 3).map((row) => row.textContent).join(' ')).toContain('에드워드 뉴게이트')
@@ -170,14 +198,14 @@ describe('evaluated roster UI', () => {
   it('opens Overall rankings in full-precision order and reverses the list without changing canonical ranks', async () => {
     await click(container.querySelector('button[aria-label="종합 전투력 전체 캐릭터 순위 보기"]'))
     const rows = () => [...document.querySelectorAll('.rank-row')]
-    expect(rows()).toHaveLength(65)
+    expect(rows()).toHaveLength(69)
     expect(document.querySelector('#stat-rank-title')?.textContent).toContain('종합 전투력')
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('에드워드 뉴게이트')
     expect(rows()[0].textContent).toContain('97.571')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
-    expect(rows()[0].textContent).toContain('페이지 원')
-    expect(rows()[0].textContent).toContain('65위')
+    expect(rows()[0].textContent).toContain('타시기')
+    expect(rows()[0].textContent).toContain('69위')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
   })
@@ -186,7 +214,7 @@ describe('evaluated roster UI', () => {
     await click(container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]'))
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     const rows = [...document.querySelectorAll('.rank-row')]
-    expect(rows).toHaveLength(65)
+    expect(rows).toHaveLength(69)
     expect(rows[0].textContent).not.toContain('골 D. 로저')
   })
 

@@ -1,3 +1,14 @@
+## v0.1.80 — patch history, four Marine/Revolutionary characters, six-commander Attack audit (2026-10-12)
+
+- Added site-header **패치 내역** button with accessible overlay. User-visible typed `src/data/patchHistory.ts` contains version, summary, each change, reason, score before/after where relevant, reference links and review report.
+- Added 4 **draft** Characters to **existing** groups only: **Smoker and Tashigi → Marines; Emporio Ivankov and Inazuma → Revolutionary Army**. No new G-5/Newkama Land group or navigation option. Roles may mention G-5 and Impel Down as context but do not create a new primary organization.
+- 28 new qualitative 7-axis scores (4×7), 10 new supplementary event Evidence records, 10 new Battle records, four Memberships. Each new Character has a profile; no exceptional Haki Raw added.
+- Six commander Attack scale audit in `src/data/sample/v0180CommanderAttackAudit.ts`: Queen80, Cracker77, Smoothie76, Marco79, King83, Katakuri83. Separate **peak output / actually landed effective hits / sustained pressure / matchup limits**. All six remain unchanged because these facts alone do not justify finer-grained absolute power adjustments; UI patch history also exposes each review.
+- Added `src/data/sample/v0180LegacyCohort.ts` to keep historical prior-version regression cohorts (66 Characters, 68 Evaluations, 455 default Final axes) reproducible without rewriting them when new Characters are added. Future/current dataset now **70 Characters, 72 Evaluations (69 default), 504 Stat items, 88 Memberships**. Previous 15 explicit Matchups, original Haki Raw total230 and Balanced1.2 remain unchanged.
+- Source provenance: official ONE PIECE.com character profiles, TV episode summaries and previously registered manga-linked evidence. Newly authored supplementary sources do not pretend independent fights; score and historical data never derive from community votes.
+- Documentation: `docs/V0_1_80_PATCH_HISTORY_AND_CHARACTER_EXPANSION_2026-10-12.md`.
+- CI success/deployment should be verified against the final main SHA, not inferred from authored tests.
+
 ## v0.1.79 — Smoothie, Cracker and Queen nine-axis commander audit (2026-10-12)
 
 - **One contextual score correction:** Queen **Versatility Final80(E2)→82(E2)**, Overall **78.571429→78.857143** (+2/7). His ancient-Zoan constriction/body, integrated cyborg/Germa lightning/stealth/laser techniques and Queen-engineered, actually deployed Ice Oni virus ammunition are distinct *mechanisms and combat purposes*, not many variants of one Devil Fruit. This is not a fixed bonus for owned gadgets; field deployment and indiscriminate infection limit the conclusion. Attack80, Technique79, CombatIQ74 unchanged.

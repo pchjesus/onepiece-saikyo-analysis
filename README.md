@@ -1,7 +1,7 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.1.79** (스무디·크래커·퀸 Attack/Technique/Versatility 9축 재검증, 퀸 Versatility80→82/Overall78.571→78.857 보정; 크래커 공식 TV799/805·퀸 TV1005/1061 근거 확장; 패기 Raw·5개 고정축·15개 매치업 보존) (npm package 버전은 **0.1.34** 유지)  
-평가 데이터: **66 Character master pool · 65 evaluated unique Character · 84 Membership · 68 Evaluation · 476 Stat**  
+현재 구현 패치: **v0.1.80** (상단 패치 내역 버튼/버전별 변경 사유·근거 표시, 스모커·타시기=해군/이완코프·이나즈마=혁명군 4명 추가, 사최간급 6명 대인 Attack의 최대출력·유효타·지속화력·상성 감사; 기존 65명 Attack 및 7축 점수 불변) (npm package 버전은 **0.1.34** 유지)  
+평가 데이터: **70 Character master pool · 69 evaluated unique Character · 88 Membership · 72 Evaluation · 504 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
 - [v0.1.26 27인 재보정 보고서](docs/RECALIBRATION_0_1_26_DRAFT.md)
@@ -16,6 +16,7 @@
 - [v0.1.37 검토용 — 산먹깨비·한글 용어·패기 수치 승인안](docs/V0_1_37_KOREAN_TERMS_AND_HYBRID_APPROVAL_2026-10-09.md)
 - [신규 2집단 사전 Evidence 조사 — 혁명군·CP0](docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md)
 - [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
+- [v0.1.80 패치 내역 UI·스모커·이완코프·G-5·뉴커머 랜드](docs/V0_1_80_PATCH_HISTORY_AND_CHARACTER_EXPANSION_2026-10-12.md)
 - [v0.1.79 스무디·크래커·퀸 9축 동축 근거 교차 감사 및 퀸 Versatility 보정](docs/V0_1_79_THREE_COMMANDER_NINE_AXIS_REVIEW_2026-10-12.md)
 - [v0.1.78 하치노스 위험 판단과 스무디·토비롯포 전투 조건 근거 확장](docs/V0_1_78_KOBY_HACHINOSU_RISK_AND_SMOOTHIE_TOBIROPPO_CONTEXT_2026-10-11.md)
 - [v0.1.77 코비 Combat IQ·그루스 Versatility 하향 재보정 및 9축 후속 캐릭터 근거 감사](docs/V0_1_77_KOBY_IQ_GRUS_VERSATILITY_ROSTER_AUDIT_2026-10-11.md)

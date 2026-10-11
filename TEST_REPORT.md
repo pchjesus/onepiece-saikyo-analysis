@@ -1,3 +1,17 @@
+# v0.1.80 — four-character additive roster and commander Attack regression
+
+- **Before:** v0.1.79 main `f893b676169b531e6ca821f2911186c0ff620aa0`. Historical snapshots fixed at 66 Characters, 68 Evaluations, 65 defaults/455 Final, 84 Memberships.
+- **After:** 70 Characters (4 new), 72 Evaluations (69 defaults), 504 items, 88 Memberships, no new Groups.
+- Four new Characters: Smoker/Tashigi in Marines; Ivankov/Inazuma in Revolutionary Army. Ten supplementary Evidence/Battle pairs; four draft 7-axis evaluations; all new Raw Haki0.
+- Six-existing-commanders' Attack verified unchanged: Queen80, Cracker77, Smoothie76, Marco79, King83, Katakuri83. Four separated dimensions in `v0180CommanderAttackAudit.ts` with stable links to evidence.
+- **Historical-test isolation:** `v0180LegacyCohort.ts` supplies pre-expansion arrays and rebased historical ranking for older suites; old expected 455/476/Raw230 score conservation remains tested. Current app tests expect 69 unique evaluated Characters and 88 memberships; prior users' existing character score inputs and 15 matchups remain stable.
+- Added UI tests for header button, patch reasons/numeric deltas, four requested memberships and absent forbidden group options. Added v0.1.80 tests for new entity owners, evidence IDs, 6 Attack reviews, Haki Raw invariance.
+- **Current CI state:** use the latest verified GitHub Actions run for the final PR head and postmerge SHA; not claimed in this file until verified.
+- Browser-device manual interaction and manga panel-by-panel rereading were not performed; evidence is official episode synopses and existing canon-linked records.
+
+
+---
+
 # v0.1.79 — commander 9-axis re-calibration / official evidence crosscheck
 
 - **Baseline:** v0.1.78 `main@591f9617887adf967292b34c28d2331b1c1e6493` (312 tests passed, Pages success).

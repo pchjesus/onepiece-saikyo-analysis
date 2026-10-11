@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { previewHybridOverlapStress } from '../../domain/evaluation/hybridOverlapStress'
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
-import { sampleEvaluations } from './evaluations'
+import { legacyEvaluations as sampleEvaluations } from './v0180LegacyCohort'
 import { hybridRawPilotReviews } from './hybridRawPilotReviews'
 import { balancedV12 } from './calculationModels'
 

@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import { historicalEvaluationsBeforeV0174 } from './evaluations'
-import { sampleCharacters } from './characters'
-import { sampleEvidence } from './evidence'
-import { sampleBattles } from './battles'
+import { legacyCharacters as sampleCharacters } from './v0180LegacyCohort'
+import { legacyEvidence as sampleEvidence } from './v0180LegacyCohort'
+import { legacyBattles as sampleBattles } from './v0180LegacyCohort'
 import { sampleMatchups } from './matchups'
-import { sampleMemberships } from './memberships'
+import { legacyMemberships as sampleMemberships } from './v0180LegacyCohort'
 import { balancedV12 } from './calculationModels'
 import { calibrationAnchorsV0172 } from './v0172AnchorBaseline'
 import { applyV0174EvaluationCorrection } from './v0174TargetedCalibration'
@@ -12,7 +12,7 @@ import { applyV0175GrusEvidenceReview, v0175ReviewDecisions } from './v0175Focus
 import { v0176KobyAttackDecision, v0176FollowupReviews, applyV0176KobyAttackCorrection } from './v0176KobyAttackRecalibration'
 import { getFinalStatScore, getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
-import { getStatRanking } from '../../application/getStatRanking'
+import { getLegacyStatRanking as getStatRanking } from './v0180LegacyCohort'
 import { validateEvaluation } from '../../domain/evaluation/validation'
 
 // Freeze the exact v0.1.76 cohort for retrospective tests; live v0.1.77 has its own suite.
