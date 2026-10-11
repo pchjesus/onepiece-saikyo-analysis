@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from './evaluations'
+import { sampleEvaluations as expandedEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleCharacters } from './characters'
 import { sampleMatchups } from './matchups'
@@ -7,6 +7,9 @@ import { balancedV12 } from './calculationModels'
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
 import { getFinalStatScore, getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import type { Evaluation } from '../../domain/evaluation/types'
+
+// Historical 59-person calibration stays stable; v0.1.70 is checked in a separate new-cohort suite.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 /**
  * v0.1.66 review-only decision gate.
@@ -132,10 +135,10 @@ describe('v0.1.66 seven-axis Vista/Shanks evidence and user-approval gate', () =
 
   it('preserves evaluation/model/matchup/roster baselines and the v0.1.65 presentation-only separation', () => {
     expect(sampleCharacters).toHaveLength(66)
-    expect(defaults).toHaveLength(65)
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(defaults.flatMap(e => e.items)).toHaveLength(455)
-    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(476)
+    expect(defaults).toHaveLength(59)
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(defaults.flatMap(e => e.items)).toHaveLength(413)
+    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
     expect(defaults.flatMap(e => e.items).reduce((sum, i) => sum + getRawHakiContributionTotal(i), 0)).toBe(212)
     expect(sampleEvaluations.flatMap(e => e.items).reduce((sum, i) => sum + getRawHakiContributionTotal(i), 0)).toBe(230)
     expect(balancedV12.version).toBe('1.2')
