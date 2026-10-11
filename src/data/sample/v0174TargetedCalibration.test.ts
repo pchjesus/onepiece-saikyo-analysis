@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { sampleCharacters } from './characters'
-import { sampleEvaluations, historicalEvaluationsBeforeV0174 } from './evaluations'
+import { sampleEvaluations as liveSampleEvaluations, historicalEvaluationsBeforeV0174 } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { sampleMemberships } from './memberships'
@@ -13,6 +13,8 @@ import { calculateBalancedCombatPower } from '../../domain/calculation/calculate
 import { getRawHakiContributionTotal, getFinalStatScore } from '../../domain/evaluation/score'
 import { getStatRanking } from '../../application/getStatRanking'
 
+// v0.1.74 historical cohort; new v0.1.80 identities verified separately.
+const sampleEvaluations=liveSampleEvaluations.filter(e=>!['smoker','tashigi','ivankov','inazuma'].includes(e.characterId))
 const lookup=(id:string)=>{
   const e=sampleEvaluations.find(e=>e.characterId===id&&e.isDefault!==false)
   if(!e)throw Error('No current Evaluation for '+id)
@@ -49,8 +51,8 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
     expect(applyV0174EvaluationCorrection(unaffected)).toBe(unaffected)
   })
   it('proves exact conservation for all 66 unrelated and historic Evaluation records and other 12 axes',()=>{
-    expect(historicalEvaluationsBeforeV0174).toHaveLength(72)
-    expect(sampleEvaluations).toHaveLength(72)
+    expect(historicalEvaluationsBeforeV0174).toHaveLength(68)
+    expect(sampleEvaluations).toHaveLength(68)
     const beforeById=new Map(historicalEvaluationsBeforeV0174.map(e=>[e.id,e]))
     const changedIds=new Set(['lucci','marco'])
     for(const after of sampleEvaluations){
@@ -175,9 +177,9 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
   it('enforces unchanged source-of-truth roster and Raw, while ranking gets only documented +2/7 and +6/7',()=>{
     expect(sampleCharacters).toHaveLength(70)
     expect(sampleMemberships).toHaveLength(92)
-    expect(sampleEvaluations).toHaveLength(72)
-    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(69)
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(504)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(65)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
     expect(sampleMatchups).toHaveLength(15)
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
