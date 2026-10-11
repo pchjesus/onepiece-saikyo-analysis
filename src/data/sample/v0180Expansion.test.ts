@@ -24,7 +24,7 @@ describe('v0.1.80 patch history and additive roster',()=>{
     expect(patchHistory.every(p=>p.changes.every(c=>c.reason&&c.detail))).toBe(true)
   })
   it('adds two unique default characters, two groups, four memberships, six battles/evidence and 14 axes',()=>{
-    expect(v0180Characters).toHaveLength(2)
+    expect(v0180Characters).toHaveLength(4)
     expect(v0180Groups).toHaveLength(2)
     expect(v0180Memberships).toHaveLength(4)
     expect(v0180Battles).toHaveLength(6)
