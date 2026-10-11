@@ -49,8 +49,8 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
     expect(applyV0174EvaluationCorrection(unaffected)).toBe(unaffected)
   })
   it('proves exact conservation for all 66 unrelated and historic Evaluation records and other 12 axes',()=>{
-    expect(historicalEvaluationsBeforeV0174).toHaveLength(68)
-    expect(sampleEvaluations).toHaveLength(68)
+    expect(historicalEvaluationsBeforeV0174).toHaveLength(72)
+    expect(sampleEvaluations).toHaveLength(72)
     const beforeById=new Map(historicalEvaluationsBeforeV0174.map(e=>[e.id,e]))
     const changedIds=new Set(['lucci','marco'])
     for(const after of sampleEvaluations){
@@ -129,7 +129,7 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
         else expect(previous?.score,after.characterId).not.toBe(item.score)
       }
     }
-    expect(sampleEvaluations.filter(x=>!changedIds.has(x.characterId))).toHaveLength(66)
+    expect(sampleEvaluations.filter(x=>!changedIds.has(x.characterId))).toHaveLength(70)
   })
 
   it('uses only owned supplementary Evidence with already-existing Battle references and correct ties',()=>{
@@ -173,18 +173,18 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
     expect(score('teach','attack')).toBe(95)
   })
   it('enforces unchanged source-of-truth roster and Raw, while ranking gets only documented +2/7 and +6/7',()=>{
-    expect(sampleCharacters).toHaveLength(66)
-    expect(sampleMemberships).toHaveLength(84)
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(65)
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
+    expect(sampleCharacters).toHaveLength(70)
+    expect(sampleMemberships).toHaveLength(92)
+    expect(sampleEvaluations).toHaveLength(72)
+    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(69)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(504)
     expect(sampleMatchups).toHaveLength(15)
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(sampleEvaluations.filter(e=>e.isDefault!==false).flatMap(e=>e.items).reduce((s,i)=>s+getRawHakiContributionTotal(i),0)).toBe(212)
     expect(sampleEvaluations.flatMap(e=>e.items).reduce((s,i)=>s+getRawHakiContributionTotal(i),0)).toBe(230)
     const rank=getStatRanking('overall')
-    expect(rank).toHaveLength(65)
+    expect(rank).toHaveLength(69)
     expect(rank.find(r=>r.characterId==='marco')?.score).toBeCloseTo(586/7,10)
     expect(rank.find(r=>r.characterId==='lucci')?.score).toBeCloseTo(552/7,10)
   })
