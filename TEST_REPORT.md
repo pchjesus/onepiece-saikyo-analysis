@@ -1,3 +1,14 @@
+# v0.1.72 — canonical anchor cohort and 7-axis read-only calibration
+
+- **Baseline:** main `57617681432d9c7a8e8b03ebbe47206c8c489a2a` (v0.1.71).
+- **New only:** `v0172AnchorBaseline.ts`, `v0172AnchorBaseline.test.ts`, `docs/V0_1_72_BASELINE_ANCHOR_COHORT_AND_AXIS_VALIDATION_2026-10-11.md`, plus README/CHANGELOG/TEST_REPORT documentation. No change to source data collections, scores, model or UI.
+- **13 named candidates / 5 frozen Overall anchors / 6 conditional / 2 deferred / 7 frozen high-axis comparisons** with axis E1/E2/E3 snapshots and exact 7 Final Stat values versioned. Explain that frozen Overall is a reference score, not proof that all component axes are final; no hidden compensating adjustments.
+- **Five source/logic review controls:** Garp vs Law Versatility91, Kuzan Overall +2/7 despite Sakazuki fight win, Law Speed82 (ROOM not body speed), Marco Attack77 vs Who's Who79 (interception not damage), King 88 Defense/83 Speed mode conditional. Record special opponent conditions and evidence uncertainty.
+- **Automated regression guard:** exact live eval snapshot per 13, specific E1-only axis locks, source pointers present, existing 66 chars, 65 current evaluated, 68 evaluations, 476 stat rows, 84 memberships, 15 direct matchups, Balanced1.2/Haki Weight0.5, Raw212/230 and Ace/Teach Overalls unchanged.
+- **Run/deploy:** final GitHub PR + merged-main Actions should be verified and recorded in PR comments. Do not claim full original manga page-by-page verification or real browser/mobile manual UI test.
+
+---
+
 # v0.1.71 — Ace seven-axis evidence correction
 
 - **Start SHA**: main `2e929076b24c2957634a470c75bbd691a1719efb` (v0.1.70).
