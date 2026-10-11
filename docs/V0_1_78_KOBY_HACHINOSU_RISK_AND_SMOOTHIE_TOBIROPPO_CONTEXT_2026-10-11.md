@@ -56,7 +56,7 @@
 - Balanced 1.2, Haki weight 0.5, Raw 대표 212/전체 230, Character66, Evaluation68/Stat476, Membership84, 직접 Matchup15, 고정 Overall 5명 불변.
 - 신규 근거 2건은 원작 컷 직접 대조와 별개인 `supplementary` 출처로 저장. 기존 `canon` 증거를 동일 시놉시스의 새로운 독립 사건으로 복제하지 않음.
 - 신규 `v0178KobySmoothieContextAudit.test.ts`: 근거 소유·전투 참조, 공식 source URL, E2/E3, 68개 평가/455 대표 Core 축의 전후 불변, 새 Evaluation 버전/이전 상태 재현, Haki Raw/앵커/랭킹/매치업/토비롯포 기존 직접 Evidence 연결 확인.
-- 실제 GitHub Actions/Pages의 최종 성공 여부는 실제 PR 및 병합 커밋에 대한 **독립 실행 결과**로만 확정한다. 모바일·데스크톱 수동 브라우저 UI 테스트는 별도다.
+- [PR 코드 헤드 CI #38147304187](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38147304187): **70개 테스트 파일, 312개 테스트 전부 통과**, TypeScript와 프로덕션 Vite 빌드 성공 (SHA `74f99149e9f9eb5f6dad8683179eaeb893f727b2`). 처음 두 차례의 실패는 동일 데이터를 별도로 재생성한 객체를 내용이 아니라 참조 주소로 비교하던 테스트 문제로, 내용 검증으로 수정했으며 과거 수치 불변 조건은 유지했다. 최종 GitHub Pages 배포 상태는 PR 최종본 병합 커밋에 대한 독립 CI와 배포 작업에서 확인한다. 모바일·데스크톱 수동 브라우저 UI 테스트는 별도다.
 
 ## 5. 참고자료 (APA 7)
 
