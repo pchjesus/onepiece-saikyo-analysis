@@ -63,7 +63,7 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
     for(const e of sampleEvaluations){
       const old=before.get(e.characterId)
       expect(old).toBeDefined()
-      expect(e.items.map(getFinalStatScore),e.characterId).toEqual(old!.items.map(getFinalStatScore))
+      expect(e.items.map(i=>getFinalStatScore(i)),e.characterId).toEqual(old!.items.map(i=>getFinalStatScore(i)))
       expect(e.items.map(i=>getRawHakiContributionTotal(i)),e.characterId)
         .toEqual(old!.items.map(i=>getRawHakiContributionTotal(i)))
     }
