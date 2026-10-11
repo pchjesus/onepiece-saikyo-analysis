@@ -1,3 +1,11 @@
+## v0.1.77 — Koby Combat IQ and Grus Versatility contextual recalibration (2026-10-11)
+
+- **Two evidence-contextual, provisional score corrections only:** Koby Combat IQ **76(E2)→72(E2)** (TV1121 false civilian-rescue trap; Garp's orders and team success not credited as Koby's solo strategic planning), and Prince Grus Versatility **85(E2)→80(E2)** (TV1114 clay golem area denial and TV1122 clay nest protection are genuine different purposes using one clay mechanism, not many independent combat systems).
+- Balanced Overall **Koby 75.000→74.428571**, **Grus 76.857143→76.142857**. All remaining 453/455 current representative Final axes, other 63 characters, 5 frozen anchors, Haki Raw 212/230, evaluation readiness, Balanced1.2/hakiWeight0.5, 15 matchups, entity counts preserved.
+- Added `src/data/sample/v0177KobyGrusRecalibration.ts` (versioned narrow adapter and nine review decisions), regression `v0177KobyGrusRecalibration.test.ts` (all downstream effects + strict historical replay), and `docs/V0_1_77_KOBY_IQ_GRUS_VERSATILITY_ROSTER_AUDIT_2026-10-11.md` (fact / battle context / interpretation / project score / limitations).
+- Cross-audited Smoothie, Ulti, Page One, Sasaki, Raizo, Kawamatsu, Karasu, Shiryu, and Van Augur axes. No additional numeric changes, as sparse or condition-specific feats do not establish precise downgrades.
+- Historical v0.1.70, v0.1.75 and v0.1.76 code/decisions preserved; older regression tests now identify versions correctly without removing assertions. Official anime synopsis = supplementary (not manga panels reread).
+
 ## v0.1.76 — Koby single-burst Attack normalization and IQ/roster follow-up (2026-10-11)
 
 - **One Final stat correction:** Koby Attack **82(E2) → 77(E2)**, Balanced Overall **75.714286 → 75.000000** (−5/7), after crosschecking official ONE PIECE.com TV1121/1122: a single gigantic stone-arm destruction, Garp's prior body strike creating an opening, Helmeppo escort and Grus falling-debris rescue. Actual Koby strike was real but NOT verified as repeatedly sustainable top-tier 1v1 damage. This is a calibrated subjective value, not a fixed penalty per one-off feat.

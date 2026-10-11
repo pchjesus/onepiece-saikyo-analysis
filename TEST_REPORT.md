@@ -1,3 +1,16 @@
+# v0.1.77 — dual-axis contextual recalibration / historical and downstream regression
+
+- **Baseline:** `main@66e7bf07cc8e4be1a5785db74ae55e2c64a2dc72` (v0.1.76 / PR #75 / all 303 tests and GitHub Pages successful).
+- **Current delta:** Koby Combat IQ76→72; Prince Grus Versatility85→80, both E2 preserved. Koby Overall525/7→521/7; Grus Overall538/7→533/7.
+- **Protected:** 453/455 default 7-axis Final scores unchanged, all other 63 character evaluations unchanged, all Raw unchanged (default212, all230), five anchor Overall unchanged, 15 matchups unchanged, Balanced1.2 model unchanged.
+- **Data:** Characters66, Evaluations68 (65 default), stat entries476, Membership84, 15 explicit Matchups; E1/E2/E3 unchanged; no new battle/evidence duplicate.
+- **Provenance:** official TV1121 Koby's attempted civilian rescue and invisible Shiryu trap; official TV1114 Grus clay golem crowd control; official TV1122 Grus clay-nest debris safety and Koby structure destruction; official Grus and Koby character profiles. Context-dependent conclusions and numeric scores are *interpretations*, not canon fact.
+- **Replay:** historical v0.1.70, v0.1.75, v0.1.76 intact. `v0177KobyGrusRecalibration.test.ts` checks two and only two numeric deltas, pre-v0.1.77 snapshot, all unrelated Final scores, Raw, anchors, rank and owned Evidence. Older pinned tests updated without deletion.
+- **PR validation (code head):** [GitHub Actions #38144750308](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38144750308), SHA `81a3f2987c30d29cd504392307f76d44e86db608`: **69/69 test files and 307/307 tests passed**, `tsc -b && vite build` passed. Initial CI had one pinned live-ranking assertion that conflated current v0.1.77 and reconstructed v0.1.76; fixed without test removal. Documentation-only follow-up commit will require PR CI replay.
+- **Post-merge status:** must be verified on new `main` merge SHA with independent push CI and Pages deploy. No desktop/mobile browser manual interaction claimed.
+
+---
+
 # v0.1.76 — Koby single-burst Attack scale correction, peer and baseline regression
 
 - **Baseline:** main `a9f2629fad6db90a759b839e54229bbfa2c4cd1f` (v0.1.75).

@@ -42,7 +42,7 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
     expect(g.items.find(i=>i.stat==='versatility')?.evidenceIds).toContain(v0175GrusEvidence.id)
     expect(g.items.find(i=>i.stat==='techniqueMastery')?.evidenceIds).toContain(v0175GrusEvidence.id)
     expect(g.items.find(i=>i.stat==='combatIQ')?.evidenceIds).not.toContain(v0175GrusEvidence.id)
-    expect(g.evaluationDataVersion).toBe('evaluation-0.1.75-grus-evidence-expanded-no-score-change')
+    expect(g.evaluationDataVersion).toBe('evaluation-0.1.77-grus-single-clay-system-versatility-calibrated')
   })
 
   it('never turns Grus old seed or historical snapshot into the updated current version',()=>{
@@ -50,7 +50,8 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
     expect(old.evaluationDataVersion).toBe('evaluation-0.1.70-expansion-draft')
     expect(old.items.find(i=>i.stat==='versatility')?.evidenceIds).not.toContain(v0175GrusEvidence.id)
     expect(old.items.find(i=>i.stat==='versatility')?.rationale).not.toEqual(current('prince-grus').items.find(i=>i.stat==='versatility')?.rationale)
-    expect(()=>applyV0175GrusEvidenceReview(current('prince-grus'))).not.toThrow()
+    expect(()=>applyV0175GrusEvidenceReview(old)).not.toThrow()
+    expect(()=>applyV0175GrusEvidenceReview(current('prince-grus'))).toThrow(/baseline mismatch/)
     const originalChanged={...old,items:old.items.map(i=>i.stat==='versatility'?{...i,baseScore:84,score:84}:i)}
     expect(()=>applyV0175GrusEvidenceReview(originalChanged)).toThrow(/baseline mismatch/)
   })
@@ -66,7 +67,10 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
       expect(old).toBeDefined()
       if(e.characterId==='koby'){
         expect(old!.items.map(i=>getFinalStatScore(i))).toEqual([82,73,77,78,77,76,67])
-        expect(e.items.map(i=>getFinalStatScore(i))).toEqual([77,73,77,78,77,76,67])
+        expect(e.items.map(i=>getFinalStatScore(i))).toEqual([77,73,77,78,77,72,67])
+      } else if(e.characterId==='prince-grus'){
+        expect(old!.items.map(i=>getFinalStatScore(i))).toEqual([72,77,74,71,81,78,85])
+        expect(e.items.map(i=>getFinalStatScore(i))).toEqual([72,77,74,71,81,78,80])
       } else expect(e.items.map(i=>getFinalStatScore(i)),e.characterId).toEqual(old!.items.map(i=>getFinalStatScore(i)))
       expect(e.items.map(i=>getRawHakiContributionTotal(i)),e.characterId)
         .toEqual(old!.items.map(i=>getRawHakiContributionTotal(i)))
@@ -89,7 +93,7 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
         .toBeCloseTo(a.finalScores.reduce((s,v)=>s+v,0)/7,10)
     }
     expect(score('koby','attack')).toBe(77)
-    expect(score('prince-grus','versatility')).toBe(85)
+    expect(score('prince-grus','versatility')).toBe(80)
     expect(score('marco','attack')).toBe(79)
     expect(score('king','attack')).toBe(83)
     expect(score('jinbe','attack')).toBe(76)
@@ -110,6 +114,9 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
         // Read-only v0.1.75 decision is preserved as history, not retroactively overwritten.
         expect(decision.finalScore).toBe(82)
         expect(score('koby','attack')).toBe(77)
+      } else if(decision.characterId==='prince-grus'){
+        expect(decision.finalScore).toBe(85) // original v0.1.75 historical judgement
+        expect(score('prince-grus','versatility')).toBe(80)
       } else expect(score(decision.characterId,decision.axis)).toBe(decision.finalScore)
     }
   })

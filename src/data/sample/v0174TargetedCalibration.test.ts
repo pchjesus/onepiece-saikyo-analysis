@@ -57,13 +57,13 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
       const before=beforeById.get(after.id)
       expect(before,after.id).toBeDefined()
       if(after.characterId==='koby'){
-        expect(after.evaluationDataVersion).toBe('evaluation-0.1.76-koby-single-burst-attack-calibrated')
+        expect(after.evaluationDataVersion).toBe('evaluation-0.1.77-koby-combat-iq-context-calibrated')
         expect(before!.evaluationDataVersion).toBe('evaluation-0.1.70-expansion-draft')
         for(const item of after.items){
           const prior=before!.items.find(x=>x.stat===item.stat)!
-          if(item.stat==='attack'){
-            expect(prior.score).toBe(82)
-            expect(item.score).toBe(77)
+          if(item.stat==='attack'||item.stat==='combatIQ'){
+            expect(prior.score).toBe(item.stat==='attack'?82:76)
+            expect(item.score).toBe(item.stat==='attack'?77:72)
             expect(item.hakiContributions).toEqual(prior.hakiContributions)
           } else expect(item).toBe(prior)
         }
@@ -72,11 +72,11 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
       if(after.characterId==='prince-grus'){
         // v0.1.75: new supplementary evidence and rationale only; zero numeric/Haki change.
         expect(before!.evaluationDataVersion).toBe('evaluation-0.1.70-expansion-draft')
-        expect(after.evaluationDataVersion).toBe('evaluation-0.1.75-grus-evidence-expanded-no-score-change')
+        expect(after.evaluationDataVersion).toBe('evaluation-0.1.77-grus-single-clay-system-versatility-calibrated')
         for(const item of after.items){
           const prior=before!.items.find(x=>x.stat===item.stat)!
-          expect(item.score).toBe(prior.score)
-          expect(item.baseScore).toBe(prior.baseScore)
+          expect(item.score).toBe(item.stat==='versatility'?80:prior.score)
+          expect(item.baseScore).toBe(item.stat==='versatility'?80:prior.baseScore)
           expect(item.hakiContributions).toEqual(prior.hakiContributions)
           expect(item.readiness).toBe(prior.readiness)
           if(!['versatility','techniqueMastery'].includes(item.stat))expect(item).toBe(prior)

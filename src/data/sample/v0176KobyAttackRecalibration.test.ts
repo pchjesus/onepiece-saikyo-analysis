@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations, historicalEvaluationsBeforeV0174 } from './evaluations'
+import { historicalEvaluationsBeforeV0174 } from './evaluations'
 import { sampleCharacters } from './characters'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
@@ -14,6 +14,9 @@ import { getFinalStatScore, getRawHakiContributionTotal } from '../../domain/eva
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
 import { getStatRanking } from '../../application/getStatRanking'
 import { validateEvaluation } from '../../domain/evaluation/validation'
+
+// Freeze the exact v0.1.76 cohort for retrospective tests; live v0.1.77 has its own suite.
+const sampleEvaluations=historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection).map(applyV0175GrusEvidenceReview).map(applyV0176KobyAttackCorrection)
 
 const current=(id:string)=>{
   const ev=sampleEvaluations.find(e=>e.characterId===id && e.isDefault!==false)
@@ -83,7 +86,8 @@ describe('v0.1.76 — Koby single-burst Attack review and unchanged IQ peer audi
     }
     const rank=getStatRanking('overall')
     expect(rank).toHaveLength(65)
-    expect(rank.find(x=>x.characterId==='koby')?.score).toBeCloseTo(75,10)
+    // Ranking reads the live v0.1.77 cohort; v0.1.76 snapshot assertions above remain 75.
+    expect(rank.find(x=>x.characterId==='koby')?.score).toBeCloseTo(521/7,10)
     expect(rank.find(x=>x.characterId==='marco')?.score).toBeCloseTo(586/7,10)
     expect(rank.find(x=>x.characterId==='lucci')?.score).toBeCloseTo(552/7,10)
     expect(overall('koby')).toBeLessThan(overall('ulti'))
