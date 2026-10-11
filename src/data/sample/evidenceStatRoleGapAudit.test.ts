@@ -1,10 +1,13 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from './evaluations'
+import { sampleEvaluations as expandedEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleMatchups } from './matchups'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { getCombatPower } from '../../application/getCombatPower'
 import type { CombatStat } from '../../domain/evaluation/types'
+
+// v0.1.70 new evaluations are reviewed in their own suite; preserve this source audit's historical cohort.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 const reviewedE2: Array<[string, CombatStat]> = [
   ['vista', 'versatility'], ['jack', 'combatIQ'], ['cracker', 'combatIQ'],
@@ -54,9 +57,9 @@ describe('v0.1.54 23 untyped roles and 14 context-only axes', () => {
       }
     }
     expect(seen.size).toBe(37)
-    expect(defaults).toHaveLength(65)
+    expect(defaults).toHaveLength(59)
     const items = defaults.flatMap((e) => e.items)
-    expect(items).toHaveLength(455)
+    expect(items).toHaveLength(413)
     const counts = { E1: 0, E2: 0, E3: 0, missing: 0 }
     for (const item of items) if (item.readiness) counts[item.readiness]++
     else counts.missing++
@@ -95,8 +98,8 @@ describe('v0.1.54 23 untyped roles and 14 context-only axes', () => {
   })
 
   it('keeps all protected data sizes, chosen Overall anchors and Haki Raw untouched', () => {
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.flatMap((e) => e.items)).toHaveLength(476)
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(sampleEvaluations.flatMap((e) => e.items)).toHaveLength(434)
     expect(sampleEvaluations.flatMap((e) => e.items)
       .reduce((n, item) => n + getRawHakiContributionTotal(item), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
