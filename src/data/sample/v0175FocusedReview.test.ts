@@ -71,6 +71,11 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
       } else if(e.characterId==='prince-grus'){
         expect(old!.items.map(i=>getFinalStatScore(i))).toEqual([72,77,74,71,81,78,85])
         expect(e.items.map(i=>getFinalStatScore(i))).toEqual([72,77,74,71,81,78,80])
+      } else if(e.characterId==='queen'){
+        expect(old!.items.find(i=>i.stat==='versatility')?.score).toBe(80)
+        expect(e.items.find(i=>i.stat==='versatility')?.score).toBe(82)
+        expect(e.items.filter(i=>i.stat!=='versatility').map(i=>i.score))
+          .toEqual(old!.items.filter(i=>i.stat!=='versatility').map(i=>i.score))
       } else expect(e.items.map(i=>getFinalStatScore(i)),e.characterId).toEqual(old!.items.map(i=>getFinalStatScore(i)))
       expect(e.items.map(i=>getRawHakiContributionTotal(i)),e.characterId)
         .toEqual(old!.items.map(i=>getRawHakiContributionTotal(i)))
@@ -117,6 +122,9 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
       } else if(decision.characterId==='prince-grus'){
         expect(decision.finalScore).toBe(85) // original v0.1.75 historical judgement
         expect(score('prince-grus','versatility')).toBe(80)
+      } else if(decision.characterId==='queen'){
+        expect(decision.finalScore).toBe(80) // Retrospective v0.1.75 judgement remains frozen.
+        expect(score('queen','versatility')).toBe(82) // Current v0.1.79 independent calibration.
       } else expect(score(decision.characterId,decision.axis)).toBe(decision.finalScore)
     }
   })
