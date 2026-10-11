@@ -1,3 +1,15 @@
+# v0.1.76 — Koby single-burst Attack scale correction, peer and baseline regression
+
+- **Baseline:** main `a9f2629fad6db90a759b839e54229bbfa2c4cd1f` (v0.1.75).
+- **Change:** Precisely one current Final 7-axis stat: Koby Attack 82(E2)→77(E2), Overall 530/7→525/7. No new Haki Raw or stat formula changes.
+- **Source separation:** official ONE PIECE.com TV1122 object destruction and Garp/Helmeppo/Grus context; TV1121 Koby trap and official profile. Existing supplementary Evidence/Battle reused; no new manga-original firsthand claim.
+- **Regression targets:** 64 other characters entirely preserved; Koby six non-Attack axes unchanged; all 68 Evaluations, 476 core items, 66 Characters, 84 Membership, 15 Matchups; Balanced1.2 Haki0.5; Haki Raw 212 (representative) / 230 (all), E1=53/E2=272/E3=130; all 5 locked Overall anchors.
+- **Historical fidelity:** v0.1.70 Koby score82 remains original in seed; v0.1.75 read-only Koby82 judgement not silently rewritten. v0.1.76 current score explicit versioned adapter.
+- **Companion audit:** Crocodile/Stussy/Lucci IQ, Grus Versatility, Smoothie, Tobi Roppo, Akazaya, Revolutionary Army and Blackbeard Pirates retained absent independent corrective evidence.
+- **Tests:** add v0176-specific baseline regression; update older version-pinned tests to distinguish preserved original scores from current Koby score. CI status must be read from actual PR head; post-merge main build & Pages must be independently verified. No local/desktop/mobile UI manual smoke check performed.
+
+---
+
 # v0.1.75 — Grus evidence-only calibration after 14-person cohort comparison
 
 - **Baseline:** main `d5b3587e20d4485cbc88827f3699e0027d83cd02` (v0.1.74), PR #73 merge push workflow successful.
