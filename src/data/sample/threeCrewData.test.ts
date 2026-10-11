@@ -19,7 +19,7 @@ describe('sample combat data', () => {
       expect(sampleCharacters.filter(({ crewId }) => crewId === crew.id).length).toBeGreaterThanOrEqual(3)
     }
 
-    expect(sampleCharacters.filter(({ crewId }) => crewId === 'whitebeard-pirates')).toHaveLength(4)
+    expect(sampleCharacters.filter(({ crewId }) => crewId === 'whitebeard-pirates')).toHaveLength(5)
     expect(sampleCharacters.filter(({ crewId }) => crewId === 'beasts-pirates')).toHaveLength(9)
     expect(sampleCharacters.filter(({ crewId }) => crewId === 'big-mom-pirates')).toHaveLength(4)
   })
