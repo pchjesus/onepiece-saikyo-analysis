@@ -46,14 +46,15 @@ describe('v0.1.71 Ace direct-evidence correction, deterministic rollback and ori
     for(const [id,baseline] of priorMap){
       const current=sampleEvaluations.find(e=>e.characterId===id)!
       if(id==='koby'){
-        expect(current.evaluationDataVersion).toBe('evaluation-0.1.76-koby-single-burst-attack-calibrated')
-        expect(current.items.map(i=>i.score)).toEqual([77,73,77,78,77,76,67])
+        expect(current.evaluationDataVersion).toBe('evaluation-0.1.77-koby-combat-iq-context-calibrated')
+        expect(current.items.map(i=>i.score)).toEqual([77,73,77,78,77,72,67])
         expect(baseline.items.map(i=>i.score)).toEqual([82,73,77,78,77,76,67])
-        expect(current.items.slice(1)).toEqual(baseline.items.slice(1))
+        expect(current.items.filter(i=>!['attack','combatIQ'].includes(i.stat))).toEqual(baseline.items.filter(i=>!['attack','combatIQ'].includes(i.stat)))
         expect(current.items.map(i=>i.hakiContributions)).toEqual(baseline.items.map(i=>i.hakiContributions))
       } else if(id==='prince-grus'){
-        expect(current.evaluationDataVersion).toBe('evaluation-0.1.75-grus-evidence-expanded-no-score-change')
-        expect(current.items.map(i=>i.score)).toEqual(baseline.items.map(i=>i.score))
+        expect(current.evaluationDataVersion).toBe('evaluation-0.1.77-grus-single-clay-system-versatility-calibrated')
+        expect(current.items.map(i=>i.score)).toEqual([72,77,74,71,81,78,80])
+        expect(baseline.items.map(i=>i.score)).toEqual([72,77,74,71,81,78,85])
         expect(current.items.map(i=>i.hakiContributions)).toEqual(baseline.items.map(i=>i.hakiContributions))
         expect(baseline.evaluationDataVersion).toBe('evaluation-0.1.70-expansion-draft')
       } else expect(current).toEqual(baseline)
