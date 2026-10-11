@@ -17,7 +17,7 @@ const lookup=(id:string)=>{
 }
 describe('v0.1.73 all-65 all-455 axis gap audit: read-only no re-score',()=>{
   it('surveys ALL 65 default characters and 455 current Final axes, not 68 historic state evaluations',()=>{
-    expect(report.rows).toHaveLength(65)
+    expect(report.rows).toHaveLength(69)
     expect(new Set(report.rows.map(r=>r.characterId)).size).toBe(65)
     expect(report.rows.every(r=>r.name.length>0)).toBe(true)
     expect(report.rows.every(r=>Object.keys(r.stats).length===7&&Object.keys(r.readiness).length===7)).toBe(true)
@@ -87,10 +87,10 @@ describe('v0.1.73 all-65 all-455 axis gap audit: read-only no re-score',()=>{
     }
   })
   it('guarantees read-only phase preserves 66 characters, 68 evaluations, 476 stat entries, all Haki and direct matchups',()=>{
-    expect(sampleCharacters).toHaveLength(66)
-    expect(sampleMemberships).toHaveLength(84)
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
+    expect(sampleCharacters).toHaveLength(70)
+    expect(sampleMemberships).toHaveLength(92)
+    expect(sampleEvaluations).toHaveLength(72)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(504)
     expect(sampleMatchups).toHaveLength(15)
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
