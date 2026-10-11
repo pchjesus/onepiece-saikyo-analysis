@@ -5,6 +5,7 @@ import { applyV0174EvaluationCorrection } from './v0174TargetedCalibration'
 import { applyV0175GrusEvidenceReview } from './v0175FocusedReview'
 import { applyV0176KobyAttackCorrection } from './v0176KobyAttackRecalibration'
 import { applyV0177KobyGrusRecalibration } from './v0177KobyGrusRecalibration'
+import { applyV0178FocusedEvidenceReview } from './v0178KobySmoothieContextAudit'
 import type { CombatStat, Evaluation, EvaluationItem, EvidenceReadiness } from '../../domain/evaluation/types'
 import type { HakiStatContribution } from '../../domain/haki/types'
 import { getFinalStatScore } from '../../domain/evaluation/score'
@@ -599,5 +600,5 @@ export const historicalEvaluationsBeforeV0174: Evaluation[] = [
   v0171AceEvaluation,
 ]
 
-/** Live current evaluations: versioned v0.1.74→v0.1.77 non-destructive adapters. */
-export const sampleEvaluations: Evaluation[] = historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection).map(applyV0175GrusEvidenceReview).map(applyV0176KobyAttackCorrection).map(applyV0177KobyGrusRecalibration)
+/** Live current evaluations: versioned v0.1.74→v0.1.78 non-destructive adapters. */
+export const sampleEvaluations: Evaluation[] = historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection).map(applyV0175GrusEvidenceReview).map(applyV0176KobyAttackCorrection).map(applyV0177KobyGrusRecalibration).map(applyV0178FocusedEvidenceReview)
