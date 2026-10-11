@@ -1,10 +1,13 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from '../../data/sample/evaluations'
+import { sampleEvaluations as expandedEvaluations } from '../../data/sample/evaluations'
 import { sampleMatchups } from '../../data/sample/matchups'
 import { balancedV12 } from '../../data/sample/calculationModels'
 import { calculateBalancedCombatPower } from './calculateCombatPower'
 import { COMBAT_STATS, type CombatStat } from '../evaluation/types'
 import { getFinalStatScore, getRawHakiContributionTotal } from '../evaluation/score'
+
+// This historic baseline audit isolates the original 62 evaluations; v0.1.70 is checked separately.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 /**
  * v0.1.58 diagnostic only. No new score, model, win-rate, weighting or E3 penalty is introduced.
@@ -38,8 +41,8 @@ describe('v0.1.58 all-roster score calibration and versioned baseline (read-only
     expect(balancedV12.configuration.method).toBe('arithmetic-mean')
     expect(balancedV12.configuration.statCount).toBe(7)
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
-    expect(profiles).toHaveLength(65)
-    expect(new Set(profiles.map((p) => p.id)).size).toBe(65)
+    expect(profiles).toHaveLength(59)
+    expect(new Set(profiles.map((p) => p.id)).size).toBe(59)
     for (const p of profiles) {
       expect(p.evaluation.items).toHaveLength(7)
       for (const item of p.evaluation.items) {
@@ -50,7 +53,7 @@ describe('v0.1.58 all-roster score calibration and versioned baseline (read-only
       expect(calculateBalancedCombatPower(p.evaluation, balancedV12).finalScore)
         .toBeCloseTo(overall(p), 10)
     }
-    expect(profiles.flatMap((p) => p.evaluation.items)).toHaveLength(455)
+    expect(profiles.flatMap((p) => p.evaluation.items)).toHaveLength(413)
     expect(profiles.flatMap((p) => p.evaluation.items).filter((s) => !s.readiness)).toHaveLength(0)
     expect(profiles.flatMap((p) => p.evaluation.items)
       .filter((s) => s.baseScore + getRawHakiContributionTotal(s) * 0.5 > 100)).toHaveLength(0)
@@ -76,8 +79,8 @@ describe('v0.1.58 all-roster score calibration and versioned baseline (read-only
     expect(items.filter((i) => i.readiness === 'E3' && i.score >= 85)).toHaveLength(14)
     expect(items.filter((i) => i.readiness === 'E3' && i.score >= 90)).toHaveLength(9)
     expect(items.reduce((n, item) => n + getRawHakiContributionTotal(item), 0)).toBe(212)
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.flatMap((e) => e.items)).toHaveLength(476)
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(sampleEvaluations.flatMap((e) => e.items)).toHaveLength(434)
     expect(sampleEvaluations.flatMap((e) => e.items)
       .reduce((n, item) => n + getRawHakiContributionTotal(item), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
