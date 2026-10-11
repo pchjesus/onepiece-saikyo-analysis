@@ -1,10 +1,13 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from './evaluations'
+import { sampleEvaluations as expandedEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleMatchups } from './matchups'
 import { getCombatPower } from '../../application/getCombatPower'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import type { CombatStat, EvidenceReadiness } from '../../domain/evaluation/types'
+
+// v0.1.70 new evaluations are reviewed in their own suite; preserve this source audit's historical cohort.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 const newRatings: Record<string, Partial<Record<CombatStat, EvidenceReadiness>>> = {
   cracker: { attack: 'E2', defense: 'E2', stamina: 'E2', techniqueMastery: 'E2', versatility: 'E2' },
@@ -34,10 +37,10 @@ describe('v0.1.55 five-character canon-readiness review', () => {
       }
     }
     expect(new Set(examined).size).toBe(31)
-    expect(defaults).toHaveLength(65)
+    expect(defaults).toHaveLength(59)
     const counts = { E1: 0, E2: 0, E3: 0, unset: 0 }
     const all = defaults.flatMap((evaluation) => evaluation.items)
-    expect(all).toHaveLength(455)
+    expect(all).toHaveLength(413)
     for (const stat of all) {
       if (stat.readiness) counts[stat.readiness]++
       else counts.unset++
@@ -86,8 +89,8 @@ describe('v0.1.55 five-character canon-readiness review', () => {
       const expected = stats.reduce((sum, stat) => sum + stat, 0) / 7
       expect(getCombatPower(id).finalScore, id).toBeCloseTo(expected, 9)
     }
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(476)
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)
       .reduce((sum, stat) => sum + getRawHakiContributionTotal(stat), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
