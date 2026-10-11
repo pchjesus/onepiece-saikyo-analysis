@@ -68,8 +68,8 @@ describe('v0.1.76 — Koby single-burst Attack review and unchanged IQ peer audi
       expect(now.items.map(i=>getRawHakiContributionTotal(i))).toEqual(old.items.map(i=>getRawHakiContributionTotal(i)))
     }
     expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
-    expect(sampleCharacters).toHaveLength(66)
-    expect(sampleMemberships).toHaveLength(84)
+    expect(sampleCharacters).toHaveLength(70)
+    expect(sampleMemberships).toHaveLength(92)
     expect(sampleMatchups).toHaveLength(15)
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(.5)
@@ -85,7 +85,7 @@ describe('v0.1.76 — Koby single-burst Attack review and unchanged IQ peer audi
       expect(overall(old.characterId)).toBeCloseTo(calculateBalancedCombatPower(old,balancedV12).finalScore,10)
     }
     const rank=getStatRanking('overall')
-    expect(rank).toHaveLength(65)
+    expect(rank).toHaveLength(69)
     // Ranking reads the live v0.1.77 cohort; v0.1.76 snapshot assertions above remain 75.
     expect(rank.find(x=>x.characterId==='koby')?.score).toBeCloseTo(521/7,10)
     expect(rank.find(x=>x.characterId==='marco')?.score).toBeCloseTo(586/7,10)

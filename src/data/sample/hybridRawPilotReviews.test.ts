@@ -57,9 +57,9 @@ describe('Hybrid Haki A approval: four transferred, ten open reviews', () => {
   })
 
   it('recalculates all 39 post-A scores, with no zero-impact duplicate contributions', () => {
-    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations).toHaveLength(72)
     const rows = sampleEvaluations.flatMap((e) => e.items)
-    expect(rows).toHaveLength(476)
+    expect(rows).toHaveLength(504)
     expect(rows.flatMap(i => i.hakiContributions)).toHaveLength(45)
     expect(rows.flatMap(i => i.hakiContributions).reduce((n,c)=>n+c.amount,0)).toBe(230)
     expect(rows.every(i => Math.abs(i.score - getFinalStatScore(i)) < 1e-9)).toBe(true)
@@ -102,6 +102,6 @@ describe('Hybrid Haki A approval: four transferred, ten open reviews', () => {
       .every(stat => katakuri.items.find(i => i.stat===stat)?.readiness==='E2')).toBe(true)
     expect(katakuri.items.find(i => i.stat==='defense')?.evidenceIds).toContain(e.id)
     expect(sampleEvaluations.flatMap(e => e.items).filter(i => !i.readiness)).toHaveLength(0)
-    expect(sampleEvaluations.flatMap(e => e.items).filter(i => i.evidenceIds.length===0)).toHaveLength(4)
+    expect(sampleEvaluations.flatMap(e => e.items).filter(i => i.evidenceIds.length===0)).toHaveLength(5)
   })
 })

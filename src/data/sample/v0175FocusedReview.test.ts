@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { sampleCharacters } from './characters'
-import { sampleEvaluations, historicalEvaluationsBeforeV0174 } from './evaluations'
+import { sampleEvaluations as liveSampleEvaluations, historicalEvaluationsBeforeV0174 } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { sampleMemberships } from './memberships'
@@ -13,6 +13,8 @@ import { getStatRanking } from '../../application/getStatRanking'
 import { applyV0174EvaluationCorrection } from './v0174TargetedCalibration'
 import { applyV0175GrusEvidenceReview, v0175GrusBattle, v0175GrusEvidence, v0175ReviewDecisions } from './v0175FocusedReview'
 
+// Locked cohort from v0.1.75 through current overlays, excluding v0.1.80 additions.
+const sampleEvaluations=liveSampleEvaluations.filter(e=>!['smoker','tashigi','ivankov','inazuma'].includes(e.characterId))
 const current=(id:string)=>{
   const e=sampleEvaluations.find(x=>x.characterId===id && x.isDefault!==false)
   if(!e)throw Error('missing '+id)
@@ -81,8 +83,8 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
         .toEqual(old!.items.map(i=>getRawHakiContributionTotal(i)))
     }
     expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
-    expect(sampleCharacters).toHaveLength(66)
-    expect(sampleMemberships).toHaveLength(84)
+    expect(sampleCharacters).toHaveLength(70)
+    expect(sampleMemberships).toHaveLength(92)
     expect(sampleMatchups).toHaveLength(15)
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
@@ -112,7 +114,7 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
     expect(score('stussy','combatIQ')).toBe(85)
     expect(overall('lucci')).toBeCloseTo(552/7,10)
     expect(overall('marco')).toBeCloseTo(586/7,10)
-    expect(getStatRanking('overall')).toHaveLength(65)
+    expect(getStatRanking('overall')).toHaveLength(69)
     expect(v0175ReviewDecisions.every(d=>d.decision.startsWith('retain'))).toBe(true)
     for(const decision of v0175ReviewDecisions){
       if(decision.characterId==='koby'){

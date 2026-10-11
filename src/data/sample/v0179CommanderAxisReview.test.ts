@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { sampleEvaluations, historicalEvaluationsBeforeV0174 } from './evaluations'
+import { sampleEvaluations as liveSampleEvaluations, historicalEvaluationsBeforeV0174 } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { sampleCharacters } from './characters'
@@ -18,6 +18,8 @@ import { calculateBalancedCombatPower } from '../../domain/calculation/calculate
 import { getStatRanking } from '../../application/getStatRanking'
 import { validateEvaluation } from '../../domain/evaluation/validation'
 
+// v0.1.79 score calibration locked to the 65-character cohort; v0.1.80 expansion audited separately.
+const sampleEvaluations=liveSampleEvaluations.filter(e=>!['smoker','tashigi','ivankov','inazuma'].includes(e.characterId))
 const oldSnapshot=()=>historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection)
   .map(applyV0175GrusEvidenceReview).map(applyV0176KobyAttackCorrection)
   .map(applyV0177KobyGrusRecalibration).map(applyV0178FocusedEvidenceReview)
@@ -92,8 +94,8 @@ describe('v0.1.79 — nine-axis Smoothie/Cracker/Queen source and scoring audit'
     }
     expect(numericChanges).toBe(1)
     expect(metadataChanges).toBe(2)
-    expect(sampleCharacters).toHaveLength(66)
-    expect(sampleMemberships).toHaveLength(84)
+    expect(sampleCharacters).toHaveLength(70)
+    expect(sampleMemberships).toHaveLength(92)
     expect(sampleMatchups).toHaveLength(15)
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(.5)
@@ -150,7 +152,7 @@ describe('v0.1.79 — nine-axis Smoothie/Cracker/Queen source and scoring audit'
       expect(overall(get(a.characterId))).toBeCloseTo(a.finalScores.reduce((s,v)=>s+v,0)/7,10)
     }
     const ranks=getStatRanking('overall')
-    expect(ranks).toHaveLength(65)
+    expect(ranks).toHaveLength(69)
     expect(ranks.find(x=>x.characterId==='queen')?.score).toBeCloseTo(552/7,10)
     expect(ranks.find(x=>x.characterId==='cracker')?.score).toBeCloseTo(545/7,10)
     expect(ranks.find(x=>x.characterId==='smoothie')?.score).toBeCloseTo(536/7,10)

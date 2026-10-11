@@ -3,6 +3,7 @@ import { v0170Battles } from './v0170GroupAceExpansion'
 import { v0171AceBattles } from './v0171AceCalibration'
 import { v0175GrusBattle } from './v0175FocusedReview'
 import { v0178HachinosuCaptivesBattle } from './v0178KobySmoothieContextAudit'
+import { v0180Battles } from './v0180GroupsAndCharacters'
 import type { Battle, BattleParticipant } from '../../domain/battle/types'
 
 export const sampleBattles: Battle[] = [
@@ -833,6 +834,7 @@ export const sampleBattles: Battle[] = [
   ...v0171AceBattles,
   v0175GrusBattle,
   v0178HachinosuCaptivesBattle,
+  ...v0180Battles,
 ]
 
 export const sampleBattleParticipants: BattleParticipant[] = [

@@ -130,9 +130,10 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
 
   it('derives stable historical 59-character ranking while tracking only intended recalibration impact', () => {
     const expanded = getStatRanking('overall')
-    expect(expanded).toHaveLength(65)
+    expect(expanded).toHaveLength(69)
     const original = expanded.filter(r => !['koby','prince-grus','vergo','pica','diamante','ace'].includes(r.characterId))
-    const ranking = original.map(r => ({ ...r, rank: 1 + original.filter(x => x.score > r.score).length }))
+    const originalPrior = original.filter(r=>!['smoker','tashigi','ivankov','inazuma'].includes(r.characterId))
+    const ranking = originalPrior.map(r => ({ ...r, rank: 1 + originalPrior.filter(x => x.score > r.score).length }))
     expect(ranking).toHaveLength(59)
     expect(new Set(ranking.map(r => r.characterId)).size).toBe(59)
     expect(ranking.find(r => r.characterId === 'kaku')?.score).toBeCloseTo(74.28571428571429)
@@ -167,7 +168,7 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
   })
 
   it('preserves approved old 39 evaluations and no bonus invention under approved Hybrid A', () => {
-    expect(sampleCharacters).toHaveLength(66) // includes one existing unscored Buggy
+    expect(sampleCharacters).toHaveLength(70) // includes one existing unscored Buggy
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
     const expansionIds = new Set(['kid','killer','kinemon','denjiro','ashura-doji','kawamatsu','kikunojo','raizo','inuarashi','nekomamushi','kanjuro','whos-who','sasaki','black-maria','ulti','page-one','x-drake'])

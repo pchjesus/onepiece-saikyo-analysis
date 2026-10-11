@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { sampleCharacters } from './characters'
-import { sampleEvaluations, historicalEvaluationsBeforeV0174 } from './evaluations'
+import { sampleEvaluations as liveSampleEvaluations, historicalEvaluationsBeforeV0174 } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { sampleMemberships } from './memberships'
@@ -13,6 +13,8 @@ import { calculateBalancedCombatPower } from '../../domain/calculation/calculate
 import { getRawHakiContributionTotal, getFinalStatScore } from '../../domain/evaluation/score'
 import { getStatRanking } from '../../application/getStatRanking'
 
+// v0.1.74 historical cohort; new v0.1.80 identities verified separately.
+const sampleEvaluations=liveSampleEvaluations.filter(e=>!['smoker','tashigi','ivankov','inazuma'].includes(e.characterId))
 const lookup=(id:string)=>{
   const e=sampleEvaluations.find(e=>e.characterId===id&&e.isDefault!==false)
   if(!e)throw Error('No current Evaluation for '+id)
@@ -129,7 +131,7 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
         else expect(previous?.score,after.characterId).not.toBe(item.score)
       }
     }
-    expect(sampleEvaluations.filter(x=>!changedIds.has(x.characterId))).toHaveLength(66)
+    expect(sampleEvaluations.filter(x=>!changedIds.has(x.characterId))).toHaveLength(70)
   })
 
   it('uses only owned supplementary Evidence with already-existing Battle references and correct ties',()=>{
@@ -173,8 +175,8 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
     expect(score('teach','attack')).toBe(95)
   })
   it('enforces unchanged source-of-truth roster and Raw, while ranking gets only documented +2/7 and +6/7',()=>{
-    expect(sampleCharacters).toHaveLength(66)
-    expect(sampleMemberships).toHaveLength(84)
+    expect(sampleCharacters).toHaveLength(70)
+    expect(sampleMemberships).toHaveLength(92)
     expect(sampleEvaluations).toHaveLength(68)
     expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(65)
     expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
@@ -184,7 +186,7 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
     expect(sampleEvaluations.filter(e=>e.isDefault!==false).flatMap(e=>e.items).reduce((s,i)=>s+getRawHakiContributionTotal(i),0)).toBe(212)
     expect(sampleEvaluations.flatMap(e=>e.items).reduce((s,i)=>s+getRawHakiContributionTotal(i),0)).toBe(230)
     const rank=getStatRanking('overall')
-    expect(rank).toHaveLength(65)
+    expect(rank).toHaveLength(69)
     expect(rank.find(r=>r.characterId==='marco')?.score).toBeCloseTo(586/7,10)
     expect(rank.find(r=>r.characterId==='lucci')?.score).toBeCloseTo(552/7,10)
   })

@@ -42,8 +42,8 @@ describe('v0.1.35 Sakazuki evidence-first calibration pilot', () => {
   })
 
   it('preserves all prior scores, Haki typed Raw, rankings and source-pool coverage', () => {
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.flatMap(({ items }) => items)).toHaveLength(476)
+    expect(sampleEvaluations).toHaveLength(72)
+    expect(sampleEvaluations.flatMap(({ items }) => items)).toHaveLength(504)
     expect(sakazuki.items.map(({ score }) => score)).toEqual([97, 95, 96, 86, 91, 91, 91])
     expect(calculateBalancedCombatPower(sakazuki, balancedV12).finalScore).toBeCloseTo(647 / 7, 10)
 
@@ -59,7 +59,7 @@ describe('v0.1.35 Sakazuki evidence-first calibration pilot', () => {
       expect(calculateBalancedCombatPower(evaluation, balancedV12).finalScore, id).toBeCloseTo(expected, 10)
     }
     const rows = sampleEvaluations.flatMap(({ items }) => items)
-    expect(rows.filter(({ evidenceIds }) => evidenceIds.length === 0)).toHaveLength(4)
+    expect(rows.filter(({ evidenceIds }) => evidenceIds.length === 0)).toHaveLength(5)
     // Additional Katakuri review may improve Readiness beyond the original Sakazuki-only baseline.
     expect(rows.filter(({ readiness }) => !readiness).length).toBeLessThanOrEqual(196)
     expect(rows.flatMap(({ hakiContributions }) => hakiContributions)

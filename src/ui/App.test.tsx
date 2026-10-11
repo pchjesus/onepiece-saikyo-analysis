@@ -49,7 +49,7 @@ describe('evaluated roster UI', () => {
 
   it('shows exactly 59 unique results and filters historical Tobi Roppo membership without duplication', async () => {
     await openPicker()
-    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(65)
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(69)
     const filter = container.querySelector<HTMLSelectElement>('#character-picker-group')!
     await act(async () => {
       const setter = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value')?.set
@@ -64,7 +64,7 @@ describe('evaluated roster UI', () => {
     expect(selectedGroupName()).toBe('토비롯포')
     expect(container.querySelector('[role="dialog"][aria-modal="true"]')).toBeNull()
     await openPicker()
-    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(65)
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(69)
   })
 
   it('restores trigger focus when closing with Escape and keeps unrelated evaluation data intact', async () => {
@@ -82,7 +82,7 @@ describe('evaluated roster UI', () => {
     await selectGroup('혁명군')
     expect(container.querySelector('main.detail h1')?.textContent).toBe('사보')
     expect([...container.querySelectorAll('.character-chip')].map(el => el.textContent))
-      .toEqual(['사보', '몰리', '카라스'])
+      .toEqual(['사보', '몰리', '엠포리오 이완코브', '이나즈마', '카라스'])
     await click([...container.querySelectorAll('.character-chip')].find(el=>el.textContent==='몰리') ?? null)
     expect(container.querySelector('main.detail h1')?.textContent).toBe('몰리')
     expect(container.querySelectorAll('.readiness-badge.e3')).toHaveLength(4)
@@ -145,7 +145,7 @@ describe('evaluated roster UI', () => {
     const stat = container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]')
     await click(stat)
     const rows = [...document.querySelectorAll('.rank-row')]
-    expect(rows).toHaveLength(65)
+    expect(rows).toHaveLength(69)
     expect(rows.slice(0, 3).every((row) => row.textContent?.includes('100'))).toBe(true)
     expect(rows.slice(0, 3).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
     expect(rows.slice(0, 3).map((row) => row.textContent).join(' ')).toContain('에드워드 뉴게이트')
@@ -170,14 +170,14 @@ describe('evaluated roster UI', () => {
   it('opens Overall rankings in full-precision order and reverses the list without changing canonical ranks', async () => {
     await click(container.querySelector('button[aria-label="종합 전투력 전체 캐릭터 순위 보기"]'))
     const rows = () => [...document.querySelectorAll('.rank-row')]
-    expect(rows()).toHaveLength(65)
+    expect(rows()).toHaveLength(69)
     expect(document.querySelector('#stat-rank-title')?.textContent).toContain('종합 전투력')
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('에드워드 뉴게이트')
     expect(rows()[0].textContent).toContain('97.571')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
-    expect(rows()[0].textContent).toContain('페이지 원')
-    expect(rows()[0].textContent).toContain('65위')
+    expect(rows()[0].textContent).toContain('타시기')
+    expect(rows()[0].textContent).toContain('69위')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
   })
@@ -186,7 +186,7 @@ describe('evaluated roster UI', () => {
     await click(container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]'))
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     const rows = [...document.querySelectorAll('.rank-row')]
-    expect(rows).toHaveLength(65)
+    expect(rows).toHaveLength(69)
     expect(rows[0].textContent).not.toContain('골 D. 로저')
   })
 
@@ -378,4 +378,63 @@ describe('evaluated roster UI', () => {
     expect(document.activeElement).toBe(summary)
   })
 
+})
+
+
+describe('v0.1.80 patch history and two populated groups',()=>{
+  it('opens versioned patch dialog from header with reasons, previous/current stat scores and official sources',async()=>{
+    const trigger=container.querySelector<HTMLButtonElement>('.open-patch-history')
+    expect(trigger?.textContent).toContain('패치 내역')
+    expect(container.textContent).toContain('v0.1.80')
+    await click(trigger)
+    const dialog=document.querySelector('.patch-history-dialog')
+    expect(dialog?.getAttribute('aria-modal')).toBe('true')
+    expect(dialog?.textContent).toContain('v0.1.80')
+    expect(dialog?.textContent).toContain('스모커')
+    expect(dialog?.textContent).toContain('이완코브')
+    expect(dialog?.querySelectorAll('details.patch-release')).toHaveLength(6)
+    const v79=[...dialog!.querySelectorAll<HTMLDetailsElement>('details.patch-release')].find(x=>x.querySelector('.patch-version')?.textContent==='v0.1.79')!
+    await click(v79.querySelector('summary'))
+    expect(v79.open).toBe(true)
+    expect(v79.textContent).toContain('80 → 82')
+    expect(v79.textContent).toContain('공식 TV 1005화')
+    expect(v79.querySelector('a[href="https://one-piece.com/anime/o5997/index.html"]')).not.toBeNull()
+    await click(dialog?.querySelector('button[aria-label="패치 내역 닫기"]')??null)
+    expect(document.querySelector('.patch-history-dialog')).toBeNull()
+    expect(document.activeElement).toBe(trigger)
+  })
+  it('opens on matchup screen and closes by Escape/backdrop without breaking navigation',async()=>{
+    await click(container.querySelector('button[aria-label="매치업 아레나 화면"]'))
+    await click(container.querySelector('.open-patch-history'))
+    expect(document.querySelector('.patch-history-dialog')).not.toBeNull()
+    await act(async()=>{
+      document.querySelector('.patch-history-dialog')?.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))
+    })
+    expect(document.querySelector('.patch-history-dialog')).toBeNull()
+    expect(document.querySelector('.matchup-home')).not.toBeNull()
+    await click(container.querySelector('.open-patch-history'))
+    await act(async()=>{
+      document.querySelector('.patch-backdrop')?.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true}))
+    })
+    expect(document.querySelector('.patch-history-dialog')).toBeNull()
+  })
+  it('shows G-5 and Kamabakka as staffed groups and Ivankov under Revolutionaries, without duplicate search results',async()=>{
+    await selectGroup('해군 G-5 지부')
+    expect([...container.querySelectorAll('.character-chip')].map(x=>x.textContent)).toContain('스모커')
+    expect([...container.querySelectorAll('.character-chip')].map(x=>x.textContent)).toContain('타시기')
+    await selectGroup('카마바카 왕국')
+    expect([...container.querySelectorAll('.character-chip')].some(x=>x.textContent?.includes('이완코브'))).toBe(true)
+    expect([...container.querySelectorAll('.character-chip')].some(x=>x.textContent?.includes('이나즈마'))).toBe(true)
+    await selectGroup('혁명군')
+    expect([...container.querySelectorAll('.character-chip')].some(x=>x.textContent?.includes('이완코브'))).toBe(true)
+    await openPicker()
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(69)
+    const input=container.querySelector('#character-picker-search') as HTMLInputElement
+    await act(async()=>{
+      const setter=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value')?.set
+      setter?.call(input,'이완코브')
+      input.dispatchEvent(new Event('input',{bubbles:true}))
+    })
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(1)
+  })
 })

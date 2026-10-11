@@ -1,3 +1,14 @@
+# v0.1.80 — patch-history UI, 4-character addition and 2-group regression
+
+- **Baseline:** v0.1.79, `main@f893b676169b531e6ca821f2911186c0ff620aa0`.
+- **UI:** patch-history button on stats and matchup screens, versions v0.1.75–v0.1.80 with all stat adjustments and evidence hyperlinks; Escape/backdrop/close, focus restore, focus trap, mobile dialog scroll.
+- **New roster:** Smoker, Tashigi, Ivankov and Inazuma; populated G-5 Marines and Kamabakka Kingdom groups, 8 memberships and consistent historical vs parent groups; 9 new supplementary TV Battles and 9 Evidence, four full 7-stat draft evaluations.
+- **Data invariant:** Characters70, unique evaluated69, Evaluations72 (69 default), Items504, Memberships92, prior 65 default Final455 unchanged; all old Raw212/230; Balanced1.2 Weight0.5, five frozen anchors, 15 explicit matchups.
+- **Test plan:** validate profiles/Evidence ownership, new Battle→Evidence references, no duplicate Character/Rank/Matchup, prior profiles unchanged, append-only historical, changelog data completeness, in-app dialog accessibility.
+- **CI status:** pending first PR GitHub workflow, independent final merged main run, Pages deployment. No actual manual browser-device smoke claim.
+
+---
+
 # v0.1.79 — commander 9-axis re-calibration / official evidence crosscheck
 
 - **Baseline:** v0.1.78 `main@591f9617887adf967292b34c28d2331b1c1e6493` (312 tests passed, Pages success).

@@ -31,9 +31,9 @@ describe('v0.1.71 Ace direct-evidence correction, deterministic rollback and ori
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(sampleMatchups).toHaveLength(15)
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(65)
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
+    expect(sampleEvaluations).toHaveLength(72)
+    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(69)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(504)
     expect(sampleEvaluations.flatMap(e=>e.items).reduce((s,e)=>s+getRawHakiContributionTotal(e),0)).toBe(230)
     expect(sampleEvaluations.filter(e=>e.isDefault!==false).flatMap(e=>e.items).reduce((s,e)=>s+getRawHakiContributionTotal(e),0)).toBe(212)
   })
@@ -41,7 +41,7 @@ describe('v0.1.71 Ace direct-evidence correction, deterministic rollback and ori
   it('preserves historical v0.1.70 source and all post-Ace values except separately versioned Grus evidence metadata',()=>{
     expect(sampleEvaluations.filter(e=>e.characterId==='ace')).toHaveLength(1)
     expect(v0170Evaluations.filter(e=>e.characterId==='ace')).toHaveLength(1)
-    expect(sampleEvaluations.filter(e=>e.characterId!=='ace')).toHaveLength(67)
+    expect(sampleEvaluations.filter(e=>e.characterId!=='ace')).toHaveLength(71)
     const priorMap=new Map(v0170Evaluations.filter(e=>e.characterId!=='ace').map(e=>[e.characterId,e]))
     for(const [id,baseline] of priorMap){
       const current=sampleEvaluations.find(e=>e.characterId===id)!

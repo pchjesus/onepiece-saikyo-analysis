@@ -76,9 +76,9 @@ describe('v0.1.77 — two targeted contextual downgrades only',()=>{
       if(!['koby','prince-grus'].includes(after.characterId))expect(overall(after)).toBeCloseTo(overall(before),10)
     }
     expect(changes).toBe(2)
-    expect(sampleCharacters).toHaveLength(66)
+    expect(sampleCharacters).toHaveLength(70)
     expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
-    expect(sampleMemberships).toHaveLength(84)
+    expect(sampleMemberships).toHaveLength(92)
     expect(sampleMatchups).toHaveLength(15)
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
@@ -105,7 +105,7 @@ describe('v0.1.77 — two targeted contextual downgrades only',()=>{
       expect(overall(live(anchor.characterId)))
         .toBeCloseTo(anchor.finalScores.reduce((s,x)=>s+x,0)/7,10)
     }
-    expect(getStatRanking('overall')).toHaveLength(65)
+    expect(getStatRanking('overall')).toHaveLength(69)
     expect(sampleEvidence.some(e=>e.id==='evidence-v0175-grus-clay-golems-tv1114')).toBe(true)
     expect(sampleBattles.some(b=>b.id==='battle-v0175-grus-golems-1114')).toBe(true)
     expect(live('prince-grus').items.find(i=>i.stat==='versatility')?.evidenceIds)

@@ -1,5 +1,6 @@
 import { wanoGroups } from './wanoExpansion'
 import { v0170Groups } from './v0170GroupAceExpansion'
+import { v0180Groups } from './v0180GroupsAndCharacters'
 import type { Group } from '../../domain/character/types'
 
 /**
@@ -34,4 +35,5 @@ export const sampleGroups: Group[] = [
   { id: 'elbaf-giants', name: '엘바프 / 거인족', type: 'regional' },
   ...wanoGroups,
   ...v0170Groups,
+  ...v0180Groups,
 ]
