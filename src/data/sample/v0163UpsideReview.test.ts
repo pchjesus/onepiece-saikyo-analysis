@@ -2,12 +2,15 @@ import { describe, expect, it } from 'vitest'
 import { COMBAT_STATS } from '../../domain/evaluation/types'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
-import { sampleEvaluations } from './evaluations'
+import { sampleEvaluations as expandedEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleCharacters } from './characters'
 import { sampleMatchups } from './matchups'
 import { balancedV12 } from './calculationModels'
 import { v0163UpsideAxisReviews, v0163UnresolvedHakiOverlaps } from './v0163UpsideReview'
+
+// Historical 59-person calibration stays stable; v0.1.70 is checked in a separate new-cohort suite.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 const defaults = sampleEvaluations.filter(e => e.isDefault !== false)
 const evaluated = (id: string) => {
@@ -110,10 +113,10 @@ describe('v0.1.63 full seven-axis upside and Haki independent-effect review (rea
     expect(calculateBalancedCombatPower(evaluated('shanks'), balancedV12).finalScore).toBeCloseTo(648 / 7, 10)
     expect(evaluated('jinbe').items.map(item => item.score)).toEqual([76, 80, 80, 77, 83, 80, 79])
     expect(evaluated('katakuri').items.map(item => item.score)).toEqual([83, 84, 84, 84, 87, 82, 84])
-    expect(defaults).toHaveLength(65)
-    expect(defaults.flatMap(e => e.items)).toHaveLength(455)
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(476)
+    expect(defaults).toHaveLength(59)
+    expect(defaults.flatMap(e => e.items)).toHaveLength(413)
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
     expect(defaults.flatMap(e => e.items).filter(item => item.readiness === 'E1')).toHaveLength(53)
     expect(defaults.flatMap(e => e.items).filter(item => item.readiness === 'E2')).toHaveLength(243)
     expect(defaults.flatMap(e => e.items).filter(item => item.readiness === 'E3')).toHaveLength(117)
