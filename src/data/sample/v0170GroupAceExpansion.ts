@@ -577,17 +577,20 @@ export const v0170Characters: Character[] = v0170Seeds.map(s=>({
     ],
   },
 }))
+const eventBattleId = (s: typeof v0170Seeds[number], e: typeof v0170Seeds[number]['events'][number]) =>
+  s.group==='sword' ? `battle-v0170-sword-${e.ep}` :
+  s.id==='ace' && e.key==='teach' ? 'banaro-teach-ace' : `battle-v0170-${s.id}-${e.key}`
 export const v0170Battles: Battle[] = v0170Seeds.flatMap((s,idx)=>s.events.map((e,i)=>({
-  id:`battle-v0170-${s.id}-${e.key}`,title:`${s.name} — ${e.title}`,
+  id:eventBattleId(s,e),title:`${s.name} — ${e.title}`,
   chronologyOrder:500+idx*10+i,combatStructure:e.structure as Battle['combatStructure'],
   combatPurpose:e.purpose,combatIntent:'unknown',environment:s.era,
   restrictions:e.context,externalFactors:e.uncertainty,
   result:['loss','teach','defeat'].includes(e.key)?'defeat':['impact','clay'].includes(e.key)?'interrupted':'unknown',
   participantIds:[],
-})))
+}))).filter((b,i,all)=>b.id!=='banaro-teach-ace' && all.findIndex(other=>other.id===b.id)===i)
 export const v0170Evidence: Evidence[] = v0170Seeds.flatMap(s=>s.events.map(e=>({
   id:`evidence-v0170-${s.id}-${e.key}`,
-  battleId:`battle-v0170-${s.id}-${e.key}`,subjectCharacterId:s.id,
+  battleId:eventBattleId(s,e),subjectCharacterId:s.id,
   source:{type:'supplementary',reference:`ONE PIECE.com — TV Episode ${e.ep}`,description:e.url},
   evidenceStrength:'moderate',fact:e.fact,supportedAbilities:[...s.styles],
   statContributions:Object.entries(e.roles).map(([stat,role])=>({
