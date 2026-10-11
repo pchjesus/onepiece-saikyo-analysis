@@ -1,10 +1,13 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from '../../data/sample/evaluations'
+import { sampleEvaluations as expandedEvaluations } from '../../data/sample/evaluations'
 import { sampleEvidence } from '../../data/sample/evidence'
 import { sampleMatchups } from '../../data/sample/matchups'
 import { balancedV12 } from '../../data/sample/calculationModels'
 import { calculateBalancedCombatPower } from './calculateCombatPower'
 import { getFinalStatScore, getRawHakiContributionTotal } from '../evaluation/score'
+
+// This historic baseline audit isolates the original 62 evaluations; v0.1.70 is checked separately.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 const defaults = sampleEvaluations.filter(e => e.isDefault !== false)
 const evaluation = (id: string) => {
@@ -63,10 +66,10 @@ describe('v0.1.60 approved Kaido Defense 100 and Ryokugyu source-link review', (
   })
 
   it('preserves the 59×7/62/434, E1-3, Haki, 15 Matchups and comparable rankings', () => {
-    expect(defaults).toHaveLength(65)
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(defaults.flatMap(e=>e.items)).toHaveLength(455)
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
+    expect(defaults).toHaveLength(59)
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(defaults.flatMap(e=>e.items)).toHaveLength(413)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(434)
     const items = defaults.flatMap(e=>e.items)
     expect(items.filter(i=>i.readiness==='E1')).toHaveLength(53)
     expect(items.filter(i=>i.readiness==='E2')).toHaveLength(243)
