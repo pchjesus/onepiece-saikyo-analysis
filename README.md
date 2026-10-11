@@ -1,6 +1,6 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.1.72** (전설·대장급·로·1최간 13인 7축 기준점 사전 검증 및 Overall 5인 비교선 읽기전용 고정; 실제 평가 점수 불변) (npm package 버전은 **0.1.34** 유지)  
+현재 구현 패치: **v0.1.73** (65명 대표 455개 Final 7축 간극 전수 감사 · E3 131축 · 122쌍 근접 오버롤 대비 10점 이상 축차 · 38개 맥락 비교 질문; 기존 평가 점수 불변) (npm package 버전은 **0.1.34** 유지)  
 평가 데이터: **66 Character master pool · 65 evaluated unique Character · 84 Membership · 68 Evaluation · 476 Stat**  
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
@@ -16,6 +16,7 @@
 - [v0.1.37 검토용 — 산먹깨비·한글 용어·패기 수치 승인안](docs/V0_1_37_KOREAN_TERMS_AND_HYBRID_APPROVAL_2026-10-09.md)
 - [신규 2집단 사전 Evidence 조사 — 혁명군·CP0](docs/PROPOSED_NEXT_TWO_GROUPS_EVIDENCE_2026-10-09.md)
 - [v0.1.39 혁명군·CP0 6인 초안 7축·근거·불확실성 보고서](docs/V0_1_39_REVOLUTIONARY_ARMY_CP0_INITIAL_EVALUATION_2026-10-09.md)
+- [v0.1.73 65명 7축 Final 전수 감사·122쌍 간극·38개 비교 심사 및 65명 전체 점수표](docs/V0_1_73_ALL_65_SEVEN_AXIS_GAP_AUDIT_2026-10-11.md)
 - [v0.1.72 전투력 기준 캐릭터 13인·7축 간극 검증 및 고정/조건부/유보 판정](docs/V0_1_72_BASELINE_ANCHOR_COHORT_AND_AXIS_VALIDATION_2026-10-11.md)
 - [v0.1.71 에이스 7축 재산정·전투 판단 교정·원작 근거 연결](docs/V0_1_71_ACE_COMBAT_IQ_AND_SEVEN_STAT_RECALIBRATION_2026-10-11.md)
 - [v0.1.70 SWORD·돈키호테 패밀리·에이스 추가 / 티치 상향 재검토 보고서](docs/V0_1_70_SWORD_DONQUIXOTE_ACE_TEACH_REVIEW_2026-10-11.md)
