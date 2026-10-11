@@ -77,9 +77,9 @@ describe('v0.1.78 — Hachinosu hostage probability and Smoothie opponent-evasio
   it('preserves exact 65×7 Final, all Haki Raw, 63 other evaluation object identities and historic score replay',()=>{
     const snapshot=v0177Snapshot()
     const prior=new Map(snapshot.map(e=>[e.id,e]))
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(65)
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
+    expect(sampleEvaluations).toHaveLength(72)
+    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(69)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(504)
     let changedMeta=0
     for(const now of sampleEvaluations){
       const old=prior.get(now.id)!
@@ -110,8 +110,8 @@ describe('v0.1.78 — Hachinosu hostage probability and Smoothie opponent-evasio
     const s=snapshot.find(e=>e.characterId==='smoothie')!
     expect(s.evaluationDataVersion).toBe('evaluation-0.1.26-draft')
     expect(s.items.find(i=>i.stat==='attack')?.evidenceIds).not.toContain(v0178SmoothieEvasionEvidence.id)
-    expect(sampleCharacters).toHaveLength(66)
-    expect(sampleMemberships).toHaveLength(84)
+    expect(sampleCharacters).toHaveLength(70)
+    expect(sampleMemberships).toHaveLength(92)
     expect(sampleMatchups).toHaveLength(15)
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(.5)
@@ -134,7 +134,7 @@ describe('v0.1.78 — Hachinosu hostage probability and Smoothie opponent-evasio
     for(const a of calibrationAnchorsV0172.filter(a=>a.decision==='locked-overall')){
       expect(overall(find(a.characterId))).toBeCloseTo(a.finalScores.reduce((sum,v)=>sum+v,0)/7,10)
     }
-    expect(getStatRanking('overall')).toHaveLength(65)
+    expect(getStatRanking('overall')).toHaveLength(69)
     expect(overall(find('koby'))).toBeCloseTo(521/7,10)
     expect(overall(find('prince-grus'))).toBeCloseTo(533/7,10)
     expect(overall(find('smoothie'))).toBeCloseTo(536/7,10)
