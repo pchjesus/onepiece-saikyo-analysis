@@ -1,5 +1,6 @@
 import { wanoCharacters } from './wanoExpansion'
 import { v0170Characters } from './v0170GroupAceExpansion'
+import { v0180Characters } from './v0180GroupsAndCharacters'
 import type { Character } from '../../domain/character/types'
 
 export const sampleCharacters: Character[] = [
@@ -852,4 +853,5 @@ export const sampleCharacters: Character[] = [
   },
   ...wanoCharacters,
   ...v0170Characters,
+  ...v0180Characters,
 ]
