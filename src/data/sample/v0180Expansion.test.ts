@@ -20,7 +20,7 @@ describe('v0.1.80 patch history and additive roster',()=>{
     expect(patchHistory.map(p=>p.version)).toEqual(['v0.1.81','v0.1.80','v0.1.79','v0.1.78','v0.1.77','v0.1.76','v0.1.75'])
     const q=patchHistory.find(p=>p.version==='v0.1.79')!.changes.find(c=>c.characterId==='queen')!
     expect([q.before,q.after,q.stat]).toEqual([80,82,'versatility'])
-    expect(q.reason.length).toBeGreaterThan(40)
+    expect(q.reason?.length).toBeGreaterThan(40)
     expect(q.evidence?.length).toBe(2)
     expect(patchHistory.flatMap(p=>p.changes).filter(c=>c.kind==='score')
       .every(c=>c.before!==undefined&&c.after!==undefined&&Boolean(c.reason))).toBe(true)
@@ -85,7 +85,7 @@ describe('v0.1.80 patch history and additive roster',()=>{
         expect(sampleEvidence.find(x=>x.id===evidenceId)?.subjectCharacterId).toBe(a.characterId)
       for(const dimension of [a.peakOutput,a.verifiedHit,a.sustainedPressure,a.matchup,a.rationale])
         expect(dimension.length).toBeGreaterThan(10)
-      expect(patchHistory[0].changes.some(x=>x.characterId===a.characterId&&x.detail.includes('실제 유효타'))).toBe(true)
+      expect(patchHistory.find(p=>p.version==='v0.1.80')!.changes.some(x=>x.characterId===a.characterId&&x.detail?.includes('실제 유효타'))).toBe(true)
     }
   })
 
