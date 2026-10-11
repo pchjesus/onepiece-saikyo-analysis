@@ -4,7 +4,7 @@ import { wanoCharacters, wanoMemberships, wanoGroups, wanoEvidence, wanoBattles,
 import { sampleCharacters } from './characters'
 import { sampleGroups } from './groups'
 import { sampleMemberships } from './memberships'
-import { sampleEvaluations } from './evaluations'
+import { historicalEvaluationsBeforeV0174 as sampleEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { sampleMatchups } from './matchups'
