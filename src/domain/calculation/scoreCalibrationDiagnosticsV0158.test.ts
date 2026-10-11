@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations as expandedEvaluations } from '../../data/sample/evaluations'
+import { historicalEvaluationsBeforeV0174 as expandedEvaluations } from '../../data/sample/evaluations'
 import { sampleMatchups } from '../../data/sample/matchups'
 import { balancedV12 } from '../../data/sample/calculationModels'
 import { calculateBalancedCombatPower } from './calculateCombatPower'

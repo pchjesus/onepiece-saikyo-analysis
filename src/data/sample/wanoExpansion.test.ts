@@ -4,7 +4,7 @@ import { wanoCharacters, wanoMemberships, wanoGroups, wanoEvidence, wanoBattles,
 import { sampleCharacters } from './characters'
 import { sampleGroups } from './groups'
 import { sampleMemberships } from './memberships'
-import { sampleEvaluations } from './evaluations'
+import { historicalEvaluationsBeforeV0174 as sampleEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { sampleMatchups } from './matchups'
@@ -114,7 +114,7 @@ describe('v0.1.45 three-faction, 17-character Evidence-first expansion', () => {
     const kaku = sampleEvaluations.find((e) => e.characterId === 'kaku')!
     expect(lucci.items.map((x) => x.score)).toEqual([80,77,82,82,83,68,74])
     expect(kaku.items.map((x) => x.score)).toEqual([73,72,75,75,79,72,74])
-    expect(getCombatPower('lucci').finalScore).toBe(78)
+    expect(getCombatPower('lucci').finalScore).toBeCloseTo(552/7,10)
     expect(getCombatPower('kaku').finalScore).toBeCloseTo(74.2857142857)
   })
 })

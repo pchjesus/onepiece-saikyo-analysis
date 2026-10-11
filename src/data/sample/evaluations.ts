@@ -1,6 +1,7 @@
 import { wanoEvaluations } from './wanoExpansion'
 import { v0170Evaluations } from './v0170GroupAceExpansion'
 import { v0171AceEvaluation } from './v0171AceCalibration'
+import { applyV0174EvaluationCorrection } from './v0174TargetedCalibration'
 import type { CombatStat, Evaluation, EvaluationItem, EvidenceReadiness } from '../../domain/evaluation/types'
 import type { HakiStatContribution } from '../../domain/haki/types'
 import { getFinalStatScore } from '../../domain/evaluation/score'
@@ -17,7 +18,8 @@ const item = (
   return { ...draft, score: getFinalStatScore(draft) }
 }
 
-export const sampleEvaluations: Evaluation[] = [
+/** Historical v0.1.73 source snapshot for reproducible old-cohort test audits. */
+export const historicalEvaluationsBeforeV0174: Evaluation[] = [
   {
     id: 'evaluation-marco', characterId: 'marco', evaluationDataVersion: 'evaluation-0.1.47-evidence-calibrated-A', status: 'draft',
     items: [
@@ -593,3 +595,6 @@ export const sampleEvaluations: Evaluation[] = [
   ...v0170Evaluations.filter(e=>e.characterId!=='ace'),
   v0171AceEvaluation,
 ]
+
+/** Live current evaluations: only Lucci IQ and Marco Attack changed in v0.1.74. */
+export const sampleEvaluations: Evaluation[] = historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection)

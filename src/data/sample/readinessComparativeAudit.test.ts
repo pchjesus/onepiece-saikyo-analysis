@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations as expandedEvaluations } from './evaluations'
+import { historicalEvaluationsBeforeV0174 as expandedEvaluations } from './evaluations'
 import { sampleMatchups } from './matchups'
 import { getCombatPower } from '../../application/getCombatPower'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
@@ -48,7 +48,7 @@ describe('v0.1.52 manual evidence-readiness audit', () => {
       ['jozu', [78, 84, 78, 79, 74, 75, 74], 77.42857142857143],
       ['queen', [80, 81, 81, 75, 79, 74, 80], 78.57142857142857],
       ['katakuri', [83, 84, 84, 84, 87, 82, 84], 84],
-      ['lucci', [80, 77, 82, 82, 83, 68, 74], 78],
+      ['lucci', [80, 77, 82, 82, 83, 68, 74], 552/7],
     ] as const
     for (const [characterId, finalStats, overall] of expected) {
       const evaluation = sampleEvaluations.find((value) => value.characterId === characterId)!

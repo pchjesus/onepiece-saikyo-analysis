@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { wanoSeeds } from './wanoSeeds'
 import { sampleBattles } from './battles'
 import { sampleEvidence } from './evidence'
-import { sampleEvaluations } from './evaluations'
+import { historicalEvaluationsBeforeV0174 as sampleEvaluations } from './evaluations'
 import { getUniqueCharacterList } from '../../application/getCharacterList'
 import { getCombatPower } from '../../application/getCombatPower'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
@@ -40,7 +40,7 @@ describe('v0.1.46 official episode cross-check: sources, scene context, score in
   })
 
   it('flags CP0 IQ interpretation uncertainty without using fictional automatic score bonuses or nerfs', () => {
-    for (const [id, iq, overall] of [['lucci', 68, 78], ['kaku', 72, 74.28571428571429]] as const) {
+    for (const [id, iq, overall] of [['lucci', 68, 552/7], ['kaku', 72, 74.28571428571429]] as const) {
       const evaluation = sampleEvaluations.find(({ characterId }) => characterId === id)!
       const item = evaluation.items.find(({ stat }) => stat === 'combatIQ')!
       expect(item.score).toBe(iq)

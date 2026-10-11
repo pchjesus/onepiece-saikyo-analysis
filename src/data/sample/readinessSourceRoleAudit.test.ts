@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations as expandedEvaluations } from './evaluations'
+import { historicalEvaluationsBeforeV0174 as expandedEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { sampleMatchups } from './matchups'
@@ -91,7 +91,7 @@ describe('v0.1.53 role-aware readiness reconciliation', () => {
 
   it('preserves Final Stats, overall, Haki Raw, matchups and past evaluations', () => {
     for (const [id, final, overall] of [
-      ['marco', [77, 87, 87, 82, 84, 80, 87], 83.42857142857143],
+      ['marco', [77, 87, 87, 82, 84, 80, 87], 586/7],
       ['king', [83, 88, 85, 83, 80, 77, 82], 82.57142857142857],
       ['fujitora', [91, 88, 87, 85, 92, 86, 94], 89],
       ['ryokugyu', [90, 89, 89, 84, 87, 82, 92], 87.57142857142857],

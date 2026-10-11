@@ -61,7 +61,7 @@ describe('Balanced v1.2', () => {
 
   it('calculates the calibrated roster Overalls from Final Stats', () => {
     const expected: Record<string, number> = {
-      marco: 83.4285714286,
+      marco: 83.7142857143,
       jozu: 77.4285714286,
       vista: 79.4285714286,
       king: 82.5714285714,
@@ -100,7 +100,7 @@ describe('Balanced v1.2', () => {
       sabo: 85.5714285714,
       morley: 79.2857142857,
       karasu: 77.8571428571,
-      lucci: 78,
+      lucci: 78.8571428571,
       kaku: 74.2857142857,
       stussy: 77.5714285714,
       'kid': 84.5714285714,

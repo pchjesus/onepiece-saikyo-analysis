@@ -12,9 +12,9 @@ describe('getCharacterEvaluationTrace', () => {
     expect(technique?.item.score).toBe(84)
     expect(defense?.evidence).toHaveLength(4)
     expect(defense?.item.score).toBe(87)
-    expect(attack?.item.baseScore).toBe(76)
+    expect(attack?.item.baseScore).toBe(78)
     expect(attack?.item.hakiContributions[0]?.amount).toBe(2)
-    expect(attack?.item.score).toBe(77)
+    expect(attack?.item.score).toBe(79)
   })
 
   it('resolves King attack Evidence including the Haki application record', () => {

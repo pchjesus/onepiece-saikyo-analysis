@@ -1,3 +1,15 @@
+# v0.1.74 — targeted numerical recalibration after whole-roster gap audit
+
+- **Baseline:** main `e1b43259cdb7a7caf8e01aafa11cb3769ad94da8` (v0.1.73).
+- **Only affected current core axes:** Lucci Combat IQ 68 E3 → 74 E2; Marco Attack Base76→78 with original armament Raw2 unmodified, Final77→79 E2. Overall changes +6/7, +2/7. No other core stat, character identity or matchups changed.
+- **Official corroboration:** ONE PIECE.com TV1100/1101/1109/1124 for Lucci targeting/coop/intel, TV1045/1046 for Marco's multi-opponent fatigue; direct Marco hitting Queen and drawing blood is **secondhand Chapter1006 synopsis only**, tagged supplementary.
+- **New:** `v0174TargetedCalibration.ts`, `v0174TargetedCalibration.test.ts`, 3 supplementary Evidence, versioned 2-character Evaluation adapter; Korean report. No additional Battle records. Prior default evaluations remain in source for audit/rollback.
+- **Model/regression controls:** 66 Characters, 65 ranked, 68 Eval/476 axes, 84 Memberships, 15 direct Matchups, Balanced1.2 Haki Weight0.5, 212/230 Raw, 5 Overall locked calibration candidates unchanged. Lucci and Marco current versions are distinguishable from prior saved baselines; v0.1.72 historical conditional Marco baseline not silently altered.
+- **Prior cohort tests:** update arithmetic expected Lucci78→78.857 and Marco83.429→83.714, dynamic E3 tally 131→130 (Lucci Combat IQ). Original v0.1.73 markdown snapshot remains dated/static. Do not disable tests or rewrite original score source facts.
+- **CI and Pages:** confirm via PR and post-merge main Actions before reporting success. No manual desktop/mobile browser smoke test and no first-hand all-panel original manga review.
+
+---
+
 # v0.1.73 — all 65 evaluated Characters, 455 Final axes gap audit
 
 - **Baseline:** `main@eaa8a3bacd2dfab95fd1e053b9cbcaea182a307c` (v0.1.72).
