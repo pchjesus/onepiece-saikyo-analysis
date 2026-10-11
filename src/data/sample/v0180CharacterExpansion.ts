@@ -26,7 +26,7 @@ const seeds:Seed[]=[
     haki:['confirmed','confirmed','not-confirmed'],
     scenes:[
       {key:'ace',ep:'95',url:'https://one-piece.com/anime/95/index.html',title:'알라바스타 — 에이스의 견제',fact:'스모커는 루피를 추적하던 중 에이스의 불꽃과 연기가 대치해 추격이 저지됐다.',purpose:'루피 체포와 추적',context:'에이스의 목적은 루피의 탈출 지원이며 장기 결투나 명백한 우열 결정이 아니다.',uncertainty:'자연계 상성과 임무 목적을 무시하고 승패를 환산하지 않는다.',roles:{attack:'context',defense:'secondary',versatility:'secondary'}},
-      {key:'law',ep:'587',url:'https://one-piece.com/anime/587/index.html',title:'펑크 하자드 — 로우와 대결',fact:'스모커는 로우의 수술실 능력과 충돌했고 심장을 빼앗겨 제압됐다.',purpose:'펑크 하자드 수사·추적',context:'로우의 공간 능력과 심장 탈취가 결정적 상성으로 작용했다.',uncertainty:'특수 능력 제압을 모든 비능력자 상대 순수 방어 수치로 일반화하지 않는다.',roles:{attack:'secondary',defense:'primary',speed:'secondary',techniqueMastery:'secondary'}},
+      {key:'law',ep:'587–588',url:'https://one-piece.com/anime/588/index.html',title:'펑크 하자드 — 로우와 대결',fact:'스모커는 로우의 수술실 능력과 충돌했고 심장을 빼앗겨 제압됐다.',purpose:'펑크 하자드 수사·추적',context:'로우의 공간 능력과 심장 탈취가 결정적 상성으로 작용했다.',uncertainty:'특수 능력 제압을 모든 비능력자 상대 순수 방어 수치로 일반화하지 않는다.',roles:{attack:'secondary',defense:'primary',speed:'secondary',techniqueMastery:'secondary'}},
       {key:'vergo',ep:'616',url:'https://one-piece.com/anime/616/index.html',title:'펑크 하자드 — 베르고와 격돌',fact:'스모커는 무장색을 사용하는 베르고와 격돌하며 로우의 심장 회수에 기여했다.',purpose:'베르고를 저지하고 로우가 심장을 되찾도록 지원',context:'독립적인 상대 제압만을 목적으로 한 결투가 아니라 심장 회수라는 임무가 포함됐다.',uncertainty:'피격·패배 장면을 임무 수행의 성과나 순수 전투력 한계로 단순 환산하지 않는다.',roles:{attack:'primary',defense:'primary',stamina:'primary',techniqueMastery:'primary',combatIQ:'primary',versatility:'secondary'}},
     ],
   },
@@ -48,9 +48,9 @@ const seeds:Seed[]=[
     ],
     haki:['unclear','unclear','not-confirmed'],
     scenes:[
-      {key:'luffy',ep:'438',url:'https://one-piece.com/anime/438/index.html',title:'임펠다운 — 루피 응급 호르몬 치료',fact:'이완코프는 독에 중독된 루피에게 치유 호르몬을 투여했으며 회복 과정에 심각한 고통과 위험이 따랐다.',purpose:'루피의 생존 지원',context:'전투 중 공격이 아니라 비전투 치료·지원 장면이다.',uncertainty:'치유 성과를 1대1 공격력이나 개인 불사·무한 지구력으로 합산하지 않는다.',roles:{stamina:'context',techniqueMastery:'primary',combatIQ:'secondary',versatility:'primary'}},
-      {key:'magellan',ep:'443',url:'https://one-piece.com/anime/443/index.html',title:'임펠다운 — 마젤란 저지',fact:'이완코프는 마젤란을 저지하려 윈크·권법을 사용했지만 독 능력 앞에서 제압당했다.',purpose:'루피 일행의 탈출 시간을 벌기 위한 저지',context:'독 능력의 특수 상성과 동료 탈출 지원 임무를 고려해야 한다.',uncertainty:'패배 결과를 모든 비독 상대 1대1 열세로 단정하지 않는다.',roles:{attack:'primary',defense:'primary',stamina:'secondary',techniqueMastery:'secondary',combatIQ:'secondary',versatility:'secondary'}},
-      {key:'kuma',ep:'461',url:'https://one-piece.com/anime/461/index.html',title:'마린포드 — 쿠마와 충돌',fact:'이완코프는 정상결전에서 과거 인연이 있는 쿠마와 충돌하며 대형 얼굴과 윈크 공격을 사용했다.',purpose:'정상결전 참여와 쿠마의 변화 확인',context:'전장 혼전·쿠마의 인격 변화·다수 개입 가능성을 구분한다.',uncertainty:'쿠마를 상대로 확정 승리하거나 최대 출력으로 장기 결투했다고 단정하지 않는다.',roles:{attack:'primary',speed:'secondary',techniqueMastery:'primary',combatIQ:'context',versatility:'primary'}},
+      {key:'luffy',ep:'441',url:'https://one-piece.com/anime/441/index.html',title:'임펠다운 — 루피 응급 호르몬 치료',fact:'이완코프는 독에 중독된 루피에게 치유 호르몬을 투여했으며 회복 과정에 심각한 고통과 위험이 따랐다.',purpose:'루피의 생존 지원',context:'전투 중 공격이 아니라 비전투 치료·지원 장면이다.',uncertainty:'치유 성과를 1대1 공격력이나 개인 불사·무한 지구력으로 합산하지 않는다.',roles:{stamina:'context',techniqueMastery:'primary',combatIQ:'secondary',versatility:'primary'}},
+      {key:'magellan',ep:'448',url:'https://one-piece.com/anime/448/index.html',title:'임펠다운 — 마젤란 저지',fact:'이완코프는 이나즈마에게 계단을 절단하도록 지시한 뒤 마젤란을 홀로 저지하기 위해 뉴커머 권법의 비기를 사용했다.',purpose:'루피 일행의 탈출 시간을 벌기 위한 저지',context:'독 능력의 특수 상성과 동료 탈출 지원 임무를 고려해야 한다.',uncertainty:'패배 결과를 모든 비독 상대 1대1 열세로 단정하지 않는다.',roles:{attack:'primary',defense:'primary',stamina:'secondary',techniqueMastery:'secondary',combatIQ:'secondary',versatility:'secondary'}},
+      {key:'kuma',ep:'469',url:'https://one-piece.com/anime/469/index.html',title:'마린포드 — 쿠마와 충돌',fact:'이완코프는 정상결전에서 과거 인연이 있는 쿠마와 충돌하며 대형 얼굴과 윈크 공격을 사용했다.',purpose:'정상결전 참여와 쿠마의 변화 확인',context:'전장 혼전·쿠마의 인격 변화·다수 개입 가능성을 구분한다.',uncertainty:'쿠마를 상대로 확정 승리하거나 최대 출력으로 장기 결투했다고 단정하지 않는다.',roles:{attack:'primary',speed:'secondary',techniqueMastery:'primary',combatIQ:'context',versatility:'primary'}},
     ],
   },
 
@@ -146,7 +146,7 @@ export const v0180Characters:Character[]=seeds.map(s=>({
 }))
 export const v0180Battles:Battle[]=seeds.flatMap((s,si)=>s.scenes.map((e,i)=>({
   id:`battle-v0180-${s.id}-${e.key}`,title:`${s.name} — ${e.title}`,chronologyOrder:750+si*10+i,
-  combatStructure:'multiple-vs-multiple',combatPurpose:e.purpose,combatIntent:'unknown',
+  combatStructure:(s.id==='smoker'&&['law','vergo'].includes(e.key))||(s.id==='ivankov'&&e.key==='magellan')?'1v1':'multiple-vs-multiple',combatPurpose:e.purpose,combatIntent:'unknown',
   environment:e.title,restrictions:e.context,externalFactors:e.uncertainty,
   result:'unknown',participantIds:[],
 })))
