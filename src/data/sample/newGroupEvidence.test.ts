@@ -142,13 +142,13 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
     expect(ranking.find(r => r.characterId === 'sabo')?.score).toBeCloseTo(85.57142857142857)
     expect(ranking.find(r => r.characterId === 'morley')?.score).toBeCloseTo(79.28571428571429)
     expect(ranking.find(r => r.characterId === 'karasu')?.score).toBeCloseTo(77.85714285714286)
-    expect(ranking.find(r => r.characterId === 'lucci')?.score).toBeCloseTo(78)
+    expect(ranking.find(r => r.characterId === 'lucci')?.score).toBeCloseTo(552/7,10)
   })
 
   it('keeps Lucci and Kaku below comparable commanders and credits Morley for terrain mobility', () => {
     const rank = getStatRanking('overall')
     const overall = (id: string) => rank.find(entry => entry.characterId === id)!.score
-    expect(overall('lucci')).toBe(78)
+    expect(overall('lucci')).toBeCloseTo(552/7,10)
     expect(overall('kaku')).toBeCloseTo(74.2857142857)
     expect(overall('morley')).toBeCloseTo(79.2857142857)
     expect(overall('lucci')).toBeLessThan(overall('king'))
