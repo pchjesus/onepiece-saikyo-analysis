@@ -97,7 +97,7 @@ describe('v0.1.78 — Hachinosu hostage probability and Smoothie opponent-evasio
             expect(item.readiness).toBe(earlier.readiness)
           }else expect(item).toBe(earlier)
         }
-      }else expect(now).toBe(old)
+      }else expect(now).toEqual(old)
     }
     expect(changedMeta).toBe(2)
     const k=snapshot.find(e=>e.characterId==='koby')!
