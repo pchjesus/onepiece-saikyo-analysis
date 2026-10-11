@@ -65,7 +65,7 @@ v0.1.79 versioned adapters → Final → Overall → ranking
 - 66 Character, 68 Evaluation, 476 EvaluationItem, 84 Membership, 15 explicit Matchup, Haki Raw 총212(대표)/230(모든 상태), Balanced 1.2 / Weight0.5 불변. 고정 Overall 기준점 5명 모두 보존.
 - 크래커 Attack의 Raw4를 이미 Final+2로 반영하고 있어 이중 가산하지 않는다. E1/E2/E3 증거 준비도는 점수 보정 계수가 아니며 변경 없음.
 - 구버전 v0.1.26와 v0.1.78의 평가 객체·점수 재현이 가능하도록 신규 버전드 overlay에만 반영. 기존 만화 Evidence가 있다고 해서 이번에 원작 전 컷을 새로 직접 판독했다고 주장하지 않는다.
-- 새 회귀 테스트는 9축 교차값, 실제 신규 Evidence 소유 관계·Battle 참조·source tier, 454/455 불변, 원래 Raw, 전체 랭킹, 5 anchors, version guards를 검증. GitHub CI와 Pages 배포 성공은 실제 workflow SHA에 따라 별도 보고.
+- 새 회귀 테스트는 9축 교차값, 실제 신규 Evidence 소유 관계·Battle 참조·source tier, 454/455 불변, 원래 Raw, 전체 랭킹, 5 anchors, version guards를 검증. **검증된 PR 코드 헤드:** [Actions #38150887855](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38150887855), `acf2f9828bcee99d25573dbbbc3bd226b0a89f24` — 테스트 **71개 파일/316개 모두 통과**, TypeScript 검사·Vite 프로덕션 빌드 성공. 첫 CI에서 발생한 기존 v0.1.52/0.1.75 고정 기록의 80점과 신규 현행 82점 혼동을 역사 점수 보존과 최신 점수 검증으로 각각 수정했으며 테스트를 삭제하지 않았다. 최종 병합 후 성공 여부는 `main`의 실제 SHA와 GitHub Pages 배포 SHA가 동일한지 확인해 확정한다.
 
 ## 4. APA 7 참고자료
 
