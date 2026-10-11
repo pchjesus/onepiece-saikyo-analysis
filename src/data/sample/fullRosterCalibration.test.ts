@@ -620,7 +620,7 @@ describe('v0.1.47 evidence-based A-path all-axis calibration regression', () => 
   const overall=(id:string)=> sampleEvaluations.find(e=>e.characterId===id&&e.isDefault!==false)!.items.reduce((sum,i)=>sum+i.score,0)/7
 
   it('preserves 53 untouched characters, all 371 axes exactly, and 6 scoped recalibrations', () => {
-    expect(all).toHaveLength(65)
+    expect(all).toHaveLength(69)
     expect(new Set(all.map(e=>e.characterId)).size).toBe(65)
     expect(Object.keys(untouchedBaseline)).toHaveLength(53)
     for (const [id,scores] of Object.entries(untouchedBaseline)){
@@ -636,10 +636,10 @@ describe('v0.1.47 evidence-based A-path all-axis calibration regression', () => 
 
   it('validates all 59×7 calculation/evidence links and preserves approved Haki contributions', () => {
     const links=sampleEvidence.map(e=>({id:e.id,subjectCharacterId:e.subjectCharacterId}))
-    expect(sampleCharacters).toHaveLength(66)
-    expect(sampleMemberships).toHaveLength(84)
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
+    expect(sampleCharacters).toHaveLength(70)
+    expect(sampleMemberships).toHaveLength(92)
+    expect(sampleEvaluations).toHaveLength(72)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(504)
     for (const evaluation of sampleEvaluations){
       expect(validateEvaluation(evaluation,links)).toEqual({valid:true,errors:[]})
       expect(evaluation.items.map(i=>i.stat)).toEqual(sevenAxes)
@@ -686,6 +686,6 @@ describe('v0.1.47 evidence-based A-path all-axis calibration regression', () => 
       expect(excluded.has(id)).toBe(false)
       for(const commander of ['king','marco','katakuri'])expect(overall(commander),commander+' vs '+id).toBeGreaterThan(overall(id))
     }
-    expect(getStatRanking('overall')).toHaveLength(65)
+    expect(getStatRanking('overall')).toHaveLength(69)
   })
 })
