@@ -6,8 +6,8 @@ describe('getCharacterList', () => {
     const unique = getUniqueCharacterList()
     const expanded = getCharacterList()
 
-    expect(unique).toHaveLength(65)
-    expect(expanded).toHaveLength(84)
+    expect(unique).toHaveLength(69)
+    expect(expanded).toHaveLength(92)
     expect(new Set(unique.map(({ character }) => character.id)).size).toBe(65)
 
     expect(unique.map((item) => item.character.name).sort()).toEqual([
