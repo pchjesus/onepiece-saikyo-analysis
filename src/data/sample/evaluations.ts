@@ -18,7 +18,8 @@ const item = (
   return { ...draft, score: getFinalStatScore(draft) }
 }
 
-export const sampleEvaluations: Evaluation[] = [
+/** Historical v0.1.73 source snapshot for reproducible old-cohort test audits. */
+export const historicalEvaluationsBeforeV0174: Evaluation[] = [
   {
     id: 'evaluation-marco', characterId: 'marco', evaluationDataVersion: 'evaluation-0.1.47-evidence-calibrated-A', status: 'draft',
     items: [
@@ -593,4 +594,7 @@ export const sampleEvaluations: Evaluation[] = [
   ...wanoEvaluations,
   ...v0170Evaluations.filter(e=>e.characterId!=='ace'),
   v0171AceEvaluation,
-].map(applyV0174EvaluationCorrection)
+]
+
+/** Live current evaluations: only Lucci IQ and Marco Attack changed in v0.1.74. */
+export const sampleEvaluations: Evaluation[] = historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection)
