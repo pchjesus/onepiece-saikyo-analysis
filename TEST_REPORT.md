@@ -1,3 +1,15 @@
+# v0.1.71 — Ace seven-axis evidence correction
+
+- **Start SHA**: main `2e929076b24c2957634a470c75bbd691a1719efb` (v0.1.70).
+- **Changed exactly one current character evaluation**: Ace original [84,77,82,78,85,78,85], Overall81.286 → [79,76,82,78,78,67,78], Overall76.857. Version bump specific to Ace. Old v0170 Ace source stays intact and can be rolled back.
+- **Five new owned Evidence, three new Battle**: reuse Jinbe 5-day and Teach duel canonical Battle IDs; independently record Akainu provocation/Whitebeard final withdrawal and Aokiji ice clash and marine ships. Supplementary source tier only; no unverified manga panel claimed reviewed.
+- **Hard regression assertions**: all other 67 Eval objects unchanged, former Ace version preserved, all Seven Stat axes and Haki Raw consistent, 68 Evaluations/476 stat items/65 current rank/66 Characters, 15 Matchups, Raw212/230, no new Haki.
+- **History guard**: previous 59-member score/readiness audit tests explicitly filter both v0.1.70 and v0.1.71 new evaluations. Live UI and global score mean tests use latest Ace evaluation.
+- **CI:** initial PR branch run 2 tests failed (old Ace overall expected, mistaken Jozu Attack Base76 vs Final78); both corrected, next GitHub Actions full result to be verified. Do not claim real mobile/browser manual smoke testing or entire official manga scanned.
+- **Narrative source caution**: Ch.573 Akainu provocation corroborated by secondary manga-scene descriptions and official TV482 episode context. This is distinct from Luffy shielding, which is not penalized as irrational. Technique/versatility fire-only mechanism boundary is documented in `docs/V0_1_71_ACE_COMBAT_IQ_AND_SEVEN_STAT_RECALIBRATION_2026-10-11.md`.
+
+---
+
 # v0.1.70 — SWORD, Donquixote, Ace / Teach upside source review — validation
 
 - **Baseline:** v0.1.69 `main@68ef8baeda976f2b2241a68bca3fa3a5833ccc81`.
