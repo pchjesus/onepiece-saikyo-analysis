@@ -69,6 +69,24 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
         }
         continue
       }
+      if(after.characterId==='queen'||after.characterId==='cracker'){
+        expect(before!.evaluationDataVersion).toBe('evaluation-0.1.26-draft')
+        expect(after.evaluationDataVersion).toBe(after.characterId==='queen'
+          ?'evaluation-0.1.79-queen-multi-system-versatility-calibrated'
+          :'evaluation-0.1.79-cracker-mastery-official-evidence-expanded')
+        const target=after.characterId==='queen'?'versatility':'techniqueMastery'
+        for(const item of after.items){
+          const prior=before!.items.find(x=>x.stat===item.stat)!
+          expect(item.hakiContributions).toEqual(prior.hakiContributions)
+          expect(item.readiness).toBe(prior.readiness)
+          if(item.stat===target){
+            expect(item.score).toBe(after.characterId==='queen'?82:80)
+            expect(prior.score).toBe(80)
+            expect(item.evidenceIds.length).toBe(prior.evidenceIds.length+2)
+          }else expect(item).toBe(prior)
+        }
+        continue
+      }
       if(after.characterId==='smoothie'){
         expect(before!.evaluationDataVersion).toBe('evaluation-0.1.26-draft')
         expect(after.evaluationDataVersion).toBe('evaluation-0.1.78-smoothie-jinbe-steering-evidence-only')
