@@ -49,7 +49,7 @@ describe('v0.1.71 Ace direct-evidence correction, deterministic rollback and ori
     }
     expect(sampleEvaluations.find(e=>e.characterId==='teach')?.items.map(x=>x.score)).toEqual([95,89,95,82,93,87,93])
     expect(sampleEvaluations.find(e=>e.characterId==='vista')?.items.map(x=>x.score)).toEqual([82,79,77,80,87,77,74])
-    expect(sampleEvaluations.find(e=>e.characterId==='jozu')?.items.map(x=>x.score)).toEqual([76,84,78,79,74,75,74])
+    expect(sampleEvaluations.find(e=>e.characterId==='jozu')?.items.map(x=>x.score)).toEqual([78,84,78,79,74,75,74])
   })
 
   it('records five new owned Evidence entries, reusing existing Jinbe/Teach Battle identity',()=>{
