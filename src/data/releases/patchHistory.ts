@@ -25,7 +25,7 @@ export const CURRENT_PATCH_VERSION='v0.1.80'
 export const patchHistory:readonly PatchRelease[]=[
   {
     version:'v0.1.80',date:'2026-10-12',headline:'패치 내역 열람 기능 · 새 캐릭터 4명 · 집단 2개',
-    summary:'앞으로 변경점을 앱 안에서 기록. 스모커·타시기와 이완코브·이나즈마 및 G-5·카마바카 왕국 등록. 기존 69명...이 아니라 v0.1.79의 65명 대표 전투력 점수는 그대로 보존하고 4명만 신규 임시 평가로 추가.',
+    summary:'앞으로 변경점을 앱 안에서 기록. 스모커·타시기와 이완코브·이나즈마 및 G-5·카마바카 왕국 등록. v0.1.79의 기존 평가 대상 65명의 전투력 점수를 모두 보존하고, 신규 캐릭터 4명에 대해서만 근거 부족을 표시한 초안 점수를 추가.',
     changes:[
       {category:'feature',title:'헤더 「패치 내역」 버튼 및 버전별 기록창',reason:'매 패치마다 버전, 변경점, 수정 이유, 스탯 변경 전후 점수와 공식 근거를 웹앱 내부에서 즉시 확인할 수 있도록 변경 이력을 정형 데이터로 관리. 이전 v0.1.75~79도 추적 가능한 부분부터 소급 등록.'},
       {category:'roster',title:'스모커·타시기 · 해군 G-5 지부',reason:'G-5 조직 실재와 01부대장 스모커·부관 타시기의 공식 프로필을 기준으로 해군 소속을 유지하면서 G-5 집단을 별도 등록. 로/베르고·모네전의 아군 개입과 능력 상성은 신규 E2/E3 임시 점수에 분리.',sources:[{label:'스모커 공식 프로필',url:'https://one-piece.com/character/smoker/index.html'},{label:'타시기 공식 프로필',url:'https://one-piece.com/character/tashigi/index.html'},official(587,'https://one-piece.com/anime/587/index.html'),official(613,'https://one-piece.com/anime/613/index.html'),official(616,'https://one-piece.com/anime/616/index.html')]},
