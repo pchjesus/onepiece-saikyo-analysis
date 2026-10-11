@@ -5,8 +5,7 @@
  * through the production source-of-truth. This does not grant fictional
  * integer power ratings any official/canon status and NEVER changes scores.
  */
-import { sampleEvaluations } from './evaluations'
-import { sampleCharacters } from './characters'
+import { legacyEvaluations as sampleEvaluations, legacyCharacters as sampleCharacters } from './v0180LegacyCohort'
 import { calibrationAnchorsV0172, calibrationAxisOrder } from './v0172AnchorBaseline'
 import { getFinalStatScore, getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import type { CombatStat, EvidenceReadiness } from '../../domain/evaluation/types'
