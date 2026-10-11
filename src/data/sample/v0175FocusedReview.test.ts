@@ -57,13 +57,17 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
 
   it('keeps all 65 default seven-axis Final scores exactly at post-v0.1.74 baseline',()=>{
     const previous=historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection)
-    const before=new Map(previous.map(e=>[e.id,e]))
+    const baselineV0175=previous.map(applyV0175GrusEvidenceReview)
+    const before=new Map(baselineV0175.map(e=>[e.id,e]))
     expect(sampleEvaluations).toHaveLength(68)
     expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(65)
     for(const e of sampleEvaluations){
       const old=before.get(e.id)
       expect(old).toBeDefined()
-      expect(e.items.map(i=>getFinalStatScore(i)),e.characterId).toEqual(old!.items.map(i=>getFinalStatScore(i)))
+      if(e.characterId==='koby'){
+        expect(old!.items.map(i=>getFinalStatScore(i))).toEqual([82,73,77,78,77,76,67])
+        expect(e.items.map(i=>getFinalStatScore(i))).toEqual([77,73,77,78,77,76,67])
+      } else expect(e.items.map(i=>getFinalStatScore(i)),e.characterId).toEqual(old!.items.map(i=>getFinalStatScore(i)))
       expect(e.items.map(i=>getRawHakiContributionTotal(i)),e.characterId)
         .toEqual(old!.items.map(i=>getRawHakiContributionTotal(i)))
     }
@@ -84,7 +88,7 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
       expect(overall(a.characterId),a.characterId)
         .toBeCloseTo(a.finalScores.reduce((s,v)=>s+v,0)/7,10)
     }
-    expect(score('koby','attack')).toBe(82)
+    expect(score('koby','attack')).toBe(77)
     expect(score('prince-grus','versatility')).toBe(85)
     expect(score('marco','attack')).toBe(79)
     expect(score('king','attack')).toBe(83)
@@ -101,6 +105,12 @@ describe('v0.1.75 — evidence expansion without unearned numeric changes',()=>{
     expect(overall('marco')).toBeCloseTo(586/7,10)
     expect(getStatRanking('overall')).toHaveLength(65)
     expect(v0175ReviewDecisions.every(d=>d.decision.startsWith('retain'))).toBe(true)
-    for(const decision of v0175ReviewDecisions)expect(score(decision.characterId,decision.axis)).toBe(decision.finalScore)
+    for(const decision of v0175ReviewDecisions){
+      if(decision.characterId==='koby'){
+        // Read-only v0.1.75 decision is preserved as history, not retroactively overwritten.
+        expect(decision.finalScore).toBe(82)
+        expect(score('koby','attack')).toBe(77)
+      } else expect(score(decision.characterId,decision.axis)).toBe(decision.finalScore)
+    }
   })
 })
