@@ -38,8 +38,8 @@ describe('v0.1.58 all-roster score calibration and versioned baseline (read-only
     expect(balancedV12.configuration.method).toBe('arithmetic-mean')
     expect(balancedV12.configuration.statCount).toBe(7)
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
-    expect(profiles).toHaveLength(59)
-    expect(new Set(profiles.map((p) => p.id)).size).toBe(59)
+    expect(profiles).toHaveLength(65)
+    expect(new Set(profiles.map((p) => p.id)).size).toBe(65)
     for (const p of profiles) {
       expect(p.evaluation.items).toHaveLength(7)
       for (const item of p.evaluation.items) {
@@ -50,7 +50,7 @@ describe('v0.1.58 all-roster score calibration and versioned baseline (read-only
       expect(calculateBalancedCombatPower(p.evaluation, balancedV12).finalScore)
         .toBeCloseTo(overall(p), 10)
     }
-    expect(profiles.flatMap((p) => p.evaluation.items)).toHaveLength(413)
+    expect(profiles.flatMap((p) => p.evaluation.items)).toHaveLength(455)
     expect(profiles.flatMap((p) => p.evaluation.items).filter((s) => !s.readiness)).toHaveLength(0)
     expect(profiles.flatMap((p) => p.evaluation.items)
       .filter((s) => s.baseScore + getRawHakiContributionTotal(s) * 0.5 > 100)).toHaveLength(0)
@@ -76,8 +76,8 @@ describe('v0.1.58 all-roster score calibration and versioned baseline (read-only
     expect(items.filter((i) => i.readiness === 'E3' && i.score >= 85)).toHaveLength(14)
     expect(items.filter((i) => i.readiness === 'E3' && i.score >= 90)).toHaveLength(9)
     expect(items.reduce((n, item) => n + getRawHakiContributionTotal(item), 0)).toBe(212)
-    expect(sampleEvaluations).toHaveLength(62)
-    expect(sampleEvaluations.flatMap((e) => e.items)).toHaveLength(434)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.flatMap((e) => e.items)).toHaveLength(476)
     expect(sampleEvaluations.flatMap((e) => e.items)
       .reduce((n, item) => n + getRawHakiContributionTotal(item), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
