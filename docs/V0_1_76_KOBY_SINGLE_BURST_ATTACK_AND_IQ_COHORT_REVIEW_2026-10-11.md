@@ -71,7 +71,7 @@
 - 로저, 전성기 뉴게이트, 카이도, 키자루, 카타쿠리 **5인 고정 Overall 모두 불변**. 마르코83.714, 루치78.857, 그루스76.857 등 다른 64인 전 7축 불변.
 - **신규 Battle/Evidence 없음:** 기존 TV1121/1122의 `evidence-v0170-koby-impact`와 관련 Battle을 사용. 한 장면을 새 사실로 중복 기록하지 않음.
 - 모델 Balanced 1.2, HakiWeight 0.5, Raw 대표212/전체230, Character66, 현재 65 Evaluation/전체68(476축), Membership84, Matchup15 모두 불변. E1=53, E2=272, E3=130 불변.
-- 새로운 테스트는 `v0176KobyAttackRecalibration.test.ts`. 64명 현행 객체 동일성, 나머지 6축·원래 Haki Raw, 구버전 재현, 기존 기준점 및 랭킹 파생 효과, IQ/범용성 유지 판단, 기존 근거 소유·참조를 검증. 전체 CI/빌드/배포는 GitHub **실제 커밋** 상태로만 결과 확정한다.
+- 새로운 테스트는 `v0176KobyAttackRecalibration.test.ts`. 64명 현행 객체 동일성, 나머지 6축·원래 Haki Raw, 구버전 재현, 기존 기준점 및 랭킹 파생 효과, IQ/범용성 유지 판단, 기존 근거 소유·참조를 검증. **PR 코드 헤드** `83568e94c0b48c1751876d6a5c2632ae66412823`의 [GitHub Actions #38143360554](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38143360554)에서 **68개 테스트 파일/303개 테스트 전부 통과**, TypeScript 검사 및 Vite 빌드 성공. 최초 CI에서 역사 수치 고정 기대값과 재생성 평가의 객체 참조 동일성이라는 테스트 가정 2건을 조정했으며 테스트 삭제는 하지 않았다. 최종 `main` Pages 배포는 병합 후 동일 SHA로 별도 검증한다.
 
 ## 5. APA 7th 참고자료
 
