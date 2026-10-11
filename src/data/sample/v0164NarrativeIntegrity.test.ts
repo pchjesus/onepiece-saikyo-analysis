@@ -18,9 +18,9 @@ import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
  */
 describe('v0.1.64 character-specific combat narrative and event attribution audit', () => {
   it('tracks all 60 character descriptions and 62 seven-axis evaluations to their own subject', () => {
-    expect(sampleCharacters).toHaveLength(60)
-    expect(sampleEvaluations).toHaveLength(62)
-    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
+    expect(sampleCharacters).toHaveLength(66)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(476)
     const characters = new Map(sampleCharacters.map(c => [c.id, c]))
     const evidence = new Map(sampleEvidence.map(e => [e.id, e]))
     const battles = new Set(sampleBattles.map(b => b.id))
@@ -108,8 +108,8 @@ describe('v0.1.64 character-specific combat narrative and event attribution audi
 
   it('preserves approved Overall/Raw calculations and score-source invariants', () => {
     const defaults = sampleEvaluations.filter(e => e.isDefault !== false)
-    expect(defaults).toHaveLength(59)
-    expect(defaults.flatMap(e => e.items)).toHaveLength(413)
+    expect(defaults).toHaveLength(65)
+    expect(defaults.flatMap(e => e.items)).toHaveLength(455)
     expect(defaults.flatMap(e => e.items).reduce((a, i) => a + getRawHakiContributionTotal(i), 0)).toBe(212)
     expect(sampleEvaluations.flatMap(e => e.items).reduce((a, i) => a + getRawHakiContributionTotal(i), 0)).toBe(230)
     expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E1')).toHaveLength(53)
