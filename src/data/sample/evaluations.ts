@@ -1,3 +1,4 @@
+import { v0180Evaluations } from './v0180CharacterExpansion'
 import { wanoEvaluations } from './wanoExpansion'
 import { v0170Evaluations } from './v0170GroupAceExpansion'
 import { v0171AceEvaluation } from './v0171AceCalibration'
@@ -602,4 +603,4 @@ export const historicalEvaluationsBeforeV0174: Evaluation[] = [
 ]
 
 /** Live current evaluations: versioned v0.1.74→v0.1.79 non-destructive adapters. */
-export const sampleEvaluations: Evaluation[] = historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection).map(applyV0175GrusEvidenceReview).map(applyV0176KobyAttackCorrection).map(applyV0177KobyGrusRecalibration).map(applyV0178FocusedEvidenceReview).map(applyV0179CommanderAxisReview)
+export const sampleEvaluations: Evaluation[] = [...historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection).map(applyV0175GrusEvidenceReview).map(applyV0176KobyAttackCorrection).map(applyV0177KobyGrusRecalibration).map(applyV0178FocusedEvidenceReview).map(applyV0179CommanderAxisReview),...v0180Evaluations]
