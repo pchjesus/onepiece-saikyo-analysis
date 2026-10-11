@@ -54,9 +54,9 @@ describe('v0.1.54 23 untyped roles and 14 context-only axes', () => {
       }
     }
     expect(seen.size).toBe(37)
-    expect(defaults).toHaveLength(59)
+    expect(defaults).toHaveLength(65)
     const items = defaults.flatMap((e) => e.items)
-    expect(items).toHaveLength(413)
+    expect(items).toHaveLength(455)
     const counts = { E1: 0, E2: 0, E3: 0, missing: 0 }
     for (const item of items) if (item.readiness) counts[item.readiness]++
     else counts.missing++
@@ -95,8 +95,8 @@ describe('v0.1.54 23 untyped roles and 14 context-only axes', () => {
   })
 
   it('keeps all protected data sizes, chosen Overall anchors and Haki Raw untouched', () => {
-    expect(sampleEvaluations).toHaveLength(62)
-    expect(sampleEvaluations.flatMap((e) => e.items)).toHaveLength(434)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.flatMap((e) => e.items)).toHaveLength(476)
     expect(sampleEvaluations.flatMap((e) => e.items)
       .reduce((n, item) => n + getRawHakiContributionTotal(item), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
