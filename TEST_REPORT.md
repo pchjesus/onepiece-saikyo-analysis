@@ -1,3 +1,17 @@
+# v0.1.78 — evidence-only Koby/Smoothie battle-context upgrade and Tobi Roppo audit
+
+- **Baseline:** v0.1.77 `main@ede9827bc4284ef468c20b750463e28504fbb278`.
+- **Source correction:** TV1113 establishes *real* enslaved noncombatant captives on Hachinosu; TV1121 establishes a separate *fake* woman rescue trap exploited by invisible Shiryu. Assess Koby's insufficient risk verification during retreat, **not** a nonexistent possibility of captives. TV1113 decoy rescue positive contextual action does not erase TV1121 negative decision. v0.1.77 IQ72 already reflected that single failure; no second downgrade.
+- **Smoothie:** official TV868 giant slashes repeatedly evaded through Nami/Jinbe cooperative navigation and helming; event shares existing Manga Ch.894 pursuit Battle, so no independent double count. Attack76 E2, Speed74 E3 and CombatIQ77 E3 held.
+- **Tobi Roppo:** Sasaki IQ68/Defense79, Black Maria IQ74/Versatility84, Ulti Stamina84, Page One Defense76 compared with preexisting official TV1031/1032/1042/1044 context; no unjustified score changes.
+- **Expected invariants:** 65 default ×7 = 455 Final unchanged; Haki Raw default212/full230; character66, evaluation68 (65 default) and stat items476, Membership84, Matchup15, Balanced1.2/HakiWeight0.5, fixed anchor5 unchanged.
+- **Additions:** one Battle+Evidence for Koby TV1113, one supplementary Evidence for existing Smoothie chase TV868, versioned evaluation metadata for Koby and Smoothie only; existing other63 live Evaluations remain identical.
+- **Tests:** `v0178KobySmoothieContextAudit.test.ts` validates all 455 final values/Raw and prior snapshots, source ownership, fight linking, non-double-counting, rank, fixed anchors and Wano preexisting evidence; earlier tests amended to account for metadata-only new versions without loosening numeric preservation.
+- **PR verified code-head CI:** [GitHub Actions #38147304187](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38147304187), SHA `74f99149e9f9eb5f6dad8683179eaeb893f727b2`: **70/70 test files and 312/312 tests passed**; `tsc -b && vite build` succeeded. Two initial test runs failed because independently reconstructed immutable Evaluation snapshots were incorrectly compared by object reference rather than deep content; corrected without disabling numeric or historical verification. Documentation-only final commit requires another green PR CI.
+- **Final deployment gate:** verify a new main-merge SHA with independent successful push CI and Pages job. No browser-device manual smoke test claimed.
+
+---
+
 # v0.1.77 — dual-axis contextual recalibration / historical and downstream regression
 
 - **Baseline:** `main@66e7bf07cc8e4be1a5785db74ae55e2c64a2dc72` (v0.1.76 / PR #75 / all 303 tests and GitHub Pages successful).
