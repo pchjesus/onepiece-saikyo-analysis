@@ -50,9 +50,9 @@ describe('v0.1.57 completed default-readiness evidence audit', () => {
   })
 
   it('makes all 59 × 7 default stats explicitly graded, while retaining genuine E3 gaps', () => {
-    expect(defaults).toHaveLength(59)
+    expect(defaults).toHaveLength(65)
     const stats = defaults.flatMap((evaluation) => evaluation.items)
-    expect(stats).toHaveLength(413)
+    expect(stats).toHaveLength(455)
     const counts = { E1: 0, E2: 0, E3: 0, missing: 0 }
     for (const s of stats) if (s.readiness) counts[s.readiness]++
     else counts.missing++
@@ -106,8 +106,8 @@ describe('v0.1.57 completed default-readiness evidence audit', () => {
       expect(getCombatPower(id).finalScore, id)
         .toBeCloseTo(final.reduce((sum, value) => sum + value, 0) / 7, 9)
     }
-    expect(sampleEvaluations).toHaveLength(62)
-    expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(476)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)
       .reduce((sum, stat) => sum + getRawHakiContributionTotal(stat), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
