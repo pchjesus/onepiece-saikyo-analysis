@@ -48,7 +48,7 @@ describe('getCharacterList', () => {
   it('shows captain → official unit-number hierarchy, and Korean names for equal ranks', () => {
     const names = (id: string) => getCharacterList()
       .filter(({ group }) => group.id === id).map(({ character }) => character.name)
-    expect(names('whitebeard-pirates')).toEqual(['에드워드 뉴게이트', '마르코', '죠즈', '비스타', '포트거스 D. 에이스'])
+    expect(names('whitebeard-pirates')).toEqual(['에드워드 뉴게이트', '마르코', '포트거스 D. 에이스', '죠즈', '비스타'])
     expect(names('blackbeard-pirates')).toEqual([
       '마샬 D. 티치', '지저스 바제스', '시류', '반 오거', '아발로 피사로', '쿠잔',
     ])
