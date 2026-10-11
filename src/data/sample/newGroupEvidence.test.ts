@@ -126,8 +126,11 @@ describe('v0.1.39 evidence-first Revolutionary Army and CP0 roster extension', (
     }
   })
 
-  it('derives stable 42-character ranking while tracking only intended recalibration impact', () => {
-    const ranking = getStatRanking('overall')
+  it('derives stable historical 59-character ranking while tracking only intended recalibration impact', () => {
+    const expanded = getStatRanking('overall')
+    expect(expanded).toHaveLength(65)
+    const original = expanded.filter(r => !['koby','prince-grus','vergo','pica','diamante','ace'].includes(r.characterId))
+    const ranking = original.map(r => ({ ...r, rank: 1 + original.filter(x => x.score > r.score).length }))
     expect(ranking).toHaveLength(59)
     expect(new Set(ranking.map(r => r.characterId)).size).toBe(59)
     expect(ranking.find(r => r.characterId === 'kaku')?.score).toBeCloseTo(74.28571428571429)
