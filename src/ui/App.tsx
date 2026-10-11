@@ -6,6 +6,7 @@ import { CharacterPickerDialog } from './components/CharacterPickerDialog'
 import { StatRankingDialog } from './components/StatRankingDialog'
 import { CharacterPage } from './pages/CharacterPage'
 import { MatchupHome } from './pages/MatchupHome'
+import { PatchHistoryDialog } from './components/PatchHistoryDialog'
 import './styles.css'
 
 const characterList = getCharacterList()
@@ -15,6 +16,7 @@ export default function App() {
   const [selectedGroupId, setSelectedGroupId] = useState(characterList[0]?.group.id ?? '')
   const [rankingStat, setRankingStat] = useState<RankingStat | null>(null)
   const [pickerOpen, setPickerOpen] = useState(false)
+  const [patchOpen, setPatchOpen] = useState(false)
   const pickerTrigger = useRef<HTMLButtonElement>(null)
   const [activeView, setActiveView] = useState<'stats' | 'matchup'>('stats')
 
@@ -55,9 +57,11 @@ export default function App() {
           <p className="eyebrow">ONE PIECE · MVP</p>
           <h1>원피스 전투력 분석</h1>
           <p>캐릭터 → 평가 → 계산 모델 → 전투력</p>
+          <button className="patch-history-trigger" type="button" onClick={() => setPatchOpen(true)}>패치 내역 <span>v0.1.80</span></button>
         </div>
 
       </header>
+      {patchOpen && <PatchHistoryDialog onClose={() => setPatchOpen(false)} />}
       <nav className="app-mode-nav" aria-label="주요 화면">
         <button type="button" className={activeView === 'stats' ? 'selected' : ''} aria-pressed={activeView === 'stats'}
           aria-label="스탯 분석 화면" onClick={() => setActiveView('stats')}>
