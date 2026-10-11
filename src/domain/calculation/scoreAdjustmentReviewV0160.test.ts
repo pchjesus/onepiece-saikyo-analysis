@@ -63,10 +63,10 @@ describe('v0.1.60 approved Kaido Defense 100 and Ryokugyu source-link review', (
   })
 
   it('preserves the 59×7/62/434, E1-3, Haki, 15 Matchups and comparable rankings', () => {
-    expect(defaults).toHaveLength(59)
-    expect(sampleEvaluations).toHaveLength(62)
-    expect(defaults.flatMap(e=>e.items)).toHaveLength(413)
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(434)
+    expect(defaults).toHaveLength(65)
+    expect(sampleEvaluations).toHaveLength(68)
+    expect(defaults.flatMap(e=>e.items)).toHaveLength(455)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(476)
     const items = defaults.flatMap(e=>e.items)
     expect(items.filter(i=>i.readiness==='E1')).toHaveLength(53)
     expect(items.filter(i=>i.readiness==='E2')).toHaveLength(243)
