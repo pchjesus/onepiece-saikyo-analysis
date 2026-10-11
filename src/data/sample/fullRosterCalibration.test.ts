@@ -5,7 +5,6 @@ import { sampleMatchups } from './matchups'
 import { sampleMemberships } from './memberships'
 import { getStatRanking } from '../../application/getStatRanking'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
-import { getCombatPower } from '../../application/getCombatPower'
 import { validateEvaluation } from '../../domain/evaluation/validation'
 import { sampleEvidence } from './evidence'
 
@@ -617,7 +616,8 @@ describe('v0.1.47 evidence-based A-path all-axis calibration regression', () => 
   const all = sampleEvaluations.filter(e => e.isDefault !== false)
   const byId = (id:string) => all.find(e => e.characterId===id)!
   const vals = (id:string) => byId(id).items.map(i=>i.score)
-  const overall=(id:string)=> getCombatPower(id).finalScore
+  // This v0.1.47 audit intentionally compares historical source scores, NOT the live v0.1.74 UI.
+  const overall=(id:string)=> sampleEvaluations.find(e=>e.characterId===id&&e.isDefault!==false)!.items.reduce((sum,i)=>sum+i.score,0)/7
 
   it('preserves 53 untouched characters, all 371 axes exactly, and 6 scoped recalibrations', () => {
     expect(all).toHaveLength(65)
