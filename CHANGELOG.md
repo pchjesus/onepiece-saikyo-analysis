@@ -1,3 +1,12 @@
+## v0.1.80 — visible patch history + Smoker, Ivankov and two new organized groups (2026-10-12)
+
+- **New in-app patch history:** Header `패치 내역` button on both Stats and Matchup pages opens versioned accordion dialog (v0.1.75–0.1.80 backfill) showing each change, release date, reason, stat Final before→after, E-readiness, official source links and full report link. Accessible Escape/backdrop close, keyboard focus management, responsive scrolling; source-of-truth `src/data/releases/patchHistory.ts`. All future patches should add a structured top entry.
+- **New grouped rosters:** `해군 G-5 지부` includes Smoker and Tashigi (both also registered as Marines); `카마바카 왕국` includes Ivankov and Inazuma (both also in Revolutionary Army). Two new Groups with 8 Membership records, four distinct Characters and draft 7-stat Evaluations, 9 official TV supplementary Battle/Evidence pairs. Multiple memberships do not create duplicate roster ranks or fighter identities.
+- New draft 7-stat axes: Smoker [75,76,79,76,78,72,77]; Tashigi [62,63,69,68,72,66,60]; Ivankov [77,74,81,76,84,79,87]; Inazuma [68,69,73,71,77,74,82]. New four use E2/E3 readiness and no unverified Haki Raw bonuses. Other 65 existing characters and 455 Final axes unchanged.
+- Count change: Characters **66→70**, default evaluated **65→69**, Evaluations **68→72**, StatItems **476→504**, Memberships **84→92**. Balanced 1.2, Raw Haki212/230, five locked anchors, 15 explicit matchups, historic evaluation adapters preserved.
+- Regression: `v0180GroupsAndCharacters.test.ts` and UI tests for patch dialog, multi-membership and source ownership, plus updated live roster count tests. Details in `docs/V0_1_80_PATCH_HISTORY_SMOKER_IVANKOV_TWO_GROUPS_2026-10-12.md`.
+- Official ONE PIECE.com character profiles and selected anime synopses used as **supplementary**. No false claim of independently inspecting all original manga panels.
+
 ## v0.1.79 — Smoothie, Cracker and Queen nine-axis commander audit (2026-10-12)
 
 - **One contextual score correction:** Queen **Versatility Final80(E2)→82(E2)**, Overall **78.571429→78.857143** (+2/7). His ancient-Zoan constriction/body, integrated cyborg/Germa lightning/stealth/laser techniques and Queen-engineered, actually deployed Ice Oni virus ammunition are distinct *mechanisms and combat purposes*, not many variants of one Devil Fruit. This is not a fixed bonus for owned gadgets; field deployment and indiscriminate infection limit the conclusion. Attack80, Technique79, CombatIQ74 unchanged.
