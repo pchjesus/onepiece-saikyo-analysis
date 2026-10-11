@@ -32,7 +32,7 @@ describe('v0.1.70 SWORD + Donquixote + Ace actual additive data and Teach no-sco
     expect(v0170Groups.map(g=>g.id)).toEqual(['sword','donquixote-family'])
     expect(v0170Memberships).toHaveLength(11)
     expect(sampleCharacters).toHaveLength(70)
-    expect(new Set(sampleCharacters.map(c=>c.id)).size).toBe(66)
+    expect(new Set(sampleCharacters.map(c=>c.id)).size).toBe(70)
     expect(sampleGroups.map(g=>g.id)).toContain('sword')
     expect(sampleGroups.find(g=>g.id==='sword')?.parentGroupId).toBe('marines')
     expect(sampleMemberships).toHaveLength(92)
@@ -103,7 +103,7 @@ describe('v0.1.70 SWORD + Donquixote + Ace actual additive data and Teach no-sco
       expect(calculateBalancedCombatPower(ev,balancedV12).finalScore)
         .toBeCloseTo((seed.id==='ace'?[79,76,82,78,78,67,78]:seed.id==='koby'?[77,73,77,78,77,72,67]:seed.id==='prince-grus'?[72,77,74,71,81,78,80]:[...seed.scores]).reduce((a,b)=>a+b,0)/7,10)
     }
-    expect(sampleEvaluations.filter(e=>!newIds.includes(e.characterId as typeof newIds[number]))).toHaveLength(62)
+    expect(sampleEvaluations.filter(e=>!newIds.includes(e.characterId as typeof newIds[number]))).toHaveLength(66)
     expect(sampleCharacters.filter(c=>!newIds.includes(c.id as typeof newIds[number]))).toHaveLength(60)
     expect(sampleMatchups).toHaveLength(15)
     expect(balancedV12.version).toBe('1.2')
