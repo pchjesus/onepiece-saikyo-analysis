@@ -1,3 +1,4 @@
+import { v0180CommanderAttackAudit } from './sample/v0180CommanderAttackAudit'
 export type PatchChange = {
   kind: 'score' | 'character' | 'group' | 'feature' | 'evidence'
   title: string
@@ -31,6 +32,12 @@ export const patchHistory: PatchRecord[] = [
       {kind:'character',title:'이나즈마 추가',detail:'혁명군 소속으로 지형 절단·전장 지원 근거와 7축 잠정 평가를 등록.',reason:'계단 절단 실행과 이완코프의 독자 판단을 분리한다.',characterId:'inazuma',evidence:[{label:'이나즈마 공식 프로필',url:'https://one-piece.com/character/Inazuma/index.html'},{label:'TV448',url:'https://one-piece.com/anime/448/index.html'}]},
       {kind:'feature',title:'그룹 추가 취소',detail:'해군·혁명군 기존 그룹만 사용하며 G-5와 뉴커머 랜드는 선택 그룹에서 제외.',reason:'사용자가 요청한 소속 분류를 유지한다.'},
       {kind:'evidence',title:'6명 대인 공격력 심화 검증',detail:'마르코·킹·카타쿠리·퀸·크래커·스무디의 최대 출력·유효타·지속 화력·상성을 분리.',reason:'광역 규모나 결과만으로 대인 Attack 점수를 오인하지 않기 위해.'},
+      ...v0180CommanderAttackAudit.map(a=>({
+        kind:'evidence' as const,characterId:a.characterId,
+        title:a.characterId+' 공격력 검토 (Final '+a.finalAttack+' 유지)',
+        detail:'순간 최대 출력: '+a.peakOutput+' / 실제 유효타: '+a.verifiedHit+' / 지속 화력: '+a.sustainedPressure+' / 상성: '+a.matchup,
+        reason:a.rationale,
+      })),
     ],
   },
   {
