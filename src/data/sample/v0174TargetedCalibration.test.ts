@@ -56,6 +56,19 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
     for(const after of sampleEvaluations){
       const before=beforeById.get(after.id)
       expect(before,after.id).toBeDefined()
+      if(after.characterId==='koby'){
+        expect(after.evaluationDataVersion).toBe('evaluation-0.1.76-koby-single-burst-attack-calibrated')
+        expect(before!.evaluationDataVersion).toBe('evaluation-0.1.70-expansion-draft')
+        for(const item of after.items){
+          const prior=before!.items.find(x=>x.stat===item.stat)!
+          if(item.stat==='attack'){
+            expect(prior.score).toBe(82)
+            expect(item.score).toBe(77)
+            expect(item.hakiContributions).toEqual(prior.hakiContributions)
+          } else expect(item).toBe(prior)
+        }
+        continue
+      }
       if(after.characterId==='prince-grus'){
         // v0.1.75: new supplementary evidence and rationale only; zero numeric/Haki change.
         expect(before!.evaluationDataVersion).toBe('evaluation-0.1.70-expansion-draft')
@@ -119,7 +132,7 @@ describe('v0.1.74 — source and opponent calibrated *two-axis only* numeric cor
     expect(score('lucci','speed')).toBe(82)
     expect(score('jinbe','attack')).toBe(76)
     expect(score('whos-who','attack')).toBe(79)
-    expect(score('koby','attack')).toBe(82)
+    expect(score('koby','attack')).toBe(77)
     expect(score('doflamingo','techniqueMastery')).toBe(87)
     expect(score('queen','attack')).toBe(80)
     expect(score('cracker','defense')).toBe(81)
