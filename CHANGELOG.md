@@ -1,3 +1,11 @@
+## v0.1.80 — patch history UI, Smoker/Ivankov, G-5/Newkama Land (2026-10-12)
+
+- Added top-level **패치 내역 v0.1.80** button and scrollable, accessible dialog; version-by-version summaries, changes, score before/after, reasons and direct evidence links. Structured source `src/data/patchHistory.ts`; verified summaries v0.1.75–0.1.80 without inventing unsupported historical numeric details.
+- Added **Smoker** (marine/G-5) and **Emporio Ivankov** (Revolutionary Army, historical Newkama Land) as 2 new draft Characters with 14 provisional stats, official profile links, 6 supplementary TV episode Evidence and 6 Battles; Haki Raw0 for both. Distinguish multi-party goals and special ability counters.
+- Added exactly 2 Groups: G-5 under marines; Newkama Land under Impel Down (historical, not falsely Revolutionary Army subgroup). Four Memberships preserve both primary and historical organizations.
+- Additive data: 66→68 characters, 68→70 Evaluations (65→67 default), 476→490 stat items, 84→88 memberships; prior 455 default stats, Raw230, 5 anchors, 15 matchups, Balanced1.2 unchanged.
+- See `docs/V0_1_80_PATCH_HISTORY_AND_CHARACTER_EXPANSION_2026-10-12.md`.
+
 ## v0.1.79 — Smoothie, Cracker and Queen nine-axis commander audit (2026-10-12)
 
 - **One contextual score correction:** Queen **Versatility Final80(E2)→82(E2)**, Overall **78.571429→78.857143** (+2/7). His ancient-Zoan constriction/body, integrated cyborg/Germa lightning/stealth/laser techniques and Queen-engineered, actually deployed Ice Oni virus ammunition are distinct *mechanisms and combat purposes*, not many variants of one Devil Fruit. This is not a fixed bonus for owned gadgets; field deployment and indiscriminate infection limit the conclusion. Attack80, Technique79, CombatIQ74 unchanged.
