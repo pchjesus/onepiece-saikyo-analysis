@@ -21,13 +21,16 @@ export type PatchRecord = {
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
   {
-    version: 'v0.1.80', date: '2026-10-12', title: '패치 내역 UI · 스모커 · 이완코프 · 2개 집단',
-    summary: '버전별 변경 내역을 화면에서 확인하고, 신규 캐릭터와 소속 집단을 확장했다.',
+    version: 'v0.1.80', date: '2026-10-12', title: '패치 내역 UI · 해군/혁명군 4명 · 사최간 공격력 감사',
+    summary: '스모커·타시기는 해군, 이완코프·이나즈마는 혁명군에만 추가. 사최간급 6명 대인 공격력 4요소를 검증.',
     changes: [
-      {kind:'feature',title:'패치 내역 버튼과 버전별 상세 기록',detail:'메인 상단에서 버전 목록, 변경 내용, 변경 이유, 점수 전후, 출처를 열람할 수 있다.',reason:'배포 후 무엇이 왜 달라졌는지 사용자가 직접 검증할 수 있도록 하기 위함.'},
-      {kind:'character',title:'스모커 추가',detail:'해군 소속 스모커의 프로필·전투 근거·7축 잠정 평가를 등록했다.',reason:'에이스 견제전과 로우·베르고·도플라밍고 관련 전투에서 능력과 한계가 모두 확인되는 해군 전투원이다.',characterId:'smoker',evidence:[{label:'ONE PIECE.com — 스모커 공식 프로필',url:'https://one-piece.com/character/Smoker/index.html'}]},
-      {kind:'character',title:'엠포리오 이완코프 추가',detail:'혁명군 소속 이완코프의 프로필·전투 근거·7축 잠정 평가를 등록했다.',reason:'호르몬 능력과 뉴커머 권법·윈크 기술의 다목적 운용, 마젤란·쿠마와의 교전 조건을 구분하기 위함.',characterId:'ivankov',evidence:[{label:'ONE PIECE.com — 이완코프 공식 프로필',url:'https://one-piece.com/character/Emporio_Ivankov/index.html'}]},
-      {kind:'group',title:'해군 G-5 · 뉴커머 랜드 집단',detail:'기존 해군·혁명군을 유지하면서 G-5와 뉴커머 랜드를 하위 집단으로 추가했다.',reason:'소속과 실제 활동 거점을 분리하고 기존 인물의 이력을 손상하지 않기 위함.'},
+      {kind:'feature',title:'패치 내역 버튼',detail:'버전·변경점·변경 이유·스탯 조정 전후·근거 링크를 확인한다.',reason:'이전 패치 내역과 평가 이유를 앱에서 바로 검증하도록 지원한다.'},
+      {kind:'character',title:'스모커 추가',detail:'해군 소속으로 전투 근거와 7축 잠정 평가를 등록.',reason:'로우·베르고와의 교전 조건을 평가하기 위해.',characterId:'smoker'},
+      {kind:'character',title:'타시기 추가',detail:'해군 소속으로 검술·모네 교전 근거와 7축 잠정 평가를 등록.',reason:'모네의 공격과 조로의 개입을 타시기 개인 성과와 분리한다.',characterId:'tashigi',evidence:[{label:'타시기 공식 프로필',url:'https://one-piece.com/character/tashigi/index.html'}]},
+      {kind:'character',title:'이완코프 추가',detail:'혁명군 소속으로 호르몬·지원·전투 근거와 7축 잠정 평가를 등록.',reason:'호르몬 치료·강화와 강자 상대 직접 공격을 구분한다.',characterId:'ivankov'},
+      {kind:'character',title:'이나즈마 추가',detail:'혁명군 소속으로 지형 절단·전장 지원 근거와 7축 잠정 평가를 등록.',reason:'계단 절단 실행과 이완코프의 독자 판단을 분리한다.',characterId:'inazuma',evidence:[{label:'이나즈마 공식 프로필',url:'https://one-piece.com/character/Inazuma/index.html'},{label:'TV448',url:'https://one-piece.com/anime/448/index.html'}]},
+      {kind:'feature',title:'그룹 추가 취소',detail:'해군·혁명군 기존 그룹만 사용하며 G-5와 뉴커머 랜드는 선택 그룹에서 제외.',reason:'사용자가 요청한 소속 분류를 유지한다.'},
+      {kind:'evidence',title:'6명 대인 공격력 심화 검증',detail:'마르코·킹·카타쿠리·퀸·크래커·스무디의 최대 출력·유효타·지속 화력·상성을 분리.',reason:'광역 규모나 결과만으로 대인 Attack 점수를 오인하지 않기 위해.'},
     ],
   },
   {
