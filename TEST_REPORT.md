@@ -6,7 +6,7 @@
 - **Unchanged:** Smoothie Attack76/Technique80/Versatility78; Cracker Attack77/Technique80/Versatility77; Queen Attack80/Technique79; all Raw212/230 and model/5 anchors/15 matchups.
 - **Data:** 66 characters, 68 evaluations (65 default), 476 stat items, 84 memberships; 4 new supplementary Evidence with existing Battle IDs and no duplicate Battles.
 - **Regression:** added `v0179CommanderAxisReview.test.ts` (9 axes, provenance, old snapshots, Final454/455 conservation, Raw, 5 anchors, dynamic ranking, guarded versioned overlays). Historic v0.1.78 and earlier test snapshots preserved; related CI assertions updated without deletion.
-- **CI state:** pending actual PR head and post-merge SHA validation. Must not claim PC/mobile manual browser smoke verification.
+- **Verified PR code-head CI:** [GitHub Actions #38150887855](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38150887855), SHA `acf2f9828bcee99d25573dbbbc3bd226b0a89f24` — **71/71 test files, 316/316 tests passed**, `tsc -b && vite build` passed. Initial PR CI found two old historical snapshots comparing Queen80 against v0.1.79 live82; assertions now preserve historical 80 while separately checking live82, without suppressing tests. After documentation-only commit, final PR head CI must be independently green; verify post-merge main SHA and Pages deploy separately. No manual browser-device smoke test performed.
 
 ---
 
