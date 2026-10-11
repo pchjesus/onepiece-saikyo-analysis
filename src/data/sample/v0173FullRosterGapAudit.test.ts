@@ -77,6 +77,8 @@ describe('v0.1.73 all-65 all-455 axis gap audit: read-only no re-score',()=>{
       expect(c.reason.length,c.first+'-'+c.second).toBeGreaterThan(35)
       expect(c.contextCaution.length).toBeGreaterThan(20)
       expect(c.sourceRefs.length).toBeGreaterThanOrEqual(2)
+      const evaluationIds=new Set(sampleEvaluations.map(e=>e.id))
+      for(const ref of c.sourceRefs)expect(evaluationIds.has(ref),c.first+'→'+ref).toBe(true)
       expect(['source-audit-first','check-scale-and-overlap','keep-observing']).toContain(c.recommendation)
     }
     expect(v0173ManualCases.filter(c=>c.priority==='high').length).toBeGreaterThanOrEqual(15)
