@@ -1,3 +1,13 @@
+# v0.1.80 — patch history, two-character/two-group additive validation
+
+- Baseline `main@f893b676169b531e6ca821f2911186c0ff620aa0`.
+- Added `src/data/sample/v0180Expansion.test.ts` for history metadata, new group/membership/reference relationships, 6 supplementary Battles and Evidence, Raw0 for new characters, scores, 67 ranking entries, no duplicate IDs, previous Raw230.
+- Added `src/ui/App.test.tsx` integration checks for patch-history button, before/after + reasons, closing behavior, and new group/character navigation.
+- Existing old-cohort count tests must explicitly remain scoped to the historical snapshot or update current-roster expectations; do not delete historical invariants.
+- **Pending:** actual CI and post-merge GitHub Pages verification.
+
+---
+
 # v0.1.79 — commander 9-axis re-calibration / official evidence crosscheck
 
 - **Baseline:** v0.1.78 `main@591f9617887adf967292b34c28d2331b1c1e6493` (312 tests passed, Pages success).
