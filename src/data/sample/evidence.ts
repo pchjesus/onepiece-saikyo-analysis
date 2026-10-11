@@ -1,4 +1,5 @@
 import { wanoEvidence } from './wanoExpansion'
+import { v0170Evidence } from './v0170GroupAceExpansion'
 import type { Evidence } from '../../domain/evidence/types'
 
 export const sampleEvidence: Evidence[] = [
@@ -2799,4 +2800,5 @@ export const sampleEvidence: Evidence[] = [
     uncertainty: '샹크스의 원거리 위협 및 해적단 전력 인지로 전투가 중단돼 승리/패배나 아라마키의 최대 지속시간을 도출할 수 없다.',
   },
   ...wanoEvidence,
+  ...v0170Evidence,
 ]
