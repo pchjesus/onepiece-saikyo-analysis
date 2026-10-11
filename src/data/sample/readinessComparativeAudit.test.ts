@@ -1,9 +1,12 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from './evaluations'
+import { sampleEvaluations as expandedEvaluations } from './evaluations'
 import { sampleMatchups } from './matchups'
 import { getCombatPower } from '../../application/getCombatPower'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import type { EvidenceReadiness, CombatStat } from '../../domain/evaluation/types'
+
+// v0.1.70 new evaluations are reviewed in their own suite; preserve this source audit's historical cohort.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 const reviewed: Record<string, Partial<Record<CombatStat, EvidenceReadiness>>> = {
   jozu: {
@@ -30,8 +33,8 @@ describe('v0.1.52 manual evidence-readiness audit', () => {
     }
     const defaults = sampleEvaluations.filter((evaluation) => evaluation.isDefault !== false)
     const items = defaults.flatMap((evaluation) => evaluation.items)
-    expect(defaults).toHaveLength(65)
-    expect(items).toHaveLength(455)
+    expect(defaults).toHaveLength(59)
+    expect(items).toHaveLength(413)
     const distribution = { E1: 0, E2: 0, E3: 0, unset: 0 }
     for (const item of items) {
       if (item.readiness) distribution[item.readiness] += 1
@@ -52,8 +55,8 @@ describe('v0.1.52 manual evidence-readiness audit', () => {
       expect(evaluation.items.map((item) => item.score), characterId).toEqual(finalStats)
       expect(getCombatPower(characterId).finalScore).toBeCloseTo(overall, 9)
     }
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(476)
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)
       .reduce((sum, item) => sum + getRawHakiContributionTotal(item), 0)).toBe(230)
     expect(sampleMatchups).toHaveLength(15)
