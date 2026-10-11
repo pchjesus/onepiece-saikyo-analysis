@@ -21,7 +21,7 @@ const sampleEvaluations = expandedEvaluations.filter(e=>!['evaluation-0.1.70-exp
  */
 describe('v0.1.64 character-specific combat narrative and event attribution audit', () => {
   it('tracks all 60 character descriptions and 62 seven-axis evaluations to their own subject', () => {
-    expect(sampleCharacters).toHaveLength(66)
+    expect(sampleCharacters).toHaveLength(70)
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
     const characters = new Map(sampleCharacters.map(c => [c.id, c]))
