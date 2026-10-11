@@ -90,8 +90,8 @@ describe('v0.1.70 SWORD + Donquixote + Ace actual additive data and Teach no-sco
     for(const seed of v0170Seeds){
       const ev=evalFor(seed.id)
       expect(ev.status).toBe('draft')
-      expect(ev.evaluationDataVersion).toBe(seed.id==='ace'?'evaluation-0.1.71-ace-context-recalibrated':seed.id==='prince-grus'?'evaluation-0.1.75-grus-evidence-expanded-no-score-change':'evaluation-0.1.70-expansion-draft')
-      expect(ev.items.map(i=>i.score)).toEqual(seed.id==='ace'?[79,76,82,78,78,67,78]:[...seed.scores])
+      expect(ev.evaluationDataVersion).toBe(seed.id==='ace'?'evaluation-0.1.71-ace-context-recalibrated':seed.id==='koby'?'evaluation-0.1.76-koby-single-burst-attack-calibrated':seed.id==='prince-grus'?'evaluation-0.1.75-grus-evidence-expanded-no-score-change':'evaluation-0.1.70-expansion-draft')
+      expect(ev.items.map(i=>i.score)).toEqual(seed.id==='ace'?[79,76,82,78,78,67,78]:seed.id==='koby'?[77,73,77,78,77,76,67]:[...seed.scores])
       expect(ev.items.map(i=>i.readiness)).toEqual([...seed.read])
       expect(ev.items.flatMap(i=>i.hakiContributions)).toHaveLength(0)
       expect(ev.items.every(i=>i.evidenceIds.length>0)).toBe(true)
@@ -101,7 +101,7 @@ describe('v0.1.70 SWORD + Donquixote + Ace actual additive data and Teach no-sco
       expect(validateCombatProfile(char,owner)).toEqual({valid:true,errors:[]})
       expect(validateHakiProfile(char.combatProfile.haki)).toEqual([])
       expect(calculateBalancedCombatPower(ev,balancedV12).finalScore)
-        .toBeCloseTo((seed.id==='ace'?[79,76,82,78,78,67,78]:[...seed.scores]).reduce((a,b)=>a+b,0)/7,10)
+        .toBeCloseTo((seed.id==='ace'?[79,76,82,78,78,67,78]:seed.id==='koby'?[77,73,77,78,77,76,67]:[...seed.scores]).reduce((a,b)=>a+b,0)/7,10)
     }
     expect(sampleEvaluations.filter(e=>!newIds.includes(e.characterId as typeof newIds[number]))).toHaveLength(62)
     expect(sampleCharacters.filter(c=>!newIds.includes(c.id as typeof newIds[number]))).toHaveLength(60)
