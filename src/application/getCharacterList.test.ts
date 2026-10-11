@@ -24,6 +24,7 @@ describe('getCharacterList', () => {
       '사보', '몰리', '카라스', '로브 루치', '카쿠', '스튜시',
       '유스타스 키드', '킬러', '킨에몬', '덴지로', '아슈라 동자', '카와마츠', '키쿠노죠', '라이조', '이누아라시', '네코마무시', '쿠로즈미 칸주로',
       '후즈 후', '사사키', '블랙 마리아', '울티', '페이지 원', 'X 드레이크',
+      '코비', '프린스 그루스', '베르고', '피카', '디아만테', '포트거스 D. 에이스',
     ].sort())
 
     expect(unique.find(({ character }) => character.id === 'mihawk')?.group.id).toBe('cross-guild')
@@ -47,7 +48,7 @@ describe('getCharacterList', () => {
   it('shows captain → official unit-number hierarchy, and Korean names for equal ranks', () => {
     const names = (id: string) => getCharacterList()
       .filter(({ group }) => group.id === id).map(({ character }) => character.name)
-    expect(names('whitebeard-pirates')).toEqual(['에드워드 뉴게이트', '마르코', '죠즈', '비스타'])
+    expect(names('whitebeard-pirates')).toEqual(['에드워드 뉴게이트', '마르코', '죠즈', '비스타', '포트거스 D. 에이스'])
     expect(names('blackbeard-pirates')).toEqual([
       '마샬 D. 티치', '지저스 바제스', '시류', '반 오거', '아발로 피사로', '쿠잔',
     ])
