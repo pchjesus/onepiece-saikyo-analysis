@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { getCharacterList, getUniqueCharacterList } from './getCharacterList'
 
 describe('getCharacterList', () => {
-  it('keeps a 42-Character representative roster while allowing expanded Membership rows', () => {
+  it('lists all 69 evaluated Characters and 88 Membership rows', () => {
     const unique = getUniqueCharacterList()
     const expanded = getCharacterList()
 
@@ -25,6 +25,7 @@ describe('getCharacterList', () => {
       '유스타스 키드', '킬러', '킨에몬', '덴지로', '아슈라 동자', '카와마츠', '키쿠노죠', '라이조', '이누아라시', '네코마무시', '쿠로즈미 칸주로',
       '후즈 후', '사사키', '블랙 마리아', '울티', '페이지 원', 'X 드레이크',
       '코비', '프린스 그루스', '베르고', '피카', '디아만테', '포트거스 D. 에이스',
+      '스모커', '타시기', '엠포리오 이완코프', '이나즈마',
     ].sort())
 
     expect(unique.find(({ character }) => character.id === 'mihawk')?.group.id).toBe('cross-guild')
