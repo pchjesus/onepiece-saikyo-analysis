@@ -1,3 +1,15 @@
+# v0.1.73 — all 65 evaluated Characters, 455 Final axes gap audit
+
+- **Baseline:** `main@eaa8a3bacd2dfab95fd1e053b9cbcaea182a307c` (v0.1.72).
+- **Added only:** `src/data/sample/v0173FullRosterGapAudit.ts`, `src/data/sample/v0173FullRosterGapAudit.test.ts`, `docs/V0_1_73_ALL_65_SEVEN_AXIS_GAP_AUDIT_2026-10-11.md` plus README/CHANGELOG/TEST_REPORT.
+- **Full census**: 65 unique current default Evaluations × 7 = 455 Final axes; E1 53, E2 271, E3 131; Speed E3 35/65. 122 pairs with Overall distance <=1.5 and >=10 max single-stat gap; 38 context-qualified manual audit questions with real source Evaluation IDs.
+- **Source-of-truth tests:** retrieve current Default Evaluation, recalculate Final and Overall against Balanced1.2 exactly, verify readiness classification and 65 ids, nearest frozen Overall anchors, source referential IDs, special edge cases, deterministic re-run and detection constraints.
+- **Regression invariants:** 66 Character / 65 rated / 84 Membership / 68 Evaluation / 476 Stat rows, 15 direct Matchups, Raw representative212/full230, Model Balanced1.2/Haki Weight0.5, Ace [79,76,82,78,78,67,78], Teach attack95, Jozu Final Attack78, Marco Attack77, King Defense88 all untouched.
+- **GitHub CI/Pages:** refer to PR head and exact merge SHA Actions logs/PR comment after run. Do not claim local manual PC/mobile interaction or full manga original-panel verification.
+- **Interpretation safeguard:** Automatically detected statistical gaps are neither confirmed factual errors nor approved score corrections; specializations, time/era, battle conditions and ability mechanics require human review.
+
+---
+
 # v0.1.72 — canonical anchor cohort and 7-axis read-only calibration
 
 - **Baseline:** main `57617681432d9c7a8e8b03ebbe47206c8c489a2a` (v0.1.71).

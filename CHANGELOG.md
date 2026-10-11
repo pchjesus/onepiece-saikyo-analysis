@@ -1,3 +1,13 @@
+## v0.1.73 — full 65-person, 455-axis gap audit with zero numeric patches (2026-10-11)
+
+- Read all **65 default Character Evaluations and 455 Final core stats**, not the 3 historical extra-state evaluations (68 total/476 stats). Dynamic audit uses live `sampleEvaluations`, `getFinalStatScore`, and v0.1.72 immutable reference anchors.
+- **Evidence density:** E1 **53**, E2 **271**, E3 **131** of 455 current axes; Speed 35/65 E3, Stamina 29/65, CombatIQ 21/65. E3 indicates uncertainty, never automatic score depression.
+- Find **122** pairs within Overall gap <=1.5 that differ by >=10 on one axis. These are automatic review indicators, **not 122 factual mistakes**; specialization can correctly produce this pattern.
+- Record **38 context-qualified comparison questions** in source: direct contest, era/state consistency, scale spacing, incomplete evidence, Haki/ability mechanism overlap; include strong concerns Marco Attack77 vs Who's-Who79/Koby82, Lucci IQ68(E3) vs Crocodile86/Stussy85, Doflamingo vs Queen/Cracker, Jinbe Attack76 vs Who's-Who79, Koby attack and Grus versatility, Crocodile current-vs-Alabasta evidence, Jack/Minks battle context, etc.
+- **Significant temporal mismatch surfaced:** baseline chart juxtaposes prime Rayleigh92.857 with **current elderly Gaban92.143**; elderly Rayleigh secondary Evaluation90.286. Do not treat those as peer same-era duels.
+- 65-character full numerical appendix and phased verification priorities in `docs/V0_1_73_ALL_65_SEVEN_AXIS_GAP_AUDIT_2026-10-11.md`; external ONE PIECE.com anime episode synopses support specific combat context but no exhaustive original manga reading claimed.
+- **No scores, Haki Raw, calculation model, SOURCE evidence records, UI, or direct Matchups edited.** Existing five Overall anchor values unchanged; review recommendations are not numeric approval.
+
 ## v0.1.72 — read-only seven-axis calibration anchor cohort (2026-10-11)
 
 - Following user choice of Roger/prime Whitebeard/prime Garp/Kaido, admiral group, Law and first commanders, establish source-reviewed **13-person calibration registry** without changing actual Evaluations or calculation model.
