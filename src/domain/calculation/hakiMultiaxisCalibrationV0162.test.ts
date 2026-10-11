@@ -1,10 +1,13 @@
 import { describe, expect, it } from 'vitest'
-import { sampleEvaluations } from '../../data/sample/evaluations'
+import { sampleEvaluations as expandedEvaluations } from '../../data/sample/evaluations'
 import { sampleEvidence } from '../../data/sample/evidence'
 import { sampleMatchups } from '../../data/sample/matchups'
 import { balancedV12 } from '../../data/sample/calculationModels'
 import { getRawHakiContributionTotal, getFinalStatScore } from '../evaluation/score'
 import { calculateBalancedCombatPower } from './calculateCombatPower'
+
+// This historic baseline audit isolates the original 62 evaluations; v0.1.70 is checked separately.
+const sampleEvaluations = expandedEvaluations.filter(e=>e.evaluationDataVersion!=='evaluation-0.1.70-expansion-draft')
 
 const defaults = sampleEvaluations.filter(e => e.isDefault !== false)
 const target = (id: string) => {
@@ -83,10 +86,10 @@ describe('v0.1.62 user-approved bounded numeric audit; Shanks and Vista never do
       // integration test that imports the complete pool below.
       expect(ranked.findIndex(e => e.characterId === id) + 1).toBe(expectedPosition)
     }
-    expect(defaults).toHaveLength(65)
-    expect(defaults.flatMap(e => e.items)).toHaveLength(455)
-    expect(sampleEvaluations).toHaveLength(68)
-    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(476)
+    expect(defaults).toHaveLength(59)
+    expect(defaults.flatMap(e => e.items)).toHaveLength(413)
+    expect(sampleEvaluations).toHaveLength(62)
+    expect(sampleEvaluations.flatMap(e => e.items)).toHaveLength(434)
     expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E1')).toHaveLength(53)
     expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E2')).toHaveLength(243)
     expect(defaults.flatMap(e => e.items).filter(i => i.readiness === 'E3')).toHaveLength(117)
