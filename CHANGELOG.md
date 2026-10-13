@@ -5,7 +5,7 @@
 - 앱 버전 0.4.0 / core data 0.3.3 / evaluation set 0.3.3 / 개별 evaluationDataVersion / model balanced@1.2 / snapshot 0.3.3 분리. 기존 평가 개별 버전은 수정하지 않음.
 - 사용자 화면의 패치 내역 버전 표기만 0.4.0으로 갱신. 기존 69명 점수와 버기·이조 Draft, 소속, 이미지, 15 매치업 및 계산 가중치는 변경 없음.
 - 독립 스냅샷 생성에 사용한 임시 GitHub Actions 쓰기 워크플로는 제거. 정상 CI 배포 워크플로 불변.
-- [설계 및 보존·제약 보고서](docs/V0_4_0_DATA_INTEGRITY_BASELINE_2026-10-13.md) · [PR #93](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/93).
+- [설계 및 보존·제약 보고서](docs/V0_4_0_DATA_INTEGRITY_BASELINE_2026-10-13.md) · [PR #93](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/93). **84/84 테스트 파일·367/367 테스트, TypeScript/Vite 빌드, [main Pages 배포 CI #38420146453](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38420146453) 성공**. 기능 병합 `ff202cff5ee55dccd599f92529e5474c3e9a3c97`.
 - 실제 PC/모바일 실사용, 출처의 사실 적합성/재배포 권리 별도 검증 필요.
 
 ---
