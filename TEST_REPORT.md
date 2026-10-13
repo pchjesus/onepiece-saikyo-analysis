@@ -5,7 +5,7 @@
 - Preserved original no-image fallback test unchanged and added separate test for simulated **licensed** image with source link, image failure, character URL change, successful second image; no real copyrighted artwork introduced.
 - Verified official Vivre Card catalog location: https://one-piece.com/vivre/list2/index.html. Existing external reference kept. [ONE PIECE.com official FAQ](https://one-piece.com/faq/index.html) states that it does not grant individual use permission for character images; attribution alone is not permission. No copyrighted images copied or hotlinked.
 - **Not demonstrated:** full real device visual/mobile validation, separate manual original manga source verification and image redistribution permission. Remain explicit limitations and do not mark them complete just from JS tests or official site display.
-- CI outcome: pending final PR/main execution. Previous v0.3.0 main CI 77 files/344 tests and Pages success.
+- **Confirmed final release gate:** [PR #87](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/87) merged to `main@98c71b8cf82f9aafa2ad9e00ae8742f038550199`. [Main CI run #38353979077](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38353979077) passed **78 test files / 345 tests**, `tsc -b && vite build` success, Pages deployment completed successfully with matching `pages_build_version` and SHA. Mobile real-browser visual checking and image reuse permission **remain unverified/unavailable**.
 
 ---
 
