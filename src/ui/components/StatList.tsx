@@ -4,10 +4,11 @@ import type { CombatStat, EvaluationItem } from '../../domain/evaluation/types'
 import { getEffectiveHakiContributionTotal, getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { StatInfoDialog } from './StatInfoDialog'
 
-export function StatList({ items, hakiWeight, onSelectStat }: {
+export function StatList({ items, hakiWeight, onSelectStat, onCompareStat }: {
   items: EvaluationItem[]
   hakiWeight: number
   onSelectStat: (stat: CombatStat) => void
+  onCompareStat: (stat: CombatStat) => void
 }) {
   const [selectedStat, setSelectedStat] = useState<CombatStat | null>(null)
 
@@ -31,6 +32,8 @@ export function StatList({ items, hakiWeight, onSelectStat }: {
                   <small className="stat-rank-hint">전체 순위 ↗</small>
                 </span>
               </button>
+              <button className="stat-compare-trigger" type="button" aria-label={`${definition.label} 다른 캐릭터와 근거 비교하기`}
+                onClick={()=>onCompareStat(item.stat)}>비교하기</button>
               <button className="stat-info-button" type="button" aria-label={`${definition.label} 설명 보기`} onClick={() => setSelectedStat(item.stat)}>?</button>
             </div>
           )

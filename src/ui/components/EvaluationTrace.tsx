@@ -3,17 +3,19 @@ import type { CombatStat, EvaluationStatus, EvidenceReadiness } from '../../doma
 import { getEffectiveHakiContributionTotal, getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import type { HakiStatContribution } from '../../domain/haki/types'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
+import type { Evidence } from '../../domain/evidence/types'
 
 export function EvaluationTrace({
-  items, status, evaluationDataVersion, hakiWeight,
+  items, status, evaluationDataVersion, hakiWeight, onOpenEvidence,
 }: {
   items: Array<{
     item: { stat: CombatStat; baseScore: number; score: number; rationale: string; evidenceIds: string[]; hakiContributions: HakiStatContribution[]; readiness?: EvidenceReadiness }
-    evidence: Array<{ evidence: { id: string; source: { reference: string } } }>
+    evidence: Array<{ evidence: Evidence }>
   }>
   status: EvaluationStatus
   evaluationDataVersion: string
   hakiWeight: number
+  onOpenEvidence?: (battleId: string) => void
 }) {
   return (
     <section className="evaluation-section">
@@ -37,7 +39,11 @@ export function EvaluationTrace({
                 기본점수 <strong>{item.baseScore}</strong> + 패기 (<strong>{rawHaki}</strong> × {hakiWeight} = <strong>{effectiveHaki}</strong>) = 최종점수 <strong>{item.score}/100</strong>{capped && <span> · 100점 상한 적용</span>}
               </p>
               <p>{normalizeCharacterNamesForDisplay(item.rationale)}</p>
-              {evidence.length > 0 ? <ul>{evidence.map(({ evidence: record }) => <li key={record.id}>{normalizeCharacterNamesForDisplay(record.source.reference)}</li>)}</ul> : <span className="trace-empty">연결된 근거 없음</span>}
+              {evidence.length > 0 ? <ul className="trace-evidence-links">{evidence.map(({ evidence: record }) => <li key={record.id}>
+                {onOpenEvidence ? <button type="button" onClick={()=>onOpenEvidence(record.battleId)}
+                  aria-label={`${COMBAT_STAT_DEFINITIONS[item.stat].label} 근거 전투 보기: ${record.source.reference}`}>{normalizeCharacterNamesForDisplay(record.source.reference)} ↗ 전투 보기</button>
+                  : normalizeCharacterNamesForDisplay(record.source.reference)}
+              </li>)}</ul> : <span className="trace-empty">연결된 근거 없음</span>}
             </article>
           )
         })}

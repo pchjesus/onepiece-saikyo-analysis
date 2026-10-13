@@ -12,6 +12,7 @@ import { EvidenceReadinessHelp } from '../components/EvidenceReadinessHelp'
 import { CharacterIdentity, characterIdentityStyle } from '../components/CharacterIdentity'
 import type { CharacterKnownAsKind } from '../../domain/character/types'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
+import { CharacterPortrait } from '../components/CharacterPortrait'
 
 const knownAsLabel: Record<CharacterKnownAsKind, string> = {
   alias: '통칭',
@@ -19,14 +20,16 @@ const knownAsLabel: Record<CharacterKnownAsKind, string> = {
   title: '칭호',
 }
 
-export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOverall }: {
+export function CharacterPage({ characterId, groupId, onSelectStat, onCompareStat, onSelectOverall }: {
   characterId: string
   groupId: string
   onSelectStat: (stat: CombatStat) => void
+  onCompareStat: (stat: CombatStat, stateId?: string) => void
   onSelectOverall: () => void
 }) {
   const initialDetail = getCharacterDetail(characterId, groupId)
   const [activeDetail, setActiveDetail] = useState<'evaluation' | 'battle'>('evaluation')
+  const [focusedBattleId,setFocusedBattleId]=useState<string|null>(null)
   const [selectedStateId, setSelectedStateId] = useState(initialDetail?.evaluation.subjectState?.id ?? '')
 
   if (!initialDetail) return <section>캐릭터 데이터를 찾을 수 없습니다.</section>
@@ -43,7 +46,9 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
   return (
     <main className="detail">
       <div className="detail-heading" style={characterIdentityStyle(detail.group.id, characterId)}>
-        <div>
+        <div className="detail-heading-profile">
+          <CharacterPortrait characterId={characterId} groupId={detail.group.id} name={detail.character.name} size="large"/>
+          <div>
           <CharacterIdentity group={detail.group} characterId={characterId} showPastMembership={showPastMembership}/>
           <h1>{detail.character.name}</h1>
           {detail.character.knownAs.length > 0 && (
@@ -83,6 +88,7 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
               )}
             </p>
           )}
+          </div>
         </div>
         <p className="prototype-note">{detail.evaluation.status === 'draft'
           ? `평가 진행 중 · 핵심 스탯 7개 · 초안 · ${detail.evaluation.evaluationDataVersion}`
@@ -101,9 +107,10 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
           </p>
           <div className="stat-heading">
             <div className="stat-heading-title"><h2>핵심 전투 스탯</h2><EvidenceReadinessHelp /></div>
-            <span>점수를 누르면 전체 캐릭터 비교 · 정렬 전환 가능</span>
+            <span>점수는 순위 보기 · 비교하기는 동축 근거 분석</span>
           </div>
-          <StatList items={detail.evaluation.items} hakiWeight={result.hakiWeight} onSelectStat={onSelectStat} />
+          <StatList items={detail.evaluation.items} hakiWeight={result.hakiWeight} onSelectStat={onSelectStat}
+            onCompareStat={stat=>onCompareStat(stat,activeStateId)} />
         </section>
         <CombatProfile profile={detail.character.combatProfile} />
       </div>
@@ -121,7 +128,8 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
           aria-labelledby={activeDetail === 'evaluation' ? 'evaluation-tab' : 'battle-tab'}>
           {activeDetail === 'evaluation' ? (
             evaluationTrace
-              ? <EvaluationTrace items={evaluationTrace} status={detail.evaluation.status} evaluationDataVersion={detail.evaluation.evaluationDataVersion} hakiWeight={result.hakiWeight} />
+              ? <EvaluationTrace items={evaluationTrace} status={detail.evaluation.status} evaluationDataVersion={detail.evaluation.evaluationDataVersion} hakiWeight={result.hakiWeight}
+                onOpenEvidence={battleId=>{setFocusedBattleId(battleId);setActiveDetail('battle')}} />
               : <p className="empty-note">평가 근거가 없습니다.</p>
           ) : (
             <section className="evidence-section">
@@ -130,7 +138,7 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onSelectOver
               <p className="section-note">
                 전투를 선택하면 상황과 원작 근거가 펼쳐집니다. 전투 기록은 캐릭터 전체 이력이며, 현재 선택한 평가 시점에 실제 사용된 근거는 평가 근거 탭에서 확인합니다.
               </p>
-              <BattleTimeline items={battleTimeline} />
+              <BattleTimeline items={battleTimeline} initialBattleId={focusedBattleId} />
             </section>
           )}
         </div>

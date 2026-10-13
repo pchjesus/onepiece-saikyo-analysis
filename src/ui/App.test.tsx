@@ -42,7 +42,7 @@ afterEach(async () => {
 describe('v0.1.80 patch history UI',()=>{
   it('opens history, displays numeric changes and reasons, closes on demand',async()=>{
     const button=container.querySelector<HTMLButtonElement>('.patch-history-trigger')
-    expect(button?.textContent).toContain('v0.1.81')
+    expect(button?.textContent).toContain('v0.2.0')
     await click(button)
     const dialog=container.querySelector('[role="dialog"][aria-labelledby="patch-history-title"]')
     expect(dialog?.textContent).toContain('퀸 범용성 조정')
@@ -87,7 +87,7 @@ describe('v0.1.80 patch history UI',()=>{
 
     await choose('전체')
     expect(tabs[0].getAttribute('aria-pressed')).toBe('true')
-    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(7)
+    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(8)
     expect(dialog.querySelectorAll('.patch-category-section').length).toBeGreaterThan(7)
   })
 
@@ -103,6 +103,52 @@ describe('v0.1.80 patch history UI',()=>{
     const revolutionary=[...container.querySelectorAll('.character-chip')].map(x=>x.textContent)
     expect(revolutionary).toContain('엠포리오 이완코프')
     expect(revolutionary).toContain('이나즈마')
+  })
+})
+
+describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',()=>{
+  it('opens from the seven existing stat cards, preserves canonical King/Katakuri Attack=83, and closes',async()=>{
+    const buttons=[...container.querySelectorAll<HTMLButtonElement>('.stat-compare-trigger')]
+    expect(buttons).toHaveLength(7)
+    expect(container.querySelector('.character-portrait-large .character-portrait-fallback')).toBeTruthy()
+    expect(container.querySelector('.detail-heading img')).toBeNull()
+    await selectGroup('백수 해적단')
+    const king=[...container.querySelectorAll<HTMLButtonElement>('.character-chip')].find(b=>b.textContent?.includes('알베르'))!
+    await click(king)
+    await click([...container.querySelectorAll<HTMLButtonElement>('.stat-compare-trigger')][0])
+    const dialog=container.querySelector<HTMLElement>('.stat-compare-dialog')!
+    expect(dialog).toBeTruthy()
+    expect(dialog.textContent).toContain('알베르')
+    const target=dialog.querySelector<HTMLSelectElement>('[aria-label="비교 상대 선택"]')!
+    await act(async()=>{target.value='katakuri';target.dispatchEvent(new Event('change',{bubbles:true}))})
+    expect(dialog.textContent).toContain('카타쿠리')
+    expect(dialog.querySelectorAll('.stat-compare-score strong')).toHaveLength(2)
+    expect(dialog.textContent).toContain('공격력 4요소 검토')
+    expect(dialog.textContent).toContain('실제 유효타')
+    expect(dialog.textContent).toContain('두 인물 Final 격차:')
+    expect(dialog.querySelectorAll('.stat-compare-evidence-item').length).toBeGreaterThan(0)
+    await click(dialog.querySelector('.stat-compare-close'))
+    expect(container.querySelector('.stat-compare-dialog')).toBeNull()
+    expect(container.querySelector('.character-chip.selected')?.textContent).toContain('알베르')
+  })
+  it('shows portrait fallbacks in character search, without copying official images',async()=>{
+    await openPicker()
+    const results=container.querySelectorAll('.character-picker-option')
+    expect(results).toHaveLength(69)
+    expect(container.querySelectorAll('.character-picker-option .character-portrait-small')).toHaveLength(69)
+    expect(container.querySelectorAll('.character-picker-option img')).toHaveLength(0)
+    await click(container.querySelector('.character-picker-close'))
+  })
+  it('opens an attached evidence battle from the evaluated stat trace',async()=>{
+    const links=[...container.querySelectorAll<HTMLButtonElement>('.trace-evidence-links button')]
+    expect(links.length).toBeGreaterThan(1)
+    const link=links[1]
+    const source=link.textContent?.replace(/ ↗ 전투 보기$/,'')
+    await click(link)
+    expect(container.querySelector('#battle-tab')?.getAttribute('aria-selected')).toBe('true')
+    expect(container.querySelector('.battle-item.open')).toBeTruthy()
+    expect(container.querySelector('.battle-item.open .evidence-card')?.textContent).toBeTruthy()
+    expect(container.querySelector('main.detail')?.textContent).toContain(source?.slice(0,6))
   })
 })
 

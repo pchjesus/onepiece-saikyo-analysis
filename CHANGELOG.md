@@ -1,3 +1,14 @@
+## v0.2.0 — evidence-linked same-stat comparison, profile portraits and provenance UX (2026-10-13)
+
+- Added on-stat **비교하기** action alongside the existing ranking/detail buttons. A two-character same-stat dialog compares Final/Base/Raw-Haki/E1–E3, narrative rationale and linked original fact/battle conditions/interpretation. Different Evaluation eras can be selected, with live canonical data reused read-only. Attack-specific four-factor reviews for King/Katakuri/Queen/Marco/Cracker/Smoothie appear without adding new numeric stats or matchup conclusions.
+- Enhanced Evaluation Trace source entries to open their **existing** associated BattleTimeline record directly. The original stat ranking, score UI and separate Matchup Arena navigation are unchanged.
+- Added an explicit **licensed/owned/open-license opt-in portrait manifest** and responsive large profile + small search-thumbnail components. With no redistributable character media assets supplied, **all 70 characters use lightweight local initials/group-accent fallbacks**, no copyrighted images, scraping or hotlinking. Assets can be added later subject to verified rights and source metadata.
+- Improved modal keyboard focus trapping, Escape and focus restoration, body scroll lock, long evidence folding, mobile layout and closest-in-score default opponent selection.
+- Unified visible app/release and npm package versions at v0.2.0; lockfile root metadata updated **without modifying dependency versions**. Calculation Model stays Balanced 1.2 / HakiWeight 0.5.
+- **Score preservation:** no edits to the 70 Character, 72 Evaluation, 504 Stat, 88 Membership, 15 Matchup, 5 Anchor, Raw Haki or Battle/Evidence source arrays. No PROJECT_SPEC.md modification. Comparison is a derived read-only projection.
+- New component/selector/portrait tests, main APP interaction tests, and all historic regression tests preserved. Detailed report: `docs/V0_2_0_RELEASE_REPORT_2026-10-13.md`.
+- Remaining independent limitation: `v0180LegacyCohort.ts` is a filtered live dataset rather than a frozen historical byte snapshot. Later substantive score changes require a separate snapshot/version architecture decision; none performed here.
+
 ## v0.1.81 — categorized patch history and concise feature entry (2026-10-12)
 
 - Added **All / Stat adjustments / Character & group / UI & features / Evidence & analysis** filters inside the patch-history dialog. Existing release changes are consistently grouped by category within each version; the selected filter shows only relevant releases with item counts and mobile-friendly scrolling.
