@@ -1,3 +1,4 @@
+import { luffyCharacter } from './luffyDraft'
 import { izoCharacter } from './izoProfile'
 import { v0180Characters } from './v0180CharacterExpansion'
 import { wanoCharacters } from './wanoExpansion'
@@ -856,4 +857,5 @@ export const sampleCharacters: Character[] = [
   ...v0170Characters,
   ...v0180Characters,
   izoCharacter,
+  luffyCharacter,
 ]
