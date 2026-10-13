@@ -5,6 +5,7 @@
 - 기존 긴 Overall 설명은 기본 접힘 도움말 `?`로 전환. 오해 방지를 위한 **“종합점수는 승률이 아닙니다”** 경고는 한 줄로 유지. Balanced 계산 버전과 Haki Weight는 도움말/평가 근거에서 확인 가능.
 - 계산식·7축 점수·실제 전투 근거·15개 직접 Matchup·캐릭터 72명·이전 v0.3.3 독립 JSON 스냅샷 수정 없음. 앱 릴리즈 0.4.2, core/evaluation-set 0.4.1, Balanced 1.2 계속 유지.
 - 키보드로 펼침/접힘 가능한 네이티브 `details/summary`를 사용해 추가 복잡한 상태/모달 관리 없이 모바일도 대응.
+- [PR #96](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/96) → `main@a68a13eafbd67c9043f9426ad6a71261d0faf7d7` 병합. [PR CI](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38427648897) **85개 파일 / 373개 테스트, TypeScript·Vite 빌드 성공**. [최종 main CI / Pages 배포](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38427844299) 성공.
 
 ---
 
