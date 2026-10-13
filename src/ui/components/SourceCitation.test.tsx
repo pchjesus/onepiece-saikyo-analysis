@@ -74,10 +74,10 @@ describe('v0.2.1 source citation URL extraction', () => {
     }finally{await act(async()=>root.unmount())}
   })
 
-  it('checks the entire 71-character profile roster for raw displayed HTTPS addresses',async()=>{
+  it('checks the entire 72-character profile roster for raw displayed HTTPS addresses',async()=>{
     const el=document.createElement('div'), root=createRoot(el)
     try {
-      expect(sampleCharacters).toHaveLength(71)
+      expect(sampleCharacters).toHaveLength(72)
       for(const character of sampleCharacters){
         await act(async()=>root.render(<CombatProfile profile={character.combatProfile}/>))
         const section=el.querySelector('.profile-sources')
