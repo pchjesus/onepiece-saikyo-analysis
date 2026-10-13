@@ -37,6 +37,18 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  { version:'v0.3.3',date:'2026-10-13',title:'이미지 확대·검은수염 초상·버기와 이조의 E3/E2 잠정 평가',
+    summary:'업로드된 6장 추가로 초상 70장, 확대/비율 개선과 해적단 단순 문양 교체. 버기·이조의 7축 잠정 평가 및 v0.4 무결성 스모크 테스트를 추가했다.',
+    changes:[
+      {kind:'feature',title:'이미지 확대 팝업과 비율·선명도 개선',detail:'PC 140px/모바일 100px, contain으로 자르지 않고 상세 이미지 클릭 시 닫기·ESC·배경 클릭 지원.'},
+      {kind:'feature',title:'초상 이미지 추가 6장',detail:'티치·시류·바제스·반 오거·피사로·코비. 버기 이미지는 아직 미제공이므로 이름 대체 표시 유지. 재배포 권리 미확인.'},
+      {kind:'group',title:'해적단 문양 확인 및 단순화',detail:'로저 곱슬 수염, 검은수염 세 해골, 크로스 길드, 빨간 머리, 밀짚모자 집단은 주제별 독자 단순 SVG. 공식 로고 파일 자체가 아님.'},
+      {kind:'character',title:'버기 평가 추가',characterId:'buggy',detail:'7축 32/45/38/34/42/29/46. Overall 38.0. 공식 줄거리 소개에 근거한 E3 전면 잠정치로 서열 확정이 아님.'},
+      {kind:'character',title:'이조 평가 추가',characterId:'izo',detail:'7축 76/72/79/74/82/78/72. Overall 약 76.14. 공식 애니 줄거리와 인물 소개에 연결된 E2/E3 잠정치, 부상·지원 임무 고려.'},
+      {kind:'evidence',title:'v0.4 데이터 무결성 시작 검증',detail:'ID와 참조 연결·계산 재현 스모크 테스트. 독립 역사 스냅샷은 미구현.'},
+    ],
+  },
+
   { version:'v0.3.2',date:'2026-10-13',title:'초상 이미지 64장·이조·과거 로저 소속',
     summary:'사용자가 제공한 64명의 초상을 웹앱에 연결하고, 이조의 평가 전 프로필과 과거 해적단 소속 기록을 추가했다. 이미지 재배포 허가는 미확인이다.',
     changes:[

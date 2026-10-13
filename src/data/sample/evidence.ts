@@ -1,3 +1,5 @@
+import { izoAssessmentEvidence } from './izoAssessment'
+import { buggyDraftEvidence } from './buggyDraft'
 import { v0180Evidence } from './v0180CharacterExpansion'
 import { wanoEvidence } from './wanoExpansion'
 import { v0170Evidence } from './v0170GroupAceExpansion'
@@ -2814,4 +2816,6 @@ export const sampleEvidence: Evidence[] = [
   v0178SmoothieEvasionEvidence,
   ...v0179OfficialEvidence,
   ...v0180Evidence,
+  ...buggyDraftEvidence,
+  ...izoAssessmentEvidence,
 ]

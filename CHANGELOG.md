@@ -1,3 +1,14 @@
+## v0.3.3 — 초상 확대, 버기·이조 잠정 평가, 문양 및 무결성 스모크 (2026-10-13)
+
+- 기존 64장에 티치·시류·바제스·반 오거·피사로·코비 6장 WebP를 추가하여 70장 등록. 버기 이미지 미제공으로 대체 글자 유지.
+- PC·모바일의 캐릭터 초상을 조금 키우고 contain으로 전체 그림 보존. 상세 페이지 이미지 클릭 시 확대 팝업, ESC/닫기·배경 클릭.
+- 로저·검은수염·크로스 길드·밀짚모자·빨간 머리 5개 해적단을 독자 단순화한 SVG 작은 상징으로 표현. 정식 로고 파일은 미복제.
+- 버기 7축 초안 E3 전원(32/45/38/34/42/29/46, Overall 38.0), 이조 E2/E3 초안(76/72/79/74/82/78/72, Overall ≈ 76.14). 해당 공식 줄거리·인물 소개와 연결된 Evidence, 부상/외부 개입 조건 추가.
+- 기존 69명의 평가 수치, Balanced 1.2, Haki Weight 0.5, 15 직접 대진 결과는 의도적으로 보존. v0.4용 참조 무결성·계산 재현성 스모크 테스트 추가.
+- 업로드 이미지의 제3자 공개 재배포 권한 미확인. 팝업 실기기 브라우저 전수 검증은 별도 필요.
+
+---
+
 ## v0.3.2 — User-provided portraits, Izo profile, past Roger memberships (2026-10-13)
 
 - Uploaded **64 user-supplied PNG portraits** as optimized WebP binaries to `public/images/characters/` and connected their exact Character IDs through the existing BASE_URL-aware portrait resolver.

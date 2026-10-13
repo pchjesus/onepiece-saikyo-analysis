@@ -9,7 +9,7 @@ export const izoCharacter: Character = {
   name: '이조',
   crewId: 'whitebeard-pirates',
   knownAs: [],
-  description: '흰수염 해적단 16번대 대장이자 광월가의 가신. 오뎅과 인연이 있으며 오니가시마 전투에서 아카자야 일행을 지원했다. 현재 전투력 수치 평가는 아직 진행되지 않았다.',
+  description: '흰수염 해적단 16번대 대장이자 광월가의 가신. 오뎅과 인연이 있으며 오니가시마 전투에서 아카자야 일행을 지원했다. 오니가시마의 다수전·부상 상황을 구분한 E2/E3 잠정 7축 평가가 등록되어 있다. 원작 직접 장면 전수 대조 전이므로 확정 전투력은 아니다.',
   combatProfile: {
     combatStyles: ['쌍권총 사격', '원거리 엄호', '근접 거리 대응'],
     specialTraits: [],

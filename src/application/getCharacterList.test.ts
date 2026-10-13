@@ -2,13 +2,13 @@ import { describe, expect, it } from 'vitest'
 import { getCharacterList, getUniqueCharacterList } from './getCharacterList'
 
 describe('getCharacterList', () => {
-  it('lists 70 visible Characters (69 scored) and 93 Membership rows', () => {
+  it('lists 71 visible Characters (70 scored) and 96 Membership rows', () => {
     const unique = getUniqueCharacterList()
     const expanded = getCharacterList()
 
-    expect(unique).toHaveLength(70)
-    expect(expanded).toHaveLength(93)
-    expect(new Set(unique.map(({ character }) => character.id)).size).toBe(70)
+    expect(unique).toHaveLength(71)
+    expect(expanded).toHaveLength(96)
+    expect(new Set(unique.map(({ character }) => character.id)).size).toBe(71)
 
     expect(unique.map((item) => item.character.name).sort()).toEqual([
       '마르코', '죠즈', '비스타',
@@ -18,7 +18,7 @@ describe('getCharacterList', () => {
       '샹크스', '몽키 D. 가프', '사카즈키', '쿠잔', '보르살리노', '잇쇼', '아라마키',
       '마샬 D. 티치', '지저스 바제스', '시류', '반 오거', '아발로 피사로',
       '트라팔가 로', '돈키호테 도플라밍고', '보아 핸콕',
-      '쥬라큘 미호크', '크로커다일',
+      '쥬라큘 미호크', '크로커다일', '버기',
       '골 D. 로저', '실버즈 레일리', '스코퍼 가반', '록스 D. 지벡',
       '에드워드 뉴게이트', '카이도', '샬롯 링링',
       '사보', '몰리', '카라스', '로브 루치', '카쿠', '스튜시',
@@ -53,7 +53,7 @@ describe('getCharacterList', () => {
     expect(names('blackbeard-pirates')).toEqual([
       '마샬 D. 티치', '지저스 바제스', '시류', '반 오거', '아발로 피사로', '쿠잔',
     ])
-    expect(names('roger-pirates')).toEqual(['골 D. 로저', '실버즈 레일리', '스코퍼 가반', '네코마무시', '샹크스', '이누아라시'])
+    expect(names('roger-pirates')).toEqual(['골 D. 로저', '실버즈 레일리', '스코퍼 가반', '네코마무시', '버기', '샹크스', '이누아라시'])
     expect(names('rocks-pirates')[0]).toBe('록스 D. 지벡')
     const collator = new Intl.Collator('ko-KR')
     expect(names('beasts-pirates').slice(1)).toEqual(
@@ -75,9 +75,10 @@ describe('getCharacterList', () => {
       .toBe('straw-hat-pirates')
   })
 
-  it('keeps E3 Buggy outside both navigation and representative rosters', () => {
-    expect(getCharacterList().some(({ character }) => character.id === 'buggy')).toBe(false)
-    expect(getUniqueCharacterList().some(({ character }) => character.id === 'buggy')).toBe(false)
+  it('places provisionally evaluated Buggy in Cross Guild without duplication', () => {
+    expect(getUniqueCharacterList().filter(x=>x.character.id==='buggy')).toHaveLength(1)
+    expect(getUniqueCharacterList().find(x=>x.character.id==='buggy')?.group.id).toBe('cross-guild')
+    expect(getCharacterList().filter(x=>x.character.id==='buggy')).toHaveLength(3)
   })
 
   it('exposes membership metadata for subgroup-aware UI', () => {
