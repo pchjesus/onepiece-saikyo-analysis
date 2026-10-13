@@ -33,7 +33,7 @@ export const liveDataset = {
 export function createV033Snapshot() {
   // Backward-compatible factory name. After v0.3.3, the live comparison fixture
   // must advertise its NEW version and may not pretend to be the frozen commit.
-  const isOriginalV033 = versionManifest.coreDataVersion === 'core-v0.3.3'
+  const isOriginalV033 = (versionManifest.coreDataVersion as string) === 'core-v0.3.3'
   const weight = balancedV12.configuration.hakiWeight
   const evaluations = sampleEvaluations.map(e => ({
     evaluationId: e.id,
