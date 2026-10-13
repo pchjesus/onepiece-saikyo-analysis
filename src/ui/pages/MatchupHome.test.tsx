@@ -85,6 +85,33 @@ describe('Matchup Arena FEATURED selection styling and state synchronization', (
     }
   })
 
+  it('separates Gear4 and Gear5 Luffy/Teach featured scenarios without implying a historical duel', async () => {
+    ;(globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT: boolean }).IS_REACT_ACT_ENVIRONMENT = true
+    const host = document.createElement('div')
+    document.body.appendChild(host)
+    const root = createRoot(host)
+    try {
+      await act(async () => { root.render(<MatchupHome />) })
+      const buttons = [...host.querySelectorAll<HTMLButtonElement>('.matchup-picker button')]
+        .filter(b => b.textContent?.includes('몽키 D. 루피') && b.textContent?.includes('마샬 D. 티치'))
+      expect(buttons).toHaveLength(2)
+      expect(buttons[0].textContent).toContain('기어 4 이하')
+      expect(buttons[1].textContent).toContain('기어 5 · 니카')
+      await act(async () => { buttons[0].click() })
+      expect(buttons[0].getAttribute('aria-pressed')).toBe('true')
+      expect(buttons[1].getAttribute('aria-pressed')).toBe('false')
+      expect(host.querySelector('.combined-heading')?.textContent).toContain('가상 조건부 시나리오')
+      expect(host.querySelector('.matchup-scoreboard')?.textContent).toContain('기어 4 이하')
+      await act(async () => { buttons[1].click() })
+      expect(buttons[0].getAttribute('aria-pressed')).toBe('false')
+      expect(buttons[1].getAttribute('aria-pressed')).toBe('true')
+      expect(host.querySelector('.matchup-scoreboard')?.textContent).toContain('기어 5 · 니카')
+    } finally {
+      await act(async () => { root.unmount() })
+      host.remove()
+    }
+  })
+
   it('keeps the selection derived from actual pair even after RANDOM is used', async () => {
     ;(globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT: boolean }).IS_REACT_ACT_ENVIRONMENT = true
     const host = document.createElement('div')
