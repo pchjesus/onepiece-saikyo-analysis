@@ -14,7 +14,7 @@
 
 1. 재사용 가능한 `SourceCitation` 컴포넌트로 **출처 라벨 + 설명(있는 경우) + 짧은 원문 보기 링크**를 표시한다. 실제 HTTPS URL과 원본 출처 라벨은 새 탭 링크에 그대로 보존한다. `title`/링크의 `href`로 전체 주소 확인 가능.
 2. URL이 설명 뒤에 섞인 경우, 설명은 지우지 않고 링크만 분리한다. 예: `루치 공식 프로필 · https://...` → `루치 공식 프로필 · 원문 보기 ↗`. 에이스 원작 Ch.587의 **팬 회차 상세 요약 / 1차 원문 전체 미열람** 같은 출처 한계도 그대로 남긴다. 팬 위키를 공식 원작으로 재분류하지 않는다.
-3. URL이 없는 텍스트형 출처는 과거처럼 문구를 유지하며 임의 링크를 만들지 않는다. HTTPS가 아닌 URI는 링크화하지 않는다. `target="_blank"` + `rel="noopener noreferrer"`.
+3. **하나의 출처 항목에 여러 공식 URL이 있는 경우에도 모든 링크를 개별 표시한다.** 울티/X 드레이크의 TV 에피소드 참조는 첫 링크만 표시하고 두 번째 주소가 그대로 남지 않도록 복수 URL 파싱을 적용했다. URL이 없는 텍스트형 출처는 과거처럼 문구를 유지하며 임의 링크를 만들지 않는다. HTTPS가 아닌 URI는 링크화하지 않는다. `target="_blank"` + `rel="noopener noreferrer"`.
 4. 변경 화면: `CombatProfile`, `EvidenceList`, `EvaluationTrace`, `StatComparisonDialog`. 기존 캐릭터 검색, 평가 시점, 원작 사실/조건/해석, Score, Haki 및 Matchup 계산은 유지한다.
 5. CSS는 `profile-sources`, `evidence-source`, `trace-evidence-links` 및 `stat-compare-citation`에 제한해 좁은 화면에서 중첩/넘침을 방지한다. 전역 레이아웃·그리드 재설계는 하지 않는다.
 
