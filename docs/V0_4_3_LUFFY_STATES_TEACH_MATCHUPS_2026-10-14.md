@@ -54,6 +54,13 @@
 
 캐릭터 상단의 '잠정 평가 · Draft', 순위의 `status` 꼬리표, 비교 점수의 `draft`, 세부 근거의 `평가 상태 draft`를 기본 노출에서 제거. 내부 status 필드/버전과 E1/E2/E3, 시점 선택·근거는 유지. 원본 상태는 후속 관리 기능을 위해 그대로 남겼다.
 
+## 최종 기능 검증 및 GitHub 배포
+
+- [기능 PR #98](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/98): 원작 근거·점수 분리, 2개 가상 시나리오, 티치 상향 검토(점수 유지), UI 원시 상태 숨김 포함.
+- [PR CI run 38438209244](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38438209244): **86개 파일·378개 테스트 통과**, TypeScript/Vite 빌드 성공.
+- `main@bf02f06fee7f93016e8682780f9f44d5fbfc642d` squash 병합 후 [main CI run 38438374150](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38438374150): 동일 테스트·빌드 및 **GitHub Pages deploy 작업 성공**.
+- 실기기·브라우저 가시성 점검, 원작 만화 컷 전수 대조와 재배포 허가 검증은 별도로 남음.
+
 ## 검증 대상
 
 - 루피 2개 평가, 대표 기어 5, 기어 4 직접 선택 / 7축·Overall 일치, 72인 로스터·76 Evaluation·532 Stat
