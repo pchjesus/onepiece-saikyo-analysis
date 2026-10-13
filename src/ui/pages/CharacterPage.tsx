@@ -88,9 +88,6 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onCompareSta
           )}
           </div>
         </div>
-        <p className="prototype-note">{detail.evaluation.status === 'draft'
-          ? '잠정 평가 · Draft'
-          : '임시 평가 · 공식 전투력 아님'}</p>
       </div>
 
       <div className="overview-layout">
