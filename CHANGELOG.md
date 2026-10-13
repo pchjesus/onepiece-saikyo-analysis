@@ -1,3 +1,12 @@
+## v0.2.1 — readable, clickable and consistent source citations (2026-10-13)
+
+- Corrected the user-reported **Portgas D. Ace → 원작 전투 프로필 근거** card where unformatted long character/episode URLs wrapped across many lines. All **70 Character profiles** now use a reusable `SourceCitation` component: a preserved source label, available human-readable context, and an explicit compact **원문 보기 ↗** HTTPS link.
+- Applied the same source-display treatment to **BattleTimeline Evidence cards**, **EvaluationTrace stat evidence links**, and **two-person same-stat comparison**. Original references, external URL destinations, canon-vs-supplementary/fan qualifiers and independently stored evidence data are unchanged. EvaluationTrace still links to its existing battle record.
+- URLs are clickable only after HTTPS parsing, including **multiple official episode links stored in one source field** (Ulti/X Drake); insecure/unrecognized values remain plain text. External link actions open in a new tab with `rel="noopener noreferrer"`. CSS limits narrow profile cards and keeps source-link controls readable on mobile.
+- Added targeted Ace six-source rendering tests, mixed embedded URL/safety tests, a **70-character profile roster** source display scan, evidence card URL coverage, and kept historic comparison/selection/patch-history regression tests.
+- No change to balanced 1.2, raw Haki, seven-stat evaluation, source datasets, memberships, characters, matchups, or `PROJECT_SPEC.md`. Group/char photo rights gating remains unchanged.
+- Details: `docs/V0_2_1_SOURCE_CITATION_READABILITY_2026-10-13.md`.
+
 ## v0.2.0 — evidence-linked same-stat comparison, profile portraits and provenance UX (2026-10-13)
 
 - Added on-stat **비교하기** action alongside the existing ranking/detail buttons. A two-character same-stat dialog compares Final/Base/Raw-Haki/E1–E3, narrative rationale and linked original fact/battle conditions/interpretation. Different Evaluation eras can be selected, with live canonical data reused read-only. Attack-specific four-factor reviews for King/Katakuri/Queen/Marco/Cracker/Smoothie appear without adding new numeric stats or matchup conclusions.

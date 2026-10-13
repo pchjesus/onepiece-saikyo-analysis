@@ -2,6 +2,7 @@ import { COMBAT_STAT_DEFINITIONS } from '../../domain/evaluation/statDefinitions
 import type { Battle } from '../../domain/battle/types'
 import type { Evidence } from '../../domain/evidence/types'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
+import { SourceCitation } from './SourceCitation'
 
 const structureLabels: Record<Battle['combatStructure'], string> = {
   '1v1': '1대1',
@@ -81,11 +82,10 @@ export function EvidenceList({
       {records.map(({ evidence }) => (
         <article className="evidence-card" key={evidence.id}>
           <div className="evidence-meta">
-            <span>{normalizeCharacterNamesForDisplay(evidence.source.reference)}</span>
+            <span className="evidence-source"><SourceCitation reference={evidence.source.reference} description={evidence.source.description}/></span>
             <span>{evidenceStrengthLabels[evidence.evidenceStrength]}</span>
           </div>
           <h3>{battle ? normalizeCharacterNamesForDisplay(battle.title) : '연결된 전투 정보 없음'}</h3>
-          {evidence.source.description && <p className="evidence-description">{normalizeCharacterNamesForDisplay(evidence.source.description)}</p>}
           <dl>
             <div>
               <dt>원작에서 확인되는 사실</dt>

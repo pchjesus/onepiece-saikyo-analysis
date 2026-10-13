@@ -4,6 +4,7 @@ import { getEffectiveHakiContributionTotal, getRawHakiContributionTotal } from '
 import type { HakiStatContribution } from '../../domain/haki/types'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
 import type { Evidence } from '../../domain/evidence/types'
+import { SourceCitation } from './SourceCitation'
 
 export function EvaluationTrace({
   items, status, evaluationDataVersion, hakiWeight, onOpenEvidence,
@@ -40,9 +41,10 @@ export function EvaluationTrace({
               </p>
               <p>{normalizeCharacterNamesForDisplay(item.rationale)}</p>
               {evidence.length > 0 ? <ul className="trace-evidence-links">{evidence.map(({ evidence: record }) => <li key={record.id}>
-                {onOpenEvidence ? <button type="button" onClick={()=>onOpenEvidence(record.battleId)}
-                  aria-label={`${COMBAT_STAT_DEFINITIONS[item.stat].label} 근거 전투 보기: ${record.source.reference}`}>{normalizeCharacterNamesForDisplay(record.source.reference)} ↗ 전투 보기</button>
-                  : normalizeCharacterNamesForDisplay(record.source.reference)}
+                <SourceCitation reference={record.source.reference} description={record.source.description}/>
+                {onOpenEvidence && <button type="button" className="trace-battle-link"
+                  onClick={()=>onOpenEvidence(record.battleId)}
+                  aria-label={`${COMBAT_STAT_DEFINITIONS[item.stat].label} 근거 전투 기록 열기: ${record.source.reference}`}>전투 기록 보기 ↗</button>}
               </li>)}</ul> : <span className="trace-empty">연결된 근거 없음</span>}
             </article>
           )

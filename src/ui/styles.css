@@ -648,3 +648,25 @@ header p:last-child { color: #666; }
 .stat-compare-missing{font-size:.78rem;color:#86561b}
 .stat-compare-muted{font-size:.86rem;color:#666}
 @media(max-width:650px){.detail-heading-profile{gap:12px}.character-portrait-large{width:72px;height:96px}.stat-compare-grid{grid-template-columns:minmax(0,1fr)}.stat-compare-header{padding:14px}.stat-compare-controls{padding:12px 14px}.stat-compare-scroll{padding:13px}.stat-compare-dialog{max-height:96dvh}}
+
+/* v0.2.1 — compact, source-preserving citations: no raw URL wrapping in narrow cards. */
+.profile-sources ul{display:grid;gap:8px}
+.profile-sources li{min-width:0;overflow-wrap:anywhere;line-height:1.6}
+.source-citation{min-width:0;overflow-wrap:anywhere;line-height:1.55}
+.source-citation-label{color:#30383c;font-weight:700}
+.source-citation-note{color:#52606a;overflow-wrap:anywhere}
+.source-citation-link{display:inline-block;white-space:nowrap;font-size:.82rem;
+  color:#155f9a;font-weight:700;text-decoration:underline;text-underline-offset:3px;
+  border-radius:4px;padding:2px 3px;margin-left:5px}
+.source-citation-link:hover{color:#0b416b}
+.source-citation-link:focus-visible{outline:2px solid #1768a8;outline-offset:2px}
+.evidence-meta{align-items:flex-start}
+.evidence-source{min-width:0;flex:1;overflow-wrap:anywhere}
+.trace-evidence-links li{min-width:0;overflow-wrap:anywhere}
+.trace-evidence-links .trace-battle-link{display:block;margin-top:2px;font-size:.79rem;font-weight:700}
+.stat-compare-citation{font-size:.8rem;margin-top:8px;line-height:1.6;overflow-wrap:anywhere}
+@media(max-width:700px){
+  .profile-sources li{font-size:.83rem}
+  .evidence-meta{flex-wrap:wrap}
+  .source-citation-link{margin-left:3px}
+}

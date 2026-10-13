@@ -42,7 +42,7 @@ afterEach(async () => {
 describe('v0.1.80 patch history UI',()=>{
   it('opens history, displays numeric changes and reasons, closes on demand',async()=>{
     const button=container.querySelector<HTMLButtonElement>('.patch-history-trigger')
-    expect(button?.textContent).toContain('v0.2.0')
+    expect(button?.textContent).toContain('v0.2.1')
     await click(button)
     const dialog=container.querySelector('[role="dialog"][aria-labelledby="patch-history-title"]')
     expect(dialog?.textContent).toContain('퀸 범용성 조정')
@@ -87,7 +87,7 @@ describe('v0.1.80 patch history UI',()=>{
 
     await choose('전체')
     expect(tabs[0].getAttribute('aria-pressed')).toBe('true')
-    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(8)
+    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(9)
     expect(dialog.querySelectorAll('.patch-category-section').length).toBeGreaterThan(7)
   })
 
@@ -143,7 +143,7 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
     const links=[...container.querySelectorAll<HTMLButtonElement>('.trace-evidence-links button')]
     expect(links.length).toBeGreaterThan(1)
     const link=links[1]
-    const source=link.textContent?.replace(/ ↗ 전투 보기$/,'')
+    const source=link.closest('li')?.querySelector('.source-citation')?.textContent?.trim()
     await click(link)
     expect(container.querySelector('#battle-tab')?.getAttribute('aria-selected')).toBe('true')
     expect(container.querySelector('.battle-item.open')).toBeTruthy()
