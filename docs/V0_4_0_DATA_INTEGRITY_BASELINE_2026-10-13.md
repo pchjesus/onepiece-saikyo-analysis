@@ -35,4 +35,12 @@
 - 실제 PC/모바일 브라우저 팝업·스크롤·이미지 재배포 권리는 별도로 검증해야 한다.
 - 추후 v0.5에서는 새 데이터셋 버전·근거 변경 이유와 함께 평가별 / 7축별 / 순위별 / 직접 매치업별 **전후 diff 리포트**를 작성한다.
 
-자동 테스트·빌드·배포의 최종 완료 여부는 `TEST_REPORT.md` 및 [GitHub Actions](https://github.com/pchjesus/onepiece-saikyo-analysis/actions)에서 릴리즈 당시의 run/sha를 확인한다.
+## 최종 GitHub 검증 및 릴리즈 기록
+
+- [PR #93 기능 CI run 38419793204](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38419793204): **84개 테스트 파일 / 367개 테스트 통과**, TypeScript 및 Vite 빌드 성공.
+- 기능 병합: `main@ff202cff5ee55dccd599f92529e5474c3e9a3c97`, 변경된 프로젝트 원본 데이터·계산 함수·PROJECT_SPEC 없음.
+- [main run 38420146453](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38420146453): 동일 커밋의 `npm test`, `npm run build`, **GitHub Pages deploy job 성공**.
+- **미검증:** 실제 PC/모바일 브라우저에서 직접 시각·사용성 점검하지 않았음. 출처 문맥의 정확성 및 제3자 이미지 재배포 권리 별도 검증 필요.
+- **남은 v0.5 준비:** 기존 0.3.3 JSON의 무결성은 보존되나, 변경된 평가 데이터와의 **자동 구조화 전후 diff 보고서 생성기는 아직 없음**. v0.5에서 실제 평가·순위·Matchup 변경 전 승인 절차 및 diff 산출/검증을 추가할 것.
+
+전체 검증 상세는 [TEST_REPORT.md](../TEST_REPORT.md) 참고.
