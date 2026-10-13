@@ -6,7 +6,8 @@
 - **티치 감사:** 기존 7축 95/89/95/82/93/87/93, Overall 634/7 변화 없음; 근거 부족과 중복 산정 방지 때문에 상향은 승인 전 보류. 원작 사실과 평가 해석/시나리오 분리.
 - **상태 표현:** `Draft`·`prototype`의 일반 노출만 제거, E1/2/3·선택 평가 시점·내부 revision 유지. UI 동작과 새 두 상태 선택/대표 Rank, 2인 비교와 새 매치업 레지스트리 분기 검증.
 - **규모:** 72 Character / 97 Membership / 76 Evaluation / 532 Stat / 기존 직접 15 + 조건부 2 Matchup. 계산 모델 Balanced 1.2/Haki 0.5, 과거 v0.3.3 독립 JSON 원본 변경 없음.
-- **PR CI/최종 Pages:** 최종 최신 run의 테스트·빌드·실제 배포 성공 여부만 확인 후 출시 보고할 것. 기능 미확인 시 출시로 선언하지 않음.
+- **최종 기능 PR CI:** [run 38438209244](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38438209244) — **86개 파일·378개 테스트 모두 통과**, TypeScript `tsc -b` 및 Vite 프로덕션 빌드 성공. 첫 번째 40건 실패는 과거 직접 15건에 신규 시나리오 2건을 섞은 구조/검증 상충이 원인, 기존 15건 배열과 신규 조건부 레지스트리를 분리해 해결. 전투 구조 코드 `1v1`, 증가한 Eval 수 기대값도 수정. 통과한 최종 run만 릴리즈 결과로 인정.
+- **main 병합·배포:** [PR #98](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/98) → `main@bf02f06fee7f93016e8682780f9f44d5fbfc642d`. [main run 38438374150](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38438374150)에서 **npm test, TS/Vite build, GitHub Pages deploy job 전부 성공**. 실제 PC·모바일에서 눈으로 확인한 것은 아님.
 - **범위 밖:** 직접 PC/모바일 브라우저 육안·터치 점검, 출처 만화 해당 컷 전수 검증, 이미지 공개 재배포 권리. 별도의 확정 승자/수치 승률 산정 없음.
 
 ---
