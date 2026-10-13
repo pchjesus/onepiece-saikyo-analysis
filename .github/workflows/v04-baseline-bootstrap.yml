@@ -1,0 +1,25 @@
+name: v0.4 one-time frozen v0.3.3 baseline bootstrap
+on:
+  push:
+    branches: [feat/v0.4-integrity-reproducibility]
+permissions:
+  contents: write
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm install
+      - name: Capture 0.3.3 only once
+        run: BASELINE_CAPTURE=1 npm test -- src/data/integrity/v04Baseline.test.ts
+      - name: Commit exact frozen artifact to feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/baselines/v0.3.3.json
+          git commit -m "test(v0.4): freeze v0.3.3 dataset and calculation results"
+          git push origin HEAD:feat/v0.4-integrity-reproducibility
