@@ -110,8 +110,8 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
   it('opens from the seven existing stat cards, preserves canonical King/Katakuri Attack=83, and closes',async()=>{
     const buttons=[...container.querySelectorAll<HTMLButtonElement>('.stat-compare-trigger')]
     expect(buttons).toHaveLength(7)
-    expect(container.querySelector('.character-portrait-large .character-portrait-fallback')).toBeTruthy()
-    expect(container.querySelector('.detail-heading img')).toBeNull()
+    expect(container.querySelector('.character-portrait-large img')?.getAttribute('src')).toContain('images/characters/marco.webp')
+    expect(container.querySelector('.character-portrait-large .character-portrait-fallback')).toBeNull()
     await selectGroup('백수 해적단')
     const king=[...container.querySelectorAll<HTMLButtonElement>('.character-chip')].find(b=>b.textContent?.includes('알베르'))!
     await click(king)
@@ -131,12 +131,13 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
     expect(container.querySelector('.stat-compare-dialog')).toBeNull()
     expect(container.querySelector('.character-chip.selected')?.textContent).toContain('알베르')
   })
-  it('shows portrait fallbacks in character search, without copying official images',async()=>{
+  it('shows 64 user-supplied portraits and fallback for six unavailable roster assets',async()=>{
     await openPicker()
     const results=container.querySelectorAll('.character-picker-option')
-    expect(results).toHaveLength(69)
-    expect(container.querySelectorAll('.character-picker-option .character-portrait-small')).toHaveLength(69)
-    expect(container.querySelectorAll('.character-picker-option img')).toHaveLength(0)
+    expect(results).toHaveLength(70)
+    expect(container.querySelectorAll('.character-picker-option .character-portrait-small')).toHaveLength(70)
+    expect(container.querySelectorAll('.character-picker-option img')).toHaveLength(64)
+    expect(container.querySelectorAll('.character-picker-option .character-portrait-fallback')).toHaveLength(6)
     await click(container.querySelector('.character-picker-close'))
   })
   it('opens an attached evidence battle from the evaluated stat trace',async()=>{
@@ -163,6 +164,24 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
   })
 })
 
+describe('Izo unranked character profile', () => {
+  it('shows identity and both historical memberships without manufacturing seven-stat scores', async () => {
+    await selectGroup('흰수염 해적단')
+    const izo = [...container.querySelectorAll('.character-chip')].find(el => el.textContent?.includes('이조'))
+    expect(izo).toBeTruthy()
+    await click(izo ?? null)
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('이조')
+    expect(container.querySelector('main.detail')?.textContent).toContain('전투력 평가 준비 중')
+    expect(container.querySelector('main.detail')?.textContent).toContain('아카자야 9남자')
+    expect(container.querySelector('main.detail img')?.getAttribute('src')).toContain('images/characters/izo.webp')
+    expect(container.querySelector('.power-card')).toBeNull()
+    await selectGroup('아카자야 9남자')
+    await click([...container.querySelectorAll('.character-chip')].find(el => el.textContent?.includes('이조')) ?? null)
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('이조')
+    expect(container.querySelector('.membership-context')?.textContent).toBe('과거 소속')
+  })
+})
+
 describe('evaluated roster UI', () => {
   it('labels 7-axis Overall as a non-predictive summary rather than an attack-vs-defense win check', () => {
     const note = container.querySelector('[data-testid="overall-interpretation-note"]')
@@ -173,7 +192,7 @@ describe('evaluated roster UI', () => {
 
   it('shows exactly 59 unique results and filters historical Tobi Roppo membership without duplication', async () => {
     await openPicker()
-    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(69)
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(70)
     const filter = container.querySelector<HTMLSelectElement>('#character-picker-group')!
     await act(async () => {
       const setter = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value')?.set
@@ -188,7 +207,7 @@ describe('evaluated roster UI', () => {
     expect(selectedGroupName()).toBe('토비롯포')
     expect(container.querySelector('[role="dialog"][aria-modal="true"]')).toBeNull()
     await openPicker()
-    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(69)
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(70)
   })
 
   it('restores trigger focus when closing with Escape and keeps unrelated evaluation data intact', async () => {
