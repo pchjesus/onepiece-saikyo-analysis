@@ -46,23 +46,24 @@ describe('v0.4.1 additive Luffy and portrait mapping regression', () => {
   it('adds exactly one evaluated Luffy, without replacing past data or Matchups',()=>{
     expect(sampleCharacters).toHaveLength(72)
     expect(sampleMemberships).toHaveLength(97)
-    expect(sampleEvaluations).toHaveLength(75)
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(525)
+    expect(sampleEvaluations).toHaveLength(76)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(532)
     expect(getUniqueCharacterList()).toHaveLength(72)
     for(const stat of ['overall', ...COMBAT_STATS] as const) expect(getStatRanking(stat)).toHaveLength(72)
-    const luffy=sampleEvaluations.find(e=>e.characterId==='luffy')!
+    const luffy=sampleEvaluations.find(e=>e.characterId==='luffy'&&e.isDefault)!
+    expect(sampleEvaluations.filter(e=>e.characterId==='luffy')).toHaveLength(2)
     expect(luffy.status).toBe('draft')
     expect(luffy.isDefault).toBe(true)
-    expect(luffy.items.map(i=>i.score)).toEqual([97,94,90,95,95,89,99])
+    expect(luffy.items.map(i=>i.score)).toEqual([97,94,90,95,95,87,99])
     expect(luffy.items.map(i=>i.readiness)).toEqual(['E2','E2','E2','E2','E2','E3','E2'])
     expect(luffy.items.every(i=>i.hakiContributions.length===0)).toBe(true)
-    expect(getCombatPower('luffy').finalScore).toBeCloseTo(659/7,12)
+    expect(getCombatPower('luffy').finalScore).toBeCloseTo(657/7,12)
     expect(sampleMatchups).toHaveLength(15)
-    expect(versionManifest.coreDataVersion).toBe('core-v0.4.1')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.1')
+    expect(versionManifest.coreDataVersion).toBe('core-v0.4.3')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.3')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
     expect(versionManifest.calculationModelVersion).toBe('1.2')
-    expect(createV033Snapshot().snapshotVersion).toBe('v0.4.1')
+    expect(createV033Snapshot().snapshotVersion).toBe('v0.4.3')
     expect(createV033Snapshot().sourceCommit).toBeNull()
     expect(frozen.sourceCommit).toBe(versionManifest.baselineSourceCommit)
   })
@@ -72,8 +73,8 @@ describe('v0.4.1 additive Luffy and portrait mapping regression', () => {
     expect(sampleMemberships.filter(x=>x.characterId==='luffy')).toEqual([
       {characterId:'luffy',groupId:'straw-hat-pirates',role:'선장',status:'current'},
     ])
-    expect(sampleEvidence.filter(e=>e.subjectCharacterId==='luffy')).toHaveLength(6)
-    expect(sampleBattles.filter(b=>b.id.startsWith('luffy-'))).toHaveLength(2)
+    expect(sampleEvidence.filter(e=>e.subjectCharacterId==='luffy')).toHaveLength(11)
+    expect(sampleBattles.filter(b=>b.id.startsWith('luffy-'))).toHaveLength(4)
   })
   it('maps 72 present portraits and proves Kaku/Inazuma binary bytes were swapped',()=>{
     expect(Object.keys(characterPortraitAssets)).toHaveLength(72)
