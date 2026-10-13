@@ -4,7 +4,8 @@
 - 구현: `CharacterPage`와 `UnratedCharacterPage`의 소개 문단 상단 중복 표시 제거, 평가 시점의 자세한 설명 `details` 접기, Overall 해석 및 모델 정보를 `?` 도움말로 이동. 종합점수는 승률이 아니라는 핵심 경고 한 줄 유지.
 - UI 회귀 테스트: 티치의 상단 중복 문구 부재/전투 프로필 유지, 루피·버기 등 로스터 보존, Help의 기본 접힘과 클릭 펼침, 가프 시점 안내의 접힘/펼침 확인. 기존 v0.4.1 독립 역사 스냅샷 비교 및 기존 모든 테스트 유지.
 - 앱 버전 v0.4.2, **core/evaluation-set 데이터 버전은 v0.4.1 유지**, Balanced 1.2/Haki Weight 0.5, 72명/75 Evaluation/15 직접 Matchup 불변.
-- CI/Pages 최종 확인 값은 이 PR의 최신 run과 main 병합 후 배포에 따라 추가 기록. 아직 성공했다고 가정하지 않는다.
+- **PR #96 CI:** [run 38427648897](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38427648897)에서 **85개 테스트 파일 / 373개 테스트 모두 통과**, TypeScript(`tsc -b`)·Vite 빌드 성공. 중간 1건 실패는 새 패치 이력 v0.4.2 순서를 기존 기대값이 반영하지 못한 것으로, 기능/데이터 변경 없이 테스트 순서를 수정하고 최종 통과 확인.
+- **병합·배포:** [PR #96](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/96)을 `main@a68a13eafbd67c9043f9426ad6a71261d0faf7d7`에 squash 병합. [main CI run 38427844299](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38427844299)의 npm test, 프로덕션 build, **GitHub Pages deploy** 작업 모두 성공 확인. 이전 v0.4.1 성공 결과를 재사용하지 않음.
 - 범위 밖: PC·모바일 실제 브라우저 수동 사용성 시험, 이미지 재배포 라이선스, 루피 만화 1차 자료 전체 대조.
 
 ---
