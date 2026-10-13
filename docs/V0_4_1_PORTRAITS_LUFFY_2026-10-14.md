@@ -60,4 +60,8 @@
 - 주요 검증 대상: 72명 탐색/검색, 밀짚모자 선장 우선 배치, 7축 순위·2인 비교, 기존 15 직접 매치업, E2/E3, 소속·전투 근거 추적, 이미지 72장·확대, Git 이미지 SHA, 전체 무결성 및 Balanced 1.2 재현성.
 - **자동 테스트/타입 검사/Pages 배포 성공은 실제 PC·모바일 브라우저 수동 검증을 대체하지 않는다.**
 - 루피 점수는 후속 직접 원작 만화 대조, 동축 상위권 비교 및 사용자 평가 확정 절차 전까지 Draft이다. 모델 전체 변경·기존 71명 재평가·Matchup 정량 승률 산출은 시행하지 않았다.
-- 최신 CI와 병합 SHA는 [PR #95](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/95) 및 [TEST_REPORT.md](../TEST_REPORT.md)로 확인한다.
+- [PR #95 기능 CI run 38425719781](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38425719781): **85개 테스트 파일 / 371개 테스트**, TypeScript 및 Vite 빌드 전부 성공.
+- 기능 병합: `main@9d66727e6612ae357d063924f660fa9191517cd7` (v0.4.1 신규 데이터). [main run 38425982667](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38425982667): 동일 커밋 자동 테스트, 빌드, **Pages deploy job 모두 성공**.
+- 이 병합 후 문서/이미지 참조 링크의 교정 작업은 별도 검증 PR로 처리하며, 독립 스냅샷·기존 점수·계산 모델은 변경하지 않는다.
+- 원작 장면의 완전한 1차 검증, 이미지 공개 재배포 라이선스, PC/모바일 실제 브라우저 수동 사용성 검증은 **미완료**.
+- 상세 결과는 [TEST_REPORT.md](../TEST_REPORT.md) 참고.

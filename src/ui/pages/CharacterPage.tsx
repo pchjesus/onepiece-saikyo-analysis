@@ -60,11 +60,6 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onCompareSta
               ))}
             </div>
           )}
-          {detail.character.description && (
-            <p className="character-description">
-              {normalizeCharacterNamesForDisplay(detail.character.description)}
-            </p>
-          )}
           {hasMultipleEvaluations && (
             <div className="evaluation-state-switcher" role="group" aria-label="평가 시점 선택">
               {detail.evaluations.map((evaluation) => {
@@ -81,18 +76,21 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onCompareSta
             </div>
           )}
           {detail.evaluation.subjectState && (
-            <p className="evaluation-subject-state">
-              <strong>평가 시점 · {detail.evaluation.subjectState.label}</strong>
-              {detail.evaluation.subjectState.note && (
-                <span>{normalizeCharacterNamesForDisplay(detail.evaluation.subjectState.note)}</span>
-              )}
-            </p>
+            <details className="evaluation-subject-state">
+              <summary>평가 시점 · {detail.evaluation.subjectState.label} <span aria-hidden="true">ⓘ</span></summary>
+              <div className="evaluation-state-explanation">
+                {detail.evaluation.subjectState.note && (
+                  <p>{normalizeCharacterNamesForDisplay(detail.evaluation.subjectState.note)}</p>
+                )}
+                <small>평가 데이터 · {detail.evaluation.evaluationDataVersion}</small>
+              </div>
+            </details>
           )}
           </div>
         </div>
         <p className="prototype-note">{detail.evaluation.status === 'draft'
-          ? `평가 진행 중 · 핵심 스탯 7개 · 초안 · ${detail.evaluation.evaluationDataVersion}`
-          : 'MVP 구조 검증용 임시 평가 데이터 · 공식 전투력 평가 아님'}</p>
+          ? '잠정 평가 · Draft'
+          : '임시 평가 · 공식 전투력 아님'}</p>
       </div>
 
       <div className="overview-layout">
@@ -100,11 +98,18 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onCompareSta
           <button className="power-card power-card-button" type="button" onClick={onSelectOverall} aria-label="종합 전투력 전체 캐릭터 순위 보기">
             <span>종합 전투력 · 현재 계산값 <span aria-hidden="true">↗</span></span>
             <strong>{result.finalScore.toFixed(1)}<small>/100</small></strong>
-            <span>{result.calculationModelVersion} · 균형형 · 핵심 스탯 7개 · 패기 가중치 ×{result.hakiWeight}</span>
+            <span>균형형 · 7축 평균</span>
           </button>
-          <p className="section-note" data-testid="overall-interpretation-note">
-            종합점수는 7개 스탯의 동일 가중 평균이야. 캐릭터의 강점·약점 분포, 상대 능력과 상성, 전투 조건까지 검증한 승률이나 확정 서열은 아니야.
-          </p>
+          <div className="score-interpretation">
+            <span className="score-interpretation-warning">※ 종합점수는 승률이 아닙니다.</span>
+            <details className="score-interpretation-help">
+              <summary aria-label="종합점수 계산 및 해석 설명 보기">?</summary>
+              <p className="section-note" data-testid="overall-interpretation-note">
+                종합점수는 7개 스탯의 동일 가중 평균이야. 캐릭터의 강점·약점 분포, 상대 능력과 상성, 전투 조건까지 검증한 승률이나 확정 서열은 아니야.
+                {' '}계산 모델 {result.calculationModelVersion} · 패기 가중치 ×{result.hakiWeight}.
+              </p>
+            </details>
+          </div>
           <div className="stat-heading">
             <div className="stat-heading-title"><h2>핵심 전투 스탯</h2><EvidenceReadinessHelp /></div>
             <span>점수는 순위 보기 · 비교하기는 동축 근거 분석</span>

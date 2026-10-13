@@ -42,7 +42,7 @@ afterEach(async () => {
 describe('v0.1.80 patch history UI',()=>{
   it('opens history, displays numeric changes and reasons, closes on demand',async()=>{
     const button=container.querySelector<HTMLButtonElement>('.patch-history-trigger')
-    expect(button?.textContent).toContain('v0.4.1')
+    expect(button?.textContent).toContain('v0.4.2')
     await click(button)
     const dialog=container.querySelector('[role="dialog"][aria-labelledby="patch-history-title"]')
     expect(dialog?.textContent).toContain('퀸 범용성 조정')
@@ -87,7 +87,7 @@ describe('v0.1.80 patch history UI',()=>{
 
     await choose('전체')
     expect(tabs[0].getAttribute('aria-pressed')).toBe('true')
-    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(15)
+    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(16)
     expect(dialog.querySelectorAll('.patch-category-section').length).toBeGreaterThan(7)
   })
 
@@ -251,7 +251,7 @@ describe('evaluated roster UI', () => {
     ]) {
       await selectGroup(group)
       expect(container.querySelector('main.detail h1')?.textContent).toBe(character)
-      expect(container.querySelector('.prototype-note')?.textContent).toContain('evaluation-')
+      expect(container.querySelector('.prototype-note')?.textContent).toContain('잠정 평가')
       expect(container.querySelector('.power-card')?.textContent).toContain('균형형')
     }
   })
@@ -521,4 +521,41 @@ describe('evaluated roster UI', () => {
     expect(document.activeElement).toBe(summary)
   })
 
+})
+
+
+describe('v0.4.2 compact character header and on-demand calculation notes', () => {
+  it('removes repeated evaluation-method prose from the header without losing the combat profile', async () => {
+    await selectGroup('검은 수염 해적단')
+    const header = container.querySelector('.detail-heading')!
+    expect(container.querySelector('main.detail h1')?.textContent).toBe('마샬 D. 티치')
+    expect(header.querySelector('.character-description')).toBeNull()
+    expect(header.textContent).not.toContain('현재 확인된 실전 운용만 수치화한다')
+    expect(header.querySelector('.prototype-note')?.textContent).toContain('잠정 평가')
+    expect(container.querySelector('.combat-profile-section')?.textContent).toContain('어둠어둠')
+    expect(container.querySelectorAll('.stat-rank-trigger')).toHaveLength(7)
+  })
+
+  it('hides model explanation by default but preserves an accessible disclosure and state details', async () => {
+    const help = container.querySelector<HTMLDetailsElement>('.score-interpretation-help')!
+    expect(help).toBeTruthy()
+    expect(help.open).toBe(false)
+    expect(container.querySelector('.score-interpretation-warning')?.textContent).toContain('승률이 아닙니다')
+    const trigger = help.querySelector<HTMLElement>('summary[aria-label="종합점수 계산 및 해석 설명 보기"]')!
+    await click(trigger)
+    expect(help.open).toBe(true)
+    expect(help.textContent).toContain('패기 가중치')
+    await click(trigger)
+    expect(help.open).toBe(false)
+    await selectGroup('해군')
+    await click([...container.querySelectorAll<HTMLButtonElement>('.character-chip')]
+      .find(b => b.textContent?.includes('몽키 D. 가프')) ?? null)
+    const state = container.querySelector<HTMLDetailsElement>('.evaluation-subject-state')!
+    expect(state).toBeTruthy()
+    expect(state.open).toBe(false)
+    expect(state.querySelector('summary')?.textContent).toContain('전성기')
+    await click(state.querySelector('summary'))
+    expect(state.open).toBe(true)
+    expect(state.querySelector('.evaluation-state-explanation')?.textContent).toContain('평가 데이터')
+  })
 })

@@ -1,3 +1,14 @@
+# v0.4.2 — 캐릭터 상세 가독성 간소화 (2026-10-14)
+
+- **목적:** 캐릭터 소개/메타 평가 방법/중복 문구로 가려진 상세 핵심 정보를 줄인다. 실제 Combat Profile, 캐릭터 원본 description, 7축 수치, 계산 로직, 근거와 근거 추적, 기존 평가를 삭제하거나 보정하지 않는다.
+- 구현: `CharacterPage`와 `UnratedCharacterPage`의 소개 문단 상단 중복 표시 제거, 평가 시점의 자세한 설명 `details` 접기, Overall 해석 및 모델 정보를 `?` 도움말로 이동. 종합점수는 승률이 아니라는 핵심 경고 한 줄 유지.
+- UI 회귀 테스트: 티치의 상단 중복 문구 부재/전투 프로필 유지, 루피·버기 등 로스터 보존, Help의 기본 접힘과 클릭 펼침, 가프 시점 안내의 접힘/펼침 확인. 기존 v0.4.1 독립 역사 스냅샷 비교 및 기존 모든 테스트 유지.
+- 앱 버전 v0.4.2, **core/evaluation-set 데이터 버전은 v0.4.1 유지**, Balanced 1.2/Haki Weight 0.5, 72명/75 Evaluation/15 직접 Matchup 불변.
+- CI/Pages 최종 확인 값은 이 PR의 최신 run과 main 병합 후 배포에 따라 추가 기록. 아직 성공했다고 가정하지 않는다.
+- 범위 밖: PC·모바일 실제 브라우저 수동 사용성 시험, 이미지 재배포 라이선스, 루피 만화 1차 자료 전체 대조.
+
+---
+
 # v0.4.1 — 루피 7축 Draft·버기 초상 추가·카쿠/이나즈마 이미지 수정 (2026-10-14)
 
 - **수정 전 안정 main:** `6cbd5c1a75df4bff47b9ca886475510d83c2c90b` (v0.4.0 / 84파일·367테스트 성공).
@@ -5,7 +16,8 @@
 - 기존 초상 2개 Git blob 교환: Inazuma `244cd714778b3f9f22b3f5f3c03415d13da4bdd7`, Kaku `77185b273d77d2197277e9369a30b947cf75ec68`. 웹앱의 등록 레지스트리에서 각자 ID 그대로 사용. Buggy/Luffy 2개 WebP 새 추가, 전체 초상 72장.
 - 루피(Character 1·Membership 1·Battle 2·Evidence 6·Evaluation 1/7축) 신규. 총 Character **72**, Membership **97**, Evaluation **75**, Stat **525**, 직접 Matchup **15 유지**. 루피 프로젝트 Draft E2/E3, Overall **659/7 ≈ 94.142857**, Haki Raw 추가 없음.
 - 자동 검사에서 신규 루피가 이전 `v0180LegacyCohort`의 과거 65명 코호트에 혼입되어 생기던 테스트 실패와 현재 72인 UI 기대값 갱신을 분리. v0.3.3 역사적 독립 JSON 절대 변경하지 않고 **기존 71명 평가 전체 원본 값 비교**를 추가.
-- **표준 회귀 실행:** [PR #95](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/95)의 가장 최근 테스트·빌드 실행 결과 확인. CI/Pages 및 실브라우저 확인은 서로 구분한다. 중간 실패한 CI는 성공으로 간주하지 않는다.
+- **최종 PR #95 CI:** [run 38425719781](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38425719781)에서 85개 테스트 파일 / **371개 테스트 전부 통과**. `tsc -b` 및 Vite 프로덕션 빌드 성공. 초기 실패(신규 루피가 역사적 필터 테스트에 혼입, 로스터 기대 수치 71→72)를 패치한 뒤 확인함.
+- **병합/배포:** [PR #95](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/95)를 `main@9d66727e6612ae357d063924f660fa9191517cd7`에 squash 병합. [GitHub Actions main run 38425982667](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38425982667)에서 동일 커밋 **npm test / TypeScript+Vite 빌드 / Pages deploy job 성공** 확인. 이는 실브라우저 사용성 점검과 다름.
 - **미검증:** 만화 해당 컷의 독립 전수 대조, 이미지 공개 재배포 권한, 실제 PC/모바일 브라우저에서 사진 확대·사용성 확인. 원작 사실과 프로젝트 점수 분리, 신규 데이터 근거는 공식 TV 회차 줄거리 범위.
 
 ---
