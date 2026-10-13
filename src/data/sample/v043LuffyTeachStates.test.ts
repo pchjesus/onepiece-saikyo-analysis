@@ -58,9 +58,10 @@ describe('v0.4.3 Luffy dual states and hypothetical Teach matchup scenarios', ()
   })
 
   it('creates two distinguishable neutral-field scenarios with no fabricated outcomes', () => {
-    const originals=sampleMatchups.filter(m=>!m.id.startsWith('matchup-luffy-'))
+    const originals=sampleMatchups
     expect(originals).toHaveLength(15)
-    expect(sampleMatchups).toHaveLength(17)
+    expect(liveDataset.matchups).toHaveLength(17)
+    expect(sampleMatchups).toHaveLength(15)
     expect(getMatchupHubEntries()).toHaveLength(17)
     const roster=getMatchupRoster().find(x=>x.characterId==='luffy')!
     expect(roster.states.map(x=>x.id)).toEqual(['egghead-gear4','egghead-gear5'])
