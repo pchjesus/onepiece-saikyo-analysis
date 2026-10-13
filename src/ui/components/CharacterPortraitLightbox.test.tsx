@@ -29,7 +29,7 @@ describe('large portrait lightbox accessibility', () => {
     const host=document.createElement('div');const root=createRoot(host)
     try{await act(async()=>root.render(<>
       <CharacterPortrait characterId="teach" groupId="blackbeard-pirates" name="티치" size="small"/>
-      <CharacterPortrait characterId="buggy" groupId="cross-guild" name="버기" size="large"/>
+      <CharacterPortrait characterId="unknown-character" groupId="cross-guild" name="임시 미등록" size="large"/>
     </>))
     expect(host.querySelector('.portrait-zoom-trigger')).toBeNull()
     expect(host.querySelectorAll('.character-portrait-fallback')).toHaveLength(1)
