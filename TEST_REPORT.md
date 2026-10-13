@@ -1,3 +1,14 @@
+# v0.3.2 — user-provided portraits, Izo and Roger past membership (2026-10-13)
+
+- Baseline: v0.3.1 main SHA `124c33269f4b0eb483d1de9dcea0959a3e2b1a8c`.
+- Changes: 64 uploaded real WebP assets, image metadata/fallback/rights notices, 1 identity-only Izo profile, 5 new Membership rows (Izo ×2, Roger-era ×3), and updated UI/count tests.
+- Project data invariants: 71 Character master / 70 visible / 69 evaluated unique / 93 Membership / 72 Evaluation / 504 Stat, unchanged Balanced 1.2 & Haki weight 0.5.
+- **Verification pending:** final GitHub PR CI (Vitest, TypeScript, Vite build), post-merge deploy to GitHub Pages; earlier PR runs failed only on outdated roster/photo test assumptions and were corrected.
+- **Unverified:** original game-illustration redistribution rights, independent visual review on actual desktop/mobile browsers, original manga pages for Izo's combat score. No numeric Izo score was fabricated.
+- PR: https://github.com/pchjesus/onepiece-saikyo-analysis/pull/89
+
+---
+
 # v0.3.1 — evidence disclosure and permitted image fallback stability (2026-10-13)
 
 - Reaudit of original v0.3 request: existing provenance readability, E1–E3 help, link safety and character count tests passed on v0.3.0. All 15 direct Matchup evidence references are validated by `src/data/sample/matchups.test.ts`.
