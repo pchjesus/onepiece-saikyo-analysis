@@ -15,6 +15,8 @@ const providedIds = 'marco newgate jozu ace vista king kaido queen jack x-drake 
 export const characterPortraitAssets: Readonly<Record<string, CharacterPortraitAsset>> =
   Object.fromEntries(providedIds.map((id): [string, CharacterPortraitAsset] => [id, {
     fileName: id + '.webp',
+    ...(id === 'buggy' ? {sourceUrl:'https://one-piece-artworks.com/index.php?page=indexbaggy'} : {}),
+    ...(id === 'luffy' ? {sourceUrl:'https://x.com/OnePieceTCArts'} : {}),
     permission: 'user-provided-unverified',
     permissionNote: '사용자 제공 이미지 · 원저작권자 및 공개 재배포 허가 미확인',
   }]))
