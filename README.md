@@ -1,8 +1,10 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.2.1** (동축 스탯·원작 근거 2인 비교, 평가 출처→전투 상세 이동, 캐릭터 상세·검색의 안전한 초상 자리표시자, 패치 내역 통합; 실제 저작물 사진은 미등록) (npm package 버전 **0.2.1**)  
+현재 구현 패치: **v0.3.0** (확인된 출처 유형·링크 명칭 정리, 평가 이유 상시 표시/연결 근거 펼침, E등급·모바일 가독성 개선, 공식 비브르 카드 외부 목록 연결; 저작권 재배포 허락을 확인하지 못한 이미지는 미등록) (npm package 버전 **0.3.0**)  
 평가 데이터: **70 Character master pool · 69 evaluated unique Character · 88 Membership · 72 Evaluation · 504 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
+
+- [v0.3.0 근거·출처 가독성 릴리즈 기록](docs/V0_3_0_EVIDENCE_READABILITY_RELEASE_2026-10-13.md)
 
 ## v1.0까지의 기본 개발 방향
 

@@ -128,7 +128,7 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onCompareSta
           aria-labelledby={activeDetail === 'evaluation' ? 'evaluation-tab' : 'battle-tab'}>
           {activeDetail === 'evaluation' ? (
             evaluationTrace
-              ? <EvaluationTrace items={evaluationTrace} status={detail.evaluation.status} evaluationDataVersion={detail.evaluation.evaluationDataVersion} hakiWeight={result.hakiWeight}
+              ? <EvaluationTrace key={detail.evaluation.id} items={evaluationTrace} status={detail.evaluation.status} evaluationDataVersion={detail.evaluation.evaluationDataVersion} hakiWeight={result.hakiWeight}
                 onOpenEvidence={battleId=>{setFocusedBattleId(battleId);setActiveDetail('battle')}} />
               : <p className="empty-note">평가 근거가 없습니다.</p>
           ) : (

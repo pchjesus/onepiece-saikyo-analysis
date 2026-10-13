@@ -167,6 +167,7 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
           <ul>{profile.sources.map((source) => <li key={`${source.label}-${source.reference}`}>
             <SourceCitation label={source.label} reference={source.reference}/>
           </li>)}</ul>
+          <p className="official-art-reference">캐릭터 이미지 관련 공식 자료 · <a href="https://one-piece.com/vivre/list2/index.html" target="_blank" rel="noopener noreferrer">비브르 카드 공식 목록 ↗</a><small>외부 참고 페이지이며 전투력 평가의 추가 근거로 자동 반영하지 않습니다.</small></p>
         </article>
       </div>
     </section>

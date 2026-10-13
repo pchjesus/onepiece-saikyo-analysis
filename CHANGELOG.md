@@ -1,3 +1,14 @@
+## v0.3.0 — source provenance and readable evidence UI (2026-10-13)
+
+- Introduced conservative, plain-text source provenance labels from existing Evidence source type and explicitly recognizable published site references; link actions now distinguish official episode/profile, fan commentary, and generic materials. Labels do not assert that full manga panels were personally reviewed or raise evidence readiness.
+- Updated Evidence card headings to reflect canon/reference/supplementary/community material instead of unconditionally claiming every item is directly confirmed in original manga. Preserved underlying fact/interpretation/evaluation text and all source URLs.
+- Kept Base/Raw/Final calculation and rationale visible on each 7-axis Evaluation Trace card; put per-source links and battle navigation inside accessible native details for progressive reading. Evaluation-state switching rekeys the trace to avoid leaking expanded state between eras.
+- Centered readiness help on approved E1–E3 and moved undefined E4 to a separate note. Improved small-font/badge/action sizing, line height and narrow-screen citation readability without overhauling navigation or forcing nested-scroll changes absent device confirmation.
+- Added a separate external link to the official VIVRE CARD catalog. Character images have **not** been copied or hotlinked: public redistribution rights could not be verified. The existing opt-in licensed portrait component can display a small original-source link below a future permitted image. Source links do not automatically count as evaluation evidence.
+- No change to PROJECT_SPEC.md, original Character/Battle/Evidence/Evaluation/Matchup records, Balanced 1.2, Haki Weight 0.5, 504 stat scores, rankings or the 15 direct matchup factors. Matchup provenance navigation remains deferred to v0.6.
+- Focused source display and App/readiness regression tests updated, with full Vitest/TypeScript/Vite and Pages checks required before release.
+- Details: `docs/V0_3_0_EVIDENCE_READABILITY_RELEASE_2026-10-13.md`.
+
 ## v0.2.1 — readable, clickable and consistent source citations (2026-10-13)
 
 - Corrected the user-reported **Portgas D. Ace → 원작 전투 프로필 근거** card where unformatted long character/episode URLs wrapped across many lines. All **70 Character profiles** now use a reusable `SourceCitation` component: a preserved source label, available human-readable context, and an explicit compact **원문 보기 ↗** HTTPS link.

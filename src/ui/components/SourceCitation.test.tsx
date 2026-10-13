@@ -85,8 +85,9 @@ describe('v0.2.1 source citation URL extraction', () => {
         expect(visible,character.id).not.toContain('https://')
         const originalCount=character.combatProfile.sources
           .reduce((count,source)=>count+(source.reference.match(/https:\/\//g)?.length??0),0)
-        expect(section?.querySelectorAll('a').length,character.id).toBe(originalCount)
+        expect(section?.querySelectorAll('.source-citation-link').length,character.id).toBe(originalCount)
         expect(section?.querySelectorAll('li').length).toBe(character.combatProfile.sources.length)
+        expect(section?.querySelector<HTMLAnchorElement>('.official-art-reference a')?.href).toBe('https://one-piece.com/vivre/list2/index.html')
       }
     }finally{await act(async()=>root.unmount())}
   })
@@ -118,7 +119,29 @@ describe('v0.2.1 source citation URL extraction', () => {
       expect(link).not.toBeNull()
       expect(link?.href).toMatch(/^https:\/\/one-piece\.com\//)
       expect(el.querySelector('.evidence-source')?.textContent).not.toContain('https://')
-      expect(el.querySelector('.evidence-card')?.textContent).toContain('원작에서 확인되는 사실')
+      expect(el.querySelector('.evidence-card')?.textContent).toContain('자료에 기재된 내용')
     }finally{await act(async()=>root.unmount())}
   })
+  it('labels official supplementary episodes and fan summaries without inventing manga verification',async()=>{
+    const el=document.createElement('div'),root=createRoot(el)
+    try{
+      await act(async()=>root.render(<div>
+        <SourceCitation sourceType="supplementary" reference="TV 325" description="https://one-piece.com/anime/325/index.html"/>
+        <SourceCitation label="원작 587화 (팬 해설 · 1차 원문 전체 미열람)" reference="https://onepiece.fandom.com/wiki/Chapter_587"/>
+        <SourceCitation sourceType="canon" reference="One Piece Manga Chapter 574"/>
+        <SourceCitation reference="알 수 없는 내부 기록"/>
+      </div>))
+      const sources=[...el.querySelectorAll('.source-citation')]
+      expect(sources[0].textContent).toContain('공식 애니메이션 보조 자료')
+      expect(sources[0].querySelector('a')?.textContent).toBe('공식 회차 자료 보기 ↗')
+      expect(sources[1].textContent).toContain('비공식 해설')
+      expect(sources[1].textContent).toContain('1차 원문 전체 미열람')
+      expect(sources[1].querySelector('a')?.textContent).toBe('팬 해설 보기 ↗')
+      expect(sources[2].textContent).toContain('원작 회차 참조')
+      expect(sources[2].querySelector('a')).toBeNull()
+      expect(sources[3].textContent).toContain('자료 유형 미확인')
+      expect(sources[3].querySelector('a')).toBeNull()
+    }finally{await act(async()=>root.unmount())}
+  })
+
 })

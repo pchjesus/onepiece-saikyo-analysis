@@ -42,7 +42,7 @@ afterEach(async () => {
 describe('v0.1.80 patch history UI',()=>{
   it('opens history, displays numeric changes and reasons, closes on demand',async()=>{
     const button=container.querySelector<HTMLButtonElement>('.patch-history-trigger')
-    expect(button?.textContent).toContain('v0.2.1')
+    expect(button?.textContent).toContain('v0.3.0')
     await click(button)
     const dialog=container.querySelector('[role="dialog"][aria-labelledby="patch-history-title"]')
     expect(dialog?.textContent).toContain('퀸 범용성 조정')
@@ -87,7 +87,7 @@ describe('v0.1.80 patch history UI',()=>{
 
     await choose('전체')
     expect(tabs[0].getAttribute('aria-pressed')).toBe('true')
-    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(9)
+    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(10)
     expect(dialog.querySelectorAll('.patch-category-section').length).toBeGreaterThan(7)
   })
 
@@ -140,6 +140,11 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
     await click(container.querySelector('.character-picker-close'))
   })
   it('opens an attached evidence battle from the evaluated stat trace',async()=>{
+    const firstDetail=container.querySelector<HTMLDetailsElement>('.trace-evidence-details')!
+    expect(firstDetail).toBeTruthy()
+    expect(firstDetail.open).toBe(false)
+    await click(firstDetail.querySelector('summary'))
+    expect(firstDetail.open).toBe(true)
     const links=[...container.querySelectorAll<HTMLButtonElement>('.trace-evidence-links button')]
     expect(links.length).toBeGreaterThan(1)
     const link=links[1]
