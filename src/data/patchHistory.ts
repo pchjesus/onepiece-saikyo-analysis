@@ -37,6 +37,14 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  { version:'v0.4.2',date:'2026-10-14',title:'캐릭터 소개 중복 제거 · 평가 안내 접기',
+    summary:'캐릭터 상세 상단의 중복 소개·평가 방법 문구를 줄이고, 평가 시점 세부 조건과 점수 해석은 요청할 때만 펼쳐 확인하도록 정리했다. 모든 원본 평가·근거·점수·기존 기능은 보존했다.',
+    changes:[
+      {kind:'feature',title:'캐릭터 상세 머리말 간소화',detail:'소개문의 시스템·평가 방식 반복 노출을 없애고 소속·이명·평가 시점을 강조. 원본 설명은 삭제하지 않으며 아래 전투 프로필과 전투 근거에서 확인 가능.'},
+      {kind:'feature',title:'평가 시점과 종합점수 도움말 접기',detail:'전투 조건·데이터 버전과 평균/패기/승률 주의 안내는 펼침형 도움말에서 확인. 핵심 경고는 한 줄만 표시.'},
+      {kind:'feature',title:'기존 v0.4.1 이미지·평가 유지',detail:'카쿠/이나즈마 초상, 버기/루피 초상, 기존 72명/75 Evaluation/15 직접 Matchup 및 Balanced 1.2 보존. 화면 패치 버전만 0.4.2로 갱신.'},
+    ],
+  },
   { version:'v0.4.1',date:'2026-10-14',title:'카쿠·이나즈마 이미지 교정, 버기·루피 초상, 루피 7축 Draft',
     summary:'카쿠·이나즈마 초상 파일 교환, 버기·루피 초상 2장 추가, 루피 Gear 5 시점 7축 잠정 평가. 원본 71명의 점수와 15 직접 대진, Balanced 1.2 및 v0.3.3 스냅샷을 보존한다.',
     changes:[
