@@ -4,7 +4,7 @@ import { sampleMemberships } from '../sample/memberships'
 import { sampleBattles, sampleBattleParticipants } from '../sample/battles'
 import { sampleEvidence } from '../sample/evidence'
 import { sampleEvaluations } from '../sample/evaluations'
-import { sampleMatchups } from '../sample/matchups'
+import { matchupRepository } from '../repositories/matchupRepository'
 import { balancedV12 } from '../sample/calculationModels'
 import { COMBAT_STATS } from '../../domain/evaluation/types'
 import { getRawHakiContributionTotal, getFinalStatScore } from '../../domain/evaluation/score'
@@ -22,7 +22,7 @@ export const liveDataset = {
   evidence: sampleEvidence,
   evaluations: sampleEvaluations,
   model: balancedV12,
-  matchups: sampleMatchups,
+  matchups: matchupRepository.getAllMatchups(),
 }
 
 /**
