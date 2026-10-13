@@ -5,7 +5,7 @@
 - 15개 기존 직접 Evidence-aware Matchup은 별도 보존하고 **루피 G4 vs 티치 / 루피 G5 vs 티치 조건부 시나리오 2개**를 Repository 및 UI에서 탐색 가능하게 추가. 확정 승자·고정 승률·상성 보너스 없음. 전체 17건 탐색, 역사적 직접 15건 유지.
 - 티치 **Attack95/Defense89/Stamina95/Speed82/Technique93/CombatIQ87/Versatility93**, Overall **634/7≈90.571429** 재검토 후 점수 유지. 상향은 새로운 직접 Evidence 및 중복 산정 심사 후 별도 승인.
 - 캐릭터 상단, 순위, 스탯 비교, 평가 근거에서 `Draft` 등 내부 상태의 기본 노출 제거. E1/E2/E3, 평가 시점·데이터 revision/내부 status 보존. 72 캐릭터 / 97 Membership / 76 Evaluation / 532 Stat.
-- **app/core/evaluation-set v0.4.3**, 모델 Balanced 1.2, 변경 전 `v0.3.3.json` 역사 스냅샷 불변. [설계 및 티치 상향 감사 보고서](docs/V0_4_3_LUFFY_STATES_TEACH_MATCHUPS_2026-10-14.md) · [기능 PR #98](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/98).
+- **app/core/evaluation-set v0.4.3**, 모델 Balanced 1.2, 변경 전 `v0.3.3.json` 역사 스냅샷 불변. [설계 및 티치 상향 감사 보고서](docs/V0_4_3_LUFFY_STATES_TEACH_MATCHUPS_2026-10-14.md) · [기능 PR #98](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/98). [PR CI](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38438209244) **86파일/378테스트 및 빌드 성공**, [main Pages 배포](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38438374150) 성공. 기능 병합 커밋 `bf02f06fee7f93016e8682780f9f44d5fbfc642d`.
 
 ---
 
