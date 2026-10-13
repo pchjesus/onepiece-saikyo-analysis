@@ -6,14 +6,14 @@ import { sampleMatchups } from './matchups'
 import { validateMatchupAnalysis } from '../../domain/matchup/validation'
 
 describe('sample evidence-aware matchups', () => {
-  it('keeps fifteen context-aware matchup references valid without numeric win probabilities', () => {
+  it('keeps seventeen context-aware matchup references valid without numeric win probabilities', () => {
     const characterIds = new Set(sampleCharacters.map(({ id }) => id))
     const evidenceIds = sampleEvidence.map(({ id }) => id)
     const evaluationStateIds = sampleEvaluations
       .filter(({ subjectState }) => Boolean(subjectState))
       .map(({ characterId, subjectState }) => `${characterId}:${subjectState!.id}`)
 
-    expect(sampleMatchups).toHaveLength(15)
+    expect(sampleMatchups).toHaveLength(17)
     for (const matchup of sampleMatchups) {
       expect(characterIds.has(matchup.characterAId)).toBe(true)
       expect(characterIds.has(matchup.characterBId)).toBe(true)
