@@ -1,3 +1,14 @@
+# v0.3.0 — provenance-aware evidence readability regression (2026-10-13)
+
+- **Baseline:** main `4307dc53fb2e528d078db3bd3db91738c2652088`, v0.2.1, 77 test files / 343 tests passed in GitHub CI.
+- **Code scope:** `SourceCitation` provenance-aware visual labels and link names; evidence heading reflects existing registered `source.type`, without upgrading official TV/fan summary to independently read manga; `EvaluationTrace` keeps scores/formulas/rationale visible while folding linked citations with native `details`; E1–E3 explanatory help with separate unapproved E4 note; targeted responsive CSS and official Vivre catalog pointer.
+- **Content preservation:** project SPEC/Character/Evidence/Battle/Evaluation/sample Matchup and calculation data untouched. No Haki Raw/Weight, stat, rank or direct matchup modification. No copied/hotlinked anime, manga, or Vivre Card imagery; official index is an external source pointer only. Approved future portrait assets receive a source credit below the image.
+- **Test adjustments:** official episode vs fan summary/canon/plain-reference source categories; preserve source hrefs, multi-URLs, link security and all 70 profile links; click-to-open trace before source-to-battle navigation; test E4 remains an undefined note; existing comparison, era, Matchup, status, score regression tests.
+- **First feature-branch CI:** [run 38349595892](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38349595892), **77 files / 344 tests passed**, `tsc -b && vite build` success (pre-release-metadata commit).
+- **Release gate:** final PR and merged main CI + deploy SHA verified separately; actual PC/mobile visual inspection remains **not verified** by jsdom/build CI. Mobile scroll-height configuration intentionally unchanged until visual feedback.
+
+---
+
 # v0.2.1 — source readability and link UI regression
 
 - **Baseline:** v0.2.0 release SHA `113a35e1039adba12cc40285b3f38f33a1558b38`, 76 test files and 336 tests passed.

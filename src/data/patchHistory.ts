@@ -37,6 +37,16 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  { version:'v0.3.0',date:'2026-10-13',title:'근거·출처 가독성 및 신뢰성 표현 개선',
+    summary:'자료 유형에 따른 출처 표기·링크 명칭을 통일하고, 평가 근거 펼침과 모바일 가독성을 개선했다.',
+    report:'https://github.com/pchjesus/onepiece-saikyo-analysis/blob/main/docs/V0_3_0_EVIDENCE_READABILITY_RELEASE_2026-10-13.md',
+    changes:[
+      {kind:'feature',title:'출처 표시 및 링크 명칭 정리',detail:'원작 회차 참조·공식 보조 자료·팬 해설 등 확인 가능한 성격에 맞춰 중립적인 안내 및 링크 이름을 표시.'},
+      {kind:'feature',title:'평가 근거·모바일 가독성',detail:'기존 평가 이유/계산식은 항상 표시하면서 연결 근거를 펼쳐 읽도록 하고 작은 글씨·클릭 영역을 개선.'},
+      {kind:'feature',title:'E등급 설명 정리',detail:'E1~E3 중심 안내, E4는 사용하지 않는 참고 항목으로 구분.'},
+      {kind:'evidence',title:'출처 직접성 오해 방지',detail:'애니메이션·보조·커뮤니티 자료의 본문을 일괄 원작 직접 사실로 설명하지 않도록 표시를 구분; 원본 Evidence 불변.'},
+      {kind:'feature',title:'공식 비브르 카드 도감 연결',detail:'외부 공식 카드 목록을 안내하며 재게시 권한이 불분명한 이미지는 복제하지 않음. 적법한 후속 이미지에는 하단 출처 라벨 준비.'},
+    ]},
   { version:'v0.2.1',date:'2026-10-13',title:'전투 프로필·평가 출처 링크 가독성 개선',
     summary:'에이스 등 캐릭터의 긴 출처 URL 줄바꿈 문제를 해결하고 공통 출처 표시를 정리했다.',
     report:'https://github.com/pchjesus/onepiece-saikyo-analysis/blob/main/docs/V0_2_1_SOURCE_CITATION_READABILITY_2026-10-13.md',

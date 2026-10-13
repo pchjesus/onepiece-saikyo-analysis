@@ -707,3 +707,12 @@ header p:last-child { color: #666; }
   .stat-compare-score>span{font-size:.84rem}
   .stat-compare-score>strong{font-size:2rem}
 }
+
+/* v0.3 — official reference library is an external pointer, not licensed image content. */
+.official-art-reference{margin:14px 0 0;padding-top:11px;border-top:1px solid #e3e6e5;font-size:.84rem;color:#48555e;line-height:1.6}
+.official-art-reference a{font-weight:700;color:#175b87;overflow-wrap:anywhere}
+.official-art-reference small{display:block;font-size:.75rem;color:#606c70;line-height:1.55}
+.character-portrait-with-credit{display:inline-flex;align-items:center;flex-direction:column;gap:4px;flex:0 0 auto;width:105px;min-width:0}
+.character-portrait-with-credit .portrait-attribution{display:block;max-width:100%;text-align:center;font-size:.75rem;line-height:1.5;color:#315f7c;text-decoration:underline;text-underline-offset:2px}
+.character-portrait-with-credit .portrait-attribution:focus-visible{outline:2px solid #1768a8;outline-offset:2px}
+@media(max-width:650px){.character-portrait-with-credit{width:72px}}
