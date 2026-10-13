@@ -206,7 +206,7 @@ export function MatchupHome() {
       </section>
 
       <section className="featured-matchups">
-        <div><span>추천 대진</span><small>직접 매치업 근거가 등록된 대진</small></div>
+        <div><span>추천 대진</span><small>실전 근거·조건부 시나리오</small></div>
         <div className="matchup-picker" role="group" aria-label="등록된 매치업 빠른 선택">
           {featured.map((entry) => {
             // Derive the pressed state from the actual selected fighters and evaluation
@@ -217,6 +217,7 @@ export function MatchupHome() {
               <button type="button" className={isSelected ? 'selected' : undefined}
                 aria-pressed={isSelected} key={entry.matchup.id} onClick={() => applyFeatured(entry)}>
                 <span>{entry.characterA.name}</span><strong>VS</strong><span>{entry.characterB.name}</span>
+                {entry.characterA.stateLabel && <small className="matchup-featured-state">{entry.characterA.stateLabel}</small>}
               </button>
             )
           })}
@@ -235,7 +236,7 @@ export function MatchupHome() {
             <h3>{left.name} <span>VS</span> {right.name}</h3>
           </div>
           <span className={matchup ? 'evidence-ready' : 'evidence-pending'}>
-            {matchup ? `직접 매치업 근거 · ${matchup.factors.length}개 요인` : '직접 매치업 근거 미등록'}
+            {matchup ? `${matchup.id.startsWith('matchup-luffy-gear') ? '가상 조건부 시나리오' : '직접 매치업 근거'} · ${matchup.factors.length}개 요인` : '직접 매치업 근거 미등록'}
           </span>
         </div>
 
