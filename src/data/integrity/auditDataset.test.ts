@@ -53,6 +53,17 @@ describe('v0.4 integrity audit detects tampering and respects intended omissions
     expect(issues(data)).toContain('Multiple explicit default Evaluations')
   })
 
+  it('reports unusual affiliations and third-party Matchup Evidence without silently rejecting narrative context', () => {
+    const data = clone()
+    data.memberships.push({ characterId:'marco', groupId:'blackbeard-pirates', status:'current' })
+    const unrelated = data.evidence.find(e => e.subjectCharacterId !== data.matchups[0].characterAId && e.subjectCharacterId !== data.matchups[0].characterBId)!
+    data.matchups[0].factors[0].evidenceIds.push(unrelated.id)
+    const report = auditCombatDataset(data)
+    expect(report.errors).toEqual([])
+    expect(report.warnings.some(w => w.detail.includes('Multiple current groups'))).toBe(true)
+    expect(report.warnings.some(w => w.detail.includes('third-party Evidence'))).toBe(true)
+  })
+
   it('allows E3 items without direct Evidence and narrative-only battles', () => {
     const report = auditCombatDataset(clone())
     expect(report.errors).toEqual([])
