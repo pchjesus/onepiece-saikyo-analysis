@@ -37,6 +37,13 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  { version:'v0.2.1',date:'2026-10-13',title:'전투 프로필·평가 출처 링크 가독성 개선',
+    summary:'에이스 등 캐릭터의 긴 출처 URL 줄바꿈 문제를 해결하고 공통 출처 표시를 정리했다.',
+    report:'https://github.com/pchjesus/onepiece-saikyo-analysis/blob/main/docs/V0_2_1_SOURCE_CITATION_READABILITY_2026-10-13.md',
+    changes:[
+      {kind:'feature',title:'출처 링크 표시 통합',detail:'원작 전투 프로필·전투 기록·평가 근거·스탯 비교의 긴 주소를 출처명과 짧은 원문 링크로 표기.'},
+      {kind:'feature',title:'모바일 출처 가독성 개선',detail:'좁은 카드에서 출처 설명을 자연스럽게 줄바꿈하고 원문 링크는 온전하게 표시.'},
+    ]},
   {version:'v0.2.0',date:'2026-10-13',title:'동축 전투력 비교 · 근거 탐색 · 캐릭터 초상 기반',
     summary:'두 캐릭터의 동일 스탯을 원작 근거까지 비교하며 승인된 이미지용 안전한 표시 구조를 추가.',
     changes:[

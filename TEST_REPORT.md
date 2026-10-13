@@ -1,3 +1,13 @@
+# v0.2.1 — source readability and link UI regression
+
+- **Baseline:** v0.2.0 release SHA `113a35e1039adba12cc40285b3f38f33a1558b38`, 76 test files and 336 tests passed.
+- **Reported reproduction:** Ace `원작 전투 프로필 근거` displayed six raw long HTTPS URLs in narrow profile card. Root cause: direct render of `source.reference`; URL wrapping and absence of a clickable anchor. Same formatting paths occur in Sabo/Morley/Lucci/Kaku/Stussy/Smoker/Tashigi/Ivankov/Inazuma and Battle Evidence/Trace UI.
+- **Code scope:** new `src/ui/components/SourceCitation.tsx` parses recognized HTTPS references, retains the non-URL qualifiers and source labels and renders an accessible short `원문 보기 ↗` link; used in `CombatProfile`, `EvidenceList`, `EvaluationTrace`, `StatComparisonDialog`. No underlying `Character/Evidence/Evaluation/Matchup` or model data changed.
+- **Focused tests:** links preserve Ace original exact URLs and '팬 회차 상세 요약 — 1차 원문 전체 미열람' qualifier, zero visible raw URLs on full 70-character profile set, mixed URL references and plain non-URL references, E1–E3 stat trace battle links and supplementary episode URLs, no unsafe scheme as clickable link.
+- **Release gate:** final PR CI `npm test` and `npm run build`, old 15 Matchup / all 7 stat regression, merge into main, Pages deployment at same main commit SHA. Actual phone/desktop manual browser visual validation remains separate and should not be claimed automatically.
+
+---
+
 # v0.2.0 — integrated analysis UX and data-preservation verification
 
 - **Stable baseline:** `v0.1.81 main@e6947aee505a286b82dd293cd09ad56ee01feee4`; 73 test files / 327 tests previously passed. Baseline has 70 Characters, 72 Evaluations (69 defaults), 504 7-axis items, 88 Memberships and 15 evidence-linked direct Matchups.
