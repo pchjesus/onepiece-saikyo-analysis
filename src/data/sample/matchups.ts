@@ -1,4 +1,3 @@
-import { luffyTeachStateMatchups } from './luffyTeachStateMatchups'
 import type { MatchupAnalysis } from '../../domain/matchup/types'
 
 /**
@@ -436,5 +435,4 @@ export const sampleMatchups: MatchupAnalysis[] = [
     ],
   },
 
-  ...luffyTeachStateMatchups,
 ]
