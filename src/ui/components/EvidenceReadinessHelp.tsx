@@ -29,7 +29,7 @@ export function EvidenceReadinessHelp() {
   return (
     <div className="readiness-help">
       <button ref={triggerRef} type="button" className="stat-info-button readiness-help-trigger"
-        aria-label="근거 충분도 E1부터 E4까지의 등급 설명 보기" aria-expanded={open}
+        aria-label="근거 충분도 E1부터 E3까지의 등급 설명 보기" aria-expanded={open}
         onClick={() => setOpen((value) => !value)}>?</button>
       {open && (
         <div className="stat-info-backdrop readiness-help-backdrop" role="presentation"
@@ -50,11 +50,8 @@ export function EvidenceReadinessHelp() {
                   <dt>{level}</dt><dd>{EVIDENCE_READINESS_DEFINITIONS[level]}</dd>
                 </div>
               ))}
-              <div>
-                <dt>E4</dt>
-                <dd>현재 프로젝트에서 정의되지 않은 등급입니다. 실제 평가에 사용하지 않으며 향후 별도 검토가 필요합니다.</dd>
-              </div>
             </dl>
+            <p className="readiness-help-note"><strong>참고 · E4</strong>는 현재 프로젝트에서 정의하지 않은 등급이며 실제 평가에 사용하지 않습니다.</p>
             <p className="readiness-help-note">E3 또는 근거 미입력은 낮은 전투력의 증거가 아닙니다. 현재 근거가 충분하지 않다는 뜻입니다.</p>
           </section>
         </div>

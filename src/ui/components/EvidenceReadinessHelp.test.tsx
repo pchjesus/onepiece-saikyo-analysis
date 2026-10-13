@@ -20,12 +20,13 @@ describe('evidence readiness explanation popup', () => {
       expect(dialog).not.toBeNull()
       expect(trigger.getAttribute('aria-expanded')).toBe('true')
       const rows = [...mount.querySelectorAll('.readiness-levels > div')]
-      expect(rows).toHaveLength(4)
+      expect(rows).toHaveLength(3)
       EVIDENCE_READINESS_LEVELS.forEach((level, index) => {
         expect(rows[index].querySelector('dt')?.textContent).toBe(level)
         expect(rows[index].querySelector('dd')?.textContent).toBe(EVIDENCE_READINESS_DEFINITIONS[level])
       })
-      expect(rows[3].textContent).toContain('현재 프로젝트에서 정의되지 않은 등급')
+      expect(dialog?.querySelector('.readiness-help-note')?.textContent).toContain('참고 · E4')
+      expect(trigger.getAttribute('aria-label')).toContain('E1부터 E3까지')
       expect(dialog?.textContent).toContain('낮은 전투력의 증거가 아닙니다')
       // Clicking inside must not close the dialog.
       await act(async () => { dialog?.dispatchEvent(new Event('pointerdown', { bubbles: true })) })

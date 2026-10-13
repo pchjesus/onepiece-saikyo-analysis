@@ -140,6 +140,11 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
     await click(container.querySelector('.character-picker-close'))
   })
   it('opens an attached evidence battle from the evaluated stat trace',async()=>{
+    const firstDetail=container.querySelector<HTMLDetailsElement>('.trace-evidence-details')!
+    expect(firstDetail).toBeTruthy()
+    expect(firstDetail.open).toBe(false)
+    await click(firstDetail.querySelector('summary'))
+    expect(firstDetail.open).toBe(true)
     const links=[...container.querySelectorAll<HTMLButtonElement>('.trace-evidence-links button')]
     expect(links.length).toBeGreaterThan(1)
     const link=links[1]
