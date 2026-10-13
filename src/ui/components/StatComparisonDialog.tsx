@@ -5,12 +5,11 @@ import { getStatRanking } from '../../application/getStatRanking'
 import { getStatComparison, getStatComparisonRoster, type StatComparisonSide } from '../../application/getStatComparison'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
 import { CharacterPortrait } from './CharacterPortrait'
+import { SourceCitation } from './SourceCitation'
 
 type Props={stat:CombatStat;primaryId:string;primaryStateId?:string;onClose:()=>void}
 const roleLabels={primary:'주요',secondary:'보조',context:'상황 참고'} as const
 const attackDimensions=[['peakOutput','순간 최대 출력'],['verifiedHit','실제 유효타'],['sustainedPressure','지속 화력'],['matchup','상성·조건']] as const
-const sourceUrl=(source:{reference:string;description?:string})=>
-  [source.description,source.reference].find((x):x is string=>Boolean(x&&/^https:\/\//.test(x)))
 
 function ComparisonColumn({side}: {side:StatComparisonSide}){
   const [expanded,setExpanded]=useState(false)
@@ -34,14 +33,13 @@ function ComparisonColumn({side}: {side:StatComparisonSide}){
     <div className="stat-compare-evidence">
       <h5>이 스탯의 연결 근거 · {side.evidence.length}건</h5>
       {shown.length?shown.map(({evidence,battle,role})=><div className="stat-compare-evidence-item" key={evidence.id}>
-        <strong>{battle?.title??evidence.source.reference}</strong>
+        <strong>{battle?.title??'전투 기록이 연결되지 않은 근거'}</strong>
         <span>{evidence.source.type==='canon'?'원작':evidence.source.type==='supplementary'?'공식·보조 자료':'커뮤니티'} · {role?roleLabels[role]+' 근거':'역할 미지정'}</span>
         <p><b>작중 사실</b> {normalizeCharacterNamesForDisplay(evidence.fact)}</p>
         {battle&&<p><b>전투 조건</b> {normalizeCharacterNamesForDisplay(battle.restrictions)} / {normalizeCharacterNamesForDisplay(battle.externalFactors)}</p>}
         <p><b>해석</b> {normalizeCharacterNamesForDisplay(evidence.interpretation)}</p>
-        {sourceUrl(evidence.source)
-          ? <a target="_blank" rel="noopener noreferrer" href={sourceUrl(evidence.source)}>출처 확인 ↗</a>
-          : <small>출처: {evidence.source.reference}</small>}
+        <div className="stat-compare-citation"><SourceCitation reference={evidence.source.reference}
+          description={evidence.source.description}/></div>
       </div>):<p className="stat-compare-muted">이 평가축에 연결된 근거가 없어. 근거 부족이 곧 낮은 전투력을 뜻하지는 않아.</p>}
       {side.evidence.length>3&&<button type="button" className="stat-compare-more" onClick={()=>setExpanded(v=>!v)}>
         {expanded?'근거 접기':`근거 ${side.evidence.length-3}건 더 보기`}

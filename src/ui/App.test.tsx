@@ -143,7 +143,7 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
     const links=[...container.querySelectorAll<HTMLButtonElement>('.trace-evidence-links button')]
     expect(links.length).toBeGreaterThan(1)
     const link=links[1]
-    const source=link.textContent?.replace(/ ↗ 전투 보기$/,'')
+    const source=link.closest('li')?.querySelector('.source-citation')?.textContent?.trim()
     await click(link)
     expect(container.querySelector('#battle-tab')?.getAttribute('aria-selected')).toBe('true')
     expect(container.querySelector('.battle-item.open')).toBeTruthy()

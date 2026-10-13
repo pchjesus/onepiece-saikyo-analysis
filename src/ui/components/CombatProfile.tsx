@@ -6,6 +6,7 @@ import type {
 } from '../../domain/character/types'
 import type { HakiConfirmationStatus, HakiType } from '../../domain/haki/types'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
+import { SourceCitation } from './SourceCitation'
 
 const hakiLabels: Record<HakiType, string> = {
   armament: '무장색',
@@ -163,7 +164,9 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
         </article>
         <article className="profile-card profile-sources">
           <h3>원작 전투 프로필 근거</h3>
-          <ul>{profile.sources.map((source) => <li key={`${source.label}-${source.reference}`}><strong>{source.label}</strong> · {normalizeCharacterNamesForDisplay(source.reference)}</li>)}</ul>
+          <ul>{profile.sources.map((source) => <li key={`${source.label}-${source.reference}`}>
+            <SourceCitation label={source.label} reference={source.reference}/>
+          </li>)}</ul>
         </article>
       </div>
     </section>
