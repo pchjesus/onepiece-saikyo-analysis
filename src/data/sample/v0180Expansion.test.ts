@@ -16,8 +16,8 @@ import {v0180Characters,v0180Groups,v0180Memberships,v0180Battles,v0180Evidence,
 
 describe('v0.1.80 patch history and additive roster',()=>{
   it('exposes newest-first versioned reasons and numeric source links',()=>{
-    expect(patchHistory[0].version).toBe('v0.4.0')
-    expect(patchHistory.map(p=>p.version)).toEqual(['v0.4.0','v0.3.3','v0.3.2','v0.3.1','v0.3.0','v0.2.1','v0.2.0','v0.1.81','v0.1.80','v0.1.79','v0.1.78','v0.1.77','v0.1.76','v0.1.75'])
+    expect(patchHistory[0].version).toBe('v0.4.1')
+    expect(patchHistory.map(p=>p.version)).toEqual(['v0.4.1','v0.4.0','v0.3.3','v0.3.2','v0.3.1','v0.3.0','v0.2.1','v0.2.0','v0.1.81','v0.1.80','v0.1.79','v0.1.78','v0.1.77','v0.1.76','v0.1.75'])
     const q=patchHistory.find(p=>p.version==='v0.1.79')!.changes.find(c=>c.characterId==='queen')!
     expect([q.before,q.after,q.stat]).toEqual([80,82,'versatility'])
     expect(q.reason?.length).toBeGreaterThan(40)
@@ -35,19 +35,19 @@ describe('v0.1.80 patch history and additive roster',()=>{
     expect(v0180Battles).toHaveLength(10)
     expect(v0180Evidence).toHaveLength(10)
     expect(v0180Evaluations).toHaveLength(4)
-    expect(sampleCharacters).toHaveLength(71)
+    expect(sampleCharacters).toHaveLength(72)
     expect(sampleGroups.some(g=>['g5','newkama-land'].includes(g.id))).toBe(false)
     expect(v0180Memberships.filter(x=>x.groupId==='marines').map(x=>x.characterId).sort()).toEqual(['smoker','tashigi'])
     expect(v0180Memberships.filter(x=>x.groupId==='revolutionary-army').map(x=>x.characterId).sort()).toEqual(['inazuma','ivankov'])
-    expect(sampleMemberships).toHaveLength(96)
-    expect(sampleEvaluations).toHaveLength(74)
-    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(71)
-    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(518)
-    expect(new Set(sampleCharacters.map(c=>c.id)).size).toBe(71)
+    expect(sampleMemberships).toHaveLength(97)
+    expect(sampleEvaluations).toHaveLength(75)
+    expect(sampleEvaluations.filter(e=>e.isDefault!==false)).toHaveLength(72)
+    expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(525)
+    expect(new Set(sampleCharacters.map(c=>c.id)).size).toBe(72)
     expect(new Set(sampleEvidence.map(e=>e.id)).size).toBe(sampleEvidence.length)
     expect(new Set(sampleBattles.map(b=>b.id)).size).toBe(sampleBattles.length)
     expect(getCharacterList().filter(x=>['smoker','ivankov','tashigi','inazuma'].includes(x.character.id)).length).toBe(4)
-    expect(getStatRanking('overall')).toHaveLength(71)
+    expect(getStatRanking('overall')).toHaveLength(72)
   })
   it('uses supplementary-only source provenance, valid references, no invented Haki Raw',()=>{
     const battles=new Set(sampleBattles.map(b=>b.id))
