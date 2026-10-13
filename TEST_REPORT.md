@@ -1,3 +1,14 @@
+# v0.3.1 — evidence disclosure and permitted image fallback stability (2026-10-13)
+
+- Reaudit of original v0.3 request: existing provenance readability, E1–E3 help, link safety and character count tests passed on v0.3.0. All 15 direct Matchup evidence references are validated by `src/data/sample/matchups.test.ts`.
+- Focused findings: disclosure summary had permanently said `펼치기` even while open; React portrait failed-state could persist after switching to a different approved image URL. Both fixed without changing any raw evidence, numeric results or matching logic.
+- Preserved original no-image fallback test unchanged and added separate test for simulated **licensed** image with source link, image failure, character URL change, successful second image; no real copyrighted artwork introduced.
+- Verified official Vivre Card catalog location: https://one-piece.com/vivre/list2/index.html. Existing external reference kept. [ONE PIECE.com official FAQ](https://one-piece.com/faq/index.html) states that it does not grant individual use permission for character images; attribution alone is not permission. No copyrighted images copied or hotlinked.
+- **Not demonstrated:** full real device visual/mobile validation, separate manual original manga source verification and image redistribution permission. Remain explicit limitations and do not mark them complete just from JS tests or official site display.
+- CI outcome: pending final PR/main execution. Previous v0.3.0 main CI 77 files/344 tests and Pages success.
+
+---
+
 # v0.3.0 — provenance-aware evidence readability regression (2026-10-13)
 
 - **Baseline:** main `4307dc53fb2e528d078db3bd3db91738c2652088`, v0.2.1, 77 test files / 343 tests passed in GitHub CI.

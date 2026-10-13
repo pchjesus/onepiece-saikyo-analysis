@@ -716,3 +716,9 @@ header p:last-child { color: #666; }
 .character-portrait-with-credit .portrait-attribution{display:block;max-width:100%;text-align:center;font-size:.75rem;line-height:1.5;color:#315f7c;text-decoration:underline;text-underline-offset:2px}
 .character-portrait-with-credit .portrait-attribution:focus-visible{outline:2px solid #1768a8;outline-offset:2px}
 @media(max-width:650px){.character-portrait-with-credit{width:72px}}
+
+/* v0.3.1: evidence fold control announces the currently available action. */
+.trace-evidence-details .trace-collapse-label{display:none}
+.trace-evidence-details[open] .trace-expand-label{display:none}
+.trace-evidence-details[open] .trace-collapse-label{display:inline}
+.trace-evidence-details>summary{min-height:44px}
