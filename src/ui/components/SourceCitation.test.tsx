@@ -11,17 +11,20 @@ import { EvidenceList } from './EvidenceList'
 describe('v0.2.1 source citation URL extraction', () => {
   it('splits entire links and mixed description links without changing their original URL', () => {
     expect(splitSourceReference('https://one-piece.com/character/ace/index.html')).toEqual({
-      text: '', url: 'https://one-piece.com/character/ace/index.html',
+      text: '', urls: ['https://one-piece.com/character/ace/index.html'],
     })
     expect(splitSourceReference('루치 공식 프로필 · https://one-piece.com/character/Rob_Lucci/index.html')).toEqual({
-      text: '루치 공식 프로필', url: 'https://one-piece.com/character/Rob_Lucci/index.html',
+      text: '루치 공식 프로필', urls: ['https://one-piece.com/character/Rob_Lucci/index.html'],
     })
     expect(splitSourceReference('ONE PIECE 원작 587화 (팬 해설) · https://onepiece.fandom.com/wiki/Chapter_587')).toEqual({
-      text: 'ONE PIECE 원작 587화 (팬 해설)', url: 'https://onepiece.fandom.com/wiki/Chapter_587',
+      text: 'ONE PIECE 원작 587화 (팬 해설)', urls: ['https://onepiece.fandom.com/wiki/Chapter_587'],
     })
-    expect(splitSourceReference('원작 Ch. 966 / 1165')).toEqual({text:'원작 Ch. 966 / 1165'})
-    expect(splitSourceReference('javascript:alert(1)')).toEqual({text:'javascript:alert(1)'})
-    expect(splitSourceReference('http://insecure.test/unsafe')).toEqual({text:'http://insecure.test/unsafe'})
+    expect(splitSourceReference('https://one-piece.com/anime/o6243/index.html · https://one-piece.com/anime/o6323/index.html')).toEqual({
+      text:'',urls:['https://one-piece.com/anime/o6243/index.html','https://one-piece.com/anime/o6323/index.html'],
+    })
+    expect(splitSourceReference('원작 Ch. 966 / 1165')).toEqual({text:'원작 Ch. 966 / 1165',urls:[]})
+    expect(splitSourceReference('javascript:alert(1)')).toEqual({text:'javascript:alert(1)',urls:[]})
+    expect(splitSourceReference('http://insecure.test/unsafe')).toEqual({text:'http://insecure.test/unsafe',urls:[]})
   })
 
   it('renders all six Ace profile sources with concise links and retains canon/fan qualifiers', async () => {
@@ -81,9 +84,25 @@ describe('v0.2.1 source citation URL extraction', () => {
         const visible=section?.textContent??''
         expect(visible,character.id).not.toContain('https://')
         const originalCount=character.combatProfile.sources
-          .filter(source=>source.reference.includes('https://')).length
+          .reduce((count,source)=>count+(source.reference.match(/https:\/\//g)?.length??0),0)
         expect(section?.querySelectorAll('a').length,character.id).toBe(originalCount)
         expect(section?.querySelectorAll('li').length).toBe(character.combatProfile.sources.length)
+      }
+    }finally{await act(async()=>root.unmount())}
+  })
+
+  it('renders two distinct official episode links when Ulti or X Drake record stores both in one field',async()=>{
+    const el=document.createElement('div'),root=createRoot(el)
+    try {
+      for(const id of ['ulti','x-drake']){
+        const character=sampleCharacters.find(x=>x.id===id)!
+        await act(async()=>root.render(<CombatProfile profile={character.combatProfile}/>))
+        const urlLi=[...el.querySelectorAll('.profile-sources li')].find(x=>x.querySelectorAll('a').length===2)
+        expect(urlLi,id).toBeTruthy()
+        expect(urlLi?.textContent).not.toContain('https://')
+        const links=[...urlLi!.querySelectorAll<HTMLAnchorElement>('a')]
+        expect(links[0].href).not.toBe(links[1].href)
+        expect(links[1].textContent).toContain('관련 자료 2')
       }
     }finally{await act(async()=>root.unmount())}
   })
