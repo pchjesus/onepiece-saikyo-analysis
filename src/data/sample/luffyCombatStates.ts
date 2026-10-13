@@ -14,7 +14,7 @@ export const luffyStateBattles: Battle[] = [
   {
     id:'luffy-katakuri-snakeman-870',
     title:'홀케이크 아일랜드 — 스네이크맨과 카타쿠리',
-    chronologyOrder:280, combatStructure:'one-vs-one',
+    chronologyOrder:280, combatStructure:'1v1',
     combatPurpose:'카타쿠리와의 대결을 마무리하고 동료에게 합류',
     combatIntent:'full-power',environment:'미러 월드',
     restrictions:'기어 4의 소모와 기어 5 습득 이전 시점. 이후 와노에서 얻은 패기·전투 경험을 이 당시 성과에 소급하지 않음.',
