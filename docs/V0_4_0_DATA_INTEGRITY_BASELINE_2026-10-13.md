@@ -20,7 +20,7 @@
 - **최초 생성:** 일회성 브랜치용 GitHub Actions로 v0.3.3 `main`으로부터 구성한 스냅샷 생성 코드 `createV033Snapshot`를 실행하여 JSON을 생성하고 Git에 커밋했다. 당시 생성 테스트 **5/5 통과**.
 - **일회성 워크플로 제거:** 임시 쓰기 권한 workflow `.github/workflows/v04-baseline-bootstrap.yml`은 생성 후 삭제했다. 정규 CI/Pages workflow의 권한과 동작은 변경하지 않았다.
 - **정상 테스트:** `npm test`는 스냅샷을 읽어 비교만 하고 기록을 갱신하지 않는다. `BASELINE_CAPTURE=1`에서도 기존 파일이 있으면 덮어쓰기를 거부한다.
-- **변경 검증:** `src/data/integrity/v04Baseline.test.ts` 및 `auditDataset.test.ts`에서 계산 반복·상태/순위·참조 검증과 잘못된 입력 거부를 확인한다.
+- **변경 검증:** `tests/v04Baseline.test.ts` 및 `auditDataset.test.ts`에서 계산 반복·상태/순위·참조 검증과 잘못된 입력 거부를 확인한다.
 - **기준선 갱신 규칙:** v0.3.3 스냅샷은 수정하지 않는다. 승인된 v0.5 데이터 변경 시 새로운 버전 스냅샷을 별도로 추가하고 이전 스냅샷을 그대로 유지한다.
 
 ## 변경하지 않은 기능
