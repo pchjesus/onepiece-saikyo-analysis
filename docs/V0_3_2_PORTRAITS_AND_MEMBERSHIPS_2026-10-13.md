@@ -30,6 +30,13 @@
 
 공식 확인: [ONE PIECE 이조 프로필](https://one-piece.com/character/izo/index.html); [ONE PIECE TV 772화(로저 해적단 동승 회상)](https://one-piece.com/anime/o3051/index.html).
 
+## 최종 검증 결과 (2026-10-13)
+
+- [PR #89](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/89) **main 병합 완료** — 릴리즈 커밋 \`2926b71b37f62f521bc1c7eb43994bb39cc7add6\`.
+- [최종 main GitHub Actions](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38395430816): **Vitest 79개 파일 / 349개 테스트 통과**, \`npm run build\` (TypeScript + Vite) 성공, **GitHub Pages deploy job 성공**. 로그 및 job 단계별 성공 상태 직접 확인.
+- 64개 WebP 바이너리가 저장소 main 트리에 존재하며 전용 registry 파일명이 일치한다. 사용자 원본에서 변환된 로컬 64개 WebP도 파일 포맷 및 SHA-256 manifest 검증 완료.
+- **아직 확인하지 않은 것**: 외부 기기의 실제 브라우저에서 64개 이미지 전부 표시되는지, 모바일 레이아웃 및 실제 공개 URL로의 개별 HTTP 접근, 제3자 공개 재배포 권한. GitHub Actions 성공을 실기기 검증으로 대체하지 않는다.
+
 ## 검증과 후속
 
 - PR #89: https://github.com/pchjesus/onepiece-saikyo-analysis/pull/89
