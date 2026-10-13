@@ -24,7 +24,7 @@ describe('Matchup Arena FEATURED selection styling and state synchronization', (
       await act(async () => { root.render(<MatchupHome />) })
       const picker = host.querySelector('.matchup-picker')!
       expect(picker.getAttribute('role')).toBe('group')
-      expect(picker.querySelectorAll('button')).toHaveLength(15)
+      expect(picker.querySelectorAll('button')).toHaveLength(17)
 
       const initial = findFeatured(host, ['쥬라큘 미호크', '샹크스'])
       expect(pressedButtons(host)).toEqual([initial])
