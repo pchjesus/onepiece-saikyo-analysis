@@ -37,6 +37,17 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  { version:'v0.4.3',date:'2026-10-14',title:'루피 기어 4·니카 상태별 평가 분리 및 상태 표시 간결화',
+    summary:'루피의 같은 에그헤드 시점 기어 4 이하와 기어 5 상태를 각각 독립적으로 분석했다. 기어 5를 대표로 유지하고 기존 v0.4.1 루피 평가 원본은 보존. 일반 화면의 Draft 등 내부 상태 라벨만 숨겼다.',
+    changes:[
+      {kind:'character',characterId:'luffy',title:'기어 4 이하 별도 Evaluation',detail:'기어 2~4+현재 패기 사용 가능, 각성 능력 제외. 카타쿠리·카이도전의 공식 자료와 CP0 외부 개입을 분리.'},
+      {kind:'evidence',characterId:'luffy',title:'기어 5 Combat IQ 근거 재검토',detail:'기존 89→87(E3). 루치의 센토마루 공격과 루피의 후속 차단을 모두 고려하되 장난이 피해의 원인이라고 확정하지 않는다. 나머지 6축 보존.'},
+      {kind:'feature',title:'루피 vs 티치 기어별 조건부 매치업 2건',detail:'기어 4 이하와 기어 5 발동 상태를 구분해 접촉 열매 무효화, 니카 응용, 지진 충격·지속력을 별도 시나리오로 비교. 기존 직접 15건 보존, 승자/승률 미산정.'},
+      {kind:'evidence',characterId:'teach',title:'티치 전투력 상향 근거 검토',detail:'기존 7축 95/89/95/82/93/87/93·Overall 90.57 유지. 상향 여부는 독립적인 신규 유효타/운용 표본과 중복 산정 여부를 확인한 뒤 사용자 승인 하에 검토.'},
+      {kind:'feature',title:'평가 상태 문구 숨김',detail:'캐릭터 상단·순위·동축 비교·평가 근거에서 Draft/prototype 등 내부 처리 상태의 기본 노출 제거. E1/E2/E3와 평가 시점·근거는 유지.'},
+      {kind:'feature',title:'기존 데이터·버전과 모델 보존',detail:'72 캐릭터, 76 Evaluation, 532 스탯, 직접 Matchup 15건. Balanced 1.2/Haki 0.5 변경 없음. 데이터셋·평가 집합은 0.4.3, 기존 0.3.3 스냅샷 불변.'},
+    ],
+  },
   { version:'v0.4.2',date:'2026-10-14',title:'캐릭터 소개 중복 제거 · 평가 안내 접기',
     summary:'캐릭터 상세 상단의 중복 소개·평가 방법 문구를 줄이고, 평가 시점 세부 조건과 점수 해석은 요청할 때만 펼쳐 확인하도록 정리했다. 모든 원본 평가·근거·점수·기존 기능은 보존했다.',
     changes:[

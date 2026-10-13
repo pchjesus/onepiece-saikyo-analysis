@@ -1,9 +1,10 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.4.2** (인물 화면 상단의 중복 설명을 줄이고 평가 시점·계산 안내를 필요할 때만 펼치도록 변경. v0.4.1 카쿠·이나즈마 이미지 교정, 버기·루피 이미지/잠정 평가 유지. **이미지 재배포 권한 미확인**) (npm package 버전 **0.4.2**)  
-평가 데이터: **72 Character master pool · 72 visible Character · 72 evaluated unique Character · 97 Membership · 75 Evaluation · 525 Stat** 
+현재 구현 패치: **v0.4.3** (루피 기어 4 이하·기어 5 시점별 7축 분리, 루피-티치 조건부 매치업 시나리오 2건 추가, 불필요한 Draft 상태 표시 정리. **이미지 재배포 권한 미확인**) (npm package 버전 **0.4.3**)  
+평가 데이터: **72 Character master pool · 72 visible Character · 72 evaluated unique Character · 97 Membership · 76 Evaluation · 532 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
+- [v0.4.3 루피 상태별 평가·티치 조건부 시나리오·티치 상향 검토](docs/V0_4_3_LUFFY_STATES_TEACH_MATCHUPS_2026-10-14.md)
 - [v0.4.1 이미지 교정·버기/루피 초상·루피 평가](docs/V0_4_1_PORTRAITS_LUFFY_2026-10-14.md)
 - [v0.4.0 독립 기준선·무결성·재현성 릴리즈](docs/V0_4_0_DATA_INTEGRITY_BASELINE_2026-10-13.md)
 - [v0.3.3 이미지 확대·버기/이조 잠정평가·v0.4 준비](docs/V0_3_3_PORTRAIT_ZOOM_BUGGY_IZO_2026-10-13.md)
@@ -12,8 +13,8 @@
 
 ## v1.0까지의 기본 개발 방향
 
-- **[v0.3~v1.0 정식 출시 개발 로드맵](docs/V1_0_DEVELOPMENT_ROADMAP.md)** — 앞으로의 개발 기준 문서. v0.4.1 신규 루피·이미지 변경을 배포했으며, v0.4.2 화면 가독성 패치도 배포 완료했다. , v0.5 이후 평가 재산정은 별도 승인 후 진행. 단계별 검증·승인 및 출시 게이트를 기록.
-- 현행 Balanced 1.2/Haki 0.5 계산 모델 및 기존 71명 평가 점수는 유지하고 루피 1명의 Draft 평가만 신규 추가했다. 다른 기존 점수 변경에는 별도 승인이 필요하다.
+- **[v0.3~v1.0 정식 출시 개발 로드맵](docs/V1_0_DEVELOPMENT_ROADMAP.md)** — 앞으로의 개발 기준 문서. v0.4.1 신규 루피·이미지 변경을 배포했으며, v0.4.2 화면 가독성 패치도 배포 완료했다. v0.4.3은 루피 상태별 평가와 루피·티치 매치업 시나리오를 추가하고, 티치 기존 점수는 검토 후 유지했다. v0.5 이후 다른 평가 재산정은 별도 승인 후 진행. 단계별 검증·승인 및 출시 게이트를 기록.
+- 현행 Balanced 1.2/Haki 0.5 계산 모델 및 기존 71명 평가 점수는 유지하고, 루피 1명의 기어 4 이하·기어 5 평가를 별도 등록했다. 직접 분석한 기존 15개 대진 외에 조건부 루피·티치 시나리오 2개를 별도로 관리한다. 다른 기존 점수 변경에는 별도 승인이 필요하다.
 
 
 - [v0.1.26 27인 재보정 보고서](docs/RECALIBRATION_0_1_26_DRAFT.md)

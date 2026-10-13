@@ -6,7 +6,7 @@ import { sampleMatchups } from './matchups'
 import { validateMatchupAnalysis } from '../../domain/matchup/validation'
 
 describe('sample evidence-aware matchups', () => {
-  it('keeps fifteen context-aware matchup references valid without numeric win probabilities', () => {
+  it('keeps fifteen original context-aware matchup references valid without numeric win probabilities', () => {
     const characterIds = new Set(sampleCharacters.map(({ id }) => id))
     const evidenceIds = sampleEvidence.map(({ id }) => id)
     const evaluationStateIds = sampleEvaluations

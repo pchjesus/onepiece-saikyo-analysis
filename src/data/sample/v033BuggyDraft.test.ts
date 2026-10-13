@@ -32,7 +32,7 @@ describe('Buggy provisional lower-tier analysis (E3)', () => {
       expect(e.uncertainty).toBeTruthy()
     }
     expect(sampleCharacters).toHaveLength(72)
-    expect(sampleEvaluations).toHaveLength(75)
+    expect(sampleEvaluations).toHaveLength(76)
     expect(sampleMemberships).toHaveLength(97)
     expect(getUniqueCharacterList()).toHaveLength(72)
     expect(sampleMemberships.filter(x=>x.characterId==='buggy').map(x=>x.groupId).sort())

@@ -1,5 +1,9 @@
 import type { MatchupAnalysis } from '../../domain/matchup/types'
 import { sampleMatchups } from '../sample/matchups'
+import { luffyTeachStateMatchups } from '../sample/luffyTeachStateMatchups'
+
+/** Fifteen original direct cases plus separately versioned conditional state scenarios. */
+const allCurrentMatchups = [...sampleMatchups, ...luffyTeachStateMatchups]
 
 export interface MatchupRepository {
   getAllMatchups(): MatchupAnalysis[]
@@ -15,7 +19,7 @@ function matchesSelectedState(matchup: MatchupAnalysis, characterId: string, sub
 }
 
 export const matchupRepository: MatchupRepository = {
-  getAllMatchups: () => [...sampleMatchups],
+  getAllMatchups: () => [...allCurrentMatchups],
   getMatchupsForCharacter: (characterId, subjectStateId) =>
-    sampleMatchups.filter((matchup) => matchesSelectedState(matchup, characterId, subjectStateId)),
+    allCurrentMatchups.filter((matchup) => matchesSelectedState(matchup, characterId, subjectStateId)),
 }

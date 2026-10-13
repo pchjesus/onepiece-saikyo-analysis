@@ -1,3 +1,14 @@
+## v0.4.3 — 루피 상태별 평가·티치 조건부 매치업·UI 표기 정리 (2026-10-14)
+
+- 루피 단일 캐릭터 내 **기어 4 이하**(90.714286)와 **기어 5·니카**(93.857143)를 같은 에그헤드 시점으로 분리. 전체 순위의 대표 평가는 기어 5, 다른 71명 전투력·Balanced 1.2/Haki Weight 0.5 유지.
+- 기존 v0.4.1 루피 94.142857·Combat IQ 89 원본 평가 Export는 수정하지 않고 이전 수치로 보존. 기어 5 IQ만 신규 근거 검토로 **89→87(E3)**, 다른 기어 5 여섯 축 그대로. 기어 4는 독립 근거·7축 평가 신설.
+- 15개 기존 직접 Evidence-aware Matchup은 별도 보존하고 **루피 G4 vs 티치 / 루피 G5 vs 티치 조건부 시나리오 2개**를 Repository 및 UI에서 탐색 가능하게 추가. 확정 승자·고정 승률·상성 보너스 없음. 전체 17건 탐색, 역사적 직접 15건 유지.
+- 티치 **Attack95/Defense89/Stamina95/Speed82/Technique93/CombatIQ87/Versatility93**, Overall **634/7≈90.571429** 재검토 후 점수 유지. 상향은 새로운 직접 Evidence 및 중복 산정 심사 후 별도 승인.
+- 캐릭터 상단, 순위, 스탯 비교, 평가 근거에서 `Draft` 등 내부 상태의 기본 노출 제거. E1/E2/E3, 평가 시점·데이터 revision/내부 status 보존. 72 캐릭터 / 97 Membership / 76 Evaluation / 532 Stat.
+- **app/core/evaluation-set v0.4.3**, 모델 Balanced 1.2, 변경 전 `v0.3.3.json` 역사 스냅샷 불변. [설계 및 티치 상향 감사 보고서](docs/V0_4_3_LUFFY_STATES_TEACH_MATCHUPS_2026-10-14.md) · [기능 PR #98](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/98).
+
+---
+
 ## v0.4.2 — 캐릭터 소개·평가 안내 간결화 (2026-10-14)
 
 - **화면만 수정:** 평가 대상/미평가 캐릭터 상단에서 전투 방식이나 평가 방법을 반복하는 긴 소개 문단을 숨기고, 이름·소속·이명·평가 상태를 먼저 표시. Character 원본 설명과 Combat Profile/Evidence/이력은 그대로 보존.

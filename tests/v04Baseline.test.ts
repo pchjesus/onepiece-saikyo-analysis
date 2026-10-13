@@ -46,8 +46,9 @@ describe('v0.4 frozen v0.3.3 source-of-truth audit', () => {
     const report = auditCombatDataset(liveDataset)
     expect(report.errors).toEqual([])
     expect(sampleCharacters).toHaveLength(72)
-    expect(sampleEvaluations).toHaveLength(75)
+    expect(sampleEvaluations).toHaveLength(76)
     expect(sampleMatchups).toHaveLength(15)
+    expect(liveDataset.matchups).toHaveLength(17)
   })
 
   it('repeats all seven-stat and overall computations independent of timestamps', () => {

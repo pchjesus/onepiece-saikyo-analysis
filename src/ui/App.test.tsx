@@ -42,7 +42,7 @@ afterEach(async () => {
 describe('v0.1.80 patch history UI',()=>{
   it('opens history, displays numeric changes and reasons, closes on demand',async()=>{
     const button=container.querySelector<HTMLButtonElement>('.patch-history-trigger')
-    expect(button?.textContent).toContain('v0.4.2')
+    expect(button?.textContent).toContain('v0.4.3')
     await click(button)
     const dialog=container.querySelector('[role="dialog"][aria-labelledby="patch-history-title"]')
     expect(dialog?.textContent).toContain('퀸 범용성 조정')
@@ -87,7 +87,7 @@ describe('v0.1.80 patch history UI',()=>{
 
     await choose('전체')
     expect(tabs[0].getAttribute('aria-pressed')).toBe('true')
-    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(16)
+    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(17)
     expect(dialog.querySelectorAll('.patch-category-section').length).toBeGreaterThan(7)
   })
 
@@ -251,7 +251,7 @@ describe('evaluated roster UI', () => {
     ]) {
       await selectGroup(group)
       expect(container.querySelector('main.detail h1')?.textContent).toBe(character)
-      expect(container.querySelector('.prototype-note')?.textContent).toContain('잠정 평가')
+      expect(container.querySelector('.prototype-note')).toBeNull()
       expect(container.querySelector('.power-card')?.textContent).toContain('균형형')
     }
   })
@@ -531,7 +531,7 @@ describe('v0.4.2 compact character header and on-demand calculation notes', () =
     expect(container.querySelector('main.detail h1')?.textContent).toBe('마샬 D. 티치')
     expect(header.querySelector('.character-description')).toBeNull()
     expect(header.textContent).not.toContain('현재 확인된 실전 운용만 수치화한다')
-    expect(header.querySelector('.prototype-note')?.textContent).toContain('잠정 평가')
+    expect(header.querySelector('.prototype-note')).toBeNull()
     expect(container.querySelector('.combat-profile-section')?.textContent).toContain('어둠어둠')
     expect(container.querySelectorAll('.stat-rank-trigger')).toHaveLength(7)
   })
