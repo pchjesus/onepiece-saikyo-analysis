@@ -1,3 +1,18 @@
+# v0.3.3 — 초상 확대·버기/이조 E2/E3 평가·v0.4 무결성 스모크 (2026-10-13)
+
+- 기준선: v0.3.2 main `ccdeb8def08eaf3091612c4de2bb068519c6907a`.
+- [기능 PR #91](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/91): main `0b28dfe9ee4cc2c8e185bbf1d283771d412a291c` 병합 완료.
+- [최종 main CI 및 배포 #38414702557](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38414702557): **82개 테스트 파일 / 355개 테스트 모두 통과**, TypeScript/Vite build 성공, Pages deploy job 성공.
+- 이미지: 기존 64 + 사용자가 업로드한 티치·시류·바제스·반 오거·피사로·코비 **6개** WebP = 70개 등록. 버기 이미지 미제공으로 fallback. 상세 이미지 전체 비율·확대 팝업/ESC·닫기·배경 클릭 지원.
+- 데이터: Character **71**, 표시 **71**, evaluated unique **71**, Membership **96**, Evaluation **74**, Core Stat 항목 **518**. 69명의 과거 점수와 Balanced 1.2/Haki 0.5, 기존 15 직접 Matchup 변경 없음. 버기 새 E3 draft Overall **38.0**, 이조 새 E2/E3 draft Overall **76.142857...**.
+- 새 Evidence: 버기 공식 캐릭터 소개, 이조 인물 소개·TV 1063/1065/1068회 줄거리. 이조 중상·보호 임무·참전자 맥락 기록. 원작 만화 해당 회차 전체를 직접 읽은 검증은 아니며 두 초안 모두 공식 분석 확정 평가 아님.
+- 문양: 로저·검은수염·크로스 길드·밀짚모자·빨간 머리 해적단 작은 자체 SVG 상징. **정확한 공식 로고 이미지/사용권 증빙이라고 해석하지 말 것**.
+- v0.4 **부분 착수**: live ID·참조 및 Overall 계산 재현성 자동 스모크 테스트. **독립 과거 스냅샷/전체 관계 감사/버전 이력 검증은 미완료**.
+- 검증 한계: 실제 PC/모바일 브라우저 화면 전수 실사용, 각 70장 이미지 서버의 직접 HTTP 확인, 저작권 재배포 허가는 확인되지 않음. GitHub Pages CI 성공은 실기기 확인의 대체가 아님.
+- 중간 CI 실패: 확장 로스터의 오래된 테스트 기대값, 새 테스트의 문법 및 TS 대상 호환 오류가 있었으나 수정 후 최종 전체 CI 통과.
+
+---
+
 # v0.3.2 — user-provided portraits, Izo and Roger past membership (2026-10-13)
 
 - Baseline: v0.3.1 main SHA `124c33269f4b0eb483d1de9dcea0959a3e2b1a8c`.
