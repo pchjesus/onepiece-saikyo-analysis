@@ -4,6 +4,12 @@
 평가 데이터: **70 Character master pool · 69 evaluated unique Character · 88 Membership · 72 Evaluation · 504 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
+## v1.0까지의 기본 개발 방향
+
+- **[v0.3~v1.0 정식 출시 개발 로드맵](docs/V1_0_DEVELOPMENT_ROADMAP.md)** — 프로젝트 소유자가 채택한 기본 방향, 단계별 검증·승인 기준, 릴리즈 게이트.
+- 현재 구현과 점수·계산 모델은 변경하지 않으며, 향후 중요 UX·평가/수치 변경은 별도 검토와 승인을 거친다.
+
+
 - [v0.1.26 27인 재보정 보고서](docs/RECALIBRATION_0_1_26_DRAFT.md)
 - [Evidence-aware Matchup v0.1 Draft](docs/MATCHUP_MODEL_0_1_DRAFT.md)
 - [하이브리드 Haki 확정 기준](docs/HYBRID_HAKI_CRITERIA_2026-10-09.md)
