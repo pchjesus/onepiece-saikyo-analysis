@@ -42,6 +42,8 @@ export const patchHistory: PatchRecord[] = [
     changes:[
       {kind:'character',characterId:'luffy',title:'기어 4 이하 별도 Evaluation',detail:'기어 2~4+현재 패기 사용 가능, 각성 능력 제외. 카타쿠리·카이도전의 공식 자료와 CP0 외부 개입을 분리.'},
       {kind:'evidence',characterId:'luffy',title:'기어 5 Combat IQ 근거 재검토',detail:'기존 89→87(E3). 루치의 센토마루 공격과 루피의 후속 차단을 모두 고려하되 장난이 피해의 원인이라고 확정하지 않는다. 나머지 6축 보존.'},
+      {kind:'feature',title:'루피 vs 티치 기어별 조건부 매치업 2건',detail:'기어 4 이하와 기어 5 발동 상태를 구분해 접촉 열매 무효화, 니카 응용, 지진 충격·지속력을 별도 시나리오로 비교. 기존 직접 15건 보존, 승자/승률 미산정.'},
+      {kind:'evidence',characterId:'teach',title:'티치 전투력 상향 근거 검토',detail:'기존 7축 95/89/95/82/93/87/93·Overall 90.57 유지. 상향 여부는 독립적인 신규 유효타/운용 표본과 중복 산정 여부를 확인한 뒤 사용자 승인 하에 검토.'},
       {kind:'feature',title:'평가 상태 문구 숨김',detail:'캐릭터 상단·순위·동축 비교·평가 근거에서 Draft/prototype 등 내부 처리 상태의 기본 노출 제거. E1/E2/E3와 평가 시점·근거는 유지.'},
       {kind:'feature',title:'기존 데이터·버전과 모델 보존',detail:'72 캐릭터, 76 Evaluation, 532 스탯, 직접 Matchup 15건. Balanced 1.2/Haki 0.5 변경 없음. 데이터셋·평가 집합은 0.4.3, 기존 0.3.3 스냅샷 불변.'},
     ],
