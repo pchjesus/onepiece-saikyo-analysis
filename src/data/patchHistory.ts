@@ -37,7 +37,7 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
-  { version:'v0.4.1',date:'2026-10-13',title:'카쿠·이나즈마 이미지 교정, 버기·루피 초상, 루피 7축 Draft',
+  { version:'v0.4.1',date:'2026-10-14',title:'카쿠·이나즈마 이미지 교정, 버기·루피 초상, 루피 7축 Draft',
     summary:'카쿠·이나즈마 초상 파일 교환, 버기·루피 초상 2장 추가, 루피 Gear 5 시점 7축 잠정 평가. 원본 71명의 점수와 15 직접 대진, Balanced 1.2 및 v0.3.3 스냅샷을 보존한다.',
     changes:[
       {kind:'feature',title:'카쿠·이나즈마 초상 이미지 상호 교정',detail:'사용자가 발견한 잘못된 이미지 할당을 Git blob 교환으로 수정하고 자동 파일 해시 검증에 포함.'},
