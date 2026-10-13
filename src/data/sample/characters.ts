@@ -1,3 +1,4 @@
+import { izoCharacter } from './izoProfile'
 import { v0180Characters } from './v0180CharacterExpansion'
 import { wanoCharacters } from './wanoExpansion'
 import { v0170Characters } from './v0170GroupAceExpansion'
@@ -854,4 +855,5 @@ export const sampleCharacters: Character[] = [
   ...wanoCharacters,
   ...v0170Characters,
   ...v0180Characters,
+  izoCharacter,
 ]

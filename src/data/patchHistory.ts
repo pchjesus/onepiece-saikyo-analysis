@@ -37,6 +37,14 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  { version:'v0.3.2',date:'2026-10-13',title:'초상 이미지 64장·이조·과거 로저 소속',
+    summary:'사용자가 제공한 64명의 초상을 웹앱에 연결하고, 이조의 평가 전 프로필과 과거 해적단 소속 기록을 추가했다. 이미지 재배포 허가는 미확인이다.',
+    changes:[
+      {kind:'feature',title:'초상 이미지 64장 등록',detail:'사용자 업로드를 WebP로 변환해 저장하고 캐릭터명·ID에 연결. 재배포 라이선스 미확인 표기 및 이미지가 없는 7명은 기존 대체 표시 유지.'},
+      {kind:'character',title:'이조 프로필 추가',characterId:'izo',detail:'흰수염 해적단 16번대 대장, 아카자야 측 오니가시마 전투 합류. 독립된 원작 근거와 7축 평가를 완료하기 전까지 순위·매치업은 미산정.'},
+      {kind:'group',title:'로저 해적단 과거 소속 보강',detail:'샹크스·이누아라시·네코마무시의 과거 견습·동승 이력을 등록. 현재 소속과 구분해 표시.'},
+    ],
+  },
   {version:'v0.3.1',date:'2026-10-13',title:'근거 펼침 안내·이미지 전환 안정화',
    summary:'상세 근거의 펼침·접힘 상태를 명확히 안내하고, 향후 허가된 이미지의 로딩 실패가 다른 캐릭터로 이어지지 않도록 했다.',
    changes:[

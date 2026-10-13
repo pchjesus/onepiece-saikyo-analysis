@@ -1,9 +1,10 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.3.1** (v0.3 출처 유형·링크 명칭·근거 카드·E등급·모바일 가독성 개선 + 펼침/접힘 안내·허가된 초상 이미지 전환 안정화. 공식 비브르 카드 외부 목록 연결; 원작 저작권 이미지 미등록) (npm package 버전 **0.3.1**)  
-평가 데이터: **70 Character master pool · 69 evaluated unique Character · 88 Membership · 72 Evaluation · 504 Stat** 
+현재 구현 패치: **v0.3.2** (사용자 제공 초상 64장, 미평가 이조 프로필 추가, 로저 해적단 과거 소속 보강. **이미지 공개 재배포 권한은 확인되지 않음**) (npm package 버전 **0.3.2**)  
+평가 데이터: **71 Character master pool · 70 visible Character · 69 evaluated unique Character · 93 Membership · 72 Evaluation · 504 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
+- [v0.3.2 초상 이미지·이조·과거 소속 패치](docs/V0_3_2_PORTRAITS_AND_MEMBERSHIPS_2026-10-13.md)
 - [v0.3.0 근거·출처 가독성 릴리즈 기록](docs/V0_3_0_EVIDENCE_READABILITY_RELEASE_2026-10-13.md)
 
 ## v1.0까지의 기본 개발 방향

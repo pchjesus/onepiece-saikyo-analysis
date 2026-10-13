@@ -1,3 +1,12 @@
+## v0.3.2 — User-provided portraits, Izo profile, past Roger memberships (2026-10-13)
+
+- Uploaded **64 user-supplied PNG portraits** as optimized WebP binaries to `public/images/characters/` and connected their exact Character IDs through the existing BASE_URL-aware portrait resolver.
+- Images are explicitly marked `user-provided-unverified`. **Original copyright holders, license chains and public redistribution permissions have not been independently verified.** The site does not misrepresent them as owned, freely licensed or official game assets. Seven original roster characters are missing portrait images and retain their text fallbacks.
+- Added **Izo** to Character master (71 total) with Whitebeard Pirates 16th Division and historical Akazaya raid affiliation; he has a dedicated **unrated profile** with no invented evidence, 7-axis score or matchup result. The evaluated cohort remains **69**, including 72 Evaluation records and 504 Stat rows.
+- Added historical Roger Pirates membership for **Shanks, Inuarashi and Nekomamushi**, keeping present/current representative affiliations and group navigation intact. Expanded membership rows **88 → 93**.
+- Reconciled tests for image-backed presentation and roster counts. Existing Balanced 1.2, Haki weight 0.5, 69 evaluated scores, 15 direct matchups and other assessment facts remain untouched.
+- See `docs/V0_3_2_PORTRAITS_AND_MEMBERSHIPS_2026-10-13.md`; live device visual tests and rights audit are still outstanding.
+
 ## v0.3.1 — small evidence and permitted-portrait UX stability patch (2026-10-13)
 
 - Native evidence disclosure now displays “펼치기” only when closed and “접기” when opened; touch target at least 44px high. Original evidence, battle links, and scores unchanged.

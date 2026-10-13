@@ -28,7 +28,11 @@ describe('group membership migration', () => {
     expect(sampleMemberships.filter(({ characterId }) => characterId === 'linlin')).toHaveLength(2)
     expect(sampleMemberships.filter(({ characterId }) => characterId === 'kuzan')).toHaveLength(2)
     expect(sampleMemberships.filter(({ characterId }) => characterId === 'jinbe')).toHaveLength(2)
-    expect(sampleMemberships).toHaveLength(88)
+    expect(sampleMemberships).toHaveLength(93)
+    expect(sampleMemberships.filter(x => x.characterId === 'izo').map(x => x.groupId).sort())
+      .toEqual(['akazaya-nine', 'whitebeard-pirates'])
+    for (const id of ['shanks', 'inuarashi', 'nekomamushi'])
+      expect(sampleMemberships.find(x => x.characterId === id && x.groupId === 'roger-pirates')?.status).toBe('former')
   })
 
   it('rejects unknown character and group references', () => {

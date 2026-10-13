@@ -35,6 +35,8 @@ function membershipPriority(entry: CharacterListEntry): number {
   if (['pirate-crew', 'historical'].includes(group.type)) {
     if (!membership.subgroup && (role === '선장' || role.includes('/ 선장'))) return 0
     if (role.startsWith('부선장')) return 1
+    // Roger's officially designated left-hand fighter precedes apprentice members.
+    if (group.id === 'roger-pirates' && role.includes('해적왕의 왼팔')) return 2
     const unit = membership.subgroup?.match(/^(\d+)번(?:대|선)$/)
     if (unit) return 10 + Number(unit[1])
   }
