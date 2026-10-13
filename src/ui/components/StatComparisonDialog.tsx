@@ -21,7 +21,7 @@ function ComparisonColumn({side}: {side:StatComparisonSide}){
     </div>
     <div className="stat-compare-score">
       <strong>{side.final}<small>/100</small></strong>
-      <span>근거 {side.readiness??'미분류'} · {side.status}</span>
+      <span>근거 {side.readiness??'미분류'}</span>
     </div>
     <p className="stat-compare-formula">기본 {side.base} + 패기 Raw {side.rawHaki} × {side.hakiWeight} = Final {side.final}{side.base+side.effectiveHaki>100?' · 100점 상한 적용':''}</p>
     <div className="stat-compare-rationale"><strong>평가 이유</strong><p>{normalizeCharacterNamesForDisplay(side.rationale)}</p></div>
