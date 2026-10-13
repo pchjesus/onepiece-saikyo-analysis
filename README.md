@@ -1,16 +1,16 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.3.3** (캐릭터 초상 70장 및 확대 팝업, 버기·이조 7축 잠정 평가, 해적단 문양 개선. **이미지 재배포 권한은 확인되지 않음**) (npm package 버전 **0.3.3**)  
+현재 구현 패치: **v0.4.0** (v0.3.3 독립 데이터·근거·평가·순위·매치업 스냅샷, 참조 무결성·계산 재현성 검사. 기존 점수·화면 기능 변경 없음. **이미지 재배포 권한은 확인되지 않음**) (npm package 버전 **0.4.0**)  
 평가 데이터: **71 Character master pool · 71 visible Character · 71 evaluated unique Character · 96 Membership · 74 Evaluation · 518 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
-- [v0.3.3 이미지 확대·버기/이조 잠정평가·v0.4 준비](docs/V0_3_3_PORTRAIT_ZOOM_BUGGY_IZO_2026-10-13.md)
+- [v0.4.0 독립 기준선·무결성·재현성 릴리즈](docs/V0_4_0_DATA_INTEGRITY_BASELINE_2026-10-13.md)\n- [v0.3.3 이미지 확대·버기/이조 잠정평가·v0.4 준비](docs/V0_3_3_PORTRAIT_ZOOM_BUGGY_IZO_2026-10-13.md)
 - [v0.3.2 초상 이미지·이조·과거 소속 패치](docs/V0_3_2_PORTRAITS_AND_MEMBERSHIPS_2026-10-13.md)
 - [v0.3.0 근거·출처 가독성 릴리즈 기록](docs/V0_3_0_EVIDENCE_READABILITY_RELEASE_2026-10-13.md)
 
 ## v1.0까지의 기본 개발 방향
 
-- **[v0.3~v1.0 정식 출시 개발 로드맵](docs/V1_0_DEVELOPMENT_ROADMAP.md)** — 앞으로의 개발 기준 문서. 현재 v0.3.0 출시 완료, v0.4 이후는 사용자 요청 시 상세 설계. 단계별 검증·승인 및 출시 게이트를 기록.
+- **[v0.3~v1.0 정식 출시 개발 로드맵](docs/V1_0_DEVELOPMENT_ROADMAP.md)** — 앞으로의 개발 기준 문서. 현재 v0.4.0 무결성 기반 구현 중이며, v0.5 이후 평가 재산정은 별도 승인 후 진행. 단계별 검증·승인 및 출시 게이트를 기록.
 - 현행 Balanced 1.2/Haki 0.5 계산 모델과 이전 69명 평가 수치는 유지하고, 버기·이조의 E3/E2 평가만 신규 추가했다. 다른 기존 점수 변경에는 별도 승인이 필요하다.
 
 

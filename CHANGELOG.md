@@ -1,3 +1,15 @@
+## v0.4.0 — 독립 기준선·도메인 무결성·계산 재현성 (2026-10-13)
+
+- **v0.3.3 main f544458**의 전체 Character/Group/Membership/Battle/Participant/Evidence/Haki/Evaluation/Matchup 및 7축 점수·Overall·8개 순위·대표/시점 평가를 독립 JSON(약 1.58MB)에 고정. 기존 v0180 필터식 코호트와 구별.
+- 모든 도메인 참조 및 Balanced 1.2/Haki Weight 0.5 모델·직접 Matchup 15개의 무결성 자동 검사, 실제 오류를 주입한 반례 테스트, timestamp 독립 재현성 검증 추가.
+- 앱 버전 0.4.0 / core data 0.3.3 / evaluation set 0.3.3 / 개별 evaluationDataVersion / model balanced@1.2 / snapshot 0.3.3 분리. 기존 평가 개별 버전은 수정하지 않음.
+- 사용자 화면의 패치 내역 버전 표기만 0.4.0으로 갱신. 기존 69명 점수와 버기·이조 Draft, 소속, 이미지, 15 매치업 및 계산 가중치는 변경 없음.
+- 독립 스냅샷 생성에 사용한 임시 GitHub Actions 쓰기 워크플로는 제거. 정상 CI 배포 워크플로 불변.
+- [설계 및 보존·제약 보고서](docs/V0_4_0_DATA_INTEGRITY_BASELINE_2026-10-13.md) · [PR #93](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/93).
+- 실제 PC/모바일 실사용, 출처의 사실 적합성/재배포 권리 별도 검증 필요.
+
+---
+
 ## v0.3.3 — 초상 확대, 버기·이조 잠정 평가, 문양 및 무결성 스모크 (2026-10-13)
 
 - 기존 64장에 티치·시류·바제스·반 오거·피사로·코비 6장 WebP를 추가하여 70장 등록. 버기 이미지 미제공으로 대체 글자 유지.

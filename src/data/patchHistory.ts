@@ -37,6 +37,14 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  { version:'v0.4.0', date:'2026-10-13', title:'데이터 무결성·독립 기준선·계산 재현성',
+    summary:'v0.3.3 전체 도메인·평가·근거·15 직접 대진을 독립 JSON으로 보존하고, 참조·계산·버전의 자동 검증을 추가했다. 기존 전투력 점수는 변경하지 않았다.',
+    changes:[
+      {kind:'feature', title:'v0.3.3 역사적 데이터·순위 스냅샷', detail:'현재 배열 필터가 아닌 정적 JSON. Character/Group/Membership/Battle/Participant/Evidence/Evaluation/Matchup 및 모든 7축과 전체 계산을 보존.'},
+      {kind:'feature', title:'도메인 전반 참조 무결성 감사', detail:'중복/존재하지 않는 참조·Haki와 캐릭터 귀속·대표 Evaluation/상태·Matchup 근거를 검사하며 E3 근거 부족은 별도 경고로 분리.'},
+      {kind:'feature', title:'계산·동점 순위 재현성 및 버전 구분', detail:'Balanced 1.2/Haki 0.5 유지. 앱·데이터셋·개별 Evaluation revision·모델·스냅샷 버전을 구분.'},
+    ],
+  },
   { version:'v0.3.3',date:'2026-10-13',title:'이미지 확대·검은수염 초상·버기와 이조의 E3/E2 잠정 평가',
     summary:'업로드된 6장 추가로 초상 70장, 확대/비율 개선과 해적단 단순 문양 교체. 버기·이조의 7축 잠정 평가 및 v0.4 무결성 스모크 테스트를 추가했다.',
     changes:[

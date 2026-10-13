@@ -1,3 +1,15 @@
+# v0.4.0 — 독립 v0.3.3 스냅샷/무결성/재현성 (2026-10-13)
+
+- **원본:** 이전 안정 `main@f544458364eeb69e31dbdbb4f97184eef5a98564` (v0.3.3), 82개 파일 355개 통과 기준.
+- **구현:** `src/data/baselines/v0.3.3.json` 약 1.58MB (원본 입력과 파생 평가·순위·대표 상태 전체 독립 복제), `src/data/integrity/auditDataset.ts`, `v033Snapshot.ts`, `versionManifest.ts`, `tests/v04Baseline.test.ts`, 반례 감사 테스트.
+- 최초 기준선 생성 GitHub Actions [38418326823](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38418326823): 해당 스냅샷 생성 테스트 **5/5 통과**, 1회성 작업 후 권한 부여 workflow 삭제.
+- 첫 전체 PR CI는 새 버전 헤더가 반영되지 않은 3개 UI/patchHistory 테스트 기대값으로 실패. 후속 전체 실행에서는 오류 주입 조건이 잘못된 테스트 1건 실패; 수정 후 타입 빌드에서 src 내 Node-only 테스트의 `node:fs` 타입 누락 발견. **브라우저 빌드 범위에서 Node-only 테스트를 `tests/`로 이동**해 별도 @types/node/tsconfig 변경을 피함.
+- [기능 PR #93](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/93) 및 최종 Actions 결과는 해당 PR의 마지막 CI/Pages 성공 여부를 별도로 확인한다. 구버전 성공을 재사용하지 않음.
+- **보존:** 71 캐릭터, 96 Membership, 74 Evaluation, 518 stat items, 15 직접 Matchup, Balanced 1.2/Haki 0.5, 버기 Overall 38/이조 약 76.14 및 기존 69명의 모든 평가 점수 변경 없음.
+- **범위 밖:** 실제 브라우저/모바일 수동 화면 검증, 공식 원작 회차 직접 대조, 이미지 제3자 재배포 허가, v0.5 점수 재산정.
+
+---
+
 # v0.3.3 — 초상 확대·버기/이조 E2/E3 평가·v0.4 무결성 스모크 (2026-10-13)
 
 - 기준선: v0.3.2 main `ccdeb8def08eaf3091612c4de2bb068519c6907a`.
