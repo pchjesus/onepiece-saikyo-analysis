@@ -24,7 +24,7 @@ function ComparisonColumn({side}: {side:StatComparisonSide}){
       <strong>{side.final}<small>/100</small></strong>
       <span>근거 {side.readiness??'미분류'} · {side.status}</span>
     </div>
-    <p className="stat-compare-formula">기본 {side.base} + 패기 Raw {side.rawHaki} × {side.hakiWeight} = Final {side.final}</p>
+    <p className="stat-compare-formula">기본 {side.base} + 패기 Raw {side.rawHaki} × {side.hakiWeight} = Final {side.final}{side.base+side.effectiveHaki>100?' · 100점 상한 적용':''}</p>
     <div className="stat-compare-rationale"><strong>평가 이유</strong><p>{normalizeCharacterNamesForDisplay(side.rationale)}</p></div>
     {side.attackAudit&&<section className="stat-compare-audit" aria-label={side.name+' 공격력 4요소'}>
       <h5>공격력 4요소 검토</h5>
@@ -55,20 +55,33 @@ export function StatComparisonDialog({stat,primaryId,primaryStateId,onClose}:Pro
   const closeRef=useRef<HTMLButtonElement>(null)
   const roster=useMemo(()=>getStatComparisonRoster(),[])
   const ranking=useMemo(()=>getStatRanking(stat),[stat])
-  const firstOther=ranking.find(x=>x.characterId!==primaryId)?.characterId??roster.find(x=>x.id!==primaryId)?.id??''
+  const currentScore=ranking.find(x=>x.characterId===primaryId)?.score??0
+  const firstOther=[...ranking].filter(x=>x.characterId!==primaryId)
+    .sort((a,b)=>Math.abs(a.score-currentScore)-Math.abs(b.score-currentScore))[0]?.characterId
+    ??roster.find(x=>x.id!==primaryId)?.id??''
   const [secondaryId,setSecondaryId]=useState(firstOther)
   const [secondaryStateId,setSecondaryStateId]=useState<string|undefined>(roster.find(x=>x.id===firstOther)?.defaultStateId)
   const comparison=getStatComparison(stat,primaryId,secondaryId,primaryStateId,secondaryStateId)
   const secondary=roster.find(x=>x.id===secondaryId)
   useEffect(()=>{
     const previous=document.activeElement instanceof HTMLElement?document.activeElement:null
+    const previousOverflow=document.body.style.overflow
+    document.body.style.overflow='hidden'
     closeRef.current?.focus()
     const onKey=(e:KeyboardEvent)=>{if(e.key==='Escape'){e.preventDefault();onClose()}}
     document.addEventListener('keydown',onKey)
-    return ()=>{document.removeEventListener('keydown',onKey);previous?.focus()}
+    return ()=>{document.removeEventListener('keydown',onKey);document.body.style.overflow=previousOverflow;previous?.focus()}
   },[onClose])
   return <div className="stat-compare-overlay" role="presentation" onMouseDown={e=>{if(e.target===e.currentTarget)onClose()}}>
-    <section className="stat-compare-dialog" role="dialog" aria-modal="true" aria-labelledby="stat-compare-title">
+    <section className="stat-compare-dialog" role="dialog" aria-modal="true" aria-labelledby="stat-compare-title"
+      onKeyDown={event=>{
+        if(event.key!=='Tab')return
+        const focusable=[...event.currentTarget.querySelectorAll<HTMLElement>('button:not([disabled]),select:not([disabled]),a[href]')]
+        if(focusable.length===0)return
+        const first=focusable[0],last=focusable[focusable.length-1]
+        if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
+        else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
+      }}>
       <header className="stat-compare-header">
         <div><p className="eyebrow">근거 기반 동축 비교</p><h2 id="stat-compare-title">{COMBAT_STAT_DEFINITIONS[stat].label} · 비교 분석</h2></div>
         <button type="button" ref={closeRef} className="stat-compare-close" aria-label="스탯 비교 닫기" onClick={onClose}>닫기 ×</button>
