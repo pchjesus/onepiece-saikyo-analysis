@@ -3,7 +3,6 @@ import { groupRepository } from '../../data/repositories/groupRepository'
 import { CharacterPortrait } from '../components/CharacterPortrait'
 import { CharacterIdentity, characterIdentityStyle } from '../components/CharacterIdentity'
 import { CombatProfile } from '../components/CombatProfile'
-import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
 
 /** Public character profile for a documented but not-yet-scored character. */
 export function UnratedCharacterPage({ characterId, groupId }: { characterId: string; groupId: string }) {
@@ -21,12 +20,9 @@ export function UnratedCharacterPage({ characterId, groupId }: { characterId: st
         <div>
           <CharacterIdentity group={group} characterId={characterId} showPastMembership={past}/>
           <h1>{character.name}</h1>
-          {character.description && <p className="character-description">
-            {normalizeCharacterNamesForDisplay(character.description)}
-          </p>}
         </div>
       </div>
-      <p className="prototype-note">전투력 미평가 · 캐릭터와 소속 이력만 등록 · 점수·순위·매치업 산정 제외</p>
+      <p className="prototype-note">전투력 미평가 · 순위 미포함</p>
     </div>
     <div className="overview-layout">
       <section className="score-overview" aria-label="평가 준비 상태">
