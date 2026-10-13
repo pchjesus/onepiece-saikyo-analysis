@@ -41,7 +41,7 @@ export function EvidenceList({
   battle?: Battle
 }) {
   if (records.length === 0) {
-    return <p className="empty-note">현재 연결된 원작 근거가 없습니다.</p>
+    return <p className="empty-note">현재 연결된 근거가 없습니다.</p>
   }
 
   return (
@@ -82,13 +82,13 @@ export function EvidenceList({
       {records.map(({ evidence }) => (
         <article className="evidence-card" key={evidence.id}>
           <div className="evidence-meta">
-            <span className="evidence-source"><SourceCitation reference={evidence.source.reference} description={evidence.source.description}/></span>
-            <span>{evidenceStrengthLabels[evidence.evidenceStrength]}</span>
+            <span className="evidence-source"><SourceCitation sourceType={evidence.source.type} reference={evidence.source.reference} description={evidence.source.description}/></span>
+            <span>근거 강도 · {evidenceStrengthLabels[evidence.evidenceStrength]}</span>
           </div>
           <h3>{battle ? normalizeCharacterNamesForDisplay(battle.title) : '연결된 전투 정보 없음'}</h3>
           <dl>
             <div>
-              <dt>원작에서 확인되는 사실</dt>
+              <dt>{evidence.source.type === 'canon' ? '원작 회차에 기록된 내용' : evidence.source.type === 'community' ? '커뮤니티 자료에 기재된 내용' : '자료에 기재된 내용'}</dt>
               <dd>{normalizeCharacterNamesForDisplay(evidence.fact)}</dd>
             </div>
             <div>

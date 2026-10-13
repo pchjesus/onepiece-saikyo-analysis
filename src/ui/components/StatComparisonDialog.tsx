@@ -34,11 +34,12 @@ function ComparisonColumn({side}: {side:StatComparisonSide}){
       <h5>이 스탯의 연결 근거 · {side.evidence.length}건</h5>
       {shown.length?shown.map(({evidence,battle,role})=><div className="stat-compare-evidence-item" key={evidence.id}>
         <strong>{battle?.title??'전투 기록이 연결되지 않은 근거'}</strong>
-        <span>{evidence.source.type==='canon'?'원작':evidence.source.type==='supplementary'?'공식·보조 자료':'커뮤니티'} · {role?roleLabels[role]+' 근거':'역할 미지정'}</span>
-        <p><b>작중 사실</b> {normalizeCharacterNamesForDisplay(evidence.fact)}</p>
+        <span>{role?roleLabels[role]+' 근거':'역할 미지정'} · 근거 강도 {evidence.evidenceStrength}</span>
+        <p><b>{evidence.source.type==='canon'?'원작 회차 참조':'자료 기록'}</b> {normalizeCharacterNamesForDisplay(evidence.fact)}</p>
         {battle&&<p><b>전투 조건</b> {normalizeCharacterNamesForDisplay(battle.restrictions)} / {normalizeCharacterNamesForDisplay(battle.externalFactors)}</p>}
         <p><b>해석</b> {normalizeCharacterNamesForDisplay(evidence.interpretation)}</p>
-        <div className="stat-compare-citation"><SourceCitation reference={evidence.source.reference}
+        <p><b>불확실성</b> {normalizeCharacterNamesForDisplay(evidence.uncertainty)}</p>
+        <div className="stat-compare-citation"><SourceCitation sourceType={evidence.source.type} reference={evidence.source.reference}
           description={evidence.source.description}/></div>
       </div>):<p className="stat-compare-muted">이 평가축에 연결된 근거가 없어. 근거 부족이 곧 낮은 전투력을 뜻하지는 않아.</p>}
       {side.evidence.length>3&&<button type="button" className="stat-compare-more" onClick={()=>setExpanded(v=>!v)}>
