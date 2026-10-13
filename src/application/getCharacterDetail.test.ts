@@ -3,10 +3,11 @@ import { getCharacterList, getUniqueCharacterList } from './getCharacterList'
 import { getCharacterDetail } from './getCharacterDetail'
 
 describe('getCharacterDetail group migration', () => {
-  it('resolves representative detail for every Character in the 42-person evaluated roster', () => {
+  it('resolves representative detail for 69 evaluated Characters, excluding Izo pending evaluation', () => {
     const list = getUniqueCharacterList()
-    expect(list).toHaveLength(69)
+    expect(list).toHaveLength(70)
     for (const { character, group } of list) {
+      if (character.id === 'izo') continue // Izo has a profile-only page; no fabricated score
       const detail = getCharacterDetail(character.id, group.id)
       expect(detail?.character.id).toBe(character.id)
       expect(detail?.group.id).toBe(group.id)
@@ -16,9 +17,10 @@ describe('getCharacterDetail group migration', () => {
 
   it('resolves every expanded Membership context, including historical secondary Groups', () => {
     const expanded = getCharacterList()
-    expect(expanded).toHaveLength(88)
+    expect(expanded).toHaveLength(93)
 
     for (const { character, group } of expanded) {
+      if (character.id === 'izo') continue
       const detail = getCharacterDetail(character.id, group.id)
       expect(detail?.character.id).toBe(character.id)
       expect(detail?.group.id).toBe(group.id)
