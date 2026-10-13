@@ -17,7 +17,7 @@ describe('Buggy provisional lower-tier analysis (E3)', () => {
     expect(data?.status).toBe('draft')
     expect(data?.items).toHaveLength(7)
     expect(data?.items.every(x=>x.readiness==='E3' && x.hakiContributions.length===0)).toBe(true)
-    expect(validateEvaluation(data!, sampleEvidence.map(x=>({id:x.id,subjectCharacterId:x.subjectCharacterId}))).toEqual({valid:true,errors:[]})
+    expect(validateEvaluation(data!, sampleEvidence.map(x=>({id:x.id,subjectCharacterId:x.subjectCharacterId})))).toEqual({valid:true,errors:[]})
     expect(getCombatPower('buggy').finalScore).toBeCloseTo(38,5)
     expect(getStatRanking('overall')).toHaveLength(71)
     expect(getStatRanking('overall').at(-1)?.characterId).toBe('buggy')
@@ -32,7 +32,7 @@ describe('Buggy provisional lower-tier analysis (E3)', () => {
       expect(e.uncertainty).toBeTruthy()
     }
     expect(sampleCharacters).toHaveLength(71)
-    expect(sampleEvaluations).toHaveLength(73)
+    expect(sampleEvaluations).toHaveLength(74)
     expect(sampleMemberships).toHaveLength(96)
     expect(getUniqueCharacterList()).toHaveLength(71)
     expect(sampleMemberships.filter(x=>x.characterId==='buggy').map(x=>x.groupId).sort())

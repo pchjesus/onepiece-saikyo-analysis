@@ -19,7 +19,7 @@ export const legacyMemberships=sampleMemberships.filter(x=>!added.has(x.characte
 export const legacyEvidence=sampleEvidence.filter(x=>!added.has(x.subjectCharacterId)&&!['buggy','izo'].includes(x.subjectCharacterId))
 export const legacyBattles=sampleBattles.filter(x=>!x.id.startsWith('battle-v0180-')&&!x.id.startsWith('buggy-')&&!x.id.startsWith('izo-'))
 export const getLegacyCharacterList=()=>getCharacterList().filter(x=>!added.has(x.character.id)&&!newRogerMembership({characterId:x.character.id,groupId:x.group.id}))
-export const getLegacyUniqueCharacterList=()=>getUniqueCharacterList().filter(x=>!added.has(x.character.id))
+export const getLegacyUniqueCharacterList=()=>getUniqueCharacterList().filter(x=>!added.has(x.character.id)&&x.character.id!=='buggy')
 export const getLegacyStatRanking=(stat:RankingStat)=>{
   const sorted=getStatRanking(stat).filter(x=>!added.has(x.characterId)&&x.characterId!=='buggy')
   return sorted.map((x,i)=>({...x,rank:sorted.findIndex(y=>y.score===x.score)+1}))

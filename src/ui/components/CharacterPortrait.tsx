@@ -40,7 +40,7 @@ export function CharacterPortrait({ characterId, groupId, name, size }: Props) {
   const portrait = <span className={`character-portrait character-portrait-${size}`}
     style={{ '--portrait-accent': getCharacterAccent(groupId, characterId) } as CSSProperties}>
     {imageUrl && !failed
-      ? <img src={imageUrl} alt={`${name} 캐릭터 일러스트`}
+      ? <img src={imageUrl} alt={asset?.alt || `${name} 캐릭터 일러스트`}
           loading="lazy" decoding="async" onError={() => { setFailed(true); setExpanded(false) }} />
       : <span className="character-portrait-fallback" aria-hidden="true">{initial}</span>}
   </span>

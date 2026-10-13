@@ -87,7 +87,7 @@ describe('v0.1.80 patch history UI',()=>{
 
     await choose('전체')
     expect(tabs[0].getAttribute('aria-pressed')).toBe('true')
-    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(12)
+    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(13)
     expect(dialog.querySelectorAll('.patch-category-section').length).toBeGreaterThan(7)
   })
 
@@ -245,7 +245,7 @@ describe('evaluated roster UI', () => {
       ['해군', '사카즈키'],
       ['검은 수염 해적단', '마샬 D. 티치'],
       ['왕의 부하 칠무해', '돈키호테 도플라밍고'],
-      ['크로스 길드', '쥬라큘 미호크'],
+      ['크로스 길드', '버기'],
       ['로저 해적단', '골 D. 로저'],
       ['록스 해적단', '록스 D. 지벡'],
     ]) {
@@ -264,7 +264,7 @@ describe('evaluated roster UI', () => {
     expect(warlordNames.find((name) => name.includes('쥬라큘 미호크'))).toContain('과거 소속')
     await selectGroup('크로스 길드')
     expect([...container.querySelectorAll('.character-chip')].map((button) => button.textContent))
-      .toEqual(['쥬라큘 미호크', '크로커다일'])
+      .toEqual(['버기', '쥬라큘 미호크', '크로커다일'])
 
     await openPicker()
     const input = container.querySelector('#character-picker-search') as HTMLInputElement
@@ -319,8 +319,8 @@ describe('evaluated roster UI', () => {
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('에드워드 뉴게이트')
     expect(rows()[0].textContent).toContain('97.571')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
-    expect(rows()[0].textContent).toContain('타시기')
-    expect(rows()[0].textContent).toContain('70위')
+    expect(rows()[0].textContent).toContain('버기')
+    expect(rows()[0].textContent).toContain('71위')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
   })

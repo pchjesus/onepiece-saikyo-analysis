@@ -10,7 +10,7 @@ import type { Evaluation } from '../../domain/evaluation/types'
 export const buggyDraftBattle: Battle = {
   id: 'buggy-orange-town-official-summary',
   title: '오렌지 마을 — 버기와 루피의 충돌 (공식 줄거리 근거)',
-  chronologyOrder: 0,
+  chronologyOrder: 1,
   combatStructure: 'multiple-vs-multiple',
   combatPurpose: '그랜드 라인 해도를 둘러싼 충돌',
   combatIntent: 'unknown',
