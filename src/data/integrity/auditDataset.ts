@@ -75,6 +75,11 @@ export function auditCombatDataset(data: CombatDataset): AuditReport {
     if (!chars.has(membership.characterId)) error(scope, 'Unknown character')
     if (!groups.has(membership.groupId)) error(scope, 'Unknown group')
   }
+  // Concurrent affiliations may be intentional, so surface for review rather than rewriting history.
+  for (const character of data.characters) {
+    const concurrent = data.memberships.filter(m => m.characterId === character.id && m.status === 'current')
+    if (concurrent.length > 1) warn(`character:${character.id}`, `Multiple current groups to review: ${concurrent.map(m => m.groupId).join(', ')}`)
+  }
   const specialIds: string[] = []
   for (const character of data.characters) {
     const scope = `character:${character.id}`
@@ -152,6 +157,11 @@ export function auditCombatDataset(data: CombatDataset): AuditReport {
     if (!chars.has(matchup.characterAId)) error(scope, `Unknown A: ${matchup.characterAId}`)
     if (!chars.has(matchup.characterBId)) error(scope, `Unknown B: ${matchup.characterBId}`)
     for (const detail of validateMatchupAnalysis(matchup, [...evidence.keys()], states).errors) error(scope, detail)
+    for (const factor of matchup.factors) for (const id of factor.evidenceIds) {
+      const owner = evidence.get(id)?.subjectCharacterId
+      if (owner && owner !== matchup.characterAId && owner !== matchup.characterBId)
+        warn(scope, `Factor ${factor.id} cites third-party Evidence ${id} (${owner}); review context`)
+    }
     for (const [id, state] of [[matchup.characterAId, matchup.characterAStateId], [matchup.characterBId, matchup.characterBStateId]] as const) {
       if (!state && !data.evaluations.some(e => e.characterId === id)) error(scope, `Missing default Evaluation: ${id}`)
       if (state && !data.evaluations.some(e => e.characterId === id && e.subjectState?.id === state))
