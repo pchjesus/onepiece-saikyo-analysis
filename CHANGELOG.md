@@ -5,7 +5,7 @@
 - 루피(밀짚모자 선장) 신규 프로필·소속·2개 전투 상황·6개 공식 TV 설명형 Evidence, 7 Core Stat Draft. Attack97, Defense94, Stamina90, Speed95, Technique95, CombatIQ89, Versatility99, Overall=659/7≈94.14, 추가 Haki Raw=0 (중복 가산 유보). E2/E3 표시.
 - Character 72명, Membership 97건, Evaluation 75건, Stat 525건. 기존 71명 평가·근거/15 직접 Matchup·Balanced1.2/Haki0.5·과거 v0.3.3 정적 JSON 스냅샷 불변.
 - 현재 앱/core/evaluation set v0.4.1로 구분; 보존된 v0.3.3 이전 비교/역사 코호트에 루피가 혼입되지 않도록 회귀 검증.
-- [v0.4.1 근거·검증 보고서](docs/V0_4_1_PORTRAITS_LUFFY_2026-10-14.md) · [PR #95](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/95). 실제 브라우저 실사용, 이미지 재배포 권리, 만화 장면 원본 전체 감사는 별도 필요.
+- [v0.4.1 근거·검증 보고서](docs/V0_4_1_PORTRAITS_LUFFY_2026-10-14.md) · [PR #95](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/95). **85파일/371테스트, TS/Vite 빌드 성공**. 기능 main `9d66727e6612ae357d063924f660fa9191517cd7`, [GitHub Pages 배포 확인](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38425982667). 실제 브라우저 실사용, 이미지 재배포 권리, 만화 장면 원본 전체 감사는 별도 필요.
 
 ---
 
