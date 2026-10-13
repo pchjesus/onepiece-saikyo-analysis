@@ -85,8 +85,9 @@ describe('v0.2.1 source citation URL extraction', () => {
         expect(visible,character.id).not.toContain('https://')
         const originalCount=character.combatProfile.sources
           .reduce((count,source)=>count+(source.reference.match(/https:\/\//g)?.length??0),0)
-        expect(section?.querySelectorAll('a').length,character.id).toBe(originalCount)
+        expect(section?.querySelectorAll('.source-citation-link').length,character.id).toBe(originalCount)
         expect(section?.querySelectorAll('li').length).toBe(character.combatProfile.sources.length)
+        expect(section?.querySelector<HTMLAnchorElement>('.official-art-reference a')?.href).toBe('https://one-piece.com/vivre/list2/index.html')
       }
     }finally{await act(async()=>root.unmount())}
   })

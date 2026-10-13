@@ -88,7 +88,7 @@ export function EvidenceList({
           <h3>{battle ? normalizeCharacterNamesForDisplay(battle.title) : '연결된 전투 정보 없음'}</h3>
           <dl>
             <div>
-              <dt>{evidence.source.type === 'canon' ? '원작 회차에 기록된 내용' : evidence.source.type === 'community' ? '커뮤니티 자료에 기재된 내용' : '자료에 기재된 내용'}</dt>
+              <dt>{evidence.source.type === 'canon' ? '원작 회차 참조 내용' : evidence.source.type === 'community' ? '커뮤니티 자료에 기재된 내용' : '자료에 기재된 내용'}</dt>
               <dd>{normalizeCharacterNamesForDisplay(evidence.fact)}</dd>
             </div>
             <div>
