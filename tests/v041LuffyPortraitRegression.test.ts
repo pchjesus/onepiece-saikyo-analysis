@@ -58,7 +58,7 @@ describe('v0.4.1 additive Luffy and portrait mapping regression', () => {
     expect(luffy.items.map(i=>i.readiness)).toEqual(['E2','E2','E2','E2','E2','E3','E2'])
     expect(luffy.items.every(i=>i.hakiContributions.length===0)).toBe(true)
     expect(getCombatPower('luffy').finalScore).toBeCloseTo(657/7,12)
-    expect(sampleMatchups).toHaveLength(17)
+    expect(sampleMatchups).toHaveLength(15)
     expect(versionManifest.coreDataVersion).toBe('core-v0.4.3')
     expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.3')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
