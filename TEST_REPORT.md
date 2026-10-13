@@ -5,7 +5,8 @@
 - 기존 초상 2개 Git blob 교환: Inazuma `244cd714778b3f9f22b3f5f3c03415d13da4bdd7`, Kaku `77185b273d77d2197277e9369a30b947cf75ec68`. 웹앱의 등록 레지스트리에서 각자 ID 그대로 사용. Buggy/Luffy 2개 WebP 새 추가, 전체 초상 72장.
 - 루피(Character 1·Membership 1·Battle 2·Evidence 6·Evaluation 1/7축) 신규. 총 Character **72**, Membership **97**, Evaluation **75**, Stat **525**, 직접 Matchup **15 유지**. 루피 프로젝트 Draft E2/E3, Overall **659/7 ≈ 94.142857**, Haki Raw 추가 없음.
 - 자동 검사에서 신규 루피가 이전 `v0180LegacyCohort`의 과거 65명 코호트에 혼입되어 생기던 테스트 실패와 현재 72인 UI 기대값 갱신을 분리. v0.3.3 역사적 독립 JSON 절대 변경하지 않고 **기존 71명 평가 전체 원본 값 비교**를 추가.
-- **표준 회귀 실행:** [PR #95](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/95)의 가장 최근 테스트·빌드 실행 결과 확인. CI/Pages 및 실브라우저 확인은 서로 구분한다. 중간 실패한 CI는 성공으로 간주하지 않는다.
+- **최종 PR #95 CI:** [run 38425719781](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38425719781)에서 85개 테스트 파일 / **371개 테스트 전부 통과**. `tsc -b` 및 Vite 프로덕션 빌드 성공. 초기 실패(신규 루피가 역사적 필터 테스트에 혼입, 로스터 기대 수치 71→72)를 패치한 뒤 확인함.
+- **병합/배포:** [PR #95](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/95)를 `main@9d66727e6612ae357d063924f660fa9191517cd7`에 squash 병합. [GitHub Actions main run 38425982667](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38425982667)에서 동일 커밋 **npm test / TypeScript+Vite 빌드 / Pages deploy job 성공** 확인. 이는 실브라우저 사용성 점검과 다름.
 - **미검증:** 만화 해당 컷의 독립 전수 대조, 이미지 공개 재배포 권한, 실제 PC/모바일 브라우저에서 사진 확대·사용성 확인. 원작 사실과 프로젝트 점수 분리, 신규 데이터 근거는 공식 TV 회차 줄거리 범위.
 
 ---
