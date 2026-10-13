@@ -14,9 +14,9 @@ describe('Izo catalogue addition and past Roger affiliations', () => {
     expect(evaluationRepository.getEvaluations('izo')).toHaveLength(1)
     expect(evaluationRepository.getEvaluation('izo')?.items).toHaveLength(7)
     expect(evaluationRepository.getEvaluation('izo')?.status).toBe('draft')
-    expect(getStatRanking('overall')).toHaveLength(71)
-    expect(getMatchupRoster()).toHaveLength(71)
-    expect(getUniqueCharacterList()).toHaveLength(71)
+    expect(getStatRanking('overall')).toHaveLength(72)
+    expect(getMatchupRoster()).toHaveLength(72)
+    expect(getUniqueCharacterList()).toHaveLength(72)
   })
   it('shows Izo in both Whitebeard and Akazaya groups without redefining the original nine', () => {
     const items = getCharacterList().filter(e => e.character.id === 'izo')
