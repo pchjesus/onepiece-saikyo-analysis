@@ -31,6 +31,9 @@ export const liveDataset = {
  * No calculation timestamp, runtime date, browser state or mutable cache.
  */
 export function createV033Snapshot() {
+  // Backward-compatible factory name. After v0.3.3, the live comparison fixture
+  // must advertise its NEW version and may not pretend to be the frozen commit.
+  const isOriginalV033 = versionManifest.coreDataVersion === 'core-v0.3.3'
   const weight = balancedV12.configuration.hakiWeight
   const evaluations = sampleEvaluations.map(e => ({
     evaluationId: e.id,
@@ -51,9 +54,9 @@ export function createV033Snapshot() {
   }))
   return {
     schema: 'onepiece-v04-snapshot/1',
-    snapshotVersion: 'v0.3.3',
-    sourceCommit: versionManifest.baselineSourceCommit,
-    appVersionAtCapture: '0.3.3',
+    snapshotVersion: isOriginalV033 ? 'v0.3.3' : versionManifest.coreDataVersion.replace(/^core-/, ''),
+    sourceCommit: isOriginalV033 ? versionManifest.baselineSourceCommit : null,
+    appVersionAtCapture: isOriginalV033 ? '0.3.3' : versionManifest.appVersion,
     coreDataVersion: versionManifest.coreDataVersion,
     evaluationSetVersion: versionManifest.evaluationSetVersion,
     model: balancedV12,
