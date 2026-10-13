@@ -1,3 +1,9 @@
+## v0.3.1 — small evidence and permitted-portrait UX stability patch (2026-10-13)
+
+- Native evidence disclosure now displays “펼치기” only when closed and “접기” when opened; touch target at least 44px high. Original evidence, battle links, and scores unchanged.
+- Permission-gated portrait failure state resets when a character's image URL changes, preventing a failed prior asset from suppressing a different permitted asset. Added simulated licensed-image credit/retry test. **No copyrighted images added** because redistribution rights were not verified.
+- Existing v0.3 provenance rules, v1.0 roadmap, data, and calculation models preserved. Actual mobile visual/interaction validation is not claimed by CI.
+
 ## v0.3.0 — source provenance and readable evidence UI (2026-10-13)
 
 - Introduced conservative, plain-text source provenance labels from existing Evidence source type and explicitly recognizable published site references; link actions now distinguish official episode/profile, fan commentary, and generic materials. Labels do not assert that full manga panels were personally reviewed or raise evidence readiness.

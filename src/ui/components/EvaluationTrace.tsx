@@ -42,7 +42,7 @@ export function EvaluationTrace({
               </p>
               <p className="evaluation-trace-rationale"><strong>평가 이유</strong> {normalizeCharacterNamesForDisplay(item.rationale)}</p>
               {evidence.length > 0 ? <details className="trace-evidence-details">
-                <summary>연결 근거 {evidence.length}건 펼치기</summary>
+                <summary><span className="trace-expand-label">연결 근거 {evidence.length}건 펼치기</span><span className="trace-collapse-label">연결 근거 {evidence.length}건 접기</span></summary>
                 <ul className="trace-evidence-links">{evidence.map(({ evidence: record }) => <li key={record.id}>
                   <SourceCitation sourceType={record.source.type} reference={record.source.reference} description={record.source.description}/>
                   {onOpenEvidence && <button type="button" className="trace-battle-link"

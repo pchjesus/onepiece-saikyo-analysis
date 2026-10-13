@@ -37,6 +37,12 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.3.1',date:'2026-10-13',title:'근거 펼침 안내·이미지 전환 안정화',
+   summary:'상세 근거의 펼침·접힘 상태를 명확히 안내하고, 향후 허가된 이미지의 로딩 실패가 다른 캐릭터로 이어지지 않도록 했다.',
+   changes:[
+     {kind:'feature',title:'근거 펼침·접힘 상태 안내',detail:'실제 펼침 상태에 따라 동작 문구를 바꾸고 터치 영역을 확대.'},
+     {kind:'feature',title:'캐릭터 초상 실패 복구',detail:'허가된 이미지 전환 시 이전 캐릭터의 이미지 로딩 실패 상태를 초기화. 현재 이미지는 미등록.'},
+   ]},
   { version:'v0.3.0',date:'2026-10-13',title:'근거·출처 가독성 및 신뢰성 표현 개선',
     summary:'자료 유형에 따른 출처 표기·링크 명칭을 통일하고, 평가 근거 펼침과 모바일 가독성을 개선했다.',
     report:'https://github.com/pchjesus/onepiece-saikyo-analysis/blob/main/docs/V0_3_0_EVIDENCE_READABILITY_RELEASE_2026-10-13.md',
