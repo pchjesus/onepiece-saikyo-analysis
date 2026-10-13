@@ -7,7 +7,7 @@ import type { Evidence } from '../../domain/evidence/types'
 import { SourceCitation } from './SourceCitation'
 
 export function EvaluationTrace({
-  items, status, evaluationDataVersion, hakiWeight, onOpenEvidence,
+  items, evaluationDataVersion, hakiWeight, onOpenEvidence,
 }: {
   items: Array<{
     item: { stat: CombatStat; baseScore: number; score: number; rationale: string; evidenceIds: string[]; hakiContributions: HakiStatContribution[]; readiness?: EvidenceReadiness }
@@ -24,7 +24,7 @@ export function EvaluationTrace({
         <p className="eyebrow">평가 근거</p>
         <h2>평가 근거 연결</h2>
         <p className="section-note">각 스탯의 점수, 평가 이유와 출처를 확인할 수 있습니다. 패기 가중치는 계산 모델 설정값이며 근거 충분도는 점수에 가산되지 않습니다.</p>
-        <p className="evaluation-trace-version">평가 상태 {status} · 평가 데이터 {evaluationDataVersion}</p>
+        <details className="evaluation-trace-metadata"><summary>평가 기록 정보 ⓘ</summary><p className="evaluation-trace-version">평가 데이터 · {evaluationDataVersion}</p></details>
       </div>
       <div className="evaluation-trace-list">
         {items.map(({ item, evidence }) => {
