@@ -3,7 +3,7 @@
 - Baseline: v0.3.1 main SHA `124c33269f4b0eb483d1de9dcea0959a3e2b1a8c`.
 - Changes: 64 uploaded real WebP assets, image metadata/fallback/rights notices, 1 identity-only Izo profile, 5 new Membership rows (Izo ×2, Roger-era ×3), and updated UI/count tests.
 - Project data invariants: 71 Character master / 70 visible / 69 evaluated unique / 93 Membership / 72 Evaluation / 504 Stat, unchanged Balanced 1.2 & Haki weight 0.5.
-- **Verification pending:** final GitHub PR CI (Vitest, TypeScript, Vite build), post-merge deploy to GitHub Pages; earlier PR runs failed only on outdated roster/photo test assumptions and were corrected.
+- **Verification completed:** [PR #89](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/89) merged to `main@2926b71b37f62f521bc1c7eb43994bb39cc7add6`. [Final main CI run #38395430816](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38395430816) confirmed **79/79 test files and 349/349 tests passed**, `npm run build` (TypeScript + Vite) successful, and GitHub Pages **deploy job succeeded**. Earlier PR runs failed on outdated roster/photo test assumptions, which were corrected before merge.
 - **Unverified:** original game-illustration redistribution rights, independent visual review on actual desktop/mobile browsers, original manga pages for Izo's combat score. No numeric Izo score was fabricated.
 - PR: https://github.com/pchjesus/onepiece-saikyo-analysis/pull/89
 
