@@ -16,8 +16,9 @@ const structureLabels: Record<Battle['combatStructure'], string> = {
   'multiple-vs-multiple': '다수 대 다수',
 }
 
-export function BattleTimeline({ items }: { items: TimelineItem[] }) {
-  const [openBattleId, setOpenBattleId] = useState<string | null>(items[0]?.battle.id ?? null)
+export function BattleTimeline({ items, initialBattleId }: { items: TimelineItem[]; initialBattleId?:string|null }) {
+  const [openBattleId, setOpenBattleId] = useState<string | null>(
+    initialBattleId && items.some(x=>x.battle.id===initialBattleId) ? initialBattleId : items[0]?.battle.id ?? null)
 
   if (items.length === 0) {
     return <p className="empty-note">현재 연결된 전투 기록이 없습니다.</p>

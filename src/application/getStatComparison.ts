@@ -31,6 +31,7 @@ export type StatComparisonSide = {
   base:number
   rawHaki:number
   effectiveHaki:number
+  hakiWeight:number
   readiness?:EvidenceReadiness
   rationale:string
   evidence:StatComparisonEvidence[]
@@ -77,6 +78,7 @@ export function getStatComparisonSide(stat:CombatStat,characterId:string,stateId
     base:item.baseScore,
     rawHaki:getRawHakiContributionTotal(item),
     effectiveHaki:getEffectiveHakiContributionTotal(item,model.configuration.hakiWeight),
+    hakiWeight:model.configuration.hakiWeight,
     readiness:item.readiness,rationale:item.rationale,
     evidence,
     missingEvidenceIds:item.evidenceIds.filter(id=>!evidenceById.has(id)),

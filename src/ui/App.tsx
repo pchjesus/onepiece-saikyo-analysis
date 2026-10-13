@@ -8,6 +8,8 @@ import { CharacterPage } from './pages/CharacterPage'
 import { MatchupHome } from './pages/MatchupHome'
 import { PatchHistoryDialog } from './components/PatchHistoryDialog'
 import { patchHistory } from '../data/patchHistory'
+import { StatComparisonDialog } from './components/StatComparisonDialog'
+import type { CombatStat } from '../domain/evaluation/types'
 import './styles.css'
 
 const characterList = getCharacterList()
@@ -16,6 +18,7 @@ export default function App() {
   const [selectedId, setSelectedId] = useState(characterList[0]?.character.id ?? '')
   const [selectedGroupId, setSelectedGroupId] = useState(characterList[0]?.group.id ?? '')
   const [rankingStat, setRankingStat] = useState<RankingStat | null>(null)
+  const [statComparison, setStatComparison] = useState<{stat:CombatStat;primaryId:string;primaryStateId?:string}|null>(null)
   const [pickerOpen, setPickerOpen] = useState(false)
   const [patchOpen, setPatchOpen] = useState(false)
   const pickerTrigger = useRef<HTMLButtonElement>(null)
@@ -101,7 +104,10 @@ export default function App() {
       </nav>
       {pickerOpen && <CharacterPickerDialog characters={characterList} groups={groups}
         onSelectCharacter={selectCharacter} onClose={closePicker} />}
-      {selectedId && <CharacterPage key={`${selectedGroupId}:${selectedId}`} characterId={selectedId} groupId={selectedGroupId} onSelectStat={setRankingStat} onSelectOverall={() => setRankingStat('overall')} />}
+      {selectedId && <CharacterPage key={`${selectedGroupId}:${selectedId}`} characterId={selectedId} groupId={selectedGroupId} onSelectStat={setRankingStat}
+        onCompareStat={(stat,stateId)=>{setRankingStat(null);setStatComparison({stat,primaryId:selectedId,primaryStateId:stateId})}}
+        onSelectOverall={() => setRankingStat('overall')} />}
+      {statComparison && <StatComparisonDialog {...statComparison} onClose={() => setStatComparison(null)} />}
       {rankingStat && <StatRankingDialog stat={rankingStat} entries={getStatRanking(rankingStat)}
         selectedCharacterId={selectedId} onSelectCharacter={selectCharacter} onClose={() => setRankingStat(null)} />}
       </> : <MatchupHome />}

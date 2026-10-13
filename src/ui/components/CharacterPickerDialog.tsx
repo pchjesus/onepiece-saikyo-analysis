@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import type { CharacterListEntry } from '../../application/getCharacterList'
 import { getCharacterMatches } from './CharacterSearch'
+import { CharacterPortrait } from './CharacterPortrait'
 
 type GroupOption = { id: string; name: string }
 
@@ -113,8 +114,8 @@ export function CharacterPickerDialog({
                 className={`character-picker-option ${index === activeIndex ? 'active' : ''}`}
                 onMouseEnter={() => setActiveIndex(index)}
                 onClick={() => choose(entry)}>
-                <strong>{entry.character.name}</strong>
-                <span>{entry.group.name}{past ? ' · 과거 소속' : ''}{aliases ? ` · ${aliases}` : ''}</span>
+                <CharacterPortrait characterId={entry.character.id} groupId={entry.group.id} name={entry.character.name} size="small"/>
+                <span className="character-picker-option-copy"><strong>{entry.character.name}</strong><small>{entry.group.name}{past ? ' · 과거 소속' : ''}{aliases ? ` · ${aliases}` : ''}</small></span>
               </button>
             )
           }) : <p className="character-picker-empty">검색 결과가 없어.</p>}

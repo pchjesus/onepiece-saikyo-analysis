@@ -37,6 +37,14 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.2.0',date:'2026-10-13',title:'동축 전투력 비교 · 근거 탐색 · 캐릭터 초상 기반',
+    summary:'두 캐릭터의 동일 스탯을 원작 근거까지 비교하며 승인된 이미지용 안전한 표시 구조를 추가.',
+    changes:[
+      {kind:'feature',title:'동축 스탯 비교 분석',detail:'현재 스탯 화면에서 2명을 선택해 Base/Raw/Final, E등급, 실제 근거와 전투 조건을 비교.'},
+      {kind:'feature',title:'스탯 근거로 바로 이동',detail:'평가 근거의 출처에서 해당 전투 기록을 바로 열 수 있도록 연결.'},
+      {kind:'feature',title:'캐릭터 초상 기반',detail:'상세 화면과 전체 검색에 승인된 이미지의 자리와 캐릭터별 대체 아이콘을 추가. 무단 외부 이미지는 포함하지 않음.'},
+      {kind:'evidence',title:'6인 Attack 4요소 비교 연결',detail:'기존 질적 감사의 최대 출력·유효타·지속 화력·상성을 비교 창에서 확인. 기존 수치 유지.'},
+    ]},
   {
     version:'v0.1.81',date:'2026-10-12',title:'패치 내역 카테고리 정리',
     summary:'버전별 변경점을 스탯 조정, 캐릭터·소속, UI·기능, 근거·분석으로 구분했다.',
