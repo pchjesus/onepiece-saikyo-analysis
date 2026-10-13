@@ -21,7 +21,7 @@ describe('Buggy provisional lower-tier analysis (E3)', () => {
     expect(getCombatPower('buggy').finalScore).toBeCloseTo(38,5)
     expect(getStatRanking('overall')).toHaveLength(72)
     expect(getStatRanking('overall').slice(-1)[0]?.characterId).toBe('buggy')
-    expect(getMatchupRoster()).toHaveLength(71)
+    expect(getMatchupRoster()).toHaveLength(72)
   })
   it('adds official-summary evidence with matching battle IDs and retains unique current identity', () => {
     const evidence=sampleEvidence.filter(e=>e.subjectCharacterId==='buggy')
@@ -31,10 +31,10 @@ describe('Buggy provisional lower-tier analysis (E3)', () => {
       expect(e.source.type).toBe('supplementary')
       expect(e.uncertainty).toBeTruthy()
     }
-    expect(sampleCharacters).toHaveLength(71)
+    expect(sampleCharacters).toHaveLength(72)
     expect(sampleEvaluations).toHaveLength(75)
     expect(sampleMemberships).toHaveLength(97)
-    expect(getUniqueCharacterList()).toHaveLength(71)
+    expect(getUniqueCharacterList()).toHaveLength(72)
     expect(sampleMemberships.filter(x=>x.characterId==='buggy').map(x=>x.groupId).sort())
       .toEqual(['cross-guild','roger-pirates','seven-warlords'])
   })
