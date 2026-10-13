@@ -1,3 +1,14 @@
+# v0.2.0 — integrated analysis UX and data-preservation verification
+
+- **Stable baseline:** `v0.1.81 main@e6947aee505a286b82dd293cd09ad56ee01feee4`; 73 test files / 327 tests previously passed. Baseline has 70 Characters, 72 Evaluations (69 defaults), 504 7-axis items, 88 Memberships and 15 evidence-linked direct Matchups.
+- **UI changes:** `App` opens `StatComparisonDialog` from each of 7 Stat cards. CharacterPage carries the selected Era through to comparison; existing ranking button stays intact. Two side-specific panels display stat/value, model-derived Base+Raw×weight=Final, confidence E1/E2/E3, direct Evidence fact/context/interpretation, uncertainty and openable source links, expanding overflow after three. Attack-only 4-factor narrative audit uses existing `v0180CommanderAttackAudit`. EvidenceTrace→BattleTimeline deep-link opens the referenced Battle rather than adding another context store.
+- **Character media changes:** `characterPortraits.ts` is an empty approved-assets registry with local-safe file name constraints and permission/source metadata. `CharacterPortrait` shows existing grouped accent fallback with initials, no network image requests until approved assets added. Applied only to Character detail and searchable full-roster chooser; Matchup remains unchanged.
+- **Regression tests added:** read-only live score and Evidence provenance comparison, cross-era selection, preventing self-comparison, no numeric Attack substat, portrait fallback/zero external image requests, 7 buttons and comparison modal, 69 picker thumbnails, evidence-link navigation, historical patch-history tests scoped to their correct release version.
+- **Version policy:** package and lockfile root metadata now 0.2.0; dependencies unchanged, SPEC unchanged.
+- **GitHub PR CI and published Pages validation:** report the exact final PR head and post-merge SHA/run in PR release comment. Do not claim any unverified browser/device manual behavior.
+
+---
+
 # v0.1.81 — categorized patch history / zero combat-model changes
 
 - Baseline: v0.1.80 stable `main@d6325491a3fdf0acea9d4e685c78bcc0f6cb928d` (72 test files, 322 tests, Pages success).
