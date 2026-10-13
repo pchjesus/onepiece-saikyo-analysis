@@ -131,13 +131,13 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
     expect(container.querySelector('.stat-compare-dialog')).toBeNull()
     expect(container.querySelector('.character-chip.selected')?.textContent).toContain('알베르')
   })
-  it('shows 70 user-supplied portraits and Buggy fallback',async()=>{
+  it('shows 72 portraits including Buggy and Luffy',async()=>{
     await openPicker()
     const results=container.querySelectorAll('.character-picker-option')
-    expect(results).toHaveLength(71)
-    expect(container.querySelectorAll('.character-picker-option .character-portrait-small')).toHaveLength(71)
-    expect(container.querySelectorAll('.character-picker-option img')).toHaveLength(70)
-    expect(container.querySelectorAll('.character-picker-option .character-portrait-fallback')).toHaveLength(1)
+    expect(results).toHaveLength(72)
+    expect(container.querySelectorAll('.character-picker-option .character-portrait-small')).toHaveLength(72)
+    expect(container.querySelectorAll('.character-picker-option img')).toHaveLength(72)
+    expect(container.querySelectorAll('.character-picker-option .character-portrait-fallback')).toHaveLength(0)
     await click(container.querySelector('.character-picker-close'))
   })
   it('opens an attached evidence battle from the evaluated stat trace',async()=>{
@@ -192,7 +192,7 @@ describe('evaluated roster UI', () => {
 
   it('shows exactly 59 unique results and filters historical Tobi Roppo membership without duplication', async () => {
     await openPicker()
-    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(71)
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(72)
     const filter = container.querySelector<HTMLSelectElement>('#character-picker-group')!
     await act(async () => {
       const setter = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value')?.set
@@ -207,7 +207,7 @@ describe('evaluated roster UI', () => {
     expect(selectedGroupName()).toBe('토비롯포')
     expect(container.querySelector('[role="dialog"][aria-modal="true"]')).toBeNull()
     await openPicker()
-    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(71)
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(72)
   })
 
   it('restores trigger focus when closing with Escape and keeps unrelated evaluation data intact', async () => {
@@ -240,7 +240,7 @@ describe('evaluated roster UI', () => {
 
   it('opens newly added groups without the legacy crew lookup crash', async () => {
     for (const [group, character] of [
-      ['밀짚모자 일당', '롤로노아 조로'],
+      ['밀짚모자 일당', '몽키 D. 루피'],
       ['빨간 머리 해적단', '샹크스'],
       ['해군', '사카즈키'],
       ['검은 수염 해적단', '마샬 D. 티치'],
@@ -288,7 +288,7 @@ describe('evaluated roster UI', () => {
     const stat = container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]')
     await click(stat)
     const rows = [...document.querySelectorAll('.rank-row')]
-    expect(rows).toHaveLength(71)
+    expect(rows).toHaveLength(72)
     expect(rows.slice(0, 3).every((row) => row.textContent?.includes('100'))).toBe(true)
     expect(rows.slice(0, 3).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
     expect(rows.slice(0, 3).map((row) => row.textContent).join(' ')).toContain('에드워드 뉴게이트')
@@ -313,7 +313,7 @@ describe('evaluated roster UI', () => {
   it('opens Overall rankings in full-precision order and reverses the list without changing canonical ranks', async () => {
     await click(container.querySelector('button[aria-label="종합 전투력 전체 캐릭터 순위 보기"]'))
     const rows = () => [...document.querySelectorAll('.rank-row')]
-    expect(rows()).toHaveLength(71)
+    expect(rows()).toHaveLength(72)
     expect(document.querySelector('#stat-rank-title')?.textContent).toContain('종합 전투력')
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('에드워드 뉴게이트')
@@ -329,7 +329,7 @@ describe('evaluated roster UI', () => {
     await click(container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]'))
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     const rows = [...document.querySelectorAll('.rank-row')]
-    expect(rows).toHaveLength(71)
+    expect(rows).toHaveLength(72)
     expect(rows[0].textContent).not.toContain('골 D. 로저')
   })
 
