@@ -110,7 +110,7 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
   it('opens from the seven existing stat cards, preserves canonical King/Katakuri Attack=83, and closes',async()=>{
     const buttons=[...container.querySelectorAll<HTMLButtonElement>('.stat-compare-trigger')]
     expect(buttons).toHaveLength(7)
-    expect(container.querySelector('.character-portrait-large img')?.getAttribute('src')).toContain('images/characters/marco.webp')
+    expect(container.querySelector('.character-portrait-large img')?.getAttribute('src')).toContain('images/characters/newgate.webp')
     expect(container.querySelector('.character-portrait-large .character-portrait-fallback')).toBeNull()
     await selectGroup('백수 해적단')
     const king=[...container.querySelectorAll<HTMLButtonElement>('.character-chip')].find(b=>b.textContent?.includes('알베르'))!
@@ -167,7 +167,7 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
 describe('Izo unranked character profile', () => {
   it('shows identity and both historical memberships without manufacturing seven-stat scores', async () => {
     await selectGroup('흰수염 해적단')
-    const izo = [...container.querySelectorAll('.character-chip')].find(el => el.textContent?.includes('이조'))
+    const izo = [...container.querySelectorAll('.character-chip')].find(el => el.querySelector('span')?.textContent === '이조')
     expect(izo).toBeTruthy()
     await click(izo ?? null)
     expect(container.querySelector('main.detail h1')?.textContent).toBe('이조')
@@ -176,7 +176,7 @@ describe('Izo unranked character profile', () => {
     expect(container.querySelector('main.detail img')?.getAttribute('src')).toContain('images/characters/izo.webp')
     expect(container.querySelector('.power-card')).toBeNull()
     await selectGroup('아카자야 9남자')
-    await click([...container.querySelectorAll('.character-chip')].find(el => el.textContent?.includes('이조')) ?? null)
+    await click([...container.querySelectorAll('.character-chip')].find(el => el.querySelector('span')?.textContent === '이조') ?? null)
     expect(container.querySelector('main.detail h1')?.textContent).toBe('이조')
     expect(container.querySelector('.membership-context')?.textContent).toBe('과거 소속')
   })
