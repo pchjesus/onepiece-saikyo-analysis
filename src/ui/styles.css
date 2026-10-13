@@ -248,12 +248,25 @@ header p:last-child { color: #666; }
 .character-known-as { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
 .character-known-as span { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; background: #f0f0ed; padding: 5px 9px; font-size: .8rem; color: #333; }
 .character-known-as small { font-size: .68rem; font-weight: 800; color: #777; }
-.character-description { max-width: 760px; margin: 10px 0 0; color: #555; line-height: 1.55; font-size: .9rem; }
-.evaluation-subject-state { display: flex; flex-direction: column; gap: 4px; max-width: 760px; margin: 10px 0 0; border-left: 3px solid #c9a35d; padding-left: 10px; }
-.evaluation-subject-state strong { font-size: .82rem; }
-.evaluation-subject-state span { color: #666; line-height: 1.45; font-size: .78rem; }
+/* v0.4.2: factual profile is below; compact header reserves room for name, affiliation and state. */
+.evaluation-subject-state { max-width: 760px; margin-top: 9px; }
+.evaluation-subject-state > summary { cursor: pointer; font-size: .8rem; font-weight: 750; color: #555; width: fit-content; min-height: 28px; display: flex; align-items: center; gap: 7px; list-style: none; }
+.evaluation-subject-state > summary::-webkit-details-marker { display: none; }
+.evaluation-subject-state > summary span { color: #777; }
+.evaluation-subject-state > summary:hover, .evaluation-subject-state > summary:focus-visible { text-decoration: underline; outline-offset: 3px; }
+.evaluation-state-explanation { margin-top: 6px; padding: 8px 11px; max-width: 670px; border-left: 3px solid #c9a35d; background: #f7f7f4; font-size: .78rem; color: #565656; line-height: 1.55; overflow-wrap: anywhere; }
+.evaluation-state-explanation p { margin: 0 0 5px; }
+.evaluation-state-explanation small { color: #737373; }
+.score-interpretation { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: -5px 0 12px; font-size: .78rem; }
+.score-interpretation-warning { color: #555; line-height: 1.45; }
+.score-interpretation-help { flex: 0 0 auto; }
+.score-interpretation-help > summary { list-style: none; width: 24px; height: 24px; cursor: pointer; display: grid; place-items: center; border: 1px solid #b6bec5; border-radius: 50%; background: #f4f5f5; color: #4b5560; font-size: .8rem; font-weight: 800; }
+.score-interpretation-help > summary::-webkit-details-marker { display: none; }
+.score-interpretation-help > summary:focus-visible { outline: 2px solid #536b80; outline-offset: 2px; }
+.score-interpretation-help[open] { flex-basis: 100%; }
+.score-interpretation-help > .section-note { margin: 3px 0 0; padding: 9px 11px; border: 1px solid #e1e6e9; border-radius: 8px; background: #f8fafb; font-size: .79rem; line-height: 1.55; overflow-wrap: anywhere; }
 @media (max-width: 700px) {
-  .character-description, .evaluation-subject-state { max-width: 100%; }
+  .evaluation-subject-state { max-width: 100%; }
 }
 
 
