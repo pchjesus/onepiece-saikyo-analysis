@@ -48,7 +48,7 @@ describe('v0.2.1 source citation URL extraction', () => {
     const el=document.createElement('div'),root=createRoot(el)
     try {
       await act(async()=>root.render(<SourceCitation label="원작 Evidence" reference="Ch. 434 / 579 / 1055 / 1079"/>))
-      expect(el.textContent).toContain('원작 Evidence')
+      expect(el.textContent).toContain('원작 근거')
       expect(el.textContent).toContain('Ch. 434')
       expect(el.querySelector('a')).toBeNull()
     } finally {await act(async()=>root.unmount())}
@@ -67,6 +67,23 @@ describe('v0.2.1 source citation URL extraction', () => {
             expect([...el.querySelectorAll<HTMLAnchorElement>('.profile-sources a')].some(a=>original.reference.includes(a.href)),id).toBe(true)
           }
         }
+      }
+    }finally{await act(async()=>root.unmount())}
+  })
+
+  it('checks the entire 70-character profile roster for raw displayed HTTPS addresses',async()=>{
+    const el=document.createElement('div'), root=createRoot(el)
+    try {
+      expect(sampleCharacters).toHaveLength(70)
+      for(const character of sampleCharacters){
+        await act(async()=>root.render(<CombatProfile profile={character.combatProfile}/>))
+        const section=el.querySelector('.profile-sources')
+        const visible=section?.textContent??''
+        expect(visible,character.id).not.toContain('https://')
+        const originalCount=character.combatProfile.sources
+          .filter(source=>source.reference.includes('https://')).length
+        expect(section?.querySelectorAll('a').length,character.id).toBe(originalCount)
+        expect(section?.querySelectorAll('li').length).toBe(character.combatProfile.sources.length)
       }
     }finally{await act(async()=>root.unmount())}
   })
