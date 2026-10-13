@@ -10,11 +10,13 @@ export type CharacterPortraitAsset = {
   permission: 'owned' | 'licensed' | 'open-license' | 'user-provided-unverified'
   permissionNote: string
 }
-const providedIds = 'marco newgate jozu ace vista king kaido queen jack x-drake page-one ulti whos-who black-maria sasaki linlin katakuri smoothie cracker zoro sanji jinbe shanks gaban rayleigh roger rocks mihawk crocodile garp kizaru kuzan akainu ryokugyu fujitora prince-grus smoker vergo tashigi inazuma lucci stussy sabo ivankov kaku morley karasu doflamingo diamante pica hancock law kid killer kinemon kanjuro raizo kikunojo ashura-doji kawamatsu denjiro inuarashi nekomamushi izo teach shiryu burgess van-augur pizarro koby'.split(' ')
+const providedIds = 'marco newgate jozu ace vista king kaido queen jack x-drake page-one ulti whos-who black-maria sasaki linlin katakuri smoothie cracker zoro sanji jinbe shanks gaban rayleigh roger rocks mihawk crocodile garp kizaru kuzan akainu ryokugyu fujitora prince-grus smoker vergo tashigi inazuma lucci stussy sabo ivankov kaku morley karasu doflamingo diamante pica hancock law kid killer kinemon kanjuro raizo kikunojo ashura-doji kawamatsu denjiro inuarashi nekomamushi izo teach shiryu burgess van-augur pizarro koby buggy luffy'.split(' ')
 
 export const characterPortraitAssets: Readonly<Record<string, CharacterPortraitAsset>> =
   Object.fromEntries(providedIds.map((id): [string, CharacterPortraitAsset] => [id, {
     fileName: id + '.webp',
+    ...(id === 'buggy' ? {sourceUrl:'https://one-piece-artworks.com/index.php?page=indexbaggy'} : {}),
+    ...(id === 'luffy' ? {sourceUrl:'https://x.com/OnePieceTCArts'} : {}),
     permission: 'user-provided-unverified',
     permissionNote: '사용자 제공 이미지 · 원저작권자 및 공개 재배포 허가 미확인',
   }]))

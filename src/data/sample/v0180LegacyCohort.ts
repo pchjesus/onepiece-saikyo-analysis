@@ -9,7 +9,9 @@ import { getCharacterList, getUniqueCharacterList } from '../../application/getC
 import type { RankingStat } from '../../application/getStatRanking'
 
 /** Frozen v0.1.79 legacy cohort; does not rewrite or alter live v0.1.80 data. */
-const added = new Set([...v0180Characters.map(x=>x.id), 'izo'])
+// Keep v0.1.79 historical regression cohorts isolated from later v0.4.1 Luffy addition.
+// The independent canonical v0.3.3 archive remains src/data/baselines/v0.3.3.json.
+const added = new Set([...v0180Characters.map(x=>x.id), 'izo', 'luffy'])
 const newEvaluationCharacters = new Set(['buggy', 'izo'])
 const newRogerMembership = (x: { characterId: string; groupId: string }) =>
   x.groupId === 'roger-pirates' && ['shanks','inuarashi','nekomamushi'].includes(x.characterId)
@@ -17,7 +19,7 @@ export const legacyCharacters=sampleCharacters.filter(x=>!added.has(x.id))
 export const legacyEvaluations=sampleEvaluations.filter(x=>!added.has(x.characterId) && !newEvaluationCharacters.has(x.characterId))
 export const legacyMemberships=sampleMemberships.filter(x=>!added.has(x.characterId)&&!newRogerMembership(x)&&x.characterId!=='buggy')
 export const legacyEvidence=sampleEvidence.filter(x=>!added.has(x.subjectCharacterId)&&!['buggy','izo'].includes(x.subjectCharacterId))
-export const legacyBattles=sampleBattles.filter(x=>!x.id.startsWith('battle-v0180-')&&!x.id.startsWith('buggy-')&&!x.id.startsWith('izo-'))
+export const legacyBattles=sampleBattles.filter(x=>!x.id.startsWith('battle-v0180-')&&!x.id.startsWith('buggy-')&&!x.id.startsWith('izo-')&&!x.id.startsWith('luffy-'))
 export const getLegacyCharacterList=()=>getCharacterList().filter(x=>!added.has(x.character.id)&&!newRogerMembership({characterId:x.character.id,groupId:x.group.id}))
 export const getLegacyUniqueCharacterList=()=>getUniqueCharacterList().filter(x=>!added.has(x.character.id)&&x.character.id!=='buggy')
 export const getLegacyStatRanking=(stat:RankingStat)=>{

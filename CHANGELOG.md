@@ -1,3 +1,14 @@
+## v0.4.1 — 이미지 교정·버기/루피 초상·루피 7축 E2/E3 Draft (2026-10-14)
+
+- 카쿠·이나즈마의 잘못 할당된 기존 WebP를 원본 Git blob 교환으로 교정하고 해시 검사로 재발 방지.
+- 사용자 제공 그림과 일치하는 버기·루피 일러스트 2장 WebP를 추가 (70→72장). 새 이미지 원저작권자 및 공개 재배포 허가 미확인; 관련 불확실성 표기 유지.
+- 루피(밀짚모자 선장) 신규 프로필·소속·2개 전투 상황·6개 공식 TV 설명형 Evidence, 7 Core Stat Draft. Attack97, Defense94, Stamina90, Speed95, Technique95, CombatIQ89, Versatility99, Overall=659/7≈94.14, 추가 Haki Raw=0 (중복 가산 유보). E2/E3 표시.
+- Character 72명, Membership 97건, Evaluation 75건, Stat 525건. 기존 71명 평가·근거/15 직접 Matchup·Balanced1.2/Haki0.5·과거 v0.3.3 정적 JSON 스냅샷 불변.
+- 현재 앱/core/evaluation set v0.4.1로 구분; 보존된 v0.3.3 이전 비교/역사 코호트에 루피가 혼입되지 않도록 회귀 검증.
+- [v0.4.1 근거·검증 보고서](docs/V0_4_1_PORTRAITS_LUFFY_2026-10-14.md) · [PR #95](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/95). 실제 브라우저 실사용, 이미지 재배포 권리, 만화 장면 원본 전체 감사는 별도 필요.
+
+---
+
 ## v0.4.0 — 독립 기준선·도메인 무결성·계산 재현성 (2026-10-13)
 
 - **v0.3.3 main f544458**의 전체 Character/Group/Membership/Battle/Participant/Evidence/Haki/Evaluation/Matchup 및 7축 점수·Overall·8개 순위·대표/시점 평가를 독립 JSON(약 1.58MB)에 고정. 기존 v0180 필터식 코호트와 구별.

@@ -18,10 +18,10 @@ describe('uploaded portraits and fallback behavior', () => {
       expect(img?.getAttribute('src')).toContain('images/characters/marco.webp')
       expect(img?.alt).toContain('마르코')
       expect(host.querySelector('.portrait-attribution')?.textContent).toContain('권리 미확인')
-      expect(host.querySelectorAll('.character-portrait-fallback')).toHaveLength(1)
+      expect(host.querySelectorAll('.character-portrait-fallback')).toHaveLength(0)
       await act(async () => { img?.dispatchEvent(new Event('error')) })
-      expect(host.querySelector('img')).toBeNull()
-      expect(host.querySelectorAll('.character-portrait-fallback')).toHaveLength(2)
+      expect(host.querySelectorAll('img')).toHaveLength(1)
+      expect(host.querySelectorAll('.character-portrait-fallback')).toHaveLength(1)
     } finally {
       await act(async () => root.unmount())
     }

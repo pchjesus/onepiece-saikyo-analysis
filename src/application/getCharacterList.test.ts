@@ -2,19 +2,19 @@ import { describe, expect, it } from 'vitest'
 import { getCharacterList, getUniqueCharacterList } from './getCharacterList'
 
 describe('getCharacterList', () => {
-  it('lists 71 visible Characters (70 scored) and 96 Membership rows', () => {
+  it('lists 72 visible and evaluated Characters and 97 Membership rows', () => {
     const unique = getUniqueCharacterList()
     const expanded = getCharacterList()
 
-    expect(unique).toHaveLength(71)
-    expect(expanded).toHaveLength(96)
-    expect(new Set(unique.map(({ character }) => character.id)).size).toBe(71)
+    expect(unique).toHaveLength(72)
+    expect(expanded).toHaveLength(97)
+    expect(new Set(unique.map(({ character }) => character.id)).size).toBe(72)
 
     expect(unique.map((item) => item.character.name).sort()).toEqual([
       '마르코', '죠즈', '비스타',
       '알베르', '퀸', '잭',
       '샬롯 카타쿠리', '샬롯 스무디', '샬롯 크래커',
-      '롤로노아 조로', '상디', '징베',
+      '몽키 D. 루피', '롤로노아 조로', '상디', '징베',
       '샹크스', '몽키 D. 가프', '사카즈키', '쿠잔', '보르살리노', '잇쇼', '아라마키',
       '마샬 D. 티치', '지저스 바제스', '시류', '반 오거', '아발로 피사로',
       '트라팔가 로', '돈키호테 도플라밍고', '보아 핸콕',
@@ -58,8 +58,9 @@ describe('getCharacterList', () => {
     const collator = new Intl.Collator('ko-KR')
     expect(names('beasts-pirates').slice(1)).toEqual(
       [...names('beasts-pirates').slice(1)].sort(collator.compare))
-    expect(names('straw-hat-pirates')).toEqual(
-      [...names('straw-hat-pirates')].sort(collator.compare))
+    expect(names('straw-hat-pirates')).toEqual([
+      '몽키 D. 루피', ...[...names('straw-hat-pirates').slice(1)].sort(collator.compare),
+    ])
   })
 
   it('keeps Kuzan and Jinbe in both current and historical affiliations without duplicated rankings', () => {

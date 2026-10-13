@@ -45,8 +45,8 @@ describe('v0.4 frozen v0.3.3 source-of-truth audit', () => {
   it('detects no broken references across all domain arrays, including invisible UI records', () => {
     const report = auditCombatDataset(liveDataset)
     expect(report.errors).toEqual([])
-    expect(sampleCharacters).toHaveLength(71)
-    expect(sampleEvaluations).toHaveLength(74)
+    expect(sampleCharacters).toHaveLength(72)
+    expect(sampleEvaluations).toHaveLength(75)
     expect(sampleMatchups).toHaveLength(15)
   })
 
@@ -61,7 +61,7 @@ describe('v0.4 frozen v0.3.3 source-of-truth audit', () => {
     }
     for (const stat of ['overall', ...COMBAT_STATS] as const) {
       const ranks = getStatRanking(stat)
-      expect(ranks).toHaveLength(71)
+      expect(ranks).toHaveLength(72)
       for (let i=0; i<ranks.length; i++) {
         expect(ranks[i].rank).toBe(ranks.findIndex(x=>x.score===ranks[i].score)+1)
         if (i>0) expect(ranks[i].score).toBeLessThanOrEqual(ranks[i-1].score)

@@ -1,3 +1,4 @@
+import { luffyBattles } from './luffyDraft'
 import { izoAssessmentBattles } from './izoAssessment'
 import { buggyDraftBattles } from './buggyDraft'
 import { wanoBattles } from './wanoExpansion'
@@ -839,6 +840,7 @@ export const sampleBattles: Battle[] = [
   ...v0180Battles,
   ...buggyDraftBattles,
   ...izoAssessmentBattles,
+  ...luffyBattles,
 ]
 
 export const sampleBattleParticipants: BattleParticipant[] = [

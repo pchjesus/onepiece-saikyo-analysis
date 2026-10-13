@@ -37,6 +37,16 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  { version:'v0.4.1',date:'2026-10-13',title:'카쿠·이나즈마 이미지 교정, 버기·루피 초상, 루피 7축 Draft',
+    summary:'카쿠·이나즈마 초상 파일 교환, 버기·루피 초상 2장 추가, 루피 Gear 5 시점 7축 잠정 평가. 원본 71명의 점수와 15 직접 대진, Balanced 1.2 및 v0.3.3 스냅샷을 보존한다.',
+    changes:[
+      {kind:'feature',title:'카쿠·이나즈마 초상 이미지 상호 교정',detail:'사용자가 발견한 잘못된 이미지 할당을 Git blob 교환으로 수정하고 자동 파일 해시 검증에 포함.'},
+      {kind:'feature',title:'버기·루피 초상 등록',detail:'사용자가 제시한 원피스 트레저 크루즈 일러스트와 일치하는 원본을 확인하여 WebP 변환·연결. 공개 재배포 권리 별도 미확인.'},
+      {kind:'character',title:'몽키 D. 루피 신규 등록',characterId:'luffy',detail:'밀짚모자 일당 선장. 기어 5 시점 평가 및 공식 TV 줄거리 연계 2 Battle·6 Evidence, E2/E3 Draft.'},
+      {kind:'evidence',title:'루피 신규 전투력 7축 잠정 산정',characterId:'luffy',detail:'Attack 97 / Defense 94 / Stamina 90 / Speed 95 / Technique 95 / Combat IQ 89 / Versatility 99, Overall 약 94.14. Haki Raw 0(중복 가산 유보), Gear5 소모/CP0 외부 개입/호위 임무를 반영.'},
+      {kind:'feature',title:'기존 데이터·계산 보존 및 데이터셋 버전 갱신',detail:'앱 0.4.1, core/evaluation set 0.4.1. Frozen v0.3.3 JSON과 Balanced 1.2, 기존 개인 평가 71명 및 Matchup 15개 불변.'},
+    ],
+  },
   { version:'v0.4.0', date:'2026-10-13', title:'데이터 무결성·독립 기준선·계산 재현성',
     summary:'v0.3.3 전체 도메인·평가·근거·15 직접 대진을 독립 JSON으로 보존하고, 참조·계산·버전의 자동 검증을 추가했다. 기존 전투력 점수는 변경하지 않았다.',
     changes:[
