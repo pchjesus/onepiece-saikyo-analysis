@@ -1,3 +1,4 @@
+import { izoMemberships } from './izoProfile'
 import { v0180Memberships } from './v0180CharacterExpansion'
 import { wanoMemberships } from './wanoExpansion'
 import { v0170Memberships } from './v0170GroupAceExpansion'
@@ -21,6 +22,9 @@ export const sampleMemberships: CharacterMembership[] = [
   { characterId: 'jinbe', groupId: 'straw-hat-pirates', role: '조타수 / 전투원', status: 'current' },
 
   { characterId: 'shanks', groupId: 'red-hair-pirates', role: '선장', status: 'current' },
+  { characterId: 'shanks', groupId: 'roger-pirates', role: '견습 선원', status: 'former', period: '로저 해적단 활동기 / 견습 선원' },
+  { characterId: 'inuarashi', groupId: 'roger-pirates', role: '오뎅 수행원 / 견습 동승', status: 'former', period: '오뎅을 따라 오로 잭슨호 동승, 라프텔 도달 전 하선' },
+  { characterId: 'nekomamushi', groupId: 'roger-pirates', role: '오뎅 수행원 / 견습 동승', status: 'former', period: '오뎅을 따라 오로 잭슨호 동승, 라프텔 도달 전 하선' },
   { characterId: 'garp', groupId: 'marines', role: '중장 / 해군 영웅', status: 'current' },
   { characterId: 'akainu', groupId: 'marines', role: '원수', status: 'current' },
   { characterId: 'kuzan', groupId: 'marines', role: '전 대장', status: 'former', period: '해군 퇴직 전' },
@@ -67,4 +71,5 @@ export const sampleMemberships: CharacterMembership[] = [
   ...wanoMemberships,
   ...v0170Memberships,
   ...v0180Memberships,
+  ...izoMemberships,
 ]
