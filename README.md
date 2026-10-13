@@ -84,7 +84,7 @@
 
 ## 현재 평가 로스터
 
-대표 Group 기준의 65명 evaluated unique Character는 다음과 같다. Group 탭은 Membership-expanded view라 과거 소속이 있는 캐릭터가 다른 Group에도 추가로 표시될 수 있지만 Ranking / Matchup selector에는 한 번만 나타난다.
+대표 Group 기준의 69명 evaluated unique Character는 다음과 같다. Group 탭은 Membership-expanded view라 과거 소속이 있는 캐릭터가 다른 Group에도 추가로 표시될 수 있지만 Ranking / Matchup selector에는 한 번만 나타난다.
 
 - 흰수염 해적단: 마르코 / 죠즈 / 비스타 / 에드워드 뉴게이트 / 포트거스 D. 에이스(생전)
 - 백수 해적단: 알베르(통칭 킹) / 퀸 / 잭 / 카이도 / 토비롯포 6인 (X 드레이크는 현재 SWORD, 과거 백수 해적단 소속)
