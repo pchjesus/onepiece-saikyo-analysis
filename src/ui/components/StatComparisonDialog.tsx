@@ -10,7 +10,7 @@ type Props={stat:CombatStat;primaryId:string;primaryStateId?:string;onClose:()=>
 const roleLabels={primary:'주요',secondary:'보조',context:'상황 참고'} as const
 const attackDimensions=[['peakOutput','순간 최대 출력'],['verifiedHit','실제 유효타'],['sustainedPressure','지속 화력'],['matchup','상성·조건']] as const
 const sourceUrl=(source:{reference:string;description?:string})=>
-  [source.description,source.reference].find(x=>x&&/^https:\/\//.test(x))
+  [source.description,source.reference].find((x):x is string=>Boolean(x&&/^https:\/\//.test(x)))
 
 function ComparisonColumn({side}: {side:StatComparisonSide}){
   const [expanded,setExpanded]=useState(false)
@@ -24,7 +24,7 @@ function ComparisonColumn({side}: {side:StatComparisonSide}){
       <strong>{side.final}<small>/100</small></strong>
       <span>근거 {side.readiness??'미분류'} · {side.status}</span>
     </div>
-    <p className="stat-compare-formula">기본 {side.base} + 패기 Raw {side.rawHaki} × 0.5 = Final {side.final}</p>
+    <p className="stat-compare-formula">기본 {side.base} + 패기 Raw {side.rawHaki} × {side.hakiWeight} = Final {side.final}</p>
     <div className="stat-compare-rationale"><strong>평가 이유</strong><p>{normalizeCharacterNamesForDisplay(side.rationale)}</p></div>
     {side.attackAudit&&<section className="stat-compare-audit" aria-label={side.name+' 공격력 4요소'}>
       <h5>공격력 4요소 검토</h5>
