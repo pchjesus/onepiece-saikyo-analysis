@@ -1,3 +1,4 @@
+import { luffyEvidence } from './luffyDraft'
 import { izoAssessmentEvidence } from './izoAssessment'
 import { buggyDraftEvidence } from './buggyDraft'
 import { v0180Evidence } from './v0180CharacterExpansion'
@@ -2818,4 +2819,5 @@ export const sampleEvidence: Evidence[] = [
   ...v0180Evidence,
   ...buggyDraftEvidence,
   ...izoAssessmentEvidence,
+  ...luffyEvidence,
 ]
