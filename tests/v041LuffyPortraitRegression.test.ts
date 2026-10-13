@@ -10,7 +10,7 @@ import { sampleBattles } from '../src/data/sample/battles'
 import { sampleEvidence } from '../src/data/sample/evidence'
 import { sampleMatchups } from '../src/data/sample/matchups'
 import { balancedV12 } from '../src/data/sample/calculationModels'
-import { liveDataset } from '../src/data/integrity/v033Snapshot'
+import { createV033Snapshot, liveDataset } from '../src/data/integrity/v033Snapshot'
 import { versionManifest } from '../src/data/integrity/versionManifest'
 import { auditCombatDataset } from '../src/data/integrity/auditDataset'
 import { getStatRanking } from '../src/application/getStatRanking'
@@ -62,6 +62,9 @@ describe('v0.4.1 additive Luffy and portrait mapping regression', () => {
     expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.1')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
     expect(versionManifest.calculationModelVersion).toBe('1.2')
+    expect(createV033Snapshot().snapshotVersion).toBe('v0.4.1')
+    expect(createV033Snapshot().sourceCommit).toBeNull()
+    expect(frozen.sourceCommit).toBe(versionManifest.baselineSourceCommit)
   })
   it('keeps complete references and current Luffy group hierarchy',()=>{
     expect(auditCombatDataset(liveDataset).errors).toEqual([])
