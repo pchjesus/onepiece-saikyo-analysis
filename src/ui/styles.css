@@ -722,3 +722,26 @@ header p:last-child { color: #666; }
 .trace-evidence-details[open] .trace-expand-label{display:none}
 .trace-evidence-details[open] .trace-collapse-label{display:inline}
 .trace-evidence-details>summary{min-height:44px}
+
+
+/* v0.3.3 portrait readability: contain entire artwork; overlay never stretches the page */
+.character-portrait-large{width:140px;height:145px;aspect-ratio:auto;border-radius:15px}
+.character-portrait-small{width:43px;height:48px;aspect-ratio:auto}
+.character-portrait img{object-fit:contain;object-position:center;image-rendering:auto}
+.character-portrait-with-credit{width:140px}
+.portrait-zoom-trigger{display:block;width:140px;padding:0;margin:0;border:0;border-radius:15px;background:none;cursor:zoom-in}
+.portrait-zoom-trigger:focus-visible{outline:3px solid #1768a8;outline-offset:3px}
+.portrait-lightbox-backdrop{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:16px;background:rgba(7,14,26,.87);overflow:auto}
+.portrait-lightbox-dialog{display:flex;flex-direction:column;align-items:center;width:min(96vw,1050px);max-height:calc(100dvh - 32px);padding:10px 14px;border-radius:16px;background:#f7f9fc;box-shadow:0 18px 64px rgba(0,0,0,.55)}
+.portrait-lightbox-toolbar{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 2px 5px;color:#162638}
+.portrait-lightbox-close{display:grid;place-items:center;width:40px;height:40px;border:1px solid #b5bdc8;border-radius:10px;background:white;color:#162638;font-size:1.7rem;cursor:pointer}
+.portrait-lightbox-close:focus-visible{outline:3px solid #1768a8;outline-offset:2px}
+.portrait-lightbox-image{display:block;max-width:100%;max-height:calc(100dvh - 150px);width:auto;height:auto;object-fit:contain}
+.portrait-lightbox-note{margin:4px auto 0;color:#4a5362;text-align:center}
+@media(max-width:650px){
+  .character-portrait-large{width:100px;height:108px}
+  .character-portrait-with-credit,.portrait-zoom-trigger{width:100px}
+  .portrait-lightbox-backdrop{padding:8px}
+  .portrait-lightbox-dialog{width:100%;max-height:calc(100dvh - 16px);padding:8px}
+  .portrait-lightbox-image{max-height:calc(100dvh - 115px)}
+}
