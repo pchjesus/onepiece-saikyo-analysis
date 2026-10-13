@@ -1,16 +1,17 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.3.2** (사용자 제공 초상 64장, 미평가 이조 프로필 추가, 로저 해적단 과거 소속 보강. **이미지 공개 재배포 권한은 확인되지 않음**) (npm package 버전 **0.3.2**)  
-평가 데이터: **71 Character master pool · 70 visible Character · 69 evaluated unique Character · 93 Membership · 72 Evaluation · 504 Stat** 
+현재 구현 패치: **v0.3.3** (캐릭터 초상 70장 및 확대 팝업, 버기·이조 7축 잠정 평가, 해적단 문양 개선. **이미지 재배포 권한은 확인되지 않음**) (npm package 버전 **0.3.3**)  
+평가 데이터: **71 Character master pool · 71 visible Character · 71 evaluated unique Character · 96 Membership · 74 Evaluation · 518 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
+- [v0.3.3 이미지 확대·버기/이조 잠정평가·v0.4 준비](docs/V0_3_3_PORTRAIT_ZOOM_BUGGY_IZO_2026-10-13.md)
 - [v0.3.2 초상 이미지·이조·과거 소속 패치](docs/V0_3_2_PORTRAITS_AND_MEMBERSHIPS_2026-10-13.md)
 - [v0.3.0 근거·출처 가독성 릴리즈 기록](docs/V0_3_0_EVIDENCE_READABILITY_RELEASE_2026-10-13.md)
 
 ## v1.0까지의 기본 개발 방향
 
 - **[v0.3~v1.0 정식 출시 개발 로드맵](docs/V1_0_DEVELOPMENT_ROADMAP.md)** — 앞으로의 개발 기준 문서. 현재 v0.3.0 출시 완료, v0.4 이후는 사용자 요청 시 상세 설계. 단계별 검증·승인 및 출시 게이트를 기록.
-- 현재 구현과 점수·계산 모델은 변경하지 않으며, 향후 중요 UX·평가/수치 변경은 별도 검토와 승인을 거친다.
+- 현행 Balanced 1.2/Haki 0.5 계산 모델과 이전 69명 평가 수치는 유지하고, 버기·이조의 E3/E2 평가만 신규 추가했다. 다른 기존 점수 변경에는 별도 승인이 필요하다.
 
 
 - [v0.1.26 27인 재보정 보고서](docs/RECALIBRATION_0_1_26_DRAFT.md)
@@ -105,7 +106,7 @@
 - 혁명군: 사보 / 몰리 / 카라스
 - CP0: 로브 루치 / 스튜시(전 요원) / 카쿠
 
-버기는 Character master pool에는 존재하지만 E3 미평가로 evaluated roster에 포함하지 않는다. 스코퍼 가반의 전성기도 E3로 수치 Evaluation을 만들지 않고 현재 엘바프 Evaluation만 등록한다.
+버기는 크로스 길드 대표로 소속 등록되었고 E3 하위권 잠정 평가(Overall 38.0)가 있다. 이조는 아카자야 측 전투원·흰수염 해적단 16번대 대장으로 E2/E3 잠정 평가(Overall 약 76.14)가 있다. 스코퍼 가반의 전성기도 E3로 수치 Evaluation을 만들지 않고 현재 엘바프 Evaluation만 등록한다.
 
 Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Special Combat Profile과 Matchup-specific Advantage는 Overall에 직접 합산하지 않는다.
 
@@ -184,12 +185,12 @@ Overall Combat Power는 7개 Final Core Stat의 단순 산술평균이다. Speci
 
 ## v0.1.29 주요 변경
 
-- 크로스 길드에 **쥬라큘 미호크 / 크로커다일**을 7-Core E2 draft로 추가하고, **버기**는 Character master pool만 등록한 E3 미평가 상태로 유지한다.
+- 크로스 길드의 **쥬라큘 미호크 / 크로커다일**은 기존 7-Core E2 draft를 보존하고, **버기**는 v0.3.3에서 E3 전면 잠정 평가를 추가했다.
 - 전성기 몽키 D. 가프를 Ch.1165의 직접 Supreme King Haki Application까지 반영해 **99 / 98 / 98 / 97 / 99 / 95 / 86 → Overall 96.000**으로 재보정했다.
 - 쥬라큘 미호크는 공식 세계 최강 검사·샹크스와의 검술 비교를 Evidence sparsity와 분리해 **96 / 93 / 91 / 94 / 99 / 92 / 84 → Overall 92.714**로 두었다.
 - 크로커다일은 현재 높은 위상을 미확인 성장량으로 환산하지 않고 **78 / 75 / 79 / 76 / 88 / 86 / 84 → Overall 80.857**로 보수적으로 조정했다.
 - Evidence-aware Matchup은 데이터-only 상태에서 벗어나 캐릭터 상세의 **매치업 분석** 탭으로 노출한다. 기존 6개 + 크로스 길드 관련 5개 = 11개 prototype이며 승률·고정 상성 보너스는 없다.
-- 버기는 Membership/Evaluation을 주지 않아 evaluated roster 검색·탭·순위에는 나타나지 않는다.
+- 버기는 로저 해적단 견습·칠무해 과거 소속과 크로스 길드 현재 소속으로 목록에 포함되며, 잠정 점수로 순위에 표시되지만 확정 서열은 아니다.
 
 ## v0.1.28 주요 변경
 

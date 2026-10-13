@@ -1,3 +1,5 @@
+import { izoAssessmentBattles } from './izoAssessment'
+import { buggyDraftBattles } from './buggyDraft'
 import { wanoBattles } from './wanoExpansion'
 import { v0170Battles } from './v0170GroupAceExpansion'
 import { v0171AceBattles } from './v0171AceCalibration'
@@ -835,6 +837,8 @@ export const sampleBattles: Battle[] = [
   v0175GrusBattle,
   v0178HachinosuCaptivesBattle,
   ...v0180Battles,
+  ...buggyDraftBattles,
+  ...izoAssessmentBattles,
 ]
 
 export const sampleBattleParticipants: BattleParticipant[] = [

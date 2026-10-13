@@ -44,6 +44,9 @@ export const sampleMemberships: CharacterMembership[] = [
   { characterId: 'jinbe', groupId: 'seven-warlords', role: '전 왕의 부하 칠무해', status: 'former', period: '정상결전 이전' },
   { characterId: 'mihawk', groupId: 'cross-guild', role: '공동 창설자 / 핵심 전력', status: 'current' },
   { characterId: 'crocodile', groupId: 'cross-guild', role: '공동 창설자', status: 'current' },
+  { characterId: 'buggy', groupId: 'cross-guild', role: '명목상 대표 / 선장', status: 'current' },
+  { characterId: 'buggy', groupId: 'roger-pirates', role: '견습 선원', status: 'former', period: '로저 해적단 시절, 샹크스와 견습 생활' },
+  { characterId: 'buggy', groupId: 'seven-warlords', role: '전 왕의 부하 칠무해', status: 'former', period: '버기즈 딜리버리 결성 전후' },
 
   // Canon historical affiliations. These also exercise multi-membership behavior.
   { characterId: 'mihawk', groupId: 'seven-warlords', role: '왕의 부하 칠무해', status: 'former', period: '과거' },

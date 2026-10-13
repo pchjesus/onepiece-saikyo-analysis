@@ -655,7 +655,7 @@ export const sampleCharacters: Character[] = [
   },
   {
     id: 'buggy', name: '버기', crewId: 'cross-guild', knownAs: [],
-    description: '크로스 길드의 사황으로 대외적으로 인식되는 인물. Character master pool에는 등록하되 현재 7 Core Stat을 비교할 직접 전투 Evidence가 부족해 E3 미평가로 유지한다.',
+    description: '크로스 길드의 대외적 사황·명목상 대표. 동강동강 열매의 고유 상성은 유지하되, 유명세를 개인 전투력으로 환산하지 않는다. 현재 7축 점수는 E3 하위권 잠정 평가이며 재검증이 필요하다.',
     combatProfile: {
       combatStyles: ['바라바라 능력', '신체 분리·재결합', '혼전 생존'],
       specialTraits: [{ id: 'special-buggy-chop', category: 'devil-fruit', name: '동강동강 열매', status: 'confirmed',
@@ -665,7 +665,7 @@ export const sampleCharacters: Character[] = [
         { type: 'armament', status: 'unclear' }, { type: 'observation', status: 'unclear' },
         { type: 'conquerors', status: 'unclear', infusion: { status: 'unclear' } },
       ]},
-      sources: [{ label: 'ONE PIECE.com', reference: '버기 공식 캐릭터 페이지 / 크로스 길드 공식 자료' }],
+      sources: [{ label: 'ONE PIECE.com', reference: 'https://one-piece.com/character/Buggy/index.html · 공식 캐릭터 소개' }],
     },
   },
 

@@ -13,10 +13,6 @@ describe('group membership migration', () => {
   it('allows multiple memberships while preserving one representative legacy group', () => {
     for (const character of sampleCharacters) {
       const memberships = sampleMemberships.filter(({ characterId }) => characterId === character.id)
-      if (character.id === 'buggy') {
-        expect(memberships).toHaveLength(0)
-        continue
-      }
       expect(memberships.length).toBeGreaterThanOrEqual(1)
       expect(memberships.some(({ groupId }) => groupId === character.crewId)).toBe(true)
     }
@@ -28,7 +24,7 @@ describe('group membership migration', () => {
     expect(sampleMemberships.filter(({ characterId }) => characterId === 'linlin')).toHaveLength(2)
     expect(sampleMemberships.filter(({ characterId }) => characterId === 'kuzan')).toHaveLength(2)
     expect(sampleMemberships.filter(({ characterId }) => characterId === 'jinbe')).toHaveLength(2)
-    expect(sampleMemberships).toHaveLength(93)
+    expect(sampleMemberships).toHaveLength(96)
     expect(sampleMemberships.filter(x => x.characterId === 'izo').map(x => x.groupId).sort())
       .toEqual(['akazaya-nine', 'whitebeard-pirates'])
     for (const id of ['shanks', 'inuarashi', 'nekomamushi'])

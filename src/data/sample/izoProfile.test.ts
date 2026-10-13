@@ -7,14 +7,16 @@ import { getStatRanking } from '../../application/getStatRanking'
 import { getMatchupRoster } from '../../application/getMatchupHub'
 
 describe('Izo catalogue addition and past Roger affiliations', () => {
-  it('adds one character without inventing power scores or altering ranked rosters', () => {
+  it('adds one character with evidence-qualified draft, without changing original nine scabbards', () => {
     const izo = sampleCharacters.find(x => x.id === 'izo')
     expect(izo?.name).toBe('이조')
     expect(izo?.combatProfile.sources[0].reference).toBe('https://one-piece.com/character/izo/index.html')
-    expect(evaluationRepository.getEvaluations('izo')).toEqual([])
-    expect(getStatRanking('overall')).toHaveLength(69)
-    expect(getMatchupRoster()).toHaveLength(69)
-    expect(getUniqueCharacterList()).toHaveLength(70)
+    expect(evaluationRepository.getEvaluations('izo')).toHaveLength(1)
+    expect(evaluationRepository.getEvaluation('izo')?.items).toHaveLength(7)
+    expect(evaluationRepository.getEvaluation('izo')?.status).toBe('draft')
+    expect(getStatRanking('overall')).toHaveLength(71)
+    expect(getMatchupRoster()).toHaveLength(71)
+    expect(getUniqueCharacterList()).toHaveLength(71)
   })
   it('shows Izo in both Whitebeard and Akazaya groups without redefining the original nine', () => {
     const items = getCharacterList().filter(e => e.character.id === 'izo')
