@@ -48,6 +48,7 @@ describe('v0.4 integrity audit detects tampering and respects intended omissions
   it('rejects additional explicit default evaluations without reassigning them', () => {
     const data = clone()
     const original = data.evaluations.find(e => e.characterId === 'marco')!
+    original.isDefault = true
     data.evaluations.push({ ...structuredClone(original), id:'duplicate-marco-default', isDefault:true })
     expect(issues(data)).toContain('Multiple explicit default Evaluations')
   })
