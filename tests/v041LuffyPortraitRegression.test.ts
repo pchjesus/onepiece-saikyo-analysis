@@ -63,7 +63,7 @@ describe('v0.4.1 additive Luffy and portrait mapping regression', () => {
     expect(getCombatPower('luffy').finalScore).toBeCloseTo(657/7,12)
     expect(sampleMatchups).toHaveLength(15)
     expect(versionManifest.coreDataVersion).toBe('core-v0.4.9')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.6')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.9')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
     expect(versionManifest.calculationModelVersion).toBe('1.2')
     expect(createV033Snapshot().snapshotVersion).toBe('v0.4.3')

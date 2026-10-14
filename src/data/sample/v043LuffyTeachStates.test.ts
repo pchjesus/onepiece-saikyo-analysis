@@ -53,7 +53,7 @@ describe('v0.4.3 Luffy dual states and hypothetical Teach matchup scenarios', ()
     expect(sampleEvaluations.flatMap(x=>x.items)).toHaveLength(532)
     expect(auditCombatDataset(liveDataset).errors).toEqual([])
     expect(versionManifest.appVersion).toBe('0.4.9')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.6')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.9')
     expect(balancedV12.version).toBe('1.2')
   })
 
