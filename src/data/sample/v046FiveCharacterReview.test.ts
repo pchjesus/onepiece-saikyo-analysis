@@ -65,7 +65,7 @@ describe('v0.4.6 five-character audited recalibration and state-aware rankings',
    expect(balancedV12.configuration.hakiWeight).toBe(0.5)
    expect(auditCombatDataset(liveDataset).errors).toEqual([])
    expect(getMatchupHubEntries()).toHaveLength(17)
-   expect(versionManifest.appVersion).toBe('0.4.6')
+   expect(versionManifest.appVersion).toBe('0.4.7')
    expect(versionManifest.coreDataVersion).toBe('core-v0.4.3')
    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.6')
    expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
@@ -98,8 +98,9 @@ describe('v0.4.6 five-character audited recalibration and state-aware rankings',
    }
  })
  it('records 15 new history revisions, without rewriting earlier patch records',()=>{
-   expect(patchHistory[0].version).toBe('v0.4.6')
-   const changes=patchHistory[0].changes.filter(x=>x.kind==='score')
+   const previousPatch=patchHistory.find(p=>p.version==='v0.4.6')!
+   expect(previousPatch).toBeDefined()
+   const changes=previousPatch.changes.filter(x=>x.kind==='score')
    expect(changes).toHaveLength(15)
    for(const d of v046Decisions){
      expect(changes.some(c=>c.characterId===d.characterId&&c.stat===d.stat&&c.before===d.from&&c.after===d.to)).toBe(true)
