@@ -4,7 +4,7 @@
 - 기능: `getHighestOverallStateIds()`로 모든 복수 Evaluation 인물의 높은 7축 Final 평균을 팝업 첫 상태로 지정; `StatRankingDialog` 내부 state로 변경/정렬을 격리하고 닫을 때 unmount·초기화; CharacterPage 상세 선택은 유지.
 - 추천 대진: 상태명은 각 `matchup-featured-side[data-character-id]`의 캐릭터 이름 아래 배치; 루피 Gear4/Gear5를 티치의 상태로 오인할 위험 방지, 미래에 B쪽도 상태가 있으면 동일하게 처리.
 - 회귀: 루피/흰수염/가프 최고 상태, 72명 단일 row, 재정렬/기어 상태 변경, 상세 상태 비간섭, X/외부/Escape 초기화, 17 대진의 상태 소속/버튼 선택/좌우 교체와 가로 스크롤 정적 CSS 확인.
-- 빌드·PR·main 배포 기록은 CI 확인 후 이 기록 또는 별도 릴리즈 보고로 확정한다. 실기기 UI/원작 컷 감사 미수행.
+- **검증·배포 완료:** [PR #108](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/108) / [최종 PR CI 38521641851](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38521641851)에서 **92개 파일·394개 테스트 전체 통과**, TS/Vite build 성공. 기능 병합 `main@d61a293944ba132b8d1b67ca40318870f8e9bcae`; [main CI·Pages 38521751638](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38521751638)에서 테스트·빌드·Pages 배포 전부 성공. 초기 CI 9건 실패는 기존 구 버전이 현재 appVersion/패치 첫 기록이라는 가정으로 인한 것으로, 역사 v0.4.6 점수 검사와 현재 0.4.7 UI 버전 검사를 분리한 뒤 해결. 실기기 UI/원작 컷 감사 미수행.
 - 데이터: Evaluation·Battle·Evidence·Haki·Matchup·계산/패기 모델·Frozen JSON 등 도메인 구조 및 v0.4.6 결과 불변.
 
 ---
