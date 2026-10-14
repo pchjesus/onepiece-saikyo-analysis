@@ -4,6 +4,8 @@ import { sampleEvidence } from './evidence'
 import { sampleMatchups } from './matchups'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { getCombatPower } from '../../application/getCombatPower'
+import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
+import { balancedV12 } from './calculationModels'
 
 // Historical 59-person calibration stays stable; v0.1.70 is checked in a separate new-cohort suite.
 const sampleEvaluations = expandedEvaluations.filter(e=>!['evaluation-0.1.70-expansion-draft','evaluation-0.1.71-ace-context-recalibrated'].includes(e.evaluationDataVersion))
@@ -25,7 +27,7 @@ describe('v0.1.51 readiness metadata and unresolved-evidence diagnostic', () => 
     expect(getStat('van-augur', 'stamina')?.score).toBe(68)
     expect(getStat('mihawk', 'defense')?.score).toBe(93)
     expect(getCombatPower('shiryu').finalScore).toBeCloseTo(77.14285714285714, 9)
-    expect(getCombatPower('mihawk').finalScore).toBeCloseTo(92.71428571428571, 9)
+    expect(calculateBalancedCombatPower(defaults.find(e=>e.characterId==='mihawk')!,balancedV12).finalScore).toBeCloseTo(92.71428571428571, 9)
   })
 
   it('retains missing-readiness uncertainty rather than silently setting all unclassified axes to E3', () => {

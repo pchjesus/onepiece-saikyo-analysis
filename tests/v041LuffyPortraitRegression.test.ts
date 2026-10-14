@@ -5,7 +5,7 @@ import { resolve } from 'node:path'
 import { sampleCharacters } from '../src/data/sample/characters'
 import { sampleGroups } from '../src/data/sample/groups'
 import { sampleMemberships } from '../src/data/sample/memberships'
-import { sampleEvaluations } from '../src/data/sample/evaluations'
+import { sampleEvaluations, evaluationsBeforeV044 } from '../src/data/sample/evaluations'
 import { sampleBattles } from '../src/data/sample/battles'
 import { sampleEvidence } from '../src/data/sample/evidence'
 import { sampleMatchups } from '../src/data/sample/matchups'
@@ -15,6 +15,7 @@ import { versionManifest } from '../src/data/integrity/versionManifest'
 import { auditCombatDataset } from '../src/data/integrity/auditDataset'
 import { getStatRanking } from '../src/application/getStatRanking'
 import { getCombatPower } from '../src/application/getCombatPower'
+import { calculateBalancedCombatPower } from '../src/domain/calculation/calculateCombatPower'
 import { getUniqueCharacterList } from '../src/application/getCharacterList'
 import { getCharacterPortraitAsset, characterPortraitAssets } from '../src/data/media/characterPortraits'
 import { COMBAT_STATS } from '../src/domain/evaluation/types'
@@ -32,7 +33,7 @@ describe('v0.4.1 additive Luffy and portrait mapping regression', () => {
     check(sampleGroups, frozen.data.groups)
     check(sampleBattles, frozen.data.battles)
     check(sampleEvidence, frozen.data.evidence)
-    check(sampleEvaluations, frozen.data.evaluations)
+    check(evaluationsBeforeV044, frozen.data.evaluations)
     check(sampleMatchups, frozen.data.matchups)
     expect(plain(sampleMemberships.slice(0, frozen.data.memberships.length))).toEqual(frozen.data.memberships)
     expect(plain(balancedV12)).toEqual(frozen.model)
@@ -40,7 +41,9 @@ describe('v0.4.1 additive Luffy and portrait mapping regression', () => {
     expect(frozen.data.evaluations).toHaveLength(74)
     expect(frozen.data.matchups).toHaveLength(15)
     for (const row of frozen.results.evaluations as {characterId:string;subjectStateId:string|null;overall:number}[]) {
-      expect(getCombatPower(row.characterId,'balanced',row.subjectStateId??undefined).finalScore).toBe(row.overall)
+      // Frozen v0.3.3 outcomes are compared with the preserved pre-v0.4.4 evaluation, not today's revised Teach/Mihawk.
+      const previous = evaluationsBeforeV044.find(e=>e.characterId===row.characterId && (e.subjectState?.id??null)===row.subjectStateId)!
+      expect(calculateBalancedCombatPower(previous,balancedV12).finalScore).toBe(row.overall)
     }
   })
   it('adds exactly one evaluated Luffy, without replacing past data or Matchups',()=>{
@@ -60,7 +63,7 @@ describe('v0.4.1 additive Luffy and portrait mapping regression', () => {
     expect(getCombatPower('luffy').finalScore).toBeCloseTo(657/7,12)
     expect(sampleMatchups).toHaveLength(15)
     expect(versionManifest.coreDataVersion).toBe('core-v0.4.3')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.3')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.4')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
     expect(versionManifest.calculationModelVersion).toBe('1.2')
     expect(createV033Snapshot().snapshotVersion).toBe('v0.4.3')

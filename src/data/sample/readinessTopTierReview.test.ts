@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { historicalEvaluationsBeforeV0174 as expandedEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleMatchups } from './matchups'
-import { getCombatPower } from '../../application/getCombatPower'
+import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
+import { balancedV12 } from './calculationModels'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import type { CombatStat, EvidenceReadiness } from '../../domain/evaluation/types'
 
@@ -84,7 +85,7 @@ describe('v0.1.56 top-tier combat-context readiness audit', () => {
     for (const [id, final] of vectors) {
       const evaluation = defaults.find((x) => x.characterId === id)!
       expect(evaluation.items.map((axis) => axis.score), id).toEqual(final)
-      expect(getCombatPower(id).finalScore, id)
+      expect(calculateBalancedCombatPower(evaluation,balancedV12).finalScore, id)
         .toBeCloseTo(final.reduce((sum, value) => sum + value, 0) / 7, 9)
     }
     expect(sampleEvaluations).toHaveLength(62)

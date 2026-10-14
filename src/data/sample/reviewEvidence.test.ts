@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { legacyBattles as sampleBattles } from './v0180LegacyCohort'
 import { legacyEvidence as sampleEvidence } from './v0180LegacyCohort'
 import { legacyEvaluations as sampleEvaluations } from './v0180LegacyCohort'
-import { getCombatPower } from '../../application/getCombatPower'
+import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
+import { balancedV12 } from './calculationModels'
 import { getCharacterEvaluationTrace } from '../../application/getCharacterEvaluationTrace'
 import { getCharacterBattleTimeline } from '../../application/getCharacterBattleTimeline'
 import { validateEvaluation } from '../../domain/evaluation/validation'
@@ -78,7 +79,7 @@ describe('evidence-only review before approved calibration', () => {
       expect(validateEvaluation(evaluation, references)).toEqual({ valid: true, errors: [] })
     }
     for (const characterId of reviewedIds) {
-      expect(getCombatPower(characterId).finalScore).toBeCloseTo(expectedOverall[characterId], 10)
+      expect(calculateBalancedCombatPower(sampleEvaluations.find(e=>e.characterId===characterId&&e.isDefault!==false)!,balancedV12).finalScore).toBeCloseTo(expectedOverall[characterId], 10)
     }
   })
 

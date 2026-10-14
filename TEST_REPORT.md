@@ -1,3 +1,16 @@
+# v0.4.4 — 티치 7축·미호크 Attack 증거/추론 교차 재평가 (2026-10-14)
+
+- 원본: `main@da10373d66dd822645fe343acfd5a8b9c6c04cb1` (v0.4.3); 기능 [PR #101](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/101). [상세 결과·한계](docs/V0_4_4_TEACH_MIHAWK_RECALIBRATION_2026-10-14.md).
+- **현행 티치:** [96,91,97,82,93,94,95], Overall `648/7=92.5714285714`. 기존 [95,89,95,82,93,87,93], `634/7`에서 변경. Speed/Technique는 7축 전면 검토 후 유지. IQ94는 위험 감수·상성 공략의 **해석적 상단값(E2)**이고 본인이 전술을 완전 계산했다고 원작이 직접 확증한 수치는 아니다.
+- **현행 미호크:** Attack96→97(E2), Overall `649/7→650/7`; 샹크스의 최종 공격력 97과 동일. 검술 위상≠모든 패기/타격 확정 우위.
+- **회귀:** 기존 70명 완전 데이터 비교 불변; 과거 v0.4.3 입력은 `evaluationsBeforeV044`, 과거 59/65인 코호트는 수정된 역사 헬퍼로 따로 검증. 원본 `src/data/baselines/v0.3.3.json` 수정하지 않음. E1/E2/E3, 근거 ID, Rank/Matchup 계산, 72명/76평가/532축, 직접 15+조건부 2 Matchup 확인. Balanced 1.2 / Haki 0.5 불변.
+- **첫 CI:** 역사적 Legacy 코호트가 재평가된 현재 티치/미호크를 읽으면서 테스트 382건 중 16건 실패. 이를 점수 되돌리기 또는 무분별한 기준 기대값 교체가 아니라 과거 평가 입력과 현행 입력 분리 방식으로 수정했다.
+- **검증된 수정 후 PR CI:** [run 38514355402](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38514355402) — **87개 테스트 파일·382개 테스트 전부 통과**, TypeScript `tsc -b`와 Vite build 성공.
+- **배포:** 기능 PR 병합 전. main CI와 GitHub Pages 성공 후 릴리즈 완료로 보고.
+- **제한:** 원작 만화 컷 단위 전수 검증, 이미지 저작권·재배포 권한, 실기기 PC/모바일 브라우저 직접 사용성 QA는 미완료.
+
+---
+
 # v0.4.3 — 루피 기어 4/니카, 티치 시나리오, 상태 라벨 가독성 (2026-10-14)
 
 - **원본 main:** `1e694d33221020dc643fe5bd99a742cf69804129` (v0.4.2). [PR #98](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/98).
