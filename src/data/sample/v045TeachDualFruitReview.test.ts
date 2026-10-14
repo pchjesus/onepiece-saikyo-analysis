@@ -51,15 +51,13 @@ describe('v0.4.5 Teach dual fruit precision and flexibility audit',()=>{
       if(changed){
         expect(getFinalStatScore(item)-getFinalStatScore(previous)).toBe(1)
         expect(item.readiness).toBe(previous.readiness)
-        expect(item.evidenceIds).toEqual(previous.evidenceIds)
+        expect(item.evidenceIds).toEqual([...new Set([...previous.evidenceIds, ...teachV045Decisions.find(d=>d.stat===item.stat)!.sourceEvidenceIds])])
       } else expect(item).toEqual(previous)
       expect(item.hakiContributions).toEqual(previous.hakiContributions)
       expect(getRawHakiContributionTotal(item)).toBe(getRawHakiContributionTotal(previous))
     }
     for(const e of sampleEvaluations.filter(e=>e.characterId!=='teach'))
-      expect(e).toEqual(forCharacter(evaluationsBeforeV045,e.characterId).id===e.id
-        ? evaluationsBeforeV045.find(previous=>previous.id===e.id)
-        : undefined)
+      expect(e).toEqual(evaluationsBeforeV045.find(previous=>previous.id===e.id))
     const copied=applyV045TeachDualFruitReview(baseline)
     expect(copied).toEqual(updated)
     expect(baseline.items.map(x=>x.score)).toEqual([96,91,97,82,93,94,95])
