@@ -1,10 +1,13 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.4.5** (티치 두 열매 실전 숙련·전투 역할 폭 재검토: Technique94·Versatility96. 기존 근거·반론·역사 평가 보존. **이미지 재배포 권한 미확인**) (npm package 버전 **0.4.5**)
+현재 구현 패치: **v0.4.6** (해군·샹크스·미호크 15축 교차 재평가, 복수 Evaluation의 상태별 한 행 순위 재계산, 매치업 추천 버튼 줄바꿈 패치; 이미지 재배포 권한 미확인) (npm package 버전 **0.4.6**)
 평가 데이터: **72 Character master pool · 72 visible Character · 72 evaluated unique Character · 97 Membership · 76 Evaluation · 532 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
-- **v0.4.5 현행 평가:** 티치 Attack96 / Defense91 / Stamina97 / Speed82 / Technique**94** / Combat IQ94(E2 잠정) / Versatility**96**, Overall **92.857143**. 다른 71명과 v0.4.4 역사적 평가·v0.3.3 독립 기준선 불변.
+- **v0.4.6 현행 평가:** 쿠잔 Defense92/Stamina97 유지, 사카즈키 Stamina97·Speed87(E3)·Technique93·Combat IQ93·Versatility93, 보르살리노 Attack93·Defense Final90·Technique95·Combat IQ91·Versatility94, 샹크스 Defense93·Combat IQ Final94·Versatility91, 미호크 Versatility86. 나머지 기존 점수 및 Balanced 1.2/Haki 0.5 유지.
+- **v0.4.6 화면 수정:** 루피·흰수염 등 복수 평가 상태의 순위표를 한 사람당 1행으로 유지하면서 선택 상태에 따라 재정렬; 매치업 추천 대진 상태명 및 체크표시 한 줄 유지.
+- [v0.4.6 평가·상태별 순위·매치업 UI 패치 보고서](docs/V0_4_6_FIVE_CHARACTER_STATES_RANKING_MATCHUP_2026-10-14.md)
+- **v0.4.5 당시 평가:** 티치 Attack96 / Defense91 / Stamina97 / Speed82 / Technique**94** / Combat IQ94(E2 잠정) / Versatility**96**, Overall **92.857143**. 다른 71명과 v0.4.4 역사적 평가·v0.3.3 독립 기준선 불변.
 - [v0.4.5 티치 이중 열매 Technique/Versatility 원작·추론 대조](docs/V0_4_5_TEACH_DUAL_FRUIT_REVIEW_2026-10-14.md)
 - **다음 패치 검토(미확정·미반영):** [조직도 UX + 쿠잔·사카즈키·보르살리노·샹크스·미호크 7축 재평가 후보·반론](docs/POST_V0_4_5_ORG_CHART_AND_FIVE_CHARACTER_AXIS_REVIEW_2026-10-14.md). 현재 점수나 화면이 반영된 것이 아니며 승인 후 별도 개발.
 - **v0.4.4 당시 평가:** 티치 Attack96 / Defense91 / Stamina97 / Speed82 / Technique93 / Combat IQ94(E2 잠정 상단) / Versatility95, Overall **92.571429**; 미호크 Attack **97**, Overall **92.857143**. 기존 70명과 루피 두 상태는 불변. 현재 core-v0.4.3 및 v0.3.3 독립 기준선 유지.
@@ -19,7 +22,7 @@
 
 ## v1.0까지의 기본 개발 방향
 
-- **[v0.3~v1.0 정식 출시 개발 로드맵](docs/V1_0_DEVELOPMENT_ROADMAP.md)** — 앞으로의 개발 기준 문서. v0.4.1 신규 루피·이미지 변경을 배포했으며, v0.4.2 화면 가독성 패치도 배포 완료했다. v0.4.3은 루피 상태별 평가와 루피·티치 매치업 시나리오를 추가했고, **v0.4.4에서 티치 7축과 미호크 공격력 재산정, v0.4.5에서 티치 Technique/Versatility를 국소 조정**했다. v0.5 이후 다른 평가 재산정은 별도 승인 후 진행. 단계별 검증·승인 및 출시 게이트를 기록.
+- **[v0.3~v1.0 정식 출시 개발 로드맵](docs/V1_0_DEVELOPMENT_ROADMAP.md)** — 앞으로의 개발 기준 문서. v0.4.1 신규 루피·이미지 변경을 배포했으며, v0.4.2 화면 가독성 패치도 배포 완료했다. v0.4.3은 루피 상태별 평가와 루피·티치 매치업 시나리오를 추가했고, **v0.4.4에서 티치 7축과 미호크 공격력 재산정, v0.4.5에서 티치 두 축, v0.4.6에서 해군·샹크스·미호크 15축 재평가 및 순위/매치업 UX 교정**을 수행했다. v0.5 이후 다른 평가 재산정은 별도 승인 후 진행. 단계별 검증·승인 및 출시 게이트를 기록.
 - 현행 Balanced 1.2/Haki 0.5 계산 모델을 유지하고, 루피 1명의 기어 4 이하·기어 5 평가를 별도 등록했다. 기존 71명 중 티치·미호크에 v0.4.4 재평가가 적용됐으며, v0.4.5에서는 티치의 두 축만 추가 조정했다. 직접 분석한 기존 15개 대진 외에 조건부 루피·티치 시나리오 2개를 별도로 관리한다. 다른 기존 점수 변경에는 별도 승인이 필요하다.
 
 
