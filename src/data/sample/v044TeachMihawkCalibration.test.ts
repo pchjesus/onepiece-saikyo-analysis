@@ -1,5 +1,5 @@
 import {describe,expect,it} from 'vitest'
-import {evaluationsBeforeV044,sampleEvaluations} from './evaluations'
+import {evaluationsBeforeV044,evaluationsBeforeV045 as sampleEvaluations} from './evaluations'
 import {v044AxisDecisions} from './v044TeachMihawkCalibration'
 import {sampleEvidence} from './evidence'
 import {balancedV12} from './calculationModels'
@@ -45,7 +45,7 @@ describe('v0.4.4 targeted Teach and Mihawk evidence/context recalibration',()=>{
     expect(newMihawk.evaluationDataVersion).not.toEqual(oldMihawk.evaluationDataVersion)
     expect(oldTeach.items.map(x=>x.score)).toEqual([95,89,95,82,93,87,93]) // no mutation
     expect(oldMihawk.items.find(x=>x.stat==='attack')?.score).toBe(96)
-    expect(getCombatPower('teach').finalScore).toBeCloseTo(648/7,11)
+    expect(getCombatPower('teach').finalScore).toBeCloseTo(650/7,11)
     expect(getCombatPower('mihawk').finalScore).toBeCloseTo(650/7,11)
     expect(byId(sampleEvaluations,'shanks').items.find(x=>x.stat==='attack')?.score).toBe(97)
     for(const characterId of ['teach','mihawk']){
@@ -78,7 +78,7 @@ describe('v0.4.4 targeted Teach and Mihawk evidence/context recalibration',()=>{
       }else expect(e).toEqual(before)
     }
     expect(getStatRanking('overall')).toHaveLength(72)
-    expect(getStatRanking('overall').find(x=>x.characterId==='teach')?.score).toBeCloseTo(648/7,11)
+    expect(getStatRanking('overall').find(x=>x.characterId==='teach')?.score).toBeCloseTo(650/7,11)
     expect(getStatRanking('attack').find(x=>x.characterId==='mihawk')?.score).toBe(97)
     expect(getMatchupHubEntries()).toHaveLength(17)
     expect(getMatchupBuilderView('luffy','teach','egghead-gear4')?.matchup?.id).toBe('matchup-luffy-gear4-teach')
@@ -89,12 +89,13 @@ describe('v0.4.4 targeted Teach and Mihawk evidence/context recalibration',()=>{
   })
 
   it('versions only the changed evaluation set and records 6 transparent score changes',()=>{
-    expect(versionManifest.appVersion).toBe('0.4.4')
+    expect(versionManifest.appVersion).toBe('0.4.5')
     expect(versionManifest.coreDataVersion).toBe('core-v0.4.3')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.4')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.5')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(patchHistory[0].version).toBe('v0.4.4')
-    const scores=patchHistory[0].changes.filter(x=>x.kind==='score')
+    const historical=patchHistory.find(x=>x.version==='v0.4.4')!
+    expect(historical).toBeDefined()
+    const scores=historical.changes.filter(x=>x.kind==='score')
     expect(scores).toHaveLength(6)
     expect(scores.map(x=>x.characterId).sort()).toEqual(['mihawk','teach','teach','teach','teach','teach'])
     for(const change of scores){

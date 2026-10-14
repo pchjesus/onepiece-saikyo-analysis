@@ -1,5 +1,6 @@
 import { luffyGear4Evaluation, luffyGear5Evaluation } from './luffyCombatStates'
 import { applyV044TargetedRecalibration } from './v044TeachMihawkCalibration'
+import { applyV045TeachDualFruitReview } from './v045TeachDualFruitReview'
 import { izoAssessmentEvaluation } from './izoAssessment'
 import { buggyDraftEvaluation } from './buggyDraft'
 import { v0180Evaluations } from './v0180CharacterExpansion'
@@ -609,5 +610,8 @@ export const historicalEvaluationsBeforeV0174: Evaluation[] = [
 /** Frozen v0.4.3 evaluative input, useful for explicit before/after verification. */
 export const evaluationsBeforeV044: Evaluation[] = [...historicalEvaluationsBeforeV0174.map(applyV0174EvaluationCorrection).map(applyV0175GrusEvidenceReview).map(applyV0176KobyAttackCorrection).map(applyV0177KobyGrusRecalibration).map(applyV0178FocusedEvidenceReview).map(applyV0179CommanderAxisReview),...v0180Evaluations, buggyDraftEvaluation, izoAssessmentEvaluation, luffyGear4Evaluation, luffyGear5Evaluation]
 
-/** Live: only Teach's 7 reviewed axes and Mihawk's Attack get new Evaluation revisions. */
-export const sampleEvaluations: Evaluation[] = evaluationsBeforeV044.map(applyV044TargetedRecalibration)
+/** Frozen v0.4.4 live evaluations, retained for deterministic before/after comparison. */
+export const evaluationsBeforeV045: Evaluation[] = evaluationsBeforeV044.map(applyV044TargetedRecalibration)
+
+/** Live v0.4.5: change only Teach Technique & Versatility, preserve all other records. */
+export const sampleEvaluations: Evaluation[] = evaluationsBeforeV045.map(applyV045TeachDualFruitReview)
