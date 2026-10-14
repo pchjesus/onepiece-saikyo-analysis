@@ -4,7 +4,7 @@
 - **X / 팝업 외부 클릭 / Escape 닫기** 시 상태 선택과 정렬 방향 모두 초기화; 다음 열기에서 다시 최고 Overall 기본값과 내림차순. 캐릭터 상세 화면의 개별 상태 선택은 영향을 받지 않음.
 - 매치업 추천 대진에서 각 선수명 바로 아래 *해당 선수*의 평가 상태를 표시. '루피 VS 티치 기어4'처럼 상대 상태로 보이는 혼동 제거. 양쪽 모두 복수 상태일 때도 동일 규칙 적용, 체크/선택/가로 스크롤 유지.
 - 모든 72명/76 평가/532축, 17 대진, Balanced1.2/HakiWeight0.5/역사 스냅샷 불변. 앱 버전 0.4.7, Evaluation 집합/코어 버전 v0.4.6/v0.4.3 유지.
-- 근거·검증: [v0.4.7 사용자 요구·수정·회귀 보고서](docs/V0_4_7_RANKING_POPUP_RESET_AND_MATCHUP_LABELS_2026-10-14.md).
+- 근거·검증: [v0.4.7 사용자 요구·수정·회귀 보고서](docs/V0_4_7_RANKING_POPUP_RESET_AND_MATCHUP_LABELS_2026-10-14.md). [PR #108](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/108)·[PR CI 38521641851](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38521641851) **92파일/394테스트, TS/Vite build 성공**. `main@d61a293944ba132b8d1b67ca40318870f8e9bcae` 병합 후 [main 배포 38521751638](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38521751638) Pages 성공.
 
 ---
 
