@@ -5,6 +5,7 @@
 - **Overall 648/7≈92.571429 → 650/7≈92.857143 (+2/7)**. 다른 다섯 축 96/91/97/82/94(Combat IQ) 유지. 미호크 Overall 650/7과 동률이나 승패·승률 의미 없음.
 - `evaluationsBeforeV045`로 v0.4.4 전체 평가 보존; `evaluationsBeforeV044` 및 v0.3.3 정적 JSON 그대로. 72명/76 Evaluation/532 Stat/15+2 Matchup, Balanced 1.2·Haki .5 불변. 평가 데이터 집합과 앱 버전만 0.4.5.
 - 근거와 한계: [v0.4.5 티치 두 열매 정성 재평가 보고서](docs/V0_4_5_TEACH_DUAL_FRUIT_REVIEW_2026-10-14.md). 신규 원작 사건 추가나 새로운 Haki Raw 가산 없음.
+- **검증·배포 완료:** [PR #103](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/103), [PR CI 38515693602](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38515693602) — 88파일/386테스트 및 TS/Vite 빌드 통과. `main@fdf132e9857a2e539c566bf0473a3e75dd60ff69` 병합 후 [main Pages CI 38515802885](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38515802885)에서 테스트·빌드·배포 모두 성공.
 
 ---
 
