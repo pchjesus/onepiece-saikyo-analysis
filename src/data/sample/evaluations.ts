@@ -1,6 +1,7 @@
 import { luffyGear4Evaluation, luffyGear5Evaluation } from './luffyCombatStates'
 import { applyV044TargetedRecalibration } from './v044TeachMihawkCalibration'
 import { applyV045TeachDualFruitReview } from './v045TeachDualFruitReview'
+import { applyV046AxisReview } from './v046FiveCharacterReview'
 import { izoAssessmentEvaluation } from './izoAssessment'
 import { buggyDraftEvaluation } from './buggyDraft'
 import { v0180Evaluations } from './v0180CharacterExpansion'
@@ -614,4 +615,7 @@ export const evaluationsBeforeV044: Evaluation[] = [...historicalEvaluationsBefo
 export const evaluationsBeforeV045: Evaluation[] = evaluationsBeforeV044.map(applyV044TargetedRecalibration)
 
 /** Live v0.4.5: change only Teach Technique & Versatility, preserve all other records. */
-export const sampleEvaluations: Evaluation[] = evaluationsBeforeV045.map(applyV045TeachDualFruitReview)
+export const evaluationsBeforeV046: Evaluation[] = evaluationsBeforeV045.map(applyV045TeachDualFruitReview)
+
+/** v0.4.6: five-character review; all v0.4.5 Evaluation input preserved above. */
+export const sampleEvaluations: Evaluation[] = evaluationsBeforeV046.map(applyV046AxisReview)
