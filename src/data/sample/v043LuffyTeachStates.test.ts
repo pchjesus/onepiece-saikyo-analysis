@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { luffyEvaluation } from './luffyDraft'
 import { luffyGear4Evaluation, luffyGear5Evaluation } from './luffyCombatStates'
 import { sampleCharacters } from './characters'
-import { sampleEvaluations } from './evaluations'
+import { sampleEvaluations, evaluationsBeforeV044 } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleMatchups } from './matchups'
 import { balancedV12 } from './calculationModels'
@@ -19,9 +19,9 @@ describe('v0.4.3 Luffy dual states and hypothetical Teach matchup scenarios', ()
     expect(luffyEvaluation.id).toBe('evaluation-luffy-current-provisional')
     expect(luffyEvaluation.items.map(i=>i.score)).toEqual([97,94,90,95,95,89,99])
     expect(sampleEvaluations.some(e=>e.id===luffyEvaluation.id)).toBe(false)
-    const teach=sampleEvaluations.find(e=>e.characterId==='teach')!
+    const teach=evaluationsBeforeV044.find(e=>e.characterId==='teach')!
     expect(teach.items.map(i=>i.score)).toEqual([95,89,95,82,93,87,93])
-    expect(getCombatPower('teach').finalScore).toBeCloseTo(634/7,12)
+    expect(getCombatPower('teach').finalScore).toBeCloseTo(648/7,12)
     expect(sampleCharacters).toHaveLength(72)
   })
 
@@ -52,8 +52,8 @@ describe('v0.4.3 Luffy dual states and hypothetical Teach matchup scenarios', ()
     expect(sampleEvaluations).toHaveLength(76)
     expect(sampleEvaluations.flatMap(x=>x.items)).toHaveLength(532)
     expect(auditCombatDataset(liveDataset).errors).toEqual([])
-    expect(versionManifest.appVersion).toBe('0.4.3')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.3')
+    expect(versionManifest.appVersion).toBe('0.4.4')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.4')
     expect(balancedV12.version).toBe('1.2')
   })
 
