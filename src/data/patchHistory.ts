@@ -37,6 +37,13 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  { version:'v0.4.8', date:'2026-10-14', title:'읽기 전용 조직도 탭',
+    summary:'기존 Group/Membership/Character의 원본 데이터로 등록 조직의 직책과 현재·과거 소속을 조회한다. 캐릭터 상세 이동과 상·하위 그룹 중복 방지를 추가했으며 평가·계산·매치업 데이터는 변경하지 않았다.',
+    changes:[
+      {kind:'feature',title:'독립 조직도 탭과 소속 시기 필터',detail:'등록된 조직 전체, 현재·과거·전체 시기, 직책·하위 그룹 및 캐릭터 상세 이동을 제공한다. 원작에 없는 지휘선은 만들지 않는다.'},
+      {kind:'feature',title:'그룹 하위 Membership 중복 억제',detail:'해군/SWORD·백수 해적단/토비롯포 등 같은 인물의 하위 Group Membership을 한 조직도에서는 한 번만 보여준다. 순위·검색·매치업의 기존 중복 정책을 유지한다.'},
+    ],
+  },
   { version:'v0.4.7', date:'2026-10-14',title:'종합 순위 팝업 선택 초기화 및 매치업 평가 시점 소속 명확화',
     summary:'종합전투력 정렬은 각 캐릭터의 최고 Overall 평가를 초기 상태로 사용하고, 팝업 내 변경은 X·배경·Escape 닫기 시 사라진다. 매치업 상태명은 해당 캐릭터 이름에 직접 묶어서 루피 기어 상태를 티치의 것으로 혼동하지 않도록 개선했다. 모든 평가/스탯/근거/계산 모델/매치업은 v0.4.6 그대로.',
     changes:[

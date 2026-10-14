@@ -1,3 +1,12 @@
+## v0.4.8 — 읽기 전용 조직도 탭 (2026-10-14)
+
+- 기존 스탯/매치업 옆에 **조직도** 상단 독립 탭 추가. 기존 25 Group과 97 Membership의 직책·하위 조직·소속 시기 기반으로 등록된 72명만 표시하고 구성원 선택 시 기존 상세로 연결.
+- 현재 / 과거·역사 / 전체 시기 필터와 원본 `role`, `subgroup`, `period` 정보; 부모·자식 그룹에 같은 캐릭터가 있으면 하나의 조직도에서 중복 제거. 실제 지휘관계·전투력 서열은 추론하지 않음.
+- 72 Character/76 Evaluation/532 Stat/97 Membership/17 Matchup, Balanced 1.2/HakiWeight 0.5, v0.3.3 frozen, v0.4.7 Ranking/Matchup UX 및 평가/코어 데이터 버전 **불변**.
+- [세부 구현·검증 기록](docs/V0_4_8_READONLY_ORGANIZATION_CHART_2026-10-14.md). [PR #110](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/110) / [PR CI 38524552050](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38524552050) **94파일/406테스트 및 TypeScript/Vite 빌드 통과**. 실기기 시각 QA는 별도.
+
+---
+
 ## v0.4.7 — Overall 팝업 선택 초기화와 대진 상태 귀속 UI (2026-10-14)
 
 - 종합 순위는 루피·흰수염·가프 등 복수 평가 인물의 최고 **실제 Final Overall**을 팝업 초기 상태로 표시. 팝업 안에서 상태를 바꾸면 한 인물 한 행을 유지하며 전체 순위 재계산.

@@ -5,6 +5,7 @@ import { CharacterPickerDialog } from './components/CharacterPickerDialog'
 import { StatRankingDialog } from './components/StatRankingDialog'
 import { CharacterPage } from './pages/CharacterPage'
 import { MatchupHome } from './pages/MatchupHome'
+import { OrganizationHome } from './pages/OrganizationHome'
 import { PatchHistoryDialog } from './components/PatchHistoryDialog'
 import { patchHistory } from '../data/patchHistory'
 import { evaluationRepository } from '../data/repositories/evaluationRepository'
@@ -26,7 +27,7 @@ export default function App() {
   const [pickerOpen, setPickerOpen] = useState(false)
   const [patchOpen, setPatchOpen] = useState(false)
   const pickerTrigger = useRef<HTMLButtonElement>(null)
-  const [activeView, setActiveView] = useState<'stats' | 'matchup'>('stats')
+  const [activeView, setActiveView] = useState<'stats' | 'matchup' | 'organization'>('stats')
 
   const groups = useMemo(() => {
     const seen = new Set<string>()
@@ -81,6 +82,11 @@ export default function App() {
           <span className="app-mode-icon vs-icon" aria-hidden="true">VS</span>
           <span>매치업</span>
         </button>
+        <button type="button" className={activeView === 'organization' ? 'selected' : ''} aria-pressed={activeView === 'organization'}
+          aria-label="조직도 화면" onClick={() => { setActiveView('organization'); setRankingStat(null); setStatComparison(null) }}>
+          <span className="app-mode-icon org-icon" aria-hidden="true">▦</span>
+          <span>조직도</span>
+        </button>
       </nav>
       {activeView === 'stats' ? <>
       <nav className="character-selector" aria-label="캐릭터 선택">
@@ -116,7 +122,7 @@ export default function App() {
       {statComparison && <StatComparisonDialog {...statComparison} onClose={() => setStatComparison(null)} />}
       {rankingStat && <StatRankingDialog stat={rankingStat}
         selectedCharacterId={selectedId} onSelectCharacter={selectCharacter} onClose={() => setRankingStat(null)} />}
-      </> : <MatchupHome />}
+      </> : activeView === 'matchup' ? <MatchupHome /> : <OrganizationHome onSelectCharacter={selectCharacter} />}
     </div>
   )
 }
