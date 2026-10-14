@@ -1,7 +1,7 @@
 # One Piece 전투력 분석 — v1.0 정식 출시 개발 로드맵
 
 - **문서 상태:** 프로젝트 소유자가 기본 개발 방향으로 채택 (2026-10-13)
-- **마지막 main 안정 릴리즈:** **v0.4.7** · `main@325022a4421bbba37eff3c1d2214b17b4e556d79`, [main Pages CI 38522079655](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38522079655) 성공. **다음 v0.4.8 조직도 PR #110**에서 A안 독립 탭과 소속 시기 표시 구현, [PR CI 38524552050](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38524552050) 94파일/406테스트 및 TS/Vite 빌드 성공. main 배포 완료 여부는 병합 후 별도 확인. 코어/평가/계산 모델 불변.
+- **현재 main 안정 릴리즈:** **v0.4.8** · 기능 병합 `main@e5a5f0d2a1d26ca71e6dbdf30ecb326139cc32bf` (2026-10-14). 사용자 승인 A안 독립 조직도 탭, 기존 Group/Membership 현재·과거 소속 조회 및 기존 상세 연동. [main Pages CI 38524967824](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38524967824)에서 **94파일/406테스트·TS/Vite 빌드·Pages 배포 모두 성공**. 코어/평가/계산 모델·v0.3.3 기준선 불변. 실기기 시각 QA 별도.
 - **역사적 시작 기준선:** v0.2.1 · main `2aab06e3ac122627c44ae4baadb108e7093c30f0` (아래 §2는 변경하지 않은 v0.2.1 기준선)
 - **적용 범위:** v0.3.0~v1.0.0 개발 방향·검증 게이트·의사결정 경계
 - **문서 성격:** 승인된 **상위 개발 방향**. 각 기능의 상세 UX, 평가/수치 변경, 데이터 모델 및 시나리오 정책이 자동 승인되었다는 의미가 아니다.
@@ -27,7 +27,7 @@
 | **v0.4.5** | **배포 완료** | 티치 Technique94(E2) / Versatility96(E1) 국소 재평가, 97 보류. v0.4.4와 v0.3.3 역대 기준선 유지. [v0.4.5 정성 근거 감사](V0_4_5_TEACH_DUAL_FRUIT_REVIEW_2026-10-14.md) |
 | **v0.4.6** | **배포 완료** | 해군 3인·샹크스·미호크 15축 증거/조건 교차 재평가, 루피/흰수염 상태별 종합 순위 한 행 연동, 매치업 긴 선택 버튼 체크 줄바꿈 수정. [근거·UX 회귀 보고서](V0_4_6_FIVE_CHARACTER_STATES_RANKING_MATCHUP_2026-10-14.md). 조직도 별도 개발 |
 | **v0.4.7** | **배포 완료** | 종합 순위 팝업 임시 상태 격리·열 때 최고 점수 상태 자동 선택·닫을 때 초기화, 양쪽 추천 대진 상태 레이블 명확화. 92파일/394테스트, main 배포 성공 | 
-| **v0.4.8 조직도** | **PR 검증 완료 / main 배포 확인 대상** | 사용자 승인 A안: 상단 독립 조직도 읽기 전용 탐색, current/past/all·직책/하위 조직/캐릭터 상세 연결 및 중복 방지. 94파일/406테스트·TS/Vite 통과. [상세 기록](V0_4_8_READONLY_ORGANIZATION_CHART_2026-10-14.md) | 
+| **v0.4.8 조직도** | **배포 완료** | 사용자 승인 A안: 상단 독립 읽기 전용 조직도, 현재/과거/전체 시기·직책/하위 조직/기존 상세 연결, 부모·자식 Membership 중복 제거. [PR #110](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/110) 병합, **94파일/406테스트·빌드·[main Pages 38524967824](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38524967824) 성공**. [상세 기록](V0_4_8_READONLY_ORGANIZATION_CHART_2026-10-14.md). 실기기 QA 별도 | 
 | **v0.5.0~v1.0.0** | 상위 방향 | 이하 버전별 목표와 Release Gate는 유지. 상세 기획은 해당 단계 착수 시 별도 확인 |
 
 **로드맵 활용 원칙:** 매 개발 시작 시 현재 `main` 및 실제 앱 버전을 확인하고, 이 표의 진행 상태를 업데이트한다. 사용자 선택이 필요한 UX·점수·모델·데이터 정책을 미리 확정한 것으로 간주하지 않는다. **로드맵은 작업 순서의 기준이지 사용자 승인 없이 구현하거나 자동 실행하는 지시가 아니다.**
