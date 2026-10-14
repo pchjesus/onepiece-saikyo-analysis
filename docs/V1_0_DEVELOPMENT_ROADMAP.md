@@ -1,7 +1,7 @@
 # One Piece 전투력 분석 — v1.0 정식 출시 개발 로드맵
 
 - **문서 상태:** 프로젝트 소유자가 기본 개발 방향으로 채택 (2026-10-13)
-- **현재 안정 릴리즈:** **v0.4.4** · `main@2b70c240d2d7f9969cebdfac2a361659482932f9` (2026-10-14). 티치 7축·미호크 Attack 재평가 반영, **87개 파일 / 382개 자동 테스트·TS/Vite 빌드·[Pages 배포](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38514674677) 성공**. v0.4.3 루피 2개 상태/조건부 Matchup과 v0.3.3 독립 역사 기준선 보존.
+- **현재 안정 릴리즈:** **v0.4.5** · 기능 병합 `main@fdf132e9857a2e539c566bf0473a3e75dd60ff69` (2026-10-14). 티치 Technique 94 / Versatility 96 추가 검토, **88개 파일·386개 자동 테스트 / TS·Vite 빌드 / [Pages 배포 38515802885](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38515802885) 성공**. v0.4.4·v0.4.3 평가와 v0.3.3 독립 기준선 보존.
 - **역사적 시작 기준선:** v0.2.1 · main `2aab06e3ac122627c44ae4baadb108e7093c30f0` (아래 §2는 변경하지 않은 v0.2.1 기준선)
 - **적용 범위:** v0.3.0~v1.0.0 개발 방향·검증 게이트·의사결정 경계
 - **문서 성격:** 승인된 **상위 개발 방향**. 각 기능의 상세 UX, 평가/수치 변경, 데이터 모델 및 시나리오 정책이 자동 승인되었다는 의미가 아니다.
@@ -24,7 +24,7 @@
 | **v0.4.2** | **배포 완료** | 메인 캐릭터 화면의 중복 소개와 메타 설명은 기본 제거하고, 평가 시점의 세부 조건·Overall/모델 안내는 클릭형 도움말로 표시. 72명/기존 71명 평가·15 대진·Balanced1.2/기준선 데이터 불변. 기존 v0.4.1 배포 기록 유지, [PR #96](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/96) **85파일·373테스트** 및 [main Pages 배포](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38427844299) 성공 |
 | **v0.4.3** | **배포 완료** | 루피 기어 4 이하/기어 5 상태별 독립 7축과 대표 니카·원본 수치 보존, 기존 직접 15건 + 루피/티치 조건부 시나리오 2건. 티치 기존 점수 유지·상향 근거 검토, Draft 원시 상태 숨김. [PR #98](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/98) · [상세 보고서](V0_4_3_LUFFY_STATES_TEACH_MATCHUPS_2026-10-14.md). [86파일·378테스트 PR CI](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38438209244) 및 [main Pages 배포](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38438374150) 성공 |
 | **v0.4.4** | **배포 완료** | 티치 7축 전면 검토(96/91/97/82/93/94/95)와 미호크 Attack97. 과거 평가 격리 및 기존 모델/기준선 보존. [PR #101](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/101), [87파일·382테스트 CI](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38514355402) 통과. [main 병합 및 Pages 배포 확인](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38514674677) 완료. [정성 추론/맥락 교차 감사](V0_4_4_TEACH_MIHAWK_RECALIBRATION_2026-10-14.md) |
-| **v0.4.5** | **구현·배포 확인 전** | 티치 Technique94(E2) / Versatility96(E1) 국소 재평가, 97 보류. v0.4.4와 v0.3.3 역대 기준선 유지. [v0.4.5 정성 근거 감사](V0_4_5_TEACH_DUAL_FRUIT_REVIEW_2026-10-14.md) |
+| **v0.4.5** | **배포 완료** | 티치 Technique94(E2) / Versatility96(E1) 국소 재평가, 97 보류. v0.4.4와 v0.3.3 역대 기준선 유지. [v0.4.5 정성 근거 감사](V0_4_5_TEACH_DUAL_FRUIT_REVIEW_2026-10-14.md) |
 | **v0.5.0~v1.0.0** | 상위 방향 | 이하 버전별 목표와 Release Gate는 유지. 상세 기획은 해당 단계 착수 시 별도 확인 |
 
 **로드맵 활용 원칙:** 매 개발 시작 시 현재 `main` 및 실제 앱 버전을 확인하고, 이 표의 진행 상태를 업데이트한다. 사용자 선택이 필요한 UX·점수·모델·데이터 정책을 미리 확정한 것으로 간주하지 않는다. **로드맵은 작업 순서의 기준이지 사용자 승인 없이 구현하거나 자동 실행하는 지시가 아니다.**
