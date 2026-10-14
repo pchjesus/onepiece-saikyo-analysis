@@ -6,6 +6,7 @@
 
 - **v0.4.5 현행 평가:** 티치 Attack96 / Defense91 / Stamina97 / Speed82 / Technique**94** / Combat IQ94(E2 잠정) / Versatility**96**, Overall **92.857143**. 다른 71명과 v0.4.4 역사적 평가·v0.3.3 독립 기준선 불변.
 - [v0.4.5 티치 이중 열매 Technique/Versatility 원작·추론 대조](docs/V0_4_5_TEACH_DUAL_FRUIT_REVIEW_2026-10-14.md)
+- **다음 패치 검토(미확정·미반영):** [조직도 UX + 쿠잔·사카즈키·보르살리노·샹크스·미호크 7축 재평가 후보·반론](docs/POST_V0_4_5_ORG_CHART_AND_FIVE_CHARACTER_AXIS_REVIEW_2026-10-14.md). 현재 점수나 화면이 반영된 것이 아니며 승인 후 별도 개발.
 - **v0.4.4 당시 평가:** 티치 Attack96 / Defense91 / Stamina97 / Speed82 / Technique93 / Combat IQ94(E2 잠정 상단) / Versatility95, Overall **92.571429**; 미호크 Attack **97**, Overall **92.857143**. 기존 70명과 루피 두 상태는 불변. 현재 core-v0.4.3 및 v0.3.3 독립 기준선 유지.
 - [v0.4.4 티치 전체 7축·미호크 Attack 근거/반론 및 변경 전후 분석](docs/V0_4_4_TEACH_MIHAWK_RECALIBRATION_2026-10-14.md)
 
