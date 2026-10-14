@@ -1,9 +1,10 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.4.8** (독립 읽기 전용 조직도 탭 · 현재/과거/전체 소속 탐색 · 하위 Group 중복 제거. 평가 데이터/모델 v0.4.6 및 v0.4.7 순위/매치업 UI 불변) (npm package 버전 **0.4.8**)
+현재 구현 패치: **v0.4.9** (독립 읽기 전용 조직도 탭 · 현재/과거/전체 소속 탐색 · 하위 Group 중복 제거. 평가 데이터/모델 v0.4.6 및 v0.4.7 순위/매치업 UI 불변) (npm package 버전 **0.4.9**)
 평가 데이터: **72 Character master pool · 72 visible Character · 72 evaluated unique Character · 97 Membership · 76 Evaluation · 532 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
+- **v0.4.9 확정 패치:** [코비·스모커 7축 재평가 및 조직도 시기 통합](docs/V0_4_9_KOBY_SMOKER_ORGANIZATION_REVIEW_2026-10-15.md). 코비 Overall71.00, 스모커74.29. 다른 70명 점수/계산/상태/역사 원본 불변. 카쿠·신규 9인은 별도 평가안으로 보고하고 등록하지 않음.
 - **v0.4.8 조직도:** [읽기 전용 독립 조직도 탭·소속 시기·중복 구성원 회귀 검증](docs/V0_4_8_READONLY_ORGANIZATION_CHART_2026-10-14.md). 25개 Group 및 97개 기존 Membership에서만 생성; 조직도와 순위/매치업을 구분. [PR #110](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/110) 병합 및 [main Pages CI 38524967824](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38524967824)에서 94파일/406테스트·빌드·배포 성공. 실기기 시각 QA는 별도.
 - **v0.4.7 UI 안정화:** [종합 순위 팝업 선택값 자동 초기화와 캐릭터별 매치업 상태 귀속](docs/V0_4_7_RANKING_POPUP_RESET_AND_MATCHUP_LABELS_2026-10-14.md). 점수와 매치업 데이터 불변.
 - **v0.4.6 당시 평가:** 쿠잔 Defense92/Stamina97 유지, 사카즈키 Stamina97·Speed87(E3)·Technique93·Combat IQ93·Versatility93, 보르살리노 Attack93·Defense Final90·Technique95·Combat IQ91·Versatility94, 샹크스 Defense93·Combat IQ Final94·Versatility91, 미호크 Versatility86. 나머지 기존 점수 및 Balanced 1.2/Haki 0.5 유지.

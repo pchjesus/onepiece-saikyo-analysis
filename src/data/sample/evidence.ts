@@ -1,3 +1,4 @@
+import { v049KobyTorpedoEvidence } from './v049KobySmokerRecalibration'
 import { luffyEvidence } from './luffyDraft'
 import { luffyStateEvidence } from './luffyCombatStates'
 import { izoAssessmentEvidence } from './izoAssessment'
@@ -2815,6 +2816,7 @@ export const sampleEvidence: Evidence[] = [
   ...v0174Evidence,
   v0175GrusEvidence,
   v0178KobyCaptivesEvidence,
+  v049KobyTorpedoEvidence,
   v0178SmoothieEvasionEvidence,
   ...v0179OfficialEvidence,
   ...v0180Evidence,

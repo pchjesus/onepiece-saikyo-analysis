@@ -47,16 +47,16 @@ describe('v0.4.8 Organization tab interactions', () => {
     expect(container.querySelector('.character-selector')).not.toBeNull()
   })
 
-  it('switches to past or historical members and updates when organization changes', async () => {
+  it('shows current and former members together without a time selector', async () => {
     await click('button[aria-label="조직도 화면"]')
     await changeOrganization('marines')
-    expect(container.querySelector('.organization-results')?.textContent).not.toContain('전 대장')
-    await click('.organization-scope button:nth-child(2)')
-    expect(container.querySelector('.organization-results')?.textContent).toContain('전 대장')
+    expect(container.querySelector('.organization-scope')).toBeNull()
     expect(container.querySelector('.organization-member[data-character-id="kuzan"]')).not.toBeNull()
+    expect(container.querySelector('.organization-results')?.textContent).toContain('전 대장')
     await changeOrganization('roger-pirates')
-    expect(container.querySelector('.organization-scope button:nth-child(2)')?.getAttribute('aria-pressed')).toBe('true')
     expect(container.querySelector('.organization-member[data-character-id="roger"]')).not.toBeNull()
+    await changeOrganization('whitebeard-pirates')
+    expect(container.querySelector('.organization-member[data-character-id="newgate"]')).not.toBeNull()
   })
 
   it('opens the original character detail from an organization card without editing score state', async () => {
@@ -77,7 +77,6 @@ describe('v0.4.8 Organization tab interactions', () => {
     const child = container.querySelector('.organization-section[data-group-id="tobiroppo"]')
     expect(child).not.toBeNull()
     expect(child?.querySelector('.organization-member[data-character-id="whos-who"]')).not.toBeNull()
-    await click('.organization-scope button:nth-child(3)')
     expect(container.querySelectorAll('.organization-member[data-character-id="x-drake"]')).toHaveLength(1)
     expect(container.querySelector('.organization-caveat')?.textContent).toContain('전투력 순위')
   })

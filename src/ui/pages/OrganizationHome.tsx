@@ -1,18 +1,11 @@
 import { useState } from 'react'
 import {
-  getDefaultOrganizationScope,
   getOrganizationChart,
   getOrganizationGroups,
-  type OrganizationScope,
 } from '../../application/getOrganizationChart'
 import type { CharacterMembership, GroupType } from '../../domain/character/types'
 import { CharacterPortrait } from '../components/CharacterPortrait'
 
-const scopes: { id: OrganizationScope; label: string }[] = [
-  { id: 'current', label: '현재 소속' },
-  { id: 'past', label: '과거·역사' },
-  { id: 'all', label: '전체 시기' },
-]
 const typeGroups: { label: string; types: GroupType[] }[] = [
   { label: '해적단', types: ['pirate-crew'] },
   { label: '해군·세계정부', types: ['marine', 'government'] },
@@ -31,13 +24,7 @@ export function OrganizationHome({ onSelectCharacter }: {
 }) {
   const groups = getOrganizationGroups()
   const [groupId, setGroupId] = useState(groups[0]?.id ?? '')
-  const [scope, setScope] = useState<OrganizationScope>(getDefaultOrganizationScope(groupId))
-  const chart = getOrganizationChart(groupId, scope)
-
-  const changeGroup = (nextId: string) => {
-    setGroupId(nextId)
-    setScope(getDefaultOrganizationScope(nextId))
-  }
+  const chart = getOrganizationChart(groupId, 'all')
 
   return (
     <main className="organization-view" aria-label="조직도">
@@ -48,7 +35,7 @@ export function OrganizationHome({ onSelectCharacter }: {
       </header>
       <div className="organization-controls">
         <label htmlFor="organization-group">조직 선택</label>
-        <select id="organization-group" value={groupId} onChange={(event) => changeGroup(event.target.value)}>
+        <select id="organization-group" value={groupId} onChange={(event) => setGroupId(event.target.value)}>
           {typeGroups.map((category) => (
             <optgroup key={category.label} label={category.label}>
               {groups.filter((group) => category.types.includes(group.type)).map((group) => (
@@ -59,13 +46,6 @@ export function OrganizationHome({ onSelectCharacter }: {
             </optgroup>
           ))}
         </select>
-        <div className="organization-scope" role="group" aria-label="소속 시기">
-          {scopes.map((item) => (
-            <button key={item.id} type="button" aria-pressed={scope === item.id}
-              className={scope === item.id ? 'selected' : ''}
-              onClick={() => setScope(item.id)}>{item.label}</button>
-          ))}
-        </div>
       </div>
 
       {chart && (
@@ -84,10 +64,10 @@ export function OrganizationHome({ onSelectCharacter }: {
           <p className="organization-caveat">
             이 화면은 전체 공식 명단이 아니라 현재 프로젝트에 등록된 인물만 보여줘.
             역할·번호·그룹 위치는 전투력 순위나 확인되지 않은 직접 지휘관계를 뜻하지 않아.
-            소속 시기는 각 기록의 기준을 따르며 현실의 현재 시점과 다를 수 있어.
+            현재·과거·역사적 구성원을 함께 보여주고, 각 소속 기록의 시기 정보를 보존해.
           </p>
           {chart.sections.length === 0
-            ? <p className="organization-empty">이 시기로 등록된 구성원이 없어. 다른 소속 시기를 선택해 봐.</p>
+            ? <p className="organization-empty">이 조직에 등록된 분석 대상 구성원이 아직 없어.</p>
             : chart.sections.map((section) => (
               <section key={section.group.id} className="organization-section"
                 data-group-id={section.group.id} aria-label={section.group.name + ' 구성원'}>

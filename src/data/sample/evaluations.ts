@@ -1,3 +1,4 @@
+import { applyV049KobySmokerRecalibration } from './v049KobySmokerRecalibration'
 import { luffyGear4Evaluation, luffyGear5Evaluation } from './luffyCombatStates'
 import { applyV044TargetedRecalibration } from './v044TeachMihawkCalibration'
 import { applyV045TeachDualFruitReview } from './v045TeachDualFruitReview'
@@ -618,4 +619,7 @@ export const evaluationsBeforeV045: Evaluation[] = evaluationsBeforeV044.map(app
 export const evaluationsBeforeV046: Evaluation[] = evaluationsBeforeV045.map(applyV045TeachDualFruitReview)
 
 /** v0.4.6: five-character review; all v0.4.5 Evaluation input preserved above. */
-export const sampleEvaluations: Evaluation[] = evaluationsBeforeV046.map(applyV046AxisReview)
+export const evaluationsBeforeV049: Evaluation[] = evaluationsBeforeV046.map(applyV046AxisReview)
+
+/** Live v0.4.9 score corrections while preserving original v0.4.6 input above. */
+export const sampleEvaluations: Evaluation[] = evaluationsBeforeV049.map(applyV049KobySmokerRecalibration)

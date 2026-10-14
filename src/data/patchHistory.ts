@@ -1,3 +1,4 @@
+import { v049Decisions } from './sample/v049KobySmokerRecalibration'
 import { v0180CommanderAttackAudit } from './sample/v0180CommanderAttackAudit'
 const commanderNames:Record<string,string>={queen:'퀸',cracker:'크래커',smoothie:'스무디',marco:'마르코',king:'킹',katakuri:'카타쿠리'}
 export type PatchChange = {
@@ -37,6 +38,17 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {
+    version:'v0.4.9', date:'2026-10-15',
+    title:'코비·스모커 재평가 및 전 시기 통합 조직도',
+    summary:'코비 Overall74.43→71.00, 스모커76.43→74.29. 어뢰 요격과 강자전 맥락을 반영하고 조직도는 현재·과거·역사 시기를 함께 표시한다. 70명 기존 점수 불변.',
+    report:'docs/V0_4_9_KOBY_SMOKER_ORGANIZATION_REVIEW_2026-10-15.md',
+    changes:[
+      {kind:'feature',title:'조직도 시기 구분 없이 전체 통합 조회',detail:'현재/과거/역사적 구성원을 함께 보여주며 개별 role/status/period는 보존. 하위 Group 중복 제거와 상세 이동 유지.'},
+      {kind:'evidence',characterId:'koby',title:'세계회의 어뢰 요격 장면 보강',detail:'공식 TV879에 근거한 견문색 탐지 및 수중 요격. 원작 903화 컷은 직접 새로 판독하지 않았으며 Haki Raw를 추가하지 않음.',evidence:[{label:'ONE PIECE.com TV879',url:'https://one-piece.com/anime/o5003/index.html'}]},
+      ...v049Decisions.flatMap(d=>d.to.map((after,i)=>({kind:'score' as const,title:(d.characterId==='koby'?'코비':'스모커')+' '+['Attack','Defense','Stamina','Speed','Technique','Combat IQ','Versatility'][i]+' '+d.from[i]+'→'+after,characterId:d.characterId,stat:['attack','defense','stamina','speed','techniqueMastery','combatIQ','versatility'][i],before:d.from[i],after,reason:d.rationale[i]})).filter((x,i)=>x.before!==x.after)),
+    ],
+  },
   { version:'v0.4.8', date:'2026-10-14', title:'읽기 전용 조직도 탭',
     summary:'기존 Group/Membership/Character의 원본 데이터로 등록 조직의 직책과 현재·과거 소속을 조회한다. 캐릭터 상세 이동과 상·하위 그룹 중복 방지를 추가했으며 평가·계산·매치업 데이터는 변경하지 않았다.',
     changes:[
