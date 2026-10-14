@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { historicalEvaluationsBeforeV0174 as expandedEvaluations } from './evaluations'
+import { historicalEvaluationsBeforeV0174 as expandedEvaluations, evaluationsBeforeV046 } from './evaluations'
+import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
+import { balancedV12 } from './calculationModels'
 import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { sampleMatchups } from './matchups'
@@ -99,8 +101,11 @@ describe('v0.1.53 role-aware readiness reconciliation', () => {
     ] as const) {
       expect(sampleEvaluations.find((evaluation) => evaluation.characterId === id)!.items
         .map((item) => item.score), id).toEqual(final)
-      // This v0.1.53 historical checkpoint asserts its stored Final vector, not today's Balance/Raw recomputation.
-      expect(final.reduce((sum,value)=>sum+value,0)/7, id).toBeCloseTo(overall, 9)
+      // Historical v0.1.53 Final vectors are frozen above; expected Overall anchors include
+      // later, pre-v0.4.6 approved revisions such as Marco's +2, not the raw 0.1.53 vector mean.
+      // Check those anchors using the preserved v0.4.5 evaluation rather than current live revision.
+      const preV046 = evaluationsBeforeV046.find(e=>e.characterId===id&&e.isDefault!==false)!
+      expect(calculateBalancedCombatPower(preV046,balancedV12).finalScore, id).toBeCloseTo(overall, 9)
     }
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
