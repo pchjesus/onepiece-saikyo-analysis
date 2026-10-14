@@ -43,4 +43,7 @@
 
 ## 릴리즈 검증
 
-자동 회귀 테스트, TS/Vite build 및 main GitHub Pages CI 결과는 각각 해당 GitHub Actions 실행 후 확정해 기록한다. 실제 PC·모바일 브라우저 육안 검증, 만화 컷 전수 확인, 재배포 이미지 권한 검토는 별도다.
+- [PR #103](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/103)에서 두 축 신규 평가와 회귀 테스트·문서 병합. [PR CI 38515693602](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38515693602)에서 **88개 파일 / 386개 테스트 성공**, TypeScript 빌드·Vite 프로덕션 번들 성공.
+- 첫 CI에서 과거 루피 테스트에 구 버전 `evaluation-set-v0.4.4` 기대값이 남아 386건 중 1건 실패. v0.4.5 평가집합 버전 기대값만 수정하고 전체 재실행하여 해결했다. 평가 계산 오류는 관찰되지 않음.
+- 기능 병합 `main@fdf132e9857a2e539c566bf0473a3e75dd60ff69`. [main Actions 38515802885](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38515802885)에서 **전체 테스트·TS/Vite build·GitHub Pages 배포 성공**.
+- 실제 PC·모바일 브라우저 육안 검증, 만화 컷 전수 확인, 재배포 이미지 권한 검토는 별도다.
