@@ -4,7 +4,7 @@
 - 읽기 전용 기능: 25 Group, parentGroupId 기반 조직·하위 Group, 97 Membership의 role/subgroup/status/period, current/past/all 필터, 고유 인물별 중복 제거 및 기존 상세 진입.
 - 신규 테스트 2파일/12건: 검은수염 선단, 쿠잔 과거 해군/현 검은수염, 토비롯포/SWORD 부모/자식 중복, 로저·흰수염 historical, 빈 그룹, 72/97 원본 무변경, 상단 3개 탭 이동, 필터·상세 진입·기존 스탯 유지.
 - 과거 전투력/모델/역사 JSON 검증 394건 보존. 앱 배포 버전 0.4.8 표시를 기존 테스트와 구분. 첫 CI에 기록된 현재 앱 버전 5건 및 두 번째 CI의 patch history 목록 1건 실패를 수정. 이전 평가 점수/역사적 기준선 테스트는 삭제하지 않음.
-- **PR 빌드/자동 테스트 완료:** [PR #110](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/110), [PR Actions 38524552050](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38524552050) — **94개 파일/406개 테스트 전부 통과**, `tsc -b && vite build` 성공. main Pages 배포는 main 병합 후 별도 확인.
+- **PR 빌드/자동 테스트 완료:** [PR #110](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/110), [PR Actions 38524552050](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38524552050) — **94개 파일/406개 테스트 전부 통과**, `tsc -b && vite build` 성공. 기능 병합 `main@e5a5f0d2a1d26ca71e6dbdf30ecb326139cc32bf`; [main Actions 38524967824](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38524967824)에서 94개 파일/406개 테스트, TypeScript/Vite 빌드 및 Pages deploy 모두 성공.
 - 데이터: 72 Character/76 Evaluation/532 Stat/97 Membership/17 Matchup, Balanced1.2/Haki0.5, historical v0.3.3, core-v0.4.3, evaluation-set-v0.4.6 불변.
 - **미검증:** 실제 PC/모바일 브라우저에서 조직도 폭·스크롤·터치 영역·긴 직책/시기 줄바꿈 및 클릭 이후 시각 상태.
 

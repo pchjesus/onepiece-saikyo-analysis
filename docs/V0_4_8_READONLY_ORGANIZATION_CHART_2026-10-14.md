@@ -29,11 +29,11 @@
 - 신규 `OrganizationNavigation.test.tsx` 4건: 세 번째 탭 왕복, 소속 시기 변경, 조직 선택 → 실제 기존 캐릭터 상세 진입, 토비롯포 구성원 중복 및 원본 역할.
 - 기존 394개 테스트, 핵심 코어/버전/순위/매치업 테스트 보존. 앱 버전만 `0.4.8`로 상향; `coreDataVersion=core-v0.4.3`, `evaluationSetVersion=evaluation-set-v0.4.6`, 모델 1.2와 frozen v0.3.3 분리 유지.
 - 첫 CI 5건 실패는 구 테스트에서 새 앱 배포 버전을 `0.4.7`로 고정한 기대값. 두 번째 CI 1건 실패는 새 패치 이력 `v0.4.8`을 예상 목록에 포함하지 않은 문제. 역사적 전투력 수치·기준선 비교는 유지하고 현재 UI 버전 테스트만 분리해 해결.
-- **검증 완료 (PR SHA `c6cf6ec95670de15013685b4949cc9126a51831e`):** [GitHub Actions PR 38524552050](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38524552050) — **94개 테스트 파일/406개 테스트 통과**, TypeScript 타입검사 및 Vite 빌드 성공. [PR #110](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/110).
+- **검증 완료 (최종 PR SHA `c4bdace72af763a7e7ef091535226323905f200c`):** [GitHub Actions PR 38524868891](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38524868891) — **94개 테스트 파일/406개 테스트 통과**, TypeScript 타입검사 및 Vite 빌드 성공. [PR #110](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/110).
 - 검증 한계: 실제 PC/모바일 브라우저의 터치·스크롤·레이아웃 시각 검수 미수행. GitHub Actions의 jsdom 테스트는 실제 기기 QA를 대체하지 않음.
 
 ## 5. 릴리즈·다음 단계
 
-- PR #110을 main에 병합한 SHA에서 별도 GitHub Actions의 test/build/Pages deploy 성공을 확인해 릴리즈 판단한다. PR 검증 성공만으로 Pages 배포 완료라고 주장하지 않는다.
+- **병합·배포 완료:** [PR #110](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/110) squash 병합 `main@e5a5f0d2a1d26ca71e6dbdf30ecb326139cc32bf`; [main GitHub Actions 38524967824](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38524967824)에서 94파일/406테스트, TS/Vite build, GitHub Pages deploy 전부 성공. 이는 실제 브라우저 시각 QA를 대체하지 않음.
 - 그룹 관계를 나중에 확대해야 한다면 명시적 Canon Evidence와 인물 간 관계/시점·근거를 따로 설계·승인하고 적용한다. 현행 Membership의 `role` 문자열을 지휘관계 자료로 재해석하지 않는다.
 - 필요 시 실제 모바일/PC에서 세 번째 탭 가로 폭, 소속 시기 버튼 터치, 긴 직책/period 줄바꿈 및 카드 상세 이동을 검수하고 발견된 문제만 국소 패치한다.

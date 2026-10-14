@@ -4,7 +4,7 @@
 평가 데이터: **72 Character master pool · 72 visible Character · 72 evaluated unique Character · 97 Membership · 76 Evaluation · 532 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
-- **v0.4.8 조직도:** [읽기 전용 독립 조직도 탭·소속 시기·중복 구성원 회귀 검증](docs/V0_4_8_READONLY_ORGANIZATION_CHART_2026-10-14.md). 25개 Group 및 97개 기존 Membership에서만 생성; 조직도와 순위/매치업을 구분. PR #110에서 94파일/406테스트 및 TS/Vite 빌드 검증 완료. 실기기 시각 QA는 별도.
+- **v0.4.8 조직도:** [읽기 전용 독립 조직도 탭·소속 시기·중복 구성원 회귀 검증](docs/V0_4_8_READONLY_ORGANIZATION_CHART_2026-10-14.md). 25개 Group 및 97개 기존 Membership에서만 생성; 조직도와 순위/매치업을 구분. [PR #110](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/110) 병합 및 [main Pages CI 38524967824](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38524967824)에서 94파일/406테스트·빌드·배포 성공. 실기기 시각 QA는 별도.
 - **v0.4.7 UI 안정화:** [종합 순위 팝업 선택값 자동 초기화와 캐릭터별 매치업 상태 귀속](docs/V0_4_7_RANKING_POPUP_RESET_AND_MATCHUP_LABELS_2026-10-14.md). 점수와 매치업 데이터 불변.
 - **v0.4.6 당시 평가:** 쿠잔 Defense92/Stamina97 유지, 사카즈키 Stamina97·Speed87(E3)·Technique93·Combat IQ93·Versatility93, 보르살리노 Attack93·Defense Final90·Technique95·Combat IQ91·Versatility94, 샹크스 Defense93·Combat IQ Final94·Versatility91, 미호크 Versatility86. 나머지 기존 점수 및 Balanced 1.2/Haki 0.5 유지.
 - **v0.4.6 화면 수정:** 루피·흰수염 등 복수 평가 상태의 순위표를 한 사람당 1행으로 유지하면서 선택 상태에 따라 재정렬; 매치업 추천 대진 상태명 및 체크표시 한 줄 유지.
