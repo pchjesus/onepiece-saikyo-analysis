@@ -7,6 +7,7 @@
 - **매치업 추천 대진:** 3열 CSS grid 때문에 상태명·선택 체크가 줄바꿈되는 문제를 수평 no-wrap flex와 기존 가로 스크롤로 수정. 17개 대진의 분석 데이터 보존.
 - `evaluationsBeforeV046`로 v0.4.5 76개 평가 원본 보존; 72명/76 평가/532축/97 Membership/15+2 Matchup 및 v0.3.3 JSON, Balanced1.2/HakiWeight0.5 불변. 역사 리뷰 테스트는 당시 데이터와 분리 비교.
 - [v0.4.6 근거·구현·검증 보고서](docs/V0_4_6_FIVE_CHARACTER_STATES_RANKING_MATCHUP_2026-10-14.md). 조직도는 별도 승인·독립 개발 대상으로 유지.
+- **검증·배포 완료:** [PR #106](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/106), [CI 38519741299](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38519741299) — **92파일/393테스트·TS/Vite 성공**. `main@f44c121d9baa183d3978fe7aedb8cd0e87af2fff` 병합 후 [Pages 38519878008](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38519878008) 성공. 직접 모바일·PC 시각/터치 검증은 별도.
 
 ---
 

@@ -1,7 +1,7 @@
 # One Piece 전투력 분석 — v1.0 정식 출시 개발 로드맵
 
 - **문서 상태:** 프로젝트 소유자가 기본 개발 방향으로 채택 (2026-10-13)
-- **현재 안정 릴리즈:** **v0.4.5** · 기능 병합 `main@fdf132e9857a2e539c566bf0473a3e75dd60ff69` (2026-10-14). 티치 Technique 94 / Versatility 96 추가 검토, **88개 파일·386개 자동 테스트 / TS·Vite 빌드 / [Pages 배포 38515802885](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38515802885) 성공**. v0.4.4·v0.4.3 평가와 v0.3.3 독립 기준선 보존.
+- **현재 안정 릴리즈:** **v0.4.6** · 기능 병합 `main@f44c121d9baa183d3978fe7aedb8cd0e87af2fff` (2026-10-14). 해군·샹크스·미호크 15축 재평가, 복수 Evaluation 상태별 한 행 종합전투력 순위 동기화, 매치업 선택 버튼 레이아웃 수정. **92파일/393테스트·TS/Vite 빌드·[main Pages 배포 38519878008](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38519878008) 성공**. v0.4.5·v0.3.3 기준선 유지, 조직도는 별도 기능 개발.
 - **역사적 시작 기준선:** v0.2.1 · main `2aab06e3ac122627c44ae4baadb108e7093c30f0` (아래 §2는 변경하지 않은 v0.2.1 기준선)
 - **적용 범위:** v0.3.0~v1.0.0 개발 방향·검증 게이트·의사결정 경계
 - **문서 성격:** 승인된 **상위 개발 방향**. 각 기능의 상세 UX, 평가/수치 변경, 데이터 모델 및 시나리오 정책이 자동 승인되었다는 의미가 아니다.
@@ -25,7 +25,7 @@
 | **v0.4.3** | **배포 완료** | 루피 기어 4 이하/기어 5 상태별 독립 7축과 대표 니카·원본 수치 보존, 기존 직접 15건 + 루피/티치 조건부 시나리오 2건. 티치 기존 점수 유지·상향 근거 검토, Draft 원시 상태 숨김. [PR #98](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/98) · [상세 보고서](V0_4_3_LUFFY_STATES_TEACH_MATCHUPS_2026-10-14.md). [86파일·378테스트 PR CI](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38438209244) 및 [main Pages 배포](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38438374150) 성공 |
 | **v0.4.4** | **배포 완료** | 티치 7축 전면 검토(96/91/97/82/93/94/95)와 미호크 Attack97. 과거 평가 격리 및 기존 모델/기준선 보존. [PR #101](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/101), [87파일·382테스트 CI](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38514355402) 통과. [main 병합 및 Pages 배포 확인](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38514674677) 완료. [정성 추론/맥락 교차 감사](V0_4_4_TEACH_MIHAWK_RECALIBRATION_2026-10-14.md) |
 | **v0.4.5** | **배포 완료** | 티치 Technique94(E2) / Versatility96(E1) 국소 재평가, 97 보류. v0.4.4와 v0.3.3 역대 기준선 유지. [v0.4.5 정성 근거 감사](V0_4_5_TEACH_DUAL_FRUIT_REVIEW_2026-10-14.md) |
-| **v0.4.6** | **기능 구현·배포 최종 확인 전** | 해군 3인·샹크스·미호크 15축 증거/조건 교차 재평가, 루피/흰수염 상태별 종합 순위 한 행 연동, 매치업 긴 선택 버튼 체크 줄바꿈 수정. [근거·UX 회귀 보고서](V0_4_6_FIVE_CHARACTER_STATES_RANKING_MATCHUP_2026-10-14.md). 조직도 별도 개발 |
+| **v0.4.6** | **배포 완료** | 해군 3인·샹크스·미호크 15축 증거/조건 교차 재평가, 루피/흰수염 상태별 종합 순위 한 행 연동, 매치업 긴 선택 버튼 체크 줄바꿈 수정. [근거·UX 회귀 보고서](V0_4_6_FIVE_CHARACTER_STATES_RANKING_MATCHUP_2026-10-14.md). 조직도 별도 개발 |
 | **v0.5.0~v1.0.0** | 상위 방향 | 이하 버전별 목표와 Release Gate는 유지. 상세 기획은 해당 단계 착수 시 별도 확인 |
 
 **로드맵 활용 원칙:** 매 개발 시작 시 현재 `main` 및 실제 앱 버전을 확인하고, 이 표의 진행 상태를 업데이트한다. 사용자 선택이 필요한 UX·점수·모델·데이터 정책을 미리 확정한 것으로 간주하지 않는다. **로드맵은 작업 순서의 기준이지 사용자 승인 없이 구현하거나 자동 실행하는 지시가 아니다.**

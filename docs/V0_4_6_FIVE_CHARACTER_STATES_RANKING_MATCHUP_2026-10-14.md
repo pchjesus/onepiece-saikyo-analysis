@@ -51,5 +51,11 @@
 
 조직도는 본 릴리즈 범위에서 제외. 기존 미승인 설계·현재/과거 그룹 Membership의 다대다 처리 및 공식 직책/실제 지휘 관계의 차이는 [별도 검토 문서](POST_V0_4_5_ORG_CHART_AND_FIVE_CHARACTER_AXIS_REVIEW_2026-10-14.md)를 유지하고 추후 독립 PR로 진행한다. 이 릴리즈는 다음 채팅 인수인계를 위해 안정 상태를 검증·기록한다.
 
-## 6. 검증 기록
-(최종 PR 및 배포 Actions 실행 후 확인된 내용만 기록)
+## 6. 검증 기록 (확인 완료)
+
+- 기능 [PR #106](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/106)에서 사용자 요청의 15축 평가, 순위 및 매치업 패치를 구현. 이전 평가 `evaluationsBeforeV046` 보존.
+- 초기 CI의 구 역사적 Overall 검증 6건은 과거 Evaluation과 새 현행 평가를 혼용해 실패. 역사 데이터와 현행 데이터를 분리한 뒤 해결. v0.1.53 당시 Final 벡터와 후속 승인된 Marco 점수 비교 역시 보존된 v0.4.5 입력으로 분리해 수정.
+- 새 CSS 회귀 테스트의 Node 모듈을 브라우저 TS용 `src/ui`에서 `tests`로 분리. 새 의존성 도입 없이 TypeScript 빌드 오류 해결.
+- 최종 [PR CI 38519741299](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38519741299): **92개 파일 / 393개 테스트 모두 통과**, TypeScript `tsc -b` + Vite build 성공.
+- 기능 `main@f44c121d9baa183d3978fe7aedb8cd0e87af2fff` 병합. [main CI 38519878008](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38519878008)에서 테스트·빌드·GitHub Pages 배포 모두 성공.
+- 실기기 PC·모바일 픽셀/터치 육안 검증, 원작 컷 전수 재확인, 이미지 재배포 라이선스 확인은 별도다.
