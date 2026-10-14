@@ -24,7 +24,8 @@
 - Balanced 1.2 / Haki Weight .5, 모든 기존 Base/Raw/Final·근거·E등급, `v0.3.3.json` Frozen 및 `evaluationsBeforeV046` 무변경.
 - `appVersion=0.4.7`, `evaluationSetVersion=evaluation-set-v0.4.6`, `coreDataVersion=core-v0.4.3`. UI 전용.
 - 직접 검증: ① 루피 상세 Gear4 상태에서 순위 새 열기→Gear5 최고점 시작; 팝업 Gear4로 변경→상세 Gear4 유지 ② X/배경/Escape 닫기 후 다시 열면 최고점 상태·내림차순 초기화 ③ 흰수염 전성기/정상결전, 가프 전성기/현재 최고점 선택 ④ 72 고유 인물 ⑤ 추천 17개 버튼의 A/B 평가 이름 귀속 및 루피 조건부 대진 체크 상태.
-- CI 검증: unit + React jsdom regression + TS/Vite build + main Pages. 실제 PC/모바일 시각 QA는 수행하지 않은 경우 별도 미검증으로 표기.
+- **CI 확인 완료:** [PR #108](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/108) 및 [PR Actions 38521641851](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38521641851)에서 **92파일·394테스트 전부 통과**, TS/Vite build 성공. 최초 CI 9건은 역사 v0.4.6과 최신 UI 버전 기대값 혼용으로 실패, 역사 검사 자체를 유지한 채 새 버전 기대값·기존 패치 탐색 경로를 교정.
+- 기능 병합 `main@d61a293944ba132b8d1b67ca40318870f8e9bcae`, [main Actions 38521751638](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38521751638)에서 테스트/빌드/GitHub Pages 배포 모두 성공. 실제 PC/모바일 시각 QA는 별도 미검증.
 
 ## 3. 다음 단계(별도 승인/새 채팅)
 
