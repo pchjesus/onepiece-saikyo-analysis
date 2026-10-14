@@ -16,8 +16,8 @@ import {v0180Characters,v0180Groups,v0180Memberships,v0180Battles,v0180Evidence,
 
 describe('v0.1.80 patch history and additive roster',()=>{
   it('exposes newest-first versioned reasons and numeric source links',()=>{
-    expect(patchHistory[0].version).toBe('v0.4.4')
-    expect(patchHistory.map(p=>p.version)).toEqual(['v0.4.4','v0.4.3','v0.4.2','v0.4.1','v0.4.0','v0.3.3','v0.3.2','v0.3.1','v0.3.0','v0.2.1','v0.2.0','v0.1.81','v0.1.80','v0.1.79','v0.1.78','v0.1.77','v0.1.76','v0.1.75'])
+    expect(patchHistory[0].version).toBe('v0.4.5')
+    expect(patchHistory.map(p=>p.version)).toEqual(['v0.4.5','v0.4.4','v0.4.3','v0.4.2','v0.4.1','v0.4.0','v0.3.3','v0.3.2','v0.3.1','v0.3.0','v0.2.1','v0.2.0','v0.1.81','v0.1.80','v0.1.79','v0.1.78','v0.1.77','v0.1.76','v0.1.75'])
     const q=patchHistory.find(p=>p.version==='v0.1.79')!.changes.find(c=>c.characterId==='queen')!
     expect([q.before,q.after,q.stat]).toEqual([80,82,'versatility'])
     expect(q.reason?.length).toBeGreaterThan(40)
