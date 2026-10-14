@@ -15,6 +15,7 @@ import { versionManifest } from '../src/data/integrity/versionManifest'
 import { auditCombatDataset } from '../src/data/integrity/auditDataset'
 import { getStatRanking } from '../src/application/getStatRanking'
 import { getCombatPower } from '../src/application/getCombatPower'
+import { calculateBalancedCombatPower } from '../src/domain/calculation/calculateCombatPower'
 import { getUniqueCharacterList } from '../src/application/getCharacterList'
 import { getCharacterPortraitAsset, characterPortraitAssets } from '../src/data/media/characterPortraits'
 import { COMBAT_STATS } from '../src/domain/evaluation/types'
@@ -40,7 +41,9 @@ describe('v0.4.1 additive Luffy and portrait mapping regression', () => {
     expect(frozen.data.evaluations).toHaveLength(74)
     expect(frozen.data.matchups).toHaveLength(15)
     for (const row of frozen.results.evaluations as {characterId:string;subjectStateId:string|null;overall:number}[]) {
-      expect(getCombatPower(row.characterId,'balanced',row.subjectStateId??undefined).finalScore).toBe(row.overall)
+      // Frozen v0.3.3 outcomes are compared with the preserved pre-v0.4.4 evaluation, not today's revised Teach/Mihawk.
+      const previous = evaluationsBeforeV044.find(e=>e.characterId===row.characterId && (e.subjectState?.id??null)===row.subjectStateId)!
+      expect(calculateBalancedCombatPower(previous,balancedV12).finalScore).toBe(row.overall)
     }
   })
   it('adds exactly one evaluated Luffy, without replacing past data or Matchups',()=>{
