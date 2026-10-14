@@ -38,6 +38,16 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
   {
+    version:'v0.4.5',date:'2026-10-14',title:'티치 두 열매 숙련·다재다능함 재평가',
+    summary:'티치 Technique 93→94(E2), Versatility 95→96(E1). 크로우즈·핸콕 능력 봉쇄·지진 활용의 실제 성과를 각각 제어 숙련과 전투 역할 폭으로 구분해 재해석했다. 97 이상의 과잉 추론은 보류하고 다른 5축과 미호크 및 70명의 기존 평가, 계산 모델을 보존.',
+    changes:[
+      {kind:'score',characterId:'teach',stat:'techniqueMastery',before:93,after:94,title:'티치 Technique 94',reason:'에이스전 흡인→접촉 봉쇄, 핸콕의 석화 능력 봉쇄, 마린포드/로전 지진 기술 등 두 능력 체계를 실제 전투에서 제어한 숙련의 재보정. 반복적인 동시 융합 기술이나 흰수염급 제어를 확정하지 않아 E2 유지.',evidence:[{label:'에이스·두 열매 공식 인물 설명',url:'https://one-piece.com/character/Marshall_D_Teech/index.html'},{label:'핸콕 봉쇄 TV1087',url:'https://one-piece.com/anime/64696/index.html'}]},
+      {kind:'score',characterId:'teach',stat:'versatility',before:95,after:96,title:'티치 Versatility 96',reason:'어둠 계열의 흡인·상대 능력 봉쇄·근접 제압과 지진 계열의 대인 충격·광역 압박을 서로 다른 전투 목적에 활용하는 폭을 재평가. 열매 개수나 동일 유효타를 별도 +N으로 중복 가산하지 않으며, 추가 독립 역할 미확인으로 97은 보류.',evidence:[{label:'핸콕 봉쇄 TV1087',url:'https://one-piece.com/anime/64696/index.html'},{label:'로와의 교전 TV1093',url:'https://one-piece.com/anime/65154/index.html'}]},
+      {kind:'evidence',characterId:'teach',title:'두 열매 고난도 동시 기술·97점 유보',detail:'열매 두 종의 실전 사용은 공식 확인되지만 어느 상황에서나 제약 없이 동시에 최적 제어한다는 직접 근거는 부족하다. Technique는 실행·제어 숙련, Versatility는 전투 역할 폭으로 분리하고 5개 타축·Raw Haki는 유지.'},
+    ],
+  },
+
+  {
     version:'v0.4.4',date:'2026-10-14',title:'티치 7축 전면 재평가와 미호크 공격력 조정',
     summary:'티치 Attack96·Defense91·Stamina97·Speed82(유지)·Technique93(유지)·Combat IQ94·Versatility95, Overall 92.571. 미호크 Attack97(샹크스 Final Attack과 동률). 기존 근거의 직접 사실과 조건부 추론을 분리하고 과거 v0.4.3 입력·v0.3.3 원본 기준선을 보존했다.',
     changes:[
