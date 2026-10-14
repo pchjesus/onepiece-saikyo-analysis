@@ -65,7 +65,7 @@ describe('v0.4.6 five-character audited recalibration and state-aware rankings',
    expect(balancedV12.configuration.hakiWeight).toBe(0.5)
    expect(auditCombatDataset(liveDataset).errors).toEqual([])
    expect(getMatchupHubEntries()).toHaveLength(17)
-   expect(versionManifest.appVersion).toBe('0.4.7')
+   expect(versionManifest.appVersion).toBe('0.4.8')
    expect(versionManifest.coreDataVersion).toBe('core-v0.4.3')
    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.6')
    expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
