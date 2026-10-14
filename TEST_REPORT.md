@@ -3,7 +3,7 @@
 - 기준 `main@d12fa4331a6e3b1854037048b2fcb2cf142d8c3d` (v0.4.4). [v0.4.5 근거·재평가 보고서](docs/V0_4_5_TEACH_DUAL_FRUIT_REVIEW_2026-10-14.md).
 - 티치 Technique **93→94(E2)**, Versatility **95→96(E1)**, Overall **648/7→650/7**. 97점은 확인되지 않은 독립 응용·역할 부족으로 보류. 나머지 다섯 축과 미호크·루피 상태별 평가 보존. 두 열매 보유만으로 산술 보너스 없음.
 - `evaluationsBeforeV045`에서 v0.4.4 데이터 모두 재현, `evaluationsBeforeV044`에서 이전 평가 보존. 기존 Matchup 15+2, Balanced 1.2/Haki .5, 72명/76 평가/532축, 원본 v0.3.3 JSON 불변.
-- 검사: 새 두 평가축 유효 점수/근거 소유/반론/E1-E2/Raw Haki 0, 기존 71명 전부 동일, 기어4·기어5 상태와 17 조건별 대진/대표 랭킹, 테스트/TS/Vite/Pages는 최종 CI 확인 후 확정.
+- 검사: 신규 두 평가축 유효 점수/근거 소유/반론/E1-E2/Raw Haki 0, 기존 71명 전부 동일, 기어4·기어5 상태와 17 조건별 대진/대표 랭킹. **[PR #103](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/103) 최종 CI [38515693602](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38515693602): 88개 파일 / 386개 자동 테스트 모두 통과, TypeScript/Vite 빌드 성공.** 최초 1건 버전 기대값 실패(38515617810)는 별도 역사적 루피 테스트의 evaluation-set 버전 교정으로 해결. **main 병합 `fdf132e9857a2e539c566bf0473a3e75dd60ff69` 및 [GitHub Pages 배포 38515802885](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38515802885) 테스트·빌드·배포 전부 성공.**
 - 제한: 97점, 신규 강자 상대 동시 정밀 복합 기술은 별도 직접 표본 부족. PC·모바일 육안 실사용, 원작 컷 전수 감사, 이미지 권한은 수행하지 않음.
 
 ---
