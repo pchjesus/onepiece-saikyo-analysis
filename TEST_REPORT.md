@@ -6,7 +6,7 @@
 - **회귀:** 기존 70명 완전 데이터 비교 불변; 과거 v0.4.3 입력은 `evaluationsBeforeV044`, 과거 59/65인 코호트는 수정된 역사 헬퍼로 따로 검증. 원본 `src/data/baselines/v0.3.3.json` 수정하지 않음. E1/E2/E3, 근거 ID, Rank/Matchup 계산, 72명/76평가/532축, 직접 15+조건부 2 Matchup 확인. Balanced 1.2 / Haki 0.5 불변.
 - **첫 CI:** 역사적 Legacy 코호트가 재평가된 현재 티치/미호크를 읽으면서 테스트 382건 중 16건 실패. 이를 점수 되돌리기 또는 무분별한 기준 기대값 교체가 아니라 과거 평가 입력과 현행 입력 분리 방식으로 수정했다.
 - **검증된 수정 후 PR CI:** [run 38514355402](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38514355402) — **87개 테스트 파일·382개 테스트 전부 통과**, TypeScript `tsc -b`와 Vite build 성공.
-- **배포:** 기능 PR 병합 전. main CI와 GitHub Pages 성공 후 릴리즈 완료로 보고.
+- **병합·배포:** [기능 PR #101](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/101) squash 병합 → `main@2b70c240d2d7f9969cebdfac2a361659482932f9`. [main Actions 38514674677](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38514674677)에서 **382개 테스트·TypeScript/Vite build·GitHub Pages deploy 모두 성공** 확인. 2026-10-14. 이 결과는 실제 PC·모바일 직접 시각/터치 점검을 대체하지 않음.
 - **제한:** 원작 만화 컷 단위 전수 검증, 이미지 저작권·재배포 권한, 실기기 PC/모바일 브라우저 직접 사용성 QA는 미완료.
 
 ---

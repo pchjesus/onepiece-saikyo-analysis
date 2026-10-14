@@ -5,7 +5,7 @@
 - **버전형 입력 보존:** `evaluationsBeforeV044`는 이전 티치·미호크 평가와 함께 v0.4.3 전체 76 Evaluation 원본을 유지. 별도 재산정 어댑터·동축 반론/불확실성·회귀 테스트 추가. 과거 v0.1.79 코호트가 새 현행 점수에 오염되지 않도록 분리.
 - **변경 범위:** 티치·미호크 외 70명 Evaluation·72 Character·97 Membership·76 Evaluation·532 Stat·15 직접/2 조건부 Matchup 불변. Balanced 1.2, Haki Weight 0.5, 양자 Raw Haki=0, 독립 `v0.3.3.json` **불변**. app-v0.4.4, evaluation-set-v0.4.4; Character/Battle/Evidence/모델 core-v0.4.3 유지.
 - **근거 및 한계:** [v0.4.4 전 축 감사 보고서](docs/V0_4_4_TEACH_MIHAWK_RECALIBRATION_2026-10-14.md). 공식 TV/인물 소개+기존 원작 챕터 색인을 대조했고 만화 전체 컷·PC/모바일 실사용 검증은 별도. 이 버전에서는 승률·가중치 변경이나 미확정 패기 보너스 도입 없음.
-- **검증:** 기능 PR #101에서 87개 파일/382개 테스트·TypeScript/Vite 빌드 통과. main 병합·Pages 배포 확인은 별도 최종 릴리즈 기록.
+- **검증·배포 완료:** [PR #101](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/101), [PR CI 38514571544](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38514571544)에서 **87파일/382테스트·TypeScript/Vite 빌드 통과**. `main@2b70c240d2d7f9969cebdfac2a361659482932f9` 병합 후 [main CI·Pages 38514674677](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38514674677) 테스트·빌드·배포 모두 성공.
 
 ---
 
