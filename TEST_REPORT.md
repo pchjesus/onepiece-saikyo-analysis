@@ -5,7 +5,7 @@
 - 선정 복수 평가 상태의 원값 평균과 한 사람 한 행 순위, 선택에 따른 등수 재계산, 상세/순위표의 상태 양방향 동기화(Luffy Gear4/Gear5, Newgate Prime/Marineford) 자동 테스트. 매치업 추천 대진 17개 기존 선택·조건부 상태와 체크 ::after CSS no-wrap 자동 확인.
 - 첫 기능 PR CI에서 구 역사적 스냅샷 테스트 6건이 새 현행 점수를 읽어 불일치. 수치 기대값만 갈아끼우지 않고 역사 Eval 원본으로 계산하도록 교정. 이후 CI 재실행 확인 대상.
 - 종합 7축 모델 Balanced1.2/HakiWeight0.5, 원본 v0.3.3 JSON/17 대진/72 고유명/97 Membership/532축/76 평가·이전 v0.4.5 점수/미호크 Attack97 불변.
-- CI 테스트/빌드 및 main Pages 배포 최종 기록은 실제 해당 실행 후 기재 예정. 원작 컷 단위 전수 검증과 실기기 모바일·PC 육안 확인은 미수행.
+- **검증·배포 완료:** [PR #106](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/106), [PR CI 38519741299](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38519741299)에서 **92개 테스트 파일/393개 테스트·TypeScript/Vite 빌드 성공**. 기능 병합 SHA `f44c121d9baa183d3978fe7aedb8cd0e87af2fff`; [main CI·Pages 38519878008](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38519878008) 테스트·빌드·배포 모두 성공. 역사 점수 테스트는 보존된 Evaluation을 읽도록 교정, CSS 정적 검사는 tests/로 옮겨 브라우저 TS의 Node 모듈 충돌 제거. 원작 컷 단위 전수 검증과 실기기 모바일·PC 육안 확인은 미수행.
 
 ---
 
