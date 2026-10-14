@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { historicalEvaluationsBeforeV0174 as expandedEvaluations } from './evaluations'
 import { sampleEvidence } from './evidence'
 import { sampleMatchups } from './matchups'
-import { getCombatPower } from '../../application/getCombatPower'
+import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
+import { balancedV12 } from './calculationModels'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import type { CombatStat, EvidenceReadiness } from '../../domain/evaluation/types'
 
@@ -87,7 +88,7 @@ describe('v0.1.55 five-character canon-readiness review', () => {
     for (const [id, stats] of finalVectors) {
       expect(byId(id).items.map((stat) => stat.score), id).toEqual(stats)
       const expected = stats.reduce((sum, stat) => sum + stat, 0) / 7
-      expect(getCombatPower(id).finalScore, id).toBeCloseTo(expected, 9)
+      expect(calculateBalancedCombatPower(byId(id),balancedV12).finalScore, id).toBeCloseTo(expected, 9)
     }
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
