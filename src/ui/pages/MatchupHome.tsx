@@ -216,8 +216,15 @@ export function MatchupHome() {
             return (
               <button type="button" className={isSelected ? 'selected' : undefined}
                 aria-pressed={isSelected} key={entry.matchup.id} onClick={() => applyFeatured(entry)}>
-                <span>{entry.characterA.name}</span><strong>VS</strong><span>{entry.characterB.name}</span>
-                {entry.characterA.stateLabel && <small className="matchup-featured-state">{entry.characterA.stateLabel}</small>}
+                <span className="matchup-featured-side" data-character-id={entry.characterA.characterId}>
+                  <span className="matchup-featured-name">{entry.characterA.name}</span>
+                  {entry.characterA.stateLabel && <small className="matchup-featured-state">{entry.characterA.stateLabel}</small>}
+                </span>
+                <strong className="matchup-featured-versus">VS</strong>
+                <span className="matchup-featured-side" data-character-id={entry.characterB.characterId}>
+                  <span className="matchup-featured-name">{entry.characterB.name}</span>
+                  {entry.characterB.stateLabel && <small className="matchup-featured-state">{entry.characterB.stateLabel}</small>}
+                </span>
               </button>
             )
           })}

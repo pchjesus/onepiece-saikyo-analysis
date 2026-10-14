@@ -20,6 +20,23 @@ export type StatRankingEntry = {
   stateOptions?: { id: string; label: string }[]
 }
 
+/** Starting state for a NEW Overall ranking popup: highest actual unrounded Overall,
+ * not arbitrary Evaluation order or the state last selected in character detail.
+ * Only multi-Evaluation characters need explicit overrides. */
+export function getHighestOverallStateIds(): Record<string,string> {
+  const defaults:Record<string,string> = {}
+  for (const {character} of getUniqueCharacterList()) {
+    const evaluations=evaluationRepository.getEvaluations(character.id)
+    if(evaluations.length<=1)continue
+    const highest=evaluations.reduce((best,candidate)=>{
+      const score=(e: (typeof evaluations)[number])=>getCombatPower(character.id,'balanced',e.subjectState?.id).finalScore
+      return score(candidate)>score(best)?candidate:best
+    })
+    if(highest.subjectState?.id) defaults[character.id]=highest.subjectState.id
+  }
+  return defaults
+}
+
 // Rankings are derived from the same evaluated roster and Balanced model as the detail UI.
 export function getStatRanking(stat: RankingStat, selectedStates: Readonly<Record<string,string>> = {}): StatRankingEntry[] {
   const model = calculationModelRepository.getModel('balanced')

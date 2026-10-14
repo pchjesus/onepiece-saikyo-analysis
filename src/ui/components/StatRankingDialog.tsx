@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react'
 import { COMBAT_STAT_DEFINITIONS } from '../../domain/evaluation/statDefinitions'
-import type { RankingStat, StatRankingEntry } from '../../application/getStatRanking'
+import { getHighestOverallStateIds, getStatRanking } from '../../application/getStatRanking'
+import type { RankingStat } from '../../application/getStatRanking'
 
 export function StatRankingDialog({
-  stat, entries, selectedCharacterId, onSelectCharacter, onSelectState, onClose,
+  stat, selectedCharacterId, onSelectCharacter, onClose,
 }: {
   stat: RankingStat
-  entries: StatRankingEntry[]
   selectedCharacterId: string
   onSelectCharacter: (characterId: string, groupId: string) => void
-  onSelectState?: (characterId: string, stateId: string) => void
   onClose: () => void
 }) {
+  // Both state choices and sort direction die with the popup on X / backdrop / Escape.
+  const [popupStates, setPopupStates] = useState<Record<string,string>>(() => stat==='overall' ? getHighestOverallStateIds() : {})
+  const entries = getStatRanking(stat, popupStates)
   const [direction, setDirection] = useState<'desc' | 'asc'>('desc')
   const sortedEntries = direction === 'desc' ? entries : [...entries].reverse()
 
@@ -33,7 +35,7 @@ export function StatRankingDialog({
           </div>
           <button className="stat-info-close" type="button" aria-label="순위 닫기" onClick={onClose}>×</button>
         </div>
-        <p className="section-note">현재 등록된 {entries.length}명 · {stat === 'overall' ? '균형형 1.2의 7개 최종 스탯 평균 (정렬은 반올림 전 원값)' : '최종점수'} · 동점은 공동 순위. 복수 평가 캐릭터도 한 명당 한 행만 표시됩니다. 해당 행에서 평가 시점을 바꾸면 전체 순위가 즉시 재계산되며 캐릭터 상세 화면과 선택이 연동됩니다. 모든 값은 현재 평가 상태에 따르며 1대1 승률이나 공식 서열이 아닙니다. 이름을 누르면 해당 캐릭터로 이동합니다.</p>
+        <p className="section-note">현재 등록된 {entries.length}명 · {stat === 'overall' ? '균형형 1.2의 7개 최종 스탯 평균 (정렬은 반올림 전 원값)' : '최종점수'} · 동점은 공동 순위. 복수 평가 캐릭터도 한 명당 한 행만 표시됩니다. 해당 행에서 평가 시점을 바꾸면 전체 순위가 즉시 재계산되며 이 팝업의 선택은 닫으면 초기화됩니다. 기본값은 각 인물의 최고 종합점수 상태입니다. 모든 값은 현재 평가 상태에 따르며 1대1 승률이나 공식 서열이 아닙니다. 이름을 누르면 해당 캐릭터로 이동합니다.</p>
         <div className="rank-sort-controls" role="group" aria-label="순위 정렬 방향">
           <button type="button" className={direction === 'desc' ? 'selected' : ''} aria-pressed={direction === 'desc'} onClick={() => setDirection('desc')}>높은 점수순 ↓</button>
           <button type="button" className={direction === 'asc' ? 'selected' : ''} aria-pressed={direction === 'asc'} onClick={() => setDirection('asc')}>낮은 점수순 ↑</button>
@@ -52,7 +54,7 @@ export function StatRankingDialog({
                 <label className="rank-state-control">
                   <span className="sr-only">{entry.characterName} 평가 시점</span>
                   <select aria-label={`${entry.characterName} 순위 평가 시점 선택`}
-                    value={entry.subjectStateId ?? ''} onChange={event => onSelectState?.(entry.characterId, event.target.value)}>
+                    value={entry.subjectStateId ?? ''} onChange={event => setPopupStates(previous=>({...previous,[entry.characterId]:event.target.value}))}>
                     {entry.stateOptions.map(state => <option key={state.id} value={state.id}>{state.label}</option>)}
                   </select>
                 </label>

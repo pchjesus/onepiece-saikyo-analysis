@@ -1,8 +1,28 @@
 import { describe, expect, it } from 'vitest'
 import { COMBAT_STATS } from '../domain/evaluation/types'
-import { getStatRanking } from './getStatRanking'
+import { getHighestOverallStateIds, getStatRanking } from './getStatRanking'
+import { evaluationRepository } from '../data/repositories/evaluationRepository'
+import { getCombatPower } from './getCombatPower'
 
 describe('getStatRanking', () => {
+  it('selects each multi-state character highest actual Overall as popup default, regardless of stored default/order', () => {
+    const highest = getHighestOverallStateIds()
+    expect(highest.luffy).toBe('egghead-gear5')
+    expect(highest.newgate).toBe('prime')
+    expect(highest.garp).toBe('prime')
+    for(const [id,state] of Object.entries(highest)) {
+      const options = evaluationRepository.getEvaluations(id)
+      const chosen = getCombatPower(id, 'balanced', state).finalScore
+      expect(options.length).toBeGreaterThan(1)
+      expect(options.every(e=>chosen >= getCombatPower(id,'balanced',e.subjectState?.id).finalScore)).toBe(true)
+    }
+    const selected = getStatRanking('overall',highest)
+    expect(selected).toHaveLength(72)
+    expect(new Set(selected.map(x=>x.characterId)).size).toBe(72)
+    expect(selected.find(x=>x.characterId==='luffy')?.subjectStateId).toBe('egghead-gear5')
+    expect(selected.find(x=>x.characterId==='newgate')?.subjectStateId).toBe('prime')
+  })
+
   it('sorts all evaluated characters by each Final Core Stat descending', () => {
     for (const stat of COMBAT_STATS) {
       const entries = getStatRanking(stat)

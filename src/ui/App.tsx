@@ -1,6 +1,5 @@
 import { useMemo, useRef, useState } from 'react'
 import { getCharacterList } from '../application/getCharacterList'
-import { getStatRanking } from '../application/getStatRanking'
 import type { RankingStat } from '../application/getStatRanking'
 import { CharacterPickerDialog } from './components/CharacterPickerDialog'
 import { StatRankingDialog } from './components/StatRankingDialog'
@@ -20,7 +19,7 @@ export default function App() {
   const [selectedId, setSelectedId] = useState(characterList[0]?.character.id ?? '')
   const [selectedGroupId, setSelectedGroupId] = useState(characterList[0]?.group.id ?? '')
   const [rankingStat, setRankingStat] = useState<RankingStat | null>(null)
-  // Keep one chosen evaluation state per character across detail and ranking screens.
+  // Character detail keeps its own selection; temporary ranking popup state is isolated and reset on close.
   const [selectedStates, setSelectedStates] = useState<Record<string,string>>({})
   const selectEvaluationState = (characterId:string, stateId:string) => setSelectedStates(prev=>({...prev,[characterId]:stateId}))
   const [statComparison, setStatComparison] = useState<{stat:CombatStat;primaryId:string;primaryStateId?:string}|null>(null)
@@ -115,8 +114,7 @@ export default function App() {
         onCompareStat={(stat,stateId)=>{setRankingStat(null);setStatComparison({stat,primaryId:selectedId,primaryStateId:stateId})}}
         onSelectOverall={() => setRankingStat('overall')} />)}
       {statComparison && <StatComparisonDialog {...statComparison} onClose={() => setStatComparison(null)} />}
-      {rankingStat && <StatRankingDialog stat={rankingStat} entries={getStatRanking(rankingStat, selectedStates)}
-        onSelectState={selectEvaluationState}
+      {rankingStat && <StatRankingDialog stat={rankingStat}
         selectedCharacterId={selectedId} onSelectCharacter={selectCharacter} onClose={() => setRankingStat(null)} />}
       </> : <MatchupHome />}
     </div>

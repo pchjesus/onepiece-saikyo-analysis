@@ -1,10 +1,11 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.4.6** (해군·샹크스·미호크 15축 교차 재평가, 복수 Evaluation의 상태별 한 행 순위 재계산, 매치업 추천 버튼 줄바꿈 패치; 이미지 재배포 권한 미확인) (npm package 버전 **0.4.6**)
+현재 구현 패치: **v0.4.7** (종합 전투력 순위 선택 팝업 전용·닫기 시 초기화, 최고 Overall 상태를 기본으로; 추천 대진의 평가 상태명을 캐릭터별로 명확히 묶음. 평가 데이터/모델 v0.4.6 불변) (npm package 버전 **0.4.7**)
 평가 데이터: **72 Character master pool · 72 visible Character · 72 evaluated unique Character · 97 Membership · 76 Evaluation · 532 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
-- **v0.4.6 현행 평가:** 쿠잔 Defense92/Stamina97 유지, 사카즈키 Stamina97·Speed87(E3)·Technique93·Combat IQ93·Versatility93, 보르살리노 Attack93·Defense Final90·Technique95·Combat IQ91·Versatility94, 샹크스 Defense93·Combat IQ Final94·Versatility91, 미호크 Versatility86. 나머지 기존 점수 및 Balanced 1.2/Haki 0.5 유지.
+- **v0.4.7 UI 안정화:** [종합 순위 팝업 선택값 자동 초기화와 캐릭터별 매치업 상태 귀속](docs/V0_4_7_RANKING_POPUP_RESET_AND_MATCHUP_LABELS_2026-10-14.md). 점수와 매치업 데이터 불변.
+- **v0.4.6 당시 평가:** 쿠잔 Defense92/Stamina97 유지, 사카즈키 Stamina97·Speed87(E3)·Technique93·Combat IQ93·Versatility93, 보르살리노 Attack93·Defense Final90·Technique95·Combat IQ91·Versatility94, 샹크스 Defense93·Combat IQ Final94·Versatility91, 미호크 Versatility86. 나머지 기존 점수 및 Balanced 1.2/Haki 0.5 유지.
 - **v0.4.6 화면 수정:** 루피·흰수염 등 복수 평가 상태의 순위표를 한 사람당 1행으로 유지하면서 선택 상태에 따라 재정렬; 매치업 추천 대진 상태명 및 체크표시 한 줄 유지.
 - [v0.4.6 평가·상태별 순위·매치업 UI 패치 보고서](docs/V0_4_6_FIVE_CHARACTER_STATES_RANKING_MATCHUP_2026-10-14.md)
 - **v0.4.5 당시 평가:** 티치 Attack96 / Defense91 / Stamina97 / Speed82 / Technique**94** / Combat IQ94(E2 잠정) / Versatility**96**, Overall **92.857143**. 다른 71명과 v0.4.4 역사적 평가·v0.3.3 독립 기준선 불변.
