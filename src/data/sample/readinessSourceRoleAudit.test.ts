@@ -4,7 +4,8 @@ import { sampleEvidence } from './evidence'
 import { sampleBattles } from './battles'
 import { sampleMatchups } from './matchups'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
-import { getCombatPower } from '../../application/getCombatPower'
+import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
+import { balancedV12 } from './calculationModels'
 import type { CombatStat, EvidenceReadiness } from '../../domain/evaluation/types'
 
 // Historical 59-person calibration stays stable; v0.1.70 is checked in a separate new-cohort suite.
@@ -100,7 +101,7 @@ describe('v0.1.53 role-aware readiness reconciliation', () => {
     ] as const) {
       expect(sampleEvaluations.find((evaluation) => evaluation.characterId === id)!.items
         .map((item) => item.score), id).toEqual(final)
-      expect(getCombatPower(id).finalScore, id).toBeCloseTo(overall, 9)
+      expect(calculateBalancedCombatPower(sampleEvaluations.find(e=>e.characterId===id)!,balancedV12).finalScore, id).toBeCloseTo(overall, 9)
     }
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
