@@ -77,4 +77,8 @@
 - 기존 저장된 Manga Chapter 440–441 / 553 / 560–562 / 576–577 / 1058–1059 / 1063–1064 / 1079 / 1081 평가 Evidence는 저장소의 원문 색인이다. 이번 단계는 공식 TV/인물 소개 및 기존 기록의 교차 검토이며 **원작 만화 전체 컷을 독립 열람한 것은 아님**.
 
 ## 릴리즈 최종 검증
-(기능 PR CI와 main 배포가 확인된 후 확정값 기록)
+
+- 기능 [PR #101](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/101)·[PR CI 38514571544](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38514571544): 87개 테스트 파일 / **382개 테스트 모두 통과**, TS/Vite build 성공.
+- 기능은 `main@2b70c240d2d7f9969cebdfac2a361659482932f9`에 squash 병합. [main CI 38514674677](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38514674677)에서 **npm test·TS/Vite build·GitHub Pages deploy job 모두 성공**.
+- 최초 CI에서 레거시 코호트가 갱신된 Teach/Mihawk 실시간 평가를 참조해 16건 실패; 기존 기대값만 새 점수로 교체하지 않고 `evaluationsBeforeV044`와 역사적 rank helper를 분리하여 해결했다. 나머지 70명 데이터 및 v0.3.3 정적 기준선은 보존.
+- 정량 수치는 사용자 승인 하의 현행 프로젝트 평가이며, 원작 객관 공식 수치·실기기 브라우저 육안 검증으로 오인하지 않는다.
