@@ -83,8 +83,8 @@ export default function App() {
           <span>매치업</span>
         </button>
         <button type="button" className={activeView === 'organization' ? 'selected' : ''} aria-pressed={activeView === 'organization'}
-          aria-label="조직도 화면" onClick={() => { setActiveView('organization'); setRankingStat(null) }}>
-          <span className="app-mode-icon org-icon" aria-hidden="true">♧</span>
+          aria-label="조직도 화면" onClick={() => { setActiveView('organization'); setRankingStat(null); setStatComparison(null) }}>
+          <span className="app-mode-icon org-icon" aria-hidden="true">▦</span>
           <span>조직도</span>
         </button>
       </nav>
