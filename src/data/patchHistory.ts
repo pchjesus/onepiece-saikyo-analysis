@@ -37,6 +37,21 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {
+    version:'v0.4.4',date:'2026-10-14',title:'티치 7축 전면 재평가와 미호크 공격력 조정',
+    summary:'티치 Attack96·Defense91·Stamina97·Speed82(유지)·Technique93(유지)·Combat IQ94·Versatility95, Overall 92.571. 미호크 Attack97(샹크스 Final Attack과 동률). 기존 근거의 직접 사실과 조건부 추론을 분리하고 과거 v0.4.3 입력·v0.3.3 원본 기준선을 보존했다.',
+    changes:[
+      {kind:'score',characterId:'teach',stat:'attack',before:95,after:96,title:'티치 Attack 상향',reason:'지진 충격파 실제 활용·에이스 능력 무력화의 공격 성과·로전 후반 승리까지 반영하되 결정타 기술 미공개는 한계로 보존.',evidence:[{label:'로 vs 티치 공식 1093화',url:'https://one-piece.com/anime/65154/index.html'},{label:'전투 결과 공식 1115화',url:'https://one-piece.com/anime/68212/index.html'}]},
+      {kind:'score',characterId:'teach',stat:'defense',before:89,after:91,title:'티치 Defense 능동 방어',reason:'핸콕전 실제 접촉 봉쇄와 에이스 상대 공격 수단 억제를 조건부 능동 방어로 교정, 피격 후 생존은 Stamina에만 반영.',evidence:[{label:'핸콕전 공식 1087화',url:'https://one-piece.com/anime/64696/index.html'}]},
+      {kind:'score',characterId:'teach',stat:'stamina',before:95,after:97,title:'티치 Stamina·고통 감내 상향',reason:'에이스·흰수염·로 상대 큰 피해를 받고도 전투를 지속한 반복 성과와 어둠의 고통 증폭 맥락; 서로 다른 싸움을 단일 장기전으로 합산하지 않음.',evidence:[{label:'로전 공식 1093화',url:'https://one-piece.com/anime/65154/index.html'},{label:'로 패배 공식 1115화',url:'https://one-piece.com/anime/68212/index.html'}]},
+      {kind:'score',characterId:'teach',stat:'combatIQ',before:87,after:94,title:'티치 Combat IQ·전술적 위험 관리 상향',reason:'에이스의 열매 봉쇄 전술, 핸콕의 석화 억제, 강적과의 공격 수단·시점 선택을 종합하되 마젤란·로전의 큰 위험과 내면 계산의 불확실성을 남기는 E2 잠정 상단값.',evidence:[{label:'에이스전 공식 325화',url:'https://one-piece.com/anime/325/index.html'},{label:'핸콕전 공식 1087화',url:'https://one-piece.com/anime/64696/index.html'}]},
+      {kind:'score',characterId:'teach',stat:'versatility',before:93,after:95,title:'티치 Versatility 실전 역할 폭 상향',reason:'두 열매 보유 자체가 아니라 상대 능력 봉쇄·원거리 흡인·근접 제압·광역 지진을 다른 목표에 실제로 전환하는 전장 역할 범위를 재평가.',evidence:[{label:'에이스전 공식 325화',url:'https://one-piece.com/anime/325/index.html'},{label:'로전 공식 1093화',url:'https://one-piece.com/anime/65154/index.html'}]},
+      {kind:'score',characterId:'mihawk',stat:'attack',before:96,after:97,title:'미호크 Attack 97 동축 조정',reason:'세계 최강 검사의 공식 위상, 원거리 참격·대형 절단, Ch.1058 샹크스보다 뛰어난 검술 평가를 종합해 샹크스 최종 Attack97과 동급으로 보되, 키드전 같은 최고급 직접 결정타 부재는 E2로 보존.',evidence:[{label:'미호크 공식 프로필',url:'https://one-piece.com/character/Dracule_Mihawk/index.html'}]},
+      {kind:'evidence',characterId:'teach',title:'티치 Speed82·Technique93 유지 근거',detail:'Speed는 강자와의 직접 고속 기동/반응 증명이 부족한 E3, Technique는 기존 93에 두 열매 운용·봉쇄 숙련 이미 반영. 둘 다 무근거 상향·미관찰 감점 금지.'},
+      {kind:'feature',title:'모델과 역사 원본 보존',detail:'Balanced 1.2/Haki 0.5, v0.3.3 독립 JSON, 기존 72 Character·76 Evaluation·532 Stat·직접 15+조건부 2 Matchup 구조 불변. 평가 집합만 v0.4.4, 코어 모델/원본은 v0.4.3 유지.'},
+    ],
+  },
+
   { version:'v0.4.3',date:'2026-10-14',title:'루피 기어 4·니카 상태별 평가 분리 및 상태 표시 간결화',
     summary:'루피의 같은 에그헤드 시점 기어 4 이하와 기어 5 상태를 각각 독립적으로 분석했다. 기어 5를 대표로 유지하고 기존 v0.4.1 루피 평가 원본은 보존. 일반 화면의 Draft 등 내부 상태 라벨만 숨겼다.',
     changes:[
