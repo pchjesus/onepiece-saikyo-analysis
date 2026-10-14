@@ -1,3 +1,14 @@
+# v0.4.6 — 15축 교차 평가·상태별 순위·추천 대진 체크 UI 회귀 (2026-10-14)
+
+- 기준 `main@e2b4be6c176459d2cee3e5a43d00d1e14a45817c` (v0.4.5 검토 문서 병합 후). [v0.4.6 상세 보고서](docs/V0_4_6_FIVE_CHARACTER_STATES_RANKING_MATCHUP_2026-10-14.md).
+- 5명/15축 후보 승인 반영, v0.4.5 76개 이전 평가를 `evaluationsBeforeV046`로 독립 보존. E1/E2/E3·Base/Raw/Final·중복 보너스·제3인물 불변 자동 검증.
+- 선정 복수 평가 상태의 원값 평균과 한 사람 한 행 순위, 선택에 따른 등수 재계산, 상세/순위표의 상태 양방향 동기화(Luffy Gear4/Gear5, Newgate Prime/Marineford) 자동 테스트. 매치업 추천 대진 17개 기존 선택·조건부 상태와 체크 ::after CSS no-wrap 자동 확인.
+- 첫 기능 PR CI에서 구 역사적 스냅샷 테스트 6건이 새 현행 점수를 읽어 불일치. 수치 기대값만 갈아끼우지 않고 역사 Eval 원본으로 계산하도록 교정. 이후 CI 재실행 확인 대상.
+- 종합 7축 모델 Balanced1.2/HakiWeight0.5, 원본 v0.3.3 JSON/17 대진/72 고유명/97 Membership/532축/76 평가·이전 v0.4.5 점수/미호크 Attack97 불변.
+- CI 테스트/빌드 및 main Pages 배포 최종 기록은 실제 해당 실행 후 기재 예정. 원작 컷 단위 전수 검증과 실기기 모바일·PC 육안 확인은 미수행.
+
+---
+
 # v0.4.5 — 티치 Technique·Versatility 국소 재평가 (2026-10-14)
 
 - 기준 `main@d12fa4331a6e3b1854037048b2fcb2cf142d8c3d` (v0.4.4). [v0.4.5 근거·재평가 보고서](docs/V0_4_5_TEACH_DUAL_FRUIT_REVIEW_2026-10-14.md).
