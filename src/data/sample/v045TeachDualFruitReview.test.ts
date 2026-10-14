@@ -1,5 +1,5 @@
 import {describe,it,expect} from 'vitest'
-import {evaluationsBeforeV044,evaluationsBeforeV045,sampleEvaluations} from './evaluations'
+import {evaluationsBeforeV044,evaluationsBeforeV045,evaluationsBeforeV046 as sampleEvaluations} from './evaluations'
 import {teachV045Decisions,applyV045TeachDualFruitReview} from './v045TeachDualFruitReview'
 import {sampleEvidence} from './evidence'
 import {patchHistory} from '../patchHistory'
@@ -65,9 +65,9 @@ describe('v0.4.5 Teach dual fruit precision and flexibility audit',()=>{
   })
 
   it('maintains identical calculation/model and unrelated ranks, matchup references and source baseline',()=>{
-    expect(versionManifest.appVersion).toBe('0.4.5')
+    expect(versionManifest.appVersion).toBe('0.4.6')
     expect(versionManifest.coreDataVersion).toBe('core-v0.4.3')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.5')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.6')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(.5)
@@ -85,8 +85,8 @@ describe('v0.4.5 Teach dual fruit precision and flexibility audit',()=>{
   })
 
   it('logs exactly two new score changes while retaining v0.4.4 history',()=>{
-    expect(patchHistory[0].version).toBe('v0.4.5')
-    const current=patchHistory[0].changes.filter(x=>x.kind==='score')
+    expect(patchHistory.find(x=>x.version==='v0.4.5')).toBeDefined()
+    const current=patchHistory.find(x=>x.version==='v0.4.5')!.changes.filter(x=>x.kind==='score')
     expect(current).toHaveLength(2)
     expect(current.map(x=>[x.characterId,x.stat,x.before,x.after])).toEqual([
       ['teach','techniqueMastery',93,94],['teach','versatility',95,96],
