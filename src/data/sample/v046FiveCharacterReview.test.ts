@@ -1,5 +1,5 @@
 import {describe,it,expect} from 'vitest'
-import {evaluationsBeforeV046,sampleEvaluations} from './evaluations'
+import {evaluationsBeforeV046,evaluationsBeforeV049 as sampleEvaluations} from './evaluations'
 import {v046Decisions} from './v046FiveCharacterReview'
 import {sampleEvidence} from './evidence'
 import {getFinalStatScore,getRawHakiContributionTotal} from '../../domain/evaluation/score'
@@ -65,9 +65,9 @@ describe('v0.4.6 five-character audited recalibration and state-aware rankings',
    expect(balancedV12.configuration.hakiWeight).toBe(0.5)
    expect(auditCombatDataset(liveDataset).errors).toEqual([])
    expect(getMatchupHubEntries()).toHaveLength(17)
-   expect(versionManifest.appVersion).toBe('0.4.8')
-   expect(versionManifest.coreDataVersion).toBe('core-v0.4.3')
-   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.6')
+   expect(versionManifest.appVersion).toBe('0.4.9')
+   expect(versionManifest.coreDataVersion).toBe('core-v0.4.9')
+   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.9')
    expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
  })
  it('keeps exactly 72 ranking identities; selection changes only that character value and ranks',()=>{

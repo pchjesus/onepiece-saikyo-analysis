@@ -1,3 +1,4 @@
+import { v049KobyTorpedoBattle } from './v049KobySmokerRecalibration'
 import { luffyBattles } from './luffyDraft'
 import { luffyStateBattles } from './luffyCombatStates'
 import { izoAssessmentBattles } from './izoAssessment'
@@ -838,6 +839,7 @@ export const sampleBattles: Battle[] = [
   ...v0171AceBattles,
   v0175GrusBattle,
   v0178HachinosuCaptivesBattle,
+  v049KobyTorpedoBattle,
   ...v0180Battles,
   ...buggyDraftBattles,
   ...izoAssessmentBattles,
