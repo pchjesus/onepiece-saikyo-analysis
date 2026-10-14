@@ -325,6 +325,13 @@ header p:last-child { color: #666; }
 .matchup-picker button.selected { border-color: #171717; background: #171717; color: white; box-shadow: 0 0 0 2px #171717; font-weight: 800; }
 .matchup-picker button.selected strong { color: #e6e6e6; }
  .matchup-picker button.selected::after { content: '✓'; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; margin-left: 1px; color: white; font-weight: 900; font-size: .9rem; }
+/* Labels belong to the fighter immediately above them, not the opponent after VS.
+   Horizontal scroll is intentional on narrow screens; never overflow a pill into another fighter. */
+.matchup-featured-side { display:inline-flex; flex-direction:column; flex:0 0 auto; align-items:flex-start; justify-content:center; gap:2px; white-space:nowrap; }
+.matchup-featured-name { display:block; font-size:inherit; line-height:1.25; }
+.matchup-featured-state { display:block; font-size:.69rem; font-weight:750; line-height:1.2; color:inherit; opacity:.87; }
+.matchup-featured-versus { flex:0 0 auto; align-self:center; }
+.matchup-picker button.selected::after { align-self:center; }
 .matchup-picker button:hover:not(.selected) { border-color: #777; background: #f1f1ee; }
 .matchup-picker button:focus-visible { outline: 3px solid #3868ac; outline-offset: 3px; }
 
