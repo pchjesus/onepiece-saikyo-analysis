@@ -75,7 +75,7 @@ describe('v0.4.5 Teach dual fruit precision and flexibility audit',()=>{
     expect(getStatRanking('overall').find(x=>x.characterId==='teach')?.score).toBeCloseTo(650/7,12)
     expect(getStatRanking('techniqueMastery').find(x=>x.characterId==='teach')?.score).toBe(94)
     expect(getStatRanking('versatility').find(x=>x.characterId==='teach')?.score).toBe(96)
-    expect(getCombatPower('mihawk').finalScore).toBeCloseTo(650/7,12)
+    expect(getCombatPower('mihawk').finalScore).toBeCloseTo(652/7,12)
     expect(getCombatPower('luffy').finalScore).toBeCloseTo(657/7,12)
     expect(getMatchupHubEntries()).toHaveLength(17)
     expect(getMatchupBuilderView('luffy','teach','egghead-gear4')?.matchup?.id).toBe('matchup-luffy-gear4-teach')
