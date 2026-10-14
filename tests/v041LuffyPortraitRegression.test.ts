@@ -5,7 +5,7 @@ import { resolve } from 'node:path'
 import { sampleCharacters } from '../src/data/sample/characters'
 import { sampleGroups } from '../src/data/sample/groups'
 import { sampleMemberships } from '../src/data/sample/memberships'
-import { sampleEvaluations } from '../src/data/sample/evaluations'
+import { sampleEvaluations, evaluationsBeforeV044 } from '../src/data/sample/evaluations'
 import { sampleBattles } from '../src/data/sample/battles'
 import { sampleEvidence } from '../src/data/sample/evidence'
 import { sampleMatchups } from '../src/data/sample/matchups'
@@ -32,7 +32,7 @@ describe('v0.4.1 additive Luffy and portrait mapping regression', () => {
     check(sampleGroups, frozen.data.groups)
     check(sampleBattles, frozen.data.battles)
     check(sampleEvidence, frozen.data.evidence)
-    check(sampleEvaluations, frozen.data.evaluations)
+    check(evaluationsBeforeV044, frozen.data.evaluations)
     check(sampleMatchups, frozen.data.matchups)
     expect(plain(sampleMemberships.slice(0, frozen.data.memberships.length))).toEqual(frozen.data.memberships)
     expect(plain(balancedV12)).toEqual(frozen.model)
@@ -60,7 +60,7 @@ describe('v0.4.1 additive Luffy and portrait mapping regression', () => {
     expect(getCombatPower('luffy').finalScore).toBeCloseTo(657/7,12)
     expect(sampleMatchups).toHaveLength(15)
     expect(versionManifest.coreDataVersion).toBe('core-v0.4.3')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.3')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.4')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
     expect(versionManifest.calculationModelVersion).toBe('1.2')
     expect(createV033Snapshot().snapshotVersion).toBe('v0.4.3')
