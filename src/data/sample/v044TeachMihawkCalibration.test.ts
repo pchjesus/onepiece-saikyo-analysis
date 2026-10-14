@@ -90,8 +90,8 @@ describe('v0.4.4 targeted Teach and Mihawk evidence/context recalibration',()=>{
   })
 
   it('versions only the changed evaluation set and records 6 transparent score changes',()=>{
-    expect(versionManifest.appVersion).toBe('0.4.8')
-    expect(versionManifest.coreDataVersion).toBe('core-v0.4.3')
+    expect(versionManifest.appVersion).toBe('0.4.9')
+    expect(versionManifest.coreDataVersion).toBe('core-v0.4.9')
     expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.6')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
     const historical=patchHistory.find(x=>x.version==='v0.4.4')!
