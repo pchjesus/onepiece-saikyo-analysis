@@ -764,3 +764,6 @@ header p:last-child { color: #666; }
   .portrait-lightbox-dialog{width:100%;max-height:calc(100dvh - 16px);padding:8px}
   .portrait-lightbox-image{max-height:calc(100dvh - 115px)}
 }
+
+/* Accessible label for compact multi-state ranking selects. */
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
