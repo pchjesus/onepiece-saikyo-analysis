@@ -46,7 +46,8 @@ describe('v0.4.4 targeted Teach and Mihawk evidence/context recalibration',()=>{
     expect(oldTeach.items.map(x=>x.score)).toEqual([95,89,95,82,93,87,93]) // no mutation
     expect(oldMihawk.items.find(x=>x.stat==='attack')?.score).toBe(96)
     expect(getCombatPower('teach').finalScore).toBeCloseTo(650/7,11)
-    expect(getCombatPower('mihawk').finalScore).toBeCloseTo(650/7,11)
+    expect(getCombatPower('mihawk').finalScore).toBeCloseTo(652/7,11)
+    expect(getFinalStatScore(byId(sampleEvaluations,'mihawk').items.find(i=>i.stat==='versatility')!)).toBe(84)
     expect(byId(sampleEvaluations,'shanks').items.find(x=>x.stat==='attack')?.score).toBe(97)
     for(const characterId of ['teach','mihawk']){
       const prev=byId(evaluationsBeforeV044,characterId)
@@ -89,9 +90,9 @@ describe('v0.4.4 targeted Teach and Mihawk evidence/context recalibration',()=>{
   })
 
   it('versions only the changed evaluation set and records 6 transparent score changes',()=>{
-    expect(versionManifest.appVersion).toBe('0.4.5')
+    expect(versionManifest.appVersion).toBe('0.4.6')
     expect(versionManifest.coreDataVersion).toBe('core-v0.4.3')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.5')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.6')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
     const historical=patchHistory.find(x=>x.version==='v0.4.4')!
     expect(historical).toBeDefined()

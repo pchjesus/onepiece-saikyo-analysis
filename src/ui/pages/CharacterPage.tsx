@@ -20,9 +20,11 @@ const knownAsLabel: Record<CharacterKnownAsKind, string> = {
   title: '칭호',
 }
 
-export function CharacterPage({ characterId, groupId, onSelectStat, onCompareStat, onSelectOverall }: {
+export function CharacterPage({ characterId, groupId, selectedStateId, onStateChange, onSelectStat, onCompareStat, onSelectOverall }: {
   characterId: string
   groupId: string
+  selectedStateId?: string
+  onStateChange?: (stateId: string) => void
   onSelectStat: (stat: CombatStat) => void
   onCompareStat: (stat: CombatStat, stateId?: string) => void
   onSelectOverall: () => void
@@ -30,7 +32,6 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onCompareSta
   const initialDetail = getCharacterDetail(characterId, groupId)
   const [activeDetail, setActiveDetail] = useState<'evaluation' | 'battle'>('evaluation')
   const [focusedBattleId,setFocusedBattleId]=useState<string|null>(null)
-  const [selectedStateId, setSelectedStateId] = useState(initialDetail?.evaluation.subjectState?.id ?? '')
 
   if (!initialDetail) return <section>캐릭터 데이터를 찾을 수 없습니다.</section>
 
@@ -68,7 +69,7 @@ export function CharacterPage({ characterId, groupId, onSelectStat, onCompareSta
                 return (
                   <button key={evaluation.id} type="button" className={selected ? 'selected' : ''}
                     aria-pressed={selected}
-                    onClick={() => setSelectedStateId(evaluation.subjectState?.id ?? '')}>
+                    onClick={() => onStateChange?.(evaluation.subjectState?.id ?? '')}>
                     {evaluation.subjectState?.label ?? '기본'}
                   </button>
                 )

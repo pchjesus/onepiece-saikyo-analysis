@@ -20,6 +20,9 @@ export default function App() {
   const [selectedId, setSelectedId] = useState(characterList[0]?.character.id ?? '')
   const [selectedGroupId, setSelectedGroupId] = useState(characterList[0]?.group.id ?? '')
   const [rankingStat, setRankingStat] = useState<RankingStat | null>(null)
+  // Keep one chosen evaluation state per character across detail and ranking screens.
+  const [selectedStates, setSelectedStates] = useState<Record<string,string>>({})
+  const selectEvaluationState = (characterId:string, stateId:string) => setSelectedStates(prev=>({...prev,[characterId]:stateId}))
   const [statComparison, setStatComparison] = useState<{stat:CombatStat;primaryId:string;primaryStateId?:string}|null>(null)
   const [pickerOpen, setPickerOpen] = useState(false)
   const [patchOpen, setPatchOpen] = useState(false)
@@ -108,11 +111,12 @@ export default function App() {
         onSelectCharacter={selectCharacter} onClose={closePicker} />}
       {selectedId && (evaluationRepository.getEvaluations(selectedId).length === 0
         ? <UnratedCharacterPage key={`${selectedGroupId}:${selectedId}`} characterId={selectedId} groupId={selectedGroupId}/>
-        : <CharacterPage key={`${selectedGroupId}:${selectedId}`} characterId={selectedId} groupId={selectedGroupId} onSelectStat={setRankingStat}
+        : <CharacterPage key={`${selectedGroupId}:${selectedId}`} characterId={selectedId} groupId={selectedGroupId} selectedStateId={selectedStates[selectedId]} onStateChange={stateId=>selectEvaluationState(selectedId,stateId)} onSelectStat={setRankingStat}
         onCompareStat={(stat,stateId)=>{setRankingStat(null);setStatComparison({stat,primaryId:selectedId,primaryStateId:stateId})}}
         onSelectOverall={() => setRankingStat('overall')} />)}
       {statComparison && <StatComparisonDialog {...statComparison} onClose={() => setStatComparison(null)} />}
-      {rankingStat && <StatRankingDialog stat={rankingStat} entries={getStatRanking(rankingStat)}
+      {rankingStat && <StatRankingDialog stat={rankingStat} entries={getStatRanking(rankingStat, selectedStates)}
+        onSelectState={selectEvaluationState}
         selectedCharacterId={selectedId} onSelectCharacter={selectCharacter} onClose={() => setRankingStat(null)} />}
       </> : <MatchupHome />}
     </div>

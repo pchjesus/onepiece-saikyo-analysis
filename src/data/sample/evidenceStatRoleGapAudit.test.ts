@@ -3,7 +3,8 @@ import { historicalEvaluationsBeforeV0174 as expandedEvaluations } from './evalu
 import { sampleEvidence } from './evidence'
 import { sampleMatchups } from './matchups'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
-import { getCombatPower } from '../../application/getCombatPower'
+import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
+import { balancedV12 } from './calculationModels'
 import type { CombatStat } from '../../domain/evaluation/types'
 
 // v0.1.70 new evaluations are reviewed in their own suite; preserve this source audit's historical cohort.
@@ -112,7 +113,7 @@ describe('v0.1.54 23 untyped roles and 14 context-only axes', () => {
       ['van-augur', [72, 67, 68, 75, 80, 78, 82], 74.57142857142857],
     ] as const) {
       expect(sampleEvaluations.find((e) => e.characterId === id)!.items.map((i) => i.score), id).toEqual(final)
-      expect(getCombatPower(id).finalScore, id).toBeCloseTo(overall, 9)
+      expect(calculateBalancedCombatPower(sampleEvaluations.find(e=>e.characterId===id)!,balancedV12).finalScore, id).toBeCloseTo(overall, 9)
     }
   })
 })

@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import { getLegacyUniqueCharacterList as getUniqueCharacterList } from './v0180LegacyCohort'
 import { getCombatPower } from '../../application/getCombatPower'
+import { evaluationsBeforeV046 } from './evaluations'
+import { balancedV12 } from './calculationModels'
+import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
 import { legacyCharacters as sampleCharacters } from './v0180LegacyCohort'
 import { legacyEvaluations as sampleEvaluations } from './v0180LegacyCohort'
 import { legacyEvidence as sampleEvidence } from './v0180LegacyCohort'
@@ -40,7 +43,9 @@ describe('v0.1.33 legendary-era expansion', () => {
   })
 
   it('keeps current Gaban in the Admiral band rather than turning survival against Imu into a 94-point result', () => {
-    expect(score('gaban')).toBeCloseTo(score('kizaru'), 10)
+    // Gaban/Kizaru matched in the earlier audit. New current Kizaru score is evaluated separately.
+    expect(score('gaban')).toBeCloseTo(calculateBalancedCombatPower(evaluationsBeforeV046.find(e=>e.characterId==='kizaru')!,balancedV12).finalScore, 10)
+    expect(score('kizaru')).toBeGreaterThan(score('gaban'))
     expect(score('gaban')).toBeLessThan(score('akainu'))
     expect(score('gaban')).toBeLessThan(score('kuzan'))
     expect(score('gaban')).toBeLessThan(score('garp', 'current'))

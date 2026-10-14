@@ -16,20 +16,24 @@ export type StatRankingEntry = {
   rank: number
   status: EvaluationStatus
   subjectStateLabel?: string
+  subjectStateId?: string
+  stateOptions?: { id: string; label: string }[]
 }
 
 // Rankings are derived from the same evaluated roster and Balanced model as the detail UI.
-export function getStatRanking(stat: RankingStat): StatRankingEntry[] {
+export function getStatRanking(stat: RankingStat, selectedStates: Readonly<Record<string,string>> = {}): StatRankingEntry[] {
   const model = calculationModelRepository.getModel('balanced')
   if (!model) throw new Error('Balanced calculation model is missing.')
 
   const sorted = getUniqueCharacterList().flatMap(({ character, group }) => {
-    const evaluation = evaluationRepository.getEvaluation(character.id)
+    const allEvaluations = evaluationRepository.getEvaluations(character.id)
+    const evaluation = evaluationRepository.getEvaluation(character.id, selectedStates[character.id])
+      ?? evaluationRepository.getEvaluation(character.id)
     if (!evaluation) return []
     const item = stat === 'overall' ? undefined : evaluation.items.find((entry) => entry.stat === stat)
     if (stat !== 'overall' && !item) return []
     const score = stat === 'overall'
-      ? getCombatPower(character.id).finalScore
+      ? getCombatPower(character.id, 'balanced', evaluation.subjectState?.id).finalScore
       : getFinalStatScore(item!, model.configuration.hakiWeight)
     return [{
       characterId: character.id,
@@ -39,6 +43,8 @@ export function getStatRanking(stat: RankingStat): StatRankingEntry[] {
       score,
       status: evaluation.status,
       subjectStateLabel: evaluation.subjectState?.label,
+      subjectStateId: evaluation.subjectState?.id,
+      stateOptions: allEvaluations.length > 1 ? allEvaluations.map(e=>({id:e.subjectState?.id ?? e.id,label:e.subjectState?.label ?? '기본 평가'})) : undefined,
     }]
   }).sort((a, b) => b.score - a.score || a.characterName.localeCompare(b.characterName, 'ko'))
 
