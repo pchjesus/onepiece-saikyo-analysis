@@ -1,3 +1,14 @@
+# v0.4.7 — Overall 팝업 선택 초기화·추천 대진 상태 귀속 (2026-10-14)
+
+- 기준 `main@8c9df6ed4684ee17ab00095f14df68636a8561ca` (v0.4.6). [상세 변경·검증 계획](docs/V0_4_7_RANKING_POPUP_RESET_AND_MATCHUP_LABELS_2026-10-14.md).
+- 기능: `getHighestOverallStateIds()`로 모든 복수 Evaluation 인물의 높은 7축 Final 평균을 팝업 첫 상태로 지정; `StatRankingDialog` 내부 state로 변경/정렬을 격리하고 닫을 때 unmount·초기화; CharacterPage 상세 선택은 유지.
+- 추천 대진: 상태명은 각 `matchup-featured-side[data-character-id]`의 캐릭터 이름 아래 배치; 루피 Gear4/Gear5를 티치의 상태로 오인할 위험 방지, 미래에 B쪽도 상태가 있으면 동일하게 처리.
+- 회귀: 루피/흰수염/가프 최고 상태, 72명 단일 row, 재정렬/기어 상태 변경, 상세 상태 비간섭, X/외부/Escape 초기화, 17 대진의 상태 소속/버튼 선택/좌우 교체와 가로 스크롤 정적 CSS 확인.
+- 빌드·PR·main 배포 기록은 CI 확인 후 이 기록 또는 별도 릴리즈 보고로 확정한다. 실기기 UI/원작 컷 감사 미수행.
+- 데이터: Evaluation·Battle·Evidence·Haki·Matchup·계산/패기 모델·Frozen JSON 등 도메인 구조 및 v0.4.6 결과 불변.
+
+---
+
 # v0.4.6 — 15축 교차 평가·상태별 순위·추천 대진 체크 UI 회귀 (2026-10-14)
 
 - 기준 `main@e2b4be6c176459d2cee3e5a43d00d1e14a45817c` (v0.4.5 검토 문서 병합 후). [v0.4.6 상세 보고서](docs/V0_4_6_FIVE_CHARACTER_STATES_RANKING_MATCHUP_2026-10-14.md).
