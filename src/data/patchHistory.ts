@@ -37,6 +37,15 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  { version:'v0.4.7', date:'2026-10-14',title:'종합 순위 팝업 선택 초기화 및 매치업 평가 시점 소속 명확화',
+    summary:'종합전투력 정렬은 각 캐릭터의 최고 Overall 평가를 초기 상태로 사용하고, 팝업 내 변경은 X·배경·Escape 닫기 시 사라진다. 매치업 상태명은 해당 캐릭터 이름에 직접 묶어서 루피 기어 상태를 티치의 것으로 혼동하지 않도록 개선했다. 모든 평가/스탯/근거/계산 모델/매치업은 v0.4.6 그대로.',
+    changes:[
+      {kind:'feature',title:'종합 순위 상태 선택 팝업 전용·자동 초기화',detail:'루피·흰수염·가프 등 복수 Evaluation 인물은 최고 점수 상태로 처음 표시하고 선택하면 해당 팝업 안에서 전체 72명 순위를 즉시 재계산한다. 닫기 X·바깥 클릭·ESC로 상태와 정렬 방향을 초기화한다. 캐릭터 상세 화면 선택을 덮어쓰지 않는다.'},
+      {kind:'feature',title:'추천 대진 평가 상태의 선수 귀속 표시',detail:'루피(기어 4 이하/기어 5·니카) 등 상태명은 캐릭터 이름 바로 아래 같은 묶음에 넣으며 캐릭터 A/B 양쪽 상태까지 독립 표시. 추천 버튼 체크마크·가로 스크롤·선택 동작은 보존한다.'},
+      {kind:'evidence',title:'v0.4.6 코어와 평가·계산 유지',detail:'5명/15축 v0.4.6 재평가, 72명/76 Evaluation/532축/17 매치업, Balanced1.2, Haki0.5 및 v0.3.3 정적 스냅샷 불변. app/package만 v0.4.7.'},
+    ],
+  },
+
   {
     version:'v0.4.6',date:'2026-10-14',title:'해군·샹크스·미호크 동축 재평가와 상태별 순위·매치업 UI 교정',
     summary:'쿠잔 Defense92·Stamina97 유지, 사카즈키 Technique/IQ/Versatility93·Stamina97·Speed87(E3), 키자루 Attack93·Defense Final90·Technique95·IQ91·Versatility94, 샹크스 Defense93·IQ Final94·Versatility91, 미호크 Versatility86. 평가 상태별 순위 한 행 재계산 및 추천 대진 체크표시 줄바꿈 교정. v0.4.5 평가 입력, 1.2 모델/Raw패기/역사 스냅샷 보존.',
