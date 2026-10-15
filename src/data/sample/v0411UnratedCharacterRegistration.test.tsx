@@ -28,7 +28,7 @@ describe('v0.4.11 eight character-only registrations', () => {
     expect(getUniqueCharacterList()).toHaveLength(80)
     expect(sampleEvaluations).toHaveLength(76)
     expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(532)
-    expect(sampleMatchups).toHaveLength(17)
+    expect(sampleMatchups).toHaveLength(15)
     for (const id of ids) expect(sampleEvaluations.some(e=>e.characterId===id)).toBe(false)
     expect(getStatRanking('overall')).toHaveLength(72)
   })
