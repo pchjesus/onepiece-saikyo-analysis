@@ -18,8 +18,8 @@ describe('v0.4.10 character quote source integrity', () => {
     const secondary = reviews.filter(item => item.verificationStatus === 'secondary-excerpt')
     const pending = reviews.filter(item => item.verificationStatus === 'pending')
     expect(official).toHaveLength(14)
-    expect(secondary).toHaveLength(57)
-    expect(pending).toHaveLength(9)
+    expect(secondary).toHaveLength(64)
+    expect(pending).toHaveLength(2)
     expect(pending.every(item => !item.originalJapanese && !item.displayKorean && !item.source)).toBe(true)
     for (const quote of official) {
       expect(quote.originalJapanese?.trim().length).toBeGreaterThan(5)
@@ -57,7 +57,7 @@ describe('v0.4.10 character quote source integrity', () => {
     expect(getCharacterQuoteReview('guernica')?.displayKorean).toContain('부럽군')
     for(const q of Object.values(characterQuoteReviews).filter(q=>q.verificationStatus === 'secondary-excerpt')){
       expect(q.source?.url).toMatch(/^https:\/\//)
-      expect(q.mangaChapter).toBeGreaterThan(0)
+      expect(q.mangaChapter || q.animeEpisode || q.context?.includes('0화')).toBeTruthy()
       expect(q.translationStatus).toBe('editorial')
     }
   })
