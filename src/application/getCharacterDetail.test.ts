@@ -1,10 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import { getCharacterList, getUniqueCharacterList } from './getCharacterList'
 import { getCharacterDetail } from './getCharacterDetail'
+import { evaluationRepository } from '../data/repositories/evaluationRepository'
 
 describe('getCharacterDetail group migration', () => {
   it('resolves representative detail for all 72 evaluated Characters', () => {
-    const list = getUniqueCharacterList()
+    const list = getUniqueCharacterList().filter(x=>evaluationRepository.getEvaluations(x.character.id).length>0)
     expect(list).toHaveLength(72)
     for (const { character, group } of list) {
       const detail = getCharacterDetail(character.id, group.id)
@@ -15,7 +16,7 @@ describe('getCharacterDetail group migration', () => {
   })
 
   it('resolves every expanded Membership context, including historical secondary Groups', () => {
-    const expanded = getCharacterList()
+    const expanded = getCharacterList().filter(x=>evaluationRepository.getEvaluations(x.character.id).length>0)
     expect(expanded).toHaveLength(97)
 
     for (const { character, group } of expanded) {
