@@ -524,5 +524,97 @@ const reviewed = [
       "url": "https://mangakawiki.com/archives/11557"
     }
   }
+,
+  {
+  "characterId": "shiryu",
+  "originalJapanese": "クズを斬って誰かが困るのか・・・？",
+  "displayKorean": "쓰레기를 베었다고 누가 곤란해지기라도 하나?",
+  "mangaChapter": 538,
+  "verificationStatus": "secondary-excerpt",
+  "translationStatus": "editorial",
+  "context": "임펠다운에서 잔혹한 가치관을 드러냄",
+  "source": {
+    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+    "url": "https://mangakawiki.com/archives/9110"
+  }
+},
+{
+  "characterId": "van-augur",
+  "originalJapanese": "この世は全て強い望みの赴くままに巡り合う歯車なのである",
+  "displayKorean": "이 세상은 강한 바람에 이끌려 만나는 운명의 톱니바퀴일 뿐이다.",
+  "mangaChapter": 237,
+  "verificationStatus": "secondary-excerpt",
+  "translationStatus": "editorial",
+  "context": "자야에서 운명과 만남에 대해 말함",
+  "source": {
+    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+    "url": "https://mangakawiki.com/archives/9364"
+  }
+},
+{
+  "characterId": "ryokugyu",
+  "originalJapanese": "差別とは安堵だ!!!",
+  "displayKorean": "차별이란 안도감이다!",
+  "mangaChapter": 1054,
+  "verificationStatus": "secondary-excerpt",
+  "translationStatus": "editorial",
+  "context": "와노쿠니에서 차별을 정당화하는 왜곡된 세계관",
+  "source": {
+    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+    "url": "https://mangakawiki.com/archives/8844"
+  }
+},
+{
+  "characterId": "pica",
+  "originalJapanese": "国とは武力だ",
+  "displayKorean": "국가란 무력이다!",
+  "mangaChapter": 778,
+  "verificationStatus": "secondary-excerpt",
+  "translationStatus": "editorial",
+  "context": "조로에 맞서 무력을 강조",
+  "source": {
+    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+    "url": "https://mangakawiki.com/archives/10715"
+  }
+},
+{
+  "characterId": "diamante",
+  "originalJapanese": "そこまで言うなら天才と認めるしかない!!!",
+  "displayKorean": "그렇게까지 말한다면 천재라고 인정할 수밖에!",
+  "mangaChapter": 700,
+  "verificationStatus": "secondary-excerpt",
+  "translationStatus": "editorial",
+  "context": "도플라밍고의 칭찬을 받아들이는 우스꽝스러운 말버릇",
+  "source": {
+    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+    "url": "https://mangakawiki.com/archives/10176"
+  }
+},
+{
+  "characterId": "nekomamushi",
+  "originalJapanese": "何が滅ぼうとも敵に仲間は売らんぜよ!!!",
+  "displayKorean": "무엇이 멸망하더라도 적에게 동료는 팔지 않는다!",
+  "mangaChapter": 816,
+  "verificationStatus": "secondary-excerpt",
+  "translationStatus": "editorial",
+  "context": "라이조를 보호한 밍크족의 신의",
+  "source": {
+    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+    "url": "https://mangakawiki.com/archives/8437"
+  }
+},
+{
+  "characterId": "inuarashi",
+  "originalJapanese": "ジャック ゆガラだけが話の通じぬ男だと思うな",
+  "displayKorean": "잭, 말이 통하지 않는 게 너뿐인 줄 아나?",
+  "mangaChapter": 809,
+  "verificationStatus": "secondary-excerpt",
+  "translationStatus": "editorial",
+  "context": "밍크족이 침략자 잭에 맞서며 대응",
+  "source": {
+    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+    "url": "https://mangakawiki.com/archives/13617"
+  }
+}
 ] satisfies SecondaryQuote[]
 export const v0412SecondaryQuotes: Record<string, CharacterQuoteReview> = Object.fromEntries(reviewed.map(q=>[q.characterId,q]))
