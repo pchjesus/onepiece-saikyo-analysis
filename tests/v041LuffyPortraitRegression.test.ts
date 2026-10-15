@@ -17,6 +17,7 @@ import { getStatRanking } from '../src/application/getStatRanking'
 import { getCombatPower } from '../src/application/getCombatPower'
 import { calculateBalancedCombatPower } from '../src/domain/calculation/calculateCombatPower'
 import { getUniqueCharacterList } from '../src/application/getCharacterList'
+import { v0411Characters } from '../src/data/sample/v0411UnratedCharacterRegistration'
 import { getCharacterPortraitAsset, characterPortraitAssets } from '../src/data/media/characterPortraits'
 import { COMBAT_STATS } from '../src/domain/evaluation/types'
 
@@ -51,7 +52,7 @@ describe('v0.4.1 additive Luffy and portrait mapping regression', () => {
     expect(sampleMemberships).toHaveLength(97)
     expect(sampleEvaluations).toHaveLength(76)
     expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(532)
-    expect(getUniqueCharacterList()).toHaveLength(72)
+    expect(getUniqueCharacterList().filter(x=>!v0411Characters.some(c=>c.id===x.character.id))).toHaveLength(72)
     for(const stat of ['overall', ...COMBAT_STATS] as const) expect(getStatRanking(stat)).toHaveLength(72)
     const luffy=sampleEvaluations.find(e=>e.characterId==='luffy'&&e.isDefault)!
     expect(sampleEvaluations.filter(e=>e.characterId==='luffy')).toHaveLength(2)
