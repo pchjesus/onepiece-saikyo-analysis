@@ -51,7 +51,7 @@ describe('v0.4.11 eight character-only registrations', () => {
   it('keeps one quote slot per 80 characters; activates only sourced Straw Hat quotes', () => {
     expect(Object.keys(characterQuoteReviews)).toHaveLength(80)
     expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='official-excerpt')).toHaveLength(14)
-    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='pending')).toHaveLength(2)
+    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='pending')).toHaveLength(0)
     for(const id of ['nami','chopper','robin','franky','brook']){
       const review=getCharacterQuoteReview(id)!
       expect(review.verificationStatus).toBe('official-excerpt')
@@ -61,8 +61,8 @@ describe('v0.4.11 eight character-only registrations', () => {
       expect(page).toContain('대표 명대사')
     }
     for(const id of ['maha']){
-      expect(getCharacterQuoteReview(id)?.verificationStatus).toBe('pending')
-      expect(renderToStaticMarkup(<CharacterPage characterId={id} groupId='cp0' onSelectStat={()=>{}} onCompareStat={()=>{}} onSelectOverall={()=>{}} />)).not.toContain('대표 명대사')
+      expect(getCharacterQuoteReview(id)?.verificationStatus).toBe('secondary-excerpt')
+      expect(renderToStaticMarkup(<CharacterPage characterId={id} groupId='cp0' onSelectStat={()=>{}} onCompareStat={()=>{}} onSelectOverall={()=>{}} />)).toContain('대표 명대사')
     }
   })
   it('shows Guernica sourced 1042 exclamation in the CP0 detail card', () => {
