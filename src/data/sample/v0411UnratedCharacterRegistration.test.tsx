@@ -2,6 +2,8 @@
 import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { sampleCharacters } from './characters'
+import { characterRepository } from '../repositories/characterRepository'
+import { groupRepository } from '../repositories/groupRepository'
 import { sampleMemberships } from './memberships'
 import { sampleEvaluations } from './evaluations'
 import { v0411Characters, v0411Memberships } from './v0411UnratedCharacterRegistration'
@@ -18,9 +20,11 @@ describe('v0.4.11 eight character-only registrations', () => {
   it('adds eight new identities, no evaluations, and no extra matchups', () => {
     expect(v0411Characters.map(c=>c.id)).toEqual(ids)
     expect(v0411Memberships.map(m=>m.characterId)).toEqual(ids)
-    expect(sampleCharacters).toHaveLength(80)
-    expect(new Set(sampleCharacters.map(c=>c.id)).size).toBe(80)
-    expect(sampleMemberships).toHaveLength(105)
+    expect(sampleCharacters).toHaveLength(72)
+    expect(characterRepository.getCharacters()).toHaveLength(80)
+    expect(new Set(characterRepository.getCharacters().map(c=>c.id)).size).toBe(80)
+    expect(sampleMemberships).toHaveLength(97)
+    expect(groupRepository.getMemberships()).toHaveLength(105)
     expect(getUniqueCharacterList()).toHaveLength(80)
     expect(sampleEvaluations).toHaveLength(76)
     expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(532)
