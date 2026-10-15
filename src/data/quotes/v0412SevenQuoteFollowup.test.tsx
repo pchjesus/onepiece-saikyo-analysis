@@ -11,14 +11,14 @@ import {getStatRanking} from '../../application/getStatRanking'
 const present=['jozu','gaban','morley','karasu','stussy','prince-grus','inazuma'] as const
 
 describe('Quote-only follow-up: seven shortlisted voices',()=>{
-  it('registers precisely 78 of 80 verified-tier candidates without changing combat evaluations',()=>{
+  it('preserves the historic seven selected candidates and newly covers all 80 character IDs without changing combat evaluations',()=>{
     const ids=[...sampleCharacters,...v0411Characters].map(x=>x.id)
     expect(ids).toHaveLength(80)
     expect(Object.keys(characterQuoteReviews).sort()).toEqual([...ids].sort())
     expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='official-excerpt')).toHaveLength(14)
-    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='secondary-excerpt')).toHaveLength(64)
+    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='secondary-excerpt')).toHaveLength(66)
     expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='pending').map(q=>q.characterId).sort())
-      .toEqual(['maha','smoothie'])
+      .toEqual([])
     expect(sampleEvaluations).toHaveLength(76)
     expect(v0412Evaluations).toHaveLength(8)
     expect(getStatRanking('overall')).toHaveLength(80)
@@ -58,11 +58,11 @@ describe('Quote-only follow-up: seven shortlisted voices',()=>{
     expect(html).toContain('만화 대응 대사 미확인')
     expect(html).not.toContain('원작 제888화')
   })
-  it('keeps unverified Smoothie and Maha empty rather than inventing quotes',()=>{
+  it('renders sourced Smoothie and Maha quotes without promoting to manga-checked',()=>{
     expect(present.every(id=>getCharacterQuoteReview(id)?.verificationStatus==='secondary-excerpt')).toBe(true)
     for(const id of ['smoothie','maha']){
-      expect(getCharacterQuoteReview(id)?.verificationStatus).toBe('pending')
-      expect(renderToStaticMarkup(<CharacterQuote characterId={id} />)).toBe('')
+      expect(getCharacterQuoteReview(id)?.verificationStatus).toBe('secondary-excerpt')
+      expect(renderToStaticMarkup(<CharacterQuote characterId={id} />)).toContain('대표 명대사')
     }
   })
 })

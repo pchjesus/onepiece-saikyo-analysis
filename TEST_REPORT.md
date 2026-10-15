@@ -1,3 +1,13 @@
+# v0.4.12 후속 — 명대사 80명 전체 선정·검증 (2026-10-15)
+
+- 스무디/마하 2명 추가, 80/80 quote 슬롯의 실제 문구·출처·상태 표출. 14 official-excerpt / 66 secondary-excerpt / pending 0.
+- 신규 자동 테스트: 원작/애니 화수, 인물별 발언자, 2차 출처 연결, 한국어 자체 번역, 두 인물의 상세 UI와 80명 명대사 등록 완료 확인.
+- 76+8 Evaluation 원본·Balanced 1.2/Haki Weight .5·15 direct matchup 원본 불변.
+- **자동 CI 최종 확인 대기:** PR head 테스트/빌드와 main Pages 배포 확인 후 완료 처리. PC/모바일 실기기 시각 확인·원작 컷/정발 번역 대조는 별도.
+- [2인 출처 검토](docs/V0_4_12_FULL_80_QUOTES_SMOOTHIE_MAHA_2026-10-15.md).
+
+---
+
 # v0.4.12 — 80명 평가·69명 명대사 후보 회귀 검증 (2026-10-15)
 
 - 신규 8 Evaluation/56 축과 공식 ONE PIECE.com 애니 시놉시스 근거 연결, 소유권/교전 상황/기존 76 Evaluation 원본 불변.

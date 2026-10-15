@@ -19,8 +19,8 @@ describe('v0.4.10 character-scoped quote UI', () => {
     expect(markup).toContain('rel="noopener noreferrer"')
     expect(markup).toContain('제574화 (2차 자료 기재)')
   })
-  it('does not render a fake placeholder quote for pending or unknown characters', () => {
-    expect(renderToStaticMarkup(<CharacterQuote characterId="maha" />)).toBe('')
+  it('renders Maha’s sourced new quote and keeps unknown IDs free of fake placeholders', () => {
+    expect(renderToStaticMarkup(<CharacterQuote characterId="maha" />)).toContain('조직에서 도망쳐도 살아남을 수 있다는 선례')
     expect(renderToStaticMarkup(<CharacterQuote characterId="nobody" />)).toBe('')
     const html = renderCharacter('kaku', 'cp0')
     expect(html).toContain('class="character-quote"')

@@ -833,6 +833,33 @@ const reviewed = [
     },
     "verificationStatus": "secondary-excerpt",
     "translationStatus": "editorial"
+  },
+  {
+    "characterId": "smoothie",
+    "originalJapanese": "勝手にママを殺すな!!! 必ず帰って来る!! ママを常識で計るな愚か者共!!",
+    "displayKorean": "멋대로 마마를 죽이지 마! 반드시 돌아올 거야! 마마를 상식으로 판단하지 말라고!",
+    "mangaChapter": 934,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "와노쿠니로 향한 배가 킹의 공격으로 추락한 뒤 빅 맘이 죽었다는 전제로 페로스페로와 다이후쿠가 차기 선장을 다투자, 스무디가 빅 맘의 생존을 확신하며 꾸짖는 장면. 일본어 2차 전사/자체 번역이며 만화 원본과 한국 정식판 미대조.",
+    "source": {
+      "label": "ONE PIECE 제934화 일본어 발언 전사 · 비공식 만화 감상 자료",
+      "url": "https://kaizokura.com/archives/15932733.html"
+    }
+  },
+  {
+    "characterId": "maha",
+    "originalJapanese": "いや 組織から逃亡しても生きていけるという前例がよくない",
+    "displayKorean": "조직에서 도망쳐도 살아남을 수 있다는 선례를 남겨선 안 된다.",
+    "mangaChapter": 1018,
+    "animeEpisode": 1040,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "오니가시마에서 CP0가 후즈 후의 도주와 처분을 논의하는 장면. 애니메이션 1040화 일본어 대사 전사에서 마하가 해당 발언을 한 것으로 구분되며, 원작 제1018화에서도 동일 취지의 CP0 논의를 확인. 만화 개별 말풍선 발언자/정발 번역 직접 미대조.",
+    "source": {
+      "label": "ONE PIECE 애니메이션 제1040화 일본어 인물별 대사 전사 (비공식)",
+      "url": "https://www.hellominju.com/2022/11/ONEPIECE1040.html"
+    }
   }
 ] satisfies SecondaryQuote[]
 export const v0412SecondaryQuotes: Record<string, CharacterQuoteReview> = Object.fromEntries(reviewed.map(q=>[q.characterId,q]))
