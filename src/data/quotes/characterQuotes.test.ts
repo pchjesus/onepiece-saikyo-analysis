@@ -5,7 +5,7 @@ import { characterQuoteReviews, getCharacterQuoteReview } from './characterQuote
 describe('v0.4.10 character quote source integrity', () => {
   it('tracks precisely one quote-review slot per registered unique character', () => {
     const ids = sampleCharacters.map(({ id }) => id)
-    expect(ids).toHaveLength(72)
+    expect(ids).toHaveLength(80)
     expect(new Set(ids).size).toBe(ids.length)
     expect(Object.keys(characterQuoteReviews).sort()).toEqual([...ids].sort())
     expect(Object.entries(characterQuoteReviews).every(([id, review]) => id === review.characterId)).toBe(true)
@@ -15,8 +15,8 @@ describe('v0.4.10 character quote source integrity', () => {
     const reviews = Object.values(characterQuoteReviews)
     const selected = reviews.filter(item => item.verificationStatus !== 'pending')
     const pending = reviews.filter(item => item.verificationStatus === 'pending')
-    expect(selected).toHaveLength(13)
-    expect(pending).toHaveLength(59)
+    expect(selected).toHaveLength(19)
+    expect(pending).toHaveLength(61)
     expect(pending.every(item => !item.originalJapanese && !item.displayKorean && !item.source)).toBe(true)
     for (const quote of selected) {
       expect(quote.originalJapanese?.trim().length).toBeGreaterThan(5)
