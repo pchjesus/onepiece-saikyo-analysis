@@ -1,11 +1,12 @@
 import { sampleCharacters } from '../sample/characters'
 import { v0411Characters } from '../sample/v0411UnratedCharacterRegistration'
+import { v0412SecondaryQuotes } from './v0412SecondaryQuotes'
 
 /** Quotes are optional presentation evidence, never an Evaluation or combat modifier.
  * official-excerpt: literal Japanese text appears on ONE PIECE.com, but manga panels
  * and the official Korean edition have NOT been individually inspected.
  */
-export type QuoteVerification = 'pending' | 'official-excerpt' | 'manga-checked'
+export type QuoteVerification = 'pending' | 'official-excerpt' | 'secondary-excerpt' | 'manga-checked'
 export type CharacterQuoteReview = {
   characterId: string
   originalJapanese?: string
@@ -41,7 +42,7 @@ const officialExcerpts: Record<string, CharacterQuoteReview> = {
 
 /** One review slot per unique registered character ID; no invented fallback dialogue. */
 export const characterQuoteReviews: Record<string, CharacterQuoteReview> = Object.fromEntries(
-  [...sampleCharacters, ...v0411Characters].map(({ id }) => [id, officialExcerpts[id] ?? { characterId: id, verificationStatus: 'pending' }]),
+  [...sampleCharacters, ...v0411Characters].map(({ id }) => [id, v0412SecondaryQuotes[id] ?? officialExcerpts[id] ?? { characterId: id, verificationStatus: 'pending' }]),
 )
 
 export function getCharacterQuoteReview(characterId: string): CharacterQuoteReview | undefined {
