@@ -18,8 +18,8 @@ describe('v0.4.10 character quote source integrity', () => {
     const secondary = reviews.filter(item => item.verificationStatus === 'secondary-excerpt')
     const pending = reviews.filter(item => item.verificationStatus === 'pending')
     expect(official).toHaveLength(15)
-    expect(secondary).toHaveLength(47)
-    expect(pending).toHaveLength(18)
+    expect(secondary).toHaveLength(54)
+    expect(pending).toHaveLength(11)
     expect(pending.every(item => !item.originalJapanese && !item.displayKorean && !item.source)).toBe(true)
     for (const quote of official) {
       expect(quote.originalJapanese?.trim().length).toBeGreaterThan(5)
