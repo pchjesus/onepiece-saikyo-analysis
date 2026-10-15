@@ -1,7 +1,6 @@
 import { luffyCharacter } from './luffyDraft'
 import { izoCharacter } from './izoProfile'
 import { v0180Characters } from './v0180CharacterExpansion'
-import { v0411Characters } from './v0411UnratedCharacterRegistration'
 import { wanoCharacters } from './wanoExpansion'
 import { v0170Characters } from './v0170GroupAceExpansion'
 import type { Character } from '../../domain/character/types'
@@ -857,7 +856,6 @@ export const sampleCharacters: Character[] = [
   ...wanoCharacters,
   ...v0170Characters,
   ...v0180Characters,
-  ...v0411Characters,
   izoCharacter,
   luffyCharacter,
 ]
