@@ -18,8 +18,8 @@ describe('v0.4.10 character quote source integrity', () => {
     const secondary = reviews.filter(item => item.verificationStatus === 'secondary-excerpt')
     const pending = reviews.filter(item => item.verificationStatus === 'pending')
     expect(official).toHaveLength(14)
-    expect(secondary).toHaveLength(64)
-    expect(pending).toHaveLength(2)
+    expect(secondary).toHaveLength(66)
+    expect(pending).toHaveLength(0)
     expect(pending.every(item => !item.originalJapanese && !item.displayKorean && !item.source)).toBe(true)
     for (const quote of official) {
       expect(quote.originalJapanese?.trim().length).toBeGreaterThan(5)
@@ -32,7 +32,7 @@ describe('v0.4.10 character quote source integrity', () => {
     }
   })
   it('distinguishes selected second-party transcriptions from primary-manga verification', () => {
-    for(const id of ['newgate','usopp','garp','kaido','kizaru','burgess','doflamingo','roger','marco','ace','mihawk','rocks','guernica']){
+    for(const id of ['newgate','usopp','garp','kaido','kizaru','burgess','doflamingo','roger','marco','ace','mihawk','rocks','guernica','smoothie','maha']){
       const q = getCharacterQuoteReview(id)!
       expect(q.verificationStatus).toBe('secondary-excerpt')
       expect(q.translationStatus).toBe('editorial')
