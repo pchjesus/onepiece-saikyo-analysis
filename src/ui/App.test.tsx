@@ -42,7 +42,7 @@ afterEach(async () => {
 describe('v0.1.80 patch history UI',()=>{
   it('opens history, displays numeric changes and reasons, closes on demand',async()=>{
     const button=container.querySelector<HTMLButtonElement>('.patch-history-trigger')
-    expect(button?.textContent).toContain('v0.4.10')
+    expect(button?.textContent).toContain('v0.4.11')
     await click(button)
     const dialog=container.querySelector('[role="dialog"][aria-labelledby="patch-history-title"]')
     expect(dialog?.textContent).toContain('퀸 범용성 조정')
@@ -87,7 +87,7 @@ describe('v0.1.80 patch history UI',()=>{
 
     await choose('전체')
     expect(tabs[0].getAttribute('aria-pressed')).toBe('true')
-    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(24)
+    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(25)
     expect(dialog.querySelectorAll('.patch-category-section').length).toBeGreaterThan(7)
   })
 
@@ -135,8 +135,8 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
     await openPicker()
     const results=container.querySelectorAll('.character-picker-option')
     expect(results).toHaveLength(72)
-    expect(container.querySelectorAll('.character-picker-option .character-portrait-small')).toHaveLength(72)
-    expect(container.querySelectorAll('.character-picker-option img')).toHaveLength(72)
+    expect(container.querySelectorAll('.character-picker-option .character-portrait-small')).toHaveLength(80)
+    expect(container.querySelectorAll('.character-picker-option img')).toHaveLength(80)
     expect(container.querySelectorAll('.character-picker-option .character-portrait-fallback')).toHaveLength(0)
     await click(container.querySelector('.character-picker-close'))
   })
@@ -192,7 +192,7 @@ describe('evaluated roster UI', () => {
 
   it('shows exactly 59 unique results and filters historical Tobi Roppo membership without duplication', async () => {
     await openPicker()
-    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(72)
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(80)
     const filter = container.querySelector<HTMLSelectElement>('#character-picker-group')!
     await act(async () => {
       const setter = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value')?.set
@@ -207,7 +207,7 @@ describe('evaluated roster UI', () => {
     expect(selectedGroupName()).toBe('토비롯포')
     expect(container.querySelector('[role="dialog"][aria-modal="true"]')).toBeNull()
     await openPicker()
-    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(72)
+    expect(container.querySelectorAll('.character-picker-option')).toHaveLength(80)
   })
 
   it('restores trigger focus when closing with Escape and keeps unrelated evaluation data intact', async () => {
@@ -232,7 +232,7 @@ describe('evaluated roster UI', () => {
     await selectGroup('CP0')
     expect(container.querySelector('main.detail h1')?.textContent).toBe('로브 루치')
     expect([...container.querySelectorAll('.character-chip')].map(el => el.textContent))
-      .toEqual(['로브 루치', '스튜시과거 소속', '카쿠'])
+      .toEqual(['로브 루치', '스튜시과거 소속', '카쿠', '게르니카', '마하'])
     await click([...container.querySelectorAll('.character-chip')].find(el=>el.textContent?.includes('스튜시')) ?? null)
     expect(container.querySelector('main.detail h1')?.textContent).toBe('스튜시')
     expect(container.querySelectorAll('.readiness-badge.e3')).toHaveLength(3)
