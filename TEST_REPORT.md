@@ -1,3 +1,12 @@
+# v0.4.12 — 80명 평가·69명 명대사 후보 회귀 검증 (2026-10-15)
+
+- 신규 8 Evaluation/56 축과 공식 ONE PIECE.com 애니 시놉시스 근거 연결, 소유권/교전 상황/기존 76 Evaluation 원본 불변.
+- 명대사 69인 후보(official-excerpt 15, secondary-excerpt 54), pending 11. 사용자 요청 특수 인물 8명의 후보·화수·원작 미대조 표기 검사.
+- 기존 v0.3.3 스냅샷, Balanced 1.2/Haki Weight .5, 17 매치업, 80명 Rank UI 회귀 검사.
+- **PR 및 배포 자동 검사:** 최종 GitHub Actions 결과 확인 전에는 완료라고 보고하지 않음. 기기 시각 QA/만화컷/한국 공식 번역 대조 별도.
+
+---
+
 # v0.4.11 신규 인물 8명 선등록 검증 (2026-10-15)
 
 - 기준 v0.4.10 main@741335a0. 신규 8 Character, 8 Membership / 신규 Evaluation 0, 신규 Battle/Evidence 0, 새로운 Matchup 0.

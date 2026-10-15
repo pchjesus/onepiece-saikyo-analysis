@@ -9,7 +9,8 @@ import { sampleEvaluations } from './evaluations'
 import { v0411Characters, v0411Memberships } from './v0411UnratedCharacterRegistration'
 import { getCharacterQuoteReview, characterQuoteReviews } from '../quotes/characterQuotes'
 import { getCharacterPortraitAsset } from '../media/characterPortraits'
-import { UnratedCharacterPage } from '../../ui/pages/UnratedCharacterPage'
+import { CharacterPage } from '../../ui/pages/CharacterPage'
+import { evaluationRepository } from '../repositories/evaluationRepository'
 import { getCharacterList, getUniqueCharacterList } from '../../application/getCharacterList'
 import { getStatRanking } from '../../application/getStatRanking'
 import { sampleMatchups } from './matchups'
@@ -17,7 +18,7 @@ import { sampleMatchups } from './matchups'
 const ids=['guernica','maha','usopp','nami','chopper','robin','franky','brook']
 
 describe('v0.4.11 eight character-only registrations', () => {
-  it('adds eight new identities, no evaluations, and no extra matchups', () => {
+  it('preserves eight existing profile records and original 76 source evaluations', () => {
     expect(v0411Characters.map(c=>c.id)).toEqual(ids)
     expect(v0411Memberships.map(m=>m.characterId)).toEqual(ids)
     expect(sampleCharacters).toHaveLength(72)
@@ -30,7 +31,8 @@ describe('v0.4.11 eight character-only registrations', () => {
     expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(532)
     expect(sampleMatchups).toHaveLength(15)
     for (const id of ids) expect(sampleEvaluations.some(e=>e.characterId===id)).toBe(false)
-    expect(getStatRanking('overall')).toHaveLength(72)
+    expect(getStatRanking('overall')).toHaveLength(80)
+    for(const id of ids) expect(evaluationRepository.getEvaluations(id)).toHaveLength(1)
   })
 
   it('exposes eight users in the existing group chooser/organization instead of adding a group', () => {
@@ -39,28 +41,28 @@ describe('v0.4.11 eight character-only registrations', () => {
       chopper:'straw-hat-pirates',robin:'straw-hat-pirates',franky:'straw-hat-pirates',brook:'straw-hat-pirates' }
     for(const [id,groupId] of Object.entries(expected)){
       expect(listed.some(({character,group})=>character.id===id&&group.id===groupId)).toBe(true)
-      const page=renderToStaticMarkup(<UnratedCharacterPage characterId={id} groupId={groupId}/>)
-      expect(page).toContain('전투력 미평가')
-      expect(page).not.toContain('종합 전투력 · 현재 계산값')
+      const page=renderToStaticMarkup(<CharacterPage characterId={id} groupId={groupId} onSelectStat={()=>{}} onCompareStat={()=>{}} onSelectOverall={()=>{}} />)
+      expect(page).not.toContain('전투력 미평가')
+      expect(page).toContain('핵심 전투 스탯')
       expect(page).toContain('character-portrait')
     }
   })
 
   it('keeps one quote slot per 80 characters; activates only sourced Straw Hat quotes', () => {
     expect(Object.keys(characterQuoteReviews)).toHaveLength(80)
-    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='official-excerpt')).toHaveLength(19)
-    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='pending')).toHaveLength(61)
-    for(const id of ['usopp','nami','chopper','robin','franky','brook']){
+    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='official-excerpt')).toHaveLength(15)
+    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='pending')).toHaveLength(11)
+    for(const id of ['nami','chopper','robin','franky','brook']){
       const review=getCharacterQuoteReview(id)!
       expect(review.verificationStatus).toBe('official-excerpt')
       expect(review.translationStatus).toBe('editorial')
       expect(review.source?.url).toBe('https://one-piece.com/news/o20220411_13783/index.html')
-      const page=renderToStaticMarkup(<UnratedCharacterPage characterId={id} groupId='straw-hat-pirates' />)
+      const page=renderToStaticMarkup(<CharacterPage characterId={id} groupId='straw-hat-pirates' onSelectStat={()=>{}} onCompareStat={()=>{}} onSelectOverall={()=>{}} />)
       expect(page).toContain('대표 명대사')
     }
     for(const id of ['guernica','maha']){
       expect(getCharacterQuoteReview(id)?.verificationStatus).toBe('pending')
-      expect(renderToStaticMarkup(<UnratedCharacterPage characterId={id} groupId='cp0' />)).not.toContain('대표 명대사')
+      expect(renderToStaticMarkup(<CharacterPage characterId={id} groupId='cp0' onSelectStat={()=>{}} onCompareStat={()=>{}} onSelectOverall={()=>{}} />)).not.toContain('대표 명대사')
     }
   })
   it('resolves the user-uploaded eight image identifiers with explicit unverified rights',()=>{

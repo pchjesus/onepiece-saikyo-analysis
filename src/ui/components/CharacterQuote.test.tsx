@@ -20,10 +20,10 @@ describe('v0.4.10 character-scoped quote UI', () => {
     expect(markup).not.toContain('원작 제574화')
   })
   it('does not render a fake placeholder quote for pending or unknown characters', () => {
-    expect(renderToStaticMarkup(<CharacterQuote characterId="kaku" />)).toBe('')
+    expect(renderToStaticMarkup(<CharacterQuote characterId="maha" />)).toBe('')
     expect(renderToStaticMarkup(<CharacterQuote characterId="nobody" />)).toBe('')
     const html = renderCharacter('kaku', 'cp0')
-    expect(html).not.toContain('class="character-quote"')
+    expect(html).toContain('class="character-quote"')
     expect(html).toContain('핵심 전투 스탯')
   })
   it('keeps one quote for all evaluation states and uses the selected character identity', () => {

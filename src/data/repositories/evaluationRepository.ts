@@ -1,5 +1,9 @@
 import type { Evaluation } from '../../domain/evaluation/types'
 import { sampleEvaluations } from '../sample/evaluations'
+import { v0412Evaluations } from '../sample/v0412EightEvaluations'
+
+/** Preserve immutable historical evaluation array; extend current repository data explicitly. */
+const currentEvaluations = [...sampleEvaluations, ...v0412Evaluations]
 
 export interface EvaluationRepository {
   getEvaluations(characterId: string): Evaluation[]
@@ -7,7 +11,7 @@ export interface EvaluationRepository {
 }
 
 const forCharacter = (characterId: string) =>
-  sampleEvaluations.filter((evaluation) => evaluation.characterId === characterId)
+  currentEvaluations.filter((evaluation) => evaluation.characterId === characterId)
 
 export const evaluationRepository: EvaluationRepository = {
   getEvaluations: forCharacter,
