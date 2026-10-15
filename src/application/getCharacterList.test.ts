@@ -59,9 +59,12 @@ describe('getCharacterList', () => {
     const collator = new Intl.Collator('ko-KR')
     expect(names('beasts-pirates').slice(1)).toEqual(
       [...names('beasts-pirates').slice(1)].sort(collator.compare))
-    expect(names('straw-hat-pirates')).toEqual([
-      '몽키 D. 루피', ...[...names('straw-hat-pirates').slice(1)].sort(collator.compare),
-    ])
+    const strawHats = names('straw-hat-pirates')
+    const newStrawHatNames = ['우솝','나미','토니토니 쵸파','니코 로빈','프랑키','브룩']
+    const previous = strawHats.filter(name => !newStrawHatNames.includes(name))
+    expect(previous).toEqual(['몽키 D. 루피', ...[...previous.slice(1)].sort(collator.compare)])
+    // User-approved registration cohort is appended without changing the established chooser order.
+    expect(strawHats).toEqual([...previous, ...newStrawHatNames.sort(collator.compare)])
   })
 
   it('keeps Kuzan and Jinbe in both current and historical affiliations without duplicated rankings', () => {
