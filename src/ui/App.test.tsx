@@ -134,7 +134,7 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
   it('shows 72 portraits including Buggy and Luffy',async()=>{
     await openPicker()
     const results=container.querySelectorAll('.character-picker-option')
-    expect(results).toHaveLength(72)
+    expect(results).toHaveLength(80)
     expect(container.querySelectorAll('.character-picker-option .character-portrait-small')).toHaveLength(80)
     expect(container.querySelectorAll('.character-picker-option img')).toHaveLength(80)
     expect(container.querySelectorAll('.character-picker-option .character-portrait-fallback')).toHaveLength(0)
