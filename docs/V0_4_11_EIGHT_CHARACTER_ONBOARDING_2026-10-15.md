@@ -37,3 +37,9 @@
 - 8인 모두 선택/상세 이동/모바일 이미지 overflow 여부 확인.
 - 기존 평가/근거/조직도/스냅샷 전부 회귀검증.
 - 실제 PC/모바일 디바이스 시각 테스트와 저작권·원작 대사 전수 검증은 별도 단계. CI 성공과 구분.
+
+## 현재 PR / 이미지 업로드 차단 상태
+- [PR #114](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/114): **Draft, main 미병합**, 전체 코드 CI 98파일/419테스트 및 빌드 성공 (Actions [38676384262](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38676384262)).
+- **중요:** 미디어 레지스트리 8 ID 연결은 구현되었으나 해당 WebP 8개는 아직 GitHub 저장소에 등록되지 않아 브라우저에서 이미지가 보이지 않음. 정식 배포 완료로 표시 금지.
+- 업로드 준비 ZIP에는 사진 원본에서 인코딩한 다음 파일이 `public/images/characters/` 아래 위치함: `guernica.webp`, `maha.webp`, `usopp.webp`, `nami.webp`, `chopper.webp`, `robin.webp`, `franky.webp`, `brook.webp`.
+- 다음 단계: ZIP 8개 미디어 바이너리를 PR #114 브랜치에 실제 업로드 → WebP magic/file size/8 경로 확인 → 419개 전체 CI/빌드 재확인 → 브라우저 확인 → PR Draft 해제/병합 → main Pages 성공 확인.
