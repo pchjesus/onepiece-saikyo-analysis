@@ -1,3 +1,14 @@
+# v0.4.11 신규 인물 8명 선등록 검증 (2026-10-15)
+
+- 기준 v0.4.10 main@741335a0. 신규 8 Character, 8 Membership / 신규 Evaluation 0, 신규 Battle/Evidence 0, 새로운 Matchup 0.
+- 80 registered characters / 72 evaluated characters / 76 Evaluation / 532 Stats / 105 Memberships / 17 Matchups.
+- 공식 출처 인용 19건(기존 13 + 새 밀짚모자 6), 그 외 61건은 검증 대기. 게르니카/마하는 임의 대사로 채우지 않음.
+- 기존 v0.4.9 Evaluation 세트/계산 모델/Raw Haki/역사적 스냅샷 수정하지 않음.
+- 이미지 전달 및 공개 재배포 권한 미확인. 이미지 파일과 목록의 일치/누락 검사 및 브라우저 직접 렌더링은 별도 확인 대상.
+- 자동 CI 테스트·빌드/Pages 배포는 확인 이후 결과 기재.
+
+---
+
 # v0.4.10 — 캐릭터 명대사 검증 범위 (2026-10-15)
 
 - 신규 72명 ID별 quote 슬롯, 13명 ONE PIECE.com 인용 확인, 59명 원문/표시 문구 비워둠.
