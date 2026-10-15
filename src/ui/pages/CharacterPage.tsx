@@ -13,6 +13,7 @@ import { CharacterIdentity, characterIdentityStyle } from '../components/Charact
 import type { CharacterKnownAsKind } from '../../domain/character/types'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
 import { CharacterPortrait } from '../components/CharacterPortrait'
+import { CharacterQuote } from '../components/CharacterQuote'
 
 const knownAsLabel: Record<CharacterKnownAsKind, string> = {
   alias: '통칭',
@@ -89,6 +90,7 @@ export function CharacterPage({ characterId, groupId, selectedStateId, onStateCh
           )}
           </div>
         </div>
+        <CharacterQuote characterId={characterId} />
       </div>
 
       <div className="overview-layout">
