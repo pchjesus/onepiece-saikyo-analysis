@@ -1,13 +1,14 @@
 import { describe, expect, it } from 'vitest'
 import { sampleCharacters } from '../sample/characters'
+import { v0411Characters } from '../sample/v0411UnratedCharacterRegistration'
 import { characterQuoteReviews, getCharacterQuoteReview } from './characterQuotes'
 
 describe('v0.4.10 character quote source integrity', () => {
   it('tracks precisely one quote-review slot per registered unique character', () => {
     const ids = sampleCharacters.map(({ id }) => id)
-    expect(ids).toHaveLength(80)
+    expect(ids).toHaveLength(72)
     expect(new Set(ids).size).toBe(ids.length)
-    expect(Object.keys(characterQuoteReviews).sort()).toEqual([...ids].sort())
+    expect(Object.keys(characterQuoteReviews).sort()).toEqual([...ids,...v0411Characters.map(c=>c.id)].sort())
     expect(Object.entries(characterQuoteReviews).every(([id, review]) => id === review.characterId)).toBe(true)
     expect(getCharacterQuoteReview('missing-character')).toBeUndefined()
   })
