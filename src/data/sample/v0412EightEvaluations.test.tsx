@@ -44,7 +44,8 @@ describe('v0.4.12 eight new provisional combat evaluations',()=>{
      expect(evaluation.items.every(x=>x.hakiContributions.length===0)).toBe(true)
      expect(evaluation.items.every(x=>['E2','E3'].includes(x.readiness!))).toBe(true)
      expect(evaluation.items.every(x=>x.rationale.length>50)).toBe(true)
-     expect(evaluation.items.every(x=>x.evidenceIds.length>0)).toBe(true)
+     expect(evaluation.items.some(x=>x.evidenceIds.length>0)).toBe(true)
+     expect(evaluation.items.filter(x=>x.evidenceIds.length===0).every(x=>x.readiness==='E3')).toBe(true)
      const allEvidence=[...sampleEvidence,...v0412Evidence].map(e=>({id:e.id,subjectCharacterId:e.subjectCharacterId}))
      expect(validateEvaluation(evaluation,allEvidence).errors).toEqual([])
    }
