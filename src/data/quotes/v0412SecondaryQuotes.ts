@@ -744,6 +744,95 @@ const reviewed = [
       "label": "2차 일본어 발언 전사 · 만화 컷/한국 정발판 직접 미대조",
       "url": "https://yamakamu.net/onepiecegerunika"
     }
+  },
+  {
+    "characterId": "jozu",
+    "originalJapanese": "オヤジ先へ!!",
+    "displayKorean": "아버지, 먼저 가세요!",
+    "mangaChapter": 567,
+    "context": "정상전쟁에서 아오키지가 흰수염을 겨냥한 얼음창 공격을 몸으로 막은 뒤, 흰수염에게 먼저 가라고 외친다. 원작 장면을 정리한 비공식 일본어 2차 자료로 확인.",
+    "source": {
+      "label": "제567화 일본어 장면 전사 (2차 자료 · 원작 컷 미대조)",
+      "url": "https://blog.livedoor.jp/hanasakia/archives/51403642.html"
+    },
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial"
+  },
+  {
+    "characterId": "gaban",
+    "displayKorean": "포기해라. 오래 알아온 사이지만, 우리가 로저를 막을 수 있던 적은 없었어!",
+    "context": "ONE PIECE 0화 에드 워 해전에서 로저를 말리려는 버기에게 가반이 로저의 성격을 설명한다. 한국어 2차 전사이며 원작 일본어·정식 번역 직접 미대조.",
+    "source": {
+      "label": "나무위키 스코퍼 가반 · 원피스 0화 (한국어 2차 인용)",
+      "url": "https://d.namu.moe/w/%EC%8A%A4%EC%BD%94%ED%8D%BC%20%EA%B0%80%EB%B0%98"
+    },
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial"
+  },
+  {
+    "characterId": "morley",
+    "originalJapanese": "帰りましょう!! あたし達と一緒に!!",
+    "displayKorean": "돌아가자! 우리랑 함께!",
+    "mangaChapter": 1084,
+    "context": "마리조아에서 쿠마를 구출하면서 더는 명령을 듣지 말고 동료와 함께 돌아가자고 한다.",
+    "source": {
+      "label": "만화wiki 몰리 명대사 · 제1084화 (2차 인용)",
+      "url": "https://mangakawiki.com/archives/13217"
+    },
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial"
+  },
+  {
+    "characterId": "karasu",
+    "originalJapanese": "そのために来たんだろ？おれたちは",
+    "displayKorean": "그러려고 온 거잖아, 우리는…!",
+    "animeEpisode": 888,
+    "context": "혁명군 동료들이 쿠마를 해방하러 왔음을 상기시키는 발언. 인용 자료가 확인한 것은 애니메이션 888화이며 원작 만화 같은 문구는 미확인.",
+    "source": {
+      "label": "만화wiki 카라스 발언 · 애니메이션 제888화 (만화 대사 미확인)",
+      "url": "https://mangakawiki.com/archives/9547"
+    },
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial"
+  },
+  {
+    "characterId": "stussy",
+    "originalJapanese": "何って？眠らせただけよ お願いルッチ…あなたもそうして",
+    "displayKorean": "뭐냐고? 잠재웠을 뿐이야… 부탁이야, 루치. 너도 잠들어 줘.",
+    "mangaChapter": 1072,
+    "context": "에그헤드에서 카쿠를 재운 뒤 루치에게도 잠들어 달라고 요청하는 장면으로 스튜시의 입장 전환을 보여준다.",
+    "source": {
+      "label": "만화wiki 스튜시 명대사 · 제1072화 (2차 인용)",
+      "url": "https://mangakawiki.com/archives/12083"
+    },
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial"
+  },
+  {
+    "characterId": "prince-grus",
+    "originalJapanese": "ガープさん おれも“海軍の未来”か!?",
+    "displayKorean": "가프 씨, 저도 '해군의 미래'인가요?!",
+    "mangaChapter": 1087,
+    "context": "하치노스에서 가프가 코비를 해군의 미래라고 칭찬하자 자신 역시 인정받는지 묻는 장면. 기존 추천안 B.",
+    "source": {
+      "label": "만화wiki 프린스 그루스 명대사 · 제1087화 (2차 인용)",
+      "url": "https://mangakawiki.com/archives/12981"
+    },
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial"
+  },
+  {
+    "characterId": "inazuma",
+    "originalJapanese": "ルフィ君 ゆけ!!",
+    "displayKorean": "루피 군, 가라!",
+    "mangaChapter": 570,
+    "context": "정상전쟁에서 가위가위 열매 능력으로 에이스의 처형대에 오르는 길을 만든 뒤 루피를 보내는 장면.",
+    "source": {
+      "label": "만화wiki 이나즈마 명대사 · 제570화 (2차 인용)",
+      "url": "https://mangakawiki.com/archives/7763"
+    },
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial"
   }
 ] satisfies SecondaryQuote[]
 export const v0412SecondaryQuotes: Record<string, CharacterQuoteReview> = Object.fromEntries(reviewed.map(q=>[q.characterId,q]))
