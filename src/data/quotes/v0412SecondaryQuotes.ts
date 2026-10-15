@@ -19,14 +19,14 @@ const reviewed = [
   },
   {
     "characterId": "usopp",
-    "originalJapanese": "仲間の夢を笑われた時だ!!!!",
-    "displayKorean": "동료의 꿈이 비웃음당했을 때다!",
+    "originalJapanese": "男にゃあ!! どうしても…戦いを避けちゃならねェ時がある…!!! 仲間の夢を笑われた時だ!!!!",
+    "displayKorean": "남자에겐 절대로 싸움을 피해서는 안 될 순간이 있다… 동료의 꿈이 비웃음당했을 때다!",
     "mangaChapter": 186,
     "verificationStatus": "secondary-excerpt",
     "translationStatus": "editorial",
-    "context": "루피가 해적왕이 되리라는 꿈이 모욕당하자 싸움을 결심",
+    "context": "알라바스타에서 Mr.4와 미스 메리 크리스마스의 공격을 견디며 루피의 꿈을 지킴.",
     "source": {
-      "label": "만화wiki 2차 발언 정리 (원작 미대조)",
+      "label": "2차 일본어 발언 전사 · 만화 컷/한국 정발판 직접 미대조",
       "url": "https://mangakawiki.com/archives/569"
     }
   },
@@ -110,14 +110,14 @@ const reviewed = [
   },
   {
     "characterId": "marco",
-    "originalJapanese": "その命こそ生けるエースの意志だ!!",
-    "displayKorean": "그 목숨이야말로 살아 있는 에이스의 의지야!",
-    "mangaChapter": 575,
+    "originalJapanese": "いきなり“キング”は取れねェだろうよい",
+    "displayKorean": "다짜고짜 킹을 잡을 수야 없지.",
+    "mangaChapter": 554,
     "verificationStatus": "secondary-excerpt",
     "translationStatus": "editorial",
-    "context": "전쟁 막바지 루피를 보호하며 에이스의 의지를 이야기",
+    "context": "정상전쟁에서 키자루의 흰수염 공격을 막고 발언. 여기서 '킹'은 흰수염이며 와노쿠니 킹이 아님.",
     "source": {
-      "label": "만화wiki 2차 발언 정리 (원작 미대조)",
+      "label": "2차 일본어 발언 전사 · 만화 컷/한국 정발판 직접 미대조",
       "url": "https://mangakawiki.com/archives/6062"
     }
   },
@@ -279,14 +279,14 @@ const reviewed = [
   },
   {
     "characterId": "mihawk",
-    "originalJapanese": "このおれを越えてみよ ロロノア!!!",
-    "displayKorean": "나를 넘어 보아라, 롤로노아!",
+    "originalJapanese": "貴様が死ぬにはまだ早い…己を知り 世界を知り!! 強くなれロロノア!!!…このおれを越えてみよロロノア!!!",
+    "displayKorean": "넌 아직 죽기엔 이르다. 네 자신을 알고 세계를 알고 강해져라… 이 최강의 자리에서 기다리겠다. 나를 넘어 보아라, 롤로노아!",
     "mangaChapter": 52,
     "verificationStatus": "secondary-excerpt",
     "translationStatus": "editorial",
-    "context": "바라티에에서 조로에게 다시 도전하라고 독려",
+    "context": "발라티에에서 조로를 쓰러뜨린 후 그 잠재력을 인정하며 자신을 넘어 보라고 격려. 인용 중간 생략.",
     "source": {
-      "label": "만화wiki 2차 발언 정리 (원작 미대조)",
+      "label": "2차 일본어 발언 전사 · 만화 컷/한국 정발판 직접 미대조",
       "url": "https://mangakawiki.com/archives/3017"
     }
   },
@@ -523,190 +523,227 @@ const reviewed = [
       "label": "만화wiki 2차 발언 정리 (원작 미대조)",
       "url": "https://mangakawiki.com/archives/11557"
     }
-  }
-,
+  },
   {
-  "characterId": "shiryu",
-  "originalJapanese": "クズを斬って誰かが困るのか・・・？",
-  "displayKorean": "쓰레기를 베었다고 누가 곤란해지기라도 하나?",
-  "mangaChapter": 538,
-  "verificationStatus": "secondary-excerpt",
-  "translationStatus": "editorial",
-  "context": "임펠다운에서 잔혹한 가치관을 드러냄",
-  "source": {
-    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
-    "url": "https://mangakawiki.com/archives/9110"
+    "characterId": "shiryu",
+    "originalJapanese": "クズを斬って誰かが困るのか・・・？",
+    "displayKorean": "쓰레기를 베었다고 누가 곤란해지기라도 하나?",
+    "mangaChapter": 538,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "임펠다운에서 잔혹한 가치관을 드러냄",
+    "source": {
+      "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+      "url": "https://mangakawiki.com/archives/9110"
+    }
+  },
+  {
+    "characterId": "van-augur",
+    "originalJapanese": "この世は全て強い望みの赴くままに巡り合う歯車なのである",
+    "displayKorean": "이 세상은 강한 바람에 이끌려 만나는 운명의 톱니바퀴일 뿐이다.",
+    "mangaChapter": 237,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "자야에서 운명과 만남에 대해 말함",
+    "source": {
+      "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+      "url": "https://mangakawiki.com/archives/9364"
+    }
+  },
+  {
+    "characterId": "ryokugyu",
+    "originalJapanese": "差別とは安堵だ!!!",
+    "displayKorean": "차별이란 안도감이다!",
+    "mangaChapter": 1054,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "와노쿠니에서 차별을 정당화하는 왜곡된 세계관",
+    "source": {
+      "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+      "url": "https://mangakawiki.com/archives/8844"
+    }
+  },
+  {
+    "characterId": "pica",
+    "originalJapanese": "国とは武力だ",
+    "displayKorean": "국가란 무력이다!",
+    "mangaChapter": 778,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "조로에 맞서 무력을 강조",
+    "source": {
+      "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+      "url": "https://mangakawiki.com/archives/10715"
+    }
+  },
+  {
+    "characterId": "diamante",
+    "originalJapanese": "そこまで言うなら天才と認めるしかない!!!",
+    "displayKorean": "그렇게까지 말한다면 천재라고 인정할 수밖에!",
+    "mangaChapter": 700,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "도플라밍고의 칭찬을 받아들이는 우스꽝스러운 말버릇",
+    "source": {
+      "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+      "url": "https://mangakawiki.com/archives/10176"
+    }
+  },
+  {
+    "characterId": "nekomamushi",
+    "originalJapanese": "何が滅ぼうとも敵に仲間は売らんぜよ!!!",
+    "displayKorean": "무엇이 멸망하더라도 적에게 동료는 팔지 않는다!",
+    "mangaChapter": 816,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "라이조를 보호한 밍크족의 신의",
+    "source": {
+      "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+      "url": "https://mangakawiki.com/archives/8437"
+    }
+  },
+  {
+    "characterId": "inuarashi",
+    "originalJapanese": "ジャック ゆガラだけが話の通じぬ男だと思うな",
+    "displayKorean": "잭, 말이 통하지 않는 게 너뿐인 줄 아나?",
+    "mangaChapter": 809,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "밍크족이 침략자 잭에 맞서며 대응",
+    "source": {
+      "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+      "url": "https://mangakawiki.com/archives/13617"
+    }
+  },
+  {
+    "characterId": "king",
+    "originalJapanese": "カイドウさんこそ海賊王になる男!!",
+    "displayKorean": "카이도 씨야말로 해적왕이 될 남자다!",
+    "mangaChapter": 1035,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "카이도와의 약속을 떠올리며 충성을 선언",
+    "source": {
+      "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+      "url": "https://mangakawiki.com/archives/11159"
+    }
+  },
+  {
+    "characterId": "kawamatsu",
+    "originalJapanese": "いかなる苦業も主君の無念をそう思えばそよ風!!",
+    "displayKorean": "주군의 원통함을 생각한다면 어떤 고통도 산들바람일 뿐!",
+    "mangaChapter": 948,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "13년 유폐를 견뎌내고 전장에 복귀",
+    "source": {
+      "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+      "url": "https://mangakawiki.com/archives/11469"
+    }
+  },
+  {
+    "characterId": "izo",
+    "originalJapanese": "エースが守りオヤジが認めた男をおれ達は新しい時代へ送ってやる義務がある!!!",
+    "displayKorean": "에이스가 지키고 아버지가 인정한 남자를 새로운 시대로 보내야 한다!",
+    "mangaChapter": 578,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "정상전쟁에서 루피를 탈출시키려는 결의",
+    "source": {
+      "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+      "url": "https://mangakawiki.com/archives/8821"
+    }
+  },
+  {
+    "characterId": "kuzan",
+    "originalJapanese": "徹底した正義は時に人を狂気に変える",
+    "displayKorean": "철저한 정의는 때로 사람을 광기로 몰아넣지.",
+    "mangaChapter": 397,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "오하라의 기억을 바탕으로 절대적 정의를 경계",
+    "source": {
+      "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+      "url": "https://mangakawiki.com/archives/5397"
+    }
+  },
+  {
+    "characterId": "pizarro",
+    "originalJapanese": "おれ達だって名を売りてェよ",
+    "displayKorean": "우리도 이름을 날리고 싶다고!",
+    "mangaChapter": 1087,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "하치노스에서 해군 상대 명성을 얻으려 함",
+    "source": {
+      "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+      "url": "https://mangakawiki.com/archives/15174"
+    }
+  },
+  {
+    "characterId": "denjiro",
+    "originalJapanese": "腕を上げてなきゃ20年生きた意味がない",
+    "displayKorean": "실력이 늘지 않았다면 20년을 살아온 의미가 없다.",
+    "mangaChapter": 978,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "오랜 잠입과 수련의 의미",
+    "source": {
+      "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+      "url": "https://mangakawiki.com/archives/11255"
+    }
+  },
+  {
+    "characterId": "kikunojo",
+    "originalJapanese": "拙者は侍です!!",
+    "displayKorean": "저는 무사입니다!",
+    "mangaChapter": 914,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "자신의 정체를 자랑스럽게 선언",
+    "source": {
+      "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+      "url": "https://mangakawiki.com/archives/11309"
+    }
+  },
+  {
+    "characterId": "ace",
+    "originalJapanese": "鬼の血を引くこのおれを…!! 愛してくれて…ありがとう!!!",
+    "displayKorean": "아버지, 모두, 그리고 루피… 오늘까지 이런 못난 나를, 귀신의 피를 이어받은 나를… 사랑해 줘서 고마워!",
+    "mangaChapter": 574,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "정상전쟁 최후에 흰수염·동료·루피에게 출생에 대한 고뇌와 받은 사랑에 감사. 일본어는 핵심 일부만 전사.",
+    "source": {
+      "label": "2차 일본어 발언 전사 · 만화 컷/한국 정발판 직접 미대조",
+      "url": "https://mangakawiki.com/archives/3312"
+    }
+  },
+  {
+    "characterId": "rocks",
+    "originalJapanese": "「ハイ」と2回答えろクソガキ!!",
+    "displayKorean": "망할 꼬맹아! '예'라고 두 번 대답해라!",
+    "mangaChapter": 1154,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "엘바프의 어린 로키에게 이곳이 거인족 나라가 맞는지, 하랄드가 있는지를 묻는 첫 등장 장면. 긴 발언 대신 핵심만 발췌.",
+    "source": {
+      "label": "2차 일본어 발언 전사 · 만화 컷/한국 정발판 직접 미대조",
+      "url": "https://onepiece.nabeotsu.com/elbaf/1154/"
+    }
+  },
+  {
+    "characterId": "guernica",
+    "originalJapanese": "うらやましいよ…",
+    "displayKorean": "부럽군…",
+    "mangaChapter": 1042,
+    "verificationStatus": "secondary-excerpt",
+    "translationStatus": "editorial",
+    "context": "자신의 정의를 지킨 드레이크에게, 상부 명령에 구속된 CP0 요원으로서 자신의 처지와 대비해 말함.",
+    "source": {
+      "label": "2차 일본어 발언 전사 · 만화 컷/한국 정발판 직접 미대조",
+      "url": "https://yamakamu.net/onepiecegerunika"
+    }
   }
-},
-{
-  "characterId": "van-augur",
-  "originalJapanese": "この世は全て強い望みの赴くままに巡り合う歯車なのである",
-  "displayKorean": "이 세상은 강한 바람에 이끌려 만나는 운명의 톱니바퀴일 뿐이다.",
-  "mangaChapter": 237,
-  "verificationStatus": "secondary-excerpt",
-  "translationStatus": "editorial",
-  "context": "자야에서 운명과 만남에 대해 말함",
-  "source": {
-    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
-    "url": "https://mangakawiki.com/archives/9364"
-  }
-},
-{
-  "characterId": "ryokugyu",
-  "originalJapanese": "差別とは安堵だ!!!",
-  "displayKorean": "차별이란 안도감이다!",
-  "mangaChapter": 1054,
-  "verificationStatus": "secondary-excerpt",
-  "translationStatus": "editorial",
-  "context": "와노쿠니에서 차별을 정당화하는 왜곡된 세계관",
-  "source": {
-    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
-    "url": "https://mangakawiki.com/archives/8844"
-  }
-},
-{
-  "characterId": "pica",
-  "originalJapanese": "国とは武力だ",
-  "displayKorean": "국가란 무력이다!",
-  "mangaChapter": 778,
-  "verificationStatus": "secondary-excerpt",
-  "translationStatus": "editorial",
-  "context": "조로에 맞서 무력을 강조",
-  "source": {
-    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
-    "url": "https://mangakawiki.com/archives/10715"
-  }
-},
-{
-  "characterId": "diamante",
-  "originalJapanese": "そこまで言うなら天才と認めるしかない!!!",
-  "displayKorean": "그렇게까지 말한다면 천재라고 인정할 수밖에!",
-  "mangaChapter": 700,
-  "verificationStatus": "secondary-excerpt",
-  "translationStatus": "editorial",
-  "context": "도플라밍고의 칭찬을 받아들이는 우스꽝스러운 말버릇",
-  "source": {
-    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
-    "url": "https://mangakawiki.com/archives/10176"
-  }
-},
-{
-  "characterId": "nekomamushi",
-  "originalJapanese": "何が滅ぼうとも敵に仲間は売らんぜよ!!!",
-  "displayKorean": "무엇이 멸망하더라도 적에게 동료는 팔지 않는다!",
-  "mangaChapter": 816,
-  "verificationStatus": "secondary-excerpt",
-  "translationStatus": "editorial",
-  "context": "라이조를 보호한 밍크족의 신의",
-  "source": {
-    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
-    "url": "https://mangakawiki.com/archives/8437"
-  }
-},
-{
-  "characterId": "inuarashi",
-  "originalJapanese": "ジャック ゆガラだけが話の通じぬ男だと思うな",
-  "displayKorean": "잭, 말이 통하지 않는 게 너뿐인 줄 아나?",
-  "mangaChapter": 809,
-  "verificationStatus": "secondary-excerpt",
-  "translationStatus": "editorial",
-  "context": "밍크족이 침략자 잭에 맞서며 대응",
-  "source": {
-    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
-    "url": "https://mangakawiki.com/archives/13617"
-  }
-}
-,
- {
-  "characterId": "king",
-  "originalJapanese": "カイドウさんこそ海賊王になる男!!",
-  "displayKorean": "카이도 씨야말로 해적왕이 될 남자다!",
-  "mangaChapter": 1035,
-  "verificationStatus": "secondary-excerpt",
-  "translationStatus": "editorial",
-  "context": "카이도와의 약속을 떠올리며 충성을 선언",
-  "source": {
-    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
-    "url": "https://mangakawiki.com/archives/11159"
-  }
-},
-{
-  "characterId": "kawamatsu",
-  "originalJapanese": "いかなる苦業も主君の無念をそう思えばそよ風!!",
-  "displayKorean": "주군의 원통함을 생각한다면 어떤 고통도 산들바람일 뿐!",
-  "mangaChapter": 948,
-  "verificationStatus": "secondary-excerpt",
-  "translationStatus": "editorial",
-  "context": "13년 유폐를 견뎌내고 전장에 복귀",
-  "source": {
-    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
-    "url": "https://mangakawiki.com/archives/11469"
-  }
-},
-{
-  "characterId": "izo",
-  "originalJapanese": "エースが守りオヤジが認めた男をおれ達は新しい時代へ送ってやる義務がある!!!",
-  "displayKorean": "에이스가 지키고 아버지가 인정한 남자를 새로운 시대로 보내야 한다!",
-  "mangaChapter": 578,
-  "verificationStatus": "secondary-excerpt",
-  "translationStatus": "editorial",
-  "context": "정상전쟁에서 루피를 탈출시키려는 결의",
-  "source": {
-    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
-    "url": "https://mangakawiki.com/archives/8821"
-  }
-},
-{
-  "characterId": "kuzan",
-  "originalJapanese": "徹底した正義は時に人を狂気に変える",
-  "displayKorean": "철저한 정의는 때로 사람을 광기로 몰아넣지.",
-  "mangaChapter": 397,
-  "verificationStatus": "secondary-excerpt",
-  "translationStatus": "editorial",
-  "context": "오하라의 기억을 바탕으로 절대적 정의를 경계",
-  "source": {
-    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
-    "url": "https://mangakawiki.com/archives/5397"
-  }
-},
-{
-  "characterId": "pizarro",
-  "originalJapanese": "おれ達だって名を売りてェよ",
-  "displayKorean": "우리도 이름을 날리고 싶다고!",
-  "mangaChapter": 1087,
-  "verificationStatus": "secondary-excerpt",
-  "translationStatus": "editorial",
-  "context": "하치노스에서 해군 상대 명성을 얻으려 함",
-  "source": {
-    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
-    "url": "https://mangakawiki.com/archives/15174"
-  }
-},
-{
-  "characterId": "denjiro",
-  "originalJapanese": "腕を上げてなきゃ20年生きた意味がない",
-  "displayKorean": "실력이 늘지 않았다면 20년을 살아온 의미가 없다.",
-  "mangaChapter": 978,
-  "verificationStatus": "secondary-excerpt",
-  "translationStatus": "editorial",
-  "context": "오랜 잠입과 수련의 의미",
-  "source": {
-    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
-    "url": "https://mangakawiki.com/archives/11255"
-  }
-},
-{
-  "characterId": "kikunojo",
-  "originalJapanese": "拙者は侍です!!",
-  "displayKorean": "저는 무사입니다!",
-  "mangaChapter": 914,
-  "verificationStatus": "secondary-excerpt",
-  "translationStatus": "editorial",
-  "context": "자신의 정체를 자랑스럽게 선언",
-  "source": {
-    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
-    "url": "https://mangakawiki.com/archives/11309"
-  }
-}
 ] satisfies SecondaryQuote[]
 export const v0412SecondaryQuotes: Record<string, CharacterQuoteReview> = Object.fromEntries(reviewed.map(q=>[q.characterId,q]))
