@@ -5,7 +5,8 @@
 - 공식 출처 인용 19건(기존 13 + 새 밀짚모자 6), 그 외 61건은 검증 대기. 게르니카/마하는 임의 대사로 채우지 않음.
 - 기존 v0.4.9 Evaluation 세트/계산 모델/Raw Haki/역사적 스냅샷 수정하지 않음.
 - 이미지 전달 및 공개 재배포 권한 미확인. 이미지 파일과 목록의 일치/누락 검사 및 브라우저 직접 렌더링은 별도 확인 대상.
-- 자동 CI 테스트·빌드/Pages 배포는 확인 이후 결과 기재.
+- **PR #114 코드 검증:** [GitHub Actions 38676384262](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38676384262)에서 98개 테스트 파일·419개 테스트 전부 통과, TypeScript/Vite 빌드 성공.
+- **출시 차단:** 이 채팅의 GitHub 커넥터로 PNG/WebP 바이너리를 직접 업로드하지 못해 `public/images/characters/`의 새 8개 파일이 아직 존재하지 않음. PR Draft 유지·main 미병합·Pages 미배포. 사용자 제공 8장 사진의 고품질 WebP 준비 완료. 이미지 업로드 후 브라우저에서 확대/미리보기·모바일 QA와 CI 재실행 필요.
 
 ---
 
