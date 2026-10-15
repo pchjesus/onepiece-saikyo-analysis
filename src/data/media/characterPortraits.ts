@@ -10,7 +10,7 @@ export type CharacterPortraitAsset = {
   permission: 'owned' | 'licensed' | 'open-license' | 'user-provided-unverified'
   permissionNote: string
 }
-const providedIds = 'marco newgate jozu ace vista king kaido queen jack x-drake page-one ulti whos-who black-maria sasaki linlin katakuri smoothie cracker zoro sanji jinbe shanks gaban rayleigh roger rocks mihawk crocodile garp kizaru kuzan akainu ryokugyu fujitora prince-grus smoker vergo tashigi inazuma lucci stussy sabo ivankov kaku morley karasu doflamingo diamante pica hancock law kid killer kinemon kanjuro raizo kikunojo ashura-doji kawamatsu denjiro inuarashi nekomamushi izo teach shiryu burgess van-augur pizarro koby buggy luffy'.split(' ')
+const providedIds = 'marco newgate jozu ace vista king kaido queen jack x-drake page-one ulti whos-who black-maria sasaki linlin katakuri smoothie cracker zoro sanji jinbe shanks gaban rayleigh roger rocks mihawk crocodile garp kizaru kuzan akainu ryokugyu fujitora prince-grus smoker vergo tashigi inazuma lucci stussy sabo ivankov kaku morley karasu doflamingo diamante pica hancock law kid killer kinemon kanjuro raizo kikunojo ashura-doji kawamatsu denjiro inuarashi nekomamushi izo teach shiryu burgess van-augur pizarro koby buggy luffy guernica maha usopp nami chopper robin franky brook'.split(' ')
 
 export const characterPortraitAssets: Readonly<Record<string, CharacterPortraitAsset>> =
   Object.fromEntries(providedIds.map((id): [string, CharacterPortraitAsset] => [id, {
