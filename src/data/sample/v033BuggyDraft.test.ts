@@ -20,9 +20,9 @@ describe('Buggy provisional lower-tier analysis (E3)', () => {
     expect(data?.items.every(x=>x.readiness==='E3' && x.hakiContributions.length===0)).toBe(true)
     expect(validateEvaluation(data!, sampleEvidence.map(x=>({id:x.id,subjectCharacterId:x.subjectCharacterId})))).toEqual({valid:true,errors:[]})
     expect(getCombatPower('buggy').finalScore).toBeCloseTo(38,5)
-    expect(getStatRanking('overall')).toHaveLength(72)
+    expect(getStatRanking('overall')).toHaveLength(80)
     expect(getStatRanking('overall').slice(-1)[0]?.characterId).toBe('buggy')
-    expect(getMatchupRoster()).toHaveLength(72)
+    expect(getMatchupRoster()).toHaveLength(80)
   })
   it('adds official-summary evidence with matching battle IDs and retains unique current identity', () => {
     const evidence=sampleEvidence.filter(e=>e.subjectCharacterId==='buggy')
