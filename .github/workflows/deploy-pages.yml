@@ -22,24 +22,39 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      tier: ${{ steps.scope.outputs.tier }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: B+ self-test and change scope
+        id: scope
+        env:
+          CI_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          bash scripts/ci-scope.sh --self-test
+          bash scripts/ci-scope.sh
       - uses: actions/setup-node@v4
+        if: steps.scope.outputs.tier != 'docs'
         with:
           node-version: 22
           cache: npm
       - run: npm install
+        if: steps.scope.outputs.tier != 'docs'
       - run: npm test
+        if: steps.scope.outputs.tier != 'docs'
       - run: npm run build
+        if: steps.scope.outputs.tier != 'docs'
       - uses: actions/configure-pages@v5
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && steps.scope.outputs.tier != 'docs'
       - uses: actions/upload-pages-artifact@v3
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && steps.scope.outputs.tier != 'docs'
         with:
           path: ./dist
 
   deploy:
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && needs.build.outputs.tier != 'docs'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
