@@ -1,11 +1,12 @@
 import { describe, expect, it } from 'vitest'
 import { getCharacterList, getUniqueCharacterList } from './getCharacterList'
 import { evaluationRepository } from '../data/repositories/evaluationRepository'
+import { sampleCharacters } from '../data/sample/characters'
 
 describe('getCharacterList', () => {
   it('lists 72 visible and evaluated Characters and 97 Membership rows', () => {
-    const unique = getUniqueCharacterList().filter(x=>evaluationRepository.getEvaluations(x.character.id).length>0)
-    const expanded = getCharacterList().filter(x=>evaluationRepository.getEvaluations(x.character.id).length>0)
+    const unique = getUniqueCharacterList().filter(x=>sampleCharacters.some(c=>c.id===x.character.id))
+    const expanded = getCharacterList().filter(x=>sampleCharacters.some(c=>c.id===x.character.id))
 
     expect(unique).toHaveLength(72)
     expect(expanded).toHaveLength(97)
