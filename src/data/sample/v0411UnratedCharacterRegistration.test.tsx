@@ -29,7 +29,7 @@ describe('v0.4.11 eight character-only registrations', () => {
     expect(getUniqueCharacterList()).toHaveLength(80)
     expect(sampleEvaluations).toHaveLength(76)
     expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(532)
-    expect(sampleMatchups).toHaveLength(14)
+    expect(sampleMatchups).toHaveLength(15)
     for (const id of ids) expect(sampleEvaluations.some(e=>e.characterId===id)).toBe(false)
     expect(getStatRanking('overall')).toHaveLength(80)
     for(const id of ids) expect(evaluationRepository.getEvaluations(id)).toHaveLength(1)
@@ -50,7 +50,7 @@ describe('v0.4.11 eight character-only registrations', () => {
 
   it('keeps one quote slot per 80 characters; activates only sourced Straw Hat quotes', () => {
     expect(Object.keys(characterQuoteReviews)).toHaveLength(80)
-    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='official-excerpt')).toHaveLength(15)
+    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='official-excerpt')).toHaveLength(14)
     expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='pending')).toHaveLength(9)
     for(const id of ['nami','chopper','robin','franky','brook']){
       const review=getCharacterQuoteReview(id)!
