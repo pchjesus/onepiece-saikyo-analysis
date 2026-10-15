@@ -38,6 +38,14 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.4.12',date:'2026-10-15',title:'8명 7축 잠정 평가와 대표 명대사 검증 확대',
+    summary:'v0.4.9 검토 초안 중 기존 등록 8인의 7축을 Evidence와 연결한 E2/E3 draft로 등록, 현재 80명 평가 및 순위. 명대사 69명 후보를 공식 인용/2차 자료 인용으로 구분, 11명 미확인. 역사적 76 평가 원본·Haki/모델·매치업 불변.',
+    report:'docs/V0_4_12_QUOTES_EIGHT_EVALUATIONS_REVIEW_2026-10-15.md',
+    changes:[
+      {kind:'score',title:'신규 8명 7축 잠정 평가 등록',detail:'게르니카·마하·우솝·브룩·프랑키·쵸파·로빈·나미의 신규 56축과 소유권 있는 공식 보조 근거 연결. 기존 72명 점수 무변경.',reason:'사용자 요청으로 이미 검토된 비공식 잠정 산정안을 적용. E2/E3·장비·상성·교전 조건을 보존한다.'},
+      {kind:'feature',title:'명대사 69명 후보 표시·검증 상태 분리',detail:'공식 15/2차 자료 54/미확인 11, 사용자 선정 흰수염·우솝·가프·카이도·키자루·바제스·도플라밍고·로저 반영. 원작·번역 직접 대조 미완료를 명시.'},
+    ],
+  },
   {version:'v0.4.11',date:'2026-10-15',title:'8명 캐릭터 등록 · 프로필/명대사 확장',
     summary:'게르니카·마하와 밀짚모자 6명 선등록, 이미지는 사용자 제공 자료. 기존 72명 평가·스탯·매치업·계산 불변; 새 8명 전투력 미평가. 명대사는 공식 인용 확인된 6명만 활성화.',
     report:'docs/V0_4_11_EIGHT_CHARACTER_ONBOARDING_2026-10-15.md',
