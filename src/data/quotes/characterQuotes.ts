@@ -1,4 +1,5 @@
 import { sampleCharacters } from '../sample/characters'
+import { v0411Characters } from '../sample/v0411UnratedCharacterRegistration'
 
 /** Quotes are optional presentation evidence, never an Evaluation or combat modifier.
  * official-excerpt: literal Japanese text appears on ONE PIECE.com, but manga panels
@@ -30,11 +31,17 @@ const officialExcerpts: Record<string, CharacterQuoteReview> = {
   'teach': { characterId: 'teach', originalJapanese: "人の夢は!!!終わらねェ!!!", displayKorean: "사람의 꿈은 끝나지 않아!", context: "자야에서 꿈을 조롱하는 풍조에 맞선 선언", verificationStatus: 'official-excerpt', translationStatus: 'editorial', source: { label: 'ONE PIECE.com · 공식 일본어 인용', url: 'https://one-piece.com/news/o20200803_11325/index.html' } },
   'doflamingo': { characterId: 'doflamingo', originalJapanese: '勝者だけが正義だ!!!!', displayKorean: '승자만이 정의다!', context: '마린포드에서 승리한 자가 정의를 규정한다는 자신의 세계관을 드러냄', verificationStatus: 'official-excerpt', translationStatus: 'editorial', source: { label: 'ONE PIECE.com · 성우 인터뷰', url: 'https://one-piece.com/usop/o20140611_0213/index.html' } },
   'roger': { characterId: 'roger', originalJapanese: '欲しけりゃくれてやるぜ…', displayKorean: '원한다면 주도록 하지…', context: '처형대에서 자신의 보물을 원하는 자들에게 남긴 발언의 일부', verificationStatus: 'official-excerpt', translationStatus: 'editorial', source: { label: 'ONE PIECE.com · 공식 비브르 카드 정오표', url: 'https://one-piece.com/vivre/revision/index.html' } },
+  'nami': { characterId: 'nami', originalJapanese: "相手が風と海なら航海してみせる!!", displayKorean: "상대가 바람과 바다라면 항해해 보이겠어!", context: "항해사로서의 실력과 자신감을 드러냄", verificationStatus: 'official-excerpt', translationStatus: 'editorial', source: { label: 'ONE PIECE.com · 공식 일본어 인용', url: 'https://one-piece.com/news/o20220411_13783/index.html' } },
+  'usopp': { characterId: 'usopp', originalJapanese: "男の別れだ 涙の一つもあってはいけない", displayKorean: "남자들의 이별이야. 눈물 한 방울도 흘려선 안 돼.", context: "이별 앞에서 마음을 다잡는 발언", verificationStatus: 'official-excerpt', translationStatus: 'editorial', source: { label: 'ONE PIECE.com · 공식 일본어 인용', url: 'https://one-piece.com/news/o20220411_13783/index.html' } },
+  'chopper': { characterId: 'chopper', originalJapanese: "お゛れが“万能薬”に゛なる゛んだ!!!", displayKorean: "내가 만병통치약이 될 거야!", context: "의사로서의 꿈을 다짐", verificationStatus: 'official-excerpt', translationStatus: 'editorial', source: { label: 'ONE PIECE.com · 공식 일본어 인용', url: 'https://one-piece.com/news/o20220411_13783/index.html' } },
+  'robin': { characterId: 'robin', originalJapanese: "生ぎたいっ!!!!", displayKorean: "살고 싶어!", context: "동료에게 자신의 생존 의지를 전함", verificationStatus: 'official-excerpt', translationStatus: 'editorial', source: { label: 'ONE PIECE.com · 공식 일본어 인용', url: 'https://one-piece.com/news/o20220411_13783/index.html' } },
+  'franky': { characterId: 'franky', originalJapanese: "あいつらの逃げ道はおれが作る!!!", displayKorean: "저 녀석들의 탈출로는 내가 만든다!", context: "동료의 탈출을 위해 앞장서는 결단", verificationStatus: 'official-excerpt', translationStatus: 'editorial', source: { label: 'ONE PIECE.com · 공식 일본어 인용', url: 'https://one-piece.com/news/o20220411_13783/index.html' } },
+  'brook': { characterId: 'brook', originalJapanese: "男が一度…!!!必ず帰ると言ったのだから!!!", displayKorean: "남자가 한 번 반드시 돌아오겠다고 약속했으니까!", context: "돌아가겠다는 약속을 지키려는 의지", verificationStatus: 'official-excerpt', translationStatus: 'editorial', source: { label: 'ONE PIECE.com · 공식 일본어 인용', url: 'https://one-piece.com/news/o20220411_13783/index.html' } },
 }
 
 /** One review slot per unique registered character ID; no invented fallback dialogue. */
 export const characterQuoteReviews: Record<string, CharacterQuoteReview> = Object.fromEntries(
-  sampleCharacters.map(({ id }) => [id, officialExcerpts[id] ?? { characterId: id, verificationStatus: 'pending' }]),
+  [...sampleCharacters, ...v0411Characters].map(({ id }) => [id, officialExcerpts[id] ?? { characterId: id, verificationStatus: 'pending' }]),
 )
 
 export function getCharacterQuoteReview(characterId: string): CharacterQuoteReview | undefined {

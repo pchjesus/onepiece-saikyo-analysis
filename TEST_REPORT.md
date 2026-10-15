@@ -1,3 +1,16 @@
+# v0.4.11 신규 인물 8명 선등록 검증 (2026-10-15)
+
+- 기준 v0.4.10 main@741335a0. 신규 8 Character, 8 Membership / 신규 Evaluation 0, 신규 Battle/Evidence 0, 새로운 Matchup 0.
+- 80 registered characters / 72 evaluated characters / 76 Evaluation / 532 Stats / 105 Memberships / 17 Matchups.
+- 공식 출처 인용 19건(기존 13 + 새 밀짚모자 6), 그 외 61건은 검증 대기. 게르니카/마하는 임의 대사로 채우지 않음.
+- 기존 v0.4.9 Evaluation 세트/계산 모델/Raw Haki/역사적 스냅샷 수정하지 않음.
+- 이미지 전달 및 공개 재배포 권한 미확인. 이미지 파일과 목록의 일치/누락 검사 및 브라우저 직접 렌더링은 별도 확인 대상.
+- **PR #114 코드 검증:** [GitHub Actions 38676384262](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38676384262)에서 98개 테스트 파일·419개 테스트 전부 통과, TypeScript/Vite 빌드 성공.
+- **사진 등록 완료:** 8개 원본 크기 WebP 파일을 PR #114 브랜치의 `public/images/characters/`에 실제 업로드하고 Git 트리에서 경로·크기·Blob SHA-1 전수 확인. `tests/v0411PortraitBinaryIntegrity.test.ts`에 RIFF/WebP 헤더·파일 크기·Git SHA-1·Character 매핑 검증 추가.
+- **최종 검증 대기:** 이미지 추가 이후의 최종 PR CI·main 병합 및 Pages 배포 결과는 별도 확인. 실제 PC/모바일 브라우저 화면 직접 검증은 미수행.
+
+---
+
 # v0.4.10 — 캐릭터 명대사 검증 범위 (2026-10-15)
 
 - 신규 72명 ID별 quote 슬롯, 13명 ONE PIECE.com 인용 확인, 59명 원문/표시 문구 비워둠.

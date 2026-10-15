@@ -38,6 +38,12 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.4.11',date:'2026-10-15',title:'8명 캐릭터 등록 · 프로필/명대사 확장',
+    summary:'게르니카·마하와 밀짚모자 6명 선등록, 이미지는 사용자 제공 자료. 기존 72명 평가·스탯·매치업·계산 불변; 새 8명 전투력 미평가. 명대사는 공식 인용 확인된 6명만 활성화.',
+    report:'docs/V0_4_11_EIGHT_CHARACTER_ONBOARDING_2026-10-15.md',
+    changes:[{kind:'character',title:'새 인물 8명 프로필 및 소속 추가',detail:'CP0 2명, 밀짚모자 일당 6명을 기존 그룹에 등록. 신규 Evaluation 및 Rank 없음.'},
+      {kind:'feature',title:'사용자 제공 8인 초상화와 명대사 연결',detail:'사진은 표현용 데이터이며 스탯과 무관. 밀짚모자 6명 공식 원문 인용, CP0 두 인물은 미검증 상태로 남김.'}],
+  },
   { version:'v0.4.10', date:'2026-10-15', title:'캐릭터 대표 명대사 · 공식 인용 기반 단계적 도입',
     summary:'72명 캐릭터 ID별 명대사 검토 슬롯과 독립 인용 UI 도입. 13명은 ONE PIECE.com 일본어 인용을 확인해 자체 번역으로 표시하며 원작 컷/정식 한국어판은 미대조; 나머지 59명은 미확인으로 남긴다. 전투력·상태·조직도·매치업 계산 불변.',
     report:'docs/V0_4_10_CHARACTER_QUOTES_REVIEW_2026-10-15.md',

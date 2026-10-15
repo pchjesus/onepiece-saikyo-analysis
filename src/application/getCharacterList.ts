@@ -1,6 +1,7 @@
 import { characterRepository } from '../data/repositories/characterRepository'
 import { groupRepository } from '../data/repositories/groupRepository'
 import type { Character, CharacterMembership, Group } from '../domain/character/types'
+import { v0411Characters } from '../data/sample/v0411UnratedCharacterRegistration'
 
 export type CharacterListEntry = {
   character: Character
@@ -17,6 +18,8 @@ export type CharacterListEntry = {
  * their displayed Korean names as a deterministic fallback.
  */
 const koreanNames = new Intl.Collator('ko-KR')
+// Registration cohorts affect navigation stability, never combat power.
+const newUnratedIds = new Set(v0411Characters.map(x=>x.id))
 
 function membershipPriority(entry: CharacterListEntry): number {
   const { membership, group } = entry
@@ -46,7 +49,8 @@ function membershipPriority(entry: CharacterListEntry): number {
 
 function compareEntries(a: CharacterListEntry, b: CharacterListEntry): number {
   const priority = membershipPriority(a) - membershipPriority(b)
-  return priority || koreanNames.compare(a.character.name, b.character.name)
+  return priority || Number(newUnratedIds.has(a.character.id)) - Number(newUnratedIds.has(b.character.id))
+    || koreanNames.compare(a.character.name, b.character.name)
 }
 
 /**

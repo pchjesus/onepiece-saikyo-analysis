@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { sampleCharacters } from '../sample/characters'
+import { v0411Characters } from '../sample/v0411UnratedCharacterRegistration'
 import { characterQuoteReviews, getCharacterQuoteReview } from './characterQuotes'
 
 describe('v0.4.10 character quote source integrity', () => {
@@ -7,7 +8,7 @@ describe('v0.4.10 character quote source integrity', () => {
     const ids = sampleCharacters.map(({ id }) => id)
     expect(ids).toHaveLength(72)
     expect(new Set(ids).size).toBe(ids.length)
-    expect(Object.keys(characterQuoteReviews).sort()).toEqual([...ids].sort())
+    expect(Object.keys(characterQuoteReviews).sort()).toEqual([...ids,...v0411Characters.map(c=>c.id)].sort())
     expect(Object.entries(characterQuoteReviews).every(([id, review]) => id === review.characterId)).toBe(true)
     expect(getCharacterQuoteReview('missing-character')).toBeUndefined()
   })
@@ -15,8 +16,8 @@ describe('v0.4.10 character quote source integrity', () => {
     const reviews = Object.values(characterQuoteReviews)
     const selected = reviews.filter(item => item.verificationStatus !== 'pending')
     const pending = reviews.filter(item => item.verificationStatus === 'pending')
-    expect(selected).toHaveLength(13)
-    expect(pending).toHaveLength(59)
+    expect(selected).toHaveLength(19)
+    expect(pending).toHaveLength(61)
     expect(pending.every(item => !item.originalJapanese && !item.displayKorean && !item.source)).toBe(true)
     for (const quote of selected) {
       expect(quote.originalJapanese?.trim().length).toBeGreaterThan(5)

@@ -1,9 +1,10 @@
 # 원피스 전투력 분석
 
-현재 구현 패치: **v0.4.10** (독립 읽기 전용 조직도 탭 · 현재/과거/전체 소속 탐색 · 하위 Group 중복 제거. 평가 데이터/모델 v0.4.6 및 v0.4.7 순위/매치업 UI 불변) (npm package 버전 **0.4.10**)
-평가 데이터: **72 Character master pool · 72 visible Character · 72 evaluated unique Character · 97 Membership · 76 Evaluation · 532 Stat** 
+현재 구현 패치: **v0.4.11** (독립 읽기 전용 조직도 탭 · 현재/과거/전체 소속 탐색 · 하위 Group 중복 제거. 평가 데이터/모델 v0.4.6 및 v0.4.7 순위/매치업 UI 불변) (npm package 버전 **0.4.11**)
+평가 데이터: **80 Character master pool · 80 visible Character · 72 evaluated unique Character · 105 Membership · 76 Evaluation · 532 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
+- **v0.4.11 8명 선등록 (WebP 8장 GitHub 업로드 완료 · PR 검증 중):** [8인 프로필·소속·이미지·명대사 작업](docs/V0_4_11_EIGHT_CHARACTER_ONBOARDING_2026-10-15.md). 게르니카/마하 + 우솝/나미/쵸파/로빈/프랑키/브룩. 신규 인원은 스탯 미평가로 표시하고 기존 72명 점수 불변. 기존 검증된 일본어 인용 6건을 새 인물과 연결. 사진 권리 미확인.
 - **v0.4.10 명대사 기능(검증 진행 중):** 캐릭터 72명에 인용 검토 슬롯을 연결하고 13명은 ONE PIECE.com 일본어 인용 확인·한국어 자체 번역을 표시. 나머지 59명은 미확인으로 화면 표시하지 않음. 만화 컷/한국 공식 번역은 대조 전이며 전투력 평가·계산·조직도 등 불변. [검증 보고서](docs/V0_4_10_CHARACTER_QUOTES_REVIEW_2026-10-15.md).
 - **v0.4.9 확정 패치:** [코비·스모커 7축 재평가 및 조직도 시기 통합](docs/V0_4_9_KOBY_SMOKER_ORGANIZATION_REVIEW_2026-10-15.md). 코비 Overall71.00, 스모커74.29. 다른 70명 점수/계산/상태/역사 원본 불변. 카쿠·신규 9인은 별도 평가안으로 보고하고 등록하지 않음.
 - **v0.4.8 조직도:** [읽기 전용 독립 조직도 탭·소속 시기·중복 구성원 회귀 검증](docs/V0_4_8_READONLY_ORGANIZATION_CHART_2026-10-14.md). 25개 Group 및 97개 기존 Membership에서만 생성; 조직도와 순위/매치업을 구분. [PR #110](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/110) 병합 및 [main Pages CI 38524967824](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38524967824)에서 94파일/406테스트·빌드·배포 성공. 실기기 시각 QA는 별도.

@@ -1,5 +1,9 @@
 import type { Character } from '../../domain/character/types'
 import { sampleCharacters } from '../sample/characters'
+import { v0411Characters } from '../sample/v0411UnratedCharacterRegistration'
+
+/** Frozen scored roster + separately registered unrated profiles. */
+const currentCharacters = [...sampleCharacters, ...v0411Characters]
 
 export interface CharacterRepository {
   getCharacters(): Character[]
@@ -7,6 +11,6 @@ export interface CharacterRepository {
 }
 
 export const characterRepository: CharacterRepository = {
-  getCharacters: () => sampleCharacters,
-  getCharacter: (id) => sampleCharacters.find((character) => character.id === id),
+  getCharacters: () => currentCharacters,
+  getCharacter: (id) => currentCharacters.find((character) => character.id === id),
 }
