@@ -42,7 +42,7 @@ afterEach(async () => {
 describe('v0.1.80 patch history UI',()=>{
   it('opens history, displays numeric changes and reasons, closes on demand',async()=>{
     const button=container.querySelector<HTMLButtonElement>('.patch-history-trigger')
-    expect(button?.textContent).toContain('v0.4.11')
+    expect(button?.textContent).toContain('v0.4.12')
     await click(button)
     const dialog=container.querySelector('[role="dialog"][aria-labelledby="patch-history-title"]')
     expect(dialog?.textContent).toContain('퀸 범용성 조정')
@@ -288,7 +288,7 @@ describe('evaluated roster UI', () => {
     const stat = container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]')
     await click(stat)
     const rows = [...document.querySelectorAll('.rank-row')]
-    expect(rows).toHaveLength(72)
+    expect(rows).toHaveLength(80)
     expect(rows.slice(0, 3).every((row) => row.textContent?.includes('100'))).toBe(true)
     expect(rows.slice(0, 3).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
     expect(rows.slice(0, 3).map((row) => row.textContent).join(' ')).toContain('에드워드 뉴게이트')
@@ -313,14 +313,14 @@ describe('evaluated roster UI', () => {
   it('opens Overall rankings in full-precision order and reverses the list without changing canonical ranks', async () => {
     await click(container.querySelector('button[aria-label="종합 전투력 전체 캐릭터 순위 보기"]'))
     const rows = () => [...document.querySelectorAll('.rank-row')]
-    expect(rows()).toHaveLength(72)
+    expect(rows()).toHaveLength(80)
     expect(document.querySelector('#stat-rank-title')?.textContent).toContain('종합 전투력')
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('에드워드 뉴게이트')
     expect(rows()[0].textContent).toContain('97.571')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows()[0].textContent).toContain('버기')
-    expect(rows()[0].textContent).toContain('72위')
+    expect(rows()[0].textContent).toContain('80위')
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     expect(rows().slice(0, 2).map((row) => row.textContent).join(' ')).toContain('골 D. 로저')
   })
@@ -329,7 +329,7 @@ describe('evaluated roster UI', () => {
     await click(container.querySelector('button[aria-label="공격력 전체 캐릭터 순위 보기"]'))
     await click(document.querySelector('.rank-sort-controls button[aria-pressed="false"]'))
     const rows = [...document.querySelectorAll('.rank-row')]
-    expect(rows).toHaveLength(72)
+    expect(rows).toHaveLength(80)
     expect(rows[0].textContent).not.toContain('골 D. 로저')
   })
 
