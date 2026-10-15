@@ -29,7 +29,7 @@ describe('v0.4.11 eight character-only registrations', () => {
     expect(getUniqueCharacterList()).toHaveLength(80)
     expect(sampleEvaluations).toHaveLength(76)
     expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(532)
-    expect(sampleMatchups).toHaveLength(15)
+    expect(sampleMatchups).toHaveLength(14)
     for (const id of ids) expect(sampleEvaluations.some(e=>e.characterId===id)).toBe(false)
     expect(getStatRanking('overall')).toHaveLength(80)
     for(const id of ids) expect(evaluationRepository.getEvaluations(id)).toHaveLength(1)
@@ -51,7 +51,7 @@ describe('v0.4.11 eight character-only registrations', () => {
   it('keeps one quote slot per 80 characters; activates only sourced Straw Hat quotes', () => {
     expect(Object.keys(characterQuoteReviews)).toHaveLength(80)
     expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='official-excerpt')).toHaveLength(15)
-    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='pending')).toHaveLength(11)
+    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='pending')).toHaveLength(9)
     for(const id of ['nami','chopper','robin','franky','brook']){
       const review=getCharacterQuoteReview(id)!
       expect(review.verificationStatus).toBe('official-excerpt')
@@ -60,10 +60,14 @@ describe('v0.4.11 eight character-only registrations', () => {
       const page=renderToStaticMarkup(<CharacterPage characterId={id} groupId='straw-hat-pirates' onSelectStat={()=>{}} onCompareStat={()=>{}} onSelectOverall={()=>{}} />)
       expect(page).toContain('대표 명대사')
     }
-    for(const id of ['guernica','maha']){
+    for(const id of ['maha']){
       expect(getCharacterQuoteReview(id)?.verificationStatus).toBe('pending')
       expect(renderToStaticMarkup(<CharacterPage characterId={id} groupId='cp0' onSelectStat={()=>{}} onCompareStat={()=>{}} onSelectOverall={()=>{}} />)).not.toContain('대표 명대사')
     }
+  })
+  it('shows Guernica sourced 1042 exclamation in the CP0 detail card', () => {
+    expect(getCharacterQuoteReview('guernica')?.verificationStatus).toBe('secondary-excerpt')
+    expect(renderToStaticMarkup(<CharacterPage characterId='guernica' groupId='cp0' onSelectStat={()=>{}} onCompareStat={()=>{}} onSelectOverall={()=>{}} />)).toContain('부럽군')
   })
   it('resolves the user-uploaded eight image identifiers with explicit unverified rights',()=>{
     for(const id of ids){
