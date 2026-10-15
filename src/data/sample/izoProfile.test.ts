@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { sampleCharacters } from './characters'
 import { sampleMemberships } from './memberships'
 import { getCharacterList, getUniqueCharacterList } from '../../application/getCharacterList'
+import { v0411Characters } from './v0411UnratedCharacterRegistration'
 import { evaluationRepository } from '../repositories/evaluationRepository'
 import { getStatRanking } from '../../application/getStatRanking'
 import { getMatchupRoster } from '../../application/getMatchupHub'
@@ -16,7 +17,7 @@ describe('Izo catalogue addition and past Roger affiliations', () => {
     expect(evaluationRepository.getEvaluation('izo')?.status).toBe('draft')
     expect(getStatRanking('overall')).toHaveLength(72)
     expect(getMatchupRoster()).toHaveLength(72)
-    expect(getUniqueCharacterList()).toHaveLength(72)
+    expect(getUniqueCharacterList().filter(x=>!v0411Characters.some(c=>c.id===x.character.id))).toHaveLength(72)
   })
   it('shows Izo in both Whitebeard and Akazaya groups without redefining the original nine', () => {
     const items = getCharacterList().filter(e => e.character.id === 'izo')
