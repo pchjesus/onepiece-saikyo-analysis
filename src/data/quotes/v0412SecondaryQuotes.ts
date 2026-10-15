@@ -346,7 +346,7 @@ const reviewed = [
     "characterId": "lucci",
     "originalJapanese": "ここにいると殺しさえ正当化される",
     "displayKorean": "여기서는 살인마저 정당화되지.",
-    "mangaChapter": 349,
+    "mangaChapter": 382,
     "verificationStatus": "secondary-excerpt",
     "translationStatus": "editorial",
     "context": "세계정부의 살육 명분에 관해 이야기",
