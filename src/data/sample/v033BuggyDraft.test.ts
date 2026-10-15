@@ -7,6 +7,7 @@ import { sampleMemberships } from './memberships'
 import { validateEvaluation } from '../../domain/evaluation/validation'
 import { getStatRanking } from '../../application/getStatRanking'
 import { getUniqueCharacterList } from '../../application/getCharacterList'
+import { v0411Characters } from './v0411UnratedCharacterRegistration'
 import { getMatchupRoster } from '../../application/getMatchupHub'
 import { getCombatPower } from '../../application/getCombatPower'
 
@@ -34,7 +35,7 @@ describe('Buggy provisional lower-tier analysis (E3)', () => {
     expect(sampleCharacters).toHaveLength(72)
     expect(sampleEvaluations).toHaveLength(76)
     expect(sampleMemberships).toHaveLength(97)
-    expect(getUniqueCharacterList()).toHaveLength(72)
+    expect(getUniqueCharacterList().filter(x=>!v0411Characters.some(c=>c.id===x.character.id))).toHaveLength(72)
     expect(sampleMemberships.filter(x=>x.characterId==='buggy').map(x=>x.groupId).sort())
       .toEqual(['cross-guild','roger-pirates','seven-warlords'])
   })
