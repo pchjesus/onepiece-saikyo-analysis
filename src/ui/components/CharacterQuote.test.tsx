@@ -15,9 +15,9 @@ describe('v0.4.10 character-scoped quote UI', () => {
     expect(markup).toContain('사랑해 줘서 고마워!')
     expect(markup).toContain('愛してくれて')
     expect(markup).toContain('한국어 자체 번역')
-    expect(markup).toContain('원작 컷 미대조')
+    expect(markup).toContain('원작 컷 및 한국 정식 번역 미대조')
     expect(markup).toContain('rel="noopener noreferrer"')
-    expect(markup).not.toContain('원작 제574화')
+    expect(markup).toContain('제574화 (2차 자료 기재)')
   })
   it('does not render a fake placeholder quote for pending or unknown characters', () => {
     expect(renderToStaticMarkup(<CharacterQuote characterId="maha" />)).toBe('')

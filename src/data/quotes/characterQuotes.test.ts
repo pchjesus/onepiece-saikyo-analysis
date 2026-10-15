@@ -17,9 +17,9 @@ describe('v0.4.10 character quote source integrity', () => {
     const official = reviews.filter(item => item.verificationStatus === 'official-excerpt')
     const secondary = reviews.filter(item => item.verificationStatus === 'secondary-excerpt')
     const pending = reviews.filter(item => item.verificationStatus === 'pending')
-    expect(official).toHaveLength(15)
-    expect(secondary).toHaveLength(54)
-    expect(pending).toHaveLength(11)
+    expect(official).toHaveLength(14)
+    expect(secondary).toHaveLength(57)
+    expect(pending).toHaveLength(9)
     expect(pending.every(item => !item.originalJapanese && !item.displayKorean && !item.source)).toBe(true)
     for (const quote of official) {
       expect(quote.originalJapanese?.trim().length).toBeGreaterThan(5)
@@ -32,7 +32,7 @@ describe('v0.4.10 character quote source integrity', () => {
     }
   })
   it('distinguishes selected second-party transcriptions from primary-manga verification', () => {
-    for(const id of ['newgate','usopp','garp','kaido','kizaru','burgess','doflamingo','roger']){
+    for(const id of ['newgate','usopp','garp','kaido','kizaru','burgess','doflamingo','roger','marco','ace','mihawk','rocks','guernica']){
       const q = getCharacterQuoteReview(id)!
       expect(q.verificationStatus).toBe('secondary-excerpt')
       expect(q.translationStatus).toBe('editorial')
@@ -48,6 +48,13 @@ describe('v0.4.10 character quote source integrity', () => {
     expect(getCharacterQuoteReview('burgess')?.displayKorean).toContain('힘힘 열매')
     expect(getCharacterQuoteReview('doflamingo')?.displayKorean).toContain('해적이 악')
     expect(getCharacterQuoteReview('roger')?.displayKorean).toContain('세상의 모든')
+    expect(getCharacterQuoteReview('marco')?.mangaChapter).toBe(554)
+    expect(getCharacterQuoteReview('marco')?.context).toContain('키자루')
+    expect(getCharacterQuoteReview('ace')?.displayKorean).toContain('귀신의 피')
+    expect(getCharacterQuoteReview('usopp')?.displayKorean).toContain('싸움을 피해서는')
+    expect(getCharacterQuoteReview('mihawk')?.displayKorean).toContain('세계')
+    expect(getCharacterQuoteReview('rocks')?.displayKorean).toContain('꼬맹아')
+    expect(getCharacterQuoteReview('guernica')?.displayKorean).toContain('부럽군')
     for(const q of Object.values(characterQuoteReviews).filter(q=>q.verificationStatus === 'secondary-excerpt')){
       expect(q.source?.url).toMatch(/^https:\/\//)
       expect(q.mangaChapter).toBeGreaterThan(0)
