@@ -1,6 +1,7 @@
 import { luffyMembership } from './luffyDraft'
 import { izoMemberships } from './izoProfile'
 import { v0180Memberships } from './v0180CharacterExpansion'
+import { v0411Memberships } from './v0411UnratedCharacterRegistration'
 import { wanoMemberships } from './wanoExpansion'
 import { v0170Memberships } from './v0170GroupAceExpansion'
 import type { CharacterMembership } from '../../domain/character/types'
@@ -75,6 +76,7 @@ export const sampleMemberships: CharacterMembership[] = [
   ...wanoMemberships,
   ...v0170Memberships,
   ...v0180Memberships,
+  ...v0411Memberships,
   ...izoMemberships,
   luffyMembership,
 ]
