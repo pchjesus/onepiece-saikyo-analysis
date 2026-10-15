@@ -15,8 +15,8 @@ describe('v0.4.10 character quote source integrity', () => {
     const reviews = Object.values(characterQuoteReviews)
     const selected = reviews.filter(item => item.verificationStatus !== 'pending')
     const pending = reviews.filter(item => item.verificationStatus === 'pending')
-    expect(selected).toHaveLength(17)
-    expect(pending).toHaveLength(55)
+    expect(selected).toHaveLength(13)
+    expect(pending).toHaveLength(59)
     expect(pending.every(item => !item.originalJapanese && !item.displayKorean && !item.source)).toBe(true)
     for (const quote of selected) {
       expect(quote.originalJapanese?.trim().length).toBeGreaterThan(5)
