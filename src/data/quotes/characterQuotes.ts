@@ -13,6 +13,8 @@ export type CharacterQuoteReview = {
   displayKorean?: string
   context?: string
   mangaChapter?: number
+  /** Set only when the quoted wording is confirmed as an anime episode, not manga dialogue. */
+  animeEpisode?: number
   verificationStatus: QuoteVerification
   translationStatus?: 'editorial' | 'official-korean'
   source?: { label: string; url: string }
