@@ -616,5 +616,97 @@ const reviewed = [
     "url": "https://mangakawiki.com/archives/13617"
   }
 }
+,
+ {
+  "characterId": "king",
+  "originalJapanese": "カイドウさんこそ海賊王になる男!!",
+  "displayKorean": "카이도 씨야말로 해적왕이 될 남자다!",
+  "mangaChapter": 1035,
+  "verificationStatus": "secondary-excerpt",
+  "translationStatus": "editorial",
+  "context": "카이도와의 약속을 떠올리며 충성을 선언",
+  "source": {
+    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+    "url": "https://mangakawiki.com/archives/11159"
+  }
+},
+{
+  "characterId": "kawamatsu",
+  "originalJapanese": "いかなる苦業も主君の無念をそう思えばそよ風!!",
+  "displayKorean": "주군의 원통함을 생각한다면 어떤 고통도 산들바람일 뿐!",
+  "mangaChapter": 948,
+  "verificationStatus": "secondary-excerpt",
+  "translationStatus": "editorial",
+  "context": "13년 유폐를 견뎌내고 전장에 복귀",
+  "source": {
+    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+    "url": "https://mangakawiki.com/archives/11469"
+  }
+},
+{
+  "characterId": "izo",
+  "originalJapanese": "エースが守りオヤジが認めた男をおれ達は新しい時代へ送ってやる義務がある!!!",
+  "displayKorean": "에이스가 지키고 아버지가 인정한 남자를 새로운 시대로 보내야 한다!",
+  "mangaChapter": 578,
+  "verificationStatus": "secondary-excerpt",
+  "translationStatus": "editorial",
+  "context": "정상전쟁에서 루피를 탈출시키려는 결의",
+  "source": {
+    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+    "url": "https://mangakawiki.com/archives/8821"
+  }
+},
+{
+  "characterId": "kuzan",
+  "originalJapanese": "徹底した正義は時に人を狂気に変える",
+  "displayKorean": "철저한 정의는 때로 사람을 광기로 몰아넣지.",
+  "mangaChapter": 397,
+  "verificationStatus": "secondary-excerpt",
+  "translationStatus": "editorial",
+  "context": "오하라의 기억을 바탕으로 절대적 정의를 경계",
+  "source": {
+    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+    "url": "https://mangakawiki.com/archives/5397"
+  }
+},
+{
+  "characterId": "pizarro",
+  "originalJapanese": "おれ達だって名を売りてェよ",
+  "displayKorean": "우리도 이름을 날리고 싶다고!",
+  "mangaChapter": 1087,
+  "verificationStatus": "secondary-excerpt",
+  "translationStatus": "editorial",
+  "context": "하치노스에서 해군 상대 명성을 얻으려 함",
+  "source": {
+    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+    "url": "https://mangakawiki.com/archives/15174"
+  }
+},
+{
+  "characterId": "denjiro",
+  "originalJapanese": "腕を上げてなきゃ20年生きた意味がない",
+  "displayKorean": "실력이 늘지 않았다면 20년을 살아온 의미가 없다.",
+  "mangaChapter": 978,
+  "verificationStatus": "secondary-excerpt",
+  "translationStatus": "editorial",
+  "context": "오랜 잠입과 수련의 의미",
+  "source": {
+    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+    "url": "https://mangakawiki.com/archives/11255"
+  }
+},
+{
+  "characterId": "kikunojo",
+  "originalJapanese": "拙者は侍です!!",
+  "displayKorean": "저는 무사입니다!",
+  "mangaChapter": 914,
+  "verificationStatus": "secondary-excerpt",
+  "translationStatus": "editorial",
+  "context": "자신의 정체를 자랑스럽게 선언",
+  "source": {
+    "label": "만화wiki 발언 전사 · 원작 직접 미대조",
+    "url": "https://mangakawiki.com/archives/11309"
+  }
+}
 ] satisfies SecondaryQuote[]
 export const v0412SecondaryQuotes: Record<string, CharacterQuoteReview> = Object.fromEntries(reviewed.map(q=>[q.characterId,q]))
