@@ -4,7 +4,7 @@
 - 기준: v0.4.10 `main@741335a0f0ea4dd0d0d5adceca0d4ae20eeae275`.
 - 사용자 제공 사진 8장 순서: 게르니카, 마하, 우솝, 나미, 쵸파, 니코 로빈, 프랑키, 브룩.
 - **이번 버전은 캐릭터 등록·소속·사진·기존 검증된 명대사 표시만 수행.** 정밀 스탯 심사 및 대사 변경은 다음 작업에서 진행.
-- 카쿠/에넬은 현재 정식 등록 범위 밖이며, v0.4.9 `KAKU_NINE_CHARACTER_DRAFT` 문서의 점수는 승인 Evaluation으로 승격하지 않는다.
+- 카쿠는 기존 정식 등록·기존 Evaluation을 유지하며 재평가하지 않았다. 에넬은 이번 8인 추가 대상이 아니다. v0.4.9 `KAKU_NINE_CHARACTER_DRAFT` 문서의 점수는 승인 Evaluation으로 승격하지 않는다.
 - 기존 72인 76 Evaluation/532 Stat, 모든 Battle/Evidence/Haki Raw/17 Matchup, Balanced1.2/Haki0.5, `evaluation-set-v0.4.9` 및 이전 Snapshot 보존.
 - 등록 후 80 Character, 105 Membership, 72 evaluated. 기존 순위는 72명 유지.
 
@@ -22,7 +22,7 @@
 
 ## 구조 결정
 - `src/data/sample/v0411UnratedCharacterRegistration.ts`은 새 Character 및 Membership만 선언.
-- 기존 `sampleCharacters` 및 `sampleMemberships`에 append, 중복 ID/Group 생성을 하지 않음.
+- **기존 `sampleCharacters` 및 `sampleMemberships`(72명/97건)는 변경하지 않는다.** CharacterRepository/GroupRepository에서 별도 v0.4.11 미평가 프로필(8명/8건)을 병합해 화면에 표시하며 기존 평가·스냅샷 회귀 기준을 보존한다.
 - `UnratedCharacterPage`를 사용해 캐릭터 이름, 사진, 소속, 전투 프로필만 보여주고 **미평가 / 순위 미포함**을 분명히 표시.
 - 기존 `CharacterQuote` 컴포넌트를 미평가 화면에도 연결.
 - 앞선 v0.4.10 ONE PIECE.com 일본어 인용 자료에 존재했던 우솝·나미·쵸파·로빈·프랑키·브룩의 대사 6개를 활성화; **자체 한국어 번역**이며 만화 화수·공식 한국어판 대조는 미실시.
@@ -38,8 +38,8 @@
 - 기존 평가/근거/조직도/스냅샷 전부 회귀검증.
 - 실제 PC/모바일 디바이스 시각 테스트와 저작권·원작 대사 전수 검증은 별도 단계. CI 성공과 구분.
 
-## 현재 PR / 이미지 업로드 차단 상태
-- [PR #114](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/114): **Draft, main 미병합**, 전체 코드 CI 98파일/419테스트 및 빌드 성공 (Actions [38676384262](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38676384262)).
-- **중요:** 미디어 레지스트리 8 ID 연결은 구현되었으나 해당 WebP 8개는 아직 GitHub 저장소에 등록되지 않아 브라우저에서 이미지가 보이지 않음. 정식 배포 완료로 표시 금지.
-- 업로드 준비 ZIP에는 사진 원본에서 인코딩한 다음 파일이 `public/images/characters/` 아래 위치함: `guernica.webp`, `maha.webp`, `usopp.webp`, `nami.webp`, `chopper.webp`, `robin.webp`, `franky.webp`, `brook.webp`.
-- 다음 단계: ZIP 8개 미디어 바이너리를 PR #114 브랜치에 실제 업로드 → WebP magic/file size/8 경로 확인 → 419개 전체 CI/빌드 재확인 → 브라우저 확인 → PR Draft 해제/병합 → main Pages 성공 확인.
+## PR #114 — 실제 바이너리 업로드 확인
+- [PR #114](https://github.com/pchjesus/onepiece-saikyo-analysis/pull/114) 브랜치에 사용자 제공 이미지 8장을 **원본 크기의 WebP 바이너리로 실제 업로드 완료**. 첫 연결 커밋 `3e9e78e7e3d1ee7370d87f6cc3860c06b3a5c47a`.
+- GitHub Tree에서 `public/images/characters/{guernica,maha,usopp,nami,chopper,robin,franky,brook}.webp` 8개 경로·바이트 크기·SHA-1 확인. `tests/v0411PortraitBinaryIntegrity.test.ts` 추가로 CI에서 파일 헤더·크기·SHA 재검증하도록 구성.
+- 이미지 크기/파일 바이트는 로컬 준비 ZIP의 WebP와 정확히 일치. 최초 사용자 첨부 PNG를 그대로 업로드한 것은 아니며, 원본 해상도 유지 WebP 변환임.
+- 마지막 단계: 바이너리 변경 반영 후 CI/빌드 전부 확인 → PR Draft 해제 및 병합 → main GitHub Pages 배포 결과 확인. **PC·모바일 실기기 시각 검증은 별도 미수행**.
