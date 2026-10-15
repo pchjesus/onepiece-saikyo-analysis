@@ -10,7 +10,7 @@ export type CharacterPortraitAsset = {
   permission: 'owned' | 'licensed' | 'open-license' | 'user-provided-unverified'
   permissionNote: string
 }
-const providedIds = 'marco newgate jozu ace vista king kaido queen jack x-drake page-one ulti whos-who black-maria sasaki linlin katakuri smoothie cracker zoro sanji jinbe shanks gaban rayleigh roger rocks mihawk crocodile garp kizaru kuzan akainu ryokugyu fujitora prince-grus smoker vergo tashigi inazuma lucci stussy sabo ivankov kaku morley karasu doflamingo diamante pica hancock law kid killer kinemon kanjuro raizo kikunojo ashura-doji kawamatsu denjiro inuarashi nekomamushi izo teach shiryu burgess van-augur pizarro koby buggy luffy guernica maha usopp nami chopper robin franky brook'.split(' ')
+const providedIds = 'marco newgate jozu ace vista king kaido queen jack x-drake page-one ulti whos-who black-maria sasaki linlin katakuri smoothie cracker zoro sanji jinbe shanks gaban rayleigh roger rocks mihawk crocodile garp kizaru kuzan akainu ryokugyu fujitora prince-grus smoker vergo tashigi inazuma lucci stussy sabo ivankov kaku morley karasu doflamingo diamante pica hancock law kid killer kinemon kanjuro raizo kikunojo ashura-doji kawamatsu denjiro inuarashi nekomamushi izo teach shiryu burgess van-augur pizarro koby buggy luffy'.split(' ')
 
 export const characterPortraitAssets: Readonly<Record<string, CharacterPortraitAsset>> =
   Object.fromEntries(providedIds.map((id): [string, CharacterPortraitAsset] => [id, {
@@ -21,8 +21,16 @@ export const characterPortraitAssets: Readonly<Record<string, CharacterPortraitA
     permissionNote: '사용자 제공 이미지 · 원저작권자 및 공개 재배포 허가 미확인',
   }]))
 
+/** Added in v0.4.11: separate uploaded portrait assets preserve the frozen 72-image registry. */
+const v0411PortraitAssets: Readonly<Record<string, CharacterPortraitAsset>> =
+  Object.fromEntries(['guernica','maha','usopp','nami','chopper','robin','franky','brook'].map(id => [id, {
+    fileName: id + '.webp',
+    permission: 'user-provided-unverified',
+    permissionNote: '사용자 제공 이미지 · 원저작권자 및 공개 재배포 허가 미확인',
+  }]))
+
 export function getCharacterPortraitAsset(characterId: string): CharacterPortraitAsset | undefined {
-  const asset = characterPortraitAssets[characterId]
+  const asset = characterPortraitAssets[characterId] ?? v0411PortraitAssets[characterId]
   if (!asset) return undefined
   if (!/^[a-z0-9][a-z0-9-]*\.(?:webp|png|jpe?g)$/.test(asset.fileName)) return undefined
   if (asset.sourceUrl !== undefined && !/^https:\/\//.test(asset.sourceUrl)) return undefined
