@@ -39,11 +39,11 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
   { version:'v0.4.10', date:'2026-10-15', title:'캐릭터 대표 명대사 · 공식 인용 기반 단계적 도입',
-    summary:'72명 캐릭터 ID별 명대사 검토 슬롯과 독립 인용 UI 도입. 17명은 ONE PIECE.com 일본어 인용을 확인해 자체 번역으로 표시하며 원작 컷/정식 한국어판은 미대조; 나머지 55명은 미확인으로 남긴다. 전투력·상태·조직도·매치업 계산 불변.',
+    summary:'72명 캐릭터 ID별 명대사 검토 슬롯과 독립 인용 UI 도입. 13명은 ONE PIECE.com 일본어 인용을 확인해 자체 번역으로 표시하며 원작 컷/정식 한국어판은 미대조; 나머지 59명은 미확인으로 남긴다. 전투력·상태·조직도·매치업 계산 불변.',
     report:'docs/V0_4_10_CHARACTER_QUOTES_REVIEW_2026-10-15.md',
     changes:[
-      {kind:'feature',title:'명대사 카드와 출처 펼쳐보기',detail:'캐릭터 소개 헤더 아래 한국어 자체 번역, 원문, 공식 ONE PIECE.com 연결. 미검증 55명은 표시하지 않고 긴 텍스트·모바일 레이아웃에 대응.'},
-      {kind:'evidence',title:'명대사 원문 검증 상태 분리',detail:'17건 공식 일본어 인용 확인, 0건 만화 컷 직접 대조, 55건 미확인. 만화 화수와 한국어 공식 번역은 확인될 때까지 주장하지 않음. 명대사는 평가 근거·점수에 반영하지 않음.'},
+      {kind:'feature',title:'명대사 카드와 출처 펼쳐보기',detail:'캐릭터 소개 헤더 아래 한국어 자체 번역, 원문, 공식 ONE PIECE.com 연결. 미검증 59명은 표시하지 않고 긴 텍스트·모바일 레이아웃에 대응.'},
+      {kind:'evidence',title:'명대사 원문 검증 상태 분리',detail:'13건 공식 일본어 인용 확인, 0건 만화 컷 직접 대조, 59건 미확인. 만화 화수와 한국어 공식 번역은 확인될 때까지 주장하지 않음. 명대사는 평가 근거·점수에 반영하지 않음.'},
     ],
   },
   {
