@@ -48,7 +48,7 @@ describe('v0.4.10 character quote source integrity', () => {
     expect(getCharacterQuoteReview('burgess')?.displayKorean).toContain('힘힘 열매')
     expect(getCharacterQuoteReview('doflamingo')?.displayKorean).toContain('해적이 악')
     expect(getCharacterQuoteReview('roger')?.displayKorean).toContain('세상의 모든')
-    for(const q of secondary){
+    for(const q of Object.values(characterQuoteReviews).filter(q=>q.verificationStatus === 'secondary-excerpt')){
       expect(q.source?.url).toMatch(/^https:\/\//)
       expect(q.mangaChapter).toBeGreaterThan(0)
       expect(q.translationStatus).toBe('editorial')
