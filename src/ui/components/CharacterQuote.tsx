@@ -9,9 +9,9 @@ export function CharacterQuote({ characterId }: { characterId: string }) {
       <div className="character-quote-eyebrow">대표 명대사</div>
       <blockquote lang="ko">{review.displayKorean}</blockquote>
       <figcaption>
-        <span>{review.mangaChapter ? `제${review.mangaChapter}화${review.verificationStatus === 'secondary-excerpt' ? ' (2차 자료 기재)' : ''}` : '원작 만화 화수 미확인'} · {review.translationStatus === 'official-korean' ? '한국어 정식 번역 확인' : '한국어 자체 번역'}</span>
+        <span>{review.mangaChapter ? `원작 제${review.mangaChapter}화${review.verificationStatus === 'secondary-excerpt' ? ' (2차 자료 기재)' : ''}` : review.animeEpisode ? `애니메이션 제${review.animeEpisode}화 · 만화 대응 대사 미확인` : '원작 만화 화수 미확인'} · {review.translationStatus === 'official-korean' ? '한국어 정식 번역 확인' : '한국어 자체 번역'}</span>
         <details className="character-quote-source">
-          <summary>일본어 원문 · 출처</summary>
+          <summary>대사 원문 · 출처</summary>
           {review.originalJapanese && <p lang="ja">{review.originalJapanese}</p>}
           {review.context && <p>{review.context}</p>}
           <small>{review.verificationStatus === 'manga-checked' ? '원작 컷 확인' : review.verificationStatus === 'secondary-excerpt' ? '2차 자료 인용 · 원작 컷 및 한국 정식 번역 미대조' : '공식 일본어 인용 확인 · 원작 컷 미대조'}</small>
