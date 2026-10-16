@@ -47,13 +47,20 @@ describe('v0.5.0 stage 1: read-only 81-person, 85-evaluation, 595-stat audit', (
     expect(v0412Evaluations).toHaveLength(8)
     const newcomers=report.rows.filter(row=>newIds.includes(row.characterId))
     expect(newcomers).toHaveLength(56)
-    expect(newcomers.filter(row=>row.readiness==='E2')).toHaveLength(40)
-    expect(newcomers.filter(row=>row.readiness==='E3')).toHaveLength(16)
+    // The immutable v0.4.12 source is still 40 E2 / 16 E3.
+    expect(v0412Evaluations.flatMap(e=>e.items).filter(item=>item.readiness==='E2')).toHaveLength(40)
+    expect(v0412Evaluations.flatMap(e=>e.items).filter(item=>item.readiness==='E3')).toHaveLength(16)
+    // The current v0.4.16 Stage 2A CP0 audit revises exactly five E2 axes to E3.
+    expect(newcomers.filter(row=>row.readiness==='E2')).toHaveLength(35)
+    expect(newcomers.filter(row=>row.readiness==='E3')).toHaveLength(21)
     expect(newcomers.every(row=>row.status==='draft' && row.rawHaki===0)).toBe(true)
     expect(newcomers.filter(row=>['defense','stamina'].includes(row.stat))
       .every(row=>row.readiness==='E3')).toBe(true)
+    const contextAxes=new Set(['maha:speed','maha:techniqueMastery','maha:combatIQ','maha:versatility','guernica:combatIQ'])
     expect(newcomers.every(row=>row.evidenceLinks.every(
-      link=>link.sourceType==='supplementary' && link.role==='secondary'))).toBe(true)
+      link=>link.sourceType==='supplementary' &&
+        link.role===(contextAxes.has(row.characterId+':'+row.stat)?'context':'secondary')))).toBe(true)
+    expect(newcomers.filter(row=>row.evidenceLinks.some(link=>link.role==='context'))).toHaveLength(5)
     expect(newcomers.every(row=>row.final===row.base)).toBe(true)
     expect(new Set(newcomers.map(row=>row.characterId)).size).toBe(8)
   })
