@@ -10,6 +10,8 @@ import { PatchHistoryDialog } from './components/PatchHistoryDialog'
 import { patchHistory } from '../data/patchHistory'
 import { evaluationRepository } from '../data/repositories/evaluationRepository'
 import { UnratedCharacterPage } from './pages/UnratedCharacterPage'
+import { CharlosSpecialPage } from './pages/CharlosSpecialPage'
+import { CHARLOS_ID } from '../data/special/charlosSpecial'
 import { StatComparisonDialog } from './components/StatComparisonDialog'
 import type { CombatStat } from '../domain/evaluation/types'
 import './styles.css'
@@ -114,7 +116,9 @@ export default function App() {
       </nav>
       {pickerOpen && <CharacterPickerDialog characters={characterList} groups={groups}
         onSelectCharacter={selectCharacter} onClose={closePicker} />}
-      {selectedId && (evaluationRepository.getEvaluations(selectedId).length === 0
+      {selectedId && (selectedId === CHARLOS_ID
+        ? <CharlosSpecialPage key={selectedId} onSelectOverall={() => setRankingStat('overall')} />
+        : evaluationRepository.getEvaluations(selectedId).length === 0
         ? <UnratedCharacterPage key={`${selectedGroupId}:${selectedId}`} characterId={selectedId} groupId={selectedGroupId}/>
         : <CharacterPage key={`${selectedGroupId}:${selectedId}`} characterId={selectedId} groupId={selectedGroupId} selectedStateId={selectedStates[selectedId]} onStateChange={stateId=>selectEvaluationState(selectedId,stateId)} onSelectStat={setRankingStat}
         onCompareStat={(stat,stateId)=>{setRankingStat(null);setStatComparison({stat,primaryId:selectedId,primaryStateId:stateId})}}
