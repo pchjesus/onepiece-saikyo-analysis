@@ -45,7 +45,7 @@ describe('v0.4.13: the two previously unshown v0.4.9 draft decisions', () => {
    expect(groupRepository.getGroup('skypiea')?.name).toBe('하늘섬')
    expect(evaluationRepository.getEvaluations('kaku')).toHaveLength(1)
    expect(evaluationRepository.getEvaluations('enel')).toHaveLength(1)
-   expect(matchupRepository.getAllMatchups()).toHaveLength(17)
+   expect(matchupRepository.getAllMatchups()).toHaveLength(18)
    expect(versionManifest.calculationModelVersion).toBe('1.2')
    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.13')
  })
@@ -84,8 +84,8 @@ describe('v0.4.13: the two previously unshown v0.4.9 draft decisions', () => {
    const links=v050CurrentDataset.evidence.map(e=>({id:e.id,subjectCharacterId:e.subjectCharacterId}))
    expect(validateEvaluation(current,links).errors).toEqual([])
  })
- it('shows Enel with the existing name-based portrait fallback and no invented quote',()=>{
-   expect(getCharacterPortraitAsset('enel')).toBeUndefined()
+ it('shows Enel with the v0.4.14 user-provided portrait and no invented quote',()=>{
+   expect(getCharacterPortraitAsset('enel')).toMatchObject({fileName:'enel.webp',permission:'user-provided-unverified'})
    expect(getCharacterQuoteReview('enel')).toEqual({characterId:'enel',verificationStatus:'pending'})
    const html=renderToStaticMarkup(<CharacterPage characterId="enel" groupId="skypiea"
      onSelectStat={()=>{}} onCompareStat={()=>{}} onSelectOverall={()=>{}} />)
@@ -96,7 +96,7 @@ describe('v0.4.13: the two previously unshown v0.4.9 draft decisions', () => {
  it('includes both drafts in the current read-only audit without changing Frozen v0.3.3 baseline',()=>{
    const report=buildV050ReadOnlyAudit()
    expect(report.integrity.errors).toEqual([])
-   expect(report.counts).toEqual({characters:81,evaluatedCharacters:81,evaluations:85,axes:595,memberships:106,matchups:17})
+   expect(report.counts).toEqual({characters:81,evaluatedCharacters:81,evaluations:85,axes:595,memberships:106,matchups:18})
    expect(report.rows.filter(r=>r.characterId==='enel')).toHaveLength(7)
    expect(report.rows.filter(r=>r.characterId==='kaku').map(r=>r.final)).toEqual(approvedDraftScores)
    expect(report.rows.filter(r=>r.characterId==='enel').every(r=>r.rawHaki===0)).toBe(true)
