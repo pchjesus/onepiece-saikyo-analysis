@@ -23,6 +23,7 @@ import { sampleEvidence } from '../sample/evidence'
 import { sampleEvaluations } from '../sample/evaluations'
 import { v0413EnelCharacter, v0413EnelMembership, v0413EnelBattles, v0413EnelEvidence, v0413EnelEvaluation, applyV0413KakuDraft } from '../sample/v0413RemainingDraftPublication'
 import { balancedV12 } from '../sample/calculationModels'
+import { applyV0415EnelReview } from '../sample/v0415EnelReview'
 import { matchupRepository } from '../repositories/matchupRepository'
 
 /** Explicit live dataset; older v033Snapshot.liveDataset intentionally has historical scope. */
@@ -33,7 +34,7 @@ export const v050CurrentDataset: CombatDataset = {
   battles: [...sampleBattles, ...v0412Battles, ...v0413EnelBattles],
   participants: sampleBattleParticipants,
   evidence: [...sampleEvidence, ...v0412Evidence, ...v0413EnelEvidence],
-  evaluations: [...sampleEvaluations.map(applyV0413KakuDraft), ...v0412Evaluations, v0413EnelEvaluation],
+  evaluations: [...sampleEvaluations.map(applyV0413KakuDraft), ...v0412Evaluations, applyV0415EnelReview(v0413EnelEvaluation)],
   model: balancedV12,
   matchups: matchupRepository.getAllMatchups(),
 }

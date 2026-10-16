@@ -1,12 +1,14 @@
 # 원피스 전투력 분석
 
+> **v0.4.15 — 에넬 사용자 승인 7축 재평가·대표 명대사:** 하늘섬 편 에넬 평가를 **85/74/72/86/86/76/87(Overall 80.857)**로 갱신. 기존 v0.4.13 평가 원본 88/72/72/88/84/70/87 보존, 현재 표시 데이터에만 새 승인안을 적용. 명대사 **“나는 신이다…!!”**는 ONE PIECE.com 공식 일본어 원문 「我は神なり…!!」로 검증했으며 한국어는 **편집 번역**, 원작 컷/정식 한국어판 미대조. **81명 / 85 Evaluation / 595축 / 106 Membership / 18 Matchup** 보존. Balanced 1.2/Haki Weight 0.5/v0.3.3 독립 기준선 불변. [근거·위험·검증](docs/V0_4_15_ENEL_SCORE_QUOTE_REVIEW_2026-10-16.md).
+
 > **v0.4.14 — 에넬 초상 및 하늘섬 루피 실전 매치업:** 첨부된 640×512 WebP 원본을 **바이너리 동일성 보존**으로 등록하고, 하늘섬 편 에넬·루피의 고무/전격 상성·맨트라·전열 창·황금 구체·실제 루피 승리를 18번째 대진에 연결. 당시 루피의 7축 수치가 없으므로 **서로 다른 시대의 Overall·7축 비교를 보류**하며, 기존 81명 / 85 Evaluation / 595축 / 106 Membership / 17대진 및 Balanced 1.2, Haki 0.5, v0.3.3 기준선 모두 보존. 초상 권리는 `user-provided-unverified`. [변경·검증 범위](docs/V0_4_14_ENEL_PORTRAIT_LUFFY_HISTORICAL_MATCHUP_2026-10-16.md).
 
 > **v0.4.13 — v0.4.9 미반영 평가 공개:** 에넬 하늘섬 편 7축 잠정 Evaluation 신규 등록, 카쿠 기존 평가의 재검토안 7축 공개(6축 조정, Stamina 유지). **81명 / 85 Evaluation / 595축 / 106 소속 / 17대진.** 과거 80명·84 평가 원본, Haki Weight 0.5, Balanced 1.2, 고정 v0.3.3 JSON 유지. 에넬 초상은 이니셜 대체·명대사는 근거 확인 전 pending. [검증·한계](docs/V0_4_13_ENEL_KAKU_DRAFT_PUBLICATION_2026-10-16.md).
 
 > **v0.5.0 감사 Stage 1 당시 기록(당시 앱 v0.4.12):** 80명·84개 Evaluation·588개 7축을 대상으로 E1/E2/E3, 근거 연결 및 Haki 다축 중복 후보를 읽기 전용 CSV로 추출·검증하는 작업. 점수·모델·순위·매치업 변경 없음. [감사 설계·검증 및 승인 게이트](docs/V0_5_0_READONLY_AUDIT_STAGE1_2026-10-16.md).
 
-현재 구현 패치: **v0.4.14** (에넬 사용자 초상 및 하늘섬 루피 실전 1대진 신규, 원작 상황과 시대 불일치 수치 분리) (npm package 버전 **0.4.14**)
+현재 구현 패치: **v0.4.15** (에넬 7축 사용자 승인 재평가·공식 일본어 명대사; 기존 하늘섬 루피 실전 대진 유지) (npm package 버전 **0.4.15**)
 평가 데이터: **81 Character master pool · 81 visible Character · 81 evaluated unique Character · 106 Membership · 85 Evaluation · 595 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 

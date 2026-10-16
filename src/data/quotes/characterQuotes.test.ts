@@ -18,10 +18,9 @@ describe('v0.4.10 character quote source integrity', () => {
     const official = reviews.filter(item => item.verificationStatus === 'official-excerpt')
     const secondary = reviews.filter(item => item.verificationStatus === 'secondary-excerpt')
     const pending = reviews.filter(item => item.verificationStatus === 'pending')
-    expect(official).toHaveLength(14)
+    expect(official).toHaveLength(15)
     expect(secondary).toHaveLength(66)
-    expect(pending).toHaveLength(1)
-    expect(pending[0].characterId).toBe('enel')
+    expect(pending).toHaveLength(0)
     expect(pending.every(item => !item.originalJapanese && !item.displayKorean && !item.source)).toBe(true)
     for (const quote of official) {
       expect(quote.originalJapanese?.trim().length).toBeGreaterThan(5)
@@ -69,6 +68,6 @@ describe('v0.4.10 character quote source integrity', () => {
     expect(getCharacterQuoteReview('kaku')?.verificationStatus).toBe('secondary-excerpt')
     expect(sampleCharacters.find(c => c.id === 'kaku')).toBeDefined()
     expect(sampleCharacters.find(c => c.id === 'enel')).toBeUndefined() // frozen v0.4.12 source remains unmodified
-    expect(getCharacterQuoteReview('enel')?.verificationStatus).toBe('pending')
+    expect(getCharacterQuoteReview('enel')?.verificationStatus).toBe('official-excerpt')
   })
 })

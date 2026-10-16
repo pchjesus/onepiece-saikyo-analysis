@@ -38,6 +38,25 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  { version:'v0.4.15', date:'2026-10-16', title:'에넬 7축 승인 재평가 · 공식 일본어 명대사',
+    summary:'에넬 하늘섬 편의 Attack85/Defense74/Stamina72/Speed86/Technique86/Combat IQ76/Versatility87로 사용자 승인 재평가(Overall80.857). v0.4.13 원본 유지. 대표 대사 「我は神なり…!!」를 공식 일본어 인용·한국어 편집 번역으로 등록. 모델·다른 80인 평가·18대진 불변.',
+    report:'docs/V0_4_15_ENEL_SCORE_QUOTE_REVIEW_2026-10-16.md',
+    changes:[
+      {kind:'score',characterId:'enel',stat:'attack',before:88,after:85,title:'에넬 Attack 88→85',reason:'맥심의 환경 증폭 출력을 독립 대인 화력으로 환산하지 않되 전격·광역 공격 위협은 유지. 프로젝트 잠정 수치 승인.'},
+      {kind:'score',characterId:'enel',stat:'defense',before:72,after:74,title:'에넬 Defense 72→74',reason:'자연계 회피와 맨트라를 인정하되 고무 상성에 따른 피격과 상위 강자 상대 방어 검증 부족을 함께 반영.'},
+      {kind:'score',characterId:'enel',stat:'speed',before:88,after:86,title:'에넬 Speed 88→86',reason:'번개 능력 기반 고속 이동은 인정하되 감지 범위를 순수 반응·지속 근접 공격 속도로 중복 환산하지 않음.'},
+      {kind:'score',characterId:'enel',stat:'techniqueMastery',before:84,after:86,title:'에넬 Technique 84→86',reason:'전열 창·금속 가공·맨트라 결합·심장 재가동 능력 운용 숙련을 인정하면서 판단·역할 폭과 중복 가산하지 않음.'},
+      {kind:'score',characterId:'enel',stat:'combatIQ',before:70,after:76,title:'에넬 Combat IQ 70→76',reason:'고무 상성 직면 후 전열 창과 황금 구체 활용 등 실제 전술 수정 성과를 반영. 오만함과 반복 표본 부족으로 E3 유지.'},
+      {kind:'evidence',characterId:'enel',title:'에넬 명대사 공식 일본어 인용 등록',
+        detail:'「我は神なり…!!」 / 나는 신이다…!! — ONE PIECE.com 2018-09-03 공식 피규어 소개 일본어 인용. 한국어 자체 번역(editorial), 만화 컷·공식 한국어 번역 미대조.',
+        reason:'사용자가 대표 명대사를 직접 선택했고 공식 일본어 인용 출처를 확인. 원작 제몇 화인지 임의 생성하지 않음.',
+        evidence:[{label:'ONE PIECE.com 공식 인용(2018-09-03)',url:'https://one-piece.com/news/o20180903_7815/index.html'}]},
+      {kind:'evidence',characterId:'enel',title:'에넬 Stamina72·Versatility87 유지',
+        detail:'특수 심장 재가동을 장기전 체력으로 환산하지 않고, 전격·열·탐지·기동 등 역할 폭은 87 유지. Raw Haki 0·E2/E3 잠정 유지.'},
+    ],
+  },
+
+
   { version:'v0.4.14', date:'2026-10-16', title:'에넬 초상·하늘섬 루피 실전 매치업',
     summary:'사용자 제공 에넬 WebP 초상 등록 및 원작 하늘섬 에넬 vs 루피 전투 요인 추가. 당시 루피 7축이 없어 서로 다른 시대의 수치 대조를 차단. 기존 17매치업·595축·85 Evaluation 및 계산 모델 보존.',
     report:'docs/V0_4_14_ENEL_PORTRAIT_LUFFY_HISTORICAL_MATCHUP_2026-10-16.md',

@@ -47,7 +47,7 @@ describe('v0.4.13: the two previously unshown v0.4.9 draft decisions', () => {
    expect(evaluationRepository.getEvaluations('enel')).toHaveLength(1)
    expect(matchupRepository.getAllMatchups()).toHaveLength(18)
    expect(versionManifest.calculationModelVersion).toBe('1.2')
-   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.13')
+   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.15')
  })
  it('publishes exact draft score slate, without adding exceptional Haki Raw or unsupported canon status',()=>{
    expect(v0413EnelEvaluation.items.map(x=>x.score)).toEqual(enelScores)
@@ -60,7 +60,7 @@ describe('v0.4.13: the two previously unshown v0.4.9 draft decisions', () => {
    expect(v0413EnelEvidence.every(e=>e.source.type==='supplementary' && e.subjectCharacterId==='enel')).toBe(true)
    const links=v050CurrentDataset.evidence.map(e=>({id:e.id,subjectCharacterId:e.subjectCharacterId}))
    expect(validateEvaluation(v0413EnelEvaluation,links).errors).toEqual([])
-   expect(getCombatPower('enel').finalScore).toBeCloseTo(561/7,10)
+   expect(getCombatPower('enel').finalScore).toBeCloseTo(566/7,10)
    expect(getStatRanking('overall')).toHaveLength(81)
    expect(getStatRanking('attack')).toHaveLength(81)
    expect(getCharacterDetail('enel','skypiea')?.evaluation.id).toBe('evaluation-v0413-enel')
@@ -84,13 +84,14 @@ describe('v0.4.13: the two previously unshown v0.4.9 draft decisions', () => {
    const links=v050CurrentDataset.evidence.map(e=>({id:e.id,subjectCharacterId:e.subjectCharacterId}))
    expect(validateEvaluation(current,links).errors).toEqual([])
  })
- it('shows Enel with the v0.4.14 user-provided portrait and no invented quote',()=>{
+ it('shows Enel with the v0.4.14 user-provided portrait and sourced v0.4.15 quote',()=>{
    expect(getCharacterPortraitAsset('enel')).toMatchObject({fileName:'enel.webp',permission:'user-provided-unverified'})
-   expect(getCharacterQuoteReview('enel')).toEqual({characterId:'enel',verificationStatus:'pending'})
+   expect(getCharacterQuoteReview('enel')).toMatchObject({ characterId: 'enel', verificationStatus: 'official-excerpt', displayKorean: '나는 신이다…!!', translationStatus: 'editorial' })
    const html=renderToStaticMarkup(<CharacterPage characterId="enel" groupId="skypiea"
      onSelectStat={()=>{}} onCompareStat={()=>{}} onSelectOverall={()=>{}} />)
    expect(html).toContain('에넬')
    expect(html).toContain('핵심 전투 스탯')
+   expect(html).toContain('나는 신이다…!!')
    expect(html).not.toContain('전투력 미평가')
  })
  it('includes both drafts in the current read-only audit without changing Frozen v0.3.3 baseline',()=>{
