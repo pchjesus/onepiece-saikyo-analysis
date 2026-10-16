@@ -1,5 +1,8 @@
 # 원피스 전투력 분석 — 처음 보는 사람을 위한 프로젝트 가이드
 
+> **신규 캐릭터 상세 UI 원칙(v0.4.18):** 천룡인 차를로스 성 전용 `CharlosSpecialPage`는 1인 특별 예외다. 그 외 신규 캐릭터는 반드시 현행 공통 `CharacterPage`와 공통 구성 요소를 기본 사용한다. 별도 전용 UI는 사용자의 명시적 요청이 있을 때만 검토한다. 밈 점수·특수 팝업·왕족 디자인을 일반 캐릭터에 자동 적용하지 않는다.
+
+
 > **v0.1.32 갱신:** Group navigation은 Membership-expanded, Ranking/Matchup은 Character-unique roster로 분리했다. 동일 Character가 여러 소속에 나타날 수 있지만 랭킹에는 한 번만 나온다.
 
 > 기준: **v0.1.32** 구현 · 30 Character master pool / 29 evaluated roster / 30 Evaluation.  
