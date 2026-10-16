@@ -15,6 +15,8 @@ import { getLegacyCharacterList as getCharacterList } from './v0180LegacyCohort'
 import { getLegacyUniqueCharacterList as getUniqueCharacterList } from './v0180LegacyCohort'
 import { getLegacyStatRanking as getStatRanking } from './v0180LegacyCohort'
 import { getCombatPower } from '../../application/getCombatPower'
+import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
+import { balancedV12 } from './calculationModels'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 
 describe('v0.1.45 three-faction, 17-character Evidence-first expansion', () => {
@@ -116,6 +118,6 @@ describe('v0.1.45 three-faction, 17-character Evidence-first expansion', () => {
     expect(lucci.items.map((x) => x.score)).toEqual([80,77,82,82,83,68,74])
     expect(kaku.items.map((x) => x.score)).toEqual([73,72,75,75,79,72,74])
     expect(getCombatPower('lucci').finalScore).toBeCloseTo(552/7,10)
-    expect(getCombatPower('kaku').finalScore).toBeCloseTo(74.2857142857)
+    expect(calculateBalancedCombatPower(kaku,balancedV12).finalScore).toBeCloseTo(74.2857142857)
   })
 })

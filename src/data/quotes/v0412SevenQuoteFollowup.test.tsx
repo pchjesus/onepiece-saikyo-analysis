@@ -4,6 +4,7 @@ import {CharacterQuote} from '../../ui/components/CharacterQuote'
 import {characterQuoteReviews,getCharacterQuoteReview} from './characterQuotes'
 import {sampleCharacters} from '../sample/characters'
 import {v0411Characters} from '../sample/v0411UnratedCharacterRegistration'
+import {v0413EnelCharacter} from '../sample/v0413RemainingDraftPublication'
 import {sampleEvaluations} from '../sample/evaluations'
 import {v0412Evaluations} from '../sample/v0412EightEvaluations'
 import {getStatRanking} from '../../application/getStatRanking'
@@ -12,16 +13,16 @@ const present=['jozu','gaban','morley','karasu','stussy','prince-grus','inazuma'
 
 describe('Quote-only follow-up: seven shortlisted voices',()=>{
   it('preserves the historic seven selected candidates and newly covers all 80 character IDs without changing combat evaluations',()=>{
-    const ids=[...sampleCharacters,...v0411Characters].map(x=>x.id)
-    expect(ids).toHaveLength(80)
+    const ids=[...sampleCharacters,...v0411Characters,v0413EnelCharacter].map(x=>x.id)
+    expect(ids).toHaveLength(81)
     expect(Object.keys(characterQuoteReviews).sort()).toEqual([...ids].sort())
     expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='official-excerpt')).toHaveLength(14)
     expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='secondary-excerpt')).toHaveLength(66)
     expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='pending').map(q=>q.characterId).sort())
-      .toEqual([])
+      .toEqual(['enel'])
     expect(sampleEvaluations).toHaveLength(76)
     expect(v0412Evaluations).toHaveLength(8)
-    expect(getStatRanking('overall')).toHaveLength(80)
+    expect(getStatRanking('overall')).toHaveLength(81)
   })
   it('traces Jozu to chapter 567 Aokiji interception, not unrelated scenes',()=>{
     const j=getCharacterQuoteReview('jozu')!

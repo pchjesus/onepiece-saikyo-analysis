@@ -5,6 +5,8 @@ import { legacyEvidence as sampleEvidence } from './v0180LegacyCohort'
 import { historicalEvaluationsBeforeV0174 as sampleEvaluations } from './evaluations'
 import { getLegacyUniqueCharacterList as getUniqueCharacterList } from './v0180LegacyCohort'
 import { getCombatPower } from '../../application/getCombatPower'
+import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
+import { balancedV12 } from './calculationModels'
 import { getRawHakiContributionTotal } from '../../domain/evaluation/score'
 import { sampleMatchups } from './matchups'
 
@@ -47,7 +49,7 @@ describe('v0.1.46 official episode cross-check: sources, scene context, score in
       expect(item.readiness).toBe('E3')
       expect(item.rationale).toContain('조로')
       expect(item.hakiContributions).toHaveLength(0)
-      expect(getCombatPower(id).finalScore).toBeCloseTo(overall)
+      expect(id==='kaku' ? calculateBalancedCombatPower(evaluation,balancedV12).finalScore : getCombatPower(id).finalScore).toBeCloseTo(overall)
     }
     expect(getUniqueCharacterList()).toHaveLength(65)
     expect(sampleEvaluations).toHaveLength(68)

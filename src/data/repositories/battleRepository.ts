@@ -1,7 +1,8 @@
 import type { Battle, BattleParticipant } from '../../domain/battle/types'
 import { sampleBattles, sampleBattleParticipants } from '../sample/battles'
 import { v0412Battles } from '../sample/v0412EightEvaluations'
-const currentBattles = [...sampleBattles, ...v0412Battles]
+import { v0413EnelBattles } from '../sample/v0413RemainingDraftPublication'
+const currentBattles = [...sampleBattles, ...v0412Battles, ...v0413EnelBattles]
 
 export interface BattleRepository {
   getBattle(battleId: string): Battle | undefined

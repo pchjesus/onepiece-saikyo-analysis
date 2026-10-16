@@ -14,11 +14,12 @@ import { sampleMatchups } from '../sample/matchups'
 describe('v0.4.12 last two selected quotes: Smoothie A and Maha A', () => {
   it('keeps exactly one displayed, sourced quote per each of 80 registered characters', () => {
     const quotes = Object.values(characterQuoteReviews)
-    expect(quotes).toHaveLength(80)
+    expect(quotes).toHaveLength(81)
     expect(quotes.filter(q => q.verificationStatus === 'official-excerpt')).toHaveLength(14)
     expect(quotes.filter(q => q.verificationStatus === 'secondary-excerpt')).toHaveLength(66)
-    expect(quotes.filter(q => q.verificationStatus === 'pending')).toHaveLength(0)
-    expect(quotes.every(q => q.displayKorean?.trim() && q.source?.url && q.translationStatus === 'editorial')).toBe(true)
+    expect(quotes.filter(q => q.verificationStatus === 'pending')).toHaveLength(1)
+    expect(getCharacterQuoteReview('enel')?.verificationStatus).toBe('pending')
+    expect(quotes.filter(q=>q.characterId!=='enel').every(q => q.displayKorean?.trim() && q.source?.url && q.translationStatus === 'editorial')).toBe(true)
   })
   it('attributes the Whole Cake general’s Big Mom confidence to Smoothie, chapter 934', () => {
     const q = getCharacterQuoteReview('smoothie')!
@@ -60,7 +61,7 @@ describe('v0.4.12 last two selected quotes: Smoothie A and Maha A', () => {
     }
     expect(sampleEvaluations).toHaveLength(76)
     expect(v0412Evaluations).toHaveLength(8)
-    expect(getStatRanking('overall')).toHaveLength(80)
+    expect(getStatRanking('overall')).toHaveLength(81)
     expect(sampleMatchups).toHaveLength(15)
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)

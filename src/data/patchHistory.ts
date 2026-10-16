@@ -38,6 +38,28 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  { version:'v0.4.13', date:'2026-10-16', title:'미반영 잠정 평가 공개 — 에넬 추가·카쿠 7축 재검토',
+    summary:'v0.4.9 문서의 유일한 미등록 신규 수치 후보 에넬을 하늘섬 편 7축 draft로 추가하고, 기존 카쿠의 미적용 재평가안을 공개한다. 원본 76 Evaluation·v0.3.3 고정 기준선·Haki 계산·직접/조건부 17대진 보존.',
+    report:'docs/V0_4_13_ENEL_KAKU_DRAFT_PUBLICATION_2026-10-16.md',
+    changes:[
+      {kind:'character',characterId:'enel',title:'에넬 하늘섬 평가 잠정 등록',detail:'Skypiea 지역 소속 신규 Character 1, Evaluation 1, Battle 2 및 공식 보조자료 Evidence 2. 7축 88/72/72/88/84/70/87, Overall 80.143. 원작 컷 직접 정밀감사는 미완료; 초상은 이름 대체 표시, 명대사는 검증 전 pending.',reason:'사용자가 기존 점수표의 미반영 평가 전부를 공개하도록 요청. 임의 패기 Raw, 명대사·초상 생성 없음.'},
+      ...([
+        ['attack',73,77,'육식·각성 기린·람각의 직접 교전과 유효타 제한'],
+        ['defense',72,75,'동물계 각성 방어와 스튜시 내부 기습 구분'],
+        ['speed',75,78,'육식 기동과 상위 최고속의 구분'],
+        ['techniqueMastery',79,84,'람각·이도류·각성 기린 기술 정밀 제어'],
+        ['combatIQ',72,75,'세라핌 공동전 제안과 루나리아 정보 소유 분리'],
+        ['versatility',74,78,'육식·기린·검술·중거리 참격의 역할 전환'],
+      ] as const).map(([stat,before,after,reason])=>({
+        kind:'score' as const,characterId:'kaku',stat,before,after,
+        title:'카쿠 '+stat+' '+before+'→'+after,
+        reason:'v0.4.9 보류 재평가안 표시: '+reason+'. E2/E3 잠정·원작 컷 재감사 대기.',
+      })),
+      {kind:'evidence',title:'하늘섬 에넬 상성·출처 제한 명시',
+        detail:'고로고로 열매 출력/맨트라/루피 고무 상성/장기전 데이터 부족 분리. 자료는 ONE PIECE.com 공식 보조 줄거리이며 정식 만화 컷 전수 검증이 아니다.'},
+    ],
+  },
+
   {version:'v0.4.12',date:'2026-10-15',title:'8명 7축 잠정 평가와 대표 명대사 검증 확대',
     summary:'v0.4.9 검토 초안 중 기존 등록 8인의 7축을 Evidence와 연결한 E2/E3 draft로 등록, 현재 80명 평가 및 순위. 명대사 69명 후보를 공식 인용/2차 자료 인용으로 구분, 11명 미확인. 역사적 76 평가 원본·Haki/모델·매치업 불변.',
     report:'docs/V0_4_12_QUOTES_EIGHT_EVALUATIONS_REVIEW_2026-10-15.md',

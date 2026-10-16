@@ -1,5 +1,5 @@
 /**
- * v0.5.0 / stage 1 — non-mutating audit worksheet for the ACTUAL 80-person roster.
+ * v0.5.0 / stage 1 — non-mutating audit worksheet for the ACTUAL live roster (currently 81 persons).
  * This is an evidence/consistency triage instrument, not a score calculator,
  * scoring-policy migration, canonical manga verification or editorial verdict.
  *
@@ -21,18 +21,19 @@ import { sampleBattles, sampleBattleParticipants } from '../sample/battles'
 import { v0412Battles, v0412Evidence, v0412Evaluations } from '../sample/v0412EightEvaluations'
 import { sampleEvidence } from '../sample/evidence'
 import { sampleEvaluations } from '../sample/evaluations'
+import { v0413EnelCharacter, v0413EnelMembership, v0413EnelBattles, v0413EnelEvidence, v0413EnelEvaluation, applyV0413KakuDraft } from '../sample/v0413RemainingDraftPublication'
 import { balancedV12 } from '../sample/calculationModels'
 import { matchupRepository } from '../repositories/matchupRepository'
 
-/** Explicit merged dataset; older v033Snapshot.liveDataset intentionally has historical scope. */
+/** Explicit live dataset; older v033Snapshot.liveDataset intentionally has historical scope. */
 export const v050CurrentDataset: CombatDataset = {
-  characters: [...sampleCharacters, ...v0411Characters],
+  characters: [...sampleCharacters, ...v0411Characters, v0413EnelCharacter],
   groups: sampleGroups,
-  memberships: [...sampleMemberships, ...v0411Memberships],
-  battles: [...sampleBattles, ...v0412Battles],
+  memberships: [...sampleMemberships, ...v0411Memberships, v0413EnelMembership],
+  battles: [...sampleBattles, ...v0412Battles, ...v0413EnelBattles],
   participants: sampleBattleParticipants,
-  evidence: [...sampleEvidence, ...v0412Evidence],
-  evaluations: [...sampleEvaluations, ...v0412Evaluations],
+  evidence: [...sampleEvidence, ...v0412Evidence, ...v0413EnelEvidence],
+  evaluations: [...sampleEvaluations.map(applyV0413KakuDraft), ...v0412Evaluations, v0413EnelEvaluation],
   model: balancedV12,
   matchups: matchupRepository.getAllMatchups(),
 }

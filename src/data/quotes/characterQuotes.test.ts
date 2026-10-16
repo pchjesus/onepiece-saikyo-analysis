@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { sampleCharacters } from '../sample/characters'
 import { v0411Characters } from '../sample/v0411UnratedCharacterRegistration'
+import { v0413EnelCharacter } from '../sample/v0413RemainingDraftPublication'
 import { characterQuoteReviews, getCharacterQuoteReview } from './characterQuotes'
 
 describe('v0.4.10 character quote source integrity', () => {
@@ -8,7 +9,7 @@ describe('v0.4.10 character quote source integrity', () => {
     const ids = sampleCharacters.map(({ id }) => id)
     expect(ids).toHaveLength(72)
     expect(new Set(ids).size).toBe(ids.length)
-    expect(Object.keys(characterQuoteReviews).sort()).toEqual([...ids,...v0411Characters.map(c=>c.id)].sort())
+    expect(Object.keys(characterQuoteReviews).sort()).toEqual([...ids,...v0411Characters.map(c=>c.id), v0413EnelCharacter.id].sort())
     expect(Object.entries(characterQuoteReviews).every(([id, review]) => id === review.characterId)).toBe(true)
     expect(getCharacterQuoteReview('missing-character')).toBeUndefined()
   })
@@ -19,7 +20,8 @@ describe('v0.4.10 character quote source integrity', () => {
     const pending = reviews.filter(item => item.verificationStatus === 'pending')
     expect(official).toHaveLength(14)
     expect(secondary).toHaveLength(66)
-    expect(pending).toHaveLength(0)
+    expect(pending).toHaveLength(1)
+    expect(pending[0].characterId).toBe('enel')
     expect(pending.every(item => !item.originalJapanese && !item.displayKorean && !item.source)).toBe(true)
     for (const quote of official) {
       expect(quote.originalJapanese?.trim().length).toBeGreaterThan(5)
@@ -66,6 +68,7 @@ describe('v0.4.10 character quote source integrity', () => {
     expect(getCharacterQuoteReview('newgate')?.characterId).toBe('newgate')
     expect(getCharacterQuoteReview('kaku')?.verificationStatus).toBe('secondary-excerpt')
     expect(sampleCharacters.find(c => c.id === 'kaku')).toBeDefined()
-    expect(sampleCharacters.find(c => c.id === 'enel')).toBeUndefined()
+    expect(sampleCharacters.find(c => c.id === 'enel')).toBeUndefined() // frozen v0.4.12 source remains unmodified
+    expect(getCharacterQuoteReview('enel')?.verificationStatus).toBe('pending')
   })
 })
