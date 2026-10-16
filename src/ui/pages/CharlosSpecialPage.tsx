@@ -17,8 +17,8 @@ export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () =>
           <p className="charlos-eyebrow">WORLD NOBLE · SPECIAL EVALUATION</p>
           <h1>차를로스 성</h1>
           <p className="charlos-alias">호를로스 성</p>
-          <p className="charlos-alias-lore">부산 고신대 의대에 존재한다는 또 다른 차를로스 성</p>
-          <span className="charlos-special-tag">특별 밈 평가</span>
+          <p className="charlos-alias-lore">부산 고신대 의대의 또 다른 차를로스 성</p>
+          <span className="charlos-special-tag">세계귀족 특별 전형</span>
         </div>
       </div>
       <div className="charlos-meme-quote">
@@ -31,7 +31,6 @@ export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () =>
         aria-label="차를로스 성 특별 종합 점수 포함 전체 오버롤 순위 보기">
         <span>특별 종합 전투력 <span aria-hidden="true">↗</span></span>
         <strong>{charlosSpecialOverall.toFixed(1)}<small>/100</small></strong>
-        <span>천룡인 전용 밈 7축 평균 · 오버롤 포함</span>
       </button>
       <div className="charlos-intro-note">
         <p className="charlos-eyebrow">WORLD NOBLE · 7 ABILITIES</p>
