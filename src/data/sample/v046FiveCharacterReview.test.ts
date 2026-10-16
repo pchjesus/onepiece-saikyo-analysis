@@ -81,7 +81,7 @@ describe('v0.4.6 five-character audited recalibration and state-aware rankings',
    expect(g4.find(x=>x.characterId==='luffy')?.rank).toBeGreaterThan(g5.find(x=>x.characterId==='luffy')!.rank)
    const old=getStatRanking('overall',{newgate:'marineford'})
    const current=getStatRanking('overall',{newgate:'prime'})
-   expect(old).toHaveLength(81)
+   expect(old).toHaveLength(82)
    expect(old.find(x=>x.characterId==='newgate')?.score).toBeCloseTo(getCombatPower('newgate','balanced','marineford').finalScore,12)
    expect(current.find(x=>x.characterId==='newgate')?.score).toBeCloseTo(getCombatPower('newgate','balanced','prime').finalScore,12)
    expect(old.find(x=>x.characterId==='newgate')?.score).toBeLessThan(current.find(x=>x.characterId==='newgate')!.score)
