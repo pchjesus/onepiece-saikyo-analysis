@@ -1,3 +1,13 @@
+## v0.4.16 — CP0 Stage 2A (2026-10-16)
+
+- **기준:** `main@1c2dd35435efba45a3c1ec353c53ff6e6e8f42b1` (v0.4.15).
+- **변경:** 마하 4축 + 게르니카 Combat IQ의 E2→E3, 해당 `v0412` 공식 TV Evidence ID 유지 및 `secondary→context`로 축별 역할 교정. 과거 v0.4.12 원본/다른 79명/모든 Base·Raw·Final·Overall 불변.
+- **신규 자동 테스트:** `src/data/sample/v0416Cp0EvidenceReadiness.test.tsx` — 원본 vs 현재 뷰, 5축 한정성, E3+context, Evidence 참조·원출처·사실 보존, 감사 81/85/595/106/18, Rank·상세 페이지·Haki/모델/v0.3.3 보호.
+- **CI/Build:** 아직 검증 전. PR CI 통과 후 최신 SHA를 기록해야 함. 배포 완료와 실기기 확인은 별도 판정.
+- **후속:** Stage 2B 추가 원작 컷 확인 및 7축 수치 재평가는 사용자 별도 승인 전 보류.
+
+---
+
 ## v0.4.15 — 에넬 승인 재평가·명대사 회귀검증 (2026-10-16)
 
 - **Scope:** 기존 v0.4.14 main SHA `2306ed6c7a2e16db380ff419fd143e58bdd487c4`를 기준으로 에넬만 7축 현재 표시값 조정; 이외 기존 평가·18대진·권리 미확인 초상·v0.3.3 고정 기준선 불변.
