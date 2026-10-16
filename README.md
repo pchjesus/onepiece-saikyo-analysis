@@ -1,5 +1,7 @@
 # 원피스 전투력 분석
 
+> **v0.4.17 — 천룡인 차를로스 성 특별 밈 평가:** 사용자 제공 기본·히든 이미지 2장(웹 최적화), 세계정부 하위 천룡인 그룹·호를로스 성 별칭, 전용 7축 23/97/100/99/92/100/100 및 **특별 Overall 87.2857**을 기존 오버롤 순위에만 포함. 진실 버튼: 암전 후 패러디 구원자 팝업. **현재 82인 로스터, 정규 81명·85 Evaluation/595축·18 Matchup/기존 Balanced 1.2·v0.3.3 불변.** [근거·권리·테스트 범위](docs/V0_4_17_CHARLOS_MEME_SPECIAL_2026-10-16.md).
+
 > **v0.4.16 — CP0 Stage 2A 근거 충분도 정밀 감사:** 마하 Speed/Technique/Combat IQ/Versatility, 게르니카 Combat IQ 등 총 **5축의 E2→E3 및 Evidence 역할 secondary→context** 보수 조정. **모든 7축 점수·Overall·Raw Haki·Balanced 1.2, 81명·85 평가·595축·106 소속·18대진 및 v0.3.3 기준선 불변**. v0.4.12 원본 보존, 현재 Evaluation/Evidence·읽기 전용 감사에만 적용. [검증 범위와 공식 TV 출처](docs/V0_4_16_CP0_STAGE2A_EVIDENCE_READINESS_2026-10-16.md).
 
 > **v0.4.15 — 에넬 사용자 승인 7축 재평가·대표 명대사:** 하늘섬 편 에넬 평가를 **85/74/72/86/86/76/87(Overall 80.857)**로 갱신. 기존 v0.4.13 평가 원본 88/72/72/88/84/70/87 보존, 현재 표시 데이터에만 새 승인안을 적용. 명대사 **“나는 신이다…!!”**는 ONE PIECE.com 공식 일본어 원문 「我は神なり…!!」로 검증했으며 한국어는 **편집 번역**, 원작 컷/정식 한국어판 미대조. **81명 / 85 Evaluation / 595축 / 106 Membership / 18 Matchup** 보존. Balanced 1.2/Haki Weight 0.5/v0.3.3 독립 기준선 불변. [근거·위험·검증](docs/V0_4_15_ENEL_SCORE_QUOTE_REVIEW_2026-10-16.md).
