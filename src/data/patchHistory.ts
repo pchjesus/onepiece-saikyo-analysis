@@ -38,6 +38,18 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.4.17',date:'2026-10-16',title:'차를로스 성 · 천룡인 특별 밈 평가와 진실',
+    summary:'세계정부-천룡인에 차를로스 성을 추가하고 전용 7축 87.286점을 종합 순위에만 포함. 일반 Balanced 1.2와 81명 정규 평가/595축/18매치업은 변함없음. ‘진실’ 팝업은 공식 원작이 아닌 풍자 창작물.',
+    report:'docs/V0_4_17_CHARLOS_MEME_SPECIAL_2026-10-16.md',
+    changes:[
+      {kind:'character',characterId:'charlos',title:'차를로스 성 · 천룡인 신규 등록',detail:'호를로스 성 별칭, 사용자 제공 기본 초상 및 기밀 삽화, 세계귀족 소속. 저작권 허가 미확인.'},
+      {kind:'group',title:'세계정부 하위 천룡인 그룹',detail:'세계정부 아래 하위 조직으로 표시하고 조직도에서 차를로스 성으로 이동.'},
+      {kind:'feature',characterId:'charlos',title:'전용 7축·특별 오버롤 87.3점',detail:'총질력23/맷집력97/배포력100/지배력99/기동력92/인정력100/어그로력100. 오버롤만 랭킹에 포함하고 일반 개별 축과 매치업은 제외. 실제 전투력 비교 의미는 없음.'},
+      {kind:'feature',characterId:'charlos',title:'진실 히든 팝업 · 극적 암전 연출',detail:'흑백 특별 이미지, 「일어나 죽지 말고, 엎드려 사는 거다이」·허구 구원자 서사, Escape/포커스/모션 감소 지원.'},
+      {kind:'evidence',characterId:'charlos',title:'공식 사건과 밈 평가 분리',detail:'공식 ONE PIECE.com TV396·TV886·TV1118·캐릭터 자료; 모든 수치·~다이 해설·기밀 팝업은 창작 풍자이며 원작 공식 인용이 아님.'},
+    ],
+  },
+
   { version:'v0.4.16', date:'2026-10-16', title:'CP0 마하·게르니카 Stage 2A 근거 충분도 보수 조정',
     summary:'마하 Speed·Technique·Combat IQ·Versatility, 게르니카 Combat IQ의 근거 충분도를 E2→E3으로 조정하고 해당 공식 TV 보조자료의 역할을 secondary→context로 정정. 두 명의 7축·Overall, 다른 79명·Balanced 1.2·Raw Haki·18 매치업·v0.3.3 기준선 모두 불변.',
     report:'docs/V0_4_16_CP0_STAGE2A_EVIDENCE_READINESS_2026-10-16.md',
