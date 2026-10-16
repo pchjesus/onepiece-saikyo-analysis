@@ -15,10 +15,10 @@ describe('v0.4.12 last two selected quotes: Smoothie A and Maha A', () => {
   it('keeps exactly one displayed, sourced quote per each of 80 registered characters', () => {
     const quotes = Object.values(characterQuoteReviews)
     expect(quotes).toHaveLength(81)
-    expect(quotes.filter(q => q.verificationStatus === 'official-excerpt')).toHaveLength(14)
+    expect(quotes.filter(q => q.verificationStatus === 'official-excerpt')).toHaveLength(15)
     expect(quotes.filter(q => q.verificationStatus === 'secondary-excerpt')).toHaveLength(66)
-    expect(quotes.filter(q => q.verificationStatus === 'pending')).toHaveLength(1)
-    expect(getCharacterQuoteReview('enel')?.verificationStatus).toBe('pending')
+    expect(quotes.filter(q => q.verificationStatus === 'pending')).toHaveLength(0)
+    expect(getCharacterQuoteReview('enel')?.verificationStatus).toBe('official-excerpt')
     expect(quotes.filter(q=>q.characterId!=='enel').every(q => q.displayKorean?.trim() && q.source?.url && q.translationStatus === 'editorial')).toBe(true)
   })
   it('attributes the Whole Cake general’s Big Mom confidence to Smoothie, chapter 934', () => {
