@@ -44,7 +44,7 @@ export function getStatRanking(stat: RankingStat, selectedStates: Readonly<Recor
   const model = calculationModelRepository.getModel('balanced')
   if (!model) throw new Error('Balanced calculation model is missing.')
 
-  const sorted: StatRankingEntry[] = getUniqueCharacterList().flatMap(({ character, group }) => {
+  const sorted: Omit<StatRankingEntry, 'rank'>[] = getUniqueCharacterList().flatMap(({ character, group }) => {
     const allEvaluations = evaluationRepository.getEvaluations(character.id)
     const evaluation = evaluationRepository.getEvaluation(character.id, selectedStates[character.id])
       ?? evaluationRepository.getEvaluation(character.id)
