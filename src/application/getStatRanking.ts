@@ -4,6 +4,7 @@ import { evaluationRepository } from '../data/repositories/evaluationRepository'
 import { calculationModelRepository } from '../data/repositories/calculationModelRepository'
 import { getFinalStatScore } from '../domain/evaluation/score'
 import type { CombatStat, EvaluationStatus } from '../domain/evaluation/types'
+import { CHARLOS_ID, charlosSpecialOverall } from '../data/special/charlosSpecial'
 
 export type RankingStat = CombatStat | 'overall'
 
@@ -18,6 +19,7 @@ export type StatRankingEntry = {
   subjectStateLabel?: string
   subjectStateId?: string
   stateOptions?: { id: string; label: string }[]
+  specialEvaluation?: boolean
 }
 
 /** Starting state for a NEW Overall ranking popup: highest actual unrounded Overall,
@@ -63,7 +65,14 @@ export function getStatRanking(stat: RankingStat, selectedStates: Readonly<Recor
       subjectStateId: evaluation.subjectState?.id,
       stateOptions: allEvaluations.length > 1 ? allEvaluations.map(e=>({id:e.subjectState?.id ?? e.id,label:e.subjectState?.label ?? '기본 평가'})) : undefined,
     }]
-  }).sort((a, b) => b.score - a.score || a.characterName.localeCompare(b.characterName, 'ko'))
+  }).concat(stat === 'overall' ? getUniqueCharacterList()
+    .filter(({ character }) => character.id === CHARLOS_ID)
+    .map(({ character, group }) => ({
+      characterId: character.id, characterName: character.name,
+      groupId: group.id, groupName: group.name, score: charlosSpecialOverall,
+      status: 'draft' as const, subjectStateLabel:'천룡인 특별 밈 평가',
+      subjectStateId:undefined, stateOptions:undefined, specialEvaluation:true,
+    })) : []).sort((a, b) => b.score - a.score || a.characterName.localeCompare(b.characterName, 'ko'))
 
   return sorted.map((entry, index) => ({
     ...entry,
