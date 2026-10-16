@@ -77,7 +77,7 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
     expect(html).toContain('호를로스 성')
     expect(html).toContain('5억 베리이~~~~!!! 5억에 사겠다이~~!!!')
     expect(html).toContain('원피스 51권')
-    expect(html).toContain('부산 고신대 의대에 존재한다는 또 다른 차를로스 성')
+    expect(html).toContain('부산 고신대 의대의 또 다른 차를로스 성')
     expect(html).toContain('87.3')
     expect(html).toContain('진실')
     expect(html).toContain('총질력')
