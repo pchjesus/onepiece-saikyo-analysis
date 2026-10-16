@@ -62,7 +62,7 @@ describe('v0.1.80 patch history UI',()=>{
     const choose=async(name:string)=>click(tabs.find(x=>x.textContent?.startsWith(name))??null)
     await choose('스탯 조정')
     expect(tabs[1].getAttribute('aria-pressed')).toBe('true')
-    expect(dialog.querySelectorAll('.patch-change')).toHaveLength(44)
+    expect(dialog.querySelectorAll('.patch-change')).toHaveLength(49)
     expect(dialog.textContent).toContain('퀸 범용성 조정')
     expect(dialog.textContent).toContain('80 →')
     expect(dialog.textContent).not.toContain('타시기 추가')
