@@ -43,3 +43,12 @@
 - `charlosTruthMonologue`를 한 덩어리 불변 배열로 만들고 JSX에서 한 blockquote 안 세 행으로 출력.
 - 일반 인물 UI, 차를로스 7축·87.3 Overall, 82 캐릭터 및 모든 기존 평가/전투·근거/계산 데이터, 이미지 바이너리는 변경하지 않음.
 - 고화질 이미지 교체는 이번 핫픽스 범위 밖이며 별도 진행 필요.
+
+## 후속 UX 핫픽스 — 원본 해상도 복구 및 캐주얼 타이포그래피 (2026-10-17)
+
+- 문제: 차를로스 기본/진실 이미지가 **원본 1536px**에서 **300px**로 지나치게 축소됨. 타 캐릭터에 비해 확연히 흐려짐.
+- 해결: 사용자 제공 원본의 픽셀 크기 그대로 WebP 압축한 검증 파일 사용. 기본 **1536×1230 / 89,522 bytes / SHA-256 bad5d4e4e3fd74997a272c0205bfcc220d8ccdb5a77f1fb2a16bc5efb511e065**, 진실 **1536×1536 / 107,410 bytes / SHA-256 04695f2434333ff46b8a40d7a3cbde21b2c8e6f766cacba57d74da7c086109cf**. Git blob SHA가 소스 바이트에서 독립 계산한 Git 해시와 일치함.
+- GitHub 현재 경로를 `public/images/characters/charlos-v0418.webp` / `public/images/characters/charlos-truth-v0418.webp`로 변경하고 구 300px URL 제거. 브라우저 캐시가 이전 작은 이미지를 계속 띄우는 문제 방지.
+- 차를로스 전용 CSS에서만 제목·원피스 51권 인용·진실 3줄 등 `Georgia/Noto Serif KR` 명조를 **시스템 산세리프·800 중심**으로 조정. 톤은 좀 더 가볍고 두툼하게, 금색/아이보리 색상과 기존 레이아웃·암전 애니메이션은 유지.
+- 정규 CharacterPage 및 공유 스타일, 81명의 정규 평가와 85 Evaluation/595개 정규 축, 18 Matchup, 특별 7축 점수/Overall, v0.3.3 고정 JSON은 불변.
+- 새 테스트는 full-resolution bytes, WebP RIFF/VP8 크기, 파일 해시, 참조 경로를 검사. CI와 Pages 검증 결과는 별도로 확인한다.
