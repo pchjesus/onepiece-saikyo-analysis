@@ -37,7 +37,7 @@ export const charlosMemeStats: readonly NobleMemeStat[] = [
   {
     id:'bidding',label:'배포력',score:100,
     line:'5억 베리 정도는 즉석에서 부른다이.',
-    fact:'케이미의 경매에서 5억 베리를 제시했다이. 실제로 대금을 지불했는지는 이 출처에서 별도 확인되지 않았다이.',
+    fact:'케이미의 경매에서 5억 베리를 외쳤다이. 2억 베리쯤은 단숨에 뛰어넘었다이.',
     satire:'2억 베리쯤 준비한 자들 앞에서 5억을 외치는 것. 이것이야말로 세계귀족의 품격이다이.',
     sourceUrl:'https://one-piece.com/anime/396/index.html',sourceLabel:'ONE PIECE.com · 애니메이션 396화',
   },
@@ -76,7 +76,7 @@ export const charlosSpecialOverall = charlosMemeStats.reduce((sum, stat) => sum 
 export const celestialDragonGroup: Group = {
   id: 'celestial-dragons', name: '천룡인', type: 'government',
   parentGroupId:'world-government',
-  description: '세계정부를 구성하는 세계귀족. 이 조직의 소속과 사회적 지위는 개인 전투력 또는 직접 지휘 계통을 증명하지 않는다.',
+  description: '성지 마리조아에 거주하는 세계귀족의 모임.',
 }
 
 export const charlosCharacter: Character = {
@@ -84,7 +84,7 @@ export const charlosCharacter: Character = {
   name: '차를로스 성',
   crewId: celestialDragonGroup.id,
   knownAs: [],
-  description: '로즈워드 성의 아들로 성지 마리조아에 사는 세계귀족. 실제로는 잔혹한 행위를 반복하는 인물이며, 본 웹앱에서만 예외적인 풍자 7축을 부여한다.',
+  description: '로즈워드 성의 아들이자 세계귀족. 샤본디 제도에서 5억 베리를 외친 남자.',
   combatProfile: {
     combatStyles:['권총', '세계귀족의 특권을 통한 타인 동원'],
     specialTraits:[],
@@ -109,7 +109,7 @@ export const charlosMembership: CharacterMembership = {
 }
 
 /** Satirical text is NOT official manga speech or an official retcon. */
-export const charlosMemeQuote = '5억에 사겠다이~~!! 5억 베리다이~~!!'
+export const charlosMemeQuote = '5억 베리이~~~~!!! 5억에 사겠다이~~!!!'
 export const charlosTruthLines = [
   '그는 알고 있었다이. 끝까지 고개를 들고 저항하는 이들이 얼마나 쉽게 쓰러지는지 말이다이.',
   '그래서 결심했다이. 모든 미움을 자신에게 모으고 악인을 연기하기로 말이다이.',
