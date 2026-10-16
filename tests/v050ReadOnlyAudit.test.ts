@@ -22,7 +22,7 @@ describe('v0.5.0 stage 1: read-only 81-person, 85-evaluation, 595-stat audit', (
     expect(report.integrity.errors).toEqual([])
     expect(report.counts).toEqual({
       characters:81, evaluatedCharacters:81, evaluations:85, axes:595,
-      memberships:106, matchups:17,
+      memberships:106, matchups:18,
     })
     expect(report.rows).toHaveLength(595)
     expect(new Set(report.rows.map(row=>row.evaluationId))).toHaveProperty('size',85)
