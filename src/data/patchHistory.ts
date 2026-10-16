@@ -38,6 +38,18 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+
+  {version:'v0.4.18',date:'2026-10-17',title:'차를로스 성 · 자막보다 웃음이 먼저다이',
+    summary:'차를로스 성 캐릭터창의 풍자 해설·원작 비공식 문구·점수 평균 해설을 제거하고 원피스 51권 5억 베리 대사와 호를로스 성 설정을 반영. 일반 신규 캐릭터는 기존 공통 상세 UI 유지. 정규 평가·특별 7축·오버롤·매치업은 불변.',
+    report:'docs/V0_4_18_CHARLOS_TONE_AND_UI_POLICY_2026-10-17.md',
+    changes:[
+      {kind:'feature',characterId:'charlos',title:'천룡인식 평가와 진실 팝업 개그 연출 보강',
+       detail:'말도 안 되는 고평가가 스스로 풍자라고 해설하지 않도록 화면 각 축의 천룡인식 문구, 메타 표시, 진실 팝업 끝 해설 정리. 원작 51권 5억 베리 문구 교체. 호를로스 성: 부산 고신대 의대의 또 다른 차를로스 성이라는 사용자 제공 인물 설정.'},
+      {kind:'feature',title:'신규 일반 캐릭터 공통 UI 정책 명시',
+       detail:'AGENTS와 PROJECT_GUIDE에 천룡인 차를로스 전용 화면은 1인 예외이며 그 외 신규 인물은 기존 CharacterPage를 기본 사용한다고 기록. 다른 UI·스탯·계산 로직 수정 없음.'},
+    ],
+  },
+
   {version:'v0.4.17',date:'2026-10-16',title:'차를로스 성 · 천룡인 특별 밈 평가와 진실',
     summary:'세계정부-천룡인에 차를로스 성을 추가하고 전용 7축 87.286점을 종합 순위에만 포함. 일반 Balanced 1.2와 81명 정규 평가/595축/18매치업은 변함없음. ‘진실’ 팝업은 공식 원작이 아닌 풍자 창작물.',
     report:'docs/V0_4_17_CHARLOS_MEME_SPECIAL_2026-10-16.md',
