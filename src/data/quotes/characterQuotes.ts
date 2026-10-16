@@ -22,6 +22,15 @@ export type CharacterQuoteReview = {
 }
 
 const officialExcerpts: Record<string, CharacterQuoteReview> = {
+  'enel': {
+    characterId: 'enel',
+    originalJapanese: '我は神なり…!!',
+    displayKorean: '나는 신이다…!!',
+    context: '자신을 절대적인 신으로 여기는 에넬의 선언. 공식 ONE PIECE.com 일본어 인용을 확인했지만 만화 원본 컷·한국 정식판 번역은 미대조.',
+    verificationStatus: 'official-excerpt',
+    translationStatus: 'editorial',
+    source: { label: 'ONE PIECE.com · 2018년 에넬 피규어 소개 공식 인용', url: 'https://one-piece.com/news/o20180903_7815/index.html' },
+  },
   'luffy': { characterId: 'luffy', originalJapanese: "海賊王におれはなる!!!!", displayKorean: "나는 해적왕이 될 거야!", context: "해적왕이 되겠다는 루피의 선언", verificationStatus: 'official-excerpt', translationStatus: 'editorial', source: { label: 'ONE PIECE.com · 공식 일본어 인용', url: 'https://one-piece.com/news/o20220411_13783/index.html' } },
   'zoro': { characterId: 'zoro', originalJapanese: "背中の傷は剣士の恥だ", displayKorean: "등의 상처는 검사의 수치다.", context: "미호크와의 결투에서 자신의 검사로서의 긍지를 밝힘", verificationStatus: 'official-excerpt', translationStatus: 'editorial', source: { label: 'ONE PIECE.com · 공식 일본어 인용', url: 'https://one-piece.com/news/o20220411_13783/index.html' } },
   'sanji': { characterId: 'sanji', originalJapanese: "“女のウソ”は許すのが男だ", displayKorean: "여자의 거짓말을 용서하는 게 남자야.", context: "자신이 지키는 행동 원칙을 밝힘", verificationStatus: 'official-excerpt', translationStatus: 'editorial', source: { label: 'ONE PIECE.com · 공식 일본어 인용', url: 'https://one-piece.com/news/o20220411_13783/index.html' } },
