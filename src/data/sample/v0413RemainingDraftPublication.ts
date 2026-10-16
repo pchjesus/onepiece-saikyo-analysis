@@ -69,7 +69,7 @@ export const v0413EnelBattles: Battle[] = [
     id: 'battle-v0413-enel-luffy',
     title: '하늘섬 — 에넬와 루피의 능력 상성',
     chronologyOrder: 520,
-    combatStructure: 'one-vs-one',
+    combatStructure: '1v1',
     combatPurpose: '루피와의 교전 및 고무 상성 대응',
     combatIntent: 'unknown',
     environment: '하늘섬',
