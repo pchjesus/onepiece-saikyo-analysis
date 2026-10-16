@@ -921,3 +921,56 @@ header p:last-child { color: #666; }
 @media(prefers-reduced-motion:reduce){.charlos-truth-backdrop,.charlos-truth-reveal{animation:none!important;}.charlos-stat-chevron{transition:none;}}
 
 .charlos-alias-lore{font-size:.79rem;color:#6c6255;line-height:1.55;margin:-.4rem 0 .85rem;overflow-wrap:anywhere;}
+
+
+/* Charlos-only mobile polish and restored narrative; shared CharacterPage untouched. */
+.charlos-alias {margin:.45rem 0 .85rem;}
+.charlos-alias-badge{
+  display:inline-flex;align-items:center;gap:7px;padding:6px 12px;
+  border:1.5px solid #b18a42;border-radius:999px;
+  color:#684d22;background:#fff9eb;font-size:.85rem;font-weight:800;
+  line-height:1.35;letter-spacing:-.01em;
+}
+.charlos-alias-star{font-size:1.05rem;line-height:1;color:#ad812b;}
+.charlos-intro-description>span{display:block;text-wrap:pretty;word-break:keep-all;overflow-wrap:anywhere;}
+.charlos-intro-description>span+span{margin-top:.55rem;color:#3f3931;font-weight:700;}
+.charlos-truth-reveal h2{font-family:inherit;font-weight:800;letter-spacing:-.03em;}
+.charlos-truth-rescue{
+  max-width:520px;margin:26px auto;padding:22px 10px;
+  border-top:1px solid #cfb88d;border-bottom:1px solid #cfb88d;
+  font-family:inherit;font-size:clamp(.88rem,2.9vw,1.22rem);
+  font-weight:800;line-height:1.7;letter-spacing:-.025em;
+  text-align:center;overflow-wrap:anywhere;
+}
+.charlos-truth-rescue .charlos-truth-line+.charlos-truth-line{margin-top:.55rem;}
+@media(max-width:700px){
+  .charlos-intro{gap:14px;padding-bottom:18px;}
+  .charlos-intro-note>p:last-child{font-size:.85rem;line-height:1.7;}
+  .charlos-stats .charlos-section-heading{padding-top:20px;}
+  /* Give every one-line quip the FULL available width rather than squeezing
+     it between a 01 column, numeric score, and expansion control. */
+  .charlos-stat summary{
+    grid-template-columns:28px minmax(0,1fr) 55px 20px;
+    grid-template-rows:auto auto auto;
+    column-gap:6px;row-gap:8px;padding:15px 2px;
+  }
+  .charlos-stat-text{display:contents;}
+  .charlos-stat-ordinal{grid-column:1;grid-row:1;}
+  .charlos-stat-text strong{grid-column:2;grid-row:1;align-self:center;}
+  .charlos-stat-score{grid-column:3;grid-row:1;}
+  .charlos-stat-chevron{grid-column:4;grid-row:1;}
+  .charlos-stat-text small{
+    grid-column:1 / -1;grid-row:2;
+    font-size:.79rem;line-height:1.5;letter-spacing:-.025em;
+    color:#716f69;overflow-wrap:normal;
+  }
+  .charlos-bar{grid-column:1 / -1;grid-row:3;}
+  .charlos-stat-detail{padding-left:8px;padding-right:8px;}
+  .charlos-truth-rescue{padding:18px 4px;font-size:clamp(.78rem,3.05vw,1rem);}
+}
+@media(min-width:355px) and (max-width:700px){
+  .charlos-stat-text small{white-space:nowrap;}
+}
+@media(max-width:354px){
+  .charlos-stat-text small{white-space:normal;}
+}

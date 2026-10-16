@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { act } from 'react'
 import { createRoot } from 'react-dom/client'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { charlosMemeStats, charlosSpecialOverall, charlosTruthMonologue, CHARLOS_ID,
+import { charlosMemeStats, charlosSpecialOverall, charlosTruthLines, charlosTruthMonologue, CHARLOS_ID,
   charlosCharacter, charlosMembership, celestialDragonGroup } from './charlosSpecial'
 import { characterRepository } from '../repositories/characterRepository'
 import { groupRepository } from '../repositories/groupRepository'
@@ -75,6 +75,15 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
     expect(getCharacterPortraitAsset(CHARLOS_ID)?.fileName).toBe('charlos-v0418.webp')
     const html=renderToStaticMarkup(<CharlosSpecialPage onSelectOverall={()=>{}}/>)
     expect(html).toContain('호를로스 성')
+    expect(html).toContain('class="charlos-alias-badge"')
+    expect(html).toContain('class="charlos-alias-star"')
+    expect(html).toContain('class="charlos-intro-description"')
+    expect(html).toContain('세계귀족의 위상은 평범한 전투력으로 설명할 수 없다이.')
+    expect(html).toContain('내 평가는 내가 정하는 거다이.')
+    expect(charlosMemeStats.find(s=>s.id==='mobility')?.fact)
+      .toBe('샤본디에서 내가 직접 걸을 이유가 없다이. 인간들이 알아서 나를 태우고 움직여주면 되는 거다이.')
+    expect(charlosMemeStats.find(s=>s.id==='humanity')?.fact)
+      .toBe('케이미도 시라호시도 내 곁에 두고 싶었던 거다이. 소중한 인간들을 남에게 맡길 수는 없는 거다이.')
     expect(html).toContain('5억 베리이~~~~!!! 5억에 사겠다이~~!!!')
     expect(html).toContain('원피스 51권')
     expect(html).toContain('부산 고신대 의대의 또 다른 차를로스 성')
@@ -115,14 +124,29 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
       const lines = Array.from(modal?.querySelectorAll<HTMLElement>('.charlos-truth-line') ?? [])
         .map(line => line.textContent)
       expect(lines).toEqual(expected)
+      // Restore the complete last-approved pre-truncation narrative, then
+      // insert the three new lines together rather than replacing any prose.
+      expect(charlosTruthLines).toEqual([
+        '그는 알고 있었다이. 끝까지 고개를 들고 저항하는 이들이 얼마나 쉽게 쓰러지는지 말이다이.',
+        '그래서 결심했다이. 모든 미움을 자신에게 모으고 악인을 연기하기로 말이다이.',
+        '세상은 그가 인간을 사고팔았다고 비난했다이. 하지만 그의 가슴에 품어진 인간애는 5억 베리보다 뜨거웠다이.',
+        '5억 베리는 거래가 아니었다이. 말로는 다 표현할 수 없는 사랑의 무게였다이.',
+        '그가 맞을 때마다 세상은 조금씩 움직였다이. 그것이 자신이 선택한 성자의 길이었다이.',
+      ])
+      const expanded=modal?.querySelector('.charlos-truth-reveal')?.textContent ?? ''
+      for(const line of charlosTruthLines) expect(expanded).toContain(line)
+      expect(expanded).toContain('인류의 구원자')
+      expect(expanded).toContain('일어나 죽지 말고,엎드려 사는 거다이.')
+      expect(expanded).toContain('악마다이…!!')
+      expect(expanded).toContain('인류가 이해하지 못한 마지막 성자다이.')
       expect(modal?.querySelectorAll('.charlos-truth-quote')).toHaveLength(1)
+      expect(modal?.querySelectorAll('.charlos-truth-rescue')).toHaveLength(1)
       expect(modal?.querySelectorAll('.charlos-truth-figure img')).toHaveLength(1)
-      // After removing the accessible-only dialog label and X close affordance,
-      // these three sentences are the popup's only visible text.
-      expect(modal?.querySelector('.charlos-truth-reveal')?.textContent).toBe(expected.join(''))
-      expect(modal?.textContent).not.toContain('일어나 죽지 말고')
-      expect(modal?.textContent).not.toContain('인류의 구원자')
-      expect(modal?.textContent).not.toContain('조금만 참그라이')
+      expect(modal?.querySelector('.charlos-truth-rescue')?.textContent).toBe(expected.join(''))
+      const firstRescue=expanded.indexOf(expected[0])
+      expect(firstRescue).toBeGreaterThan(expanded.indexOf(charlosTruthLines[4]))
+      expect(firstRescue).toBeLessThan(expanded.indexOf('악마다이…!!'))
+      expect(expanded).not.toContain('전부 프로젝트가 창작한 반어적 풍자')
       expect(modal?.querySelector('img')?.getAttribute('src')).toContain('charlos-truth-v0418.webp')
       expect(document.body.style.overflow).toBe('hidden')
       await act(async()=>{document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))})
