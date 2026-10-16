@@ -12,7 +12,7 @@
 
 > **v0.5.0 감사 Stage 1 당시 기록(당시 앱 v0.4.12):** 80명·84개 Evaluation·588개 7축을 대상으로 E1/E2/E3, 근거 연결 및 Haki 다축 중복 후보를 읽기 전용 CSV로 추출·검증하는 작업. 점수·모델·순위·매치업 변경 없음. [감사 설계·검증 및 승인 게이트](docs/V0_5_0_READONLY_AUDIT_STAGE1_2026-10-16.md).
 
-현재 구현 패치: **v0.4.16** (마하·게르니카 근거 충분도/Evidence 역할 5축 한정 보수 교정; 전체 전투력 수치 불변) (npm package 버전 **0.4.16**)
+현재 구현 패치: **v0.4.17** (차를로스 성 특별 밈 평가·천룡인 그룹·진실 팝업, 정규 81인 평가 불변) (npm package 버전 **0.4.17**)
 평가 데이터: **81 Character master pool · 81 visible Character · 81 evaluated unique Character · 106 Membership · 85 Evaluation · 595 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
