@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest'
-import { readFileSync } from 'node:fs'
+import { readFileSync, mkdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { COMBAT_STATS } from '../../domain/evaluation/types'
+import { versionManifest } from './versionManifest'
 import { getCombatPower } from '../../application/getCombatPower'
 import { getStatRanking } from '../../application/getStatRanking'
 import { calculateBalancedCombatPower } from '../../domain/calculation/calculateCombatPower'
@@ -102,6 +103,20 @@ describe('v0.5.0 stage 1: read-only 80-person, 84-evaluation, 588-stat audit', (
     expect(a).toContain('"supplementary"')
     expect(a).toContain('"secondary"')
     expect(a).toContain('"rationale"')
+    // Hosted PR validation publishes a versioned CSV artifact; local tests remain
+    // side-effect-free unless V050_AUDIT_EXPORT=1 is explicitly set.
+    if(process.env.GITHUB_ACTIONS==='true' || process.env.V050_AUDIT_EXPORT==='1'){
+      const output=resolve(process.cwd(),'audit-output')
+      mkdirSync(output,{recursive:true})
+      writeFileSync(resolve(output,'v0.5.0-588-axis-audit.csv'),a,'utf8')
+      const report=buildV050ReadOnlyAudit()
+      writeFileSync(resolve(output,'v0.5.0-audit-summary.json'),JSON.stringify({
+        schema:'onepiece-v050-readonly-audit/1',versions:versionManifest,
+        counts:report.counts,readiness:report.readiness,readinessByStat:report.readinessByStat,
+        flagCounts:report.flagCounts,sharedHakiEvidence:report.sharedHakiEvidence,
+        integrity:report.integrity,
+      },null,2)+'\n','utf8')
+    }
   })
 
   it('never mutates current inputs or frozen v0.3.3 historical JSON', () => {
