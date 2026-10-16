@@ -65,8 +65,8 @@ describe('v0.4.5 Teach dual fruit precision and flexibility audit',()=>{
   })
 
   it('maintains identical calculation/model and unrelated ranks, matchup references and source baseline',()=>{
-    expect(versionManifest.appVersion).toBe('0.4.13')
-    expect(versionManifest.coreDataVersion).toBe('core-v0.4.13')
+    expect(versionManifest.appVersion).toBe('0.4.14')
+    expect(versionManifest.coreDataVersion).toBe('core-v0.4.14')
     expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.13')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
     expect(balancedV12.version).toBe('1.2')
@@ -77,7 +77,7 @@ describe('v0.4.5 Teach dual fruit precision and flexibility audit',()=>{
     expect(getStatRanking('versatility').find(x=>x.characterId==='teach')?.score).toBe(96)
     expect(getCombatPower('mihawk').finalScore).toBeCloseTo(652/7,12)
     expect(getCombatPower('luffy').finalScore).toBeCloseTo(657/7,12)
-    expect(getMatchupHubEntries()).toHaveLength(17)
+    expect(getMatchupHubEntries()).toHaveLength(18)
     expect(getMatchupBuilderView('luffy','teach','egghead-gear4')?.matchup?.id).toBe('matchup-luffy-gear4-teach')
     expect(getMatchupBuilderView('luffy','teach','egghead-gear5')?.matchup?.id).toBe('matchup-luffy-gear5-teach')
     expect(liveDataset.matchups).toHaveLength(17)

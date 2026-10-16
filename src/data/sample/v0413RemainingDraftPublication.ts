@@ -75,7 +75,7 @@ export const v0413EnelBattles: Battle[] = [
     environment: '하늘섬',
     restrictions: '루피의 전격 면역을 모든 상대에 일반화하지 않으며 패배 원인을 단일 저능력 증거로 환산하지 않음',
     externalFactors: '고무의 전격 면역, 루피의 변칙 대응, 전투 시점의 상성 차이',
-    result: 'unknown',
+    result: 'defeat',
     participantIds: [],
   },
 ]

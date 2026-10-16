@@ -38,6 +38,16 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  { version:'v0.4.14', date:'2026-10-16', title:'에넬 초상·하늘섬 루피 실전 매치업',
+    summary:'사용자 제공 에넬 WebP 초상 등록 및 원작 하늘섬 에넬 vs 루피 전투 요인 추가. 당시 루피 7축이 없어 서로 다른 시대의 수치 대조를 차단. 기존 17매치업·595축·85 Evaluation 및 계산 모델 보존.',
+    report:'docs/V0_4_14_ENEL_PORTRAIT_LUFFY_HISTORICAL_MATCHUP_2026-10-16.md',
+    changes:[
+      {kind:'character',characterId:'enel',title:'에넬 제공 이미지 등록',detail:'640×512 WebP·투명 배경. 기존 초상 80개를 보존하고 81번째 초상 등록. 원저작권 및 재배포 허가 미확인.',reason:'사용자 제공 초상 업로드. 생성·외부 이미지 대체 없음.'},
+      {kind:'evidence',characterId:'enel',title:'하늘섬 에넬 vs 루피의 특수 상성',detail:'전격 무효·맨트라 대응·열 공격·황금 제약·루피의 실제 승리를 시점과 환경 조건별로 분리. 기존 에넬 7축과 Kaku 평가는 변경 없음.',reason:'루피의 고무 특수 상성이 에넬의 모든 매치업에 자동 감점되지 않도록 구분.'},
+      {kind:'feature',title:'과거 전투의 시점 불일치 수치 비교 보류',detail:'하늘섬 시점 루피 평가가 미등록이어서 해당 매치업에서만 종합 점수·7축 막대·레이더를 숨긴다. 원작 근거 및 공식 출처 링크를 표시.',reason:'에그헤드 시점 루피 점수와 하늘섬 에넬 점수를 혼합하는 시대 오류를 방지.'},
+    ],
+  },
+
   { version:'v0.4.13', date:'2026-10-16', title:'미반영 잠정 평가 공개 — 에넬 추가·카쿠 7축 재검토',
     summary:'v0.4.9 문서의 유일한 미등록 신규 수치 후보 에넬을 하늘섬 편 7축 draft로 추가하고, 기존 카쿠의 미적용 재평가안을 공개한다. 원본 76 Evaluation·v0.3.3 고정 기준선·Haki 계산·직접/조건부 17대진 보존.',
     report:'docs/V0_4_13_ENEL_KAKU_DRAFT_PUBLICATION_2026-10-16.md',

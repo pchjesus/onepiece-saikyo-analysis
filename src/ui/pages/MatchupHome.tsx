@@ -47,6 +47,7 @@ function FighterSelect({
   opponentId,
   onCharacter,
   onState,
+  historicalEra,
 }: {
   side: 'left' | 'right'
   roster: MatchupRosterOption[]
@@ -55,6 +56,7 @@ function FighterSelect({
   opponentId: string
   onCharacter: (id: string) => void
   onState: (id?: string) => void
+  historicalEra?: string
 }) {
   const selected = roster.find((entry) => entry.characterId === characterId)
   return (
@@ -68,23 +70,24 @@ function FighterSelect({
           </option>
         ))}
       </select>
-      {selected && selected.states.length > 1 && (
+      {historicalEra ? <small className="state-select">전투 당시 · {historicalEra}</small> : (selected && selected.states.length > 1 && (
         <select className="state-select" aria-label={side === 'left' ? '왼쪽 평가 시점 선택' : '오른쪽 평가 시점 선택'}
           value={stateId ?? ''} onChange={(event) => onState(event.target.value || undefined)}>
           {selected.states.map((state) => (
             <option key={state.id ?? 'default'} value={state.id ?? ''}>{state.label}</option>
           ))}
         </select>
-      )}
+      ))}
     </section>
   )
 }
 
-function CornerPanel({ fighter, factors, statEdges, side }: {
+function CornerPanel({ fighter, factors, statEdges, side, historical }: {
   fighter: MatchupHubFighter
   factors: PerspectiveFactor[]
   statEdges: MatchupHubFighter['stats']
   side: 'left' | 'right'
+  historical?: { era: string; conditions: string }
 }) {
   const focusedFactors = factors.filter(({ perspective }) => perspective === 'favorable' || perspective === 'risk' || perspective === 'conditional')
   return (
@@ -93,11 +96,15 @@ function CornerPanel({ fighter, factors, statEdges, side }: {
         <div>
           <small>{side === 'left' ? '왼쪽 선수' : '오른쪽 선수'} · {fighter.groupName}</small>
           <h3>{fighter.name}</h3>
-          {fighter.stateLabel && <span>평가 시점 · {fighter.stateLabel}</span>}
+          {historical ? <span>전투 당시 · {historical.era}</span> : (fighter.stateLabel && <span>평가 시점 · {fighter.stateLabel}</span>)}
         </div>
-        <strong>{fighter.overall.toFixed(1)}<small> 종합</small></strong>
+        {historical ? <small>해당 시점 수치 비교 보류</small> : <strong>{fighter.overall.toFixed(1)}<small> 종합</small></strong>}
       </header>
 
+      {historical ? <div className="corner-section">
+        <h4>하늘섬 당시 전투 조건</h4>
+        <p className="corner-muted">{historical.conditions}</p>
+      </div> : <>
       <div className="corner-section">
         <h4>수치상 앞서는 축</h4>
         {statEdges.length > 0 ? (
@@ -119,6 +126,8 @@ function CornerPanel({ fighter, factors, statEdges, side }: {
           </div>
         )}
       </div>
+
+      </>}
 
       <div className="corner-section corner-perspective">
         <h4>이 캐릭터 입장의 매치업</h4>
@@ -182,6 +191,11 @@ export function MatchupHome() {
 
   if (!view) return <main className="matchup-home"><p>비교할 두 캐릭터를 선택해 주세요.</p></main>
   const { left, right, matchup, leftFactors, rightFactors, leftStatEdges, rightStatEdges, tiedStats } = view
+  const history = matchup?.historicalContext
+  const leftHistory = history && { era: view.leftIsCharacterA ? history.characterAEra : history.characterBEra,
+    conditions: view.leftIsCharacterA ? history.characterAConditions : history.characterBConditions }
+  const rightHistory = history && { era: view.leftIsCharacterA ? history.characterBEra : history.characterAEra,
+    conditions: view.leftIsCharacterA ? history.characterBConditions : history.characterAConditions }
 
   return (
     <main className="matchup-home">
@@ -191,18 +205,18 @@ export function MatchupHome() {
           <h2>대진을 직접 만들고, 양쪽 시선으로 본다.</h2>
           <p>두 캐릭터를 고른 뒤 각 선수의 강점·주의 포인트와 통합 분석을 확인합니다. 승률 숫자 대신 원작 근거와 조건을 우선합니다.</p>
         </div>
-        <div className="arena-rule-chip">중립 전장 · 사전 준비 없음 · 1대1</div>
+        <div className="arena-rule-chip">{history ? "하늘섬 실전 · 비중립 사건" : "중립 전장 · 사전 준비 없음 · 1대1"}</div>
       </section>
 
       <section className="matchup-builder-controls" aria-label="매치업 대진 선택">
         <FighterSelect side="left" roster={roster} characterId={leftId} stateId={leftStateId} opponentId={rightId}
-          onCharacter={chooseLeft} onState={setLeftStateId} />
+          onCharacter={chooseLeft} onState={setLeftStateId} historicalEra={leftHistory?.era} />
         <div className="arena-control-stack">
           <button type="button" className="swap-button" onClick={swap} aria-label="좌우 캐릭터 교체">⇄<span>교체</span></button>
           <button type="button" onClick={randomize} aria-label="랜덤 매치업">⤨<span>무작위</span></button>
         </div>
         <FighterSelect side="right" roster={roster} characterId={rightId} stateId={rightStateId} opponentId={leftId}
-          onCharacter={chooseRight} onState={setRightStateId} />
+          onCharacter={chooseRight} onState={setRightStateId} historicalEra={rightHistory?.era} />
       </section>
 
       <section className="featured-matchups">
@@ -223,7 +237,7 @@ export function MatchupHome() {
                 <strong className="matchup-featured-versus">VS</strong>
                 <span className="matchup-featured-side" data-character-id={entry.characterB.characterId}>
                   <span className="matchup-featured-name">{entry.characterB.name}</span>
-                  {entry.characterB.stateLabel && <small className="matchup-featured-state">{entry.characterB.stateLabel}</small>}
+                  {entry.matchup.historicalContext ? <small className="matchup-featured-state">{entry.matchup.historicalContext.characterBEra}</small> : (entry.characterB.stateLabel && <small className="matchup-featured-state">{entry.characterB.stateLabel}</small>)}
                 </span>
               </button>
             )
@@ -232,8 +246,8 @@ export function MatchupHome() {
       </section>
 
       <section className="matchup-corner-grid">
-        <CornerPanel fighter={left} factors={leftFactors} statEdges={leftStatEdges} side="left" />
-        <CornerPanel fighter={right} factors={rightFactors} statEdges={rightStatEdges} side="right" />
+        <CornerPanel fighter={left} factors={leftFactors} statEdges={leftStatEdges} side="left" historical={leftHistory} />
+        <CornerPanel fighter={right} factors={rightFactors} statEdges={rightStatEdges} side="right" historical={rightHistory} />
       </section>
 
       <section className="combined-matchup-panel">
@@ -243,10 +257,26 @@ export function MatchupHome() {
             <h3>{left.name} <span>VS</span> {right.name}</h3>
           </div>
           <span className={matchup ? 'evidence-ready' : 'evidence-pending'}>
-            {matchup ? `${matchup.id.startsWith('matchup-luffy-gear') ? '가상 조건부 시나리오' : '직접 매치업 근거'} · ${matchup.factors.length}개 요인` : '직접 매치업 근거 미등록'}
+            {matchup ? `${history ? '원작 당시 교전 · 수치 비교 보류' : (matchup.id.startsWith('matchup-luffy-gear') ? '가상 조건부 시나리오' : '직접 매치업 근거')} · ${matchup.factors.length}개 요인` : '직접 매치업 근거 미등록'}
           </span>
         </div>
 
+        {history ? (
+          <section className="matchup-historical-notice" aria-label="하늘섬 당시 매치업 분석 기준">
+            <p className="eyebrow">원작 사실 · 특수 상성 · 평가 시점</p>
+            <h4>{history.arc} — 정량 승부 비교 보류</h4>
+            <p>{history.scoreComparisonNotice}</p>
+            <dl>
+              <div><dt>에넬</dt><dd>{history.characterAEra} · {history.characterAConditions}</dd></div>
+              <div><dt>루피</dt><dd>{history.characterBEra} · {history.characterBConditions}</dd></div>
+              <div><dt>교전 상황</dt><dd>{matchup?.assumptions.battlefield} · {matchup?.assumptions.externalIntervention}</dd></div>
+            </dl>
+            <div className="matchup-history-sources" aria-label="원작 관련 공식 출처">
+              {history.sources.map(source => <a key={source.url} href={source.url}
+                target="_blank" rel="noopener noreferrer">{source.label} ↗</a>)}
+            </div>
+          </section>
+        ) : <>
         <div className="matchup-scoreboard" aria-label="선택한 매치업 요약">
           <article className="fighter-card fighter-a">
             <small>{left.stateLabel ? `평가 시점 · ${left.stateLabel}` : '왼쪽 선수'}</small>
@@ -291,6 +321,8 @@ export function MatchupHome() {
             <p className="arena-caution">종합 전투력과 개별 스탯 차이는 승률이 아닙니다. 직접 매치업 근거가 없는 조합은 결론을 만들지 않습니다.</p>
           </article>
         </section>
+
+        </>}
 
         <section className="arena-analysis">
           <div className="arena-analysis-heading">

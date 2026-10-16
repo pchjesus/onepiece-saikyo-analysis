@@ -11,6 +11,8 @@ import {sampleEvidence} from './evidence'
 import {v0411Characters,v0411Memberships} from './v0411UnratedCharacterRegistration'
 import {evaluationRepository} from '../repositories/evaluationRepository'
 import {matchupRepository} from '../repositories/matchupRepository'
+import {sampleMatchups} from './matchups'
+import {luffyTeachStateMatchups} from './luffyTeachStateMatchups'
 import {balancedV12} from './calculationModels'
 import {auditCombatDataset} from '../integrity/auditDataset'
 import {getCharacterDetail} from '../../application/getCharacterDetail'
@@ -68,7 +70,8 @@ describe('v0.4.12 eight new provisional combat evaluations',()=>{
      evidence:[...sampleEvidence,...v0412Evidence],
      evaluations:[...sampleEvaluations,...v0412Evaluations],
      model:balancedV12,
-     matchups:matchupRepository.getAllMatchups(),
+     // Original 80-person cohort excludes Enel; protect the former 17 source pairings.
+     matchups:[...sampleMatchups,...luffyTeachStateMatchups],
    })
    expect(report.errors).toEqual([])
  })
@@ -77,7 +80,7 @@ describe('v0.4.12 eight new provisional combat evaluations',()=>{
    expect(getStatRanking('attack')).toHaveLength(81)
    expect(evaluationRepository.getEvaluations('kaku')).toHaveLength(1)
    expect(evaluationRepository.getEvaluations('enel')).toHaveLength(1)
-   expect(matchupRepository.getAllMatchups()).toHaveLength(17)
+   expect(matchupRepository.getAllMatchups()).toHaveLength(18)
    for(const id of lookup){
      const e=v0412Evaluations.find(e=>e.characterId===id)!
      const g=v0411Memberships.find(m=>m.characterId===id)!.groupId

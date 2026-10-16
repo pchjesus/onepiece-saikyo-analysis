@@ -29,8 +29,16 @@ const v0411PortraitAssets: Readonly<Record<string, CharacterPortraitAsset>> =
     permissionNote: '사용자 제공 이미지 · 원저작권자 및 공개 재배포 허가 미확인',
   }]))
 
+/** v0.4.14 Enel: new user-provided image without mutating frozen 72 + 8 registries. */
+const v0414EnelPortraitAsset: CharacterPortraitAsset = {
+  fileName: 'enel.webp',
+  permission: 'user-provided-unverified',
+  permissionNote: '사용자 제공 이미지 · 원저작권자 및 공개 재배포 허가 미확인',
+}
+
 export function getCharacterPortraitAsset(characterId: string): CharacterPortraitAsset | undefined {
   const asset = characterPortraitAssets[characterId] ?? v0411PortraitAssets[characterId]
+    ?? (characterId === 'enel' ? v0414EnelPortraitAsset : undefined)
   if (!asset) return undefined
   if (!/^[a-z0-9][a-z0-9-]*\.(?:webp|png|jpe?g)$/.test(asset.fileName)) return undefined
   if (asset.sourceUrl !== undefined && !/^https:\/\//.test(asset.sourceUrl)) return undefined

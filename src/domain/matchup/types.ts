@@ -53,6 +53,16 @@ export type MatchupAnalysis = {
   /** Optional evaluation state/era. Omitted means the Character's default Evaluation. */
   characterAStateId?: string
   characterBStateId?: string
+  /** Canon-scoped duel for which both sides have no same-era quantified evaluation. */
+  historicalContext?: {
+    arc: string
+    characterAEra: string
+    characterBEra: string
+    characterAConditions: string
+    characterBConditions: string
+    scoreComparisonNotice: string
+    sources: { label: string; url: string }[]
+  }
   assumptions: MatchupAssumptions
   factors: MatchupFactorAssessment[]
 }

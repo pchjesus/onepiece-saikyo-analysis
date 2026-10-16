@@ -4,7 +4,8 @@ import { sampleMemberships } from '../sample/memberships'
 import { sampleBattles, sampleBattleParticipants } from '../sample/battles'
 import { sampleEvidence } from '../sample/evidence'
 import { sampleEvaluations } from '../sample/evaluations'
-import { matchupRepository } from '../repositories/matchupRepository'
+import { sampleMatchups } from '../sample/matchups'
+import { luffyTeachStateMatchups } from '../sample/luffyTeachStateMatchups'
 import { balancedV12 } from '../sample/calculationModels'
 import { COMBAT_STATS } from '../../domain/evaluation/types'
 import { getRawHakiContributionTotal, getFinalStatScore } from '../../domain/evaluation/score'
@@ -22,7 +23,9 @@ export const liveDataset = {
   evidence: sampleEvidence,
   evaluations: sampleEvaluations,
   model: balancedV12,
-  matchups: matchupRepository.getAllMatchups(),
+  // This compatibility fixture is scoped to the previous 72-person sample source.
+  // Never import the expanding current repository: Enel is absent from sampleCharacters.
+  matchups: [...sampleMatchups, ...luffyTeachStateMatchups],
 }
 
 /**
