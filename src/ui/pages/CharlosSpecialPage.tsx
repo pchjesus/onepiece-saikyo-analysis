@@ -23,13 +23,14 @@ export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () =>
       </div>
       <div className="charlos-meme-quote">
         <p>“{charlosMemeQuote}”</p>
+        <small>원피스 51권</small>
       </div>
     </header>
 
     <div className="charlos-intro">
       <button className="charlos-overall-card" onClick={onSelectOverall} type="button"
         aria-label="차를로스 성 특별 종합 점수 포함 전체 오버롤 순위 보기">
-        <span>특별 종합 전투력 <span aria-hidden="true">↗</span></span>
+        <span>종합 전투력 <span aria-hidden="true">↗</span></span>
         <strong>{charlosSpecialOverall.toFixed(1)}<small>/100</small></strong>
       </button>
       <div className="charlos-intro-note">
