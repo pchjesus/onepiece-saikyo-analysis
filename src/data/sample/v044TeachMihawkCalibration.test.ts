@@ -81,7 +81,7 @@ describe('v0.4.4 targeted Teach and Mihawk evidence/context recalibration',()=>{
     expect(getStatRanking('overall')).toHaveLength(81)
     expect(getStatRanking('overall').find(x=>x.characterId==='teach')?.score).toBeCloseTo(650/7,11)
     expect(getStatRanking('attack').find(x=>x.characterId==='mihawk')?.score).toBe(97)
-    expect(getMatchupHubEntries()).toHaveLength(17)
+    expect(getMatchupHubEntries()).toHaveLength(18)
     expect(getMatchupBuilderView('luffy','teach','egghead-gear4')?.matchup?.id).toBe('matchup-luffy-gear4-teach')
     expect(getMatchupBuilderView('luffy','teach','egghead-gear5')?.matchup?.id).toBe('matchup-luffy-gear5-teach')
     expect(liveDataset.matchups).toHaveLength(17)
@@ -90,8 +90,8 @@ describe('v0.4.4 targeted Teach and Mihawk evidence/context recalibration',()=>{
   })
 
   it('versions only the changed evaluation set and records 6 transparent score changes',()=>{
-    expect(versionManifest.appVersion).toBe('0.4.13')
-    expect(versionManifest.coreDataVersion).toBe('core-v0.4.13')
+    expect(versionManifest.appVersion).toBe('0.4.14')
+    expect(versionManifest.coreDataVersion).toBe('core-v0.4.14')
     expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.13')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
     const historical=patchHistory.find(x=>x.version==='v0.4.4')!
