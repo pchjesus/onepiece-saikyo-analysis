@@ -65,13 +65,13 @@ describe('v0.4.5 Teach dual fruit precision and flexibility audit',()=>{
   })
 
   it('maintains identical calculation/model and unrelated ranks, matchup references and source baseline',()=>{
-    expect(versionManifest.appVersion).toBe('0.4.12')
-    expect(versionManifest.coreDataVersion).toBe('core-v0.4.12')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.12')
+    expect(versionManifest.appVersion).toBe('0.4.13')
+    expect(versionManifest.coreDataVersion).toBe('core-v0.4.13')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.13')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(.5)
-    expect(getStatRanking('overall')).toHaveLength(80)
+    expect(getStatRanking('overall')).toHaveLength(81)
     expect(getStatRanking('overall').find(x=>x.characterId==='teach')?.score).toBeCloseTo(650/7,12)
     expect(getStatRanking('techniqueMastery').find(x=>x.characterId==='teach')?.score).toBe(94)
     expect(getStatRanking('versatility').find(x=>x.characterId==='teach')?.score).toBe(96)
