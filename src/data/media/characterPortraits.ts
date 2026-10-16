@@ -36,11 +36,11 @@ const v0414EnelPortraitAsset: CharacterPortraitAsset = {
   permissionNote: '사용자 제공 이미지 · 원저작권자 및 공개 재배포 허가 미확인',
 }
 
-/** v0.4.17 — user-provided art, resized to 300px for web delivery; original uploads remain in the conversation. */
+/** v0.4.17 — user-provided full-resolution image (1536 × 1230) restored in v0.4.18; versioned URL avoids stale 300px cached assets. */
 const v0417CharlosPortraitAsset: CharacterPortraitAsset = {
-  fileName: 'charlos.webp',
+  fileName: 'charlos-v0418.webp',
   permission:'user-provided-unverified',
-  permissionNote:'사용자 제공 일러스트를 WebP로 웹 최적화(300px). 원작/그림 원저작권자 및 공개 재배포 허가 미확인',
+  permissionNote:'사용자 제공 원본 1536 × 1230 해상도를 유지한 WebP 변환. 원작/그림 원저작권자 및 공개 재배포 허가 미확인',
 }
 
 export function getCharacterPortraitAsset(characterId: string): CharacterPortraitAsset | undefined {
