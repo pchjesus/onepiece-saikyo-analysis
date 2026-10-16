@@ -1,3 +1,14 @@
+## v0.4.15 — 에넬 하늘섬 7축 승인 재평가 · 공식 일본어 명대사 (2026-10-16)
+
+- **Changed:** 사용자 승인 에넬 7축 Attack85 / Defense74 / Stamina72 / Speed86 / Technique86 / Combat IQ76 / Versatility87, **Overall 80.857143** (이전 80.142857). 실제 교전·상성·전장 환경에 대한 정성 검토에 기반한 프로젝트 잠정 수치이며 공식 원작 전투력은 아님.
+- **Added:** 에넬 대표 대사 “나는 신이다…!!” / 「我は神なり…!!」, ONE PIECE.com 2018-09-03 공식 일본어 인용으로 **official-excerpt**, 한국어 **editorial** 등록. 만화 컷/정식 한국어판 번역 및 만화 화수 미확인. 81명 명대사 15 official / 66 secondary / pending 0.
+- **Preserved:** v0.4.13 원본 7축과 모든 과거 Evaluation, 다른 80인 수치, 81 캐릭터·85 평가·595축·106 소속·18매치업, 기존 에넬 vs 루피의 하늘섬 수치 비교 차단. E2/E3와 Raw Haki 0 유지. Balanced 1.2·Haki Weight 0.5·v0.3.3 기준선 불변.
+- **Versioning:** 앱/현재 코어·평가 세트 v0.4.15; 개별 에넬 승인 평가 버전 `evaluation-v0.4.15-enel-approved-provisional`.
+- **Tests:** v0.4.13 원본 대비 신규 승인 점수, 다른 평가·랭킹·18대진·명대사 출처/표시·감사·기준선 전수 회귀검증; 최종 CI·Pages는 PR·병합 후 확인.
+- **Limits:** 개별 원작 만화 컷 전수 검증, 한국어 공식 번역, 실제 모바일/데스크톱 실기기 시각 확인은 아직 미완료. [상세 검토](docs/V0_4_15_ENEL_SCORE_QUOTE_REVIEW_2026-10-16.md).
+
+---
+
 ## v0.4.14 — 에넬 초상·하늘섬 루피 실전 매치업 (2026-10-16)
 
 - **Added:** 사용자 제공 에넬 640×512 WebP 원본(114638 bytes)과 `enel` 캐릭터 연결. SHA-256/ Git blob 일치, 기존 80장 이미지 불변. 권리 등급 `user-provided-unverified`(공개 재배포 권리 미확인).
