@@ -937,8 +937,8 @@ header p:last-child { color: #666; }
 .charlos-truth-rescue{
   max-width:520px;margin:26px auto;padding:22px 10px;
   border-top:1px solid #cfb88d;border-bottom:1px solid #cfb88d;
-  font-family:inherit;font-size:clamp(.88rem,2.9vw,1.22rem);
-  font-weight:800;line-height:1.7;letter-spacing:-.025em;
+  font-family:inherit;font-size:clamp(1.1rem,3.6vw,1.65rem);
+  font-weight:800;line-height:1.6;letter-spacing:-.025em;
   text-align:center;overflow-wrap:anywhere;
 }
 .charlos-truth-rescue .charlos-truth-line+.charlos-truth-line{margin-top:.55rem;}
@@ -965,7 +965,7 @@ header p:last-child { color: #666; }
   }
   .charlos-bar{grid-column:1 / -1;grid-row:3;}
   .charlos-stat-detail{padding-left:8px;padding-right:8px;}
-  .charlos-truth-rescue{padding:18px 4px;font-size:clamp(.78rem,3.05vw,1rem);}
+  .charlos-truth-rescue{padding:18px 4px;}
 }
 @media(min-width:355px) and (max-width:700px){
   .charlos-stat-text small{white-space:nowrap;}
