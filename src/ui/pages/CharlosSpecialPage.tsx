@@ -15,7 +15,7 @@ export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () =>
         <div className="charlos-heading-copy">
           <CharacterIdentity group={celestialDragonGroup} characterId={CHARLOS_ID} showPastMembership={false} />
           <h1>차를로스 성</h1>
-          <div className="character-known-as charlos-known-as" aria-label="호칭">
+          <div className="charlos-known-as" aria-label="호칭">
             <span className="charlos-alias-badge">
               <span className="charlos-alias-title"><span className="charlos-alias-star" aria-hidden="true">*</span>호를로스 성</span>
               <span className="charlos-alias-subtitle">부산의 또 다른 자아</span>
