@@ -46,7 +46,7 @@ export function CharlosTruthDialog({ onClose }: { onClose: () => void }) {
     <div className="charlos-truth-backdrop" role="presentation"
       onMouseDown={(event) => { if (event.target === event.currentTarget) onClose() }}>
       <section ref={dialogRef} tabIndex={-1} role="dialog" aria-modal="true"
-        aria-labelledby="charlos-truth-title" aria-describedby="charlos-truth-disclaimer"
+        aria-labelledby="charlos-truth-title"
         className="charlos-truth-dialog">
         <div className="charlos-truth-topbar">
           <span>CONFIDENTIAL RECORD · 001</span>
@@ -66,11 +66,6 @@ export function CharlosTruthDialog({ onClose }: { onClose: () => void }) {
             <p><strong>그는 마지막으로 중얼거렸다이. “악마다이…!!”</strong></p>
           </div>
           <p className="charlos-truth-last">인류가 이해하지 못한 마지막 성자다이.</p>
-          <p id="charlos-truth-disclaimer" className="charlos-truth-disclaimer">
-            ※ 전부 프로젝트가 창작한 반어적 풍자와 팬덤 밈의 패러디다이.
-            원작에서 차를로스 성은 폭력을 행사하는 세계귀족이며,
-            실제 숨겨진 선행이나 구원자 설정은 확인된 바 없다이.
-          </p>
           <button className="charlos-truth-exit" type="button" onClick={onClose}>진실을 덮는다이</button>
         </div>
       </section>
