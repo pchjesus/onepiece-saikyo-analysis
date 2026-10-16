@@ -856,22 +856,22 @@ header p:last-child { color: #666; }
 
 
 /* v0.4.17 — deliberately isolated satirical noble profile; existing UI untouched. */
-.charlos-detail { --noble-gold:#b18a42; --noble-ink:#242126; padding:0; overflow:hidden; }
+.charlos-detail { --noble-gold:#b18a42; --noble-ink:#242126; padding:0; overflow:hidden; font-family:system-ui,-apple-system,'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif; }
 .charlos-heading { padding:clamp(20px,4vw,36px); background:#f4efe5; color:var(--noble-ink); border-bottom:1px solid #e3dacb; margin:0; }
 .charlos-heading .detail-heading-profile { display:flex; gap:22px; align-items:center; }
-.charlos-heading-copy h1 {font-family:Georgia,'Noto Serif KR',serif;font-size:clamp(1.8rem,5vw,3.25rem);line-height:1.15;letter-spacing:-.05em;margin:.35rem 0;}
+.charlos-heading-copy h1 {font-family:inherit;font-weight:800;font-size:clamp(1.8rem,5vw,3.25rem);line-height:1.18;letter-spacing:-.035em;margin:.35rem 0;}
 .charlos-eyebrow {font-size:.68rem;letter-spacing:.15em;font-weight:800;color:#806a4b;margin:0 0 10px;}
 .charlos-alias {font-size:.94rem;font-weight:700;margin:.3rem 0 .85rem;}
 .charlos-special-tag,.special-rank-tag {display:inline-block;border:1px solid #b18a42;color:#73551f;background:#fff8e8;font-size:.72rem;font-weight:800;padding:4px 8px;border-radius:4px;white-space:nowrap;}
 .charlos-meme-quote {margin:24px 0 0;border-top:1px solid #d6c7ae;padding-top:18px;}
-.charlos-meme-quote p {font-family:Georgia,'Noto Serif KR',serif;font-size:clamp(1.08rem,3vw,1.45rem);font-weight:700;color:var(--noble-ink);margin:0 0 6px;}
+.charlos-meme-quote p {font-family:inherit;font-size:clamp(1.08rem,3vw,1.45rem);font-weight:800;letter-spacing:-.025em;line-height:1.55;color:var(--noble-ink);margin:0 0 6px;}
 .charlos-meme-quote small {font-size:.74rem;color:#777;}
 .charlos-intro {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:22px;padding:30px clamp(20px,4vw,36px);align-items:stretch;}
 .charlos-overall-card {display:flex;flex-direction:column;justify-content:center;text-align:left;gap:12px;border:0;border-radius:14px;background:var(--noble-ink);color:#fff;padding:26px;cursor:pointer;}
 .charlos-overall-card>span:first-child {font-size:.83rem;color:#e6d8c5;}.charlos-overall-card>span:last-child{font-size:.76rem;color:#d3d0ce;}
 .charlos-overall-card strong{font-size:clamp(3.6rem,9vw,5.3rem);letter-spacing:-.07em;font-variant-numeric:tabular-nums;line-height:1;}.charlos-overall-card strong small{font-size:1.15rem;color:#e1c68c;letter-spacing:0;margin-left:6px;}
 .charlos-overall-card:hover,.charlos-truth-trigger:hover,.charlos-truth-exit:hover {filter:brightness(1.1);}
-.charlos-intro-note{padding:8px 0;align-self:center;}.charlos-intro-note h2 {font-family:Georgia,'Noto Serif KR',serif;font-size:clamp(1.45rem,3vw,2rem);line-height:1.35;margin:0 0 10px;letter-spacing:-.035em;}
+.charlos-intro-note{padding:8px 0;align-self:center;}.charlos-intro-note h2 {font-family:inherit;font-weight:800;font-size:clamp(1.45rem,3vw,2rem);line-height:1.4;margin:0 0 10px;letter-spacing:-.03em;}
 .charlos-intro-note>p:last-child {font-size:.88rem;line-height:1.75;color:#65605a;}
 .charlos-stats {padding:0 clamp(20px,4vw,36px) 35px;}
 .charlos-section-heading {border-top:1px solid #ddd5c9;padding:28px 0 18px;}.charlos-section-heading h2 {font-size:1.32rem;letter-spacing:-.04em;margin:0 0 6px;}.charlos-section-heading p{font-size:.82rem;color:#777;margin:0;}
@@ -894,7 +894,7 @@ header p:last-child { color: #666; }
 .charlos-stat-detail a{color:#685222;text-decoration:underline;text-underline-offset:3px;display:inline-block;margin:4px 0;}
 .charlos-stat-detail small{display:block;color:#777;}
 .charlos-secret-panel{margin:0 clamp(20px,4vw,36px) 16px;padding:23px;border:1px solid #d3bd91;background:#f8f4ed;border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:20px;}
-.charlos-secret-panel h2{margin:0 0 8px;font-family:Georgia,'Noto Serif KR',serif;font-size:1.2rem;}
+.charlos-secret-panel h2{margin:0 0 8px;font-family:inherit;font-weight:800;font-size:1.2rem;}
 .charlos-secret-panel p:last-child{font-size:.8rem;margin:0;color:#766e63;}
 .charlos-truth-trigger{background:#242126;color:white;border:0;border-radius:6px;padding:12px 24px;font-weight:700;cursor:pointer;white-space:nowrap;}
 .charlos-footnote {color:#777;font-size:.73rem;line-height:1.8;padding:10px clamp(20px,4vw,36px) 26px;margin:0;}
@@ -907,7 +907,7 @@ header p:last-child { color: #666; }
 .charlos-truth-eyebrow{font-size:.68rem;letter-spacing:.14em;color:#846c4e;font-weight:800;}
 .charlos-truth-reveal h2{font-family:Georgia,'Noto Serif KR',serif;letter-spacing:-.05em;font-size:clamp(1.6rem,5vw,2.75rem);line-height:1.3;margin:8px 0 24px;}
 .charlos-truth-figure{margin:0 auto;max-width:410px;}.charlos-truth-figure img{display:block;width:100%;height:auto;object-fit:contain;background:white;border:1px solid #ddd5ca;}.charlos-truth-figure figcaption{font-size:.74rem;color:#7d7469;margin-top:8px;}
-.charlos-truth-quote{font-family:Georgia,'Noto Serif KR',serif;font-size:clamp(1.2rem,4vw,1.85rem);font-weight:700;line-height:1.6;padding:22px 0;border-top:1px solid #cfb88d;border-bottom:1px solid #cfb88d;margin:25px 0;}
+.charlos-truth-quote{font-family:system-ui,-apple-system,'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:clamp(1.1rem,3.6vw,1.65rem);font-weight:800;letter-spacing:-.025em;overflow-wrap:anywhere;line-height:1.6;padding:22px 0;border-top:1px solid #cfb88d;border-bottom:1px solid #cfb88d;margin:25px 0;}
 .charlos-truth-story{max-width:480px;margin:0 auto;text-align:left;font-size:.89rem;line-height:1.95;color:#494038;}
 .charlos-truth-story p{margin-bottom:16px;}.charlos-truth-last{font-size:1.03rem;font-weight:800;margin:24px 0;}
 .charlos-truth-disclaimer{font-size:.72rem;color:#736e69;line-height:1.7;border-top:1px solid #d4cbc2;padding-top:12px;text-align:left;}
