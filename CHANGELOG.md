@@ -4,7 +4,7 @@
 - **Added:** 에넬 대표 대사 “나는 신이다…!!” / 「我は神なり…!!」, ONE PIECE.com 2018-09-03 공식 일본어 인용으로 **official-excerpt**, 한국어 **editorial** 등록. 만화 컷/정식 한국어판 번역 및 만화 화수 미확인. 81명 명대사 15 official / 66 secondary / pending 0.
 - **Preserved:** v0.4.13 원본 7축과 모든 과거 Evaluation, 다른 80인 수치, 81 캐릭터·85 평가·595축·106 소속·18매치업, 기존 에넬 vs 루피의 하늘섬 수치 비교 차단. E2/E3와 Raw Haki 0 유지. Balanced 1.2·Haki Weight 0.5·v0.3.3 기준선 불변.
 - **Versioning:** 앱/현재 코어·평가 세트 v0.4.15; 개별 에넬 승인 평가 버전 `evaluation-v0.4.15-enel-approved-provisional`.
-- **Tests:** v0.4.13 원본 대비 신규 승인 점수, 다른 평가·랭킹·18대진·명대사 출처/표시·감사·기준선 전수 회귀검증; 최종 CI·Pages는 PR·병합 후 확인.
+- **Tests:** 코드 변경 기준 PR Actions [#38882984413](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38882984413)에서 106파일/454테스트와 TypeScript/Vite 빌드 성공. 구버전 고정된 라이브 manifest/인용 개수 테스트 12+2건을 최신 기대값으로 수정(테스트 삭제·완화 없음). 문서-only 추가 변경 이후 최신 PR CI와 main Pages를 별도 최종 확인.
 - **Limits:** 개별 원작 만화 컷 전수 검증, 한국어 공식 번역, 실제 모바일/데스크톱 실기기 시각 확인은 아직 미완료. [상세 검토](docs/V0_4_15_ENEL_SCORE_QUOTE_REVIEW_2026-10-16.md).
 
 ---
