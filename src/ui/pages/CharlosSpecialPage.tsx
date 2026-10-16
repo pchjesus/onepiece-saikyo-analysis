@@ -9,27 +9,27 @@ import { charlosMemeQuote, charlosMemeStats, charlosSpecialOverall,
 export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () => void }) {
   const [truthOpen, setTruthOpen] = useState(false)
   return <main className="detail charlos-detail" style={characterIdentityStyle(celestialDragonGroup.id, CHARLOS_ID)}>
-    <header className="charlos-heading">
+    <div className="detail-heading charlos-heading" style={characterIdentityStyle(celestialDragonGroup.id, CHARLOS_ID)}>
       <div className="detail-heading-profile">
         <CharacterPortrait characterId={CHARLOS_ID} groupId={celestialDragonGroup.id} name="차를로스 성" size="large" />
         <div className="charlos-heading-copy">
           <CharacterIdentity group={celestialDragonGroup} characterId={CHARLOS_ID} showPastMembership={false} />
-          <p className="charlos-eyebrow">WORLD NOBLE · SPECIAL EVALUATION</p>
           <h1>차를로스 성</h1>
-          <p className="charlos-alias">
+          <div className="character-known-as charlos-known-as" aria-label="호칭">
             <span className="charlos-alias-badge">
               <span className="charlos-alias-title"><span className="charlos-alias-star" aria-hidden="true">*</span>호를로스 성</span>
               <span className="charlos-alias-subtitle">부산의 또 다른 자아</span>
             </span>
-          </p>
-          <span className="charlos-special-tag">세계귀족 특별 전형</span>
+            <span className="charlos-special-tag">세계귀족 특별 전형</span>
+          </div>
         </div>
       </div>
-      <div className="charlos-meme-quote">
-        <p>“{charlosMemeQuote}”</p>
-        <small>원피스 51권</small>
-      </div>
-    </header>
+      <figure className="character-quote charlos-meme-quote" aria-label="캐릭터 대표 명대사">
+        <div className="character-quote-eyebrow">대표 명대사</div>
+        <blockquote lang="ko">“{charlosMemeQuote}”</blockquote>
+        <figcaption><span>원피스 51권</span></figcaption>
+      </figure>
+    </div>
 
     <div className="charlos-intro">
       <button className="charlos-overall-card" onClick={onSelectOverall} type="button"
