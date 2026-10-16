@@ -51,14 +51,14 @@ export const charlosMemeStats: readonly NobleMemeStat[] = [
   {
     id:'mobility',label:'기동력',score:92,
     line:'내 발은 장식이다이. 남이 걸어주면 된다이.',
-    fact:'샤본디 제도의 세계귀족 행차에서 다른 인간을 이동에 동원하는 행태가 묘사된다이.',
+    fact:'샤본디에서 내가 직접 걸을 이유가 없다이. 인간들이 알아서 나를 태우고 움직여주면 되는 거다이.',
     satire:'발을 쓰면 신발이 닳는다이. 세상은 원래 서로 돕고 살아가는 거다이.',
     sourceUrl:'https://one-piece.com/story/sabaody/index.html',sourceLabel:'ONE PIECE.com · 샤본디 제도 편 (세부 장면 추가 대조 대상)',
   },
   {
     id:'humanity',label:'인정력',score:100,
     line:'인간을 너무 사랑해서 소유하고 싶을 뿐이다이.',
-    fact:'케이미 경매와 시라호시 납치 시도 등 인간을 물건처럼 취급한 행동이 확인된다이.',
+    fact:'케이미도 시라호시도 내 곁에 두고 싶었던 거다이. 소중한 인간들을 남에게 맡길 수는 없는 거다이.',
     satire:'인간 하나하나가 너무 소중하다이. 그러니 단 한 명도 내 곁을 떠나게 할 수 없는 거다이.',
     sourceUrl:'https://one-piece.com/story/levely/index.html',sourceLabel:'ONE PIECE.com · 세계회의 편',
   },
@@ -110,7 +110,16 @@ export const charlosMembership: CharacterMembership = {
 
 /** Satirical text is NOT official manga speech or an official retcon. */
 export const charlosMemeQuote = '5억 베리이~~~~!!! 5억에 사겠다이~~!!!'
-/** Three inseparable fan-meme lines, displayed in the secret popup verbatim. */
+/** Restored original long-form truth lore from before PR #128. */
+export const charlosTruthLines = [
+  '그는 알고 있었다이. 끝까지 고개를 들고 저항하는 이들이 얼마나 쉽게 쓰러지는지 말이다이.',
+  '그래서 결심했다이. 모든 미움을 자신에게 모으고 악인을 연기하기로 말이다이.',
+  '세상은 그가 인간을 사고팔았다고 비난했다이. 하지만 그의 가슴에 품어진 인간애는 5억 베리보다 뜨거웠다이.',
+  '5억 베리는 거래가 아니었다이. 말로는 다 표현할 수 없는 사랑의 무게였다이.',
+  '그가 맞을 때마다 세상은 조금씩 움직였다이. 그것이 자신이 선택한 성자의 길이었다이.',
+] as const
+
+/** Three additional, inseparable fan-meme lines displayed as a single scene. */
 export const charlosTruthMonologue = [
   '서.. 설득할 시간 없다이!!',
   '한명이라도 더 많이 노예로 만들어야한다이!!',
