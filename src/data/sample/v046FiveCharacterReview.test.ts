@@ -72,8 +72,8 @@ describe('v0.4.6 five-character audited recalibration and state-aware rankings',
  })
  it('keeps exactly 72 ranking identities; selection changes only that character value and ranks',()=>{
    const base=getStatRanking('overall')
-   expect(base).toHaveLength(81)
-   expect(new Set(base.map(x=>x.characterId)).size).toBe(81)
+   expect(base).toHaveLength(82)
+   expect(new Set(base.map(x=>x.characterId)).size).toBe(82)
    const g4=getStatRanking('overall',{luffy:'egghead-gear4'})
    const g5=getStatRanking('overall',{luffy:'egghead-gear5'})
    expect(g4.find(x=>x.characterId==='luffy')).toMatchObject({subjectStateId:'egghead-gear4',score:635/7})
