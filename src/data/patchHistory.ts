@@ -38,6 +38,22 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  { version:'v0.4.16', date:'2026-10-16', title:'CP0 마하·게르니카 Stage 2A 근거 충분도 보수 조정',
+    summary:'마하 Speed·Technique·Combat IQ·Versatility, 게르니카 Combat IQ의 근거 충분도를 E2→E3으로 조정하고 해당 공식 TV 보조자료의 역할을 secondary→context로 정정. 두 명의 7축·Overall, 다른 79명·Balanced 1.2·Raw Haki·18 매치업·v0.3.3 기준선 모두 불변.',
+    report:'docs/V0_4_16_CP0_STAGE2A_EVIDENCE_READINESS_2026-10-16.md',
+    changes:[
+      {kind:'evidence',characterId:'maha',title:'마하 네 축 E2→E3 · 공식 줄거리 맥락으로 한정',
+        detail:'Speed77, Technique80, Combat IQ72, Versatility70의 E등급만 E3으로 변경. 마하 TV1068 Evidence ID 유지, 네 축 역할 secondary→context. 부상한 이조와 결착 사실과 마하 개인 동작·독립 속도/숙련/전술/다역할 증명을 분리.',
+        reason:'원작 공식 TV 줄거리에는 결착과 양측 치명상은 있지만 해당 네 축의 구체적 실전 성능 입증이 없음. 점수 변경 전 원작 컷 대조 보류.',
+        evidence:[{label:'ONE PIECE.com TV1068',url:'https://one-piece.com/anime/62441/index.html'},{label:'ONE PIECE.com TV1065 (이조 선행 중상)',url:'https://one-piece.com/anime/61988/index.html'}]},
+      {kind:'evidence',characterId:'guernica',title:'게르니카 Combat IQ 80 E2→E3 · 임무와 판단 구분',
+        detail:'Combat IQ 80 유지, 근거 충분도 E3 및 TV1069 역할 secondary→context. 지건 반격·철괴를 통한 개입은 확인하지만 오로성 명령 이행과 본인의 독자 전술 설계는 구분.',
+        reason:'확인된 임무 수행 장면만으로 개인 Combat IQ 80의 충분한 직접·반복 근거를 확보하지 못함. 다른 축 E등급과 모든 숫자·전투 결과 불변.',
+        evidence:[{label:'ONE PIECE.com TV1069',url:'https://one-piece.com/anime/62672/index.html'}]},
+    ],
+  },
+
+
   { version:'v0.4.15', date:'2026-10-16', title:'에넬 7축 승인 재평가 · 공식 일본어 명대사',
     summary:'에넬 하늘섬 편의 Attack85/Defense74/Stamina72/Speed86/Technique86/Combat IQ76/Versatility87로 사용자 승인 재평가(Overall80.857). v0.4.13 원본 유지. 대표 대사 「我は神なり…!!」를 공식 일본어 인용·한국어 편집 번역으로 등록. 모델·다른 80인 평가·18대진 불변.',
     report:'docs/V0_4_15_ENEL_SCORE_QUOTE_REVIEW_2026-10-16.md',
