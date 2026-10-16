@@ -107,6 +107,20 @@ function CrewSymbol({ id }: { id: string }) {
     </>}
   </svg>
 }
+/**
+ * Small, original line-art simplification of the 'Hoof of the Soaring Dragon',
+ * the World Nobles' insignia also used as the slave ownership brand in canon.
+ * This is not a new family crest or a reproduction of a copyrighted image.
+ */
+function CelestialDragonEmblem() {
+  return <svg viewBox="0 0 48 48" width="26" height="26" role="img"
+    aria-label="천룡인 문양 · 천룡의 발굽을 단순화한 그림" fill="none">
+    <circle cx="24" cy="25" r="11" stroke="currentColor" strokeWidth="3"/>
+    <path d="M13 17 9 7 19 13M23 13 24 4 28 13M35 17 42 8 39 21M22 36 24 45 29 36"
+      fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinejoin="round"/>
+  </svg>
+}
+
 const groupMark = (group: Group): string => {
   // Decorative echoes of each crew's theme; not asserted to be their canon Jolly Rogers.
   const markByGroup: Record<string, string> = {
@@ -136,7 +150,9 @@ export function CharacterIdentity({ group, characterId, showPastMembership }: {
         ? <WhitebeardEmblem/>
         : group.id === 'beasts-pirates'
           ? <BeastsEmblem/>
-          : <>{CrewSymbol({ id: group.id }) ?? <span aria-hidden="true">{groupMark(group)}</span>}</>}
+          : group.id === 'celestial-dragons'
+            ? <CelestialDragonEmblem/>
+            : <>{CrewSymbol({ id: group.id }) ?? <span aria-hidden="true">{groupMark(group)}</span>}</>}
     </span>
     <span className="eyebrow">{group.name}</span>
     {showPastMembership && <span className="membership-context">과거 소속</span>}

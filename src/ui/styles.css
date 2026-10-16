@@ -857,15 +857,15 @@ header p:last-child { color: #666; }
 
 /* v0.4.17 — deliberately isolated satirical noble profile; existing UI untouched. */
 .charlos-detail { --noble-gold:#b18a42; --noble-ink:#242126; padding:0; overflow:hidden; font-family:system-ui,-apple-system,'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif; }
-.charlos-heading { padding:clamp(20px,4vw,36px); background:#f4efe5; color:var(--noble-ink); border-bottom:1px solid #e3dacb; margin:0; }
-.charlos-heading .detail-heading-profile { display:flex; gap:22px; align-items:center; }
-.charlos-heading-copy h1 {font-family:inherit;font-weight:800;font-size:clamp(1.8rem,5vw,3.25rem);line-height:1.18;letter-spacing:-.035em;margin:.35rem 0;}
+.charlos-detail .detail-heading.charlos-heading { display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:8px 24px;padding:clamp(20px,2.5vw,32px);background:#f4efe5;color:var(--noble-ink);border-left:3px solid var(--identity-accent,#b18a42);border-bottom:1px solid #e3dacb;margin:0 0 18px; }
+.charlos-heading .detail-heading-profile { display:flex;gap:18px;align-items:flex-start;min-width:0;flex:1 1 440px; }
+.charlos-heading-copy h1 {font-family:inherit;font-weight:800;font-size:clamp(1.7rem,3.8vw,2.8rem);line-height:1.2;letter-spacing:-.035em;margin:7px 0 6px;}
 .charlos-eyebrow {font-size:.68rem;letter-spacing:.15em;font-weight:800;color:#806a4b;margin:0 0 10px;}
 .charlos-alias {font-size:.94rem;font-weight:700;margin:.3rem 0 .85rem;}
 .charlos-special-tag,.special-rank-tag {display:inline-block;border:1px solid #b18a42;color:#73551f;background:#fff8e8;font-size:.72rem;font-weight:800;padding:4px 8px;border-radius:4px;white-space:nowrap;}
-.charlos-meme-quote {margin:24px 0 0;border-top:1px solid #d6c7ae;padding-top:18px;}
-.charlos-meme-quote p {font-family:inherit;font-size:clamp(1.08rem,3vw,1.45rem);font-weight:800;letter-spacing:-.025em;line-height:1.55;color:var(--noble-ink);margin:0 0 6px;}
-.charlos-meme-quote small {font-size:.74rem;color:#777;}
+.charlos-detail .charlos-meme-quote {width:100%;min-width:0;flex:1 1 100%;margin:8px 0 0;padding:12px 16px;border:1px solid #ddcfba;border-left:3px solid var(--identity-accent,#b18a42);border-radius:12px;background:#fffaf0;}
+.charlos-meme-quote blockquote {font-family:inherit;font-size:clamp(.95rem,1.4vw,1.12rem);font-weight:800;letter-spacing:-.015em;line-height:1.55;color:var(--noble-ink);margin:5px 0 7px;overflow-wrap:anywhere;}
+.charlos-meme-quote figcaption {font-size:.73rem;color:#756957;line-height:1.5;}
 .charlos-intro {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:22px;padding:30px clamp(20px,4vw,36px);align-items:stretch;}
 .charlos-overall-card {display:flex;flex-direction:column;justify-content:center;text-align:left;gap:12px;border:0;border-radius:14px;background:var(--noble-ink);color:#fff;padding:26px;cursor:pointer;}
 .charlos-overall-card>span:first-child {font-size:.83rem;color:#e6d8c5;}.charlos-overall-card>span:last-child{font-size:.76rem;color:#d3d0ce;}
@@ -977,3 +977,15 @@ header p:last-child { color: #666; }
 /* The asterisked title and its Busan alter-ego line are one bordered label. */
 .charlos-alias-title{display:inline-flex;align-items:center;gap:7px;line-height:1.3;white-space:nowrap;}
 .charlos-alias-subtitle{font-size:.72rem;font-weight:600;line-height:1.4;color:#7b6540;white-space:nowrap;}
+
+/* Charlos header shares CharacterPage's hierarchy; only its ivory/gold theme stays unique. */
+.charlos-heading .charlos-heading-copy{min-width:0;flex:1;}
+.charlos-known-as{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:7px;}
+.charlos-known-as .charlos-special-tag{font-size:.75rem;line-height:1.35;white-space:normal;padding:6px 10px;}
+.charlos-heading .character-identity .identity-mark{color:#b18a42;}
+.charlos-detail .charlos-meme-quote .character-quote-eyebrow{color:#846c4e;}
+@media(max-width:650px){
+  .charlos-detail .detail-heading.charlos-heading{padding:20px;gap:8px 12px;}
+  .charlos-heading .detail-heading-profile{gap:12px;}
+  .charlos-detail .charlos-meme-quote{padding:10px 12px;margin-top:4px;}
+}
