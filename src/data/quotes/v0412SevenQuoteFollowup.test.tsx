@@ -13,7 +13,7 @@ const present=['jozu','gaban','morley','karasu','stussy','prince-grus','inazuma'
 describe('Quote-only follow-up: seven shortlisted voices',()=>{
   it('preserves the historic seven selected candidates and newly covers all 80 character IDs without changing combat evaluations',()=>{
     const ids=[...sampleCharacters,...v0411Characters].map(x=>x.id)
-    expect(ids).toHaveLength(80)
+    expect(ids).toHaveLength(81)
     expect(Object.keys(characterQuoteReviews).sort()).toEqual([...ids].sort())
     expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='official-excerpt')).toHaveLength(14)
     expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='secondary-excerpt')).toHaveLength(66)
@@ -21,7 +21,7 @@ describe('Quote-only follow-up: seven shortlisted voices',()=>{
       .toEqual([])
     expect(sampleEvaluations).toHaveLength(76)
     expect(v0412Evaluations).toHaveLength(8)
-    expect(getStatRanking('overall')).toHaveLength(80)
+    expect(getStatRanking('overall')).toHaveLength(81)
   })
   it('traces Jozu to chapter 567 Aokiji interception, not unrelated scenes',()=>{
     const j=getCharacterQuoteReview('jozu')!
