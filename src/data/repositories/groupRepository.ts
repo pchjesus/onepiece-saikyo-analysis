@@ -2,9 +2,10 @@ import type { CharacterMembership, Group } from '../../domain/character/types'
 import { sampleGroups } from '../sample/groups'
 import { sampleMemberships } from '../sample/memberships'
 import { v0411Memberships } from '../sample/v0411UnratedCharacterRegistration'
+import { v0413EnelMembership } from '../sample/v0413RemainingDraftPublication'
 
 /** Existing historical memberships stay byte-for-byte unchanged. */
-const currentMemberships = [...sampleMemberships, ...v0411Memberships]
+const currentMemberships = [...sampleMemberships, ...v0411Memberships, v0413EnelMembership]
 
 export interface GroupRepository {
   getGroups(): Group[]
@@ -21,5 +22,5 @@ export const groupRepository: GroupRepository = {
   getMembershipsForCharacter: (characterId) =>
     currentMemberships.filter((membership) => membership.characterId === characterId),
   getMembershipsForGroup: (groupId) =>
-    sampleMemberships.filter((membership) => membership.groupId === groupId),
+    currentMemberships.filter((membership) => membership.groupId === groupId),
 }
