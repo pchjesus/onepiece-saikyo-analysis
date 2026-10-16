@@ -65,9 +65,9 @@ describe('v0.4.6 five-character audited recalibration and state-aware rankings',
    expect(balancedV12.configuration.hakiWeight).toBe(0.5)
    expect(auditCombatDataset(liveDataset).errors).toEqual([])
    expect(getMatchupHubEntries()).toHaveLength(18)
-   expect(versionManifest.appVersion).toBe('0.4.16')
-   expect(versionManifest.coreDataVersion).toBe('core-v0.4.16')
-   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.16')
+   expect(versionManifest.appVersion).toBe('0.4.17')
+   expect(versionManifest.coreDataVersion).toBe('core-v0.4.17')
+   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.17')
    expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
  })
  it('keeps exactly 72 ranking identities; selection changes only that character value and ranks',()=>{
