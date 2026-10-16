@@ -50,8 +50,8 @@ describe('v0.4.11 eight character-only registrations', () => {
 
   it('keeps one quote slot per 80 characters; activates only sourced Straw Hat quotes', () => {
     expect(Object.keys(characterQuoteReviews)).toHaveLength(81)
-    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='official-excerpt')).toHaveLength(14)
-    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='pending')).toHaveLength(1)
+    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='official-excerpt')).toHaveLength(15)
+    expect(Object.values(characterQuoteReviews).filter(q=>q.verificationStatus==='pending')).toHaveLength(0)
     for(const id of ['nami','chopper','robin','franky','brook']){
       const review=getCharacterQuoteReview(id)!
       expect(review.verificationStatus).toBe('official-excerpt')
