@@ -16,13 +16,13 @@ export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () =>
           <CharacterIdentity group={celestialDragonGroup} characterId={CHARLOS_ID} showPastMembership={false} />
           <p className="charlos-eyebrow">WORLD NOBLE · SPECIAL EVALUATION</p>
           <h1>차를로스 성</h1>
-          <p className="charlos-alias">호를로스 성 <span>· 프로젝트 특별 별칭</span></p>
+          <p className="charlos-alias">호를로스 성</p>
+          <p className="charlos-alias-lore">부산 고신대 의대에 존재한다는 또 다른 차를로스 성</p>
           <span className="charlos-special-tag">특별 밈 평가</span>
         </div>
       </div>
       <div className="charlos-meme-quote">
         <p>“{charlosMemeQuote}”</p>
-        <small>프로젝트 창작 패러디 · 공식 원작 대사 아님</small>
       </div>
     </header>
 
@@ -36,12 +36,12 @@ export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () =>
       <div className="charlos-intro-note">
         <p className="charlos-eyebrow">WORLD NOBLE · 7 ABILITIES</p>
         <h2>전투는 부하가,<br/>평가는 내가 한다이.</h2>
-        <p>정규 전투력 모델과 무관한 특별 풍자 점수다이. 오버롤 순위에만 함께 등장하며 일반 7축·매치업에는 참여하지 않는 거다이.</p>
+        <p>세계귀족의 위상은 평범한 전투력으로 설명할 수 없다이. 내 평가는 내가 정하는 거다이.</p>
       </div>
     </div>
 
     <section className="charlos-stats" aria-label="차를로스 성 천룡인 전용 7축">
-      <div className="charlos-section-heading"><h2>천룡인 전용 7축</h2><p>스탯을 누르면 원작 맥락과 말도 안 되는 해설이 열린다이.</p></div>
+      <div className="charlos-section-heading"><h2>천룡인 전용 7축</h2><p>스탯을 누르면 위대한 업적이 펼쳐진다이.</p></div>
       <div className="charlos-stat-list">
         {charlosMemeStats.map((stat,i) => <details className="charlos-stat" key={stat.id}>
           <summary>
@@ -55,7 +55,6 @@ export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () =>
             <p><strong>원작 맥락</strong>{stat.fact}</p>
             <p><strong>천룡인식 평가</strong>{stat.satire}</p>
             <a href={stat.sourceUrl} target="_blank" rel="noopener noreferrer">{stat.sourceLabel} ↗</a>
-            <small>공식 사이트의 줄거리·소개는 보조 출처다이. 점수는 공식 설정이 아니다이.</small>
           </div>
         </details>)}
       </div>
@@ -72,7 +71,6 @@ export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () =>
         진실 <span aria-hidden="true">↗</span>
       </button>
     </section>
-    <p className="charlos-footnote">※ 본 인물은 정규 7축·패기·Balanced 1.2와 무관한 풍자 예외다이. ‘인정력’은 실제 인간성과 정반대인 반어다이. 이미지 저작권·공개 재배포 허가는 아직 검증되지 않았다이.</p>
     {truthOpen && <CharlosTruthDialog onClose={() => setTruthOpen(false)} />}
   </main>
 }
