@@ -1,3 +1,16 @@
+# v0.5.0 Stage 1 — 전체 80인/588축 읽기 전용 감사 검증 (2026-10-16)
+
+- **기준 main:** `4965b6e1e698888d2b363b9b606f835c65661e27` (앱 v0.4.12, B+ 정책 추가).
+- **확인된 PR CI:** [#121, Actions 38865541058](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38865541058) · 검사 SHA `b3e9b7cab1d4efdd103c0f22f1bd7b0405609620` · **103개 테스트 파일/440개 테스트 모두 통과**, `tsc -b && vite build` 성공.
+- **아티팩트:** [588행 CSV + 집계 JSON](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38865541058/artifacts/12030867589) (7일 유지). E1 **69** / E2 **347** / E3 **172**, 결측 readiness 0; **고득점 E3 19축**, 직접 Evidence ID 없는 6축, 동일 Evidence 다축 Haki Raw 12건(29개 축 연결), 한 스탯 복수 Haki 종류 2축. 이는 **검토 후보**이며 확정 오류가 아님.
+- **전수 통합:** Character 80, 평가 대상 고유 인물 80, Evaluation 84, 스탯 588, Membership 105, Matchup 17. 별도 v0.4.12 신규 8인 56축(E2 40/E3 16), 패기 Raw0, 기존 76 Evaluation 보존.
+- **회귀:** 현재 80인 Overall 및 7축 랭킹, 84건 Evaluation 각 계산식, CSV 결정성·출처 역할 매핑, v0.3.3 독립 JSON 파일 바이트 및 입력 비변경 검사 통과.
+- **빌드 장애 해결 이력:** 최초 PR Actions 38865366312에서는 103파일/440테스트 및 CSV 생성 성공 후 TypeScript 빌드가 Node 타입/ES `replaceAll` 호환 문제로 실패. Node 테스트를 `tests/`로 이동하고 ES 호환 문자열 치환으로 수정한 뒤 위 CI에서 빌드까지 성공.
+- **미검증:** 작품 원작 컷 단위의 전수 내용 검증, 588축 점수의 규범적 정당성, 실제 PC/모바일 수동 UI, 명대사 정식 한국어판과 이미지 사용권. 이번 PR에서는 **점수·가중치·계산 모델·매치업·UI·역사적 기준선 변경 없음**.
+- **후속:** 위험군의 Canon Fact/조건/해석 심층 검토, 유사 캐릭터 동축 비교, 개별 제한적 재산정 후보/전체 순위·매치업 영향 분석 후 사용자 승인. 문서 최종 병합과 Pages는 별도 최신 SHA 검증 예정.
+
+---
+
 # v0.4.12 후속 — 명대사 80명 전체 선정·검증 (2026-10-15)
 
 - 스무디/마하 2명 추가, 80/80 quote 슬롯의 실제 문구·출처·상태 표출. 14 official-excerpt / 66 secondary-excerpt / pending 0.

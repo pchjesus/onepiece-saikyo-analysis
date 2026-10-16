@@ -1,5 +1,7 @@
 # 원피스 전투력 분석
 
+> **v0.5.0 감사 Stage 1 개발(앱 릴리즈는 여전히 v0.4.12):** 80명·84개 Evaluation·588개 7축을 대상으로 E1/E2/E3, 근거 연결 및 Haki 다축 중복 후보를 읽기 전용 CSV로 추출·검증하는 작업. 점수·모델·순위·매치업 변경 없음. [감사 설계·검증 및 승인 게이트](docs/V0_5_0_READONLY_AUDIT_STAGE1_2026-10-16.md).
+
 현재 구현 패치: **v0.4.12** (독립 읽기 전용 조직도 탭 · 현재/과거/전체 소속 탐색 · 하위 Group 중복 제거. 평가 데이터/모델 v0.4.6 및 v0.4.7 순위/매치업 UI 불변) (npm package 버전 **0.4.12**)
 평가 데이터: **80 Character master pool · 80 visible Character · 80 evaluated unique Character · 105 Membership · 84 Evaluation · 588 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
