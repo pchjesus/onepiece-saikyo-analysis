@@ -23,7 +23,7 @@ export const charlosMemeStats: readonly NobleMemeStat[] = [
   {
     id:'gun',label:'총질력',score:23,
     line:'총은 쏠 줄 안다이. 주먹은 부하가 쓴다이.',
-    fact:'샤본디에서 하찌에게 내가 직접 총을 쐈다이. 고귀한 손가락 하나로 충분하다이.',
+    fact:'샤본디에서 하찌에게 내가 직접 총을 쐈다이.',
     satire:'맨주먹으로 시비를 거는 건 품위가 없는 거다이. 고귀한 손가락 하나면 충분하다이.',
     sourceUrl:'https://one-piece.com/story/sabaody/index.html',sourceLabel:'ONE PIECE.com · 샤본디 제도 편',
   },
@@ -31,7 +31,7 @@ export const charlosMemeStats: readonly NobleMemeStat[] = [
     id:'toughness',label:'맷집력',score:97,
     line:'맞고 또 나오는 것도 귀족의 품격이다이.',
     fact:'루피의 주먹도 맞아봤다이. 묘스가르드와 사이·레오의 공격까지 몸소 경험했다이.',
-    satire:'루피의 주먹을 맞고도 다시 등장했다이. 위대한 귀족의 생명력은 쉽게 꺼지지 않는 거다이.',
+    satire:'무수한 구타 후에도 다시 등장했다이. 위대한 귀족의 생명력은 쉽게 꺼지지 않는 거다이.',
     sourceUrl:'https://one-piece.com/anime/68725/index.html',sourceLabel:'ONE PIECE.com · 애니메이션 1118화',
   },
   {
@@ -52,7 +52,7 @@ export const charlosMemeStats: readonly NobleMemeStat[] = [
     id:'mobility',label:'기동력',score:92,
     line:'내 발은 장식이다이. 남이 걸어주면 된다이.',
     fact:'샤본디에서 내가 직접 걸을 이유가 없다이. 인간들이 알아서 나를 태우고 움직여주면 되는 거다이.',
-    satire:'발을 쓰면 신발이 닳는다이. 세상은 원래 서로 돕고 살아가는 거다이.',
+    satire:'발을 쓰면 신발이 닳는다이. 내 신발은 귀하니 인간들이 대신 걷는 거다이.',
     sourceUrl:'https://one-piece.com/story/sabaody/index.html',sourceLabel:'ONE PIECE.com · 샤본디 제도 편 (세부 장면 추가 대조 대상)',
   },
   {
