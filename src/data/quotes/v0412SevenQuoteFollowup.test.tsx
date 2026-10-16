@@ -22,7 +22,7 @@ describe('Quote-only follow-up: seven shortlisted voices',()=>{
       .toEqual([])
     expect(sampleEvaluations).toHaveLength(76)
     expect(v0412Evaluations).toHaveLength(8)
-    expect(getStatRanking('overall')).toHaveLength(81)
+    expect(getStatRanking('overall')).toHaveLength(82)
   })
   it('traces Jozu to chapter 567 Aokiji interception, not unrelated scenes',()=>{
     const j=getCharacterQuoteReview('jozu')!

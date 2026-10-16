@@ -36,9 +36,16 @@ const v0414EnelPortraitAsset: CharacterPortraitAsset = {
   permissionNote: '사용자 제공 이미지 · 원저작권자 및 공개 재배포 허가 미확인',
 }
 
+/** v0.4.17 — user-provided art, resized to 300px for web delivery; original uploads remain in the conversation. */
+const v0417CharlosPortraitAsset: CharacterPortraitAsset = {
+  fileName: 'charlos.webp',
+  permission:'user-provided-unverified',
+  permissionNote:'사용자 제공 일러스트를 WebP로 웹 최적화(300px). 원작/그림 원저작권자 및 공개 재배포 허가 미확인',
+}
+
 export function getCharacterPortraitAsset(characterId: string): CharacterPortraitAsset | undefined {
   const asset = characterPortraitAssets[characterId] ?? v0411PortraitAssets[characterId]
-    ?? (characterId === 'enel' ? v0414EnelPortraitAsset : undefined)
+    ?? (characterId === 'enel' ? v0414EnelPortraitAsset : characterId === 'charlos' ? v0417CharlosPortraitAsset : undefined)
   if (!asset) return undefined
   if (!/^[a-z0-9][a-z0-9-]*\.(?:webp|png|jpe?g)$/.test(asset.fileName)) return undefined
   if (asset.sourceUrl !== undefined && !/^https:\/\//.test(asset.sourceUrl)) return undefined

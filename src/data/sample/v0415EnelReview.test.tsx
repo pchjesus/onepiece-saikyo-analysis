@@ -51,15 +51,15 @@ describe('v0.4.15 approved Enel review and official Japanese quote', () => {
     }
     expect(getCombatPower('enel').finalScore).toBeCloseTo(566 / 7, 10)
     expect(getCharacterDetail('enel', 'skypiea')?.evaluation.items.map(item => item.score)).toEqual(approved)
-    expect(getStatRanking('overall')).toHaveLength(81)
+    expect(getStatRanking('overall')).toHaveLength(82)
     expect(matchupRepository.getAllMatchups()).toHaveLength(18)
     expect(matchupRepository.getAllMatchups().find(match => match.id === 'matchup-enel-luffy-skypiea')?.historicalContext?.characterBEra)
       .toContain('7축 평가 없음')
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(versionManifest.appVersion).toBe('0.4.16')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.16')
+    expect(versionManifest.appVersion).toBe('0.4.17')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.17')
   })
   it('displays a sourced Japanese quotation with editorial Korean, not manga-checked or official-Korean', () => {
     const quote = getCharacterQuoteReview('enel')!

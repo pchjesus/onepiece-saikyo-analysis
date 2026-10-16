@@ -853,3 +853,66 @@ header p:last-child { color: #666; }
   .matchup-historical-notice dl { grid-template-columns:1fr; }
   .matchup-historical-notice dl > div:last-child { grid-column:auto; }
 }
+
+
+/* v0.4.17 — deliberately isolated satirical noble profile; existing UI untouched. */
+.charlos-detail { --noble-gold:#b18a42; --noble-ink:#242126; padding:0; overflow:hidden; }
+.charlos-heading { padding:clamp(20px,4vw,36px); background:#f4efe5; color:var(--noble-ink); border-bottom:1px solid #e3dacb; margin:0; }
+.charlos-heading .detail-heading-profile { display:flex; gap:22px; align-items:center; }
+.charlos-heading-copy h1 {font-family:Georgia,'Noto Serif KR',serif;font-size:clamp(1.8rem,5vw,3.25rem);line-height:1.15;letter-spacing:-.05em;margin:.35rem 0;}
+.charlos-eyebrow {font-size:.68rem;letter-spacing:.15em;font-weight:800;color:#806a4b;margin:0 0 10px;}
+.charlos-alias {font-size:.94rem;font-weight:700;margin:.3rem 0 .85rem;}.charlos-alias span{font-size:.77rem;font-weight:400;color:#777;}
+.charlos-special-tag,.special-rank-tag {display:inline-block;border:1px solid #b18a42;color:#73551f;background:#fff8e8;font-size:.72rem;font-weight:800;padding:4px 8px;border-radius:4px;white-space:nowrap;}
+.charlos-meme-quote {margin:24px 0 0;border-top:1px solid #d6c7ae;padding-top:18px;}
+.charlos-meme-quote p {font-family:Georgia,'Noto Serif KR',serif;font-size:clamp(1.08rem,3vw,1.45rem);font-weight:700;color:var(--noble-ink);margin:0 0 6px;}
+.charlos-meme-quote small {font-size:.74rem;color:#777;}
+.charlos-intro {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:22px;padding:30px clamp(20px,4vw,36px);align-items:stretch;}
+.charlos-overall-card {display:flex;flex-direction:column;justify-content:center;text-align:left;gap:12px;border:0;border-radius:14px;background:var(--noble-ink);color:#fff;padding:26px;cursor:pointer;}
+.charlos-overall-card>span:first-child {font-size:.83rem;color:#e6d8c5;}.charlos-overall-card>span:last-child{font-size:.76rem;color:#d3d0ce;}
+.charlos-overall-card strong{font-size:clamp(3.6rem,9vw,5.3rem);letter-spacing:-.07em;font-variant-numeric:tabular-nums;line-height:1;}.charlos-overall-card strong small{font-size:1.15rem;color:#e1c68c;letter-spacing:0;margin-left:6px;}
+.charlos-overall-card:hover,.charlos-truth-trigger:hover,.charlos-truth-exit:hover {filter:brightness(1.1);}
+.charlos-intro-note{padding:8px 0;align-self:center;}.charlos-intro-note h2 {font-family:Georgia,'Noto Serif KR',serif;font-size:clamp(1.45rem,3vw,2rem);line-height:1.35;margin:0 0 10px;letter-spacing:-.035em;}
+.charlos-intro-note>p:last-child {font-size:.88rem;line-height:1.75;color:#65605a;}
+.charlos-stats {padding:0 clamp(20px,4vw,36px) 35px;}
+.charlos-section-heading {border-top:1px solid #ddd5c9;padding:28px 0 18px;}.charlos-section-heading h2 {font-size:1.32rem;letter-spacing:-.04em;margin:0 0 6px;}.charlos-section-heading p{font-size:.82rem;color:#777;margin:0;}
+.charlos-stat-list{border-top:1px solid #e6e1d9;}
+.charlos-stat {border-bottom:1px solid #e6e1d9;}
+.charlos-stat summary{list-style:none;display:grid;align-items:center;grid-template-columns:34px minmax(0,1fr) 62px 24px;gap:8px;padding:16px 4px;cursor:pointer;}
+.charlos-stat summary::-webkit-details-marker {display:none;}
+.charlos-stat summary:focus-visible,.charlos-truth-trigger:focus-visible,.charlos-truth-exit:focus-visible,.charlos-truth-topbar button:focus-visible{outline:3px solid #3b79ac;outline-offset:3px;}
+.charlos-stat-ordinal{font-size:.75rem;color:#a9a197;font-variant-numeric:tabular-nums;}
+.charlos-stat-text{min-width:0;display:flex;flex-direction:column;gap:4px;}
+.charlos-stat-text strong{font-size:.99rem;color:#26231f;}
+.charlos-stat-text small{font-size:.77rem;color:#716f69;line-height:1.4;overflow-wrap:anywhere;}
+.charlos-stat-score{font-size:1.55rem;font-weight:800;font-variant-numeric:tabular-nums;text-align:right;color:#312a21;}
+.charlos-stat-chevron{font-size:1.25rem;color:#a88a4d;text-align:center;transition:transform .2s;}
+.charlos-stat[open] .charlos-stat-chevron{transform:rotate(45deg);}
+.charlos-bar{grid-column:2 / 4;background:#eeeae4;height:5px;border-radius:8px;overflow:hidden;display:block;}
+.charlos-bar span{display:block;height:100%;background:#b18a42;border-radius:inherit;}
+.charlos-stat-detail{padding:0 8px 22px 42px;color:#5c5550;font-size:.83rem;line-height:1.75;}
+.charlos-stat-detail p{margin:0 0 10px;}.charlos-stat-detail p strong{display:block;color:#342b25;margin-bottom:2px;}
+.charlos-stat-detail a{color:#685222;text-decoration:underline;text-underline-offset:3px;display:inline-block;margin:4px 0;}
+.charlos-stat-detail small{display:block;color:#777;}
+.charlos-secret-panel{margin:0 clamp(20px,4vw,36px) 16px;padding:23px;border:1px solid #d3bd91;background:#f8f4ed;border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:20px;}
+.charlos-secret-panel h2{margin:0 0 8px;font-family:Georgia,'Noto Serif KR',serif;font-size:1.2rem;}
+.charlos-secret-panel p:last-child{font-size:.8rem;margin:0;color:#766e63;}
+.charlos-truth-trigger{background:#242126;color:white;border:0;border-radius:6px;padding:12px 24px;font-weight:700;cursor:pointer;white-space:nowrap;}
+.charlos-footnote {color:#777;font-size:.73rem;line-height:1.8;padding:10px clamp(20px,4vw,36px) 26px;margin:0;}
+.special-rank-tag{margin-left:8px;font-style:normal;font-size:.63rem;vertical-align:middle;}
+.charlos-truth-backdrop{position:fixed;z-index:1200;inset:0;padding:20px;background:rgba(8,7,9,.95);display:flex;align-items:center;justify-content:center;animation:charlosCurtain .33s ease-out both;}
+.charlos-truth-dialog{width:min(660px,100%);max-height:min(90vh,950px);overflow:auto;overscroll-behavior:contain;background:#f3eee6;color:#282324;border:1px solid #8f7d60;border-radius:12px;box-shadow:0 18px 60px #0008;outline:none;}
+.charlos-truth-topbar{position:sticky;top:0;z-index:1;background:#272429;color:#e7d6ae;padding:11px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.68rem;font-weight:750;letter-spacing:.15em;}
+.charlos-truth-topbar button{color:#fff;background:transparent;border:0;font-size:1.7rem;cursor:pointer;line-height:1.2;}
+.charlos-truth-reveal{text-align:center;padding:clamp(20px,5vw,42px);animation:charlosReveal .7s ease-out .3s both;}
+.charlos-truth-eyebrow{font-size:.68rem;letter-spacing:.14em;color:#846c4e;font-weight:800;}
+.charlos-truth-reveal h2{font-family:Georgia,'Noto Serif KR',serif;letter-spacing:-.05em;font-size:clamp(1.6rem,5vw,2.75rem);line-height:1.3;margin:8px 0 24px;}
+.charlos-truth-figure{margin:0 auto;max-width:410px;}.charlos-truth-figure img{display:block;width:100%;height:auto;object-fit:contain;background:white;border:1px solid #ddd5ca;}.charlos-truth-figure figcaption{font-size:.74rem;color:#7d7469;margin-top:8px;}
+.charlos-truth-quote{font-family:Georgia,'Noto Serif KR',serif;font-size:clamp(1.2rem,4vw,1.85rem);font-weight:700;line-height:1.6;padding:22px 0;border-top:1px solid #cfb88d;border-bottom:1px solid #cfb88d;margin:25px 0;}
+.charlos-truth-story{max-width:480px;margin:0 auto;text-align:left;font-size:.89rem;line-height:1.95;color:#494038;}
+.charlos-truth-story p{margin-bottom:16px;}.charlos-truth-last{font-size:1.03rem;font-weight:800;margin:24px 0;}
+.charlos-truth-disclaimer{font-size:.72rem;color:#736e69;line-height:1.7;border-top:1px solid #d4cbc2;padding-top:12px;text-align:left;}
+.charlos-truth-exit{border:0;border-radius:6px;background:#242126;color:#fff;padding:12px 22px;font-weight:800;cursor:pointer;margin-top:16px;}
+@keyframes charlosCurtain {from{opacity:0;}to{opacity:1;}}
+@keyframes charlosReveal{from{opacity:0;transform:translateY(18px);filter:blur(2px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@media(max-width:650px){.charlos-heading .detail-heading-profile{gap:12px;}.charlos-intro{grid-template-columns:1fr;}.charlos-secret-panel{align-items:flex-start;}.charlos-truth-trigger{padding:10px 17px;}.charlos-stat-text small{font-size:.72rem;}}
+@media(prefers-reduced-motion:reduce){.charlos-truth-backdrop,.charlos-truth-reveal{animation:none!important;}.charlos-stat-chevron{transition:none;}}

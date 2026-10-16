@@ -93,8 +93,8 @@ describe('v0.5.0 stage 1: read-only 81-person, 85-evaluation, 595-stat audit', (
     }
     for(const stat of ['overall',...COMBAT_STATS] as const) {
       const ranking=getStatRanking(stat)
-      expect(ranking).toHaveLength(81)
-      if(stat==='overall') for(const person of ranking) {
+      expect(ranking).toHaveLength(stat === 'overall' ? 82 : 81)
+      if(stat==='overall') for(const person of ranking.filter(x=>x.characterId!=='charlos')) {
         expect(getCombatPower(person.characterId).finalScore).toBe(person.score)
       }
     }
