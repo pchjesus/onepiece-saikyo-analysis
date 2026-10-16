@@ -46,7 +46,7 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
     expect(matchupRepository.getAllMatchups().every(m=>!JSON.stringify(m).includes(CHARLOS_ID))).toBe(true)
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(versionManifest.appVersion).toBe('0.4.17')
+    expect(versionManifest.appVersion).toBe('0.4.18')
   })
 
   it('inserts ONE meme overall result without changing original 81 numeric results', () => {
@@ -71,19 +71,27 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
     expect(v050CurrentDataset.evaluations.map(e=>e.items.map(i=>i.score))).toHaveLength(85)
   })
 
-  it('retains exact user-image asset paths, and standalone meme UI identifies satire', () => {
+  it('retains exact user-image assets and delivers an in-universe special UI without explaining its jokes', () => {
     expect(getCharacterPortraitAsset(CHARLOS_ID)?.fileName).toBe('charlos.webp')
     const html=renderToStaticMarkup(<CharlosSpecialPage onSelectOverall={()=>{}}/>)
     expect(html).toContain('호를로스 성')
+    expect(html).toContain('부산 고신대 의대에 존재한다는 또 다른 차를로스 성')
     expect(html).toContain('87.3')
     expect(html).toContain('진실')
     expect(html).toContain('총질력')
     expect(html).toContain('특별 밈 평가')
     expect(html).toContain('images/characters/charlos.webp')
     expect(html).toContain('원작 맥락')
+    expect(html).toContain('위대한 업적이 펼쳐진다이.')
+    expect(html).not.toContain('프로젝트 특별 별칭')
+    expect(html).not.toContain('프로젝트 창작 패러디 · 공식 원작 대사 아님')
+    expect(html).not.toContain('인정력’은 실제 인간성과 정반대인 반어다이')
+    expect(html).not.toContain('완전한 반어다이')
+    expect(charlosMemeStats.find(s=>s.id==='humanity')?.satire)
+      .toBe('인간 하나하나가 너무 소중하다이. 그러니 단 한 명도 내 곁을 떠나게 할 수 없는 거다이.')
   })
 
-  it('opens the secret modal, exposes disclaimer and image, and closes via Escape', async () => {
+  it('opens the secret modal without a punchline explanation and closes via Escape', async () => {
     (globalThis as typeof globalThis & {IS_REACT_ACT_ENVIRONMENT:boolean}).IS_REACT_ACT_ENVIRONMENT=true
     const host=document.createElement('div')
     document.body.appendChild(host)
@@ -95,7 +103,9 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
       await act(async()=>{btn!.click()})
       const modal=document.querySelector('[role="dialog"][aria-labelledby="charlos-truth-title"]')
       expect(modal?.textContent).toContain('일어나 죽지 말고')
-      expect(modal?.textContent).toContain('원작')
+      expect(modal?.textContent).toContain('인류의 구원자')
+      expect(modal?.textContent).not.toContain('전부 프로젝트가 창작한 반어적 풍자')
+      expect(modal?.textContent).not.toContain('가짜 성자의 길')
       expect(modal?.querySelector('img')?.getAttribute('src')).toContain('charlos-truth.webp')
       expect(document.body.style.overflow).toBe('hidden')
       await act(async()=>{document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))})
