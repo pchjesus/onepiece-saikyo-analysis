@@ -100,7 +100,7 @@ describe('v0.4.14 Enel image and historically scoped Luffy duel', () => {
       expect(featured!.textContent).toContain('하늘섬 편 · 7축 평가 없음')
       await act(async()=>{featured!.click()})
       expect(featured?.getAttribute('aria-pressed')).toBe('true')
-      expect(host.querySelector('.matchup-historical-notice')?.textContent).toContain('수치')
+      expect(host.querySelector('.matchup-historical-notice')?.textContent).toContain('점수')
       expect(host.querySelector('.matchup-historical-notice')?.textContent).toContain('고무')
       expect(host.querySelectorAll('.matchup-history-sources a')).toHaveLength(5)
       expect(host.querySelector('.matchup-scoreboard')).toBeNull()
