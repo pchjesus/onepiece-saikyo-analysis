@@ -2,6 +2,15 @@ import { describe, it, expect } from 'vitest'
 import { getCharacterPortraitAsset, characterPortraitAssets } from './characterPortraits'
 
 describe('User-provided portrait registry (unverified publication rights)', () => {
+  it('resolves the full-resolution Charlos portrait without changing the 72-image historical registry', () => {
+    expect(getCharacterPortraitAsset('charlos')).toMatchObject({
+      fileName:'charlos-v0418.webp',
+      permission:'user-provided-unverified',
+    })
+    expect(getCharacterPortraitAsset('charlos')?.permissionNote).toContain('1536')
+    expect(Object.keys(characterPortraitAssets)).toHaveLength(72)
+  })
+
   it('contains the 72 locally committed uploaded portraits without inventing licenses', () => {
     expect(Object.keys(characterPortraitAssets)).toHaveLength(72)
     for (const id of ['marco', 'king', 'katakuri', 'smoker', 'ivankov', 'izo', 'teach', 'koby']) {

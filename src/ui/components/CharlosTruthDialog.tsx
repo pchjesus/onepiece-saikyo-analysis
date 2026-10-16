@@ -53,7 +53,7 @@ export function CharlosTruthDialog({ onClose }: { onClose: () => void }) {
         </div>
         <div className="charlos-truth-reveal">
           <figure className="charlos-truth-figure">
-            <img src={import.meta.env.BASE_URL + 'images/characters/charlos-truth.webp'}
+            <img src={import.meta.env.BASE_URL + 'images/characters/charlos-truth-v0418.webp'}
               alt="눈물을 흘리는 차를로스 성의 흑백 그림" />
           </figure>
           <blockquote className="charlos-truth-quote">
