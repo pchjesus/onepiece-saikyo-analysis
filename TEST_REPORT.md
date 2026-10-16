@@ -3,7 +3,9 @@
 - **기준:** `main@1c2dd35435efba45a3c1ec353c53ff6e6e8f42b1` (v0.4.15).
 - **변경:** 마하 4축 + 게르니카 Combat IQ의 E2→E3, 해당 `v0412` 공식 TV Evidence ID 유지 및 `secondary→context`로 축별 역할 교정. 과거 v0.4.12 원본/다른 79명/모든 Base·Raw·Final·Overall 불변.
 - **신규 자동 테스트:** `src/data/sample/v0416Cp0EvidenceReadiness.test.tsx` — 원본 vs 현재 뷰, 5축 한정성, E3+context, Evidence 참조·원출처·사실 보존, 감사 81/85/595/106/18, Rank·상세 페이지·Haki/모델/v0.3.3 보호.
-- **CI/Build:** 아직 검증 전. PR CI 통과 후 최신 SHA를 기록해야 함. 배포 완료와 실기기 확인은 별도 판정.
+- **PR CI 확인:** [Actions #38899338006](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38899338006), head `8cd75347fb0b4e327712e0e430f86f3f4d620e02`; **107개 테스트 파일/458개 테스트 전부 통과**, `tsc -b && vite build` 성공. 실제 `v050` 감사 집계 E1 **69** / E2 **346** / E3 **180**, 전체 595축. 5개 E2→E3 전환 외 수치·Haki·모델 변화 없음.
+- **실패·수정 이력:** 첫 PR CI #38899175869에서 458개 중 457개 통과. 구형 8인 통합 감사 테스트가 v0.4.12 E2/E3 원본 비율(40/16)을 현행 화면 값에도 고정한 탓. 원본 **40/16 검증은 유지**하고, 현행은 **35/21 + 정확히 5개 `context` 연결**로 검증하도록 수정. 이후 최종 458개 전부 통과.
+- **후속 확인:** 문서 결과 반영 이후 최신 PR head CI 및 `main` 병합·Pages 배포 SHA 최종 확인. 실기기·원작 컷 직접 검증은 미실시.
 - **후속:** Stage 2B 추가 원작 컷 확인 및 7축 수치 재평가는 사용자 별도 승인 전 보류.
 
 ---
