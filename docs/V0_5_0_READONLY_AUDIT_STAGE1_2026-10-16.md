@@ -75,7 +75,7 @@
 
 ## 5. 테스트·회귀와 남은 작업
 
-`src/data/integrity/v050ReadOnlyAudit.test.ts`가 검증:
+`tests/v050ReadOnlyAudit.test.ts`가 검증:
 - 전체 80/84/588/105/17 및 84개 Evaluation 각각의 7축 기록
 - 신규 8인 40 E2·16 E3·Raw0, `supplementary/secondary` 표시, 기존 76개 Evaluation 유지
 - Base/Raw/Final/Overall 재현성, 80인 Overall+7축 순위
