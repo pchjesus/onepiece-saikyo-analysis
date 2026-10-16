@@ -47,6 +47,7 @@ function FighterSelect({
   opponentId,
   onCharacter,
   onState,
+  historicalEra,
 }: {
   side: 'left' | 'right'
   roster: MatchupRosterOption[]
@@ -55,6 +56,7 @@ function FighterSelect({
   opponentId: string
   onCharacter: (id: string) => void
   onState: (id?: string) => void
+  historicalEra?: string
 }) {
   const selected = roster.find((entry) => entry.characterId === characterId)
   return (
@@ -68,14 +70,14 @@ function FighterSelect({
           </option>
         ))}
       </select>
-      {selected && selected.states.length > 1 && (
+      {historicalEra ? <small className="state-select">전투 당시 · {historicalEra}</small> : (selected && selected.states.length > 1 && (
         <select className="state-select" aria-label={side === 'left' ? '왼쪽 평가 시점 선택' : '오른쪽 평가 시점 선택'}
           value={stateId ?? ''} onChange={(event) => onState(event.target.value || undefined)}>
           {selected.states.map((state) => (
             <option key={state.id ?? 'default'} value={state.id ?? ''}>{state.label}</option>
           ))}
         </select>
-      )}
+      ))}
     </section>
   )
 }
@@ -208,13 +210,13 @@ export function MatchupHome() {
 
       <section className="matchup-builder-controls" aria-label="매치업 대진 선택">
         <FighterSelect side="left" roster={roster} characterId={leftId} stateId={leftStateId} opponentId={rightId}
-          onCharacter={chooseLeft} onState={setLeftStateId} />
+          onCharacter={chooseLeft} onState={setLeftStateId} historicalEra={leftHistory?.era} />
         <div className="arena-control-stack">
           <button type="button" className="swap-button" onClick={swap} aria-label="좌우 캐릭터 교체">⇄<span>교체</span></button>
           <button type="button" onClick={randomize} aria-label="랜덤 매치업">⤨<span>무작위</span></button>
         </div>
         <FighterSelect side="right" roster={roster} characterId={rightId} stateId={rightStateId} opponentId={leftId}
-          onCharacter={chooseRight} onState={setRightStateId} />
+          onCharacter={chooseRight} onState={setRightStateId} historicalEra={rightHistory?.era} />
       </section>
 
       <section className="featured-matchups">
