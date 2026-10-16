@@ -52,7 +52,7 @@ export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () =>
             <span className="charlos-bar"><span style={{width:stat.score+'%'}}/></span>
           </summary>
           <div className="charlos-stat-detail">
-            <p><strong>원작 맥락</strong>{stat.fact}</p>
+            <p><strong>주요 업적</strong>{stat.fact}</p>
             <p><strong>천룡인식 평가</strong>{stat.satire}</p>
             <a href={stat.sourceUrl} target="_blank" rel="noopener noreferrer">{stat.sourceLabel} ↗</a>
           </div>
