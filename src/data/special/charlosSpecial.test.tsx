@@ -95,7 +95,7 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
       await act(async()=>{btn!.click()})
       const modal=document.querySelector('[role="dialog"][aria-labelledby="charlos-truth-title"]')
       expect(modal?.textContent).toContain('일어나 죽지 말고')
-      expect(modal?.textContent).toContain('공식')
+      expect(modal?.textContent).toContain('원작')
       expect(modal?.querySelector('img')?.getAttribute('src')).toContain('charlos-truth.webp')
       expect(document.body.style.overflow).toBe('hidden')
       await act(async()=>{document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))})
