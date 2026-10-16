@@ -11,3 +11,6 @@ Preserve existing 7-stat evaluation data, model and rankings, matchup/organizati
 
 ## Scope
 This registration is documentation/policy-only; it does not authorize behavior, data, deployment or visibility changes. Do not claim REAL-device or specialist acceptance from automated CI alone.
+
+## Character detail UI contract (v0.4.18)
+When registering or evaluating ordinary new characters, **reuse the current shared `src/ui/pages/CharacterPage.tsx` UI and its components**. Do not copy `CharlosSpecialPage`, its golden styling, seven meme stats or secret dialog into normal character pages. Saint Charlos is an **explicit one-character celestial-dragon joke exception**. Any other bespoke profile UI requires a new explicit user decision. Keep the factual evidence and joke wording clearly distinct in source data and docs, without inserting unnecessary joke explanations into the visible special page.
