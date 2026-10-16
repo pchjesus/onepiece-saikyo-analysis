@@ -78,7 +78,7 @@ describe('v0.4.4 targeted Teach and Mihawk evidence/context recalibration',()=>{
         }
       }else expect(e).toEqual(before)
     }
-    expect(getStatRanking('overall')).toHaveLength(81)
+    expect(getStatRanking('overall')).toHaveLength(82)
     expect(getStatRanking('overall').find(x=>x.characterId==='teach')?.score).toBeCloseTo(650/7,11)
     expect(getStatRanking('attack').find(x=>x.characterId==='mihawk')?.score).toBe(97)
     expect(getMatchupHubEntries()).toHaveLength(18)
