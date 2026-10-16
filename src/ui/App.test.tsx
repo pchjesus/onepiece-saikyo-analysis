@@ -87,7 +87,7 @@ describe('v0.1.80 patch history UI',()=>{
 
     await choose('전체')
     expect(tabs[0].getAttribute('aria-pressed')).toBe('true')
-    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(27)
+    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(28)
     expect(dialog.querySelectorAll('.patch-category-section').length).toBeGreaterThan(7)
   })
 
@@ -136,7 +136,7 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
     const results=container.querySelectorAll('.character-picker-option')
     expect(results).toHaveLength(81)
     expect(container.querySelectorAll('.character-picker-option .character-portrait-small')).toHaveLength(81)
-    expect(container.querySelectorAll('.character-picker-option img')).toHaveLength(80)
+    expect(container.querySelectorAll('.character-picker-option img')).toHaveLength(81)
     expect(container.querySelectorAll('.character-picker-option .character-portrait-fallback')).toHaveLength(0)
     await click(container.querySelector('.character-picker-close'))
   })
