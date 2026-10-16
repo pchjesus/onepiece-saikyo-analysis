@@ -1,5 +1,7 @@
 # 원피스 전투력 분석
 
+> **v0.4.18 — 차를로스 성 말투 정리:** 전용 페이지·진실 팝업에서 풍자의 뜻이나 대사의 비공식성을 구구절절 해설하는 문구를 제거하고, 51권 지정 대사 **“5억 베리이~~~~!!! 5억에 사겠다이~~!!!”**·호를로스 성(부산 고신대 의대의 또 다른 차를로스 성) 설정을 반영. 일반 신규 캐릭터는 기존 `CharacterPage` UI를 계속 사용하며 차를로스만 별도 디자인 예외로 유지. **모든 수치·정규 평가·순위 계산 불변.** [변경 계약](docs/V0_4_18_CHARLOS_TONE_AND_UI_POLICY_2026-10-17.md).
+
 > **v0.4.17 — 천룡인 차를로스 성 특별 밈 평가:** 사용자 제공 기본·히든 이미지 2장(웹 최적화), 세계정부 하위 천룡인 그룹·호를로스 성 별칭, 전용 7축 23/97/100/99/92/100/100 및 **특별 Overall 87.2857**을 기존 오버롤 순위에만 포함. 진실 버튼: 암전 후 패러디 구원자 팝업. **현재 82인 로스터, 정규 81명·85 Evaluation/595축·18 Matchup/기존 Balanced 1.2·v0.3.3 불변.** [근거·권리·테스트 범위](docs/V0_4_17_CHARLOS_MEME_SPECIAL_2026-10-16.md).
 
 > **v0.4.16 — CP0 Stage 2A 근거 충분도 정밀 감사:** 마하 Speed/Technique/Combat IQ/Versatility, 게르니카 Combat IQ 등 총 **5축의 E2→E3 및 Evidence 역할 secondary→context** 보수 조정. **모든 7축 점수·Overall·Raw Haki·Balanced 1.2, 81명·85 평가·595축·106 소속·18대진 및 v0.3.3 기준선 불변**. v0.4.12 원본 보존, 현재 Evaluation/Evidence·읽기 전용 감사에만 적용. [검증 범위와 공식 TV 출처](docs/V0_4_16_CP0_STAGE2A_EVIDENCE_READINESS_2026-10-16.md).
@@ -12,7 +14,7 @@
 
 > **v0.5.0 감사 Stage 1 당시 기록(당시 앱 v0.4.12):** 80명·84개 Evaluation·588개 7축을 대상으로 E1/E2/E3, 근거 연결 및 Haki 다축 중복 후보를 읽기 전용 CSV로 추출·검증하는 작업. 점수·모델·순위·매치업 변경 없음. [감사 설계·검증 및 승인 게이트](docs/V0_5_0_READONLY_AUDIT_STAGE1_2026-10-16.md).
 
-현재 구현 패치: **v0.4.17** (차를로스 성 특별 밈 평가·천룡인 그룹·진실 팝업, 정규 81인 평가 불변) (npm package 버전 **0.4.17**)
+현재 구현 패치: **v0.4.18** (차를로스 성 말투·명대사·화면 문구 및 일반 캐릭터 UI 원칙 보강; 점수·계산 불변) (npm package 버전 **0.4.18**)
 평가 데이터: **81 Character master pool · 81 visible Character · 81 evaluated unique Character · 106 Membership · 85 Evaluation · 595 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
