@@ -47,7 +47,7 @@ describe('v0.4.13: the two previously unshown v0.4.9 draft decisions', () => {
    expect(evaluationRepository.getEvaluations('enel')).toHaveLength(1)
    expect(matchupRepository.getAllMatchups()).toHaveLength(18)
    expect(versionManifest.calculationModelVersion).toBe('1.2')
-   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.15')
+   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.16')
  })
  it('publishes exact draft score slate, without adding exceptional Haki Raw or unsupported canon status',()=>{
    expect(v0413EnelEvaluation.items.map(x=>x.score)).toEqual(enelScores)
