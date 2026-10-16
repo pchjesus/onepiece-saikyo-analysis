@@ -49,7 +49,7 @@ describe('v0.1.46 official episode cross-check: sources, scene context, score in
       expect(item.readiness).toBe('E3')
       expect(item.rationale).toContain('조로')
       expect(item.hakiContributions).toHaveLength(0)
-      expect(calculateBalancedCombatPower(evaluation,balancedV12).finalScore).toBeCloseTo(overall)
+      expect(id==='kaku' ? calculateBalancedCombatPower(evaluation,balancedV12).finalScore : getCombatPower(id).finalScore).toBeCloseTo(overall)
     }
     expect(getUniqueCharacterList()).toHaveLength(65)
     expect(sampleEvaluations).toHaveLength(68)
