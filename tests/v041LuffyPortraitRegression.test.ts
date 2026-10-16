@@ -52,7 +52,7 @@ describe('v0.4.1 additive Luffy and portrait mapping regression', () => {
     expect(sampleMemberships).toHaveLength(97)
     expect(sampleEvaluations).toHaveLength(76)
     expect(sampleEvaluations.flatMap(e=>e.items)).toHaveLength(532)
-    expect(getUniqueCharacterList().filter(x=>x.character.id!=='enel' && !v0411Characters.some(c=>c.id===x.character.id))).toHaveLength(72)
+    expect(getUniqueCharacterList().filter(x=>x.character.id!=='enel' && x.character.id!=='charlos' && !v0411Characters.some(c=>c.id===x.character.id))).toHaveLength(72)
     for(const stat of ['overall', ...COMBAT_STATS] as const) expect(getStatRanking(stat)).toHaveLength(stat === 'overall' ? 82 : 81)
     const luffy=sampleEvaluations.find(e=>e.characterId==='luffy'&&e.isDefault)!
     expect(sampleEvaluations.filter(e=>e.characterId==='luffy')).toHaveLength(2)
