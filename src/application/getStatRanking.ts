@@ -44,7 +44,7 @@ export function getStatRanking(stat: RankingStat, selectedStates: Readonly<Recor
   const model = calculationModelRepository.getModel('balanced')
   if (!model) throw new Error('Balanced calculation model is missing.')
 
-  const sorted = getUniqueCharacterList().flatMap(({ character, group }) => {
+  const sorted: StatRankingEntry[] = getUniqueCharacterList().flatMap(({ character, group }) => {
     const allEvaluations = evaluationRepository.getEvaluations(character.id)
     const evaluation = evaluationRepository.getEvaluation(character.id, selectedStates[character.id])
       ?? evaluationRepository.getEvaluation(character.id)
@@ -65,14 +65,18 @@ export function getStatRanking(stat: RankingStat, selectedStates: Readonly<Recor
       subjectStateId: evaluation.subjectState?.id,
       stateOptions: allEvaluations.length > 1 ? allEvaluations.map(e=>({id:e.subjectState?.id ?? e.id,label:e.subjectState?.label ?? '기본 평가'})) : undefined,
     }]
-  }).concat(stat === 'overall' ? getUniqueCharacterList()
-    .filter(({ character }) => character.id === CHARLOS_ID)
-    .map(({ character, group }) => ({
+  })
+  // Mixed display by explicit user request; never invent a Balanced evaluation for the meme.
+  if (stat === 'overall') for (const { character, group } of getUniqueCharacterList()) {
+    if (character.id !== CHARLOS_ID) continue
+    sorted.push({
       characterId: character.id, characterName: character.name,
       groupId: group.id, groupName: group.name, score: charlosSpecialOverall,
-      status: 'draft' as const, subjectStateLabel:'천룡인 특별 밈 평가',
-      subjectStateId:undefined, stateOptions:undefined, specialEvaluation:true,
-    })) : []).sort((a, b) => b.score - a.score || a.characterName.localeCompare(b.characterName, 'ko'))
+      status:'draft', subjectStateLabel:'천룡인 특별 밈 평가',
+      specialEvaluation:true,
+    })
+  }
+  sorted.sort((a, b) => b.score - a.score || a.characterName.localeCompare(b.characterName, 'ko'))
 
   return sorted.map((entry, index) => ({
     ...entry,
