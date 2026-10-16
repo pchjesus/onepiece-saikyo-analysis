@@ -16,11 +16,11 @@ function characterIds(chart: OrganizationChart) {
 describe('v0.4.8 read-only organization projection', () => {
   it('exposes all registered groups and explicitly stored parent relationships', () => {
     const groups = getOrganizationGroups()
-    expect(groups).toHaveLength(25)
+    expect(groups).toHaveLength(26)
     expect(groups.find((g) => g.id === 'sword')?.parentGroupId).toBe('marines')
     expect(groups.find((g) => g.id === 'tobiroppo')?.parentGroupId).toBe('beasts-pirates')
     expect(groups.filter((g) => g.parentGroupId === 'world-government').map((g) => g.id))
-      .toEqual(['cp0', 'cp9', 'impel-down', 'five-elders'])
+      .toEqual(['cp0', 'cp9', 'impel-down', 'five-elders', 'celestial-dragons'])
   })
 
   it('groups Blackbeard captains under their stored ship numbers without score sorting', () => {
