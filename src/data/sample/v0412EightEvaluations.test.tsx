@@ -51,7 +51,7 @@ describe('v0.4.12 eight new provisional combat evaluations',()=>{
      const allEvidence=[...sampleEvidence,...v0412Evidence].map(e=>({id:e.id,subjectCharacterId:e.subjectCharacterId}))
      expect(validateEvaluation(evaluation,allEvidence).errors).toEqual([])
    }
-   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.15')
+   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.16')
    expect(balancedV12.configuration.hakiWeight).toBe(.5)
  })
  it('preserves ID ownership, battle context and immutable historical source data',()=>{
