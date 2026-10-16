@@ -3,7 +3,7 @@
 - **Evidence:** 마하 Speed·Technique·Combat IQ·Versatility 네 축, 게르니카 Combat IQ 한 축의 근거 충분도 **E2→E3**. 동일 Evidence ID의 스탯별 `secondary→context` 역할 수정. 공식 애니 TV1065/1068/1069 확인 범위와 실제 기술/판단 근거의 차이 명시.
 - **Unchanged:** **마하 75/70/73/77/80/72/70, 게르니카 78/76/76/81/84/80/75** 및 다른 79명, 전체 81 Character/85 Evaluation/595 Stat/106 Membership/18 Matchup, Haki Raw, Balanced 1.2/Haki Weight 0.5 및 v0.3.3 독립 원본.
 - **Source-history protection:** `v0412EightEvaluations.ts` 원본은 무수정. `v0416Cp0EvidenceReadiness.ts`에서 현재 Evaluation과 Evidence만 비파괴적인 overlay로 생성, 평가 저장소/Evidence 저장소/read-only 감사 간 일관성 유지. E3는 감점이 아님.
-- **Tests:** 원본·현행 비교, 연결 ID/Fact/Source 불변, UI·Ranking·85 Evaluation/595축 data integrity, 계산 결과, 패치 내역 테스트. GitHub CI/Pages 실제 결과는 마지막 배포 후 확인.
+- **Tests:** 최초 PR CI는 구 v0.4.12 원본 E2 40/E3 16 개수를 현행 감사에도 요구한 1건 실패(457/458). 원본 40/16을 별도 유지하고 현행 35/21 및 context 5축을 검증하도록 정정. 이후 [PR Actions #38899338006](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38899338006)에서 **107파일/458테스트**, TypeScript·Vite 빌드 성공. 최신 문서 head CI 및 main Pages는 별도 확인.
 - **Limits:** 실제 만화 컷 및 실기기 PC/모바일 시각 직접 검증 미실시. [상세 보고서](docs/V0_4_16_CP0_STAGE2A_EVIDENCE_READINESS_2026-10-16.md).
 
 ---
