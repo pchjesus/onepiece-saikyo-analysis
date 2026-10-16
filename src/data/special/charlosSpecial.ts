@@ -110,10 +110,9 @@ export const charlosMembership: CharacterMembership = {
 
 /** Satirical text is NOT official manga speech or an official retcon. */
 export const charlosMemeQuote = '5억 베리이~~~~!!! 5억에 사겠다이~~!!!'
-export const charlosTruthLines = [
-  '그는 알고 있었다이. 끝까지 고개를 들고 저항하는 이들이 얼마나 쉽게 쓰러지는지 말이다이.',
-  '그래서 결심했다이. 모든 미움을 자신에게 모으고 악인을 연기하기로 말이다이.',
-  '세상은 그가 인간을 사고팔았다고 비난했다이. 하지만 그의 가슴에 품어진 인간애는 5억 베리보다 뜨거웠다이.',
-  '5억 베리는 거래가 아니었다이. 말로는 다 표현할 수 없는 사랑의 무게였다이.',
-  '그가 맞을 때마다 세상은 조금씩 움직였다이. 그것이 자신이 선택한 성자의 길이었다이.',
+/** Three inseparable fan-meme lines, displayed in the secret popup verbatim. */
+export const charlosTruthMonologue = [
+  '서.. 설득할 시간 없다이!!',
+  '한명이라도 더 많이 노예로 만들어야한다이!!',
+  '이런.. 이런곳에서 사냥당해 죽지말라이..!!',
 ] as const

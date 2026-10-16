@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { act } from 'react'
 import { createRoot } from 'react-dom/client'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { charlosMemeStats, charlosSpecialOverall, CHARLOS_ID,
+import { charlosMemeStats, charlosSpecialOverall, charlosTruthMonologue, CHARLOS_ID,
   charlosCharacter, charlosMembership, celestialDragonGroup } from './charlosSpecial'
 import { characterRepository } from '../repositories/characterRepository'
 import { groupRepository } from '../repositories/groupRepository'
@@ -106,10 +106,23 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
       expect(btn).not.toBeNull()
       await act(async()=>{btn!.click()})
       const modal=document.querySelector('[role="dialog"][aria-labelledby="charlos-truth-title"]')
-      expect(modal?.textContent).toContain('일어나 죽지 말고')
-      expect(modal?.textContent).toContain('인류의 구원자')
-      expect(modal?.textContent).not.toContain('전부 프로젝트가 창작한 반어적 풍자')
-      expect(modal?.textContent).not.toContain('가짜 성자의 길')
+      const expected = [
+        '서.. 설득할 시간 없다이!!',
+        '한명이라도 더 많이 노예로 만들어야한다이!!',
+        '이런.. 이런곳에서 사냥당해 죽지말라이..!!',
+      ]
+      expect(charlosTruthMonologue).toEqual(expected)
+      const lines = Array.from(modal?.querySelectorAll<HTMLElement>('.charlos-truth-line') ?? [])
+        .map(line => line.textContent)
+      expect(lines).toEqual(expected)
+      expect(modal?.querySelectorAll('.charlos-truth-quote')).toHaveLength(1)
+      expect(modal?.querySelectorAll('.charlos-truth-figure img')).toHaveLength(1)
+      // After removing the accessible-only dialog label and X close affordance,
+      // these three sentences are the popup's only visible text.
+      expect(modal?.querySelector('.charlos-truth-reveal')?.textContent).toBe(expected.join(''))
+      expect(modal?.textContent).not.toContain('일어나 죽지 말고')
+      expect(modal?.textContent).not.toContain('인류의 구원자')
+      expect(modal?.textContent).not.toContain('조금만 참그라이')
       expect(modal?.querySelector('img')?.getAttribute('src')).toContain('charlos-truth.webp')
       expect(document.body.style.overflow).toBe('hidden')
       await act(async()=>{document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))})
