@@ -920,7 +920,6 @@ header p:last-child { color: #666; }
 @media(max-width:650px){.charlos-heading .detail-heading-profile{gap:12px;}.charlos-intro{grid-template-columns:1fr;}.charlos-secret-panel{align-items:flex-start;}.charlos-truth-trigger{padding:10px 17px;}.charlos-stat-text small{font-size:.72rem;}}
 @media(prefers-reduced-motion:reduce){.charlos-truth-backdrop,.charlos-truth-reveal{animation:none!important;}.charlos-stat-chevron{transition:none;}}
 
-.charlos-alias-lore{font-size:.79rem;color:#6c6255;line-height:1.55;margin:-.4rem 0 .85rem;overflow-wrap:anywhere;}
 
 
 /* Charlos-only mobile polish and restored narrative; shared CharacterPage untouched. */
