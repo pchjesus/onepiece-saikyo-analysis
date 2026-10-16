@@ -17,8 +17,8 @@ describe('getStatRanking', () => {
       expect(options.every(e=>chosen >= getCombatPower(id,'balanced',e.subjectState?.id).finalScore)).toBe(true)
     }
     const selected = getStatRanking('overall',highest)
-    expect(selected).toHaveLength(81)
-    expect(new Set(selected.map(x=>x.characterId)).size).toBe(81)
+    expect(selected).toHaveLength(82)
+    expect(new Set(selected.map(x=>x.characterId)).size).toBe(82)
     expect(selected.find(x=>x.characterId==='luffy')?.subjectStateId).toBe('egghead-gear5')
     expect(selected.find(x=>x.characterId==='newgate')?.subjectStateId).toBe('prime')
   })
@@ -62,12 +62,12 @@ describe('getStatRanking', () => {
 
   it('sorts the current 42-character Overall from the calculation service', () => {
     const entries = getStatRanking('overall')
-    expect(entries).toHaveLength(81)
+    expect(entries).toHaveLength(82)
     expect(entries.slice(0, 2).map(({ characterId }) => characterId).sort()).toEqual(['newgate', 'roger'].sort())
     expect(entries.slice(0, 2).every(({ rank, score }) => rank === 1 && Math.abs(score - 97.57142857142857) < 1e-10)).toBe(true)
     expect(entries.find(({ characterId }) => characterId === 'garp')).toMatchObject({ rank: 3, subjectStateLabel: '전성기' })
     expect(entries.find(({ characterId })=>characterId==='page-one')?.score).toBeCloseTo(491/7,10)
-    expect(entries[entries.length-1]).toMatchObject({ characterId:'buggy',rank:81,score:38 })
+    expect(entries[entries.length-1]).toMatchObject({ characterId:'buggy',rank:82,score:38 })
     for (let index = 1; index < entries.length; index++) {
       expect(entries[index - 1].score).toBeGreaterThanOrEqual(entries[index].score)
     }
