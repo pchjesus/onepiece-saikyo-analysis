@@ -1,9 +1,10 @@
 import type { MatchupAnalysis } from '../../domain/matchup/types'
 import { sampleMatchups } from '../sample/matchups'
 import { luffyTeachStateMatchups } from '../sample/luffyTeachStateMatchups'
+import { enelLuffyHistoricalMatchup } from '../sample/enelLuffyHistoricalMatchup'
 
-/** Fifteen original direct cases plus separately versioned conditional state scenarios. */
-const allCurrentMatchups = [...sampleMatchups, ...luffyTeachStateMatchups]
+/** Original 15 + two Luffy/Teach state scenarios + one historical nonnumeric duel. */
+const allCurrentMatchups = [...sampleMatchups, ...luffyTeachStateMatchups, enelLuffyHistoricalMatchup]
 
 export interface MatchupRepository {
   getAllMatchups(): MatchupAnalysis[]
