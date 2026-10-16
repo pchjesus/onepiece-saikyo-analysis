@@ -1,3 +1,14 @@
+## v0.4.14 — 에넬 이미지 · 하늘섬 루피 매치업 변경 검증 (2026-10-16)
+
+- **기준:** v0.4.13 main `758786749050c1f37df9436522ace7d8c481d19c`, 기존 81인·85 평가·595축·106 소속·17 대진.
+- **신규 테스트:** 사용자 초상 114638 bytes / WebP magic / SHA-256 및 Git blob SHA-1, 고유 매치업 1건/Evidence 연결, 원작 결과와 상성 구분, 상태 없는 하늘섬 루피의 이시대 수치·기어5 선택 UI 비노출, 좌우 교체, 기존 추천 대진 수치 복원.
+- **전수 감사 기대값:** 81 Character, 81 assessed, 85 Evaluation, 595 axes, 106 Membership, 18 Matchup, 오류 0; 7축 에넬 평가 및 카쿠 v0.4.13 상태, Haki Raw 0 (에넬), Balanced 1.2/ Haki Weight 0.5 / v0.3.3 고정 기준선 불변.
+- **GitHub CI 결과:** PR workflow 실행 후 실제 결과를 확인해 기록한다. 문서 작성 시점에서는 전체 Vitest 통과 수/TypeScript·Vite 빌드/Pages 배포 성공을 단정하지 않는다.
+- **검증 범위 차이:** 원본 WebP와 Git SHA byte 검증 및 JSDOM 가상 DOM 테스트는 실제 Android·iOS·PC 브라우저 이미지 렌더링·Lightbox 화면 확인과 별개다.
+- **미확인:** 원작 정식판 컷 단위 전수 비교, 저작권/공개 재배포 권리, 실기기·실제 브라우저 레이아웃. [코드 영향·출처·시점 분리 정책](docs/V0_4_14_ENEL_PORTRAIT_LUFFY_HISTORICAL_MATCHUP_2026-10-16.md).
+
+---
+
 ## v0.4.13 — 에넬 신규·카쿠 보류 평가 공개 (2026-10-16)
 
 - 기준 main: `e703748bb4507dac96925137e4a0bb95d100c214`. 80인 역사적 평가 전체 보존, 신규 에넬 7축 draft/Evidence/Battle/소속/명대사 pending 및 카쿠 6축 재평가 공개.
