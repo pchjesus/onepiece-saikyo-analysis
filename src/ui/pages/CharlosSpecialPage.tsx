@@ -16,7 +16,7 @@ export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () =>
           <CharacterIdentity group={celestialDragonGroup} characterId={CHARLOS_ID} showPastMembership={false} />
           <p className="charlos-eyebrow">WORLD NOBLE · SPECIAL EVALUATION</p>
           <h1>차를로스 성</h1>
-          <p className="charlos-alias">호를로스 성</p>
+          <p className="charlos-alias"><span className="charlos-alias-badge"><span className="charlos-alias-star" aria-hidden="true">*</span>호를로스 성</span></p>
           <p className="charlos-alias-lore">부산 고신대 의대의 또 다른 차를로스 성</p>
           <span className="charlos-special-tag">세계귀족 특별 전형</span>
         </div>
@@ -36,7 +36,7 @@ export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () =>
       <div className="charlos-intro-note">
         <p className="charlos-eyebrow">WORLD NOBLE · 7 ABILITIES</p>
         <h2>전투는 부하가,<br/>평가는 내가 한다이.</h2>
-        <p>세계귀족의 위상은 평범한 전투력으로 설명할 수 없다이. 내 평가는 내가 정하는 거다이.</p>
+        <p className="charlos-intro-description"><span>세계귀족의 위상은 평범한 전투력으로 설명할 수 없다이.</span><span>내 평가는 내가 정하는 거다이.</span></p>
       </div>
     </div>
 
