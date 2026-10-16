@@ -231,7 +231,7 @@ export function v050AuditRowsToCsv(rows: readonly V050AuditRow[]): string {
     'final','overall','evidenceIds','sourceTypes','statRoles','battleIds',
     'hakiEvidenceIds','hakiTypes','flags','rationale']
   const csvCell = (value: string | number | boolean | null) =>
-    '"' + String(value ?? '').replaceAll('"', '""') + '"'
+    '"' + String(value ?? '').replace(/"/g, '""') + '"'
   const lines = [header.map(csvCell).join(',')]
   for (const row of rows) {
     const values = [
