@@ -16,8 +16,12 @@ export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () =>
           <CharacterIdentity group={celestialDragonGroup} characterId={CHARLOS_ID} showPastMembership={false} />
           <p className="charlos-eyebrow">WORLD NOBLE · SPECIAL EVALUATION</p>
           <h1>차를로스 성</h1>
-          <p className="charlos-alias"><span className="charlos-alias-badge"><span className="charlos-alias-star" aria-hidden="true">*</span>호를로스 성</span></p>
-          <p className="charlos-alias-lore">부산 고신대 의대의 또 다른 차를로스 성</p>
+          <p className="charlos-alias">
+            <span className="charlos-alias-badge">
+              <span className="charlos-alias-title"><span className="charlos-alias-star" aria-hidden="true">*</span>호를로스 성</span>
+              <span className="charlos-alias-subtitle">부산의 또 다른 자아</span>
+            </span>
+          </p>
           <span className="charlos-special-tag">세계귀족 특별 전형</span>
         </div>
       </div>
