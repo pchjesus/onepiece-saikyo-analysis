@@ -20,6 +20,7 @@ const groupAccent: Record<string, string> = {
   marines: '#446f92',
   'revolutionary-army': '#8a5c52',
   cp0: '#697586',
+  'celestial-dragons': '#b18a42',
   'seven-warlords': '#567987',
 }
 
