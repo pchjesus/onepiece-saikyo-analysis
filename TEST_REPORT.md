@@ -3,7 +3,8 @@
 - **기준:** v0.4.13 main `758786749050c1f37df9436522ace7d8c481d19c`, 기존 81인·85 평가·595축·106 소속·17 대진.
 - **신규 테스트:** 사용자 초상 114638 bytes / WebP magic / SHA-256 및 Git blob SHA-1, 고유 매치업 1건/Evidence 연결, 원작 결과와 상성 구분, 상태 없는 하늘섬 루피의 이시대 수치·기어5 선택 UI 비노출, 좌우 교체, 기존 추천 대진 수치 복원.
 - **전수 감사 기대값:** 81 Character, 81 assessed, 85 Evaluation, 595 axes, 106 Membership, 18 Matchup, 오류 0; 7축 에넬 평가 및 카쿠 v0.4.13 상태, Haki Raw 0 (에넬), Balanced 1.2/ Haki Weight 0.5 / v0.3.3 고정 기준선 불변.
-- **GitHub CI 결과:** PR workflow 실행 후 실제 결과를 확인해 기록한다. 문서 작성 시점에서는 전체 Vitest 통과 수/TypeScript·Vite 빌드/Pages 배포 성공을 단정하지 않는다.
+- **GitHub PR CI 검증 완료:** [PR #123, Actions 38875595820](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38875595820), 검증 head `08ef3bd101bdbe7b43585d8b7157c7755f8126be`. **105개 테스트 파일 · 450개 테스트 전부 통과**. `tsc -b && vite build` 성공 (Vite 8.3.3). 읽기 전용 감사 CSV/JSON [Artifact 12035670002](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38875595820/artifacts/12035670002) 업로드 성공. Pages는 PR이 아닌 `main` 배포에서 별도로 확인한다.
+- **발견·수정한 실패:** 초기 CI는 18/450 실패. 과거 72/80인 전용 감사 픽스처가 신규 에넬 ID를 포함한 현재 매치업 18건을 참조해 무결성 오류 발생 → 구버전 픽스처를 원래 15+2건으로 고정하면서 최신 통합 18건을 별도 검사. 구버전 테스트의 현재 앱 버전/매치업 수 기대값 갱신, 초상 UI 신규 81번째 이미지와 패치 기록 28개 확인. 신규 Node 바이너리 해시 테스트를 `src`에서 `tests`로 이동하여 TypeScript 타입 범위 오류 해결. 기존 기준선 검사와 필수 테스트는 삭제하거나 완화하지 않음.
 - **검증 범위 차이:** 원본 WebP와 Git SHA byte 검증 및 JSDOM 가상 DOM 테스트는 실제 Android·iOS·PC 브라우저 이미지 렌더링·Lightbox 화면 확인과 별개다.
 - **미확인:** 원작 정식판 컷 단위 전수 비교, 저작권/공개 재배포 권리, 실기기·실제 브라우저 레이아웃. [코드 영향·출처·시점 분리 정책](docs/V0_4_14_ENEL_PORTRAIT_LUFFY_HISTORICAL_MATCHUP_2026-10-16.md).
 
