@@ -61,7 +61,7 @@ describe('v0.4.12 last two selected quotes: Smoothie A and Maha A', () => {
     }
     expect(sampleEvaluations).toHaveLength(76)
     expect(v0412Evaluations).toHaveLength(8)
-    expect(getStatRanking('overall')).toHaveLength(81)
+    expect(getStatRanking('overall')).toHaveLength(82)
     expect(sampleMatchups).toHaveLength(15)
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
