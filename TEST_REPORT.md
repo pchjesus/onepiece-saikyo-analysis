@@ -1,3 +1,13 @@
+## v0.4.15 — 에넬 승인 재평가·명대사 회귀검증 (2026-10-16)
+
+- **Scope:** 기존 v0.4.14 main SHA `2306ed6c7a2e16db380ff419fd143e58bdd487c4`를 기준으로 에넬만 7축 현재 표시값 조정; 이외 기존 평가·18대진·권리 미확인 초상·v0.3.3 고정 기준선 불변.
+- **New test:** `src/data/sample/v0415EnelReview.test.tsx` — v0.4.13 원본 88/72/72/88/84/70/87 유지, 현재 85/74/72/86/86/76/87, Overall 566/7, Haki Raw0, 평가/Evidence ID, 81인 순위, 85 평가/595축/106 소속/18대진 감사, 명대사 공식 인용과 한국어 편집 번역 및 상세 UI.
+- **Updated historical expectations:** v0.4.13 원본 평가와 현재 표시 평가 검사를 분리; 명대사 15 official / 66 secondary / 0 pending, 릴리즈·패치 이력 테스트 최신화.
+- **Build/CI:** GitHub PR test and TypeScript/Vite build **pending verification**. PR 검사 완료 이전에는 통과를 주장하지 않음.
+- **Manual verification:** 실제 모바일·PC 브라우저, 원작 만화 컷, 한국 정식 번역의 직접 확인은 별도.
+
+---
+
 ## v0.4.14 — 에넬 이미지 · 하늘섬 루피 매치업 변경 검증 (2026-10-16)
 
 - **기준:** v0.4.13 main `758786749050c1f37df9436522ace7d8c481d19c`, 기존 81인·85 평가·595축·106 소속·17 대진.
