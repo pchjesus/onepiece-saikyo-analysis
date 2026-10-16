@@ -15,6 +15,19 @@ describe('Charlos mobile-only profile layout contract', () => {
     expect(charlos).toContain('.charlos-intro-description>span{display:block')
   })
 
+  it('matches the normal detail-header structure and quote container while keeping noble colors', () => {
+    expect(css).toContain('.charlos-detail .detail-heading.charlos-heading')
+    expect(css).toContain('border-left:3px solid var(--identity-accent,#b18a42)')
+    expect(css).toContain('background:#f4efe5')
+    expect(css).toContain('.charlos-heading .detail-heading-profile')
+    expect(css).toContain('align-items:flex-start')
+    expect(css).toContain('.charlos-detail .charlos-meme-quote')
+    expect(css).toContain('flex:1 1 100%')
+    expect(css).toContain('border-radius:12px;background:#fffaf0')
+    expect(css).toContain('@media(max-width:650px)')
+    expect(css).toContain('.charlos-detail .charlos-meme-quote{padding:10px 12px;margin-top:4px;}')
+  })
+
   it('allocates a full separate row to mobile one-line stat quips', () => {
     expect(charlos).toContain('@media(max-width:700px)')
     expect(charlos).toContain('.charlos-stat-text{display:contents;}')
