@@ -93,3 +93,36 @@
 - `docs/V0_4_12_QUOTES_EIGHT_EVALUATIONS_REVIEW_2026-10-15.md`
 - `docs/V0_1_59_E3_AND_HAKI_RAW_CASE_AUDIT_2026-10-10.md`
 - `docs/AI_ASSISTED_DEVELOPMENT_BPLUS_v1.0.md`
+
+
+## 6. Stage 1 GitHub CI 실제 집계 (PR #121)
+
+CI 확인: [Actions 38865541058](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38865541058) / 검사 SHA `b3e9b7cab1d4efdd103c0f22f1bd7b0405609620`. **103개 테스트 파일/440개 테스트 전부 통과**, TypeScript `tsc -b`, Vite 빌드 통과. PR 빌드에서는 Pages 배포를 수행하지 않음.
+
+[원본 588축 CSV + 집계 JSON 내려받기 (CI 아티팩트)](https://github.com/pchjesus/onepiece-saikyo-analysis/actions/runs/38865541058/artifacts/12030867589) — GitHub 로그인 및 보관기간 제한(7일)이 적용될 수 있음.
+
+| 스탯 | E1 | E2 | E3 | 합계 |
+| --- | ---: | ---: | ---: | ---: |
+| Attack | 11 | 62 | 11 | 84 |
+| Defense | 9 | 44 | 31 | 84 |
+| Stamina | 11 | 32 | **41** | 84 |
+| Speed | 8 | 36 | **40** | 84 |
+| Technique | 15 | 63 | 6 | 84 |
+| Combat IQ | 7 | 53 | 24 | 84 |
+| Versatility | 8 | 57 | 19 | 84 |
+| **총계** | **69** | **347** | **172** | **588** |
+
+| 자동 검토 후보 | 축/사건 수 |
+| --- | ---: |
+| Final 85 이상 E3 | 19축 |
+| EvaluationItem Evidence ID 연결 없음 | 6축 |
+| Stat 역할 Primary 없는 연결 | 360축 |
+| Canon 라벨 출처 없음 | 314축 |
+| 동일 Evidence 기반 다축 Raw 연결 | 29축, 독립 사건 12건 |
+| 한 Stat에 여러 Haki 종류 | 2축 |
+
+*동일 항목이 여러 플래그에 중복 포함될 수 있음. 합계를 결함 총수로 해석하지 않는다. 코드에 `canon`이라 등록된 출처도 실제 만화 컷 원문 검증 완료의 대용 지표가 아니다. 588축 내용적 승인 판정은 이어지는 심층 감사에서 수행한다.*
+
+**초기 CI에서의 빌드 호환 수정:** 처음에는 440 테스트가 통과했지만 Node `fs/path` 테스트가 브라우저 TS 구성 범위 안에 있어 타입 검사가 실패했고, `replaceAll`이 기존 ES 라이브러리 목표와 불일치했다. Node 전용 테스트를 `tests/`로 이동하고 기존 컴파일러 수준에 맞는 문자열 치환으로 수정했으며 위 SHA에서 재검증했다.
+
+**남은 릴리즈 확인:** 문서 최종 갱신 후 PR CI와 main 병합/배포는 별도로 확인한다. 실기기 PC/모바일·원작 만화 컷 전수 감사·사진/명대사 권리 검증은 이 CI로 완료되었다고 주장하지 않는다.
