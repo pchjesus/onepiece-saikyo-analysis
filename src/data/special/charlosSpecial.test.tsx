@@ -1,0 +1,109 @@
+// @vitest-environment jsdom
+import { describe, expect, it } from 'vitest'
+import { act } from 'react'
+import { createRoot } from 'react-dom/client'
+import { renderToStaticMarkup } from 'react-dom/server'
+import { charlosMemeStats, charlosSpecialOverall, CHARLOS_ID,
+  charlosCharacter, charlosMembership, celestialDragonGroup } from './charlosSpecial'
+import { characterRepository } from '../repositories/characterRepository'
+import { groupRepository } from '../repositories/groupRepository'
+import { evaluationRepository } from '../repositories/evaluationRepository'
+import { matchupRepository } from '../repositories/matchupRepository'
+import { getUniqueCharacterList } from '../../application/getCharacterList'
+import { getStatRanking } from '../../application/getStatRanking'
+import { getOrganizationChart } from '../../application/getOrganizationChart'
+import { COMBAT_STATS } from '../../domain/evaluation/types'
+import { getCharacterPortraitAsset } from '../media/characterPortraits'
+import { CharlosSpecialPage } from '../../ui/pages/CharlosSpecialPage'
+import { versionManifest } from '../integrity/versionManifest'
+import { v050CurrentDataset, buildV050ReadOnlyAudit } from '../integrity/v050ReadOnlyAudit'
+import { balancedV12 } from '../sample/calculationModels'
+
+describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
+  it('contains exactly seven distinct, 0..100 meme axes and calculates 611/7', () => {
+    expect(charlosMemeStats.map(s=>[s.label,s.score])).toEqual([
+      ['총질력',23],['맷집력',97],['배포력',100],['지배력',99],
+      ['기동력',92],['인정력',100],['어그로력',100],
+    ])
+    expect(new Set(charlosMemeStats.map(s=>s.id)).size).toBe(7)
+    expect(charlosMemeStats.every(s=>s.score>=0 && s.score<=100 &&
+      s.line.endsWith('다이.') && s.fact.endsWith('다이.') &&
+      s.satire.endsWith('다이.') && s.sourceUrl.startsWith('https://one-piece.com/'))).toBe(true)
+    expect(charlosSpecialOverall).toBeCloseTo(611/7,12)
+  })
+
+  it('registers 82 people, new subordinate noble group, no fake Balanced assessment', () => {
+    expect(charlosCharacter.id).toBe(CHARLOS_ID)
+    expect(charlosMembership.groupId).toBe('celestial-dragons')
+    expect(celestialDragonGroup.parentGroupId).toBe('world-government')
+    expect(characterRepository.getCharacters()).toHaveLength(82)
+    expect(getUniqueCharacterList()).toHaveLength(82)
+    expect(groupRepository.getGroup('celestial-dragons')?.name).toBe('천룡인')
+    expect(getOrganizationChart('celestial-dragons','all')?.count).toBe(1)
+    expect(getOrganizationChart('world-government','all')?.sections.some(s=>s.group.id==='celestial-dragons')).toBe(true)
+    expect(evaluationRepository.getEvaluations(CHARLOS_ID)).toHaveLength(0)
+    expect(matchupRepository.getAllMatchups()).toHaveLength(18)
+    expect(matchupRepository.getAllMatchups().every(m=>!JSON.stringify(m).includes(CHARLOS_ID))).toBe(true)
+    expect(balancedV12.configuration.hakiWeight).toBe(0.5)
+    expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
+    expect(versionManifest.appVersion).toBe('0.4.17')
+  })
+
+  it('inserts ONE meme overall result without changing original 81 numeric results', () => {
+    const ranks=getStatRanking('overall')
+    const special=ranks.filter(e=>e.characterId===CHARLOS_ID)
+    expect(ranks).toHaveLength(82)
+    expect(special).toHaveLength(1)
+    expect(special[0].specialEvaluation).toBe(true)
+    expect(special[0].score).toBe(charlosSpecialOverall)
+    expect(special[0].groupId).toBe('celestial-dragons')
+    for(const stat of COMBAT_STATS){
+      const rows=getStatRanking(stat)
+      expect(rows).toHaveLength(81)
+      expect(rows.find(e=>e.characterId===CHARLOS_ID)).toBeUndefined()
+    }
+    const withoutParody=ranks.filter(e=>e.characterId!==CHARLOS_ID)
+    expect(withoutParody).toHaveLength(81)
+    expect(withoutParody.every(e=>!e.specialEvaluation)).toBe(true)
+    const audit=buildV050ReadOnlyAudit()
+    expect(audit.integrity.errors).toEqual([])
+    expect(audit.counts).toEqual({characters:81,evaluatedCharacters:81,evaluations:85,axes:595,memberships:106,matchups:18})
+    expect(v050CurrentDataset.evaluations.map(e=>e.items.map(i=>i.score))).toHaveLength(85)
+  })
+
+  it('retains exact user-image asset paths, and standalone meme UI identifies satire', () => {
+    expect(getCharacterPortraitAsset(CHARLOS_ID)?.fileName).toBe('charlos.webp')
+    const html=renderToStaticMarkup(<CharlosSpecialPage onSelectOverall={()=>{}}/>)
+    expect(html).toContain('호를로스 성')
+    expect(html).toContain('87.3')
+    expect(html).toContain('진실')
+    expect(html).toContain('총질력')
+    expect(html).toContain('특별 밈 평가')
+    expect(html).toContain('images/characters/charlos.webp')
+    expect(html).toContain('원작 맥락')
+  })
+
+  it('opens the secret modal, exposes disclaimer and image, and closes via Escape', async () => {
+    (globalThis as typeof globalThis & {IS_REACT_ACT_ENVIRONMENT:boolean}).IS_REACT_ACT_ENVIRONMENT=true
+    const host=document.createElement('div')
+    document.body.appendChild(host)
+    const root=createRoot(host)
+    try{
+      await act(async()=>{root.render(<CharlosSpecialPage onSelectOverall={()=>{}}/>)})
+      const btn=host.querySelector<HTMLButtonElement>('.charlos-truth-trigger')
+      expect(btn).not.toBeNull()
+      await act(async()=>{btn!.click()})
+      const modal=document.querySelector('[role="dialog"][aria-labelledby="charlos-truth-title"]')
+      expect(modal?.textContent).toContain('일어나 죽지 말고')
+      expect(modal?.textContent).toContain('공식')
+      expect(modal?.querySelector('img')?.getAttribute('src')).toContain('charlos-truth.webp')
+      expect(document.body.style.overflow).toBe('hidden')
+      await act(async()=>{document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))})
+      expect(document.querySelector('#charlos-truth-title')).toBeNull()
+      expect(document.body.style.overflow).not.toBe('hidden')
+    } finally {
+      await act(async()=>{root.unmount()})
+      host.remove()
+    }
+  })
+})
