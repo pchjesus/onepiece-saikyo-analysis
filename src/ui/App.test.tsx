@@ -42,7 +42,7 @@ afterEach(async () => {
 describe('v0.1.80 patch history UI',()=>{
   it('opens history, displays numeric changes and reasons, closes on demand',async()=>{
     const button=container.querySelector<HTMLButtonElement>('.patch-history-trigger')
-    expect(button?.textContent).toContain('v0.4.13')
+    expect(button?.textContent).toContain('v0.4.14')
     await click(button)
     const dialog=container.querySelector('[role="dialog"][aria-labelledby="patch-history-title"]')
     expect(dialog?.textContent).toContain('퀸 범용성 조정')
@@ -137,7 +137,7 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
     expect(results).toHaveLength(81)
     expect(container.querySelectorAll('.character-picker-option .character-portrait-small')).toHaveLength(81)
     expect(container.querySelectorAll('.character-picker-option img')).toHaveLength(80)
-    expect(container.querySelectorAll('.character-picker-option .character-portrait-fallback')).toHaveLength(1)
+    expect(container.querySelectorAll('.character-picker-option .character-portrait-fallback')).toHaveLength(0)
     await click(container.querySelector('.character-picker-close'))
   })
   it('opens an attached evidence battle from the evaluated stat trace',async()=>{
