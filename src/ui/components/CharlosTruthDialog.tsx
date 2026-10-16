@@ -67,7 +67,7 @@ export function CharlosTruthDialog({ onClose }: { onClose: () => void }) {
             {charlosTruthMonologue.map(line=><span className="charlos-truth-line" key={line}>{line}</span>)}
           </blockquote>
           <div className="charlos-truth-story">
-            <p><strong>그는 마지막으로 중얼거렸다이. “악마다이…!!”</strong></p>
+            <p><strong>갈링 성을 본 그는 마지막으로 중얼거렸다이. “악마다이…!!”</strong></p>
           </div>
           <p className="charlos-truth-last">인류가 이해하지 못한 마지막 성자다이.</p>
           <button className="charlos-truth-exit" type="button" onClick={onClose}>진실을 덮는다이</button>

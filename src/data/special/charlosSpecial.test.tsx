@@ -32,6 +32,17 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
     expect(charlosSpecialOverall).toBeCloseTo(611/7,12)
   })
 
+  it('keeps the approved Charlos quips consistent without repeating the finger punchline', () => {
+    const gun = charlosMemeStats.find(stat => stat.id === 'gun')
+    const toughness = charlosMemeStats.find(stat => stat.id === 'toughness')
+    const mobility = charlosMemeStats.find(stat => stat.id === 'mobility')
+    expect(gun?.fact).toBe('샤본디에서 하찌에게 내가 직접 총을 쐈다이.')
+    expect(gun?.satire).toBe('맨주먹으로 시비를 거는 건 품위가 없는 거다이. 고귀한 손가락 하나면 충분하다이.')
+    expect(((gun?.fact ?? '') + (gun?.satire ?? '')).split('고귀한 손가락').length - 1).toBe(1)
+    expect(toughness?.satire).toBe('무수한 구타 후에도 다시 등장했다이. 위대한 귀족의 생명력은 쉽게 꺼지지 않는 거다이.')
+    expect(mobility?.satire).toBe('발을 쓰면 신발이 닳는다이. 내 신발은 귀하니 인간들이 대신 걷는 거다이.')
+  })
+
   it('registers 82 people, new subordinate noble group, no fake Balanced assessment', () => {
     expect(charlosCharacter.id).toBe(CHARLOS_ID)
     expect(charlosMembership.groupId).toBe('celestial-dragons')
@@ -146,6 +157,7 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
       expect(expanded).toContain('인류의 구원자')
       expect(expanded).toContain('일어나 죽지 말고,엎드려 사는 거다이.')
       expect(expanded).toContain('악마다이…!!')
+      expect(expanded).toContain('갈링 성을 본 그는 마지막으로 중얼거렸다이. “악마다이…!!”')
       expect(expanded).toContain('인류가 이해하지 못한 마지막 성자다이.')
       expect(modal?.querySelectorAll('.charlos-truth-quote')).toHaveLength(1)
       expect(modal?.querySelectorAll('.charlos-truth-rescue')).toHaveLength(1)

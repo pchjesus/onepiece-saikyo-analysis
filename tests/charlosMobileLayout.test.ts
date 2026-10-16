@@ -31,4 +31,13 @@ describe('Charlos mobile-only profile layout contract', () => {
     expect(charlos).toContain('.charlos-truth-rescue')
     expect(charlos).toContain('.charlos-truth-rescue .charlos-truth-line+')
   })
+  it('uses identical font sizes for both truth quotations without a mobile downscale', () => {
+    const originalQuoteSize = css.match(/\.charlos-truth-quote\{[^}]*font-size:([^;]+);/)?.[1]
+    const restoredMonologueSize = css.match(/\.charlos-truth-rescue\{[^}]*font-size:([^;]+);/)?.[1]
+    expect(originalQuoteSize).toBe('clamp(1.1rem,3.6vw,1.65rem)')
+    expect(restoredMonologueSize).toBe(originalQuoteSize)
+    expect(css).toContain('.charlos-truth-rescue{padding:18px 4px;}')
+    expect(css).not.toContain('.charlos-truth-rescue{padding:18px 4px;font-size:')
+  })
+
 })
