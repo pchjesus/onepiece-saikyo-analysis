@@ -63,8 +63,8 @@ describe('v0.4.27 Jinbe approved Defense/Stamina and chapter-correct evidence ov
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(versionManifest).toMatchObject({
-      appVersion:'0.4.27',coreDataVersion:'core-v0.4.27',
-      evaluationSetVersion:'evaluation-set-v0.4.27',
+      appVersion:'0.4.28',coreDataVersion:'core-v0.4.28',
+      evaluationSetVersion:'evaluation-set-v0.4.28',
       calculationModelVersion:'1.2',baselineSnapshotVersion:'v0.3.3',
     })
   })
@@ -109,7 +109,7 @@ describe('v0.4.27 Jinbe approved Defense/Stamina and chapter-correct evidence ov
   it('keeps references valid, live audit coherent, and source/readiness separated', () => {
     const audit=buildV050ReadOnlyAudit()
     expect(audit.integrity.errors).toEqual([])
-    expect(audit.counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:86,axes:602,memberships:107,matchups:18})
+    expect(audit.counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:88,axes:616,memberships:107,matchups:18})
     const allLinks=v050CurrentDataset.evidence.map(e=>({id:e.id,subjectCharacterId:e.subjectCharacterId}))
     expect(validateEvaluation(current,allLinks).errors).toEqual([])
     const jinbeRows=audit.rows.filter(r=>r.characterId==='jinbe')
@@ -121,7 +121,7 @@ describe('v0.4.27 Jinbe approved Defense/Stamina and chapter-correct evidence ov
     expect(def.readiness).toBe('E1')
     expect(def.evidenceLinks.find(e=>e.evidenceId==='evidence-v0427-jinbe-akainu-block-574'))
       .toMatchObject({sourceType:'supplementary',role:'primary'})
-    for(const original of sampleEvaluations.filter(e=>e.characterId!=='jinbe'&&e.characterId!=='kaku'&&e.characterId!=='kaido'&&e.characterId!=='linlin')) {
+    for(const original of sampleEvaluations.filter(e=>!['jinbe','kaku','kaido','linlin','kinemon','denjiro','ashura-doji','kawamatsu','kikunojo','raizo','inuarashi','nekomamushi','kanjuro'].includes(e.characterId))) {
       expect(evaluationRepository.getEvaluations(original.characterId).find(e=>e.id===original.id)).toEqual(original)
     }
   })
@@ -133,8 +133,9 @@ describe('v0.4.27 Jinbe approved Defense/Stamina and chapter-correct evidence ov
     expect(markup).toContain('80')
     expect(markup).toContain('핵심 전투 스탯')
     expect(markup).not.toContain('전투력 미평가')
-    expect(patchHistory[0].version).toBe('v0.4.27')
-    const changes=patchHistory[0].changes.filter(x=>x.kind==='score')
+    const jinbePatch=patchHistory.find(p=>p.version==='v0.4.27')!
+    expect(jinbePatch.version).toBe('v0.4.27')
+    const changes=jinbePatch.changes.filter(x=>x.kind==='score')
     expect(changes.map(x=>[x.stat,x.before,x.after])).toEqual([
       ['defense',80,82],['stamina',80,83],
     ])
