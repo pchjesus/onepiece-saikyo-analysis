@@ -43,7 +43,7 @@ export const patchHistory: PatchRecord[] = [
   {
     version:'v0.4.29',date:'2026-10-18',
     title:'마르코·죠즈·비스타 양방향 재평가 및 합리적 추론 검증',
-    summary:'과대평가/과소평가를 함께 검토하는 7축 평가 게이트 적용. 마르코 84.4, 죠즈 79.6, 비스타 82.9. 공식 검술 위상·실전 공방에서 합리적인 전투 능력 추론 허용(E3 불확실성 유지). 통상 무장색 4개 Raw 가점은 실제 Base에 편입, 패기 사실 보존. 7축 평균 Balanced1.2, HakiWeight0.5 및 타 79명 현행 점수 불변.',
+    summary:'과대평가/과소평가를 함께 검토하는 7축 평가 게이트 적용. 마르코 83.7→84.4, 죠즈 79.6, 비스타 82.9. 공식 검술 위상·실전 공방에서 합리적인 전투 능력 추론 허용(E3 불확실성 유지). 통상 무장색 4개 Raw 가점은 실제 Base에 편입, 패기 사실 보존. 7축 평균 Balanced1.2, HakiWeight0.5 및 타 79명 현행 점수 불변.',
     report:'docs/V0_4_29_WHITEBEARD_BIDIRECTIONAL_RECALIBRATION_2026-10-18.md',
     changes:[
       ...v0429CommanderChanges.map(c=>({kind:'score' as const,characterId:c.characterId,stat:c.stat,
