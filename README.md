@@ -1,3 +1,5 @@
+> **v0.4.22:** 마젤란 독 공격 일러스트를 검색·프로필·이미지 확대에 추가. 기존 평가 86.00, 정규 82명·86 평가·602축·18 매치업 유지. [기록](docs/V0_4_22_MAGELLAN_IMAGE_REGISTRATION_2026-10-17.md).
+
 > **v0.4.21:** 캐릭터 전투 프로필에서 비브르 카드 이미지 링크·불필요한 시스템 설명 삭제. 카이도 숙련도 Final **96→98**, 빅맘 **94→96** (두 인물 모두 Base +2·기존 패기 Raw6 유지). 정규 82명/86 Evaluation/602축/18 매치업 보존. [상세 결정](docs/V0_4_21_PROFILE_COPY_AND_EMPEROR_TECHNIQUE_2026-10-17.md).
 
 > **v0.4.20 마젤란 추가:** 임펠다운 편 기준 정규 캐릭터, 사용자 승인 7축 **92/83/82/80/91/83/91**, Overall **86.00**. 공식 보조 근거 6건·전투 맥락 4건, 패기 Raw0, 기존 18 매치업·다른 평가·v0.3.3 고정 기준선 유지. [분석·검증 보고](docs/V0_4_20_MAGELLAN_REGISTRATION_2026-10-17.md).
@@ -24,7 +26,7 @@
 
 > **v0.5.0 감사 Stage 1 당시 기록(당시 앱 v0.4.12):** 80명·84개 Evaluation·588개 7축을 대상으로 E1/E2/E3, 근거 연결 및 Haki 다축 중복 후보를 읽기 전용 CSV로 추출·검증하는 작업. 점수·모델·순위·매치업 변경 없음. [감사 설계·검증 및 승인 게이트](docs/V0_5_0_READONLY_AUDIT_STAGE1_2026-10-16.md).
 
-현재 구현 패치: **v0.4.21** (프로필 문구 정리·사황 숙련도 조정) (npm package 버전 **0.4.21**)
+현재 구현 패치: **v0.4.22** (마젤란 캐릭터 이미지 등록; 평가·계산 불변) (npm package 버전 **0.4.22**)
 평가 데이터: **81 Character master pool · 81 visible Character · 81 evaluated unique Character · 106 Membership · 85 Evaluation · 595 Stat** 
 계산 모델: **Balanced 1.2 · 7 Final Core Stats · Haki Weight 0.5**
 
