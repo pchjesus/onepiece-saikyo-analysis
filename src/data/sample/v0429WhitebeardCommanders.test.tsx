@@ -92,8 +92,8 @@ describe('v0.4.29 evidence-based symmetric inflation/deflation calibration',()=>
   })
   it('preserves baseline and other 79 characters while current audit stays in sync with repository',()=>{
     expect(versionManifest).toMatchObject({
-      appVersion:'0.4.29',coreDataVersion:'core-v0.4.29',
-      evaluationSetVersion:'evaluation-set-v0.4.29',
+      appVersion:'0.4.30',coreDataVersion:'core-v0.4.30',
+      evaluationSetVersion:'evaluation-set-v0.4.30',
       calculationModelId:'balanced',calculationModelVersion:'1.2',
       baselineSnapshotVersion:'v0.3.3',
     })
@@ -122,9 +122,9 @@ describe('v0.4.29 evidence-based symmetric inflation/deflation calibration',()=>
     expect(h).toContain('비스타')
     expect(h).toContain('92')
     expect(h).toContain('핵심 전투 스탯')
-    expect(patchHistory[0].version).toBe('v0.4.29')
-    expect(patchHistory[0].changes.filter(c=>c.kind==='score')).toHaveLength(20)
+    expect(patchHistory.find(x=>x.version==='v0.4.29')?.version).toBe('v0.4.29')
+    expect(patchHistory.find(x=>x.version==='v0.4.29')?.changes.filter(c=>c.kind==='score')).toHaveLength(20)
     expect(patchHistory.some(p=>p.version==='v0.4.28')).toBe(true)
-    expect(patchHistory[0].changes.some(c=>c.kind==='evidence'&&c.title.includes('양방향'))).toBe(true)
+    expect(patchHistory.find(x=>x.version==='v0.4.29')?.changes.some(c=>c.kind==='evidence'&&c.title.includes('양방향'))).toBe(true)
   })
 })
