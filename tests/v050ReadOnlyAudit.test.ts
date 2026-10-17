@@ -16,26 +16,26 @@ import {
 const baselinePath = resolve(process.cwd(), 'src/data/baselines/v0.3.3.json')
 const newIds = ['guernica','maha','usopp','brook','franky','chopper','robin','nami']
 
-describe('v0.5.0 stage 1: read-only 81-person, 85-evaluation, 595-stat audit', () => {
+describe('v0.5.0 stage 1: read-only 82-person, 86-evaluation, 602-stat audit', () => {
   it('audits all actual UI-era data, rather than the legacy 72-person integrity fixture', () => {
     const report = buildV050ReadOnlyAudit()
     expect(report.integrity.errors).toEqual([])
     expect(report.counts).toEqual({
-      characters:81, evaluatedCharacters:81, evaluations:85, axes:595,
-      memberships:106, matchups:18,
+      characters:82, evaluatedCharacters:82, evaluations:86, axes:602,
+      memberships:107, matchups:18,
     })
-    expect(report.rows).toHaveLength(595)
-    expect(new Set(report.rows.map(row=>row.evaluationId))).toHaveProperty('size',85)
-    expect(new Set(report.rows.map(row=>row.characterId))).toHaveProperty('size',81)
+    expect(report.rows).toHaveLength(602)
+    expect(new Set(report.rows.map(row=>row.evaluationId))).toHaveProperty('size',86)
+    expect(new Set(report.rows.map(row=>row.characterId))).toHaveProperty('size',82)
     for(const evaluation of v050CurrentDataset.evaluations){
       const rows=report.rows.filter(row=>row.evaluationId===evaluation.id)
       expect(rows.map(row=>row.stat)).toEqual(COMBAT_STATS)
       expect(rows.every(row=>row.evaluationDataVersion===evaluation.evaluationDataVersion)).toBe(true)
     }
-    expect(report.readiness.E1+report.readiness.E2+report.readiness.E3+report.readiness.unclassified).toBe(595)
+    expect(report.readiness.E1+report.readiness.E2+report.readiness.E3+report.readiness.unclassified).toBe(602)
     for(const stat of COMBAT_STATS){
       const count=report.readinessByStat[stat]
-      expect(count.E1+count.E2+count.E3+count.unclassified).toBe(85)
+      expect(count.E1+count.E2+count.E3+count.unclassified).toBe(86)
     }
     console.log('[v050 AUDIT SUMMARY]',JSON.stringify({readiness:report.readiness,byStat:report.readinessByStat,
       flags:report.flagCounts,sharedHakiEvidence:report.sharedHakiEvidence.length}))
@@ -93,18 +93,18 @@ describe('v0.5.0 stage 1: read-only 81-person, 85-evaluation, 595-stat audit', (
     }
     for(const stat of ['overall',...COMBAT_STATS] as const) {
       const ranking=getStatRanking(stat)
-      expect(ranking).toHaveLength(stat === 'overall' ? 82 : 81)
+      expect(ranking).toHaveLength(stat === 'overall' ? 83 : 82)
       if(stat==='overall') for(const person of ranking.filter(x=>x.characterId!=='charlos')) {
         expect(getCombatPower(person.characterId).finalScore).toBe(person.score)
       }
     }
   })
 
-  it('provides a deterministic 595-row quoted CSV worksheet with all source-role and rationale fields', () => {
+  it('provides a deterministic 602-row quoted CSV worksheet with all source-role and rationale fields', () => {
     const a=v050AuditRowsToCsv(buildV050ReadOnlyAudit().rows)
     const b=v050AuditRowsToCsv(buildV050ReadOnlyAudit().rows)
     expect(a).toBe(b)
-    expect(a.split('\n')).toHaveLength(597) // header + 595 rows + final empty line
+    expect(a.split('\n')).toHaveLength(604) // header + 602 rows + final empty line
     expect(a.startsWith('"evaluationId","evaluationDataVersion"')).toBe(true)
     expect(a).toContain('"evaluation-v0412-nami"')
     expect(a).toContain('"supplementary"')
@@ -115,7 +115,7 @@ describe('v0.5.0 stage 1: read-only 81-person, 85-evaluation, 595-stat audit', (
     if(process.env.GITHUB_ACTIONS==='true' || process.env.V050_AUDIT_EXPORT==='1'){
       const output=resolve(process.cwd(),'audit-output')
       mkdirSync(output,{recursive:true})
-      writeFileSync(resolve(output,'v0.5.0-595-axis-audit.csv'),a,'utf8')
+      writeFileSync(resolve(output,'v0.5.0-current-axis-audit.csv'),a,'utf8')
       const report=buildV050ReadOnlyAudit()
       writeFileSync(resolve(output,'v0.5.0-audit-summary.json'),JSON.stringify({
         schema:'onepiece-v050-readonly-audit/1',versions:versionManifest,

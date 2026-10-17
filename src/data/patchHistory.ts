@@ -38,6 +38,16 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.4.20',date:'2026-10-17',title:'마젤란 임펠다운 편 전투력 86.00 정규 등록',
+    summary:'마젤란 정규 캐릭터 1·소속 1·전투 맥락 4·공식 보조 근거 6·7축 92/83/82/80/91/83/91 등록. Overall 86.00, 미확인 패기 Raw0. 기존 81명·85 Evaluation·18매치업·모델과 차를로스 특별 프로필은 보존.',
+    report:'docs/V0_4_20_MAGELLAN_REGISTRATION_2026-10-17.md',
+    changes:[
+      {kind:'character',characterId:'magellan',title:'임펠다운 마젤란 정규 프로필',detail:'당시 서장 / 현재 부서장을 구별해 기존 임펠다운 그룹에 등록. 정규 82명·86 Evaluation·602축. 초상과 명대사는 미확인 자료를 생성하지 않음.'},
+      {kind:'evidence',characterId:'magellan',title:'검은수염 일당 제압 등 공식 근거 6건',detail:'루피 중독과 직접 피격, 당시 티치 일행의 중독과 시류 해독제, 탈옥조 추격, Mr.3 밀랍 차단, 독의 거병. 보조 시놉시스이며 원작 컷 직접 감사 전.',reason:'실전 유효타와 상대 조건을 분리해 공격력의 근거를 명시하고 패기·방어력·속도 과잉 추론을 방지.',evidence:[{label:'ONE PIECE.com TV448',url:'https://one-piece.com/anime/448/index.html'},{label:'ONE PIECE.com TV449',url:'https://one-piece.com/anime/449/index.html'},{label:'ONE PIECE.com TV452',url:'https://one-piece.com/anime/452/index.html'}]},
+      {kind:'feature',characterId:'magellan',title:'승인 7축 / Overall 86.00 표시',detail:'Attack92, Defense83, Stamina82, Speed80, Technique91, CombatIQ83, Versatility91 = 602/7 =86.00. 기존 CharacterPage와 전체 스탯·Overall 랭킹 재사용, 새 매치업 생성 없음.'},
+    ],
+  },
+
   {version:'v0.4.19',date:'2026-10-17',title:'로즈워드 차를로스 성 · 상세 대표 이름',
     summary:'차를로스 성 상세 프로필 상단에 로즈워드 차를로스 성을 프로젝트 표시명으로 적용. 원본 캐릭터 ID·name·정규 전투력·소속·순위·매치업과 특별 7축은 유지.',
     report:'CHANGELOG.md',

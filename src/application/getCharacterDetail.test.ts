@@ -6,7 +6,7 @@ import { evaluationRepository } from '../data/repositories/evaluationRepository'
 describe('getCharacterDetail group migration', () => {
   it('resolves representative detail for all 72 evaluated Characters', () => {
     const list = getUniqueCharacterList().filter(x=>evaluationRepository.getEvaluations(x.character.id).length>0)
-    expect(list).toHaveLength(81)
+    expect(list).toHaveLength(82)
     for (const { character, group } of list) {
       const detail = getCharacterDetail(character.id, group.id)
       expect(detail?.character.id).toBe(character.id)
@@ -17,7 +17,7 @@ describe('getCharacterDetail group migration', () => {
 
   it('resolves every expanded Membership context, including historical secondary Groups', () => {
     const expanded = getCharacterList().filter(x=>evaluationRepository.getEvaluations(x.character.id).length>0)
-    expect(expanded).toHaveLength(106)
+    expect(expanded).toHaveLength(107)
 
     for (const { character, group } of expanded) {
       const detail = getCharacterDetail(character.id, group.id)

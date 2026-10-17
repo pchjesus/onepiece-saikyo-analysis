@@ -3,10 +3,11 @@ import { sampleEvaluations } from '../sample/evaluations'
 import { v0412Evaluations } from '../sample/v0412EightEvaluations'
 import { applyV0413KakuDraft, v0413EnelEvaluation } from '../sample/v0413RemainingDraftPublication'
 import { applyV0415EnelReview } from '../sample/v0415EnelReview'
+import { v0420MagellanEvaluation } from '../sample/v0420MagellanRegistration'
 import { applyV0416Cp0EvaluationAudit } from '../sample/v0416Cp0EvidenceReadiness'
 
 /** Preserve immutable historical evaluation array; extend current repository data explicitly. */
-const currentEvaluations = [...sampleEvaluations.map(applyV0413KakuDraft), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit), applyV0415EnelReview(v0413EnelEvaluation)]
+const currentEvaluations = [...sampleEvaluations.map(applyV0413KakuDraft), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit), applyV0415EnelReview(v0413EnelEvaluation), v0420MagellanEvaluation]
 
 export interface EvaluationRepository {
   getEvaluations(characterId: string): Evaluation[]

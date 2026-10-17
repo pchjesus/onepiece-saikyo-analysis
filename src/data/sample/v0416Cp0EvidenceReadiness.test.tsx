@@ -97,8 +97,8 @@ describe('v0.4.16 / v0.5.0 Stage 2A CP0 readiness and Evidence provenance', () =
     const report = buildV050ReadOnlyAudit()
     expect(report.integrity.errors).toEqual([])
     expect(report.counts).toEqual({
-      characters:81,evaluatedCharacters:81,evaluations:85,
-      axes:595,memberships:106,matchups:18,
+      characters:82,evaluatedCharacters:82,evaluations:86,
+      axes:602,memberships:107,matchups:18,
     })
     for (const [id, axes] of Object.entries(revised)) {
       const rows = report.rows.filter(x=>x.characterId===id)
@@ -120,12 +120,12 @@ describe('v0.4.16 / v0.5.0 Stage 2A CP0 readiness and Evidence provenance', () =
       expect(html).toContain('핵심 전투 스탯')
       expect(html).toContain('E3')
     }
-    expect(getStatRanking('overall')).toHaveLength(82)
+    expect(getStatRanking('overall')).toHaveLength(83)
     expect(matchupRepository.getAllMatchups()).toHaveLength(18)
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(versionManifest.appVersion).toBe('0.4.19')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.17')
+    expect(versionManifest.appVersion).toBe('0.4.20')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.20')
   })
 })

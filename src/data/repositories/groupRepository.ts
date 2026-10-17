@@ -3,10 +3,11 @@ import { sampleGroups } from '../sample/groups'
 import { sampleMemberships } from '../sample/memberships'
 import { v0411Memberships } from '../sample/v0411UnratedCharacterRegistration'
 import { v0413EnelMembership } from '../sample/v0413RemainingDraftPublication'
+import { v0420MagellanMembership } from '../sample/v0420MagellanRegistration'
 import { charlosMembership, celestialDragonGroup } from '../special/charlosSpecial'
 
 /** Existing historical memberships stay byte-for-byte unchanged. */
-const currentMemberships = [...sampleMemberships, ...v0411Memberships, v0413EnelMembership, charlosMembership]
+const currentMemberships = [...sampleMemberships, ...v0411Memberships, v0413EnelMembership, v0420MagellanMembership, charlosMembership]
 
 export interface GroupRepository {
   getGroups(): Group[]

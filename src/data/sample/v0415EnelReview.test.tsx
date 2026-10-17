@@ -40,10 +40,10 @@ describe('v0.4.15 approved Enel review and official Japanese quote', () => {
     expect(sampleEvaluations).toHaveLength(76)
     expect(v0412Evaluations).toHaveLength(8)
   })
-  it('keeps all 84 non-Enel evaluations untouched, model and matchups preserved', () => {
+  it('keeps all 85 non-Enel evaluations untouched, model and matchups preserved', () => {
     const current = v050CurrentDataset.evaluations
-    expect(current).toHaveLength(85)
-    expect(current.flatMap(item => item.items)).toHaveLength(595)
+    expect(current).toHaveLength(86)
+    expect(current.flatMap(item => item.items)).toHaveLength(602)
     expect(current.filter(item => item.characterId === 'enel')).toHaveLength(1)
     for (const entry of current.filter(item => item.characterId !== 'enel')) {
       expect(evaluationRepository.getEvaluation(entry.characterId, entry.subjectState?.id)
@@ -51,15 +51,15 @@ describe('v0.4.15 approved Enel review and official Japanese quote', () => {
     }
     expect(getCombatPower('enel').finalScore).toBeCloseTo(566 / 7, 10)
     expect(getCharacterDetail('enel', 'skypiea')?.evaluation.items.map(item => item.score)).toEqual(approved)
-    expect(getStatRanking('overall')).toHaveLength(82)
+    expect(getStatRanking('overall')).toHaveLength(83)
     expect(matchupRepository.getAllMatchups()).toHaveLength(18)
     expect(matchupRepository.getAllMatchups().find(match => match.id === 'matchup-enel-luffy-skypiea')?.historicalContext?.characterBEra)
       .toContain('7축 평가 없음')
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(versionManifest.appVersion).toBe('0.4.19')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.17')
+    expect(versionManifest.appVersion).toBe('0.4.20')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.20')
   })
   it('displays a sourced Japanese quotation with editorial Korean, not manga-checked or official-Korean', () => {
     const quote = getCharacterQuoteReview('enel')!
@@ -93,8 +93,8 @@ describe('v0.4.15 approved Enel review and official Japanese quote', () => {
     const audit = buildV050ReadOnlyAudit()
     expect(audit.integrity.errors).toEqual([])
     expect(audit.counts).toEqual({
-      characters: 81, evaluatedCharacters: 81, evaluations: 85,
-      axes: 595, memberships: 106, matchups: 18,
+      characters: 82, evaluatedCharacters: 82, evaluations: 86,
+      axes: 602, memberships: 107, matchups: 18,
     })
     const enel = audit.rows.filter(row => row.characterId === 'enel')
     expect(enel).toHaveLength(7)

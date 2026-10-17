@@ -2,10 +2,11 @@ import type { Character } from '../../domain/character/types'
 import { sampleCharacters } from '../sample/characters'
 import { v0411Characters } from '../sample/v0411UnratedCharacterRegistration'
 import { v0413EnelCharacter } from '../sample/v0413RemainingDraftPublication'
+import { v0420MagellanCharacter } from '../sample/v0420MagellanRegistration'
 import { charlosCharacter } from '../special/charlosSpecial'
 
 /** Frozen scored roster + separately registered unrated profiles. */
-const currentCharacters = [...sampleCharacters, ...v0411Characters, v0413EnelCharacter, charlosCharacter]
+const currentCharacters = [...sampleCharacters, ...v0411Characters, v0413EnelCharacter, v0420MagellanCharacter, charlosCharacter]
 
 export interface CharacterRepository {
   getCharacters(): Character[]

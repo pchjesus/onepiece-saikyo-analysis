@@ -51,7 +51,7 @@ describe('v0.4.12 eight new provisional combat evaluations',()=>{
      const allEvidence=[...sampleEvidence,...v0412Evidence].map(e=>({id:e.id,subjectCharacterId:e.subjectCharacterId}))
      expect(validateEvaluation(evaluation,allEvidence).errors).toEqual([])
    }
-   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.17')
+   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.20')
    expect(balancedV12.configuration.hakiWeight).toBe(.5)
  })
  it('preserves ID ownership, battle context and immutable historical source data',()=>{
@@ -76,8 +76,8 @@ describe('v0.4.12 eight new provisional combat evaluations',()=>{
    expect(report.errors).toEqual([])
  })
  it('makes each new person selectable in rankings and normal evaluated detail UI',()=>{
-   expect(getStatRanking('overall')).toHaveLength(82)
-   expect(getStatRanking('attack')).toHaveLength(81)
+   expect(getStatRanking('overall')).toHaveLength(83)
+   expect(getStatRanking('attack')).toHaveLength(82)
    expect(evaluationRepository.getEvaluations('kaku')).toHaveLength(1)
    expect(evaluationRepository.getEvaluations('enel')).toHaveLength(1)
    expect(matchupRepository.getAllMatchups()).toHaveLength(18)
