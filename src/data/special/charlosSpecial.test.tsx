@@ -76,12 +76,12 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
       expect(rows.find(e=>e.characterId===CHARLOS_ID)).toBeUndefined()
     }
     const withoutParody=ranks.filter(e=>e.characterId!==CHARLOS_ID)
-    expect(withoutParody).toHaveLength(81)
+    expect(withoutParody).toHaveLength(82)
     expect(withoutParody.every(e=>!e.specialEvaluation)).toBe(true)
     const audit=buildV050ReadOnlyAudit()
     expect(audit.integrity.errors).toEqual([])
-    expect(audit.counts).toEqual({characters:81,evaluatedCharacters:81,evaluations:85,axes:595,memberships:106,matchups:18})
-    expect(v050CurrentDataset.evaluations.map(e=>e.items.map(i=>i.score))).toHaveLength(85)
+    expect(audit.counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:86,axes:602,memberships:107,matchups:18})
+    expect(v050CurrentDataset.evaluations.map(e=>e.items.map(i=>i.score))).toHaveLength(86)
   })
 
   it('retains exact user-image assets and delivers an in-universe special UI without explaining its jokes', () => {

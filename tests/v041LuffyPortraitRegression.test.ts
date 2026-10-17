@@ -67,7 +67,7 @@ describe('v0.4.1 additive Luffy and portrait mapping regression', () => {
     expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.20')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
     expect(versionManifest.calculationModelVersion).toBe('1.2')
-    expect(createV033Snapshot().snapshotVersion).toBe('v0.4.17')
+    expect(createV033Snapshot().snapshotVersion).toBe('v0.4.20')
     expect(createV033Snapshot().sourceCommit).toBeNull()
     expect(frozen.sourceCommit).toBe(versionManifest.baselineSourceCommit)
   })
