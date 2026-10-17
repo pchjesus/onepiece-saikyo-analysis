@@ -66,7 +66,7 @@ describe('v0.4.5 Teach dual fruit precision and flexibility audit',()=>{
 
   it('maintains identical calculation/model and unrelated ranks, matchup references and source baseline',()=>{
     expect(versionManifest.appVersion).toBe('0.4.20')
-    expect(versionManifest.coreDataVersion).toBe('core-v0.4.17')
+    expect(versionManifest.coreDataVersion).toBe('core-v0.4.20')
     expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.20')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
     expect(balancedV12.version).toBe('1.2')
