@@ -86,7 +86,7 @@ describe('v0.4.21 Kaido and Big Mom technique adjustment; concise user-facing pr
     expect(balancedV12.configuration.hakiWeight).toBe(.5)
     expect(matchupRepository.getAllMatchups()).toHaveLength(18)
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(versionManifest.appVersion).toBe('0.4.25')
+    expect(versionManifest.appVersion).toBe('0.4.26')
     expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.21')
   })
 

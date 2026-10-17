@@ -1,3 +1,9 @@
+## v0.4.26 — 모바일 Overall 중앙 정렬·구분선 회귀 (2026-10-17)
+
+- 신규 `tests/v0426OverallMobileLayout.test.tsx`: 모바일 `@media(max-width:760px)` 범위, 전체 폭·가운데 정렬·위아래 1px 선·여백 축소 정적 CSS 검증. SSR에서 마젤란 이미지·86.0·종합 순위/도움말 및 7축 그래프 개수 불변 검사.
+- 데스크톱 무배경 텍스트 규칙과 차를로스 특별 헤더 비적용을 보호. appVersion만 변경, core/evaluationSet/model/snapshot 불변.
+- 전체 GitHub Actions Vitest/TypeScript/Vite·Pages 배포는 CI 종료 후 실제 확인. 모바일·PC 실기기 직접 시각 검증은 별도.
+
 ## v0.4.25 — 종합점수 무배경 서체 스타일 회귀검증 (2026-10-17)
 
 - CharacterPageOverallHeader.test.tsx 에 CSS 무배경·무테두리·그림자 제거, 숫자 크기/정렬, 모바일 줄바꿈 확인을 추가. 기존 뉴게이트·가프 두 시점·마젤란 사진·종합점수 중복 제거 검증 유지.

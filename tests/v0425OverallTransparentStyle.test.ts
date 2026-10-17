@@ -14,7 +14,7 @@ describe('v0.4.25 Overall displayed as transparent header typography',()=>{
     expect(rule).toContain('align-items:flex-end')
     expect(section).toContain('font-size:clamp(2.8rem,4.2vw,3.8rem)')
     expect(section).toContain('@media(max-width:760px)')
-    expect(section).toContain('@media(max-width:380px)')
+    expect(section).toContain('/* v0.4.26 — mobile-only')
     expect(section).toContain('.power-card-heading:focus-visible')
   })
 })
