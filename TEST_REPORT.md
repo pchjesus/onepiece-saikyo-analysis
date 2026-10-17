@@ -1,3 +1,9 @@
+## v0.4.20 — 마젤란 정규 등록 회귀 검증 (2026-10-17)
+
+- 신규 테스트: src/data/sample/v0420MagellanRegistration.test.tsx — 등록·소속·86.00/7축·Raw Haki0·공식 보조 Evidence 6/전투 맥락 4·공통 상세·순위·감사 보존 검증.
+- 변경된 실시간 규모: 82명/86 Evaluation/602축/107 정규 소속 + 차를로스 특별인물 1. 과거 sample 76 Evaluation/532축과 v0.3.3 기준선 불변.
+- 관련 역사 검증 스위트의 현재 로스터 크기·패치 내역 버전 기대값을 최신으로 갱신. GitHub Actions 테스트/빌드 결과는 워크플로 완료 후 확인. 실제 PC/모바일 시각 검증은 별도.
+
 ## v0.4.19 — 차를로스 대표 표시명 검증 계획 (2026-10-17)
 
 - **기준선:** `main@63787a57b7f1bfe72b4d9ba7f42e5a6cfd291cc8`; 별도 작업 브랜치 `fix/v0419-charlos-display-name`.
