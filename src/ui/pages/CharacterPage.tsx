@@ -9,7 +9,7 @@ import { EvaluationTrace } from '../components/EvaluationTrace'
 import { StatList } from '../components/StatList'
 import { CombatProfile } from '../components/CombatProfile'
 import { EvidenceReadinessHelp } from '../components/EvidenceReadinessHelp'
-import { CharacterIdentity, characterIdentityStyle } from '../components/CharacterIdentity'
+import { CharacterIdentity, characterIdentityStyle, getCharacterAccent } from '../components/CharacterIdentity'
 import type { CharacterKnownAsKind } from '../../domain/character/types'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
 import { CharacterPortrait } from '../components/CharacterPortrait'
@@ -112,7 +112,7 @@ export function CharacterPage({ characterId, groupId, selectedStateId, onStateCh
           <div className="stat-heading">
             <div className="stat-heading-title"><h2>핵심 전투 스탯</h2><EvidenceReadinessHelp /></div>
           </div>
-          <StatList items={detail.evaluation.items} hakiWeight={result.hakiWeight} onSelectStat={onSelectStat}
+          <StatList items={detail.evaluation.items} hakiWeight={result.hakiWeight} accent={getCharacterAccent(detail.group.id, characterId)} onSelectStat={onSelectStat}
             onCompareStat={stat=>onCompareStat(stat,activeStateId)} />
         </section>
         <CombatProfile profile={detail.character.combatProfile} />

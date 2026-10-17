@@ -42,7 +42,7 @@ afterEach(async () => {
 describe('v0.1.80 patch history UI',()=>{
   it('opens history, displays numeric changes and reasons, closes on demand',async()=>{
     const button=container.querySelector<HTMLButtonElement>('.patch-history-trigger')
-    expect(button?.textContent).toContain('v0.4.22')
+    expect(button?.textContent).toContain('v0.4.23')
     await click(button)
     const dialog=container.querySelector('[role="dialog"][aria-labelledby="patch-history-title"]')
     expect(dialog?.textContent).toContain('퀸 범용성 조정')
@@ -87,7 +87,7 @@ describe('v0.1.80 patch history UI',()=>{
 
     await choose('전체')
     expect(tabs[0].getAttribute('aria-pressed')).toBe('true')
-    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(36)
+    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(37)
     expect(dialog.querySelectorAll('.patch-category-section').length).toBeGreaterThan(7)
   })
 
@@ -109,6 +109,9 @@ describe('v0.1.80 patch history UI',()=>{
 describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',()=>{
   it('opens from the seven existing stat cards, preserves canonical King/Katakuri Attack=83, and closes',async()=>{
     const buttons=[...container.querySelectorAll<HTMLButtonElement>('.stat-compare-trigger')]
+    expect(container.querySelectorAll('.stat-bar-row')).toHaveLength(7)
+    expect(container.querySelectorAll('.stat-bar-fill')).toHaveLength(7)
+    expect(container.querySelector('.stat-radar-svg')).toBeNull()
     expect(buttons).toHaveLength(7)
     expect(container.querySelector('.character-portrait-large img')?.getAttribute('src')).toContain('images/characters/newgate.webp')
     expect(container.querySelector('.character-portrait-large .character-portrait-fallback')).toBeNull()

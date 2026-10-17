@@ -38,6 +38,12 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.4.23',date:'2026-10-17',title:'7축 스탯 가로 막대 그래프',
+    summary:'기존 스탯 영역의 2열 카드를 7줄 가로 막대 그래프로 변경. 순위·비교·도움말·근거등급·패기정보 보존, 소속별 기존 강조색 적용. 평가 점수·계산 모델은 그대로.',
+    report:'docs/V0_4_23_SEVEN_HORIZONTAL_STAT_BARS_2026-10-17.md',
+    changes:[{kind:'feature',title:'7개 가로 막대 그래프와 소속 색상',detail:'스탯을 눌러 전체 순위 확인, 비교하기와 ? 설명, 근거등급과 패기 내역을 기존처럼 유지. 해군 파랑, 백수 보라, 대장 고유색 등 기존 CharacterIdentity 색상 활용. 천룡인 별도 페이지·82명·86 평가·602축·18 매치업·모델과 고정 기준선 변경 없음.'}],
+  },
+
   {version:'v0.4.22',date:'2026-10-17',title:'마젤란 독 공격 일러스트 등록',
     summary:'사용자가 선택한 트레저 크루즈 마젤란 일러스트를 캐릭터 검색·상세·확대 화면에 추가했다. 기존 전투력 및 평가 기준은 변경하지 않음.',
     report:'docs/V0_4_22_MAGELLAN_IMAGE_REGISTRATION_2026-10-17.md',
