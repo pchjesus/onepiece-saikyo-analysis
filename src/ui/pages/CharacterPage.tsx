@@ -111,7 +111,7 @@ export function CharacterPage({ characterId, groupId, selectedStateId, onStateCh
       </div>
 
       <div className="overview-layout">
-        <section className="score-overview" aria-label="종합 전투력과 스탯">
+        <section className="score-overview" aria-label="7개 핵심 전투 스탯">
           <div className="stat-heading">
             <div className="stat-heading-title"><h2>핵심 전투 스탯</h2><EvidenceReadinessHelp /></div>
           </div>
