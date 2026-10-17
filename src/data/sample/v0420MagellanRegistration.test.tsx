@@ -22,8 +22,8 @@ describe('v0.4.20 Magellan approved registration',()=>{
  it('preserves 85 previous evaluations and 81 regular characters, models and matchups',()=>{
    const current=v050CurrentDataset
    expect(current.characters).toHaveLength(82)
-   expect(current.evaluations).toHaveLength(86)
-   expect(current.evaluations.flatMap(e=>e.items)).toHaveLength(602)
+   expect(current.evaluations).toHaveLength(88)
+   expect(current.evaluations.flatMap(e=>e.items)).toHaveLength(616)
    expect(current.memberships).toHaveLength(107)
    expect(current.matchups).toHaveLength(18)
    expect(new Set(current.characters.map(c=>c.id)).size).toBe(82)
@@ -33,7 +33,7 @@ describe('v0.4.20 Magellan approved registration',()=>{
    expect(current.evaluations.find(e=>e.characterId==='magellan')).toEqual(v0420MagellanEvaluation)
    expect(versionManifest.calculationModelVersion).toBe('1.2')
    expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.27')
+   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.28')
  })
  it('uses existing Impel Down group and exact Haki-neutral 86.00 in rank and profile',()=>{
    expect(characterRepository.getCharacter('magellan')).toEqual(v0420MagellanCharacter)
@@ -62,7 +62,7 @@ describe('v0.4.20 Magellan approved registration',()=>{
    }
    const report=buildV050ReadOnlyAudit()
    expect(report.integrity.errors).toEqual([])
-   expect(report.counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:86,axes:602,memberships:107,matchups:18})
+   expect(report.counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:88,axes:616,memberships:107,matchups:18})
    expect(report.rows.filter(row=>row.characterId==='magellan').map(row=>row.final)).toEqual([92,83,82,80,91,83,91])
    expect(report.rows.filter(row=>row.characterId==='magellan').every(row=>row.rawHaki===0)).toBe(true)
  })
