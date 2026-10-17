@@ -1,3 +1,10 @@
+## v0.4.27 — 징베 방어력·체력 재평가 및 근거 화수 정리 (2026-10-17)
+
+- 사용자 승인 Defense Final 80→82 (Base 78→82, Raw4→0), Stamina 80→83; Overall 555/7=79.3→560/7=80.0. 나머지 5축·계산모델/가중치·타인 평가 유지.
+- 574화의 아카이누 저지, 575화 마르코 요격 후 징베의 루피 대피, 578화 관통상/탈출을 별도 current Evidence로 정확히 구분. 신규 두 화의 보조 근거는 supplementary·moderate, 원작 전체 컷 독립 재열람 전.
+- 역사적 sample Evaluations/Evidence/Battles·v0.3.3 frozen 스냅샷 보존, 현재 repository 및 v050 감사 데이터에만 v0.4.27 오버레이 추가. 82명/86평가/602축/107멤버십/18매치업 유지.
+- 앱 0.4.27 / Core core-v0.4.27 / Evaluation Set evaluation-set-v0.4.27, 기존 Balanced1.2/HakiWeight0.5 불변. [상세 근거·검증](docs/V0_4_27_JINBE_DEFENSE_STAMINA_REVIEW_2026-10-17.md).
+
 ## v0.4.26 — 모바일 종합 전투력 배치·여백 개선 (2026-10-17)
 
 - 760px 이하 일반 캐릭터 화면에서 우측 정렬된 종합점수 영역을 전체 폭 중앙 정렬로 변경. 기존 투명 배경 유지, 위아래 절제된 1px 구분선만 사용.
