@@ -1,3 +1,9 @@
+## v0.4.30 — 백수 해적단 킹·퀸·잭 양방향 재산정 (2026-10-18)
+
+- 신규 `src/data/sample/v0430BeastsBidirectional.test.tsx`: 21개 축 근거/양방향 위험 검증, 15개 Score Change와 6개 유보 확인, 3인 전후 7축·Final=Base+Raw, UI·Ranking/Detail, 역사적 원본·감사 일치·타 인물 불변 확인.
+- 기존 `bidirectionalCalibration.ts` 코드 재사용, 7축 Balanced1.2/HakiWeight0.5 변경 없음. 데이터 범위는 82인/88평가/616축/107 소속/18 매치업.
+- **CI 미실행 단계의 임시 계획**. 검증 완료를 사칭하지 않는다. 실제 PC/모바일 기기 동작 및 원작 만화 컷 전수확인은 별개.
+
 ## v0.4.29 — 양방향 교정 로직 / 마르코·죠즈·비스타 (2026-10-18)
 
 - 신규 `src/domain/evaluation/bidirectionalCalibration.ts`: 7축마다 원작 관찰, 조건, 추론, 과대·과소 평가 양방향 위험, 판단, 근거 ID, 기대 이전값·데이터 버전 및 명시된 통상 Haki Raw 이동 검증.
