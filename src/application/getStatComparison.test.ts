@@ -9,8 +9,8 @@ describe('v0.2.0 stat comparison uses live canonical evaluation and evidence',()
   it('compares same stat without producing any unapproved bonus or changed score',()=>{
     const before=sampleEvaluations.map(e=>[e.id,...e.items.map(i=>getFinalStatScore(i,balancedV12.configuration.hakiWeight))])
     const pair=getStatComparison('attack','king','katakuri')!
-    expect(pair.difference).toBe(0)
-    expect(pair.left.final).toBe(83)
+    expect(pair.difference).toBe(1)
+    expect(pair.left.final).toBe(84)
     expect(pair.right.final).toBe(83)
     expect(pair.left.readiness).toBe('E2')
     expect(pair.right.readiness).toBe('E2')

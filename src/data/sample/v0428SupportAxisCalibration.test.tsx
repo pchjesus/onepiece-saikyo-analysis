@@ -131,12 +131,12 @@ describe('v0.4.28 scoped support stat calibration and conditional Sulong',()=>{
     const audited=buildV050ReadOnlyAudit()
     expect(audited.counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:88,axes:616,memberships:107,matchups:18})
     expect(matchupRepository.getAllMatchups()).toHaveLength(18)
-    expect(versionManifest).toMatchObject({appVersion:'0.4.29',coreDataVersion:'core-v0.4.29',
-      evaluationSetVersion:'evaluation-set-v0.4.29',calculationModelVersion:'1.2',
+    expect(versionManifest).toMatchObject({appVersion:'0.4.30',coreDataVersion:'core-v0.4.30',
+      evaluationSetVersion:'evaluation-set-v0.4.30',calculationModelVersion:'1.2',
       baselineSnapshotVersion:'v0.3.3'})
     const sampleIds=new Set(Object.keys(revised))
     for(const oldRecord of [...sampleEvaluations,...v0412Evaluations]){
-      if(sampleIds.has(oldRecord.characterId) || ['jinbe','kaku','enel','kaido','linlin','lucci','marco','jozu','vista','guernica','maha'].includes(oldRecord.characterId))continue
+      if(sampleIds.has(oldRecord.characterId) || ['jinbe','kaku','enel','kaido','linlin','lucci','marco','jozu','vista','king','queen','jack','guernica','maha'].includes(oldRecord.characterId))continue
       const live=evaluationRepository.getEvaluations(oldRecord.characterId).find(x=>x.id===oldRecord.id)
       expect(live).toEqual(oldRecord)
     }

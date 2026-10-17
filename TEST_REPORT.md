@@ -1,3 +1,9 @@
+## v0.4.30 — 킹·퀸·잭 양방향 검증 및 직접 영향 회귀 (2026-10-18)
+
+- `src/data/sample/v0430BeastsAllStars.test.tsx`: 21축의 관찰·전투조건·합리적 추론·과대/과소 위험 각각 확인, 변경된 14축 Final 및 보존 7축, 기존 퀸 범용성 v0.1.79 이력·잭 체력 E1·킹 모드 교환·근거 ID·Live/v050 Audit·82명/88평가/616축·랭킹·기존 공용 캐릭터 UI를 검증하도록 설계.
+- `src/data/sample/evaluations.ts` 원본·기존 History·모델·Haki Raw·다른 79명 평가값 수정 없음.
+- GitHub PR #149 HEAD `b4071d21ad6155b92d4b196ba5130ddaa1fdafa6`에서 **121개 테스트 파일 / 514개 테스트 PASS**, `npm run build` (TypeScript + Vite) **PASS**. 신규 21축 양방향 근거 확인, 14축 점수 조정, 오래된 버전 고정 테스트 분리, 실제 v050 감사 데이터/랭킹/CharacterPage 연동을 검사했다. 결과에 따른 문서 수정 이후 GitHub CI는 별도 확인한다. 웹 배포/모바일·PC 실기기/원작 만화 컷 전수 대조는 **미검증**.
+
 ## v0.4.29 — 양방향 교정 로직 / 마르코·죠즈·비스타 (2026-10-18)
 
 - 신규 `src/domain/evaluation/bidirectionalCalibration.ts`: 7축마다 원작 관찰, 조건, 추론, 과대·과소 평가 양방향 위험, 판단, 근거 ID, 기대 이전값·데이터 버전 및 명시된 통상 Haki Raw 이동 검증.

@@ -58,7 +58,7 @@ describe('v0.4.21 Kaido and Big Mom technique adjustment; concise user-facing pr
     for(const original of sampleEvaluations.filter(e=>e.characterId!=='kaido'&&e.characterId!=='linlin')){
       const current=evaluationRepository.getEvaluations(original.characterId).find(e=>e.id===original.id)
       // Kaku was revised in v0.4.13, so that one remains its own existing overlay.
-      if(!['kaku','jinbe','marco','jozu','vista','kinemon','denjiro','ashura-doji','kawamatsu','kikunojo','raizo','inuarashi','nekomamushi','kanjuro'].includes(original.characterId))expect(current).toEqual(original)
+      if(!['kaku','jinbe','marco','jozu','vista','king','queen','jack','kinemon','denjiro','ashura-doji','kawamatsu','kikunojo','raizo','inuarashi','nekomamushi','kanjuro'].includes(original.characterId))expect(current).toEqual(original)
     }
   })
 
@@ -86,8 +86,8 @@ describe('v0.4.21 Kaido and Big Mom technique adjustment; concise user-facing pr
     expect(balancedV12.configuration.hakiWeight).toBe(.5)
     expect(matchupRepository.getAllMatchups()).toHaveLength(18)
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(versionManifest.appVersion).toBe('0.4.29')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.29')
+    expect(versionManifest.appVersion).toBe('0.4.30')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.30')
   })
 
   it('does not expose developer-style caveat banners and off-topic image reference in the regular page',()=>{

@@ -1,5 +1,6 @@
 import { v0428ScoreChanges } from './sample/v0428SupportAxisCalibration'
 import { v0429CommanderChanges } from './sample/v0429WhitebeardCommanders'
+import { v0430AllStarScoreChanges } from './sample/v0430BeastsAllStars'
 import { v049Decisions } from './sample/v049KobySmokerRecalibration'
 import { v0180CommanderAttackAudit } from './sample/v0180CommanderAttackAudit'
 const commanderNames:Record<string,string>={queen:'퀸',cracker:'크래커',smoothie:'스무디',marco:'마르코',king:'킹',katakuri:'카타쿠리'}
@@ -40,6 +41,24 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {
+    version:'v0.4.30',date:'2026-10-18',
+    title:'킹·퀸·잭 3재해 7축 양방향 재평가',
+    summary:'최신 v0.4.29 양방향 검증 로직을 이용해 3명 21축 전부 과대·과소 위험을 점검하고 14축 변경. 킹 82.6→84.0, 퀸 78.9→80.0, 잭 78.1→78.9. 킹 불꽃 ON/OFF는 상태 간 방어·속도 교환 비용을 단일 평가 내 명시. 퀸 0.1.79 범용성82를 기준으로 추가 분석, 잭 체력88(E1) 보존. Balanced1.2, HakiWeight0.5, 전원 기존 Raw·원작 근거·역사적 데이터 유지.',
+    report:'docs/V0_4_30_BEASTS_ALL_STARS_2026-10-18.md',
+    changes:[
+      ...v0430AllStarScoreChanges.map(c=>({
+        kind:'score' as const,characterId:c.characterId,stat:c.stat,before:c.before,after:c.after,
+        title:c.characterId+' '+c.stat+' '+c.before+'→'+c.after,reason:c.reason,
+      })),
+      {kind:'evidence',title:'3재해의 근거-조건-합리적 추론 양방향 검증',
+        detail:'3명 전원 7축에서 직접 근거·전투 조건·기능적 추론·과대 및 과소평가 위험과 보류 판단을 분리. 공식 TV760/1003/1051/1053/1061/1062/1110과 기존 Chapter 인덱스의 범위를 구분.',
+        reason:'스론·피로·루나리아 교환조건·오발·비전투 과학 지식·외부 독가스가 특정 축에 과다 귀속되지 않도록 하면서 원작 위협을 저평가하지 않는다.',
+        evidence:[{label:'킹 vs 조로 1062화',url:'https://one-piece.com/anime/61675/index.html'},
+          {label:'퀸 vs 상디 1061화',url:'https://one-piece.com/anime/61599/index.html'},
+          {label:'잭과 밍크의 5일 전투 760화',url:'https://one-piece.com/anime/o3027/index.html'}]}
+    ]
+  },
   {
     version:'v0.4.29',date:'2026-10-18',
     title:'마르코·죠즈·비스타 양방향 재평가 및 합리적 추론 검증',

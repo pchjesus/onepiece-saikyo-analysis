@@ -63,8 +63,8 @@ describe('v0.4.27 Jinbe approved Defense/Stamina and chapter-correct evidence ov
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(versionManifest).toMatchObject({
-      appVersion:'0.4.29',coreDataVersion:'core-v0.4.29',
-      evaluationSetVersion:'evaluation-set-v0.4.29',
+      appVersion:'0.4.30',coreDataVersion:'core-v0.4.30',
+      evaluationSetVersion:'evaluation-set-v0.4.30',
       calculationModelVersion:'1.2',baselineSnapshotVersion:'v0.3.3',
     })
   })
@@ -121,7 +121,7 @@ describe('v0.4.27 Jinbe approved Defense/Stamina and chapter-correct evidence ov
     expect(def.readiness).toBe('E1')
     expect(def.evidenceLinks.find(e=>e.evidenceId==='evidence-v0427-jinbe-akainu-block-574'))
       .toMatchObject({sourceType:'supplementary',role:'primary'})
-    for(const original of sampleEvaluations.filter(e=>!['jinbe','kaku','kaido','linlin','marco','jozu','vista','kinemon','denjiro','ashura-doji','kawamatsu','kikunojo','raizo','inuarashi','nekomamushi','kanjuro'].includes(e.characterId))) {
+    for(const original of sampleEvaluations.filter(e=>!['jinbe','kaku','kaido','linlin','marco','jozu','vista','king','queen','jack','kinemon','denjiro','ashura-doji','kawamatsu','kikunojo','raizo','inuarashi','nekomamushi','kanjuro'].includes(e.characterId))) {
       expect(evaluationRepository.getEvaluations(original.characterId).find(e=>e.id===original.id)).toEqual(original)
     }
   })
