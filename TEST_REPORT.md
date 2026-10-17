@@ -1,3 +1,10 @@
+## v0.4.29 — 양방향 교정 로직 / 마르코·죠즈·비스타 (2026-10-18)
+
+- 신규 `src/domain/evaluation/bidirectionalCalibration.ts`: 7축마다 원작 관찰, 조건, 추론, 과대·과소 평가 양방향 위험, 판단, 근거 ID, 기대 이전값·데이터 버전 및 명시된 통상 Haki Raw 이동 검증.
+- 신규 `v0429WhitebeardCommanders.test.tsx`: 21축 before/after, 4축 Raw→Base, Evidence 사실/출처 불변·영향해석 동기화, Live/Audit 일치, 역사적 데이터 보존, 공통 UI 및 이전 v0.4.28 회귀 검증 대상.
+- 기존 82인/88평가/616축/107 Membership/18 Matchup·Balanced1.2/HakiWeight0.5 유지.
+- GitHub CI 전 **검증 계획 단계**이며 PASS 또는 실기기 검증을 미리 주장하지 않음. 실기기/원작 컷의 개별 대조는 별도 진행 필요.
+
 ## v0.4.28 — 우솝·아카자야 9남자 보조축 교정 / 평상시·스론 분리 (2026-10-18)
 
 - 새 `src/data/sample/v0428SupportAxisCalibration.test.tsx`에서 10명 현재 7축·기존 데이터 불변·사용자 우솝 69.7142857·조건부 스론 2상태, Evidence 소유·참조, 모델·랭킹·상태 UI·LIVE 감사·매치업 관계 검증 계획.
