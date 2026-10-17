@@ -67,7 +67,7 @@ describe('getStatRanking', () => {
     expect(entries.slice(0, 2).every(({ rank, score }) => rank === 1 && Math.abs(score - 97.57142857142857) < 1e-10)).toBe(true)
     expect(entries.find(({ characterId }) => characterId === 'garp')).toMatchObject({ rank: 3, subjectStateLabel: '전성기' })
     expect(entries.find(({ characterId })=>characterId==='page-one')?.score).toBeCloseTo(491/7,10)
-    expect(entries[entries.length-1]).toMatchObject({ characterId:'buggy',rank:82,score:38 })
+    expect(entries[entries.length-1]).toMatchObject({ characterId:'buggy',rank:83,score:38 })
     for (let index = 1; index < entries.length; index++) {
       expect(entries[index - 1].score).toBeGreaterThanOrEqual(entries[index].score)
     }

@@ -78,11 +78,11 @@ describe('v0.4.14 Enel image and historically scoped Luffy duel', () => {
     expect(report.counts).toEqual({
       characters:82,evaluatedCharacters:82,evaluations:86,axes:602,memberships:107,matchups:18,
     })
-    expect(v050CurrentDataset.evaluations).toHaveLength(85)
+    expect(v050CurrentDataset.evaluations).toHaveLength(86)
     expect(v0413EnelEvaluation.items.map(x=>x.score)).toEqual([88,72,72,88,84,70,87])
     expect(v0413EnelEvaluation.items.every(x=>x.hakiContributions.length===0)).toBe(true)
-    expect(versionManifest.appVersion).toBe('0.4.19')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.17')
+    expect(versionManifest.appVersion).toBe('0.4.20')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.20')
     expect(versionManifest.calculationModelVersion).toBe('1.2')
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
   })

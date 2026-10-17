@@ -30,7 +30,7 @@ describe('v0.4.7 temporary Overall ranking selections',()=>{
       expect(state('에드워드 뉴게이트').value).toBe('prime')
       await change(state('몽키 D. 루피'),'egghead-gear4')
       expect(rank('몽키 D. 루피').textContent).toContain('90.714')
-      expect(host.querySelectorAll('.rank-row')).toHaveLength(82)
+      expect(host.querySelectorAll('.rank-row')).toHaveLength(83)
       expect(host.querySelector('.power-card')?.textContent).toContain('90.7') // detail not changed by popup
       await click(host.querySelector('.rank-sort-controls button:last-child'))
       expect(host.querySelector<HTMLButtonElement>('.rank-sort-controls button:last-child')?.getAttribute('aria-pressed')).toBe('true')

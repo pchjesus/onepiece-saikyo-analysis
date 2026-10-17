@@ -59,7 +59,7 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
     expect(matchupRepository.getAllMatchups().every(m=>!JSON.stringify(m).includes(CHARLOS_ID))).toBe(true)
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(versionManifest.appVersion).toBe('0.4.19')
+    expect(versionManifest.appVersion).toBe('0.4.20')
   })
 
   it('inserts ONE meme overall result without changing original 81 numeric results', () => {
@@ -72,7 +72,7 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
     expect(special[0].groupId).toBe('celestial-dragons')
     for(const stat of COMBAT_STATS){
       const rows=getStatRanking(stat)
-      expect(rows).toHaveLength(81)
+      expect(rows).toHaveLength(82)
       expect(rows.find(e=>e.characterId===CHARLOS_ID)).toBeUndefined()
     }
     const withoutParody=ranks.filter(e=>e.characterId!==CHARLOS_ID)
