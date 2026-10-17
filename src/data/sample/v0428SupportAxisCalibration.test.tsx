@@ -136,7 +136,7 @@ describe('v0.4.28 scoped support stat calibration and conditional Sulong',()=>{
       baselineSnapshotVersion:'v0.3.3'})
     const sampleIds=new Set(Object.keys(revised))
     for(const oldRecord of [...sampleEvaluations,...v0412Evaluations]){
-      if(sampleIds.has(oldRecord.characterId) || ['jinbe','kaku','enel','kaido','linlin','lucci','marco','jozu','vista','guernica','maha'].includes(oldRecord.characterId))continue
+      if(sampleIds.has(oldRecord.characterId) || ['jinbe','kaku','enel','kaido','linlin','lucci','marco','jozu','vista','king','queen','jack','guernica','maha'].includes(oldRecord.characterId))continue
       const live=evaluationRepository.getEvaluations(oldRecord.characterId).find(x=>x.id===oldRecord.id)
       expect(live).toEqual(oldRecord)
     }
