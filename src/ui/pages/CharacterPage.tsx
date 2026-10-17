@@ -101,7 +101,6 @@ export function CharacterPage({ characterId, groupId, selectedStateId, onStateCh
             <span>균형형 · 7축 평균</span>
           </button>
           <div className="score-interpretation">
-            <span className="score-interpretation-warning">※ 종합점수는 승률이 아닙니다.</span>
             <details className="score-interpretation-help">
               <summary aria-label="종합점수 계산 및 해석 설명 보기">?</summary>
               <p className="section-note" data-testid="overall-interpretation-note">
@@ -112,7 +111,6 @@ export function CharacterPage({ characterId, groupId, selectedStateId, onStateCh
           </div>
           <div className="stat-heading">
             <div className="stat-heading-title"><h2>핵심 전투 스탯</h2><EvidenceReadinessHelp /></div>
-            <span>점수는 순위 보기 · 비교하기는 동축 근거 분석</span>
           </div>
           <StatList items={detail.evaluation.items} hakiWeight={result.hakiWeight} onSelectStat={onSelectStat}
             onCompareStat={stat=>onCompareStat(stat,activeStateId)} />

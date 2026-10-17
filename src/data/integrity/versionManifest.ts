@@ -4,9 +4,9 @@
  * Historical evaluation.evaluationDataVersion values MUST NOT be overwritten.
  */
 export const versionManifest = {
-  appVersion: '0.4.20',
-  coreDataVersion: 'core-v0.4.20',
-  evaluationSetVersion: 'evaluation-set-v0.4.20',
+  appVersion: '0.4.21',
+  coreDataVersion: 'core-v0.4.21',
+  evaluationSetVersion: 'evaluation-set-v0.4.21',
   calculationModelId: 'balanced',
   calculationModelVersion: '1.2',
   baselineSnapshotVersion: 'v0.3.3',
