@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 import { describe,it,expect } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
+import { readFileSync } from 'node:fs'
 import { CharacterPage } from './CharacterPage'
 import { getCombatPower } from '../../application/getCombatPower'
 
@@ -12,7 +13,20 @@ function renderHeader(characterId:string,groupId:string,selectedStateId?:string)
   page.innerHTML=html
   return page
 }
-describe('v0.4.24 light Overall tile integrated into regular character header',()=>{
+describe('v0.4.25 transparent Overall typography in regular character header',()=>{
+  it('keeps the header score frameless, transparent and large without tinting the page',()=>{
+    const stylesheet=readFileSync('src/ui/styles.css','utf8')
+    const section=stylesheet.split('/* v0.4.25 —')[1]
+    expect(section).toBeDefined()
+    const rule=section.match(/\.detail-heading:not\(\.charlos-heading\) \.power-card-heading\{([^}]*)\}/)?.[1]
+    expect(rule).toContain('background:transparent')
+    expect(rule).toContain('border:0')
+    expect(rule).toContain('box-shadow:none')
+    expect(rule).toContain('align-items:flex-end')
+    expect(section).toContain('font-size:clamp(2.8rem,4.2vw,3.8rem)')
+    expect(section).toContain('@media(max-width:760px)')
+    expect(section).toContain('@media(max-width:380px)')
+  })
   it('moves a single clickable Overall score from the old panel next to the name and keeps the disclosure',()=>{
     const page=renderHeader('newgate','whitebeard-pirates')
     const heading=page.querySelector('.detail-heading')!
