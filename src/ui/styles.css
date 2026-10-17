@@ -989,3 +989,39 @@ header p:last-child { color: #666; }
   .charlos-heading .detail-heading-profile{gap:12px;}
   .charlos-detail .charlos-meme-quote{padding:10px 12px;margin-top:4px;}
 }
+
+
+/* v0.4.23 — 7-axis radar inside the EXISTING overview column. No data/model changes. */
+.stat-radar-layout{--stat-chart-accent:#65717b;min-width:0;}
+.stat-radar-graphic{width:min(100%,300px);margin:0 auto 10px;padding:0;background:transparent;}
+.stat-radar-svg{width:100%;height:auto;display:block;overflow:visible;}
+.radar-ring{fill:none;stroke:#e1e4e6;stroke-width:1.2;}
+.radar-ring-outer{stroke:#bdc3c8;stroke-width:1.7;}
+.radar-axis{stroke:#d9dee2;stroke-width:1.1;}
+.radar-value-area{fill:var(--stat-chart-accent);fill-opacity:.20;stroke:var(--stat-chart-accent);stroke-width:2.7;stroke-linejoin:round;}
+.radar-value-dot{fill:var(--stat-chart-accent);stroke:white;stroke-width:2;}
+.radar-axis-index{fill:#646c73;font-size:11px;font-weight:800;font-variant-numeric:tabular-nums;}
+.stat-radar-layout .stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;}
+.stat-radar-layout .stat-item{min-width:0;min-height:96px;position:relative;display:flex;padding:0 0 33px;border:1px solid #e2e6e8;border-radius:11px;background:#fff;}
+.stat-radar-layout .stat-item:last-child:nth-child(odd){grid-column:1/-1;}
+.stat-radar-layout .stat-rank-trigger{min-width:0;width:100%;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-start;gap:5px;padding:10px 29px 3px 9px;border:0;outline-offset:1px;}
+.stat-radar-layout .stat-rank-trigger:hover,.stat-radar-layout .stat-rank-trigger:focus-visible{background:#f5f7f7;outline:2px solid var(--stat-chart-accent);}
+.stat-radar-layout .stat-name{display:flex;flex-wrap:wrap;align-items:center;gap:3px 5px;min-width:0;font-size:.76rem;line-height:1.35;font-weight:700;color:#25303a;}
+.stat-radar-layout .stat-axis-number{color:var(--stat-chart-accent);font-size:.68rem;letter-spacing:0;font-weight:800;font-variant-numeric:tabular-nums;}
+.stat-radar-layout .readiness-badge{margin:0;font-size:.58rem;}
+.stat-radar-layout .stat-rank-trigger .stat-score{flex:0 0 auto;min-width:0;max-width:64%;display:flex;align-items:flex-end;text-align:right;gap:1px;font-variant-numeric:tabular-nums;}
+.stat-radar-layout .stat-rank-trigger .stat-score strong{font-size:1.24rem;line-height:1.1;color:var(--stat-chart-accent);}
+.stat-radar-layout .stat-rank-trigger .stat-score small{line-height:1.2;}
+.stat-radar-layout .stat-breakdown{max-width:100%;font-size:.61rem;white-space:normal;word-break:keep-all;}
+.stat-radar-layout .stat-rank-hint{font-size:.62rem;color:#737e87;white-space:nowrap;}
+.stat-radar-layout .stat-compare-trigger{position:absolute;left:8px;bottom:5px;min-height:26px;padding:3px 10px;border:1px solid #cbd3d8;background:#f7f9fa;border-radius:7px;font-size:.71rem;color:#344a5b;}
+.stat-radar-layout .stat-compare-trigger:hover,.stat-radar-layout .stat-compare-trigger:focus-visible{border-color:var(--stat-chart-accent);outline:2px solid var(--stat-chart-accent);outline-offset:1px;}
+.stat-radar-layout .stat-item>.stat-info-button{position:absolute;top:8px;right:7px;width:20px;height:20px;}
+@media(max-width:390px){
+ .stat-radar-graphic{width:min(100%,270px);}
+ .stat-radar-layout .stat-grid{grid-template-columns:1fr;}
+ .stat-radar-layout .stat-item{min-height:70px;}
+ .stat-radar-layout .stat-rank-trigger{padding-top:11px;}
+ .stat-radar-layout .stat-rank-trigger .stat-score{max-width:70%;}
+}
+@media(prefers-reduced-motion:reduce){.stat-radar-layout *{transition:none!important;animation:none!important;}}
