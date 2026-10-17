@@ -54,8 +54,8 @@ describe('v0.1.52 manual evidence-readiness audit', () => {
       const evaluation = sampleEvaluations.find((value) => value.characterId === characterId)!
       expect(evaluation.items.map((item) => item.score), characterId).toEqual(finalStats)
       // Historical v0.1.52 snapshot stays at Queen78.571; live v0.1.79
-      // only adds +2/7 to her Versatility without mutating historical data.
-      const liveExpected=characterId==='queen'?552/7:overall
+      // only adds +2/7 to her Versatility without mutating historical data.\n      // v0.4.29 Jozu's separately versioned live evaluation supersedes the historical v0.1.52 fixture.
+      const liveExpected=characterId==='queen'?552/7:characterId==='jozu'?557/7:overall
       expect(getCombatPower(characterId).finalScore).toBeCloseTo(liveExpected, 9)
     }
     expect(sampleEvaluations).toHaveLength(62)
