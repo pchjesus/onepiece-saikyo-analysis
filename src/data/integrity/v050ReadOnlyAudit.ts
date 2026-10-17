@@ -27,6 +27,7 @@ import { applyV0421EmperorTechniqueReview, v0421EmperorTechniqueEvidence } from 
 import { balancedV12 } from '../sample/calculationModels'
 import { applyV0415EnelReview } from '../sample/v0415EnelReview'
 import { applyV0416Cp0EvaluationAudit, applyV0416Cp0EvidenceAudit } from '../sample/v0416Cp0EvidenceReadiness'
+import { applyV0427JinbeBattleContext, applyV0427JinbeEvidenceCorrection, applyV0427JinbeRecalibration, v0427JinbeEvidence } from '../sample/v0427JinbeRecalibration'
 import { matchupRepository } from '../repositories/matchupRepository'
 
 /** Explicit live dataset; older v033Snapshot.liveDataset intentionally has historical scope. */
@@ -34,10 +35,10 @@ export const v050CurrentDataset: CombatDataset = {
   characters: [...sampleCharacters, ...v0411Characters, v0413EnelCharacter, v0420MagellanCharacter],
   groups: sampleGroups,
   memberships: [...sampleMemberships, ...v0411Memberships, v0413EnelMembership, v0420MagellanMembership],
-  battles: [...sampleBattles, ...v0412Battles, ...v0413EnelBattles, ...v0420MagellanBattles],
+  battles: [...sampleBattles.map(applyV0427JinbeBattleContext), ...v0412Battles, ...v0413EnelBattles, ...v0420MagellanBattles],
   participants: sampleBattleParticipants,
-  evidence: [...sampleEvidence, ...v0412Evidence.map(applyV0416Cp0EvidenceAudit), ...v0413EnelEvidence, ...v0420MagellanEvidence, ...v0421EmperorTechniqueEvidence],
-  evaluations: [...sampleEvaluations.map(applyV0413KakuDraft).map(applyV0421EmperorTechniqueReview), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit), applyV0415EnelReview(v0413EnelEvaluation), v0420MagellanEvaluation],
+  evidence: [...sampleEvidence.map(applyV0427JinbeEvidenceCorrection), ...v0427JinbeEvidence, ...v0412Evidence.map(applyV0416Cp0EvidenceAudit), ...v0413EnelEvidence, ...v0420MagellanEvidence, ...v0421EmperorTechniqueEvidence],
+  evaluations: [...sampleEvaluations.map(applyV0413KakuDraft).map(applyV0421EmperorTechniqueReview).map(applyV0427JinbeRecalibration), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit), applyV0415EnelReview(v0413EnelEvaluation), v0420MagellanEvaluation],
   model: balancedV12,
   matchups: matchupRepository.getAllMatchups(),
 }
