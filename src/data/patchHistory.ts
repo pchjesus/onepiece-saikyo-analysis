@@ -38,6 +38,12 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.4.26',date:'2026-10-17',title:'모바일 종합 전투력 중앙 정렬·여백 축소',
+    summary:'모바일에서 종합점수가 오른쪽으로 치우치던 배치를 전체 폭 중앙 정렬로 수정. 위아래 얇은 구분선과 좁은 세로 간격을 적용하며 PC·스탯·순위·도움말·평가 데이터는 보존.',
+    report:'docs/V0_4_26_MOBILE_OVERALL_CENTER_2026-10-17.md',
+    changes:[{kind:'feature',title:'모바일 종합점수 중앙 배치와 미세 구분선',detail:'760px 이하 일반 프로필의 Overall을 헤더 전체 폭으로 펼쳐 가운데 정렬하고 위아래 1px 회색 구분선, 패딩 9/8px와 축소된 타이포그래피로 수직 공간을 줄임. PC 헤더·차를로스 특별 프로필 불변. 종합 순위·?·가프 상태·마젤란 사진·7축 막대·82명/86 평가/602축/18 매치업 및 계산 기준선 유지.'}],
+  },
+
   {version:'v0.4.25',date:'2026-10-17',title:'종합 전투력 카드 제거 · 헤더 위 투명 점수 표기',
     summary:'헤더 오른쪽 Overall의 색상 패널·테두리·그림자를 제거하고 흰 바탕 위에 큰 점수·라벨만 배치. 종합 순위·? 계산 설명·모바일 대응과 기존 전투력 데이터 보존.',
     report:'docs/V0_4_25_OVERALL_TRANSPARENT_HEADER_2026-10-17.md',
