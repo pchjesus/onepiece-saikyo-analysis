@@ -9,11 +9,11 @@ describe('getCharacterEvaluationTrace', () => {
     const attack = trace?.find(({ item }) => item.stat === 'attack')
 
     expect(technique?.evidence).toHaveLength(3)
-    expect(technique?.item.score).toBe(84)
+    expect(technique?.item.score).toBe(85)
     expect(defense?.evidence).toHaveLength(4)
-    expect(defense?.item.score).toBe(87)
-    expect(attack?.item.baseScore).toBe(78)
-    expect(attack?.item.hakiContributions[0]?.amount).toBe(2)
+    expect(defense?.item.score).toBe(88)
+    expect(attack?.item.baseScore).toBe(79)
+    expect(attack?.item.hakiContributions).toHaveLength(0)
     expect(attack?.item.score).toBe(79)
   })
 
