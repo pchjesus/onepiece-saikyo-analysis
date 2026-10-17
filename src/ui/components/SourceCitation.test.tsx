@@ -87,7 +87,7 @@ describe('v0.2.1 source citation URL extraction', () => {
           .reduce((count,source)=>count+(source.reference.match(/https:\/\//g)?.length??0),0)
         expect(section?.querySelectorAll('.source-citation-link').length,character.id).toBe(originalCount)
         expect(section?.querySelectorAll('li').length).toBe(character.combatProfile.sources.length)
-        expect(section?.querySelector<HTMLAnchorElement>('.official-art-reference a')?.href).toBe('https://one-piece.com/vivre/list2/index.html')
+        expect(section?.querySelector('.official-art-reference')).toBeNull()
       }
     }finally{await act(async()=>root.unmount())}
   })

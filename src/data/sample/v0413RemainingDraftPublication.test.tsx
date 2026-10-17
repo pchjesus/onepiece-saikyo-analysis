@@ -47,7 +47,7 @@ describe('v0.4.13: the two previously unshown v0.4.9 draft decisions', () => {
    expect(evaluationRepository.getEvaluations('enel')).toHaveLength(1)
    expect(matchupRepository.getAllMatchups()).toHaveLength(18)
    expect(versionManifest.calculationModelVersion).toBe('1.2')
-   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.20')
+   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.21')
  })
  it('publishes exact draft score slate, without adding exceptional Haki Raw or unsupported canon status',()=>{
    expect(v0413EnelEvaluation.items.map(x=>x.score)).toEqual(enelScores)
@@ -76,7 +76,7 @@ describe('v0.4.13: the two previously unshown v0.4.9 draft decisions', () => {
    expect(current.items.map(x=>x.evidenceIds)).toEqual(originalKaku.items.map(x=>x.evidenceIds))
    expect(current.items.every(x=>x.score===getFinalStatScore(x))).toBe(true)
    expect(getCombatPower('kaku').finalScore).toBeCloseTo(542/7,10)
-   for(const original of sampleEvaluations.filter(e=>e.characterId!=='kaku')){
+   for(const original of sampleEvaluations.filter(e=>!['kaku','kaido','linlin'].includes(e.characterId))){
      expect(evaluationRepository.getEvaluation(original.characterId,original.subjectState?.id)
        ?? evaluationRepository.getEvaluation(original.characterId)).toEqual(original)
      expect(applyV0413KakuDraft(original)).toBe(original)

@@ -22,7 +22,7 @@ describe('qualitative Haki evidence UI', () => {
         await act(async () => { root.render(<CombatProfile profile={character.combatProfile} />) })
         expect(container.querySelector('.haki-excellence')?.textContent, id).toContain(badge)
         expect(container.querySelector('.haki-excellence-caveat')?.textContent).toContain('불확실성')
-        expect(container.textContent).toContain('자동 점수 가산 없음')
+        expect(container.textContent).not.toContain('자동 점수 가산 없음')
       }
       const queen = sampleCharacters.find(({ id }) => id === 'queen')!
       await act(async () => { root.render(<CombatProfile profile={queen.combatProfile} />) })
@@ -33,6 +33,23 @@ describe('qualitative Haki evidence UI', () => {
       container.remove()
     }
   })
+  it('keeps the profile concise and removes the unrelated official image reference',async()=>{
+    const mount=document.createElement('div')
+    document.body.appendChild(mount)
+    const root=createRoot(mount)
+    try {
+      const kaido=sampleCharacters.find(x=>x.id==='kaido')!
+      await act(async()=>{root.render(<CombatProfile profile={kaido.combatProfile}/> )})
+      expect(mount.querySelector('.combat-profile-section .section-note')?.textContent)
+        .toBe('평가 점수와 분리된 원작 기반 전투 정보입니다.')
+      expect(mount.textContent).not.toContain('비브르 카드 공식 목록')
+      expect(mount.textContent).not.toContain('캐릭터 이미지 관련 공식 자료')
+      expect(mount.textContent).not.toContain('외부 참고 페이지이며')
+      expect(mount.textContent).not.toContain('특수 전투요소는 별도 점수를')
+      expect(mount.querySelector('.profile-sources li')).not.toBeNull()
+    }finally {await act(async()=>{root.unmount()});mount.remove()}
+  })
+
   it('keeps only Haki statuses and question icons visible until opened, closes outside and on Escape', async () => {
     const mount = document.createElement('div')
     document.body.appendChild(mount)

@@ -23,6 +23,7 @@ import { sampleEvidence } from '../sample/evidence'
 import { sampleEvaluations } from '../sample/evaluations'
 import { v0413EnelCharacter, v0413EnelMembership, v0413EnelBattles, v0413EnelEvidence, v0413EnelEvaluation, applyV0413KakuDraft } from '../sample/v0413RemainingDraftPublication'
 import { v0420MagellanCharacter, v0420MagellanMembership, v0420MagellanBattles, v0420MagellanEvidence, v0420MagellanEvaluation } from '../sample/v0420MagellanRegistration'
+import { applyV0421EmperorTechniqueReview, v0421EmperorTechniqueEvidence } from '../sample/v0421EmperorTechniqueReview'
 import { balancedV12 } from '../sample/calculationModels'
 import { applyV0415EnelReview } from '../sample/v0415EnelReview'
 import { applyV0416Cp0EvaluationAudit, applyV0416Cp0EvidenceAudit } from '../sample/v0416Cp0EvidenceReadiness'
@@ -35,8 +36,8 @@ export const v050CurrentDataset: CombatDataset = {
   memberships: [...sampleMemberships, ...v0411Memberships, v0413EnelMembership, v0420MagellanMembership],
   battles: [...sampleBattles, ...v0412Battles, ...v0413EnelBattles, ...v0420MagellanBattles],
   participants: sampleBattleParticipants,
-  evidence: [...sampleEvidence, ...v0412Evidence.map(applyV0416Cp0EvidenceAudit), ...v0413EnelEvidence, ...v0420MagellanEvidence],
-  evaluations: [...sampleEvaluations.map(applyV0413KakuDraft), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit), applyV0415EnelReview(v0413EnelEvaluation), v0420MagellanEvaluation],
+  evidence: [...sampleEvidence, ...v0412Evidence.map(applyV0416Cp0EvidenceAudit), ...v0413EnelEvidence, ...v0420MagellanEvidence, ...v0421EmperorTechniqueEvidence],
+  evaluations: [...sampleEvaluations.map(applyV0413KakuDraft).map(applyV0421EmperorTechniqueReview), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit), applyV0415EnelReview(v0413EnelEvaluation), v0420MagellanEvaluation],
   model: balancedV12,
   matchups: matchupRepository.getAllMatchups(),
 }

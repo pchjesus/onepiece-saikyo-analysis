@@ -78,7 +78,7 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
       <div>
         <p className="eyebrow">원작 전투 프로필</p>
         <h2>전투 프로필</h2>
-        <p className="section-note">평가 점수와 분리된 원작 기반 전투 정보입니다. 특수 전투요소는 별도 점수를 갖지 않으며 실제 성과가 확인된 핵심 스탯의 근거로 사용합니다.</p>
+        <p className="section-note">평가 점수와 분리된 원작 기반 전투 정보입니다.</p>
       </div>
       <div className="combat-profile-grid">
         <article className="profile-card">
@@ -121,7 +121,7 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
                 ))}
               </div>
             </div>
-          ) : <p className="empty-note">현재 확인된 별도 특수 전투요소 없음. 정보 부재를 감점으로 처리하지 않습니다.</p>}
+          ) : <p className="empty-note">등록된 특수 전투요소가 없습니다.</p>}
         </article>
         <article className="profile-card haki-card">
           <h3>패기</h3>
@@ -151,7 +151,7 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
                             <small>{normalizeCharacterNamesForDisplay(assessment.interpretation)}</small>
                             {assessment.eraContext && <small>해당 시점 · {assessment.eraContext}</small>}
                             <small className="haki-excellence-caveat">불확실성 · {normalizeCharacterNamesForDisplay(assessment.uncertainty)}</small>
-                            <small className="haki-excellence-numeric">정성적 평가 · 자동 점수 가산 없음</small>
+                            <small className="haki-excellence-numeric">실전 응용 기록</small>
                           </section>
                         ))}
                       </div>
@@ -167,7 +167,6 @@ export function CombatProfile({ profile }: { profile: CombatProfileData }) {
           <ul>{profile.sources.map((source) => <li key={`${source.label}-${source.reference}`}>
             <SourceCitation label={source.label} reference={source.reference}/>
           </li>)}</ul>
-          <p className="official-art-reference">캐릭터 이미지 관련 공식 자료 · <a href="https://one-piece.com/vivre/list2/index.html" target="_blank" rel="noopener noreferrer">비브르 카드 공식 목록 ↗</a><small>외부 참고 페이지이며 전투력 평가의 추가 근거로 자동 반영하지 않습니다.</small></p>
         </article>
       </div>
     </section>
