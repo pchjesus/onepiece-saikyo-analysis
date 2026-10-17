@@ -12,7 +12,7 @@ describe('v0.1.81 typed patch-history categories',()=>{
     expect(PATCH_CATEGORIES.map(x=>x.label)).toEqual(['스탯 조정','캐릭터·소속','UI·기능','근거·분석'])
     const all=patchHistory.flatMap(p=>p.changes)
     expect(new Set(patchHistory.map(p=>p.version)).size).toBe(patchHistory.length)
-    expect(patchHistory[0].version).toBe('v0.4.27')
+    expect(patchHistory[0].version).toBe('v0.4.28')
     expect(all.length).toBeGreaterThan(20)
     for(const change of all){
       const matches=PATCH_CATEGORIES.filter(c=>(c.kinds as readonly string[]).includes(change.kind))
@@ -24,7 +24,7 @@ describe('v0.1.81 typed patch-history categories',()=>{
 
   it('keeps score adjustments in stats with before/after figures and reasons',()=>{
     const scores=patchHistory.flatMap(p=>p.changes).filter(x=>x.kind==='score')
-    expect(scores).toHaveLength(53)
+    expect(scores).toHaveLength(119)
     for(const change of scores){
       expect(categoryForPatchChange(change)).toBe('stats')
       expect(change.before).toBeTypeOf('number')
