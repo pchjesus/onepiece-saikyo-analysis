@@ -38,6 +38,12 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.4.24',date:'2026-10-17',title:'종합 전투력 캐릭터 헤더 우측으로 이동 · 밝은 카드 적용',
+    summary:'검은 종합점수 독립 카드를 없애고 캐릭터 이름 오른쪽 헤더에 밝은 청회색 종합점수 카드로 통합. 소속색 테두리·모바일 줄바꿈, 기존 종합 순위·? 해설·가프 상태·스탯 막대 보존.',
+    report:'docs/V0_4_24_OVERALL_HEADER_LIGHT_CARD_2026-10-17.md',
+    changes:[{kind:'feature',title:'종합점수 헤더 배치 및 부드러운 밝은 테마',detail:'공통 일반 캐릭터 상세 헤더 오른쪽의 연한 청회색 카드에 기존 Final Overall을 1자리 소수로 표시하고 해당 버튼 순위 이동과 ? 계산 도움말 기능 보존. 소속색은 얇은 테두리 강조만 사용. 기존 score-overview는 7축 그래프 전용으로 유지. 좁은 화면에서는 이름 아래 오른쪽 배치. 차를로스 특별 프로필·계산/데이터/마젤란 이미지는 모두 불변.'}],
+  },
+
   {version:'v0.4.23',date:'2026-10-17',title:'7축 스탯 가로 막대 그래프',
     summary:'기존 스탯 영역의 2열 카드를 7줄 가로 막대 그래프로 변경. 순위·비교·도움말·근거등급·패기정보 보존, 소속별 기존 강조색 적용. 평가 점수·계산 모델은 그대로.',
     report:'docs/V0_4_23_SEVEN_HORIZONTAL_STAT_BARS_2026-10-17.md',

@@ -90,15 +90,12 @@ export function CharacterPage({ characterId, groupId, selectedStateId, onStateCh
           )}
           </div>
         </div>
-        <CharacterQuote characterId={characterId} />
-      </div>
-
-      <div className="overview-layout">
-        <section className="score-overview" aria-label="종합 전투력과 스탯">
-          <button className="power-card power-card-button" type="button" onClick={onSelectOverall} aria-label="종합 전투력 전체 캐릭터 순위 보기">
-            <span>종합 전투력 · 현재 계산값 <span aria-hidden="true">↗</span></span>
+        <div className="overall-heading-block" aria-label="현재 종합 전투력">
+          <button className="power-card power-card-button power-card-heading" type="button" onClick={onSelectOverall}
+            aria-label="종합 전투력 전체 캐릭터 순위 보기">
+            <span className="overall-heading-label">종합 전투력 <span aria-hidden="true">↗</span></span>
             <strong>{result.finalScore.toFixed(1)}<small>/100</small></strong>
-            <span>균형형 · 7축 평균</span>
+            <span className="overall-heading-meta">균형형 · 7축 평균</span>
           </button>
           <div className="score-interpretation">
             <details className="score-interpretation-help">
@@ -109,6 +106,12 @@ export function CharacterPage({ characterId, groupId, selectedStateId, onStateCh
               </p>
             </details>
           </div>
+        </div>
+        <CharacterQuote characterId={characterId} />
+      </div>
+
+      <div className="overview-layout">
+        <section className="score-overview" aria-label="7개 핵심 전투 스탯">
           <div className="stat-heading">
             <div className="stat-heading-title"><h2>핵심 전투 스탯</h2><EvidenceReadinessHelp /></div>
           </div>
