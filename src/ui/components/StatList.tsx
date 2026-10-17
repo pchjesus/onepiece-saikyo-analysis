@@ -19,6 +19,11 @@ export function radarPoint(index: number, score: number): [number, number] {
   return [RADAR_CENTER + Math.cos(angle) * radius, RADAR_CENTER + Math.sin(angle) * radius]
 }
 
+function radarLabelPoint(index: number): [number, number] {
+  const angle = RADAR_TOP + index * (2 * Math.PI / RADAR_AXIS_COUNT)
+  return [RADAR_CENTER + Math.cos(angle) * (RADAR_RADIUS + 17), RADAR_CENTER + Math.sin(angle) * (RADAR_RADIUS + 17)]
+}
+
 function pointsForScores(scores: readonly number[]) {
   return scores.map((score, index) => radarPoint(index, score).map(x => x.toFixed(2)).join(',')).join(' ')
 }
@@ -52,6 +57,11 @@ export function StatList({ items, hakiWeight, accent = '#65717b', onSelectStat, 
               return <line key={item.stat} className="radar-axis"
                 x1={RADAR_CENTER} y1={RADAR_CENTER} x2={x} y2={y} />
             })}
+            {chartItems.map((item, index) => {
+              const [x, y] = radarLabelPoint(index)
+              return <text key={item.stat} className="radar-axis-index" x={x} y={y}
+                textAnchor="middle" dominantBaseline="central">{index + 1}</text>
+            })}
             <polygon className="radar-value-area" points={pointsForScores(chartItems.map(item => item.score))} />
             {chartItems.map((item, index) => {
               const [x, y] = radarPoint(index, item.score)
@@ -61,7 +71,7 @@ export function StatList({ items, hakiWeight, accent = '#65717b', onSelectStat, 
         </div>
 
         <div className="stat-grid" aria-label="개별 스탯 · 순위와 비교">
-          {items.map((item) => {
+          {items.map((item, index) => {
             const definition = COMBAT_STAT_DEFINITIONS[item.stat]
             const rawHaki = getRawHakiContributionTotal(item)
             const effectiveHaki = getEffectiveHakiContributionTotal(item, hakiWeight)
@@ -70,7 +80,7 @@ export function StatList({ items, hakiWeight, accent = '#65717b', onSelectStat, 
                 <button className="stat-rank-trigger" type="button" onClick={() => onSelectStat(item.stat)}
                   aria-label={`${definition.label} 전체 캐릭터 순위 보기`}>
                   <span className="stat-name">
-                    {definition.label}
+                    <span className="stat-axis-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{definition.label}
                     {item.readiness && <small className={`readiness-badge ${item.readiness.toLowerCase()}`} title="근거 충분도">근거 {item.readiness}</small>}
                   </span>
                   <span className="stat-score">
