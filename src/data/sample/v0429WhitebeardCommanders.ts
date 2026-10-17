@@ -23,13 +23,13 @@ const a=(next:number,observed:string,context:string,inference:string,over:string
 const commanders:CommanderInput[]=[
   {id:'marco',sourceVersion:'evaluation-0.1.74-lucci-marco-evidence-calibrated',
    prior:[79,87,87,82,84,80,87],axes:[
-    a(79,'키자루를 공중 요격하고 킹·퀸과 근접 교전, 아카이누에게 비스타와 무장색 합동 공격.',
+    a(79,'키자루를 공중 요격하고 퀸에게 봉황인 직접 유효타, 킹에게 연계 공격. 아카이누에게 비스타와 무장색 합동 공격.',
       '대부분 전쟁 중 구조·지연·아군 지원 목적. 아카이누에게 반복 결정타나 독립 승리는 확인되지 않음.',
       '상급 적을 상대로 실제 타격을 성립시키는 출력과 접근 타이밍은 기존 v0.1.74 Final79를 유지할 근거다.',
       '불사조 재생·비행을 별도 파괴력으로 두 번 계산하지 않음.',
       '강적과의 실제 공격 성립을 단순 결정타 부재라는 이유로 저평가하지 않음.',
       'v0.1.74의 퀸에 대한 봉황인 유효타 상향을 보존. 무장색 통상 활용을 Base79에 합산, 예외 Raw0. 공격 Final79 유지.',
-      ['evidence-marco-kizaru-554','evidence-marco-armament-akainu-574'],'E2',2),
+      ['evidence-marco-kizaru-554','evidence-v0174-marco-phoenix-brand-queen-1006','evidence-marco-armament-akainu-574'],'E2',2),
     a(88,'키자루 광탄, 아카이누 루피 공격, 킹의 조로 저지용 화염, 카이도 보로 브레스 차단.',
       '각 방어는 개별 단발 공격과 다수 전장 조건. 피격 후 재생과 사전 차단은 구별해야 함.',
       '서로 다른 최고급 상대 화력을 여러 차례 직접 보호·차단한 대응력은 기존 87보다 소폭 높은 88 가능.',
@@ -209,6 +209,8 @@ export const v0429CommanderChanges=v0429Reviews.flatMap(review=>review.axes
 
 /** Keep historical Evidence immutable and rewrite ONLY editorial numeric Raw interpretations. */
 const hakiEvidenceReinterpretation:Record<string,string>={
+  'evidence-v0174-marco-phoenix-brand-queen-1006':
+    'v0.4.29: v0.1.74에서 확인한 퀸 봉황인 직접 유효타와 Final Attack79 상향은 보존된다. 통상 무장색 Raw2는 7축의 실제 Attack Base79에 편입. 같은 공격 사실·원작 화수·추론 한계는 유지하고 독립 예외 Haki 보너스만 제거한다.',
   'evidence-marco-armament-akainu-574':
     'v0.4.29: 아카이누 대상 통상 무장색 공격의 사용은 확인된다. 예외적 별도 공격 마진은 직접 입증되지 않아 Attack79 Base로 통합, Haki Raw0. 이 공격만으로 아카이누에게 지속 결정타를 주었다고 단정하지 않는다.',
   'evidence-jozu-crocodile-560':
