@@ -8,9 +8,10 @@ import { applyV0421EmperorTechniqueReview } from '../sample/v0421EmperorTechniqu
 import { applyV0416Cp0EvaluationAudit } from '../sample/v0416Cp0EvidenceReadiness'
 import { applyV0427JinbeRecalibration } from '../sample/v0427JinbeRecalibration'
 import { applyV0428CalibratedEvaluation, v0428SulongEvaluations } from '../sample/v0428SupportAxisCalibration'
+import { applyV0429CommanderCalibration } from '../sample/v0429WhitebeardCommanders'
 
 /** Preserve immutable historical evaluation array; extend current repository data explicitly. */
-const currentEvaluations = [...sampleEvaluations.map(applyV0413KakuDraft).map(applyV0421EmperorTechniqueReview).map(applyV0427JinbeRecalibration).map(applyV0428CalibratedEvaluation), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit).map(applyV0428CalibratedEvaluation), ...v0428SulongEvaluations, applyV0415EnelReview(v0413EnelEvaluation), v0420MagellanEvaluation]
+const currentEvaluations = [...sampleEvaluations.map(applyV0413KakuDraft).map(applyV0421EmperorTechniqueReview).map(applyV0427JinbeRecalibration).map(applyV0428CalibratedEvaluation).map(applyV0429CommanderCalibration), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit).map(applyV0428CalibratedEvaluation), ...v0428SulongEvaluations, applyV0415EnelReview(v0413EnelEvaluation), v0420MagellanEvaluation]
 
 export interface EvaluationRepository {
   getEvaluations(characterId: string): Evaluation[]
