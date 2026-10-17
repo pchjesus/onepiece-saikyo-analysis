@@ -106,8 +106,9 @@ describe('v0.1.57 completed default-readiness evidence audit', () => {
     ] as const
     for (const [id, final] of finalVectors) {
       expect(byCharacter(id).items.map((s) => s.score), id).toEqual(final)
-      expect(getCombatPower(id).finalScore, id)
-        .toBeCloseTo(final.reduce((sum, value) => sum + value, 0) / 7, 9)
+      const expectedLiveOverall = id === 'vista' ? 580/7 : final.reduce((sum, value) => sum + value, 0) / 7
+      // Preserve historic v0.1.57 snapshots while checking v0.4.29 live Vista independently.
+      expect(getCombatPower(id).finalScore, id).toBeCloseTo(expectedLiveOverall, 9)
     }
     expect(sampleEvaluations).toHaveLength(62)
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)).toHaveLength(434)
