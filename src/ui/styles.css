@@ -1150,11 +1150,11 @@ header p:last-child { color: #666; }
 }
 
 
-/* v0.4.24 — compact Overall tile alongside character identity.
-   The shared identity accent is decorative; score source and click behavior remain unchanged. */
+/* v0.4.25 — Overall as free-standing typography on the existing white header.
+   No tinted card, border, shadow or identity-colored panel. */
 .detail-heading:not(.charlos-heading){
   align-items:flex-start;
-  column-gap:clamp(12px,2.3vw,28px);
+  column-gap:clamp(16px,2.6vw,32px);
 }
 .detail-heading:not(.charlos-heading) .detail-heading-profile{
   flex:1 1 460px;
@@ -1162,65 +1162,74 @@ header p:last-child { color: #666; }
 }
 .detail-heading:not(.charlos-heading) .overall-heading-block{
   position:relative;
-  flex:0 0 clamp(188px,20vw,230px);
+  flex:0 0 clamp(220px,24vw,290px);
   align-self:flex-start;
   min-width:0;
-  margin:0 0 3px auto;
+  margin:6px 0 0 auto;
 }
 .detail-heading:not(.charlos-heading) .power-card-heading{
   display:flex;
   flex-direction:column;
-  align-items:flex-start;
+  align-items:flex-end;
   width:100%;
-  min-height:127px;
+  min-height:0;
   margin:0;
-  padding:15px 42px 14px 17px;
-  gap:5px;
-  border:1px solid color-mix(in srgb,var(--identity-accent,#557189) 23%,#d8e0e5);
-  border-left:4px solid var(--identity-accent,#557189);
-  border-radius:13px;
-  background:color-mix(in srgb,var(--identity-accent,#557189) 7%,#f9faf9);
-  color:#243744;
-  text-align:left;
+  padding:2px 0 0;
+  gap:3px;
+  border:0;
+  border-radius:0;
+  background:transparent;
   box-shadow:none;
+  color:inherit;
+  text-align:right;
 }
-.detail-heading:not(.charlos-heading) .power-card-heading:hover,
+.detail-heading:not(.charlos-heading) .power-card-heading:hover{
+  border:0;
+  background:transparent;
+  outline:none;
+}
+.detail-heading:not(.charlos-heading) .power-card-heading:hover .overall-heading-label{
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
 .detail-heading:not(.charlos-heading) .power-card-heading:focus-visible{
-  outline:2px solid var(--identity-accent,#557189);
-  outline-offset:2px;
-  background:color-mix(in srgb,var(--identity-accent,#557189) 12%,#f9faf9);
+  outline:2px solid #65717b;
+  outline-offset:5px;
+  border-radius:3px;
+  background:transparent;
 }
 .detail-heading:not(.charlos-heading) .power-card-heading .overall-heading-label{
-  font-size:.76rem;
-  font-weight:750;
-  line-height:1.3;
-  letter-spacing:0;
-  color:#3f5362;
+  padding-right:29px;
+  color:#616971;
+  font-size:.82rem;
+  font-weight:700;
+  line-height:1.45;
 }
 .detail-heading:not(.charlos-heading) .power-card-heading strong{
-  color:#253746;
-  font-size:clamp(2.12rem,3.4vw,2.65rem);
-  font-weight:820;
-  letter-spacing:-.035em;
-  line-height:1.03;
+  color:#21272b;
+  font-size:clamp(2.8rem,4.2vw,3.8rem);
+  font-weight:800;
+  letter-spacing:-.045em;
+  line-height:1.05;
   font-variant-numeric:tabular-nums;
+  white-space:nowrap;
 }
 .detail-heading:not(.charlos-heading) .power-card-heading strong small{
-  color:#687784;
-  font-size:.82rem;
-  margin-left:4px;
-  font-weight:650;
+  color:#727980;
+  font-size:.92rem;
+  margin-left:5px;
+  font-weight:550;
   letter-spacing:0;
 }
 .detail-heading:not(.charlos-heading) .power-card-heading .overall-heading-meta{
-  color:#5e7180;
-  font-size:.7rem;
-  line-height:1.35;
+  color:#70777d;
+  font-size:.74rem;
+  line-height:1.5;
 }
 .detail-heading:not(.charlos-heading) .overall-heading-block .score-interpretation{
   position:absolute;
-  top:10px;
-  right:10px;
+  top:0;
+  right:0;
   z-index:10;
   display:block;
   margin:0;
@@ -1228,9 +1237,13 @@ header p:last-child { color: #666; }
 .detail-heading:not(.charlos-heading) .overall-heading-block .score-interpretation-help>summary{
   width:23px;
   height:23px;
-  color:#4a6477;
-  background:#fcfcfc;
-  border-color:#c5d1d9;
+  color:#69747c;
+  border:0;
+  background:transparent;
+}
+.detail-heading:not(.charlos-heading) .overall-heading-block .score-interpretation-help>summary:hover{
+  color:#242b30;
+  background:transparent;
 }
 .detail-heading:not(.charlos-heading) .overall-heading-block .score-interpretation-help[open]{
   position:relative;
@@ -1244,7 +1257,7 @@ header p:last-child { color: #666; }
   margin:0;
   padding:12px 13px;
   z-index:15;
-  border:1px solid #cbd7df;
+  border:1px solid #d6dade;
   border-radius:10px;
   box-shadow:0 10px 30px #273c4a22;
   background:#fff;
@@ -1256,16 +1269,12 @@ header p:last-child { color: #666; }
     flex:1 1 100%;
   }
   .detail-heading:not(.charlos-heading) .overall-heading-block{
-    flex:0 0 min(224px,100%);
+    flex:0 0 min(250px,100%);
     margin-left:auto;
-    align-self:flex-start;
-  }
-  .detail-heading:not(.charlos-heading) .power-card-heading{
-    min-height:112px;
-    padding:12px 40px 11px 15px;
+    margin-top:2px;
   }
   .detail-heading:not(.charlos-heading) .power-card-heading strong{
-    font-size:2.2rem;
+    font-size:clamp(2.6rem,8vw,3.2rem);
   }
 }
 @media(max-width:380px){
@@ -1273,9 +1282,6 @@ header p:last-child { color: #666; }
     flex-basis:100%;
     width:100%;
     margin:0;
-  }
-  .detail-heading:not(.charlos-heading) .power-card-heading{
-    min-height:103px;
   }
 }
 @media(prefers-reduced-motion:reduce){

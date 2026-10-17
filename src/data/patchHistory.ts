@@ -38,6 +38,12 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.4.25',date:'2026-10-17',title:'종합 전투력 카드 제거 · 헤더 위 투명 점수 표기',
+    summary:'헤더 오른쪽 Overall의 색상 패널·테두리·그림자를 제거하고 흰 바탕 위에 큰 점수·라벨만 배치. 종합 순위·? 계산 설명·모바일 대응과 기존 전투력 데이터 보존.',
+    report:'docs/V0_4_25_OVERALL_TRANSPARENT_HEADER_2026-10-17.md',
+    changes:[{kind:'feature',title:'배경 없는 종합 전투력 타이포그래피',detail:'기존 v0.4.24의 작은 청회색 카드 프레임을 없애고 기본 페이지 배경에 직접 97.6/100 같은 종합점수를 크게 오른쪽 정렬. 카드 배경·테두리·색상 강조 제거, 필요할 때만 키보드 포커스와 계산 설명 팝업을 표시. 종합 순위/도움말/가프 시점 전환·7축 막대·마젤란 이미지·82명/86평가/602축/18매치업 및 모델 불변.'}],
+  },
+
   {version:'v0.4.24',date:'2026-10-17',title:'종합 전투력 캐릭터 헤더 우측으로 이동 · 밝은 카드 적용',
     summary:'검은 종합점수 독립 카드를 없애고 캐릭터 이름 오른쪽 헤더에 밝은 청회색 종합점수 카드로 통합. 소속색 테두리·모바일 줄바꿈, 기존 종합 순위·? 해설·가프 상태·스탯 막대 보존.',
     report:'docs/V0_4_24_OVERALL_HEADER_LIGHT_CARD_2026-10-17.md',

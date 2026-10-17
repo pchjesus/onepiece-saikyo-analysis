@@ -12,7 +12,7 @@ function renderHeader(characterId:string,groupId:string,selectedStateId?:string)
   page.innerHTML=html
   return page
 }
-describe('v0.4.24 light Overall tile integrated into regular character header',()=>{
+describe('v0.4.25 transparent Overall typography in regular character header',()=>{
   it('moves a single clickable Overall score from the old panel next to the name and keeps the disclosure',()=>{
     const page=renderHeader('newgate','whitebeard-pirates')
     const heading=page.querySelector('.detail-heading')!
