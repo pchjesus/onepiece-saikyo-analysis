@@ -5,16 +5,18 @@ import { CharlosTruthDialog } from '../components/CharlosTruthDialog'
 import { charlosMemeQuote, charlosMemeStats, charlosSpecialOverall,
   CHARLOS_ID, celestialDragonGroup } from '../../data/special/charlosSpecial'
 
+const charlosProfileDisplayName = '로즈워드 차를로스 성'
+
 /** Standalone comedy view: never passes meme stats into Balanced, individual stat rankings or Matchup. */
 export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () => void }) {
   const [truthOpen, setTruthOpen] = useState(false)
   return <main className="detail charlos-detail" style={characterIdentityStyle(celestialDragonGroup.id, CHARLOS_ID)}>
     <div className="detail-heading charlos-heading" style={characterIdentityStyle(celestialDragonGroup.id, CHARLOS_ID)}>
       <div className="detail-heading-profile">
-        <CharacterPortrait characterId={CHARLOS_ID} groupId={celestialDragonGroup.id} name="차를로스 성" size="large" />
+        <CharacterPortrait characterId={CHARLOS_ID} groupId={celestialDragonGroup.id} name={charlosProfileDisplayName} size="large" />
         <div className="charlos-heading-copy">
           <CharacterIdentity group={celestialDragonGroup} characterId={CHARLOS_ID} showPastMembership={false} />
-          <h1>차를로스 성</h1>
+          <h1>{charlosProfileDisplayName}</h1>
           <div className="charlos-known-as" aria-label="호칭">
             <span className="charlos-alias-badge">
               <span className="charlos-alias-title"><span className="charlos-alias-star" aria-hidden="true">*</span>호를로스 성</span>
@@ -33,7 +35,7 @@ export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () =>
 
     <div className="charlos-intro">
       <button className="charlos-overall-card" onClick={onSelectOverall} type="button"
-        aria-label="차를로스 성 특별 종합 점수 포함 전체 오버롤 순위 보기">
+        aria-label="로즈워드 차를로스 성 특별 종합 점수 포함 전체 오버롤 순위 보기">
         <span>종합 전투력 <span aria-hidden="true">↗</span></span>
         <strong>{charlosSpecialOverall.toFixed(1)}<small>/100</small></strong>
       </button>
@@ -44,7 +46,7 @@ export function CharlosSpecialPage({ onSelectOverall }: { onSelectOverall: () =>
       </div>
     </div>
 
-    <section className="charlos-stats" aria-label="차를로스 성 천룡인 전용 7축">
+    <section className="charlos-stats" aria-label="로즈워드 차를로스 성 천룡인 전용 7축">
       <div className="charlos-section-heading"><h2>천룡인 전용 7축</h2><p>스탯을 누르면 위대한 업적이 펼쳐진다이.</p></div>
       <div className="charlos-stat-list">
         {charlosMemeStats.map((stat,i) => <details className="charlos-stat" key={stat.id}>

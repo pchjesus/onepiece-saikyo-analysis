@@ -40,7 +40,7 @@ describe('v0.4.9 approved Koby/Smoker live recalibration',()=>{
    expect(getStatRanking('overall')).toHaveLength(82)
    expect(balancedV12.version).toBe('1.2')
    expect(balancedV12.configuration.hakiWeight).toBe(.5)
-   expect(versionManifest.appVersion).toBe('0.4.18')
+   expect(versionManifest.appVersion).toBe('0.4.19')
    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.17')
    expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
  })

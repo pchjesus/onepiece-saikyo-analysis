@@ -45,6 +45,8 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
 
   it('registers 82 people, new subordinate noble group, no fake Balanced assessment', () => {
     expect(charlosCharacter.id).toBe(CHARLOS_ID)
+    // Presentation name is page-local; stable master data/search keys must not change.
+    expect(charlosCharacter.name).toBe('차를로스 성')
     expect(charlosMembership.groupId).toBe('celestial-dragons')
     expect(celestialDragonGroup.parentGroupId).toBe('world-government')
     expect(characterRepository.getCharacters()).toHaveLength(82)
@@ -57,7 +59,7 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
     expect(matchupRepository.getAllMatchups().every(m=>!JSON.stringify(m).includes(CHARLOS_ID))).toBe(true)
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(versionManifest.appVersion).toBe('0.4.18')
+    expect(versionManifest.appVersion).toBe('0.4.19')
   })
 
   it('inserts ONE meme overall result without changing original 81 numeric results', () => {
@@ -92,7 +94,8 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
     expect(heading).not.toBeNull()
     expect(heading?.querySelector('.detail-heading-profile .character-portrait-large')).not.toBeNull()
     expect(heading?.querySelector('.detail-heading-profile .character-identity')).not.toBeNull()
-    expect(heading?.querySelector('.detail-heading-profile h1')?.textContent).toBe('차를로스 성')
+    expect(heading?.querySelector('.detail-heading-profile h1')?.textContent).toBe('로즈워드 차를로스 성')
+    expect(heading?.querySelector('.portrait-zoom-trigger')?.getAttribute('aria-label')).toBe('로즈워드 차를로스 성 이미지 확대 보기')
     expect(heading?.querySelector('.charlos-heading-copy .charlos-known-as .charlos-alias-badge')).not.toBeNull()
     const standardQuote = heading?.querySelector('.character-quote.charlos-meme-quote')
     expect(standardQuote?.parentElement).toBe(heading)
