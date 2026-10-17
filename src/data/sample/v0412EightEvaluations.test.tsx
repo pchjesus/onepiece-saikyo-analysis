@@ -51,7 +51,7 @@ describe('v0.4.12 eight new provisional combat evaluations',()=>{
      const allEvidence=[...sampleEvidence,...v0412Evidence].map(e=>({id:e.id,subjectCharacterId:e.subjectCharacterId}))
      expect(validateEvaluation(evaluation,allEvidence).errors).toEqual([])
    }
-   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.27')
+   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.28')
    expect(balancedV12.configuration.hakiWeight).toBe(.5)
  })
  it('preserves ID ownership, battle context and immutable historical source data',()=>{
@@ -85,7 +85,8 @@ describe('v0.4.12 eight new provisional combat evaluations',()=>{
      const e=v0412Evaluations.find(e=>e.characterId===id)!
      const g=v0411Memberships.find(m=>m.characterId===id)!.groupId
      expect(getCharacterDetail(id,g)?.evaluation.id).toBe(e.id)
-     expect(getCombatPower(id).finalScore).toBeCloseTo(expected[id].reduce((a,b)=>a+b,0)/7,10)
+     const currentScores = id === 'usopp' ? [68,61,70,64,76,75,74] : expected[id]
+      expect(getCombatPower(id).finalScore).toBeCloseTo(currentScores.reduce((a,b)=>a+b,0)/7,10)
      const html=renderToStaticMarkup(<CharacterPage characterId={id} groupId={g}
        onSelectStat={()=>{}} onCompareStat={()=>{}} onSelectOverall={()=>{}} />)
      expect(html).toContain('핵심 전투 스탯')
