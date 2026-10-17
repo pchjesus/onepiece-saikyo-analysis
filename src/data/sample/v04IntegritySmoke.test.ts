@@ -36,7 +36,7 @@ describe('v0.4 preparation: live reference and calculation integrity',()=>{
   })
   it('recomputes the 7-stat overall deterministically, excluding incidental timestamps',()=>{
     const rows=getStatRanking('overall')
-    expect(rows).toHaveLength(82)
+    expect(rows).toHaveLength(83)
     for(const row of rows.filter(x=>x.characterId!=='charlos')) {
       const first=getCombatPower(row.characterId)
       const second=getCombatPower(row.characterId)
