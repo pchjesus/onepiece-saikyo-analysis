@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { wanoSeeds } from './wanoSeeds'
+import { applyV0428CalibratedEvaluation } from './v0428SupportAxisCalibration'
 import { wanoCharacters, wanoMemberships, wanoGroups, wanoEvidence, wanoBattles, wanoEvaluations } from './wanoExpansion'
 import { legacyCharacters as sampleCharacters } from './v0180LegacyCohort'
 import { sampleGroups } from './groups'
@@ -88,7 +89,9 @@ describe('v0.1.45 three-faction, 17-character Evidence-first expansion', () => {
           expect(evidence?.source.type).toBe('supplementary')
         }
       }
-      expect(getCombatPower(seed.id).finalScore).toBeCloseTo(seed.score.reduce((x, y) => x + y, 0) / 7, 8)
+      // The historical v0.1.45 seed remains frozen; current Akazaya may be intentionally revised.
+      const liveScores = applyV0428CalibratedEvaluation(evaluation).items.map(item => item.score)
+      expect(getCombatPower(seed.id).finalScore).toBeCloseTo(liveScores.reduce((x,y)=>x+y,0)/7,8)
     }
     expect(sampleEvaluations.flatMap((evaluation) => evaluation.items)
       .reduce((amount, item) => amount + getRawHakiContributionTotal(item), 0)).toBe(230)
