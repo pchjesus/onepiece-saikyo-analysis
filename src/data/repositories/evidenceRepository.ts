@@ -6,7 +6,8 @@ import { v0420MagellanEvidence } from '../sample/v0420MagellanRegistration'
 import { v0413EnelEvidence } from '../sample/v0413RemainingDraftPublication'
 import { applyV0416Cp0EvidenceAudit } from '../sample/v0416Cp0EvidenceReadiness'
 import { applyV0427JinbeEvidenceCorrection, v0427JinbeEvidence } from '../sample/v0427JinbeRecalibration'
-const currentEvidence = [...sampleEvidence.map(applyV0427JinbeEvidenceCorrection), ...v0427JinbeEvidence, ...v0412Evidence.map(applyV0416Cp0EvidenceAudit), ...v0413EnelEvidence, ...v0420MagellanEvidence, ...v0421EmperorTechniqueEvidence]
+import { v0428Evidence } from '../sample/v0428SupportAxisCalibration'
+const currentEvidence = [...sampleEvidence.map(applyV0427JinbeEvidenceCorrection), ...v0427JinbeEvidence, ...v0412Evidence.map(applyV0416Cp0EvidenceAudit), ...v0413EnelEvidence, ...v0420MagellanEvidence, ...v0421EmperorTechniqueEvidence, ...v0428Evidence]
 
 export interface EvidenceRepository {
   getEvidenceForBattle(battleId: string): Evidence[]
