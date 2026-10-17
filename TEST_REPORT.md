@@ -3,7 +3,7 @@
 - 신규 `src/domain/evaluation/bidirectionalCalibration.ts`: 7축마다 원작 관찰, 조건, 추론, 과대·과소 평가 양방향 위험, 판단, 근거 ID, 기대 이전값·데이터 버전 및 명시된 통상 Haki Raw 이동 검증.
 - 신규 `v0429WhitebeardCommanders.test.tsx`: 21축 before/after, 4축 Raw→Base, Evidence 사실/출처 불변·영향해석 동기화, Live/Audit 일치, 역사적 데이터 보존, 공통 UI 및 이전 v0.4.28 회귀 검증 대상.
 - 기존 82인/88평가/616축/107 Membership/18 Matchup·Balanced1.2/HakiWeight0.5 유지.
-- GitHub CI 전 **검증 계획 단계**이며 PASS 또는 실기기 검증을 미리 주장하지 않음. 실기기/원작 컷의 개별 대조는 별도 진행 필요.
+- GitHub Actions PR #148 HEAD `19c7326d4ff5bdf239671fb51b68daca56762a96`에서 **전체 120개 테스트 파일 / 509개 테스트 PASS**, `npm run build` (TypeScript + Vite) **PASS** 확인. 신규 21축 양방향 검토(현행 수치 변경 20축), 네 항목 무장색 Raw 제거, 과거 평가/현행 평가 분리, v050 감사·랭킹·CharacterPage 회귀 검증 포함. 실기기 시각검증 및 원작 만화 전체 컷 직접 대조는 **미실행**. 문서 갱신 후 추가 PR CI 결과는 별도로 구분.
 
 ## v0.4.28 — 우솝·아카자야 9남자 보조축 교정 / 평상시·스론 분리 (2026-10-18)
 
