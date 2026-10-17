@@ -1,3 +1,10 @@
+## v0.4.21 — 원본 PNG 무결성 검증 및 배포 게이트 (2026-10-17)
+
+- 신규 `tests/v0421MagellanPortraitBinaryIntegrity.test.ts`: 원본 바이트 수 714,791, SHA256, IHDR 크기 640×512, RGBA 컬러타입 6 검증.
+- 기존 검색창 이미지 개수 83명, 마젤란 이미지 있음, fallback 없음, 공통 확대 UI와 메타데이터 테스트 갱신.
+- 현재 브랜치의 바이너리 파일이 업로드되기 전까지 무결성 테스트 실패는 의도된 배포 차단 장치. 원본 PNG 업로드 후 전체 Vitest·TS·build 확인 예정.
+- 미검증 PC·모바일 실기기 시각 결과를 자동검증 통과로 간주하지 않음.
+
 ## v0.4.20 — 마젤란 정규 등록 회귀 검증 (2026-10-17)
 
 - 신규 테스트: src/data/sample/v0420MagellanRegistration.test.tsx — 등록·소속·86.00/7축·Raw Haki0·공식 보조 Evidence 6/전투 맥락 4·공통 상세·순위·감사 보존 검증.

@@ -38,6 +38,13 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.4.21',date:'2026-10-17',title:'마젤란 PNG 원본 화질 보존 등록',
+    summary:'사용자 업로드 640×512 RGBA PNG를 변환 없이 마젤란 일반 프로필·검색·확대 이미지에 연결. 기존 평가·전투·매치업·계산 모델 불변.',
+    report:'docs/V0_4_21_MAGELLAN_ORIGINAL_PNG_2026-10-17.md',
+    changes:[{kind:'feature',characterId:'magellan',title:'무손실 원본 PNG 이미지 등록',
+      detail:'magellan-v0421.png · 640×512 RGBA/714,791바이트. 리사이즈나 재압축 없이 보존하며 SHA-256 무결성 테스트로 확인. 저작권 및 공개 재배포 허가는 별도 확인 필요.'}],
+  },
+
   {version:'v0.4.20',date:'2026-10-17',title:'마젤란 임펠다운 편 전투력 86.00 정규 등록',
     summary:'마젤란 정규 캐릭터 1·소속 1·전투 맥락 4·공식 보조 근거 6·7축 92/83/82/80/91/83/91 등록. Overall 86.00, 미확인 패기 Raw0. 기존 81명·85 Evaluation·18매치업·모델과 차를로스 특별 프로필은 보존.',
     report:'docs/V0_4_20_MAGELLAN_REGISTRATION_2026-10-17.md',
