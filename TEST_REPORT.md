@@ -1,3 +1,10 @@
+## v0.4.21 — 캐릭터 문구 간결화 + 사황 숙련도 회귀검증 (2026-10-17)
+
+- 신규 `src/data/sample/v0421EmperorTechniqueReview.test.tsx`: 카이도98·빅맘96, 원본 Base/Raw/Final 및 이외 6축 불변, 추가 보조 Evidence 2개 연결, 화면·랭킹·감사 일치.
+- `src/ui/components/CombatProfile.test.tsx`: 비브르 카드 링크 제거 및 프로필 첫 소개문 1문장 유지. UI의 기존 사실 근거·스탯·계산식은 보존.
+- 원본 76개 sampleEvaluations, v0.3.3 불변. 82명/86 평가/602축/18 매치업·Balanced 1.2·Haki 0.5 고정.
+- CI와 실제 Pages 배포 성공 여부는 실행 후 별도 확인, PC/모바일 실기기 시각 검증은 하지 않은 것으로 구분.
+
 ## v0.4.20 — 마젤란 정규 등록 회귀 검증 (2026-10-17)
 
 - 신규 테스트: src/data/sample/v0420MagellanRegistration.test.tsx — 등록·소속·86.00/7축·Raw Haki0·공식 보조 Evidence 6/전투 맥락 4·공통 상세·순위·감사 보존 검증.
