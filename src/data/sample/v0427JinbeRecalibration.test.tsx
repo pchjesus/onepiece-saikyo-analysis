@@ -63,8 +63,8 @@ describe('v0.4.27 Jinbe approved Defense/Stamina and chapter-correct evidence ov
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(versionManifest).toMatchObject({
-      appVersion:'0.4.28',coreDataVersion:'core-v0.4.28',
-      evaluationSetVersion:'evaluation-set-v0.4.28',
+      appVersion:'0.4.29',coreDataVersion:'core-v0.4.29',
+      evaluationSetVersion:'evaluation-set-v0.4.29',
       calculationModelVersion:'1.2',baselineSnapshotVersion:'v0.3.3',
     })
   })
