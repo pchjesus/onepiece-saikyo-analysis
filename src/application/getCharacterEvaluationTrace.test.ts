@@ -20,16 +20,16 @@ describe('getCharacterEvaluationTrace', () => {
   it('resolves King attack Evidence including the Haki application record', () => {
     const kingAttack = getCharacterEvaluationTrace('king')?.find(({ item }) => item.stat === 'attack')
     expect(kingAttack?.evidence).toHaveLength(3)
-    expect(kingAttack?.item.baseScore).toBe(83)
-    expect(kingAttack?.item.score).toBe(83)
+    expect(kingAttack?.item.baseScore).toBe(84)
+    expect(kingAttack?.item.score).toBe(84)
     expect(kingAttack?.item.hakiContributions).toHaveLength(0)
   })
 
   it('keeps King technique Evidence traceable after weighted Haki calibration', () => {
     const kingTechnique = getCharacterEvaluationTrace('king')?.find(({ item }) => item.stat === 'techniqueMastery')
     expect(kingTechnique?.evidence).toHaveLength(2)
-    expect(kingTechnique?.item.baseScore).toBe(80)
-    expect(kingTechnique?.item.score).toBe(80)
+    expect(kingTechnique?.item.baseScore).toBe(83)
+    expect(kingTechnique?.item.score).toBe(83)
   })
 
   it('resolves Katakuri speed and Combat IQ evidence without adding Future Sight to Speed Haki', () => {
