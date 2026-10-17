@@ -38,6 +38,16 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.4.21',date:'2026-10-17',title:'전투 프로필 간결화 · 카이도·링링 숙련도 상향',
+    summary:'전투 프로필에서 무관한 비브르 카드 링크·시스템 해설을 제거하고 카이도 숙련도 Final96→98, 링링 94→96으로 조정. 패기·기타 6축·전체 인원·매치업·기준선 불변.',
+    report:'docs/V0_4_21_PROFILE_COPY_AND_EMPEROR_TECHNIQUE_2026-10-17.md',
+    changes:[
+      {kind:'feature',title:'프로필의 불필요한 개발 설명과 비브르 카드 링크 제거',detail:'전투 프로필에 「평가 점수와 분리된 원작 기반 전투 정보입니다.」만 남기고 외부 이미지 참고 링크·자동점수 언급 등 상시 부연 설명을 삭제. 실제 근거 출처·능력·패기·스탯·선택형 도움말 보존.'},
+      {kind:'score',characterId:'kaido',stat:'techniqueMastery',before:96,after:98,title:'카이도 숙련도 Final96→98',reason:'루피와 교전하며 화염 구름으로 오니가시마 섬을 계속 지탱한 복합 제어 능력을 평가. 기존 장기전·광역 역할을 중복 보정하지 않으며 Base93→95, 패왕색 Raw6 유지. 공식 TV1052 보조자료; 원작 컷 신규 검증 전.',evidence:[{label:'ONE PIECE.com TV1052',url:'https://one-piece.com/anime/o6401/index.html'}]},
+      {kind:'score',characterId:'linlin',stat:'techniqueMastery',before:94,after:96,title:'빅맘 숙련도 Final94→96',reason:'전장 철덩이에 영혼 부여 및 나폴레옹·헤라·프로메테우스 강화·복합 운용을 인정. Base91→93, 기존 패왕색 Raw6 유지, 범용성·전투지능 중복 상향 없음. 공식 TV1058 보조자료; 원작 컷 신규 검증 전.',evidence:[{label:'ONE PIECE.com TV1058',url:'https://one-piece.com/anime/61434/index.html'}]},
+    ],
+  },
+
   {version:'v0.4.20',date:'2026-10-17',title:'마젤란 임펠다운 편 전투력 86.00 정규 등록',
     summary:'마젤란 정규 캐릭터 1·소속 1·전투 맥락 4·공식 보조 근거 6·7축 92/83/82/80/91/83/91 등록. Overall 86.00, 미확인 패기 Raw0. 기존 81명·85 Evaluation·18매치업·모델과 차를로스 특별 프로필은 보존.',
     report:'docs/V0_4_20_MAGELLAN_REGISTRATION_2026-10-17.md',
