@@ -58,8 +58,8 @@ describe('v0.4.15 approved Enel review and official Japanese quote', () => {
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(versionManifest.appVersion).toBe('0.4.26')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.21')
+    expect(versionManifest.appVersion).toBe('0.4.27')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.27')
   })
   it('displays a sourced Japanese quotation with editorial Korean, not manga-checked or official-Korean', () => {
     const quote = getCharacterQuoteReview('enel')!

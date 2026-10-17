@@ -1,3 +1,9 @@
+## v0.4.27 — 징베 Defense 82 / Stamina 83 및 정상결전 근거 분리 (2026-10-17)
+
+- 신규 `src/data/sample/v0427JinbeRecalibration.test.tsx`: 원본 보존/Hash-equivalent untouched references, Haki Raw4→0/Base82, Stamina83, 560/7=80.0, 574/575/578화 소유권·출처·역할, Battle 분리, 82/86/602/107/18, E1, 현재 랭킹/SSR/근거 감사 확인.
+- 기존 평가·조직·매치업/순위/차를로스·모바일·버전/패치내역 회귀 테스트 유지. CI 결과는 실제 완료 및 SHA 확인 후에만 통과로 기록.
+- 원작 만화 574/575/578 전체 컷 독립 재열람, 실제 PC·Android 시각 QA는 CI와 별개로 남음.
+
 ## v0.4.26 — 모바일 Overall 중앙 정렬·구분선 회귀 (2026-10-17)
 
 - 신규 `tests/v0426OverallMobileLayout.test.tsx`: 모바일 `@media(max-width:760px)` 범위, 전체 폭·가운데 정렬·위아래 1px 선·여백 축소 정적 CSS 검증. SSR에서 마젤란 이미지·86.0·종합 순위/도움말 및 7축 그래프 개수 불변 검사.

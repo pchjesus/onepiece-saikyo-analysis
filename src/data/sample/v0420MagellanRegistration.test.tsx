@@ -33,7 +33,7 @@ describe('v0.4.20 Magellan approved registration',()=>{
    expect(current.evaluations.find(e=>e.characterId==='magellan')).toEqual(v0420MagellanEvaluation)
    expect(versionManifest.calculationModelVersion).toBe('1.2')
    expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.21')
+   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.27')
  })
  it('uses existing Impel Down group and exact Haki-neutral 86.00 in rank and profile',()=>{
    expect(characterRepository.getCharacter('magellan')).toEqual(v0420MagellanCharacter)

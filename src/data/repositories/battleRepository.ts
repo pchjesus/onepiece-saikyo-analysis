@@ -3,7 +3,8 @@ import { sampleBattles, sampleBattleParticipants } from '../sample/battles'
 import { v0412Battles } from '../sample/v0412EightEvaluations'
 import { v0420MagellanBattles } from '../sample/v0420MagellanRegistration'
 import { v0413EnelBattles } from '../sample/v0413RemainingDraftPublication'
-const currentBattles = [...sampleBattles, ...v0412Battles, ...v0413EnelBattles, ...v0420MagellanBattles]
+import { applyV0427JinbeBattleContext } from '../sample/v0427JinbeRecalibration'
+const currentBattles = [...sampleBattles.map(applyV0427JinbeBattleContext), ...v0412Battles, ...v0413EnelBattles, ...v0420MagellanBattles]
 
 export interface BattleRepository {
   getBattle(battleId: string): Battle | undefined
