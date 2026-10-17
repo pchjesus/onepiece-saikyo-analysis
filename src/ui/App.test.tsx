@@ -42,7 +42,7 @@ afterEach(async () => {
 describe('v0.1.80 patch history UI',()=>{
   it('opens history, displays numeric changes and reasons, closes on demand',async()=>{
     const button=container.querySelector<HTMLButtonElement>('.patch-history-trigger')
-    expect(button?.textContent).toContain('v0.4.27')
+    expect(button?.textContent).toContain('v0.4.28')
     await click(button)
     const dialog=container.querySelector('[role="dialog"][aria-labelledby="patch-history-title"]')
     expect(dialog?.textContent).toContain('퀸 범용성 조정')
@@ -62,7 +62,7 @@ describe('v0.1.80 patch history UI',()=>{
     const choose=async(name:string)=>click(tabs.find(x=>x.textContent?.startsWith(name))??null)
     await choose('스탯 조정')
     expect(tabs[1].getAttribute('aria-pressed')).toBe('true')
-    expect(dialog.querySelectorAll('.patch-change')).toHaveLength(53)
+    expect(dialog.querySelectorAll('.patch-change')).toHaveLength(119)
     expect(dialog.textContent).toContain('퀸 범용성 조정')
     expect(dialog.textContent).toContain('80 →')
     expect(dialog.textContent).not.toContain('타시기 추가')
@@ -87,7 +87,7 @@ describe('v0.1.80 patch history UI',()=>{
 
     await choose('전체')
     expect(tabs[0].getAttribute('aria-pressed')).toBe('true')
-    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(41)
+    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(42)
     expect(dialog.querySelectorAll('.patch-category-section').length).toBeGreaterThan(7)
   })
 

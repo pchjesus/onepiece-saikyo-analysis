@@ -59,7 +59,7 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
     expect(matchupRepository.getAllMatchups().every(m=>!JSON.stringify(m).includes(CHARLOS_ID))).toBe(true)
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(versionManifest.appVersion).toBe('0.4.27')
+    expect(versionManifest.appVersion).toBe('0.4.28')
   })
 
   it('inserts ONE meme overall result without changing original 81 numeric results', () => {
@@ -80,8 +80,8 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
     expect(withoutParody.every(e=>!e.specialEvaluation)).toBe(true)
     const audit=buildV050ReadOnlyAudit()
     expect(audit.integrity.errors).toEqual([])
-    expect(audit.counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:86,axes:602,memberships:107,matchups:18})
-    expect(v050CurrentDataset.evaluations.map(e=>e.items.map(i=>i.score))).toHaveLength(86)
+    expect(audit.counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:88,axes:616,memberships:107,matchups:18})
+    expect(v050CurrentDataset.evaluations.map(e=>e.items.map(i=>i.score))).toHaveLength(88)
   })
 
   it('retains exact user-image assets and delivers an in-universe special UI without explaining its jokes', () => {

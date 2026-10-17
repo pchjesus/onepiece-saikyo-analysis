@@ -1,3 +1,9 @@
+## v0.4.28 — 우솝·아카자야 9남자 보조축 교정 / 평상시·스론 분리 (2026-10-18)
+
+- 새 `src/data/sample/v0428SupportAxisCalibration.test.tsx`에서 10명 현재 7축·기존 데이터 불변·사용자 우솝 69.7142857·조건부 스론 2상태, Evidence 소유·참조, 모델·랭킹·상태 UI·LIVE 감사·매치업 관계 검증 계획.
+- 원본 `sampleEvaluations` / `v0412Evaluations` 미수정; 현행 Overlay와 감사 데이터에 동일 적용. 82명/88평가/616축/107 소속/18 매치업 기준.
+- CI 및 `npm test`, `npm run build`는 PR 머리 SHA 결과 확보 전까지 **미검증**. 자동 테스트의 PASS를 실제 PC·Android 브라우저 시각 검증 및 원작 만화 컷 확인으로 혼동 금지.
+
 ## v0.4.27 — 징베 Defense 82 / Stamina 83 및 정상결전 근거 분리 (2026-10-17)
 
 - 신규 `src/data/sample/v0427JinbeRecalibration.test.tsx`: 원본 보존/Hash-equivalent untouched references, Haki Raw4→0/Base82, Stamina83, 560/7=80.0, 574/575/578화 소유권·출처·역할, Battle 분리, 82/86/602/107/18, E1, 현재 랭킹/SSR/근거 감사 확인.

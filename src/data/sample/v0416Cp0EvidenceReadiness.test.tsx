@@ -97,8 +97,8 @@ describe('v0.4.16 / v0.5.0 Stage 2A CP0 readiness and Evidence provenance', () =
     const report = buildV050ReadOnlyAudit()
     expect(report.integrity.errors).toEqual([])
     expect(report.counts).toEqual({
-      characters:82,evaluatedCharacters:82,evaluations:86,
-      axes:602,memberships:107,matchups:18,
+      characters:82,evaluatedCharacters:82,evaluations:88,
+      axes:616,memberships:107,matchups:18,
     })
     for (const [id, axes] of Object.entries(revised)) {
       const rows = report.rows.filter(x=>x.characterId===id)
@@ -125,7 +125,7 @@ describe('v0.4.16 / v0.5.0 Stage 2A CP0 readiness and Evidence provenance', () =
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(versionManifest.appVersion).toBe('0.4.27')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.27')
+    expect(versionManifest.appVersion).toBe('0.4.28')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.28')
   })
 })
