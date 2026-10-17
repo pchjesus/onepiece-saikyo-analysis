@@ -74,7 +74,7 @@ describe('v0.4.29 evidence-based symmetric inflation/deflation calibration',()=>
     expect(evaluationRepository.getEvaluation('jozu')?.items.find(x=>x.stat==='combatIQ')?.score).toBe(78)
   })
   it('retains Haki evidence and profile facts but removes unsupported exceptional Raw from the 4 slots',()=>{
-    const ids=['evidence-marco-armament-akainu-574','evidence-jozu-crocodile-560','evidence-jozu-aokiji-567','evidence-vista-armament-akainu-574']
+    const ids=['evidence-v0174-marco-phoenix-brand-queen-1006','evidence-marco-armament-akainu-574','evidence-jozu-crocodile-560','evidence-jozu-aokiji-567','evidence-vista-armament-akainu-574']
     for(const id of ids){
       const old=sampleEvidence.find(e=>e.id===id)!
       const live=evidenceRepository.getEvidenceForCharacter(old.subjectCharacterId).find(e=>e.id===id)!
