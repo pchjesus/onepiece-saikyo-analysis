@@ -53,8 +53,8 @@ describe('v0.4.21 Kaido and Big Mom technique adjustment; concise user-facing pr
       .toBeCloseTo( (sampleEvaluations.find(e=>e.characterId==='kaido')!.items.reduce((s,i)=>s+i.score,0)+2)/7,10)
     expect(getCombatPower('linlin').finalScore)
       .toBeCloseTo( (sampleEvaluations.find(e=>e.characterId==='linlin')!.items.reduce((s,i)=>s+i.score,0)+2)/7,10)
-    expect(v050CurrentDataset.evaluations).toHaveLength(86)
-    expect(v050CurrentDataset.evaluations.flatMap(e=>e.items)).toHaveLength(602)
+    expect(v050CurrentDataset.evaluations).toHaveLength(88)
+    expect(v050CurrentDataset.evaluations.flatMap(e=>e.items)).toHaveLength(616)
     for(const original of sampleEvaluations.filter(e=>e.characterId!=='kaido'&&e.characterId!=='linlin')){
       const current=evaluationRepository.getEvaluations(original.characterId).find(e=>e.id===original.id)
       // Kaku was revised in v0.4.13, so that one remains its own existing overlay.
@@ -75,7 +75,7 @@ describe('v0.4.21 Kaido and Big Mom technique adjustment; concise user-facing pr
     }
     const report=buildV050ReadOnlyAudit()
     expect(report.integrity.errors).toEqual([])
-    expect(report.counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:86,axes:602,memberships:107,matchups:18})
+    expect(report.counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:88,axes:616,memberships:107,matchups:18})
     for(const [id,score] of [['kaido',98],['linlin',96]] as const){
       const row=report.rows.find(x=>x.characterId===id&&x.stat==='techniqueMastery')!
       expect(row.base).toBe(score-3)
@@ -86,8 +86,8 @@ describe('v0.4.21 Kaido and Big Mom technique adjustment; concise user-facing pr
     expect(balancedV12.configuration.hakiWeight).toBe(.5)
     expect(matchupRepository.getAllMatchups()).toHaveLength(18)
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(versionManifest.appVersion).toBe('0.4.27')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.27')
+    expect(versionManifest.appVersion).toBe('0.4.28')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.28')
   })
 
   it('does not expose developer-style caveat banners and off-topic image reference in the regular page',()=>{
