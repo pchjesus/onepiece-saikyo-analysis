@@ -21,14 +21,14 @@ const a=(next:number,observed:string,context:string,inference:string,over:string
   ({next,observed,context,inference,over,under,reason,ids,readiness,normalHaki})
 
 const commanders:CommanderInput[]=[
-  {id:'marco',sourceVersion:'evaluation-0.1.47-evidence-calibrated-A',
-   prior:[77,87,87,82,84,80,87],axes:[
+  {id:'marco',sourceVersion:'evaluation-0.1.74-lucci-marco-evidence-calibrated',
+   prior:[79,87,87,82,84,80,87],axes:[
     a(79,'키자루를 공중 요격하고 킹·퀸과 근접 교전, 아카이누에게 비스타와 무장색 합동 공격.',
       '대부분 전쟁 중 구조·지연·아군 지원 목적. 아카이누에게 반복 결정타나 독립 승리는 확인되지 않음.',
-      '상급 적을 상대로 실제 타격을 성립시키는 출력과 접근 타이밍은 기존 Final77보다 높게 추정 가능.',
+      '상급 적을 상대로 실제 타격을 성립시키는 출력과 접근 타이밍은 기존 v0.1.74 Final79를 유지할 근거다.',
       '불사조 재생·비행을 별도 파괴력으로 두 번 계산하지 않음.',
       '강적과의 실제 공격 성립을 단순 결정타 부재라는 이유로 저평가하지 않음.',
-      '무장색 통상 활용을 Base79에 합산, 예외 Raw0. 공격 79는 일최간 압도 화력 주장 아님.',
+      'v0.1.74의 퀸에 대한 봉황인 유효타 상향을 보존. 무장색 통상 활용을 Base79에 합산, 예외 Raw0. 공격 Final79 유지.',
       ['evidence-marco-kizaru-554','evidence-marco-armament-akainu-574'],'E2',2),
     a(88,'키자루 광탄, 아카이누 루피 공격, 킹의 조로 저지용 화염, 카이도 보로 브레스 차단.',
       '각 방어는 개별 단발 공격과 다수 전장 조건. 피격 후 재생과 사전 차단은 구별해야 함.',
