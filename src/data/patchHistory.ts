@@ -38,6 +38,12 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.4.19',date:'2026-10-17',title:'로즈워드 차를로스 성 · 상세 대표 이름',
+    summary:'차를로스 성 상세 프로필 상단에 로즈워드 차를로스 성을 프로젝트 표시명으로 적용. 원본 캐릭터 ID·name·정규 전투력·소속·순위·매치업과 특별 7축은 유지.',
+    report:'CHANGELOG.md',
+    changes:[{kind:'feature',characterId:'charlos',title:'상세 제목·초상 확대 이름만 새 표기',
+      detail:'로즈워드 차를로스 성은 프로젝트에서 승인한 대표 표시명. 공식 인물 소개에서 부친은 로즈워드 성이며 차를로스 성의 이름을 결합한 완전한 공식 명칭이라고 단정하지 않는다. 기존 검색과 내부 name은 불변.'}],
+  },
 
   {version:'v0.4.18',date:'2026-10-17',title:'차를로스 성 · 자막보다 웃음이 먼저다이',
     summary:'차를로스 성 캐릭터창의 풍자 해설·원작 비공식 문구·점수 평균 해설을 제거하고 원피스 51권 5억 베리 대사와 호를로스 성 설정을 반영. 일반 신규 캐릭터는 기존 공통 상세 UI 유지. 정규 평가·특별 7축·오버롤·매치업은 불변.',
