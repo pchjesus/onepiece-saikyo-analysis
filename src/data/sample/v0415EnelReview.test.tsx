@@ -93,8 +93,8 @@ describe('v0.4.15 approved Enel review and official Japanese quote', () => {
     const audit = buildV050ReadOnlyAudit()
     expect(audit.integrity.errors).toEqual([])
     expect(audit.counts).toEqual({
-      characters: 82, evaluatedCharacters: 82, evaluations: 86,
-      axes: 602, memberships: 107, matchups: 18,
+      characters: 82, evaluatedCharacters: 82, evaluations: 88,
+      axes: 616, memberships: 107, matchups: 18,
     })
     const enel = audit.rows.filter(row => row.characterId === 'enel')
     expect(enel).toHaveLength(7)
