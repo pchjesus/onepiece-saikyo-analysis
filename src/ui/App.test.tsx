@@ -42,7 +42,7 @@ afterEach(async () => {
 describe('v0.1.80 patch history UI',()=>{
   it('opens history, displays numeric changes and reasons, closes on demand',async()=>{
     const button=container.querySelector<HTMLButtonElement>('.patch-history-trigger')
-    expect(button?.textContent).toContain('v0.4.20')
+    expect(button?.textContent).toContain('v0.4.21')
     await click(button)
     const dialog=container.querySelector('[role="dialog"][aria-labelledby="patch-history-title"]')
     expect(dialog?.textContent).toContain('퀸 범용성 조정')
@@ -87,7 +87,7 @@ describe('v0.1.80 patch history UI',()=>{
 
     await choose('전체')
     expect(tabs[0].getAttribute('aria-pressed')).toBe('true')
-    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(34)
+    expect(dialog.querySelectorAll('.patch-version')).toHaveLength(35)
     expect(dialog.querySelectorAll('.patch-category-section').length).toBeGreaterThan(7)
   })
 
@@ -131,13 +131,13 @@ describe('v0.2.0 same-stat comparison, photo fallbacks and evidence navigation',
     expect(container.querySelector('.stat-compare-dialog')).toBeNull()
     expect(container.querySelector('.character-chip.selected')?.textContent).toContain('알베르')
   })
-  it('shows existing portraits and Magellan fallback',async()=>{
+  it('shows all 83 selected-character illustrations, including Magellan',async()=>{
     await openPicker()
     const results=container.querySelectorAll('.character-picker-option')
     expect(results).toHaveLength(83)
     expect(container.querySelectorAll('.character-picker-option .character-portrait-small')).toHaveLength(83)
-    expect(container.querySelectorAll('.character-picker-option img')).toHaveLength(82)
-    expect(container.querySelectorAll('.character-picker-option .character-portrait-fallback')).toHaveLength(1)
+    expect(container.querySelectorAll('.character-picker-option img')).toHaveLength(83)
+    expect(container.querySelectorAll('.character-picker-option .character-portrait-fallback')).toHaveLength(0)
     await click(container.querySelector('.character-picker-close'))
   })
   it('opens an attached evidence battle from the evaluated stat trace',async()=>{

@@ -43,9 +43,16 @@ const v0417CharlosPortraitAsset: CharacterPortraitAsset = {
   permissionNote:'사용자 제공 원본 1536 × 1230 해상도를 유지한 WebP 변환. 원작/그림 원저작권자 및 공개 재배포 허가 미확인',
 }
 
+/** v0.4.21: original 640×512 RGBA PNG; preserve exact bytes and transparency. */
+const v0421MagellanPortraitAsset: CharacterPortraitAsset = {
+  fileName:'magellan-v0421.png',
+  permission:'user-provided-unverified',
+  permissionNote:'사용자 제공 PNG 원본 640 × 512 RGBA (714,791바이트), 무변환 · 원저작권자 및 공개 재배포 허가 미확인',
+}
+
 export function getCharacterPortraitAsset(characterId: string): CharacterPortraitAsset | undefined {
   const asset = characterPortraitAssets[characterId] ?? v0411PortraitAssets[characterId]
-    ?? (characterId === 'enel' ? v0414EnelPortraitAsset : characterId === 'charlos' ? v0417CharlosPortraitAsset : undefined)
+    ?? (characterId === 'enel' ? v0414EnelPortraitAsset : characterId === 'charlos' ? v0417CharlosPortraitAsset : characterId === 'magellan' ? v0421MagellanPortraitAsset : undefined)
   if (!asset) return undefined
   if (!/^[a-z0-9][a-z0-9-]*\.(?:webp|png|jpe?g)$/.test(asset.fileName)) return undefined
   if (asset.sourceUrl !== undefined && !/^https:\/\//.test(asset.sourceUrl)) return undefined

@@ -46,7 +46,7 @@ describe('v0.4.20 Magellan approved registration',()=>{
    expect(getStatRanking('overall').some(row=>row.characterId==='magellan'&&row.score===86)).toBe(true)
    expect(getStatRanking('overall')).toHaveLength(83)
    expect(getStatRanking('attack')).toHaveLength(82)
-   expect(getCharacterPortraitAsset('magellan')).toBeUndefined()
+   expect(getCharacterPortraitAsset('magellan')).toMatchObject({fileName:'magellan-v0421.png',permission:'user-provided-unverified'})
    expect(getCharacterQuoteReview('magellan')).toBeUndefined()
  })
  it('links all four battle contexts and six supplementary official references',()=>{
