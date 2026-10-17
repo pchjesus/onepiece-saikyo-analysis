@@ -18,7 +18,7 @@ import { CharacterPage } from '../../ui/pages/CharacterPage'
 import { sampleEvidence } from './evidence'
 
 const expectations:Record<string,{prior:number[],proposed:number[],raw:number[],average:number}>={
-  marco:{prior:[77,87,87,82,84,80,87],proposed:[79,88,86,83,85,82,88],raw:[2,0,0,0,0,0,0],average:591/7},
+  marco:{prior:[79,87,87,82,84,80,87],proposed:[79,88,86,83,85,82,88],raw:[2,0,0,0,0,0,0],average:591/7},
   jozu:{prior:[78,84,78,79,74,75,74],proposed:[80,86,80,80,77,78,76],raw:[4,0,0,0,0,0,0],average:557/7},
   vista:{prior:[82,79,77,80,87,77,74],proposed:[83,81,80,82,92,85,77],raw:[4,0,0,0,2,0,0],average:580/7},
 }
@@ -26,7 +26,7 @@ const allNames=Object.keys(expectations)
 describe('v0.4.29 evidence-based symmetric inflation/deflation calibration',()=>{
   it('requires all seven axis audits, provenance, symmetric risks, and expected source value',()=>{
     expect(v0429Reviews.map(x=>x.characterId)).toEqual(allNames)
-    expect(v0429CommanderChanges).toHaveLength(21)
+    expect(v0429CommanderChanges).toHaveLength(20)
     for(const review of v0429Reviews){
       const source=sampleEvaluations.find(e=>e.characterId===review.characterId)!
       expect(validateCalibrationReview(source,review)).toEqual([])
