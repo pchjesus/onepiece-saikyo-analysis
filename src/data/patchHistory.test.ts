@@ -24,7 +24,7 @@ describe('v0.1.81 typed patch-history categories',()=>{
 
   it('keeps score adjustments in stats with before/after figures and reasons',()=>{
     const scores=patchHistory.flatMap(p=>p.changes).filter(x=>x.kind==='score')
-    expect(scores).toHaveLength(140)
+    expect(scores).toHaveLength(139)
     for(const change of scores){
       expect(categoryForPatchChange(change)).toBe('stats')
       expect(change.before).toBeTypeOf('number')
