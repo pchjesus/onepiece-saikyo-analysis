@@ -58,7 +58,7 @@ describe('v0.4.21 Kaido and Big Mom technique adjustment; concise user-facing pr
     for(const original of sampleEvaluations.filter(e=>e.characterId!=='kaido'&&e.characterId!=='linlin')){
       const current=evaluationRepository.getEvaluations(original.characterId).find(e=>e.id===original.id)
       // Kaku was revised in v0.4.13, so that one remains its own existing overlay.
-      if(!['kaku','jinbe','kinemon','denjiro','ashura-doji','kawamatsu','kikunojo','raizo','inuarashi','nekomamushi','kanjuro'].includes(original.characterId))expect(current).toEqual(original)
+      if(!['kaku','jinbe','marco','jozu','vista','kinemon','denjiro','ashura-doji','kawamatsu','kikunojo','raizo','inuarashi','nekomamushi','kanjuro'].includes(original.characterId))expect(current).toEqual(original)
     }
   })
 
