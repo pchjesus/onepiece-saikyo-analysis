@@ -1,5 +1,5 @@
 /**
- * v0.5.0 / stage 1 — non-mutating audit worksheet for the ACTUAL live roster (currently 81 persons).
+ * v0.5.0 / stage 1 — non-mutating audit worksheet for the ACTUAL live roster (currently 82 persons).
  * This is an evidence/consistency triage instrument, not a score calculator,
  * scoring-policy migration, canonical manga verification or editorial verdict.
  *
@@ -22,6 +22,7 @@ import { v0412Battles, v0412Evidence, v0412Evaluations } from '../sample/v0412Ei
 import { sampleEvidence } from '../sample/evidence'
 import { sampleEvaluations } from '../sample/evaluations'
 import { v0413EnelCharacter, v0413EnelMembership, v0413EnelBattles, v0413EnelEvidence, v0413EnelEvaluation, applyV0413KakuDraft } from '../sample/v0413RemainingDraftPublication'
+import { v0420MagellanCharacter, v0420MagellanMembership, v0420MagellanBattles, v0420MagellanEvidence, v0420MagellanEvaluation } from '../sample/v0420MagellanRegistration'
 import { balancedV12 } from '../sample/calculationModels'
 import { applyV0415EnelReview } from '../sample/v0415EnelReview'
 import { applyV0416Cp0EvaluationAudit, applyV0416Cp0EvidenceAudit } from '../sample/v0416Cp0EvidenceReadiness'
@@ -29,13 +30,13 @@ import { matchupRepository } from '../repositories/matchupRepository'
 
 /** Explicit live dataset; older v033Snapshot.liveDataset intentionally has historical scope. */
 export const v050CurrentDataset: CombatDataset = {
-  characters: [...sampleCharacters, ...v0411Characters, v0413EnelCharacter],
+  characters: [...sampleCharacters, ...v0411Characters, v0413EnelCharacter, v0420MagellanCharacter],
   groups: sampleGroups,
-  memberships: [...sampleMemberships, ...v0411Memberships, v0413EnelMembership],
-  battles: [...sampleBattles, ...v0412Battles, ...v0413EnelBattles],
+  memberships: [...sampleMemberships, ...v0411Memberships, v0413EnelMembership, v0420MagellanMembership],
+  battles: [...sampleBattles, ...v0412Battles, ...v0413EnelBattles, ...v0420MagellanBattles],
   participants: sampleBattleParticipants,
-  evidence: [...sampleEvidence, ...v0412Evidence.map(applyV0416Cp0EvidenceAudit), ...v0413EnelEvidence],
-  evaluations: [...sampleEvaluations.map(applyV0413KakuDraft), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit), applyV0415EnelReview(v0413EnelEvaluation)],
+  evidence: [...sampleEvidence, ...v0412Evidence.map(applyV0416Cp0EvidenceAudit), ...v0413EnelEvidence, ...v0420MagellanEvidence],
+  evaluations: [...sampleEvaluations.map(applyV0413KakuDraft), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit), applyV0415EnelReview(v0413EnelEvaluation), v0420MagellanEvaluation],
   model: balancedV12,
   matchups: matchupRepository.getAllMatchups(),
 }
