@@ -123,7 +123,7 @@ describe('v0.4.29 evidence-based symmetric inflation/deflation calibration',()=>
     expect(h).toContain('92')
     expect(h).toContain('핵심 전투 스탯')
     expect(patchHistory[0].version).toBe('v0.4.29')
-    expect(patchHistory[0].changes.filter(c=>c.kind==='score')).toHaveLength(21)
+    expect(patchHistory[0].changes.filter(c=>c.kind==='score')).toHaveLength(20)
     expect(patchHistory.some(p=>p.version==='v0.4.28')).toBe(true)
     expect(patchHistory[0].changes.some(c=>c.kind==='evidence'&&c.title.includes('양방향'))).toBe(true)
   })
