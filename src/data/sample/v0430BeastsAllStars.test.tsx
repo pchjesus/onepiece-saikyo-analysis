@@ -122,7 +122,7 @@ describe('v0.4.30 King Queen Jack bidirectional seven-axis review',()=>{
   })
 
   it('publishes the change in existing UI and patch history without accidental custom layout',()=>{
-    const h=renderToStaticMarkup(<CharacterPage characterId="king" groupId="beast-pirates"
+    const h=renderToStaticMarkup(<CharacterPage characterId="king" groupId="beasts-pirates"
       onSelectStat={()=>{}} onCompareStat={()=>{}} onSelectOverall={()=>{}} />)
     expect(h).toContain('킹')
     expect(h).toContain('88')
