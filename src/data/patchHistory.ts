@@ -1,4 +1,5 @@
 import { v0428ScoreChanges } from './sample/v0428SupportAxisCalibration'
+import { v0429CommanderChanges } from './sample/v0429WhitebeardCommanders'
 import { v049Decisions } from './sample/v049KobySmokerRecalibration'
 import { v0180CommanderAttackAudit } from './sample/v0180CommanderAttackAudit'
 const commanderNames:Record<string,string>={queen:'퀸',cracker:'크래커',smoothie:'스무디',marco:'마르코',king:'킹',katakuri:'카타쿠리'}
@@ -39,6 +40,27 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {
+    version:'v0.4.29',date:'2026-10-18',
+    title:'마르코·죠즈·비스타 양방향 재평가 및 합리적 추론 검증',
+    summary:'과대평가/과소평가를 함께 검토하는 7축 평가 게이트 적용. 마르코 83.7→84.4, 죠즈 79.6, 비스타 82.9. 공식 검술 위상·실전 공방에서 합리적인 전투 능력 추론 허용(E3 불확실성 유지). 통상 무장색 4개 Raw 가점은 실제 Base에 편입, 패기 사실 보존. 7축 평균 Balanced1.2, HakiWeight0.5 및 타 79명 현행 점수 불변.',
+    report:'docs/V0_4_29_WHITEBEARD_BIDIRECTIONAL_RECALIBRATION_2026-10-18.md',
+    changes:[
+      ...v0429CommanderChanges.map(c=>({kind:'score' as const,characterId:c.characterId,stat:c.stat,
+        before:c.before,after:c.after,title:c.characterId+' '+c.stat+' '+c.before+'→'+c.after,reason:c.reason,
+      })),
+      {kind:'evidence',title:'양방향 근거·추론 검증 게이트 적용',
+        detail:'실제 근거·전투 맥락·기능적 추론·과대/과소평가 위험을 각 7축마다 명시적으로 검증. 근거 부족을 점수 부족과 동치로 취급하지 않고 E3 불확실성으로 기록.',
+        reason:'근거 중심 하향 일변도와 반대로 칭호에 따른 자동 상향을 모두 억제하며 공식 명시 및 고급 공방의 함의를 정당하게 평가.',
+        evidence:[{label:'공식 비스타 프로필',url:'https://one-piece.com/character/bista/index.html'},
+          {label:'공식 죠즈 프로필',url:'https://one-piece.com/character/jozu/index.html'},
+          {label:'공식 애니 463화',url:'https://one-piece.com/anime/463/index.html'}]},
+      {kind:'evidence',title:'통상 무장색 Raw 중복 검토 및 Base 편입',
+        detail:'마르코 Attack2, 죠즈 Attack4, 비스타 Attack4/Technique2 네 항목의 Raw=0. 무장색 사용 자체는 능력 프로필과 Evidence에 계속 기록.',
+        reason:'특별한 예외 마진이 없는 일반적인 무장색 사용은 실제 전투성과 Base에 포함하는 승인된 Hybrid Haki 원칙과 정합화.',
+        evidence:[{label:'공식 마르코 소개',url:'https://one-piece.com/character/marco/index.html'}]},
+    ]
+  },
   {
     version:'v0.4.28',date:'2026-10-18',
     title:'우솝·아카자야 9남자 7축 과대평가 교정 · 스론 상태 분리',
