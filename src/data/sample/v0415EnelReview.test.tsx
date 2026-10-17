@@ -42,8 +42,8 @@ describe('v0.4.15 approved Enel review and official Japanese quote', () => {
   })
   it('keeps all 85 non-Enel evaluations untouched, model and matchups preserved', () => {
     const current = v050CurrentDataset.evaluations
-    expect(current).toHaveLength(86)
-    expect(current.flatMap(item => item.items)).toHaveLength(602)
+    expect(current).toHaveLength(88)
+    expect(current.flatMap(item => item.items)).toHaveLength(616)
     expect(current.filter(item => item.characterId === 'enel')).toHaveLength(1)
     for (const entry of current.filter(item => item.characterId !== 'enel')) {
       expect(evaluationRepository.getEvaluation(entry.characterId, entry.subjectState?.id)
@@ -58,8 +58,8 @@ describe('v0.4.15 approved Enel review and official Japanese quote', () => {
     expect(balancedV12.version).toBe('1.2')
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(versionManifest.appVersion).toBe('0.4.27')
-    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.27')
+    expect(versionManifest.appVersion).toBe('0.4.28')
+    expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.28')
   })
   it('displays a sourced Japanese quotation with editorial Korean, not manga-checked or official-Korean', () => {
     const quote = getCharacterQuoteReview('enel')!
