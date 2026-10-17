@@ -38,6 +38,16 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.4.27',date:'2026-10-17',title:'징베 방어력·체력 승인 재평가 및 정상결전 근거 정정',
+    summary:'징베 Defense80→82 / Stamina80→83, Overall79.3→80.0. 무장색 독립 Raw4→0, Base82로 통합하며 574·575·578화 장면과 보호 임무를 분리. 과거 기록·다른 인물·모델·매치업 보존.',
+    report:'docs/V0_4_27_JINBE_DEFENSE_STAMINA_REVIEW_2026-10-17.md',
+    changes:[
+      {kind:'score',characterId:'jinbe',stat:'defense',before:80,after:82,title:'징베 Defense 80→82',reason:'574화 아카이누의 단발 차단과 890화 빅맘 및 1018화 후즈후의 실제 방어 성과를 통합해 Base82. 같은 통상 무장색 경화 효과를 Base와 중복할 독립 증명이 없어 Raw4를 제거. 574화 화상·578화 관통상·빅맘에게 밀림을 상한에 반영.'},
+      {kind:'score',characterId:'jinbe',stat:'stamina',before:80,after:83,title:'징베 Stamina 80→83',reason:'552화 에이스와의 5일 결투를 핵심 직접 근거로 상향. 578화 관통상과 루피 보호·탈출 지속은 보조 근거이며, 큰 피해 생존을 무피격 방어나 정상적인 장기 강자전과 동일시하지 않음.'},
+      {kind:'evidence',characterId:'jinbe',title:'아카이누전 574/575/578화 근거 구분',detail:'새 574화 방어 primary, 기존 575화 ID 정정(마르코 요격·징베 대피), 새 578화 중상 후 행동 secondary. 전투 ID 유지, 외부 개입 반영. 신설 Evidence는 supplementary/moderate, 만화 원작 컷 직접 재열람 전.',reason:'같은 사건의 방어 성공·차단 실패·피격 이후 행동을 서로 다르게 연결해 화수 및 통상 Haki Raw 중복을 방지.',evidence:[{label:'ONE PIECE.com TV483',url:'https://one-piece.com/anime/483/index.html'},{label:'ONE PIECE.com TV488',url:'https://one-piece.com/anime/488/index.html'}]},
+    ],
+  },
+
   {version:'v0.4.26',date:'2026-10-17',title:'모바일 종합 전투력 중앙 정렬·여백 축소',
     summary:'모바일에서 종합점수가 오른쪽으로 치우치던 배치를 전체 폭 중앙 정렬로 수정. 위아래 얇은 구분선과 좁은 세로 간격을 적용하며 PC·스탯·순위·도움말·평가 데이터는 보존.',
     report:'docs/V0_4_26_MOBILE_OVERALL_CENTER_2026-10-17.md',
