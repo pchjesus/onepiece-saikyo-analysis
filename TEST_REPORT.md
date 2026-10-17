@@ -1,3 +1,9 @@
+## v0.4.22 — 마젤란 초상 PNG 등록 테스트 (2026-10-17)
+
+- 신규 tests/v0422MagellanPortraitIntegrity.test.ts: 저장 이미지 499×400, 363070바이트, SHA256 및 등록 메타데이터 검증.
+- 캐릭터 목록 이미지 83개, 대체 초상 0, 공통 상세·확대 컴포넌트, 전투력/모델 불변 검사.
+- 실제 GitHub Actions CI 빌드·배포 결과는 별도 확인 필요. PC/Android 실기기 시각검증 미실시.
+
 ## v0.4.21 — 캐릭터 문구 간결화 + 사황 숙련도 회귀검증 (2026-10-17)
 
 - 신규 `src/data/sample/v0421EmperorTechniqueReview.test.tsx`: 카이도98·빅맘96, 원본 Base/Raw/Final 및 이외 6축 불변, 추가 보조 Evidence 2개 연결, 화면·랭킹·감사 일치.

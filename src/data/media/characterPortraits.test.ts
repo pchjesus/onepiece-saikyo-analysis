@@ -11,6 +11,11 @@ describe('User-provided portrait registry (unverified publication rights)', () =
     expect(Object.keys(characterPortraitAssets)).toHaveLength(72)
   })
 
+  it('registers Magellan as a separate character image without altering the original portraits',()=>{
+    expect(getCharacterPortraitAsset('magellan')?.fileName).toBe('magellan-v0422.png')
+    expect(getCharacterPortraitAsset('magellan')?.permission).toBe('user-provided-unverified')
+    expect(Object.keys(characterPortraitAssets)).toHaveLength(72)
+  })
   it('contains the 72 locally committed uploaded portraits without inventing licenses', () => {
     expect(Object.keys(characterPortraitAssets)).toHaveLength(72)
     for (const id of ['marco', 'king', 'katakuri', 'smoker', 'ivankov', 'izo', 'teach', 'koby']) {

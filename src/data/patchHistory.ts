@@ -38,6 +38,13 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {version:'v0.4.22',date:'2026-10-17',title:'마젤란 독 공격 일러스트 등록',
+    summary:'사용자가 선택한 트레저 크루즈 마젤란 일러스트를 캐릭터 검색·상세·확대 화면에 추가했다. 기존 전투력 및 평가 기준은 변경하지 않음.',
+    report:'docs/V0_4_22_MAGELLAN_IMAGE_REGISTRATION_2026-10-17.md',
+    changes:[{kind:'feature',characterId:'magellan',title:'마젤란 캐릭터 초상 추가',
+      detail:'사용자 지정 일러스트를 외부 동일 게임아트와 비교해 499×400 RGB PNG로 저장. 사용자 첨부 원본과 바이너리 동일한 파일은 아니나 시각적 프레임을 맞췄다. 기존 86.00점 유지.'}],
+  },
+
   {version:'v0.4.21',date:'2026-10-17',title:'전투 프로필 간결화 · 카이도·링링 숙련도 상향',
     summary:'전투 프로필에서 무관한 비브르 카드 링크·시스템 해설을 제거하고 카이도 숙련도 Final96→98, 링링 94→96으로 조정. 패기·기타 6축·전체 인원·매치업·기준선 불변.',
     report:'docs/V0_4_21_PROFILE_COPY_AND_EMPEROR_TECHNIQUE_2026-10-17.md',

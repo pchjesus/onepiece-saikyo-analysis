@@ -43,9 +43,17 @@ const v0417CharlosPortraitAsset: CharacterPortraitAsset = {
   permissionNote:'사용자 제공 원본 1536 × 1230 해상도를 유지한 WebP 변환. 원작/그림 원저작권자 및 공개 재배포 허가 미확인',
 }
 
+/** v0.4.22 — user-selected Magellan OPTC artwork, committed locally. */
+const v0422MagellanPortraitAsset: CharacterPortraitAsset = {
+  fileName: 'magellan-v0422.png',
+  sourceUrl:'https://i.pinimg.com/736x/10/1b/90/101b90de662edebb50eb2157c94ac9b3--prison-one-piece.jpg',
+  permission:'user-provided-unverified',
+  permissionNote:'사용자 지정 원피스 트레저 크루즈 일러스트 · 원저작권/재배포 허가 미확인',
+}
+
 export function getCharacterPortraitAsset(characterId: string): CharacterPortraitAsset | undefined {
   const asset = characterPortraitAssets[characterId] ?? v0411PortraitAssets[characterId]
-    ?? (characterId === 'enel' ? v0414EnelPortraitAsset : characterId === 'charlos' ? v0417CharlosPortraitAsset : undefined)
+    ?? (characterId === 'enel' ? v0414EnelPortraitAsset : characterId === 'charlos' ? v0417CharlosPortraitAsset : characterId === 'magellan' ? v0422MagellanPortraitAsset : undefined)
   if (!asset) return undefined
   if (!/^[a-z0-9][a-z0-9-]*\.(?:webp|png|jpe?g)$/.test(asset.fileName)) return undefined
   if (asset.sourceUrl !== undefined && !/^https:\/\//.test(asset.sourceUrl)) return undefined
