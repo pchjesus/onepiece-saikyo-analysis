@@ -133,6 +133,12 @@ const revisions: Record<string, Revision> = {
     ]
   }
 }
+/** Current-patch diff, used by release notes; historical source remains immutable. */
+export const v0428ScoreChanges = Object.entries(revisions).flatMap(([characterId,revision])=>
+  revision.scores.flatMap((after,i)=>after!==revision.prior[i]
+    ? [{characterId,stat:COMBAT_STATS[i],before:revision.prior[i],after,reason:revision.reasons[i]}]
+    : [])
+)
 const sulongScores: Record<string,number[]> = {
   inuarashi:[80,81,82,80,78,75,74],
   nekomamushi:[79,80,81,79,78,73,74],
