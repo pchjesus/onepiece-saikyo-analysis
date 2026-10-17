@@ -1,0 +1,206 @@
+/**
+ * v0.4.30 — three Beast Pirates All-Stars. A two-sided review, NOT
+ * a new tier ladder, automatic narrative bonus, or recalculated model.
+ *
+ * Facts from existing chapter-indexed Evidence and official ONE PIECE.com
+ * episode summaries are distinguished from reasonable functional inference.
+ * The schema requires explicit over- AND under-evaluation counterarguments.
+ */
+import type { Evaluation } from '../../domain/evaluation/types'
+import { COMBAT_STATS, type EvidenceReadiness } from '../../domain/evaluation/types'
+import { applyReviewedCalibration, type CharacterCalibrationReview, type AxisCalibrationReview } from '../../domain/evaluation/bidirectionalCalibration'
+
+type Axis = {value:number;facts:string;context:string;inference:string;over:string;under:string;judgement:string;references:string[];readiness:EvidenceReadiness}
+const axis=(value:number,facts:string,context:string,inference:string,over:string,under:string,judgement:string,references:string[],readiness:EvidenceReadiness):Axis=>
+ ({value,facts,context,inference,over,under,judgement,references,readiness})
+const drafts=[
+  {
+    id:'king',sourceVersion:'evaluation-0.1.62-haki-independent-review',
+    old:[83,88,85,83,80,77,82],
+    axes:[
+      axis(84,'마르코의 날개 손상, 조로에게 대형 화염 공격·검격·고대종 돌진을 시전했다.',
+        '마르코는 퀸을 포함한 혼전이고 조로는 중간에 전투 메커니즘을 파악해 반격했다.',
+        '재생 가능한 최고급 간부를 상대로 직접 타격과 검·화염의 압박을 성립시킬 수 있다.',
+        '화염 공격 범위와 비행 돌진을 각각 독립된 높은 대인 결정타로 합산하지 않는다.',
+        '조로에게 패배했다는 사실로 공격 상한을 일률 낮추면 재생 저지·화염 압박을 축소한다.',
+        '83→84 소폭 상향. 대형 화염의 위력과 직접 근접 공격의 질은 인정하되 마르코 격파는 미확인.',
+        ['evidence-king-marco-1006','evidence-king-zoro-1035'],'E2'),
+      axis(88,'등 뒤에 루나리아 불꽃이 켜진 상태에서 조로의 강한 참격을 견뎠다.',
+        '불꽃이 꺼진 고속 상태에서는 방어가 약해지며 이를 조로가 간파하고 유효타를 냈다.',
+        '상시 무적은 아니지만 고방어 상태를 선택할 수 있는 실제 전투 선택지가 있다.',
+        '불꽃 ON 최고 방어를 불꽃 OFF 고속 상태에도 상시 동시에 적용하지 않는다.',
+        '상대가 방어 규칙을 찾아냈다는 사실이 불꽃 ON에서의 높은 방어를 부정하지는 않는다.',
+        'Defense88 유지. 두 모드의 조건부 최대치가 아닌 실제 전장 전환 비용을 고려한 통합 평가.',
+        ['evidence-king-lunarian-1032','evidence-king-zoro-1035'],'E2'),
+      axis(85,'마르코 혼전 이후 조로와 긴 근접전을 이어가고 최후 고강도 공격에 패했다.',
+        '마르코의 능력 때문에 상호 손상 정도는 독립 정량화가 어렵고 조로와의 패배가 최종점이다.',
+        '여러 시점의 고위력 교전 유지가 높은 지속능력을 뒷받침한다.',
+        '불꽃 ON의 높은 손상 감소 자체를 끝없는 신체 소모 저항으로 환산하지 않는다.',
+        '정면 승패만 보고 실전 지속력과 이전 다수 공방을 삭제하지 않는다.',
+        'Stamina85 유지. 긴 혼전 경험과 확정된 패배·소모 한계를 모두 반영.',
+        ['evidence-king-marco-1006','evidence-king-zoro-1035'],'E2'),
+      axis(85,'등의 불꽃을 끄고 조로를 빠르게 압박하며 고대종 비행과 근접 전환을 사용했다.',
+        '속도 상승 중엔 방어 하락이 수반되고 지속적 최고속 상태를 유지한 기록은 아니다.',
+        '불꽃 OFF 고속 공격에 대응하려면 반응·접근·공중 기동의 상당한 수준이 요구된다.',
+        '불꽃 ON 최고 방어와 OFF 최고속을 동시 상시 성능으로 계산하지 않는다.',
+        '불꽃 OFF 전개를 한시적 묘사라며 83으로 고정하면 명확한 전투기동 강점을 놓칠 수 있다.',
+        'Speed83→85. 상태별 조건은 유지한 실전 기동 추론이며 순수 광속이나 모든 상태의 속도는 아니다.',
+        ['evidence-king-zoro-1035'],'E2'),
+      axis(83,'검술·고대종 변형·비행·화염 기술과 루나리아 두 상태를 실제 결투에서 전환했다.',
+        '조로가 상태의 규칙을 이해하고 최종 방어가 약한 때를 공략했다.',
+        '서로 다른 공격 메커니즘을 근접·원거리·고속에 맞게 운용하는 실전 숙련은 기존80보다 높다.',
+        '기술 종류가 많다는 이유만으로 최고급 검술 숙련도 90대를 자동 적용하지 않는다.',
+        '고위 검사 상대 복합 수단의 실제 제어를 단순 불꽃 ON/OFF 조작으로만 볼 수 없다.',
+        'Technique80→83. 검술·열매·화염의 전환 실행력에 한정한 추론.',
+        ['evidence-king-zoro-1035','evidence-king-armament-1032'],'E2'),
+      axis(79,'조로의 대응을 보면서 두 속도·방어 형태와 공격 수단을 전환해 결투했다.',
+        '조로가 점차 전환을 예측하고 불꽃 OFF의 취약점을 공략했다.',
+        '변화하는 상대에게 즉시 선택지를 조절한 실전 판단은 기존77보다 약간 높게 볼 수 있다.',
+        '상대가 취약점을 파악한 실패를 없던 일로 만들거나 카이도의 오른팔 직책에 점수를 주지 않는다.',
+        '취약점이 간파당한 결과만으로 전략 전환을 못 하는 인물처럼 폄하하지 않는다.',
+        'CombatIQ77→79 잠정 E3. 최고급 전술가로 확정할 정도의 역전·적응 표본은 부족.',
+        ['evidence-king-zoro-1035'],'E3'),
+      axis(84,'검·화염·고대종 신체·비행·두 모드와 공중 함선 요격을 실제로 활용했다.',
+        '폭포 함선 요격은 지형과 일회성 위치 이점을 이용했고 공방 결과로 전원 격파한 것은 아니다.',
+        '근접·원거리·공중 요격·속도/방어 교환의 폭이 단순 열매 기술 나열 이상으로 확인된다.',
+        '동일 루나리아 모드의 변형과 화염 공격마다 독립 역할 하나를 추가하지 않는다.',
+        '고공·해상 지형 대응의 실증을 검술만 사용하는 인물 수준으로 제한하지 않는다.',
+        'Versatility82→84. 폭이 넓지만 각 모드의 상충 조건과 지원 분야 한계 유지.',
+        ['evidence-king-zoro-1035','evidence-king-waterfall-930'],'E2'),
+    ]
+  },
+  {
+    id:'queen',sourceVersion:'evaluation-0.1.79-queen-multi-system-versatility-calibrated',
+    old:[80,81,81,75,79,74,82],
+    axes:[
+      axis(82,'브라키오사우루스 신체 분리·구속으로 상디의 전신 뼈를 부수고 과학무장을 연속 사용했다.',
+        '상디는 이후 혈통인자에 의한 신체 회복이 일어났고 퀸은 최종 패배했다.',
+        '상위 근접 전투원에게 실질적 중상을 준 압박력은 기존80보다 상향할 이유가 있다.',
+        '레이저·전격 등 장비의 종류 또는 아이스 오니 전체 감염을 개인 단일 타격력으로 합산하지 않는다.',
+        '후속 상대 회복을 퀸 공격력 부족의 증거로 돌리면 직접 골절 유효타를 지워 버린다.',
+        'Attack80→82. 독립 직접 피해를 보존한 상향이며 모든 장비의 일격을 82로 보장하지 않음.',
+        ['evidence-queen-ancient-zoan-1028','evidence-queen-cybernetics-1028-1034'],'E2'),
+      axis(82,'마르코의 직접 타격에 출혈한 뒤에도 상디와 계속 교전해 여러 공격을 받았다.',
+        '주된 긍정 요소는 고대종 신체의 피해 견딤이며 공격을 무효화한 루나리아 조건부 방어는 없다.',
+        '반복 피격 후 공세 복귀는 실제 방어·피해 경감 성능을 81보다 소폭 높게 시사한다.',
+        '피격 후 재차 공격한 횟수를 체력뿐 아니라 절대적 기술 방어 성공으로 중복 세지 않는다.',
+        '피해를 입었다는 사실만으로 고대종의 강한 수동 저항을 무시해서는 안 된다.',
+        'Defense81→82. 높은 육체 내구는 인정하되 루나리아 특수 방어와 구별한다.',
+        ['evidence-queen-marco-1006','evidence-queen-ancient-zoan-1028'],'E2'),
+      axis(83,'마르코 혼전에서 출혈한 뒤에도 라이브 플로어와 상디를 상대로 기계·동물계 기술을 지속 사용했다.',
+        '동일 시점 무휴식 단독 1대1 결투는 아니며 전장 전환과 회복 조건은 미측정이다.',
+        '강적의 유효타 이후 장시간 재교전한 반복 성과는 Stamina81보다 높은 추정 가능성을 준다.',
+        '장비 장착이나 고대종 보유 사실만을 곧바로 무한 소모 저항으로 바꾸지 않는다.',
+        '순간 결정타에 패한 결말만으로 이전 여러 단계의 전장 재진입을 평가에서 지우지 않는다.',
+        'Stamina81→83. 실제 피로 누적과 최후 기절 모두 포함한 E2 잠정치.',
+        ['evidence-queen-marco-1006','evidence-queen-cybernetics-1028-1034'],'E2'),
+      axis(75,'상디전에서 변형·과학무장 공격을 준비하고 회피하는 대응은 있으나 고속 상디를 따라가지 못했다.',
+        '발사 레이저의 속도 및 은신 여부가 퀸 몸의 순수 이동속도는 아니다.',
+        '거대한 신체치고 기본 교전 반응은 가능하나 독립 최고 기동 성과는 부족하다.',
+        '레이저와 투명화를 이동/반응 최고속으로 중복 계산하지 않는다.',
+        '상디가 빨랐다는 사실만으로 거대한 퀸이 전혀 반응 못하는 느린 인물이라고 단정하지 않는다.',
+        'Speed75 유지 E3. 과대·과소 양방향의 반론을 동시에 남긴다.',
+        ['evidence-queen-cybernetics-1028-1034'],'E3'),
+      axis(80,'기술자 퀸이 과학장비·제르마 재현·고대종 분리 공격을 실제 실전에서 제어했다.',
+        '무장 오발과 후반 주의 분산·상디의 빠른 기동으로 인한 실패가 공존한다.',
+        '설계만 하는 과학자가 아니라 전투 중 구현·전환까지 하는 운용 숙련을 높이 평가할 수 있다.',
+        '과학 지식과 발명 성공을 곧바로 전투 기술 정확도 90 이상으로 환산하지 않는다.',
+        '한 번의 오발을 전체 기술 사용이 미숙했다는 증거로 만들지 않는다.',
+        'Technique79→80. 다양한 운용의 긍정 효과와 안정성 제약을 대칭 반영.',
+        ['evidence-queen-ancient-zoan-1028','evidence-queen-cybernetics-1028-1034'],'E2'),
+      axis(74,'오소메에게 주의가 분산되고 상대의 전투 목적에서 벗어나는 행동과 무장 오발을 보였다.',
+        '기술 실험과 대인 전투가 얽히면서 상대 판단이 흔들린 전장 맥락이다.',
+        '다양한 수단을 적재적소에 사용하는 전술 역량은 일부 있으나 고급 대전 판단은 미확인이다.',
+        '과학 천재·재해 간판의 명성만으로 Combat IQ를 상향하지 않는다.',
+        '실패 한 번만으로 IQ를 크게 하향하면 여러 무기 선택·전장 통제 사례를 소거한다.',
+        'CombatIQ74 유지 E3. 전술적 실패와 과학적 역량은 구분해서 기록한다.',
+        ['evidence-queen-cybernetics-1028-1034'],'E3'),
+      axis(84,'고대종 근접·구속, 레이저·전격·투명화·독립 역병탄으로 광역 전장 대응까지 구현했다.',
+        '아이스 오니는 장비와 탄약이 필요하고 피아 구분이 불가능했으며 방어·치료 지원을 직접 수행한 것은 아니다.',
+        '물리 생체형과 광선/전격/은신/상태이상을 서로 다른 역할로 운용해 82 이상이 가능한 폭이다.',
+        '감염자 수·발명품 수를 직접 기술 레벨/공격력만큼 다시 가산하지 않는다.',
+        '과학 기반 무장도 실제 사용 가능한 전투 수단이며 비능력 특수무기라는 이유로 제외하면 과소평가다.',
+        'Versatility82→84. 공식 TV1061/1005와 기존 다중체계 근거를 보존하되 장비 조건 유지.',
+        ['evidence-queen-ancient-zoan-1028','evidence-queen-cybernetics-1028-1034',
+          'evidence-v0179-queen-germa-mimic-tv1061','evidence-v0179-queen-ice-oni-tv1005'],'E2'),
+    ]
+  },
+  {
+    id:'jack',sourceVersion:'evaluation-0.1.47-evidence-calibrated-A',
+    old:[79,84,88,75,75,72,74],
+    axes:[
+      axis(80,'슈텐마루에게 검격으로 실질 상처를 냈고 이누아라시/네코마무시가 교대하는 조우 전선을 유지했다.',
+        '슈텐마루에게 선제 큰 상처를 입었고 전황은 카이도 개입으로 종결되지 않았다.',
+        '강한 검사에게 실제 유효타를 되돌린 근접 출력은 기존79보다 미세한 상향이 가능하다.',
+        '밍크족 전체가 잭을 이기지 못했다는 것을 개인 압도 화력·독가스 무기 성과와 혼동하지 않는다.',
+        '아슈라 동자에게 먼저 베였다는 사실로 잭의 반격과 다수전 근접 위협을 무시하지 않는다.',
+        'Attack79→80, E2. 진짜 개인 유효타는 인정하고 제압 성공으로 확대하지 않는다.',
+        ['evidence-jack-ashura-921','evidence-jack-zou-809-810'],'E2'),
+      axis(84,'조우 장기전과 스론 밍크 공격 후에도 전장에 복귀할 정도의 높은 몸 저항을 보였다.',
+        '스론 이누아라시에게 패하고 슈텐마루의 검에 부상을 입었으므로 공격 무효화와는 다르다.',
+        '누적 피해와 충격을 견디는 육체적 완충능력이 대간판급 상위에 속할 합리적 근거.',
+        'Stamina88의 장기 전장 지속과 동일한 5일 기록을 또 완전 무적 방어라고 중복 산정하지 않는다.',
+        '직접 검격 상처만 이유로 반복 근접 공격에 버틴 성과를 삭제하지 않는다.',
+        'Defense84 유지, 물리 회피 전문 방어와 특수 방어가 아닌 실제 내구성 중심 평가.',
+        ['evidence-jack-zou-809-810','evidence-jack-sulong-1026'],'E2'),
+      axis(88,'조우에서 잭 측과 밍크족의 전쟁이 5일 지속되고 잭은 전선에 계속 남았다. 부상 뒤 오니가시마에도 복귀했다.',
+        '이누아라시·네코마무시는 낮밤 교대, 잭은 병력 지원을 받았다. 매 순간 동일 강도의 개인 결투는 아님.',
+        '오랜 교착과 전투 복귀는 높은 지속성과 피로 저항을 직접 뒷받침한다.',
+        '단지 5일이라는 숫자만으로 완전 무휴식 최고 강도 결투·패기 연소를 추정하지 않는다.',
+        '스론에서 패배했어도 이전의 고강도 전장 지속 기록을 부정할 근거는 없다.',
+        'Stamina88 E1 그대로 유지. 직접 묘사와 군사적 조건을 함께 보존.',
+        ['evidence-jack-zou-809-810','evidence-jack-sulong-1026','evidence-jack-convoy-801'],'E1'),
+      axis(76,'슈텐마루와 짧은 쌍검 공방을 주고받고 스론 밍크 상대 전투 움직임을 보였다.',
+        '상위 기동특화 대결은 없고 거대한 매머드 변형·환경적 이동 제약이 존재한다.',
+        '고위 사무라이 공방에 필요한 최소한의 근접 반응·접근력은 기존75에서 소폭 재추정 가능.',
+        '스론 상대와 싸운 결과만으로 스론의 최고속과 동등한 발놀림을 주장하지 않는다.',
+        '장기전 맷집형이라는 인상만으로 실제 근접 반응도 둔하다고 단정하지 않는다.',
+        'Speed75→76, E3 잠정. 발동·반응 복합 속도, 최고 기동자와 동급은 아님.',
+        ['evidence-jack-ashura-921'],'E3'),
+      axis(77,'쌍검 공방과 고대종 매머드 근접 충돌을 여러 전장에서 반복 수행했다.',
+        '초고정밀 검술 전문 캐릭터와 장기간 순수 검기 대결은 확인되지 않는다.',
+        '대등하게 검격을 주고받는 기본 무기·체술의 전투 숙련을 기존75보다 상향할 여지.',
+        '매머드 체격과 무기의 개수를 정교한 기교·검술 전문성으로 자동 가산하지 않는다.',
+        '대간판인데 검술 특출난 묘사가 없다는 이유로 기본 숙련이 낮다는 결론을 내리지 않는다.',
+        'Technique75→77, E3. 근접전 실효 숙련 추론이지 전문 대검호 평가가 아님.',
+        ['evidence-jack-ashura-921','evidence-jack-zou-809-810'],'E3'),
+      axis(73,'밍크족과의 교착 뒤 독가스 병기 투입을 선택했고 즈니샤·강한 해군 호송 함대에 무리한 공격을 명령했다.',
+        '병기 자체의 파괴력과 지휘 판단은 다르며 즈니샤 공격은 명백한 결과적 실패다.',
+        '전술 수단을 전환하려는 최소한의 상황 판단은 기존72보다 약간 더 평가 가능.',
+        '지휘권·위협적인 성격·독가스 자체의 화력에 전투 판단 보너스를 주지 않는다.',
+        '실패가 많다는 이유만으로 환경에 대한 전술적 판단이 아예 없다고 간주하지 않는다.',
+        'CombatIQ72→73, E3. 성공률 높은 고급 판단자의 점수까지 끌어올릴 수는 없다.',
+        ['evidence-jack-zou-809-810','evidence-jack-zunesha-824'],'E3'),
+      axis(74,'매머드 변형과 쌍검·충돌·근접 제압을 이용했으며 조우에서 독가스 병기를 배치했다.',
+        '독가스 포탄과 함선 화력은 외부 병력·사전 장비에 의존한다.',
+        '물리적 근접전에서 서로 다른 거리를 다루지만 독립적인 다기능 폭은 제한적.',
+        '전쟁 전체에서 동원한 병력·화학무기를 개인 표준 공격 옵션으로 더하지 않는다.',
+        '다른 능력이 많이 공개되지 않았다는 이유로 근접전의 실제 전투 역할까지 삭제하지 않는다.',
+        'Versatility74 유지 E3. 조우 군세의 무장을 개인 만능 능력으로 간주하지 않음.',
+        ['evidence-jack-zou-809-810','evidence-jack-ashura-921'],'E3'),
+    ]
+  },
+] as const
+export const v0430AllStarReviews:CharacterCalibrationReview[]=drafts.map(d=>({
+  characterId:d.id,evaluationId:'evaluation-'+d.id,
+  sourceDataVersion:d.sourceVersion,newDataVersion:'evaluation-v0.4.30-beasts-bidirectional',
+  axes:d.axes.map((x,i):AxisCalibrationReview=>({
+    stat:COMBAT_STATS[i],expectedFinal:d.old[i],proposedFinal:x.value,
+    observed:x.facts,context:x.context,inference:x.inference,
+    inflationRisk:x.over,deflationRisk:x.under,judgement:x.judgement,
+    evidenceIds:[...x.references],readiness:x.readiness,
+  })),
+}))
+const byId=new Map(v0430AllStarReviews.map(r=>[r.characterId,r]))
+export function applyV0430AllStarCalibration(evaluation:Evaluation):Evaluation {
+  const review=byId.get(evaluation.characterId)
+  if(!review)return evaluation
+  return applyReviewedCalibration(evaluation,review)
+}
+export const v0430AllStarScoreChanges=v0430AllStarReviews.flatMap(r=>r.axes
+  .filter(a=>a.expectedFinal!==a.proposedFinal)
+  .map(a=>({
+    characterId:r.characterId,stat:a.stat,before:a.expectedFinal,after:a.proposedFinal,
+    reason:a.judgement+' 과대평가 우려: '+a.inflationRisk+' 과소평가 우려: '+a.deflationRisk,
+  }))
+)
