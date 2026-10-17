@@ -15,7 +15,7 @@ import type { RankingStat } from '../../application/getStatRanking'
 /** Frozen v0.1.79 legacy cohort; does not rewrite or alter live v0.1.80 data. */
 // Keep v0.1.79 historical regression cohorts isolated from later v0.4.1 Luffy addition.
 // The independent canonical v0.3.3 archive remains src/data/baselines/v0.3.3.json.
-const added = new Set([...v0180Characters.map(x=>x.id), ...v0411Characters.map(x=>x.id), 'izo', 'luffy', 'enel', 'charlos'])
+const added = new Set([...v0180Characters.map(x=>x.id), ...v0411Characters.map(x=>x.id), 'izo', 'luffy', 'enel', 'charlos', 'magellan'])
 const newEvaluationCharacters = new Set(['buggy', 'izo'])
 const newRogerMembership = (x: { characterId: string; groupId: string }) =>
   x.groupId === 'roger-pirates' && ['shanks','inuarashi','nekomamushi'].includes(x.characterId)

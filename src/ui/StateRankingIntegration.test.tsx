@@ -24,7 +24,7 @@ describe('v0.4.7 temporary Overall ranking selections',()=>{
       await click([...host.querySelectorAll<HTMLButtonElement>('.evaluation-state-switcher button')].find(b=>b.textContent?.includes('기어 4 이하'))!)
       expect(host.querySelector('.power-card')?.textContent).toContain('90.7')
       await open()
-      expect(host.querySelectorAll('.rank-row')).toHaveLength(82)
+      expect(host.querySelectorAll('.rank-row')).toHaveLength(83)
       expect(state('몽키 D. 루피').value).toBe('egghead-gear5')
       expect(rank('몽키 D. 루피').textContent).toContain('93.857')
       expect(state('에드워드 뉴게이트').value).toBe('prime')

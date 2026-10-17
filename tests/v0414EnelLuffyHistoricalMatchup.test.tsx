@@ -76,7 +76,7 @@ describe('v0.4.14 Enel image and historically scoped Luffy duel', () => {
     const report=buildV050ReadOnlyAudit()
     expect(report.integrity.errors).toEqual([])
     expect(report.counts).toEqual({
-      characters:81,evaluatedCharacters:81,evaluations:85,axes:595,memberships:106,matchups:18,
+      characters:82,evaluatedCharacters:82,evaluations:86,axes:602,memberships:107,matchups:18,
     })
     expect(v050CurrentDataset.evaluations).toHaveLength(85)
     expect(v0413EnelEvaluation.items.map(x=>x.score)).toEqual([88,72,72,88,84,70,87])
