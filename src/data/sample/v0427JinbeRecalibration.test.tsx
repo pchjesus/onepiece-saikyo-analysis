@@ -121,7 +121,7 @@ describe('v0.4.27 Jinbe approved Defense/Stamina and chapter-correct evidence ov
     expect(def.readiness).toBe('E1')
     expect(def.evidenceLinks.find(e=>e.evidenceId==='evidence-v0427-jinbe-akainu-block-574'))
       .toMatchObject({sourceType:'supplementary',role:'primary'})
-    for(const original of sampleEvaluations.filter(e=>!['jinbe','kaku','kaido','linlin','kinemon','denjiro','ashura-doji','kawamatsu','kikunojo','raizo','inuarashi','nekomamushi','kanjuro'].includes(e.characterId))) {
+    for(const original of sampleEvaluations.filter(e=>!['jinbe','kaku','kaido','linlin','marco','jozu','vista','kinemon','denjiro','ashura-doji','kawamatsu','kikunojo','raizo','inuarashi','nekomamushi','kanjuro'].includes(e.characterId))) {
       expect(evaluationRepository.getEvaluations(original.characterId).find(e=>e.id===original.id)).toEqual(original)
     }
   })
