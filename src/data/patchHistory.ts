@@ -1,5 +1,6 @@
 import { v0428ScoreChanges } from './sample/v0428SupportAxisCalibration'
 import { v0429CommanderChanges } from './sample/v0429WhitebeardCommanders'
+import { v0430BeastsChanges } from './sample/v0430BeastsBidirectional'
 import { v049Decisions } from './sample/v049KobySmokerRecalibration'
 import { v0180CommanderAttackAudit } from './sample/v0180CommanderAttackAudit'
 const commanderNames:Record<string,string>={queen:'퀸',cracker:'크래커',smoothie:'스무디',marco:'마르코',king:'킹',katakuri:'카타쿠리'}
@@ -40,6 +41,29 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {
+    version:'v0.4.30',date:'2026-10-18',
+    title:'킹·퀸·잭 양방향 7축 평가 재조정',
+    summary:'21개 축의 관찰·상황·추론·과대/과소평가 위험을 대조해 15개 점수를 변경하고 6개는 유지. 킹 82.6→83.9, 퀸 78.9→79.9, 잭 78.1→78.9. 퀸 전투IQ74→73 하향, 킹 방어88·잭 공격79/방어84 등 유효 강점 보존. 기존 계산식·Haki Raw·사용자 확정 아카자야/우솝·타 인물·UI 불변.',
+    report:'docs/V0_4_30_BEASTS_BIDIRECTIONAL_RECALIBRATION_2026-10-18.md',
+    changes:[
+      ...v0430BeastsChanges.map(change=>({
+        kind:'score' as const,characterId:change.characterId,stat:change.stat,
+        before:change.before,after:change.after,
+        title:change.characterId+' '+change.stat+' '+change.before+'→'+change.after,
+        reason:change.reason,
+      })),
+      {kind:'evidence',title:'백수 해적단 3대간판 양방향 감사',
+        detail:'세 명의 총 21개 축에서 관찰 사실·전투 조건·합리적 추론·과대/과소평가 위험을 분리하고 E3를 불확실성 표지로 사용. 킹 루나리아 상태, 퀸 과학 무장과 전투 실패, 잭의 조우 5일 교전과 스론 조건을 분리.',
+        reason:'직접 표본 부족의 자동 감점·강자 직책의 자동 가점 모두 금지. Balanced1.2 및 패기 계산 변경 없음.',
+        evidence:[
+          {label:'공식 TV 1062 킹',url:'https://one-piece.com/anime/61675/index.html'},
+          {label:'공식 TV 1061 퀸',url:'https://one-piece.com/anime/61599/index.html'},
+          {label:'공식 TV 760 잭',url:'https://one-piece.com/anime/o3027/index.html'},
+          {label:'공식 TV 1051 스론',url:'https://one-piece.com/anime/o6381/index.html'},
+        ]}
+    ],
+  },
   {
     version:'v0.4.29',date:'2026-10-18',
     title:'마르코·죠즈·비스타 양방향 재평가 및 합리적 추론 검증',
