@@ -540,7 +540,7 @@ describe('v0.4.2 compact character header and on-demand calculation notes', () =
     const help = container.querySelector<HTMLDetailsElement>('.score-interpretation-help')!
     expect(help).toBeTruthy()
     expect(help.open).toBe(false)
-    expect(container.querySelector('.score-interpretation-warning')?.textContent).toContain('승률이 아닙니다')
+    expect(container.querySelector('.score-interpretation-warning')).toBeNull()
     const trigger = help.querySelector<HTMLElement>('summary[aria-label="종합점수 계산 및 해석 설명 보기"]')!
     await click(trigger)
     expect(help.open).toBe(true)

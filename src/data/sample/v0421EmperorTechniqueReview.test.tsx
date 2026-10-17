@@ -103,6 +103,6 @@ describe('v0.4.21 Kaido and Big Mom technique adjustment; concise user-facing pr
     expect(html).not.toContain('근거 충분도는 점수에 가산되지 않습니다')
     expect(html).toContain('핵심 전투 스탯')
     expect(html).toContain('원작 전투 프로필 근거')
-    expect(html).toContain('evidence-v0421-kaido-island-flame-cloud-tv1052')
+    expect(html).toContain('ONE PIECE.com TV1052')
   })
 })
