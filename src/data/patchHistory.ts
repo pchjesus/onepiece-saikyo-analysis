@@ -1,3 +1,4 @@
+import { v0428ScoreChanges } from './sample/v0428SupportAxisCalibration'
 import { v049Decisions } from './sample/v049KobySmokerRecalibration'
 import { v0180CommanderAttackAudit } from './sample/v0180CommanderAttackAudit'
 const commanderNames:Record<string,string>={queen:'퀸',cracker:'크래커',smoothie:'스무디',marco:'마르코',king:'킹',katakuri:'카타쿠리'}
@@ -38,6 +39,30 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {
+    version:'v0.4.28',date:'2026-10-18',
+    title:'우솝·아카자야 9남자 7축 과대평가 교정 · 스론 상태 분리',
+    summary:'10명에 한정해 전투 외·협동·조건부 성과의 보조 스탯 중복을 재검토. 우솝은 사용자 제안 68/61/70/64/76/75/74(69.7)로 조정. 아카자야는 죠즈·잭·토비롯포 비교를 검산용으로 사용하고 강제 서열 역산은 금지. 이누아라시·네코마무시 평상시/만월 스론 분리. Balanced1.2·Raw0·기존 기록 보존.',
+    report:'docs/V0_4_28_SUPPORT_AXIS_CALIBRATION_2026-10-18.md',
+    changes:[
+      ...v0428ScoreChanges.map(change=>({
+        kind:'score' as const,characterId:change.characterId,stat:change.stat,
+        before:change.before,after:change.after,
+        title:change.characterId+' '+change.stat+' '+change.before+'→'+change.after,
+        reason:change.reason,
+      })),
+      {kind:'evidence',characterId:'inuarashi',title:'평상시/만월 스론 상태 분리',
+        detail:'조우의 낮밤 잭 교대와 오니가시마 스론 격파를 별도 조건으로 평가. 네코마무시에도 동일한 이중 상태를 적용하며 기존 캐릭터 상태 UI 재사용.',
+        reason:'조건부 만월의 스론 승리를 항상 사용 가능한 개인 기본 전투력으로 표시하지 않기 위해 분리.',
+        evidence:[{label:'ONE PIECE.com TV759',url:'https://one-piece.com/anime/o3025/index.html'},
+          {label:'ONE PIECE.com TV760',url:'https://one-piece.com/anime/o3027/index.html'},
+          {label:'ONE PIECE.com TV1051',url:'https://one-piece.com/anime/o6381/index.html'}]},
+      {kind:'evidence',characterId:'ashura-doji',title:'잭에 대한 아슈라 동자의 직접 유효타 보강',
+        detail:'TV912의 직접 검격을 신규 supplementary Evidence로 연결하여 집단 카이도전과 구분.',
+        reason:'실제 단독 피해를 보인 공격력은 일괄 하향에서 보호.',
+        evidence:[{label:'ONE PIECE.com TV912',url:'https://one-piece.com/anime/o5267/index.html'}]},
+    ]
+  },
   {version:'v0.4.27',date:'2026-10-17',title:'징베 방어력·체력 승인 재평가 및 정상결전 근거 정정',
     summary:'징베 Defense80→82 / Stamina80→83, Overall79.3→80.0. 무장색 독립 Raw4→0, Base82로 통합하며 574·575·578화 장면과 보호 임무를 분리. 과거 기록·다른 인물·모델·매치업 보존.',
     report:'docs/V0_4_27_JINBE_DEFENSE_STAMINA_REVIEW_2026-10-17.md',
