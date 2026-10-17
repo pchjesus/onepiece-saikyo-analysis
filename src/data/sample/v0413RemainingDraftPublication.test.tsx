@@ -33,11 +33,11 @@ describe('v0.4.13: the two previously unshown v0.4.9 draft decisions', () => {
    expect(sampleEvaluations).toHaveLength(76)
    expect(v0412Evaluations).toHaveLength(8)
    expect(v050CurrentDataset.characters).toHaveLength(82)
-   expect(v050CurrentDataset.evaluations).toHaveLength(86)
-   expect(v050CurrentDataset.evaluations.flatMap(e=>e.items)).toHaveLength(602)
+   expect(v050CurrentDataset.evaluations).toHaveLength(88)
+   expect(v050CurrentDataset.evaluations.flatMap(e=>e.items)).toHaveLength(616)
    expect(v050CurrentDataset.memberships).toHaveLength(107)
    expect(new Set(v050CurrentDataset.characters.map(c=>c.id)).size).toBe(82)
-   expect(new Set(v050CurrentDataset.evaluations.map(e=>e.id)).size).toBe(86)
+   expect(new Set(v050CurrentDataset.evaluations.map(e=>e.id)).size).toBe(88)
    expect(getUniqueCharacterList()).toHaveLength(83)
    expect(getCharacterList().some(x=>x.character.id==='enel' && x.group.id==='skypiea')).toBe(true)
    expect(groupRepository.getMembershipsForGroup('skypiea')).toContainEqual(v0413EnelMembership)
@@ -47,7 +47,7 @@ describe('v0.4.13: the two previously unshown v0.4.9 draft decisions', () => {
    expect(evaluationRepository.getEvaluations('enel')).toHaveLength(1)
    expect(matchupRepository.getAllMatchups()).toHaveLength(18)
    expect(versionManifest.calculationModelVersion).toBe('1.2')
-   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.27')
+   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.28')
  })
  it('publishes exact draft score slate, without adding exceptional Haki Raw or unsupported canon status',()=>{
    expect(v0413EnelEvaluation.items.map(x=>x.score)).toEqual(enelScores)
@@ -76,7 +76,7 @@ describe('v0.4.13: the two previously unshown v0.4.9 draft decisions', () => {
    expect(current.items.map(x=>x.evidenceIds)).toEqual(originalKaku.items.map(x=>x.evidenceIds))
    expect(current.items.every(x=>x.score===getFinalStatScore(x))).toBe(true)
    expect(getCombatPower('kaku').finalScore).toBeCloseTo(542/7,10)
-   for(const original of sampleEvaluations.filter(e=>!['kaku','kaido','linlin','jinbe'].includes(e.characterId))){
+   for(const original of sampleEvaluations.filter(e=>!['kaku','kaido','linlin','jinbe','kinemon','denjiro','ashura-doji','kawamatsu','kikunojo','raizo','inuarashi','nekomamushi','kanjuro'].includes(e.characterId))){
      expect(evaluationRepository.getEvaluation(original.characterId,original.subjectState?.id)
        ?? evaluationRepository.getEvaluation(original.characterId)).toEqual(original)
      expect(applyV0413KakuDraft(original)).toBe(original)
@@ -97,7 +97,7 @@ describe('v0.4.13: the two previously unshown v0.4.9 draft decisions', () => {
  it('includes both drafts in the current read-only audit without changing Frozen v0.3.3 baseline',()=>{
    const report=buildV050ReadOnlyAudit()
    expect(report.integrity.errors).toEqual([])
-   expect(report.counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:86,axes:602,memberships:107,matchups:18})
+   expect(report.counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:88,axes:616,memberships:107,matchups:18})
    expect(report.rows.filter(r=>r.characterId==='enel')).toHaveLength(7)
    expect(report.rows.filter(r=>r.characterId==='kaku').map(r=>r.final)).toEqual(approvedDraftScores)
    expect(report.rows.filter(r=>r.characterId==='enel').every(r=>r.rawHaki===0)).toBe(true)
