@@ -27,7 +27,7 @@ export function StatList({ items, hakiWeight, accent = '#65717b', onSelectStat, 
             <div className="stat-item stat-bar-row" key={item.stat}>
               <button className="stat-rank-trigger" type="button"
                 onClick={() => onSelectStat(item.stat)}
-                aria-label={`${definition.label} ${item.score}점, 전체 캐릭터 순위 보기`}>
+                aria-label={`${definition.label} 전체 캐릭터 순위 보기`}>
                 <span className="stat-name">
                   <span className="stat-axis-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                   <span>{definition.label}</span>
