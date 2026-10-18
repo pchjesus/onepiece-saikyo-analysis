@@ -14,6 +14,7 @@ import type { CharacterKnownAsKind } from '../../domain/character/types'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
 import { CharacterPortrait } from '../components/CharacterPortrait'
 import { CharacterQuote } from '../components/CharacterQuote'
+import { KingFlameModeNote } from '../components/KingFlameModeNote'
 
 const knownAsLabel: Record<CharacterKnownAsKind, string> = {
   alias: '통칭',
@@ -117,6 +118,7 @@ export function CharacterPage({ characterId, groupId, selectedStateId, onStateCh
           </div>
           <StatList items={detail.evaluation.items} hakiWeight={result.hakiWeight} accent={getCharacterAccent(detail.group.id, characterId)} onSelectStat={onSelectStat}
             onCompareStat={stat=>onCompareStat(stat,activeStateId)} />
+          {characterId === 'king' && <KingFlameModeNote evaluation={detail.evaluation} profile={detail.character.combatProfile} />}
         </section>
         <CombatProfile profile={detail.character.combatProfile} />
       </div>

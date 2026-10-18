@@ -1310,3 +1310,22 @@ header p:last-child { color: #666; }
 @media(prefers-reduced-motion:reduce){
   .detail-heading:not(.charlos-heading) .power-card-heading{transition:none;}
 }
+
+/* King-specific qualitative flame trade-off (v0.4.31 UI clarification).
+   These styles do not affect shared scores, ranking or state selection. */
+.king-flame-mode-note { min-width: 0; margin-top: 14px; padding: 15px; border: 1px solid #deded9; border-radius: 14px; background: #fafaf8; }
+.king-flame-mode-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; justify-content: space-between; }
+.king-flame-mode-heading h3 { margin: 0; font-size: .93rem; }
+.king-flame-mode-heading span { color: #727272; font-size: .74rem; }
+.king-flame-mode-intro { margin: 10px 0 12px; line-height: 1.6; font-size: .82rem; color: #414141; }
+.king-flame-mode-grid { margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.king-flame-mode-grid > div { min-width: 0; padding: 10px 11px; border: 1px solid #e5e5e0; border-radius: 10px; background: #fff; }
+.king-flame-mode-grid dt { font-weight: 750; font-size: .82rem; }
+.king-flame-mode-grid dt span { font-weight: 450; font-size: .73rem; color: #686868; }
+.king-flame-mode-grid dd { margin: 7px 0 0; line-height: 1.55; font-size: .77rem; color: #555; overflow-wrap: anywhere; }
+.king-flame-mode-footnote { margin: 12px 0 6px; line-height: 1.55; color: #555; font-size: .77rem; }
+.king-flame-mode-source { display: block; font-size: .72rem; color: #757575; line-height: 1.5; }
+@media (max-width: 520px) {
+  .king-flame-mode-note { padding: 13px; }
+  .king-flame-mode-grid { grid-template-columns: minmax(0, 1fr); }
+}
