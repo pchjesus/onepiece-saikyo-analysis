@@ -34,16 +34,17 @@ import { applyV0429CommanderCalibration, applyV0429CommanderEvidenceAudit } from
 import { applyV0430AllStarCalibration } from '../sample/v0430BeastsAllStars'
 import { applyV0431SweetCalibration, applyV0431SweetEvidenceImpact } from '../sample/v0431SweetCommanders'
 import { v0432JackShutenmaruBattle, applyV0432JackBattleOrder, applyV0432JackShutenmaruEvidence } from '../sample/v0432JackShutenmaruBattleLink'
+import { applyV0433QueenOsomeBattleContext, applyV0433QueenOsomeEvaluationContext } from '../sample/v0433QueenOsomeIntentContext'
 
 /** Explicit live dataset; older v033Snapshot.liveDataset intentionally has historical scope. */
 export const v050CurrentDataset: CombatDataset = {
   characters: [...sampleCharacters, ...v0411Characters, v0413EnelCharacter, v0420MagellanCharacter],
   groups: sampleGroups,
   memberships: [...sampleMemberships, ...v0411Memberships, v0413EnelMembership, v0420MagellanMembership],
-  battles: [...sampleBattles.map(applyV0427JinbeBattleContext).map(applyV0432JackBattleOrder), v0432JackShutenmaruBattle, ...v0412Battles, ...v0413EnelBattles, ...v0420MagellanBattles, ...v0428Battles],
+  battles: [...sampleBattles.map(applyV0427JinbeBattleContext).map(applyV0432JackBattleOrder).map(applyV0433QueenOsomeBattleContext), v0432JackShutenmaruBattle, ...v0412Battles, ...v0413EnelBattles, ...v0420MagellanBattles, ...v0428Battles],
   participants: sampleBattleParticipants,
   evidence: [...sampleEvidence.map(applyV0427JinbeEvidenceCorrection).map(applyV0429CommanderEvidenceAudit).map(applyV0431SweetEvidenceImpact).map(applyV0432JackShutenmaruEvidence), ...v0427JinbeEvidence, ...v0412Evidence.map(applyV0416Cp0EvidenceAudit), ...v0413EnelEvidence, ...v0420MagellanEvidence, ...v0421EmperorTechniqueEvidence, ...v0428Evidence],
-  evaluations: [...sampleEvaluations.map(applyV0413KakuDraft).map(applyV0421EmperorTechniqueReview).map(applyV0427JinbeRecalibration).map(applyV0428CalibratedEvaluation).map(applyV0429CommanderCalibration).map(applyV0430AllStarCalibration).map(applyV0431SweetCalibration), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit).map(applyV0428CalibratedEvaluation), ...v0428SulongEvaluations, applyV0415EnelReview(v0413EnelEvaluation), v0420MagellanEvaluation],
+  evaluations: [...sampleEvaluations.map(applyV0413KakuDraft).map(applyV0421EmperorTechniqueReview).map(applyV0427JinbeRecalibration).map(applyV0428CalibratedEvaluation).map(applyV0429CommanderCalibration).map(applyV0430AllStarCalibration).map(applyV0431SweetCalibration).map(applyV0433QueenOsomeEvaluationContext), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit).map(applyV0428CalibratedEvaluation), ...v0428SulongEvaluations, applyV0415EnelReview(v0413EnelEvaluation), v0420MagellanEvaluation],
   model: balancedV12,
   matchups: matchupRepository.getAllMatchups(),
 }
