@@ -122,7 +122,7 @@ const reviewed:Source[]=[
     'Versatility77→80. 물 상성의 공통 취약성을 보존한 정성적 재평가.',
     ['evidence-cracker-biscuit-837-838','evidence-cracker-long-battle-842'],'E2'),
  ]},
- {id:'smoothie',version:'evaluation-0.1.26-draft',
+ {id:'smoothie',version:'evaluation-0.1.78-smoothie-jinbe-steering-evidence-only',
   before:[76,75,76,74,80,77,78],axes:[
   a(80,'대상의 수분을 짜내 자신과 검을 거대화한 뒤 써니호에 거대한 장거리 참격을 반복 발사했다.',
     '써니호는 나미 지시·징베 조타로 회피하여 최고 전투원에 대한 직접 피격 피해량은 미확인.',
