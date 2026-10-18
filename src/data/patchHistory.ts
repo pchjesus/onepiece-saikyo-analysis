@@ -45,11 +45,11 @@ export const patchHistory: PatchRecord[] = [
   {
     version:'v0.4.32',date:'2026-10-18',
     title:'잭–슈텐마루전 Battle 연결 오류 수정',
-    summary:'원작 921화 와노쿠니 구리에서 발생한 잭과 슈텐마루의 검격 교환을 조우의 5일 장기전에서 분리했다. 별도 Battle 등록과 기존 Evidence 관계 정정만 적용하고 7축 점수·Haki Raw·모델·기존 대진·평가 버전은 유지한다.',
+    summary:'원작 921화 와노쿠니 구리에서 발생한 잭과 슈텐마루의 검격 교환을 조우의 5일 장기전에서 분리했다. 과거 sample 원본을 변경하지 않고 현재 데이터에 Battle 등록·Evidence 관계 교정 오버레이만 적용하고 7축 점수·Haki Raw·모델·기존 대진·평가 버전은 유지한다.',
     report:'docs/V0_4_32_JACK_SHUTENMARU_BATTLE_LINK_FIX_2026-10-18.md',
     changes:[
       {kind:'evidence',title:'잭–슈텐마루 921화 전투 근거의 장소·전투 연결 정정',
-        detail:'evidence-jack-ashura-921의 battleId를 zou-jack-minks에서 새 wano-jack-shutenmaru-921로 연결. 조우의 5일·독가스·왕들의 교대 맥락과 와노의 단기 검격을 분리했고 오니가시마전 표시 순서를 4로 갱신.',
+        detail:'현행 조회에서 evidence-jack-ashura-921의 battleId를 zou-jack-minks에서 새 wano-jack-shutenmaru-921로 오버레이 연결(과거 sample Evidence 불변). 조우의 5일·독가스·왕들의 교대 맥락과 와노의 단기 검격을 분리했고 오니가시마전 표시 순서를 4로 갱신.',
         reason:'실제 원작/공식 애니의 시공간 관계를 자료에 정확히 보존하고 전투별 Evidence 조회 오염을 방지. 모든 평가 수치와 Fact 원문, 복구 가능한 이전 Git 이력 보존.',
         evidence:[{label:'ONE PIECE.com TV912',url:'https://one-piece.com/anime/o5267/index.html'}]},
     ],
