@@ -32,6 +32,7 @@ import { matchupRepository } from '../repositories/matchupRepository'
 import { applyV0428CalibratedEvaluation, v0428SulongEvaluations, v0428Evidence, v0428Battles } from '../sample/v0428SupportAxisCalibration'
 import { applyV0429CommanderCalibration, applyV0429CommanderEvidenceAudit } from '../sample/v0429WhitebeardCommanders'
 import { applyV0430AllStarCalibration } from '../sample/v0430BeastsAllStars'
+import { applyV0431SweetCalibration, applyV0431SweetEvidenceImpact } from '../sample/v0431SweetCommanders'
 
 /** Explicit live dataset; older v033Snapshot.liveDataset intentionally has historical scope. */
 export const v050CurrentDataset: CombatDataset = {
@@ -40,8 +41,8 @@ export const v050CurrentDataset: CombatDataset = {
   memberships: [...sampleMemberships, ...v0411Memberships, v0413EnelMembership, v0420MagellanMembership],
   battles: [...sampleBattles.map(applyV0427JinbeBattleContext), ...v0412Battles, ...v0413EnelBattles, ...v0420MagellanBattles, ...v0428Battles],
   participants: sampleBattleParticipants,
-  evidence: [...sampleEvidence.map(applyV0427JinbeEvidenceCorrection).map(applyV0429CommanderEvidenceAudit), ...v0427JinbeEvidence, ...v0412Evidence.map(applyV0416Cp0EvidenceAudit), ...v0413EnelEvidence, ...v0420MagellanEvidence, ...v0421EmperorTechniqueEvidence, ...v0428Evidence],
-  evaluations: [...sampleEvaluations.map(applyV0413KakuDraft).map(applyV0421EmperorTechniqueReview).map(applyV0427JinbeRecalibration).map(applyV0428CalibratedEvaluation).map(applyV0429CommanderCalibration).map(applyV0430AllStarCalibration), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit).map(applyV0428CalibratedEvaluation), ...v0428SulongEvaluations, applyV0415EnelReview(v0413EnelEvaluation), v0420MagellanEvaluation],
+  evidence: [...sampleEvidence.map(applyV0427JinbeEvidenceCorrection).map(applyV0429CommanderEvidenceAudit).map(applyV0431SweetEvidenceImpact), ...v0427JinbeEvidence, ...v0412Evidence.map(applyV0416Cp0EvidenceAudit), ...v0413EnelEvidence, ...v0420MagellanEvidence, ...v0421EmperorTechniqueEvidence, ...v0428Evidence],
+  evaluations: [...sampleEvaluations.map(applyV0413KakuDraft).map(applyV0421EmperorTechniqueReview).map(applyV0427JinbeRecalibration).map(applyV0428CalibratedEvaluation).map(applyV0429CommanderCalibration).map(applyV0430AllStarCalibration).map(applyV0431SweetCalibration), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit).map(applyV0428CalibratedEvaluation), ...v0428SulongEvaluations, applyV0415EnelReview(v0413EnelEvaluation), v0420MagellanEvaluation],
   model: balancedV12,
   matchups: matchupRepository.getAllMatchups(),
 }
