@@ -40,6 +40,6 @@ describe('getCharacterEvaluationTrace', () => {
     expect(speed?.item.hakiContributions).toHaveLength(0)
     expect(speed?.item.score).toBe(84)
     expect(combatIQ?.evidence.map(({ evidence }) => evidence.id)).toContain('evidence-katakuri-gear4-counter-883-885')
-    expect(combatIQ?.item.score).toBe(82)
+    expect(combatIQ?.item.score).toBe(85)
   })
 })

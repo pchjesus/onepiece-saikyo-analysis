@@ -113,7 +113,7 @@ describe('v0.4.30 King Queen Jack bidirectional seven-axis review',()=>{
     }
     expect(buildV050ReadOnlyAudit().counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:88,axes:616,memberships:107,matchups:18})
     expect(matchupRepository.getAllMatchups()).toHaveLength(18)
-    expect(versionManifest).toMatchObject({appVersion:'0.4.30',evaluationSetVersion:'evaluation-set-v0.4.30',
+    expect(versionManifest).toMatchObject({appVersion:'0.4.31',evaluationSetVersion:'evaluation-set-v0.4.31',
       calculationModelVersion:'1.2',baselineSnapshotVersion:'v0.3.3'})
     expect(evaluationRepository.getEvaluations('inuarashi')).toHaveLength(2)
     expect(evaluationRepository.getEvaluations('nekomamushi')).toHaveLength(2)
@@ -127,8 +127,8 @@ describe('v0.4.30 King Queen Jack bidirectional seven-axis review',()=>{
     expect(h).toContain('킹')
     expect(h).toContain('88')
     expect(h).toContain('84')
-    expect(patchHistory[0].version).toBe('v0.4.30')
-    expect(patchHistory[0].changes.filter(x=>x.kind==='score')).toHaveLength(14)
+    expect(patchHistory.find(x=>x.version==='v0.4.30')?.version).toBe('v0.4.30')
+    expect(patchHistory.find(x=>x.version==='v0.4.30')?.changes.filter(x=>x.kind==='score')).toHaveLength(14)
     expect(patchHistory.some(x=>x.version==='v0.4.29')).toBe(true)
   })
 })
