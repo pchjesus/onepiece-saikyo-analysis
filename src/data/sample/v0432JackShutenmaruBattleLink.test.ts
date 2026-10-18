@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { sampleBattles } from './battles'
 import { sampleEvidence } from './evidence'
+import { applyV0432JackShutenmaruEvidence } from './v0432JackShutenmaruBattleLink'
 import { battleRepository } from '../repositories/battleRepository'
 import { evidenceRepository } from '../repositories/evidenceRepository'
 import { evaluationRepository } from '../repositories/evaluationRepository'
@@ -18,7 +19,8 @@ const evidenceId = 'evidence-jack-ashura-921'
 
 describe('v0.4.32 Jack-Shutenmaru battle link correction', () => {
   it('registers one separate, valid, chronologically located Wano encounter', () => {
-    expect(sampleBattles.filter(b => b.id === wanoId)).toHaveLength(1)
+    expect(sampleBattles.filter(b => b.id === wanoId)).toHaveLength(0)
+    expect(v050CurrentDataset.battles.filter(b => b.id === wanoId)).toHaveLength(1)
     const battle = battleRepository.getBattle(wanoId)!
     expect(battle).toMatchObject({
       id: wanoId,
@@ -37,18 +39,27 @@ describe('v0.4.32 Jack-Shutenmaru battle link correction', () => {
       combatStructure: 'multiple-vs-multiple',
       result: 'victory',
     })
+    expect(sampleBattles.find(b => b.id === 'onigashima-jack-minks')?.chronologyOrder).toBe(3)
     expect(battleRepository.getBattle('onigashima-jack-minks')?.chronologyOrder).toBe(4)
   })
 
   it('relinks only the original Chapter 921 Evidence, preserving its content and per-character presence', () => {
     const original = sampleEvidence.find(e => e.id === evidenceId)!
-    expect(original).toMatchObject({
+    expect(original.battleId).toBe(zouId) // frozen v0.3.3 source must remain intact
+    const current = evidenceRepository.getEvidenceForCharacter('jack').find(e => e.id === evidenceId)!
+    expect(current).toMatchObject({
       id: evidenceId,
       subjectCharacterId: 'jack',
       battleId: wanoId,
       source: { type: 'canon', reference: 'One Piece Manga Chapter 921' },
       evidenceStrength: 'moderate',
     })
+    const { battleId: _legacyLink, ...legacyContent } = original
+    const { battleId: _currentLink, ...currentContent } = current
+    expect(currentContent).toEqual(legacyContent) // the battle link is the only live change
+    expect(applyV0432JackShutenmaruEvidence(original)).toEqual(current)
+    expect(() => applyV0432JackShutenmaruEvidence({ ...original, battleId: 'drifted' }))
+      .toThrow('historical Jack-Ashura Evidence link drift')
     expect(original.fact).toContain('슈텐마루')
     expect(original.statContributions.map(x => [x.stat, x.role])).toEqual([
       ['attack', 'primary'],
