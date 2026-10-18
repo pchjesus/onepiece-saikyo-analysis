@@ -14,11 +14,13 @@
 
 ## 수정사항과 근거-전투 조건의 올바른 연결
 
+**구현 전제:** `src/data/sample/battles.ts`와 `src/data/sample/evidence.ts`는 v0.3.3 고정 기준선에 포함된 과거 원본이므로 **직접 수정하지 않는다**. 새 `src/data/sample/v0432JackShutenmaruBattleLink.ts`에서 신규 Battle 1건과 기존 Battle 순서/관련 Evidence 링크에 대한 **현재 버전 전용 교정**을 정의한다. `battleRepository`, `evidenceRepository`, `v050CurrentDataset`에만 해당 오버레이를 적용한다.
+
 | 부분 | 변경 전 | 변경 후 |
 |---|---|---|
 | Battle 레코드 | 조우 5일 전쟁만 연결 | **`wano-jack-shutenmaru-921`** 신규 독립 Battle |
 | 원작 Evidence ID | `evidence-jack-ashura-921` | **그대로 유지** |
-| Evidence.battleId | `zou-jack-minks` | **`wano-jack-shutenmaru-921`** |
+| Evidence.battleId | 역사적 sample에 `zou-jack-minks` | **현재 repository에서만 `wano-jack-shutenmaru-921`** |
 | combatStructure | 잘못 연결된 조우: multiple-vs-multiple | 새 전투는 **1v1** 직접 검격 교환(주변 병력/주민 별도) |
 | 환경 | 조우 모코모 공국 | **와노쿠니 구리 오코보레 마을** |
 | 결말 | 독가스가 개입한 조우 승리로 잘못 연결 | **카이도 등장으로 중단(interrupted)** |
@@ -30,9 +32,9 @@
 
 ### 보존 보호
 - 잭의 기존 Zou 5일 장기전 (`zou-jack-minks`), 독가스·군세·양측 교대 사실 및 관련 Evidence는 변경하지 않는다.
-- `evidence-jack-ashura-921`의 `source`, `fact`, `statContributions`, `interpretation`, `uncertainty` 등은 변경하지 않고 `battleId` 하나만 정정한다.
+- `evidence-jack-ashura-921`의 **역사적 원본 전체는 그대로** 보존한다. 현재 버전의 조회 결과에서 `battleId` 하나만 오버레이 교정하며 `source`, `fact`, `statContributions`, `interpretation`, `uncertainty` 등은 동일하다.
 - 평가모델 Balanced1.2/HakiWeight0.5, 7축/Score/Readiness, 다른 전투/매치업/캐릭터/별도 UI는 변경하지 않는다.
-- v0.3.3 **커밋된 고정 기준선 파일은 수정하지 않는다**. `src/data/integrity/v033Snapshot.ts`의 live fixture는 현재 sample data를 참조하므로 새 Battle을 볼 수 있지만 역사적 baseline source는 그대로이다.
+- v0.3.3 **커밋된 고정 기준선 파일과 원본 sampleBattles/sampleEvidence는 수정하지 않는다**. `src/data/integrity/v033Snapshot.ts`의 기존 live fixture 역시 원본 sample을 참조하므로 와노 Battle 추가·관계 교정이 적용되지 않는다. 반면 **v050CurrentDataset과 실제 repository 조회는 수정된 현재 데이터를 사용한다**. 이 분리를 회귀 테스트로 확인한다.
 
 ## 버전 관리
 
@@ -44,16 +46,16 @@
 
 ## 회귀검증 (테스트 작성, 실행 사실은 PR CI 결과에 별도 보고)
 
-신규 `src/data/sample/v0432JackShutenmaruBattleLink.test.ts`:
+신규 `src/data/sample/v0432JackShutenmaruBattleLink.test.ts` (기존 원본의 불변성과 현재 오버레이 결과를 모두 검증):
 1. 새 Battle 유일성 / 와노구리·슈텐마루·1v1·카이도·중단 / 새 시간순 3·오니가시마 4 / 조우 기존 전투 조건 보존.
 2. `evidence-jack-ashura-921`의 원작 인덱스/사실/기여 축 보존; **새 Battle에서만 발견**, 조우에서 사라짐, Character Evidence에는 **정확히 한 번** 유지.
 3. `battleRepository`, `evidenceRepository`, `v050CurrentDataset`를 각각 사용해 최신 데이터 관계 확인.
 4. Jack 최종 `80/84/88/76/77/73/74`, `78.9`, 지구력 E1, Raw0, Overall 랭킹, 82 캐릭터/88 Evaluation/616 항목/18 Matchup, 현재 통합 무결성 오류 0.
 5. app/core vs 역사적 평가세트/계산모델/고정 baseline 버전 구분 및 patchHistory 추적 확인.
-6. 기존 v0.4.30/v0.4.31/patchHistory 테스트의 **최신 앱 버전 참조만 갱신**, 역사적 평가 자체와 과거 Score/Raw 기대값은 변경하지 않음.
+6. 구 v0.3.3 완전 레코드 동일성 테스트를 그대로 유지. 여러 회귀 테스트의 **현재 앱/core 버전 기대값과 신규 패치 이력 길이만 갱신**, 역사적 평가 자체와 과거 Score/Raw 기대값은 변경하지 않음.
 
 **미실시 한계:** 최신 CI 실행 결과 확인 전에는 성공이라고 선언하지 않음; 만화 페이지 직접 컷 판독, 브라우저/실기기 시각 검증, 외부 서비스 상태 점검은 별도 작업. GitHub Actions의 테스트/빌드 통과도 실제 기기 UX 수동 확인과 동치가 아니다.
 
 ## 롤백 기준
 
-PR의 신규 Battle 제거, `evidence-jack-ashura-921.battleId`를 `zou-jack-minks`로 복원, 오니가시마 순서 3 복원 및 v0.4.32의 앱·코어/문서/테스트 참조를 반전하면 이전 상태로 되돌릴 수 있다. 그러나 그 경우 **잘못된 Battle 관계도 복원**되므로 긴급 회귀가 아닌 한 정당한 롤백 사유가 아니다.
+`v0432JackShutenmaruBattleLink.ts` 오버레이와 `battleRepository`/`evidenceRepository`/`v050CurrentDataset`의 해당 연결을 제거하고 v0.4.32의 버전·문서·테스트 변경을 되돌리면 이전 상태로 복귀한다. **sample 원본 데이터는 원래부터 수정하지 않았으므로 복원할 필요가 없다.** 이 롤백은 기존 잘못된 Battle 매핑도 현재 조회로 되돌리므로 실제 회귀가 발생했을 때만 고려한다.
