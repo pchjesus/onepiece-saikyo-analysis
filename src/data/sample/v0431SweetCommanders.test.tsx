@@ -99,7 +99,7 @@ describe('v0.4.31 Katakuri Cracker Smoothie bidirectional 7-axis calibration',()
  })
  it('maintains integrity, historical v0.3.3 and v0.4.28-30 results, membership and matchup counts',()=>{
   expect(versionManifest).toMatchObject({
-   appVersion:'0.4.32',coreDataVersion:'core-v0.4.32',evaluationSetVersion:'evaluation-set-v0.4.31',
+   appVersion:'0.4.33',coreDataVersion:'core-v0.4.33',evaluationSetVersion:'evaluation-set-v0.4.33',
    calculationModelId:'balanced',calculationModelVersion:'1.2',baselineSnapshotVersion:'v0.3.3',
   })
   expect(v050CurrentDataset.characters).toHaveLength(82)
@@ -133,7 +133,7 @@ describe('v0.4.31 Katakuri Cracker Smoothie bidirectional 7-axis calibration',()
    onSelectStat={()=>{}} onCompareStat={()=>{}} onSelectOverall={()=>{}} />)
   expect(html).toContain('카타쿠리')
   expect(html).toContain('85.0')
-  expect(patchHistory[0].version).toBe('v0.4.32')
+  expect(patchHistory[0].version).toBe('v0.4.33')
   expect(patchHistory.find(x=>x.version==='v0.4.31')?.changes.filter(x=>x.kind==='score')).toHaveLength(15)
   expect(patchHistory.some(x=>x.version==='v0.4.30')).toBe(true)
   expect(patchHistory.some(x=>x.version==='v0.4.29')).toBe(true)
