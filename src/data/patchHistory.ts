@@ -43,6 +43,18 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
   {
+    version:'v0.4.32',date:'2026-10-18',
+    title:'잭–슈텐마루전 Battle 연결 오류 수정',
+    summary:'원작 921화 와노쿠니 구리에서 발생한 잭과 슈텐마루의 검격 교환을 조우의 5일 장기전에서 분리했다. 별도 Battle 등록과 기존 Evidence 관계 정정만 적용하고 7축 점수·Haki Raw·모델·기존 대진·평가 버전은 유지한다.',
+    report:'docs/V0_4_32_JACK_SHUTENMARU_BATTLE_LINK_FIX_2026-10-18.md',
+    changes:[
+      {kind:'evidence',title:'잭–슈텐마루 921화 전투 근거의 장소·전투 연결 정정',
+        detail:'evidence-jack-ashura-921의 battleId를 zou-jack-minks에서 새 wano-jack-shutenmaru-921로 연결. 조우의 5일·독가스·왕들의 교대 맥락과 와노의 단기 검격을 분리했고 오니가시마전 표시 순서를 4로 갱신.',
+        reason:'실제 원작/공식 애니의 시공간 관계를 자료에 정확히 보존하고 전투별 Evidence 조회 오염을 방지. 모든 평가 수치와 Fact 원문, 복구 가능한 이전 Git 이력 보존.',
+        evidence:[{label:'ONE PIECE.com TV912',url:'https://one-piece.com/anime/o5267/index.html'}]},
+    ],
+  },
+  {
     version:'v0.4.31',date:'2026-10-18',
     title:'카타쿠리·크래커·스무디 양방향 7축 재산정',
     summary:'세 장성 21축을 각각 검증하고 15축 변경·6축 유지. 카타쿠리 84.0→85.0, 크래커 77.9→79.6, 스무디 76.6→78.7. 미래예지의 Defense/Technique 예외 Raw와 Speed/IQ 중복을 구분하고 일반적인 크래커 무장색의 별도 Raw4는 Base로 통합. 스무디 미확인 개인 속도는 낮다고 확정하지 않고 E3 및 74 유지.',
