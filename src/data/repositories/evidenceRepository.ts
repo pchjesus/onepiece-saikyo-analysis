@@ -9,7 +9,8 @@ import { applyV0427JinbeEvidenceCorrection, v0427JinbeEvidence } from '../sample
 import { v0428Evidence } from '../sample/v0428SupportAxisCalibration'
 import { applyV0429CommanderEvidenceAudit } from '../sample/v0429WhitebeardCommanders'
 import { applyV0431SweetEvidenceImpact } from '../sample/v0431SweetCommanders'
-const currentEvidence = [...sampleEvidence.map(applyV0427JinbeEvidenceCorrection).map(applyV0429CommanderEvidenceAudit).map(applyV0431SweetEvidenceImpact), ...v0427JinbeEvidence, ...v0412Evidence.map(applyV0416Cp0EvidenceAudit), ...v0413EnelEvidence, ...v0420MagellanEvidence, ...v0421EmperorTechniqueEvidence, ...v0428Evidence]
+import { applyV0432JackShutenmaruEvidence } from '../sample/v0432JackShutenmaruBattleLink'
+const currentEvidence = [...sampleEvidence.map(applyV0427JinbeEvidenceCorrection).map(applyV0429CommanderEvidenceAudit).map(applyV0431SweetEvidenceImpact).map(applyV0432JackShutenmaruEvidence), ...v0427JinbeEvidence, ...v0412Evidence.map(applyV0416Cp0EvidenceAudit), ...v0413EnelEvidence, ...v0420MagellanEvidence, ...v0421EmperorTechniqueEvidence, ...v0428Evidence]
 
 export interface EvidenceRepository {
   getEvidenceForBattle(battleId: string): Evidence[]

@@ -131,7 +131,7 @@ describe('v0.4.28 scoped support stat calibration and conditional Sulong',()=>{
     const audited=buildV050ReadOnlyAudit()
     expect(audited.counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:88,axes:616,memberships:107,matchups:18})
     expect(matchupRepository.getAllMatchups()).toHaveLength(18)
-    expect(versionManifest).toMatchObject({appVersion:'0.4.31',coreDataVersion:'core-v0.4.31',
+    expect(versionManifest).toMatchObject({appVersion:'0.4.32',coreDataVersion:'core-v0.4.32',
       evaluationSetVersion:'evaluation-set-v0.4.31',calculationModelVersion:'1.2',
       baselineSnapshotVersion:'v0.3.3'})
     const sampleIds=new Set(Object.keys(revised))
