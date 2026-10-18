@@ -1,6 +1,7 @@
 import { v0428ScoreChanges } from './sample/v0428SupportAxisCalibration'
 import { v0429CommanderChanges } from './sample/v0429WhitebeardCommanders'
 import { v0430AllStarScoreChanges } from './sample/v0430BeastsAllStars'
+import { v0431SweetChanges } from './sample/v0431SweetCommanders'
 import { v049Decisions } from './sample/v049KobySmokerRecalibration'
 import { v0180CommanderAttackAudit } from './sample/v0180CommanderAttackAudit'
 const commanderNames:Record<string,string>={queen:'퀸',cracker:'크래커',smoothie:'스무디',marco:'마르코',king:'킹',katakuri:'카타쿠리'}
@@ -41,6 +42,27 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
+  {
+    version:'v0.4.31',date:'2026-10-18',
+    title:'카타쿠리·크래커·스무디 양방향 7축 재산정',
+    summary:'세 장성 21축을 각각 검증하고 15축 변경·6축 유지. 카타쿠리 84.0→85.0, 크래커 77.9→79.6, 스무디 76.6→78.7. 미래예지의 Defense/Technique 예외 Raw와 Speed/IQ 중복을 구분하고 일반적인 크래커 무장색의 별도 Raw4는 Base로 통합. 스무디 미확인 개인 속도는 낮다고 확정하지 않고 E3 및 74 유지.',
+    report:'docs/V0_4_31_SWEET_COMMANDERS_BIDIRECTIONAL_2026-10-18.md',
+    changes:[
+      ...v0431SweetChanges.map(c=>({kind:'score' as const,characterId:c.characterId,stat:c.stat,before:c.before,after:c.after,
+        title:c.characterId+' '+c.stat+' '+c.before+'→'+c.after,reason:c.reason})),
+      {kind:'evidence',title:'장성 3인 과대·과소평가 양방향 재검증',
+        detail:'카타쿠리 미래예지 조건, 크래커 11시간 비스킷 전투와 나미의 비 상성, 스무디 반복 거대 참격·독 제거·함대 지휘를 21축에 분리 반영.',
+        reason:'단순 직책 보너스나 빈약한 정면 공방을 자동 감점으로 쓰지 않으며 공식 설명·기능적 추론과 실제 검증 한계를 유지.',
+        evidence:[
+          {label:'ONE PIECE.com Whole Cake Island',url:'https://one-piece.com/story/wholecakeisland/index.html'},
+          {label:'TV805 Cracker',url:'https://one-piece.com/anime/o4513/index.html'},
+          {label:'TV868 Smoothie',url:'https://one-piece.com/anime/o4939/index.html'}]},
+      {kind:'evidence',title:'크래커 통상 무장색 Raw4를 Base에 통합',
+        detail:'Gear4 루피 팔에 실제 상처를 낸 보통 무장색 검격은 현재 Attack Base78에 반영. 예외 Raw=0, 원작의 Haki 사용 사실과 해당 Evidence를 삭제하지 않음.',
+        reason:'특별한 독립 예외 효과가 없는 통상 무장색 사용의 중복 계산 방지.',
+        evidence:[{label:'TV799',url:'https://one-piece.com/anime/o4471/index.html'}]},
+    ],
+  },
   {
     version:'v0.4.30',date:'2026-10-18',
     title:'킹·퀸·잭 3재해 7축 양방향 재평가',
