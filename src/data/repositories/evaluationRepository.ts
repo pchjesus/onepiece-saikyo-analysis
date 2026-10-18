@@ -11,9 +11,10 @@ import { applyV0428CalibratedEvaluation, v0428SulongEvaluations } from '../sampl
 import { applyV0429CommanderCalibration } from '../sample/v0429WhitebeardCommanders'
 import { applyV0430AllStarCalibration } from '../sample/v0430BeastsAllStars'
 import { applyV0431SweetCalibration } from '../sample/v0431SweetCommanders'
+import { applyV0433QueenOsomeEvaluationContext } from '../sample/v0433QueenOsomeIntentContext'
 
 /** Preserve immutable historical evaluation array; extend current repository data explicitly. */
-const currentEvaluations = [...sampleEvaluations.map(applyV0413KakuDraft).map(applyV0421EmperorTechniqueReview).map(applyV0427JinbeRecalibration).map(applyV0428CalibratedEvaluation).map(applyV0429CommanderCalibration).map(applyV0430AllStarCalibration).map(applyV0431SweetCalibration), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit).map(applyV0428CalibratedEvaluation), ...v0428SulongEvaluations, applyV0415EnelReview(v0413EnelEvaluation), v0420MagellanEvaluation]
+const currentEvaluations = [...sampleEvaluations.map(applyV0413KakuDraft).map(applyV0421EmperorTechniqueReview).map(applyV0427JinbeRecalibration).map(applyV0428CalibratedEvaluation).map(applyV0429CommanderCalibration).map(applyV0430AllStarCalibration).map(applyV0431SweetCalibration).map(applyV0433QueenOsomeEvaluationContext), ...v0412Evaluations.map(applyV0416Cp0EvaluationAudit).map(applyV0428CalibratedEvaluation), ...v0428SulongEvaluations, applyV0415EnelReview(v0413EnelEvaluation), v0420MagellanEvaluation]
 
 export interface EvaluationRepository {
   getEvaluations(characterId: string): Evaluation[]
