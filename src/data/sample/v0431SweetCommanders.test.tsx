@@ -57,7 +57,7 @@ describe('v0.4.31 Katakuri Cracker Smoothie bidirectional 7-axis calibration',()
   for(const [id,t] of Object.entries(inputs)){
    const old=sampleEvaluations.find(x=>x.characterId===id)!
    const live=evaluationRepository.getEvaluation(id)!
-   expect(old.items.map(getFinalStatScore)).toEqual(t.before)
+   expect(old.items.map(item=>getFinalStatScore(item))).toEqual(t.before)
    expect(live).not.toBe(old)
    expect(live.items.map(x=>x.score)).toEqual(t.after)
    expect(live.items.map(x=>getFinalStatScore(x))).toEqual(t.after)
