@@ -6,7 +6,8 @@ import { v0413EnelBattles } from '../sample/v0413RemainingDraftPublication'
 import { applyV0427JinbeBattleContext } from '../sample/v0427JinbeRecalibration'
 import { v0428Battles } from '../sample/v0428SupportAxisCalibration'
 import { v0432JackShutenmaruBattle, applyV0432JackBattleOrder } from '../sample/v0432JackShutenmaruBattleLink'
-const currentBattles = [...sampleBattles.map(applyV0427JinbeBattleContext).map(applyV0432JackBattleOrder), v0432JackShutenmaruBattle, ...v0412Battles, ...v0413EnelBattles, ...v0420MagellanBattles, ...v0428Battles]
+import { applyV0433QueenOsomeBattleContext } from '../sample/v0433QueenOsomeIntentContext'
+const currentBattles = [...sampleBattles.map(applyV0427JinbeBattleContext).map(applyV0432JackBattleOrder).map(applyV0433QueenOsomeBattleContext), v0432JackShutenmaruBattle, ...v0412Battles, ...v0413EnelBattles, ...v0420MagellanBattles, ...v0428Battles]
 
 export interface BattleRepository {
   getBattle(battleId: string): Battle | undefined

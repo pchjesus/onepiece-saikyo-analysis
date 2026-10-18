@@ -59,7 +59,7 @@ describe('v0.4.17 Charlos deliberately separate parody cohort', () => {
     expect(matchupRepository.getAllMatchups().every(m=>!JSON.stringify(m).includes(CHARLOS_ID))).toBe(true)
     expect(balancedV12.configuration.hakiWeight).toBe(0.5)
     expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
-    expect(versionManifest.appVersion).toBe('0.4.32')
+    expect(versionManifest.appVersion).toBe('0.4.33')
   })
 
   it('inserts ONE meme overall result without changing original 81 numeric results', () => {

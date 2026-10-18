@@ -43,6 +43,18 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
   {
+    version:'v0.4.33',date:'2026-10-18',
+    title:'퀸 오소메 사건 전투 맥락·평가 설명 정정',
+    summary:'퀸은 투명화 능력이 정상 작동한 상태에서 오소메를 알아보고 사적인 이유로 의도적으로 폭행했다. 현재 Battle의 외부 요인과 퀸의 Technique·Combat IQ 근거 설명을 오버레이에서 정정하고, 역사적 원본·전체 7축 점수·Raw·계산모델·랭킹·대진은 보존했다.',
+    report:'docs/V0_4_33_QUEEN_OSOME_CONTEXT_DATA_PATCH_2026-10-18.md',
+    changes:[
+      {kind:'evidence',title:'퀸–상디전 오소메 표적 이탈의 의도와 기술 작동 여부 명확화',
+        characterId:'queen',detail:'onigashima-queen-sanji의 현행 externalFactors와 현행 Queen Technique/Combat IQ rationale를 수정. 투명화 정상 작동·오소메 의도적 폭행·브라키오 런처 운용 안전성을 서로 구별한다. 역사적 sample 원본, Ch.1028~1034 Evidence 사실과 기존 점수는 불변.',
+        reason:'ONE PIECE.com TV1061 공식 줄거리에서 오소메의 병 핑계를 알아챈 퀸이 투명화 상태로 의도적인 폭행을 한 사실을 확인했으므로 기존 주의 분산만의 설명을 정밀화.',
+        evidence:[{label:'ONE PIECE.com TV1061',url:'https://one-piece.com/anime/61599/index.html'}]},
+    ],
+  },
+  {
     version:'v0.4.32',date:'2026-10-18',
     title:'잭–슈텐마루전 Battle 연결 오류 수정',
     summary:'원작 921화 와노쿠니 구리에서 발생한 잭과 슈텐마루의 검격 교환을 조우의 5일 장기전에서 분리했다. 과거 sample 원본을 변경하지 않고 현재 데이터에 Battle 등록·Evidence 관계 교정 오버레이만 적용하고 7축 점수·Haki Raw·모델·기존 대진·평가 버전은 유지한다.',

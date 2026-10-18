@@ -94,18 +94,18 @@ describe('v0.4.32 Jack-Shutenmaru battle link correction', () => {
 
   it('separates delivery/core-data revision from unchanged historical evaluations and frozen baseline', () => {
     expect(versionManifest).toMatchObject({
-      appVersion: '0.4.32',
-      coreDataVersion: 'core-v0.4.32',
-      evaluationSetVersion: 'evaluation-set-v0.4.31',
+      appVersion: '0.4.33',
+      coreDataVersion: 'core-v0.4.33',
+      evaluationSetVersion: 'evaluation-set-v0.4.33',
       calculationModelId: 'balanced',
       calculationModelVersion: '1.2',
       baselineSnapshotVersion: 'v0.3.3',
     })
-    expect(patchHistory[0]).toMatchObject({
+    expect(patchHistory.find(x=>x.version==='v0.4.32')).toMatchObject({
       version: 'v0.4.32',
       report: 'docs/V0_4_32_JACK_SHUTENMARU_BATTLE_LINK_FIX_2026-10-18.md',
     })
-    expect(patchHistory[0].changes.every(x => x.kind === 'evidence')).toBe(true)
+    expect(patchHistory.find(x=>x.version==='v0.4.32')!.changes.every(x => x.kind === 'evidence')).toBe(true)
     expect(patchHistory.find(x => x.version === 'v0.4.31')?.changes.filter(x => x.kind === 'score'))
       .toHaveLength(15)
   })

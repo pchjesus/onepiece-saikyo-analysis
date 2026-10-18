@@ -51,7 +51,7 @@ describe('v0.4.30 King Queen Jack bidirectional seven-axis review',()=>{
       expect(source.status).toBe('draft')
       expect(current).not.toBe(source)
       expect(current.id).toBe(source.id)
-      expect(current.evaluationDataVersion).toBe('evaluation-v0.4.30-beasts-bidirectional')
+      expect(current.evaluationDataVersion).toBe(id==='queen' ? 'evaluation-v0.4.33-queen-osome-context-clarified' : 'evaluation-v0.4.30-beasts-bidirectional')
       expect(current.items.map(x=>x.score)).toEqual(item.after)
       expect(current.items.map(x=>x.readiness)).toEqual(id==='king'
         ? ['E2','E2','E2','E2','E2','E3','E2']
@@ -66,7 +66,8 @@ describe('v0.4.30 King Queen Jack bidirectional seven-axis review',()=>{
       }
       expect(getCombatPower(id).finalScore).toBeCloseTo(item.overall,12)
       expect(getStatRanking('overall').find(x=>x.characterId===id)?.score).toBeCloseTo(item.overall,12)
-      expect(applyV0430AllStarCalibration(source)).toEqual(current)
+      if(id==='queen')expect(applyV0430AllStarCalibration(source).evaluationDataVersion).toBe('evaluation-v0.4.30-beasts-bidirectional')
+      else expect(applyV0430AllStarCalibration(source)).toEqual(current)
     }
     expect(getCombatPower('marco').finalScore).toBeCloseTo(591/7,12)
     expect(getCombatPower('vista').finalScore).toBeCloseTo(580/7,12)
@@ -113,7 +114,7 @@ describe('v0.4.30 King Queen Jack bidirectional seven-axis review',()=>{
     }
     expect(buildV050ReadOnlyAudit().counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:88,axes:616,memberships:107,matchups:18})
     expect(matchupRepository.getAllMatchups()).toHaveLength(18)
-    expect(versionManifest).toMatchObject({appVersion:'0.4.32',evaluationSetVersion:'evaluation-set-v0.4.31',
+    expect(versionManifest).toMatchObject({appVersion:'0.4.33',evaluationSetVersion:'evaluation-set-v0.4.33',
       calculationModelVersion:'1.2',baselineSnapshotVersion:'v0.3.3'})
     expect(evaluationRepository.getEvaluations('inuarashi')).toHaveLength(2)
     expect(evaluationRepository.getEvaluations('nekomamushi')).toHaveLength(2)
