@@ -630,7 +630,7 @@ export const sampleEvidence: Evidence[] = [
   },
   {
     id: 'evidence-jack-ashura-921',
-    battleId: 'zou-jack-minks',
+    battleId: 'wano-jack-shutenmaru-921',
     subjectCharacterId: 'jack',
     source: { type: 'canon', reference: 'One Piece Manga Chapter 921', description: '슈텐마루와 잭의 짧은 검격 교환' },
     evidenceStrength: 'moderate',
