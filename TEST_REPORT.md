@@ -2,7 +2,7 @@
 
 - `src/data/sample/v0431SweetCommanders.test.tsx`: 3×7 관찰·맥락·합리적 추론·양방향 위험과 before/after, Cracker Raw→Base 이동, Katakuri 고급 견문색 Raw 유지, Smoothie Speed E3 맥락 연결, Live/Audit/Ranking/CharacterPage/History/기존 79명·82명/88상태/616축/107 Membership/18 Matchup 확인.
 - 데이터 원본, Haki Weight0.5, Balanced1.2, v0.3.3 baseline, v0.4.28-30 확정 평가 보존.
-- **현재 CI 실행 전 검증 계획:** 테스트·빌드 통과로 단정하지 않는다. 원작 만화 컷별 전수·실제 모바일·PC 브라우저 확인 별도.
+- GitHub PR #151 HEAD `904d9420a0ac2b512ab2c19c5a46b1c9302f00e9` GitHub Actions `39094072430`에서 **122개 파일/519개 전체 테스트 PASS**, `npm run build`(TypeScript + Vite) **PASS**. 원작 만화 컷별 전수·실제 모바일·PC 브라우저 확인은 별도 미실행. 검증보고서 문구 수정 이후 별도 최종 CI가 필요.
 
 ## v0.4.30 — 킹·퀸·잭 양방향 검증 및 직접 영향 회귀 (2026-10-18)
 
