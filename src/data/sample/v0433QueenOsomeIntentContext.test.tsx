@@ -84,13 +84,13 @@ describe('v0.4.33 Queen Osome intentional attack context-only patch', () => {
     expect(evidenceRepository.getEvidenceForBattle(battleId).map(x=>x.id))
       .toContain('evidence-queen-cybernetics-1028-1034')
     expect(versionManifest).toMatchObject({
-      appVersion:'0.4.33',coreDataVersion:'core-v0.4.33',
+      appVersion:'0.4.34',coreDataVersion:'core-v0.4.34',
       evaluationSetVersion:'evaluation-set-v0.4.33',
       calculationModelVersion:'1.2',baselineSnapshotVersion:'v0.3.3',
     })
-    expect(patchHistory[0].version).toBe('v0.4.33')
-    expect(patchHistory[0].changes).toHaveLength(1)
-    expect(patchHistory[0].changes[0].kind).toBe('evidence')
+    expect(patchHistory[1].version).toBe('v0.4.33')
+    expect(patchHistory[1].changes).toHaveLength(1)
+    expect(patchHistory[1].changes[0].kind).toBe('evidence')
     expect(patchHistory.find(x=>x.version==='v0.4.32')).toBeDefined()
   })
 
