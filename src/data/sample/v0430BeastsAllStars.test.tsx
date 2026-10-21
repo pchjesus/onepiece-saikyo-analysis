@@ -114,7 +114,7 @@ describe('v0.4.30 King Queen Jack bidirectional seven-axis review',()=>{
     }
     expect(buildV050ReadOnlyAudit().counts).toEqual({characters:82,evaluatedCharacters:82,evaluations:88,axes:616,memberships:107,matchups:18})
     expect(matchupRepository.getAllMatchups()).toHaveLength(18)
-    expect(versionManifest).toMatchObject({appVersion:'0.4.33',evaluationSetVersion:'evaluation-set-v0.4.33',
+    expect(versionManifest).toMatchObject({appVersion:'0.4.34',evaluationSetVersion:'evaluation-set-v0.4.33',
       calculationModelVersion:'1.2',baselineSnapshotVersion:'v0.3.3'})
     expect(evaluationRepository.getEvaluations('inuarashi')).toHaveLength(2)
     expect(evaluationRepository.getEvaluations('nekomamushi')).toHaveLength(2)
