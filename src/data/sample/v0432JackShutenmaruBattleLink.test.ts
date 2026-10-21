@@ -94,8 +94,8 @@ describe('v0.4.32 Jack-Shutenmaru battle link correction', () => {
 
   it('separates delivery/core-data revision from unchanged historical evaluations and frozen baseline', () => {
     expect(versionManifest).toMatchObject({
-      appVersion: '0.4.33',
-      coreDataVersion: 'core-v0.4.33',
+      appVersion: '0.4.34',
+      coreDataVersion: 'core-v0.4.34',
       evaluationSetVersion: 'evaluation-set-v0.4.33',
       calculationModelId: 'balanced',
       calculationModelVersion: '1.2',

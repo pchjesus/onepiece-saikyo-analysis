@@ -43,6 +43,25 @@ export function categoryForPatchChange(change:PatchChange):PatchCategory {
 /** User-facing verified summaries, newest first. No inferred backfill of older patch numbers. */
 export const patchHistory: PatchRecord[] = [
   {
+    version:'v0.4.34',date:'2026-10-21',
+    title:'사최간 3명 Evidence 추적성 정정',
+    summary:'비스타의 미호크 공방에 Combat IQ의 추론 보조 근거를 명시하고, 퀸의 의도적 오소메 폭행·정상 은신과 장비 자기 피격을 Evidence에서도 분리하며, 스무디의 현행 Attack80과 과거76의 설명을 정정했다. sample/역사 기준선과 7축 점수·Raw·readiness·모델/순위/매치업은 유지.',
+    report:'docs/V0_4_34_EVIDENCE_TRACEABILITY_PATCH_2026-10-21.md',
+    changes:[
+      {kind:'evidence',title:'비스타 IQ85에 기능 추론의 secondary Evidence role 연결',
+        characterId:'vista',detail:'미호크 요격 Evidence에 Combat IQ secondary 근거를 현재 오버레이로 추가. 독자적 전술 설계의 직접 증명이나 E3 변경은 아님.',
+        reason:'현행 Evaluation에 연결된 IQ85의 기능적 거리·타이밍 판단 추론을 Evidence 양방향 trace로 표시.'},
+      {kind:'evidence',title:'퀸 오소메 의도적 폭행과 은신·런처 정상/오류 구별',
+        characterId:'queen',detail:'Evidence combatIQ context 노트의 구 주의 분산 문장을 의도적 오소메 공격 및 투명화 정상 작동으로 정정. 장비 발동 안전성 별도.',
+        reason:'v0.4.33 Battle·Evaluation의 공식 TV1061 교정과 Evidence 맥락을 일치시킴.',
+        evidence:[{label:'ONE PIECE.com TV1061',url:'https://one-piece.com/anime/61599/index.html'}]},
+      {kind:'evidence',title:'스무디 참격 Evidence의 현행 Attack80·과거76 혼동 방지',
+        characterId:'smoothie',detail:'Evidence evaluationImpact를 current-only 해설로 정정. 공격의 대함 출력·사거리와 강자 대인 피해 미확인을 보존.',
+        reason:'v0.4.31 재평가 이후 Evidence 카드에 잔존한 이전 Attack76의 현재값 오인 방지.',
+        evidence:[{label:'ONE PIECE.com TV868',url:'https://one-piece.com/anime/o4939/index.html'}]},
+    ],
+  },
+  {
     version:'v0.4.33',date:'2026-10-18',
     title:'퀸 오소메 사건 전투 맥락·평가 설명 정정',
     summary:'퀸은 투명화 능력이 정상 작동한 상태에서 오소메를 알아보고 사적인 이유로 의도적으로 폭행했다. 현재 Battle의 외부 요인과 퀸의 Technique·Combat IQ 근거 설명을 오버레이에서 정정하고, 역사적 원본·전체 7축 점수·Raw·계산모델·랭킹·대진은 보존했다.',

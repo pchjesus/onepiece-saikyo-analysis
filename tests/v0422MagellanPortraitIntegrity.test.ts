@@ -19,7 +19,7 @@ describe('v0.4.22 Magellan portrait integrity',()=>{
  })
  it('leaves existing combat scores untouched',()=>{
   expect(getCombatPower('magellan').finalScore).toBe(86)
-  expect(versionManifest.appVersion).toBe('0.4.33')
+  expect(versionManifest.appVersion).toBe('0.4.34')
   expect(versionManifest.evaluationSetVersion).toBe('evaluation-set-v0.4.33')
   expect(versionManifest.calculationModelVersion).toBe('1.2')
   expect(versionManifest.baselineSnapshotVersion).toBe('v0.3.3')
