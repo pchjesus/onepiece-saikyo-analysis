@@ -92,7 +92,7 @@ describe('v0.4.29 evidence-based symmetric inflation/deflation calibration',()=>
   })
   it('preserves baseline and other 79 characters while current audit stays in sync with repository',()=>{
     expect(versionManifest).toMatchObject({
-      appVersion:'0.4.33',coreDataVersion:'core-v0.4.33',
+      appVersion:'0.4.34',coreDataVersion:'core-v0.4.34',
       evaluationSetVersion:'evaluation-set-v0.4.33',
       calculationModelId:'balanced',calculationModelVersion:'1.2',
       baselineSnapshotVersion:'v0.3.3',
