@@ -28,7 +28,7 @@ describe('v0.4.34 Evidence traceability — current-only T1/T2/T3', () => {
     expect(old.statContributions.some(c => c.stat === 'combatIQ')).toBe(false)
     expect(live.statContributions).toHaveLength(old.statContributions.length + 1)
     expect(live.statContributions.slice(0, -1)).toEqual(old.statContributions)
-    const iq = live.statContributions.at(-1)!
+    const iq = live.statContributions[live.statContributions.length - 1]!
     expect(iq).toMatchObject({ stat: 'combatIQ', role: 'secondary' })
     expect(iq.note).toContain('기능적 추론')
     expect(iq.note).toContain('독자적 전략 설계')
