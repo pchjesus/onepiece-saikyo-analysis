@@ -64,3 +64,41 @@
 - 향후 출처 분류를 Manga Canon / Official Profile / Anime Adaptation / Anime Original / Staff Commentary / Community Opinion으로 보이는 정책을 제안하되 기존 필드에 무단 반영하지 않는다.
 - 공식 근거: https://one-piece.com/character/Charlotte_Cracker/index.html ; https://one-piece.com/anime/o4471/index.html ; https://one-piece.com/anime/o4513/index.html ; https://one-piece.com/anime/o4517/index.html ; https://one-piece.com/anime/65154/index.html ; https://one-piece.com/anime/61675/index.html
 - 애니/원작 비교 보조 자료: https://onepiece.fandom.com/wiki/Episode_1093 ; 제작자 자신이 회상 애니메이션 담당 고지: https://www.linkedin.com/posts/henry-thurlow-1abb47a_anime-animation-animator-activity-7162398656355090434-E0yQ ; 사용자 제공 발언 링크(원문 미확인): https://twitter.com/henry_thurlow/status/1760265843047551109
+
+## 5. 후속 공개자료 대조 및 코드 경계 확인 (2026-10-18)
+
+> **이 절은 자료 검증 보강이며 아직 평가 변경 승인이나 실행 결과가 아니다.** 만화 원본 페이지 이미지 전수 대조 및 애니메이션 원본 프레임별 검증을 실시했다고 주장하지 않는다.
+
+### 원작 표지연재·애니메이션·장 바르트 비교
+
+- **원작 표지 1062:** 초콜릿 타운과 주민들의 빙결 장면. https://onepiece.fandom.com/wiki/Chapter_1062
+- **원작 표지 1063:** 크래커가 얼어붙은 모습과 푸딩 납치에 대한 브륄레의 반응. https://onepiece.fandom.com/wiki/Chapter_1063
+- **원작 표지 1064:** 쿠잔·반 오거가 납치에 관여한 사실. 표지연재 자체에는 반 오거의 '비스킷 병사 원샷'에 해당하는 상세 공방이 없음. https://onepiece.fandom.com/wiki/Germa_66%27s_Ahh..._An_Emotionless_Excursion
+- **애니1093:** 표지연재 일부를 회상 전투로 확장하면서 반 오거가 병사들을 총격으로 파괴하는 장면을 추가. 공식 회차 소개는 사건·쿠잔 관여를 설명하지만 총격마다 표적의 상태·탄종·패기까지 입증하지 않는다. https://one-piece.com/anime/65154/index.html ; https://onepiece.fandom.com/wiki/Episode_1093
+- **원작 1064 본편:** 장 바르트가 로우를 보호하며 반 오거의 총격을 몸으로 막음. 비교 가능한 탄종·거리가 같다는 근거는 없음. https://onepiece.fandom.com/wiki/Chapter_1064
+- **제작 참여 발언:** Henry Thurlow 본인 게시물에서 애니1093 회상의 약 2분간 작화를 맡았다는 사실 확인. https://www.linkedin.com/posts/henry-thurlow-1abb47a_anime-animation-animator-activity-7162398656355090434-E0yQ
+- **별도 X 게시물:** https://twitter.com/henry_thurlow/status/1760265843047551109 는 독립적으로 원문/발언 문맥 열람이 되지 않음. '제작진이 설정 오류 인정' 또는 '원작 밸런스를 무시했다'는 확정 사실로 적지 않음.
+
+**판정:** 만화·애니 결과가 서로 다른 정보 밀도를 갖는 것은 확인. 총탄의 관통 성능, 빙결·습기로 병사 내구가 낮아졌다는 인과, 특수 탄약/무장색 사용은 미확인. 기존 Cracker/Van Augur 점수 변경 근거로 삼지 않음. 애니메이션 추가 연출은 원작과 구분하여 정성 provenance로 기록할 수 있음.
+
+### 크래커의 능력에 대한 축별 독립 기능 근거
+
+- **Defense**: 본체 대신 비스킷 갑옷·방진이 실제 공격을 막는 기능. 본체 육체 경도가 같다는 결론 금지.
+- **Stamina**: 약 11시간 생산·조작을 유지한 자원 지속. 맨몸이 11시간 직접 공격을 견뎠다는 결론 금지.
+- **Technique**: 대규모 생성, 갑옷 조작, 본체 은폐·검술의 제어 정밀도. 병사 개수 자체로 추가 점수 산정 금지.
+- **Versatility**: 한 열매를 공격·방어·교란·수적 압박 등에 실제 적용. 동일한 수분 취약성이 여러 역할에 영향을 주는 공유 실패 모드임을 명시.
+
+ONE PIECE.com 공식 캐릭터 소개가 무한 생성·조종 및 통증 회피 갑옷을 설명하며, 공식 TV799/800/805/806 소개가 기어4 교전, 반복 생산, 비에 젖은 병사 경도 감소, 탱크맨 결착을 뒷받침함. https://one-piece.com/character/Charlotte_Cracker/index.html ; https://one-piece.com/anime/o4471/index.html ; https://one-piece.com/anime/o4473/index.html ; https://one-piece.com/anime/o4513/index.html ; https://one-piece.com/anime/o4517/index.html
+
+### 킹: 실제 State/Ranking 구현 점검
+
+- 현재 `Evaluation.subjectState` / `isDefault`와 `getCombatPower(characterId,'balanced',subjectStateId)` 및 `CharacterPage` 상태 전환 UI가 존재함. `evaluationRepository`는 지정 상태가 없으면 `isDefault` 또는 첫 평가를 사용함.
+- **중요한 UX 충돌:** `src/application/getStatRanking.ts`의 `getHighestOverallStateIds()`는 여러 Evaluation이 있으면 기본 랭킹 팝업에 최고 Overall 상태를 자동 선택함. 따라서 King의 통합 평가 + ON/OFF 평가를 추가할 경우, `isDefault`로 통합을 지정해도 랭킹 팝업이 ON 또는 OFF 수치 중 높은 상태를 보여줄 수 있음. 승인된 일반 랭킹 정책을 별도 검토해야 함.
+- `src/ui/App.tsx`의 `selectedStates`는 React 컴포넌트 메모리 상태이며 해당 코드에 영속 저장 호출은 확인되지 않음. 기존의 페이지 새로고침 후 동일한 선택 복원을 새 기능 요구사항인 것처럼 주장하지 않음.
+- 원작 Ch.1035 / 공식 TV1062에서 ON 방어↑, OFF 속도↑·방어↓의 방향만 확인. 변환 시간, 최대 지속 시간, 수치 변환 폭은 알 수 없으므로 상태별 정량 Overall·순위·매치업 변화를 현재 단계에 산출하지 않음. https://one-piece.com/anime/61675/index.html
+
+**승인 게이트:** A(단일 평가 및 조건 설명), B(정량 ON/OFF), C(통합+정량 ON/OFF) 중 사용자 UX 결정 전 수치·패키지 버전·평가 원본·랭킹 로직 변경 없음. 모든 새 자료는 원작/애니/제작진/커뮤니티/해석을 분리.
+
+### 검증 범위
+
+문서와 공개자료/읽기 전용 코드를 대조한 정적 검토다. 이 문서-only 변경에서 `npm test`, `npm run build`, 실제 PC/모바일 브라우저, 배포 검증은 실행하지 않았으며 통과로 표시하지 않는다.
