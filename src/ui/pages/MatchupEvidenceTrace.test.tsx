@@ -42,7 +42,7 @@ describe('v0.6 matchup fact and conditions trace', () => {
     try {
       await act(async () => { root.render(<MatchupHome />) })
       const featured = [...host.querySelectorAll<HTMLButtonElement>('.matchup-picker button')]
-        .find(button => button.textContent?.includes('마르코') && button.textContent?.includes('킹'))
+        .find(button => button.textContent?.includes('마르코') && button.textContent?.includes('알베르'))
       expect(featured).toBeDefined()
       await act(async () => { featured!.click() })
       expect(host.querySelector('.combined-heading')?.textContent).toContain('마르코')
