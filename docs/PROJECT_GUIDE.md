@@ -395,3 +395,8 @@ ONE PIECE 원작 장면의 개별 출처는 각 `Evidence.source.reference`와 `
 Evidence readiness(E1/E2/E3)는 점수와 독립된 근거 충분성 표시다. 새 전설급 Evaluation의 축별 readiness가 UI에 보이며, E3는 근거 부족 시 숫자 자체를 보류할 수 있다.
 
 Historical Membership은 Group 탐색에서 보이지만 Character-unique Ranking에는 중복되지 않는다.
+
+
+## 전체 로스터 통합 검토 0.5.0-review.1 — 2026-11-26
+
+현행 정규 82명·88 Evaluation·616축과 별도 차를로스 밈 계약을 검토했다. 383축 작업값 유지, 233축 정량 확정 보류로 처분하며 모든 현행 점수를 보존한다. 앱 0.4.34·core-v0.4.34·evaluation-set-v0.4.33 및 개별 revision, Balanced 1.2/Haki Weight 0.5와 고정 v0.3.3을 사용한다. 새 관측·검증된 출처 정정·계산 또는 상태 불일치가 있을 때 해당 판정을 재개한다. [판정 기준·전체 결과·검증 기록](reviews/FULL_ROSTER_REVIEW_0_5_0.md).
