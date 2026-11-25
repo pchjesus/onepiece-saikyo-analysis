@@ -1339,8 +1339,3 @@ Katakuri  81.50
 현재 단계에서는 외부 공유를 하지 않는다. main push에서는 `npm install → npm test → npm run build`까지만 자동 검증하며 Pages configure/upload/deploy는 실행하지 않는다.
 
 향후 각 해적단의 주요 최고간부 2~3명이 충분히 추가되어 외부 공유 단계에 들어갈 때 저장소 Pages를 GitHub Actions source로 활성화하고 workflow를 수동 실행한다.
-
-
-## 전체 로스터 통합 검토 0.5.0-review.1 — 2026-11-26
-
-현행 정규 82명·88 Evaluation·616축과 별도 차를로스 밈 계약을 검토했다. 383축 작업값 유지, 233축 정량 확정 보류로 처분하며 모든 현행 점수를 보존한다. 앱 0.4.34·core-v0.4.34·evaluation-set-v0.4.33 및 개별 revision, Balanced 1.2/Haki Weight 0.5와 고정 v0.3.3을 사용한다. 새 관측·검증된 출처 정정·계산 또는 상태 불일치가 있을 때 해당 판정을 재개한다. [판정 기준·전체 결과·검증 기록](docs/reviews/FULL_ROSTER_REVIEW_0_5_0.md).
