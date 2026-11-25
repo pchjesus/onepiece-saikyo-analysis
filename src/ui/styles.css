@@ -1329,3 +1329,34 @@ header p:last-child { color: #666; }
   .king-flame-mode-note { padding: 13px; }
   .king-flame-mode-grid { grid-template-columns: minmax(0, 1fr); }
 }
+
+
+/* v0.6 matchup: separate the analysis assumptions from the cited battle's
+   actual conditions; keep factor conclusions immediately readable. */
+.arena-assumption-summary { margin:14px 0 0; padding:14px 16px; border:1px solid #e1e5e5; border-radius:14px; background:#f7f9f9; }
+.arena-assumption-summary > div:first-child { display:flex; justify-content:space-between; flex-wrap:wrap; align-items:baseline; gap:6px 14px; }
+.arena-assumption-summary > div:first-child strong { font-size:.9rem; }
+.arena-assumption-summary > div:first-child span { font-size:.76rem; color:#66727a; }
+.arena-assumption-summary dl { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin:12px 0; }
+.arena-assumption-summary dl > div { min-width:0; padding:8px 10px; border:1px solid #e2e7e8; border-radius:9px; background:#fff; }
+.arena-assumption-summary dt { color:#66727a; font-size:.7rem; font-weight:800; }
+.arena-assumption-summary dd { margin:4px 0 0; font-size:.84rem; font-weight:700; overflow-wrap:anywhere; }
+.arena-assumption-summary > p { margin:0; color:#66727a; font-size:.75rem; line-height:1.5; }
+.arena-evidence-provenance { margin-top:13px; padding-top:10px; border-top:1px solid #e2e6e7; min-width:0; }
+.arena-factor-card .arena-evidence-count { margin:0 0 7px; color:#4c6273; font-size:.75rem; font-weight:800; line-height:1.5; }
+.arena-evidence-details summary { display:list-item; margin-left:16px; color:#285477; text-decoration:underline; text-underline-offset:3px; font-size:.81rem; font-weight:750; cursor:pointer; }
+.arena-evidence-details summary:hover { color:#163b5a; }
+.arena-evidence-details summary:focus-visible { outline:2px solid #285477; outline-offset:4px; border-radius:2px; }
+.arena-factor-card .arena-evidence-disclaimer { margin:10px 0; color:#687680; font-size:.76rem; }
+.arena-evidence-details ol { list-style:decimal; margin:10px 0 0; padding-left:21px; display:grid; gap:10px; }
+.arena-evidence-details li { padding:10px 12px; min-width:0; background:#fff; border:1px solid #e1e7eb; border-radius:9px; overflow-wrap:anywhere; }
+.arena-evidence-details li > strong { font-size:.77rem; line-height:1.5; }
+.arena-factor-card .arena-evidence-details li p { margin:5px 0 0; font-size:.76rem; line-height:1.55; }
+.arena-factor-card .arena-evidence-details li b { color:#324a5a; }
+.arena-factor-card .arena-evidence-details .arena-evidence-error,
+.arena-factor-card .arena-evidence-empty { color:#a13d30; font-size:.78rem; }
+@media (max-width:760px) {
+  .arena-assumption-summary { padding:12px; }
+  .arena-assumption-summary dl { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .arena-evidence-details li { padding:8px 9px; }
+}

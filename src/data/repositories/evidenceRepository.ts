@@ -14,11 +14,13 @@ import { applyV0434EvidenceTraceability } from '../sample/v0434EvidenceTraceabil
 const currentEvidence = [...sampleEvidence.map(applyV0427JinbeEvidenceCorrection).map(applyV0429CommanderEvidenceAudit).map(applyV0431SweetEvidenceImpact).map(applyV0432JackShutenmaruEvidence).map(applyV0434EvidenceTraceability), ...v0427JinbeEvidence, ...v0412Evidence.map(applyV0416Cp0EvidenceAudit), ...v0413EnelEvidence, ...v0420MagellanEvidence, ...v0421EmperorTechniqueEvidence, ...v0428Evidence]
 
 export interface EvidenceRepository {
+  getEvidenceById(evidenceId: string): Evidence | undefined
   getEvidenceForBattle(battleId: string): Evidence[]
   getEvidenceForCharacter(characterId: string): Evidence[]
 }
 
 export const evidenceRepository: EvidenceRepository = {
+  getEvidenceById: (evidenceId) => currentEvidence.find((evidence) => evidence.id === evidenceId),
   getEvidenceForBattle: (battleId) => currentEvidence.filter((evidence) => evidence.battleId === battleId),
   getEvidenceForCharacter: (characterId) => currentEvidence.filter((evidence) => evidence.subjectCharacterId === characterId),
 }

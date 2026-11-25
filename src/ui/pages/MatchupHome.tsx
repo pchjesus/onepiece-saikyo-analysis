@@ -10,6 +10,7 @@ import {
 import type { MatchupAdvantage, MatchupConfidence, MatchupFactor, MatchupPhase } from '../../domain/matchup/types'
 import { normalizeCharacterNamesForDisplay } from '../../domain/character/normalizeCharacterNamesForDisplay'
 import { MatchupRadarChart } from '../components/MatchupRadarChart'
+import { MatchupEvidenceDetails } from '../components/MatchupEvidenceDetails'
 
 const factorLabels: Record<MatchupFactor, string> = {
   'attack-access': '공격 기회', 'damage-validity': '유효 피해', 'defensive-response': '방어 대응',
@@ -19,6 +20,11 @@ const factorLabels: Record<MatchupFactor, string> = {
 }
 const phaseLabels: Record<MatchupPhase, string> = { opening: '초반', sustained: '중기 공방', long: '장기전', all: '전 구간' }
 const confidenceLabels: Record<MatchupConfidence, string> = { confirmed: '확인', supported: '근거 있음', unclear: '불명확' }
+const assumptionLabels: Record<string, string> = {
+  neutral: '중립 전장', none: '없음', normal: '정상 상태',
+}
+function displayAssumption(value: string) { return assumptionLabels[value] ?? value }
+
 const perspectiveLabels: Record<PerspectiveFactor['perspective'], string> = {
   favorable: '유리 포인트',
   risk: '주의 포인트',
@@ -257,7 +263,7 @@ export function MatchupHome() {
             <h3>{left.name} <span>VS</span> {right.name}</h3>
           </div>
           <span className={matchup ? 'evidence-ready' : 'evidence-pending'}>
-            {matchup ? `${history ? '원작 당시 교전 · 수치 비교 보류' : (matchup.id.startsWith('matchup-luffy-gear') ? '가상 조건부 시나리오' : '직접 매치업 근거')} · ${matchup.factors.length}개 요인` : '직접 매치업 근거 미등록'}
+            {matchup ? `${history ? '원작 당시 교전 · 수치 비교 보류' : (matchup.id.startsWith('matchup-luffy-gear') ? '가상 조건부 시나리오' : '근거 기반 대진 분석')} · ${matchup.factors.length}개 요인` : '직접 매치업 근거 미등록'}
           </span>
         </div>
 
@@ -329,6 +335,18 @@ export function MatchupHome() {
             <div><p className="eyebrow">매치업 요인</p><h3>종합 승부 포인트</h3></div>
             <span>{matchup ? `${matchup.factors.length}개 요인` : '매치업 근거 확인 중'}</span>
           </div>
+          {matchup && (
+            <aside className="arena-assumption-summary" aria-label="등록된 매치업 분석 가정">
+              <div><strong>등록된 분석 가정</strong><span>인용된 원작 전투의 실제 조건과는 별개</span></div>
+              <dl>
+                <div><dt>전장</dt><dd>{displayAssumption(matchup.assumptions.battlefield)}</dd></div>
+                <div><dt>준비</dt><dd>{displayAssumption(matchup.assumptions.preparation)}</dd></div>
+                <div><dt>시작 상태</dt><dd>{displayAssumption(matchup.assumptions.startingCondition)}</dd></div>
+                <div><dt>외부 개입</dt><dd>{displayAssumption(matchup.assumptions.externalIntervention)}</dd></div>
+              </dl>
+              <p>요인별 근거는 실제 전투 상황과 비교해 해석해야 합니다. '확인' 표시도 승률·1대1 승리의 확정은 아닙니다.</p>
+            </aside>
+          )}
           {matchup ? (
             <div className="arena-factor-grid">
               {matchup.factors.map((factor) => (
@@ -340,6 +358,7 @@ export function MatchupHome() {
                   <p>{normalizeCharacterNamesForDisplay(factor.summary)}</p>
                   {factor.conditions && <small><b>조건</b> · {normalizeCharacterNamesForDisplay(factor.conditions)}</small>}
                   <small><b>불확실성</b> · {normalizeCharacterNamesForDisplay(factor.uncertainty)}</small>
+                  <MatchupEvidenceDetails factor={factor} />
                 </article>
               ))}
             </div>
